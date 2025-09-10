@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateDocumentCollectionRequest extends Model
+class CreateDocumentCollectionShrinkRequest extends Model
 {
     /**
      * @var string
@@ -34,9 +34,9 @@ class CreateDocumentCollectionRequest extends Model
     public $enableGraph;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $entityTypes;
+    public $entityTypesShrink;
 
     /**
      * @var int
@@ -119,16 +119,16 @@ class CreateDocumentCollectionRequest extends Model
     public $regionId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $relationshipTypes;
+    public $relationshipTypesShrink;
     protected $_name = [
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
         'dimension' => 'Dimension',
         'embeddingModel' => 'EmbeddingModel',
         'enableGraph' => 'EnableGraph',
-        'entityTypes' => 'EntityTypes',
+        'entityTypesShrink' => 'EntityTypes',
         'externalStorage' => 'ExternalStorage',
         'fullTextRetrievalFields' => 'FullTextRetrievalFields',
         'hnswEfConstruction' => 'HnswEfConstruction',
@@ -145,17 +145,11 @@ class CreateDocumentCollectionRequest extends Model
         'parser' => 'Parser',
         'pqEnable' => 'PqEnable',
         'regionId' => 'RegionId',
-        'relationshipTypes' => 'RelationshipTypes',
+        'relationshipTypesShrink' => 'RelationshipTypes',
     ];
 
     public function validate()
     {
-        if (\is_array($this->entityTypes)) {
-            Model::validateArray($this->entityTypes);
-        }
-        if (\is_array($this->relationshipTypes)) {
-            Model::validateArray($this->relationshipTypes);
-        }
         parent::validate();
     }
 
@@ -182,15 +176,8 @@ class CreateDocumentCollectionRequest extends Model
             $res['EnableGraph'] = $this->enableGraph;
         }
 
-        if (null !== $this->entityTypes) {
-            if (\is_array($this->entityTypes)) {
-                $res['EntityTypes'] = [];
-                $n1 = 0;
-                foreach ($this->entityTypes as $item1) {
-                    $res['EntityTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->entityTypesShrink) {
+            $res['EntityTypes'] = $this->entityTypesShrink;
         }
 
         if (null !== $this->externalStorage) {
@@ -257,15 +244,8 @@ class CreateDocumentCollectionRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->relationshipTypes) {
-            if (\is_array($this->relationshipTypes)) {
-                $res['RelationshipTypes'] = [];
-                $n1 = 0;
-                foreach ($this->relationshipTypes as $item1) {
-                    $res['RelationshipTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->relationshipTypesShrink) {
+            $res['RelationshipTypes'] = $this->relationshipTypesShrink;
         }
 
         return $res;
@@ -300,14 +280,7 @@ class CreateDocumentCollectionRequest extends Model
         }
 
         if (isset($map['EntityTypes'])) {
-            if (!empty($map['EntityTypes'])) {
-                $model->entityTypes = [];
-                $n1 = 0;
-                foreach ($map['EntityTypes'] as $item1) {
-                    $model->entityTypes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->entityTypesShrink = $map['EntityTypes'];
         }
 
         if (isset($map['ExternalStorage'])) {
@@ -375,14 +348,7 @@ class CreateDocumentCollectionRequest extends Model
         }
 
         if (isset($map['RelationshipTypes'])) {
-            if (!empty($map['RelationshipTypes'])) {
-                $model->relationshipTypes = [];
-                $n1 = 0;
-                foreach ($map['RelationshipTypes'] as $item1) {
-                    $model->relationshipTypes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->relationshipTypesShrink = $map['RelationshipTypes'];
         }
 
         return $model;

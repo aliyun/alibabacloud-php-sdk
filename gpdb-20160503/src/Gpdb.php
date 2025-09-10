@@ -47,6 +47,7 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExtensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExtensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExternalDataServiceRequest;
@@ -2021,19 +2022,29 @@ class Gpdb extends OpenApiClient
     /**
      * Creates a document collection.
      *
-     * @param Request - CreateDocumentCollectionRequest
+     * @param tmpReq - CreateDocumentCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDocumentCollectionResponse
      *
-     * @param CreateDocumentCollectionRequest $request
+     * @param CreateDocumentCollectionRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
      * @return CreateDocumentCollectionResponse
      */
-    public function createDocumentCollectionWithOptions($request, $runtime)
+    public function createDocumentCollectionWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateDocumentCollectionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entityTypes) {
+            $request->entityTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entityTypes, 'EntityTypes', 'json');
+        }
+
+        if (null !== $tmpReq->relationshipTypes) {
+            $request->relationshipTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relationshipTypes, 'RelationshipTypes', 'json');
+        }
+
         $query = [];
         if (null !== $request->collection) {
             @$query['Collection'] = $request->collection;
@@ -2051,6 +2062,14 @@ class Gpdb extends OpenApiClient
             @$query['EmbeddingModel'] = $request->embeddingModel;
         }
 
+        if (null !== $request->enableGraph) {
+            @$query['EnableGraph'] = $request->enableGraph;
+        }
+
+        if (null !== $request->entityTypesShrink) {
+            @$query['EntityTypes'] = $request->entityTypesShrink;
+        }
+
         if (null !== $request->externalStorage) {
             @$query['ExternalStorage'] = $request->externalStorage;
         }
@@ -2065,6 +2084,14 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->hnswM) {
             @$query['HnswM'] = $request->hnswM;
+        }
+
+        if (null !== $request->LLMModel) {
+            @$query['LLMModel'] = $request->LLMModel;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
 
         if (null !== $request->managerAccount) {
@@ -2105,6 +2132,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relationshipTypesShrink) {
+            @$query['RelationshipTypes'] = $request->relationshipTypesShrink;
         }
 
         $req = new OpenApiRequest([
@@ -15201,6 +15232,10 @@ class Gpdb extends OpenApiClient
         $tmpReq->validate();
         $request = new QueryContentShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->graphSearchArgs) {
+            $request->graphSearchArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->graphSearchArgs, 'GraphSearchArgs', 'json');
+        }
+
         if (null !== $tmpReq->hybridSearchArgs) {
             $request->hybridSearchArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hybridSearchArgs, 'HybridSearchArgs', 'json');
         }
@@ -15228,6 +15263,14 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->filter) {
             @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->graphEnhance) {
+            @$query['GraphEnhance'] = $request->graphEnhance;
+        }
+
+        if (null !== $request->graphSearchArgsShrink) {
+            @$query['GraphSearchArgs'] = $request->graphSearchArgsShrink;
         }
 
         if (null !== $request->hybridSearch) {

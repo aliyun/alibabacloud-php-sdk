@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentAdvanceRequest\graphSearchArgs;
 use GuzzleHttp\Psr7\Stream;
 
 class QueryContentAdvanceRequest extends Model
@@ -38,6 +39,16 @@ class QueryContentAdvanceRequest extends Model
      * @var string
      */
     public $filter;
+
+    /**
+     * @var bool
+     */
+    public $graphEnhance;
+
+    /**
+     * @var graphSearchArgs
+     */
+    public $graphSearchArgs;
 
     /**
      * @var string
@@ -120,6 +131,8 @@ class QueryContentAdvanceRequest extends Model
         'fileName' => 'FileName',
         'fileUrlObject' => 'FileUrl',
         'filter' => 'Filter',
+        'graphEnhance' => 'GraphEnhance',
+        'graphSearchArgs' => 'GraphSearchArgs',
         'hybridSearch' => 'HybridSearch',
         'hybridSearchArgs' => 'HybridSearchArgs',
         'includeFileUrl' => 'IncludeFileUrl',
@@ -139,6 +152,9 @@ class QueryContentAdvanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->graphSearchArgs) {
+            $this->graphSearchArgs->validate();
+        }
         if (\is_array($this->hybridSearchArgs)) {
             Model::validateArray($this->hybridSearchArgs);
         }
@@ -173,6 +189,14 @@ class QueryContentAdvanceRequest extends Model
 
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+
+        if (null !== $this->graphEnhance) {
+            $res['GraphEnhance'] = $this->graphEnhance;
+        }
+
+        if (null !== $this->graphSearchArgs) {
+            $res['GraphSearchArgs'] = null !== $this->graphSearchArgs ? $this->graphSearchArgs->toArray($noStream) : $this->graphSearchArgs;
         }
 
         if (null !== $this->hybridSearch) {
@@ -280,6 +304,14 @@ class QueryContentAdvanceRequest extends Model
 
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+
+        if (isset($map['GraphEnhance'])) {
+            $model->graphEnhance = $map['GraphEnhance'];
+        }
+
+        if (isset($map['GraphSearchArgs'])) {
+            $model->graphSearchArgs = graphSearchArgs::fromMap($map['GraphSearchArgs']);
         }
 
         if (isset($map['HybridSearch'])) {

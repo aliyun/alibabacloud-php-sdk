@@ -39,6 +39,16 @@ class QueryContentShrinkRequest extends Model
     public $filter;
 
     /**
+     * @var bool
+     */
+    public $graphEnhance;
+
+    /**
+     * @var string
+     */
+    public $graphSearchArgsShrink;
+
+    /**
      * @var string
      */
     public $hybridSearch;
@@ -119,6 +129,8 @@ class QueryContentShrinkRequest extends Model
         'fileName' => 'FileName',
         'fileUrl' => 'FileUrl',
         'filter' => 'Filter',
+        'graphEnhance' => 'GraphEnhance',
+        'graphSearchArgsShrink' => 'GraphSearchArgs',
         'hybridSearch' => 'HybridSearch',
         'hybridSearchArgsShrink' => 'HybridSearchArgs',
         'includeFileUrl' => 'IncludeFileUrl',
@@ -166,6 +178,14 @@ class QueryContentShrinkRequest extends Model
 
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+
+        if (null !== $this->graphEnhance) {
+            $res['GraphEnhance'] = $this->graphEnhance;
+        }
+
+        if (null !== $this->graphSearchArgsShrink) {
+            $res['GraphSearchArgs'] = $this->graphSearchArgsShrink;
         }
 
         if (null !== $this->hybridSearch) {
@@ -261,6 +281,14 @@ class QueryContentShrinkRequest extends Model
 
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+
+        if (isset($map['GraphEnhance'])) {
+            $model->graphEnhance = $map['GraphEnhance'];
+        }
+
+        if (isset($map['GraphSearchArgs'])) {
+            $model->graphSearchArgsShrink = $map['GraphSearchArgs'];
         }
 
         if (isset($map['HybridSearch'])) {

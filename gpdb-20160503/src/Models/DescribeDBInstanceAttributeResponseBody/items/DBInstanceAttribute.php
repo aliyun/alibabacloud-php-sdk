@@ -147,6 +147,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $graphEngineStatus;
+
+    /**
+     * @var string
+     */
     public $hostType;
 
     /**
@@ -381,6 +386,7 @@ class DBInstanceAttribute extends Model
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'expireTime' => 'ExpireTime',
+        'graphEngineStatus' => 'GraphEngineStatus',
         'hostType' => 'HostType',
         'idleTime' => 'IdleTime',
         'instanceNetworkType' => 'InstanceNetworkType',
@@ -542,6 +548,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->graphEngineStatus) {
+            $res['GraphEngineStatus'] = $this->graphEngineStatus;
         }
 
         if (null !== $this->hostType) {
@@ -829,6 +839,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['GraphEngineStatus'])) {
+            $model->graphEngineStatus = $map['GraphEngineStatus'];
         }
 
         if (isset($map['HostType'])) {

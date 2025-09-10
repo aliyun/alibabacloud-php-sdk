@@ -16,6 +16,11 @@ class UpsertChunksResponseBody extends Model
     /**
      * @var string
      */
+    public $jobId;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -29,6 +34,7 @@ class UpsertChunksResponseBody extends Model
     public $status;
     protected $_name = [
         'embeddingTokens' => 'EmbeddingTokens',
+        'jobId' => 'JobId',
         'message' => 'Message',
         'requestId' => 'RequestId',
         'status' => 'Status',
@@ -44,6 +50,10 @@ class UpsertChunksResponseBody extends Model
         $res = [];
         if (null !== $this->embeddingTokens) {
             $res['EmbeddingTokens'] = $this->embeddingTokens;
+        }
+
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         if (null !== $this->message) {
@@ -71,6 +81,10 @@ class UpsertChunksResponseBody extends Model
         $model = new self();
         if (isset($map['EmbeddingTokens'])) {
             $model->embeddingTokens = $map['EmbeddingTokens'];
+        }
+
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         if (isset($map['Message'])) {

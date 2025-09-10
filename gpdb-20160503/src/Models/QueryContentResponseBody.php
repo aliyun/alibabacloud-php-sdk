@@ -5,7 +5,9 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\entities;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\matches;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\relations;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\usage;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\windowMatches;
 
@@ -17,6 +19,11 @@ class QueryContentResponseBody extends Model
     public $embeddingTokens;
 
     /**
+     * @var entities
+     */
+    public $entities;
+
+    /**
      * @var matches
      */
     public $matches;
@@ -25,6 +32,11 @@ class QueryContentResponseBody extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var relations
+     */
+    public $relations;
 
     /**
      * @var string
@@ -47,8 +59,10 @@ class QueryContentResponseBody extends Model
     public $windowMatches;
     protected $_name = [
         'embeddingTokens' => 'EmbeddingTokens',
+        'entities' => 'Entities',
         'matches' => 'Matches',
         'message' => 'Message',
+        'relations' => 'Relations',
         'requestId' => 'RequestId',
         'status' => 'Status',
         'usage' => 'Usage',
@@ -57,8 +71,14 @@ class QueryContentResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->entities) {
+            $this->entities->validate();
+        }
         if (null !== $this->matches) {
             $this->matches->validate();
+        }
+        if (null !== $this->relations) {
+            $this->relations->validate();
         }
         if (null !== $this->usage) {
             $this->usage->validate();
@@ -76,12 +96,20 @@ class QueryContentResponseBody extends Model
             $res['EmbeddingTokens'] = $this->embeddingTokens;
         }
 
+        if (null !== $this->entities) {
+            $res['Entities'] = null !== $this->entities ? $this->entities->toArray($noStream) : $this->entities;
+        }
+
         if (null !== $this->matches) {
             $res['Matches'] = null !== $this->matches ? $this->matches->toArray($noStream) : $this->matches;
         }
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->relations) {
+            $res['Relations'] = null !== $this->relations ? $this->relations->toArray($noStream) : $this->relations;
         }
 
         if (null !== $this->requestId) {
@@ -115,12 +143,20 @@ class QueryContentResponseBody extends Model
             $model->embeddingTokens = $map['EmbeddingTokens'];
         }
 
+        if (isset($map['Entities'])) {
+            $model->entities = entities::fromMap($map['Entities']);
+        }
+
         if (isset($map['Matches'])) {
             $model->matches = matches::fromMap($map['Matches']);
         }
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['Relations'])) {
+            $model->relations = relations::fromMap($map['Relations']);
         }
 
         if (isset($map['RequestId'])) {
