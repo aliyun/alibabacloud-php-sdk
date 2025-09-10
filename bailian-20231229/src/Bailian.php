@@ -361,6 +361,10 @@ class Bailian extends OpenApiClient
             @$body['OssRegionId'] = $request->ossRegionId;
         }
 
+        if (null !== $request->overWriteFileByOssKey) {
+            @$body['OverWriteFileByOssKey'] = $request->overWriteFileByOssKey;
+        }
+
         if (null !== $request->tagsShrink) {
             @$body['Tags'] = $request->tagsShrink;
         }

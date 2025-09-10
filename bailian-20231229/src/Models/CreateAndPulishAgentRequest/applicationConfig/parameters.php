@@ -14,6 +14,11 @@ class parameters extends Model
     public $dialogRound;
 
     /**
+     * @var bool
+     */
+    public $enableThinking;
+
+    /**
      * @var int
      */
     public $maxTokens;
@@ -24,6 +29,7 @@ class parameters extends Model
     public $temperature;
     protected $_name = [
         'dialogRound' => 'dialogRound',
+        'enableThinking' => 'enable_thinking',
         'maxTokens' => 'maxTokens',
         'temperature' => 'temperature',
     ];
@@ -38,6 +44,10 @@ class parameters extends Model
         $res = [];
         if (null !== $this->dialogRound) {
             $res['dialogRound'] = $this->dialogRound;
+        }
+
+        if (null !== $this->enableThinking) {
+            $res['enable_thinking'] = $this->enableThinking;
         }
 
         if (null !== $this->maxTokens) {
@@ -61,6 +71,10 @@ class parameters extends Model
         $model = new self();
         if (isset($map['dialogRound'])) {
             $model->dialogRound = $map['dialogRound'];
+        }
+
+        if (isset($map['enable_thinking'])) {
+            $model->enableThinking = $map['enable_thinking'];
         }
 
         if (isset($map['maxTokens'])) {

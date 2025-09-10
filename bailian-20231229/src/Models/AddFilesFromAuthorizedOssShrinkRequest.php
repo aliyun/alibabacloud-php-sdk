@@ -34,6 +34,11 @@ class AddFilesFromAuthorizedOssShrinkRequest extends Model
     public $ossRegionId;
 
     /**
+     * @var bool
+     */
+    public $overWriteFileByOssKey;
+
+    /**
      * @var string
      */
     public $tagsShrink;
@@ -43,6 +48,7 @@ class AddFilesFromAuthorizedOssShrinkRequest extends Model
         'fileDetailsShrink' => 'FileDetails',
         'ossBucketName' => 'OssBucketName',
         'ossRegionId' => 'OssRegionId',
+        'overWriteFileByOssKey' => 'OverWriteFileByOssKey',
         'tagsShrink' => 'Tags',
     ];
 
@@ -72,6 +78,10 @@ class AddFilesFromAuthorizedOssShrinkRequest extends Model
 
         if (null !== $this->ossRegionId) {
             $res['OssRegionId'] = $this->ossRegionId;
+        }
+
+        if (null !== $this->overWriteFileByOssKey) {
+            $res['OverWriteFileByOssKey'] = $this->overWriteFileByOssKey;
         }
 
         if (null !== $this->tagsShrink) {
@@ -107,6 +117,10 @@ class AddFilesFromAuthorizedOssShrinkRequest extends Model
 
         if (isset($map['OssRegionId'])) {
             $model->ossRegionId = $map['OssRegionId'];
+        }
+
+        if (isset($map['OverWriteFileByOssKey'])) {
+            $model->overWriteFileByOssKey = $map['OverWriteFileByOssKey'];
         }
 
         if (isset($map['Tags'])) {
