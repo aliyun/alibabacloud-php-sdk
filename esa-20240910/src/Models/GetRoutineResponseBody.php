@@ -30,6 +30,11 @@ class GetRoutineResponseBody extends Model
     public $envs;
 
     /**
+     * @var bool
+     */
+    public $hasAssets;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -38,6 +43,7 @@ class GetRoutineResponseBody extends Model
         'defaultRelatedRecord' => 'DefaultRelatedRecord',
         'description' => 'Description',
         'envs' => 'Envs',
+        'hasAssets' => 'HasAssets',
         'requestId' => 'RequestId',
     ];
 
@@ -73,6 +79,10 @@ class GetRoutineResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->hasAssets) {
+            $res['HasAssets'] = $this->hasAssets;
         }
 
         if (null !== $this->requestId) {
@@ -111,6 +121,10 @@ class GetRoutineResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['HasAssets'])) {
+            $model->hasAssets = $map['HasAssets'];
         }
 
         if (isset($map['RequestId'])) {

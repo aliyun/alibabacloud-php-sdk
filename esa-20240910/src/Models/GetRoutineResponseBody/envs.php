@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponseBody\envs\codeDeploy;
 
 class envs extends Model
 {
@@ -19,6 +20,11 @@ class envs extends Model
     public $canaryCodeVersion;
 
     /**
+     * @var codeDeploy
+     */
+    public $codeDeploy;
+
+    /**
      * @var string
      */
     public $codeVersion;
@@ -30,6 +36,7 @@ class envs extends Model
     protected $_name = [
         'canaryAreaList' => 'CanaryAreaList',
         'canaryCodeVersion' => 'CanaryCodeVersion',
+        'codeDeploy' => 'CodeDeploy',
         'codeVersion' => 'CodeVersion',
         'env' => 'Env',
     ];
@@ -38,6 +45,9 @@ class envs extends Model
     {
         if (\is_array($this->canaryAreaList)) {
             Model::validateArray($this->canaryAreaList);
+        }
+        if (null !== $this->codeDeploy) {
+            $this->codeDeploy->validate();
         }
         parent::validate();
     }
@@ -58,6 +68,10 @@ class envs extends Model
 
         if (null !== $this->canaryCodeVersion) {
             $res['CanaryCodeVersion'] = $this->canaryCodeVersion;
+        }
+
+        if (null !== $this->codeDeploy) {
+            $res['CodeDeploy'] = null !== $this->codeDeploy ? $this->codeDeploy->toArray($noStream) : $this->codeDeploy;
         }
 
         if (null !== $this->codeVersion) {
@@ -92,6 +106,10 @@ class envs extends Model
 
         if (isset($map['CanaryCodeVersion'])) {
             $model->canaryCodeVersion = $map['CanaryCodeVersion'];
+        }
+
+        if (isset($map['CodeDeploy'])) {
+            $model->codeDeploy = codeDeploy::fromMap($map['CodeDeploy']);
         }
 
         if (isset($map['CodeVersion'])) {

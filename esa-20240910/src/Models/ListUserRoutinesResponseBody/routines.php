@@ -16,7 +16,17 @@ class routines extends Model
     /**
      * @var string
      */
+    public $defaultRelatedRecord;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $hasAssets;
 
     /**
      * @var string
@@ -24,7 +34,9 @@ class routines extends Model
     public $routineName;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'defaultRelatedRecord' => 'DefaultRelatedRecord',
         'description' => 'Description',
+        'hasAssets' => 'HasAssets',
         'routineName' => 'RoutineName',
     ];
 
@@ -40,8 +52,16 @@ class routines extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->defaultRelatedRecord) {
+            $res['DefaultRelatedRecord'] = $this->defaultRelatedRecord;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->hasAssets) {
+            $res['HasAssets'] = $this->hasAssets;
         }
 
         if (null !== $this->routineName) {
@@ -63,8 +83,16 @@ class routines extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['DefaultRelatedRecord'])) {
+            $model->defaultRelatedRecord = $map['DefaultRelatedRecord'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['HasAssets'])) {
+            $model->hasAssets = $map['HasAssets'];
         }
 
         if (isset($map['RoutineName'])) {

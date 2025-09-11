@@ -106,12 +106,18 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRedirectRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRewriteUrlRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineCodeDeploymentRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineCodeDeploymentResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineCodeDeploymentShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRouteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRouteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineWithAssetsCodeVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineWithAssetsCodeVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineWithAssetsCodeVersionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsShrinkRequest;
@@ -4428,6 +4434,10 @@ class ESA extends OpenApiClient
             @$body['Description'] = $request->description;
         }
 
+        if (null !== $request->hasAssets) {
+            @$body['HasAssets'] = $request->hasAssets;
+        }
+
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
         }
@@ -4466,6 +4476,81 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRoutineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发布Routine某版本代码
+     *
+     * @param tmpReq - CreateRoutineCodeDeploymentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRoutineCodeDeploymentResponse
+     *
+     * @param CreateRoutineCodeDeploymentRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateRoutineCodeDeploymentResponse
+     */
+    public function createRoutineCodeDeploymentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateRoutineCodeDeploymentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->codeVersions) {
+            $request->codeVersionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->codeVersions, 'CodeVersions', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->codeVersionsShrink) {
+            @$body['CodeVersions'] = $request->codeVersionsShrink;
+        }
+
+        if (null !== $request->env) {
+            @$body['Env'] = $request->env;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->strategy) {
+            @$body['Strategy'] = $request->strategy;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRoutineCodeDeployment',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRoutineCodeDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布Routine某版本代码
+     *
+     * @param Request - CreateRoutineCodeDeploymentRequest
+     *
+     * @returns CreateRoutineCodeDeploymentResponse
+     *
+     * @param CreateRoutineCodeDeploymentRequest $request
+     *
+     * @return CreateRoutineCodeDeploymentResponse
+     */
+    public function createRoutineCodeDeployment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoutineCodeDeploymentWithOptions($request, $runtime);
     }
 
     /**
@@ -4616,6 +4701,85 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRoutineRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建带Assets资源的Routine代码版本.
+     *
+     * @param tmpReq - CreateRoutineWithAssetsCodeVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRoutineWithAssetsCodeVersionResponse
+     *
+     * @param CreateRoutineWithAssetsCodeVersionRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateRoutineWithAssetsCodeVersionResponse
+     */
+    public function createRoutineWithAssetsCodeVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateRoutineWithAssetsCodeVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->confOptions) {
+            $request->confOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->confOptions, 'ConfOptions', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->buildId) {
+            @$body['BuildId'] = $request->buildId;
+        }
+
+        if (null !== $request->codeDescription) {
+            @$body['CodeDescription'] = $request->codeDescription;
+        }
+
+        if (null !== $request->confOptionsShrink) {
+            @$body['ConfOptions'] = $request->confOptionsShrink;
+        }
+
+        if (null !== $request->extraInfo) {
+            @$body['ExtraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRoutineWithAssetsCodeVersion',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRoutineWithAssetsCodeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建带Assets资源的Routine代码版本.
+     *
+     * @param Request - CreateRoutineWithAssetsCodeVersionRequest
+     *
+     * @returns CreateRoutineWithAssetsCodeVersionResponse
+     *
+     * @param CreateRoutineWithAssetsCodeVersionRequest $request
+     *
+     * @return CreateRoutineWithAssetsCodeVersionResponse
+     */
+    public function createRoutineWithAssetsCodeVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoutineWithAssetsCodeVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -19782,7 +19946,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点中国大陆网络接入优化配置.
+     * Modifies the configuration of the Chinese mainland network access optimization.
      *
      * @param Request - UpdateCrossBorderOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19825,7 +19989,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点中国大陆网络接入优化配置.
+     * Modifies the configuration of the Chinese mainland network access optimization.
      *
      * @param Request - UpdateCrossBorderOptimizationRequest
      *

@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCodeVersionsResponseBody;
+namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCodeVersionsResponseBody\codeVersions\confOptions;
 
-class codeVersions extends Model
+class CreateRoutineWithAssetsCodeVersionShrinkRequest extends Model
 {
     /**
      * @var int
@@ -22,17 +21,7 @@ class codeVersions extends Model
     /**
      * @var string
      */
-    public $codeVersion;
-
-    /**
-     * @var confOptions
-     */
-    public $confOptions;
-
-    /**
-     * @var string
-     */
-    public $createTime;
+    public $confOptionsShrink;
 
     /**
      * @var string
@@ -42,22 +31,17 @@ class codeVersions extends Model
     /**
      * @var string
      */
-    public $status;
+    public $name;
     protected $_name = [
         'buildId' => 'BuildId',
         'codeDescription' => 'CodeDescription',
-        'codeVersion' => 'CodeVersion',
-        'confOptions' => 'ConfOptions',
-        'createTime' => 'CreateTime',
+        'confOptionsShrink' => 'ConfOptions',
         'extraInfo' => 'ExtraInfo',
-        'status' => 'Status',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
-        if (null !== $this->confOptions) {
-            $this->confOptions->validate();
-        }
         parent::validate();
     }
 
@@ -72,24 +56,16 @@ class codeVersions extends Model
             $res['CodeDescription'] = $this->codeDescription;
         }
 
-        if (null !== $this->codeVersion) {
-            $res['CodeVersion'] = $this->codeVersion;
-        }
-
-        if (null !== $this->confOptions) {
-            $res['ConfOptions'] = null !== $this->confOptions ? $this->confOptions->toArray($noStream) : $this->confOptions;
-        }
-
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->confOptionsShrink) {
+            $res['ConfOptions'] = $this->confOptionsShrink;
         }
 
         if (null !== $this->extraInfo) {
             $res['ExtraInfo'] = $this->extraInfo;
         }
 
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -111,24 +87,16 @@ class codeVersions extends Model
             $model->codeDescription = $map['CodeDescription'];
         }
 
-        if (isset($map['CodeVersion'])) {
-            $model->codeVersion = $map['CodeVersion'];
-        }
-
         if (isset($map['ConfOptions'])) {
-            $model->confOptions = confOptions::fromMap($map['ConfOptions']);
-        }
-
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+            $model->confOptionsShrink = $map['ConfOptions'];
         }
 
         if (isset($map['ExtraInfo'])) {
             $model->extraInfo = $map['ExtraInfo'];
         }
 
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

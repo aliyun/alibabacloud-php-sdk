@@ -6,26 +6,32 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateRoutineRequest extends Model
+class CreateRoutineCodeDeploymentShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $description;
+    public $codeVersionsShrink;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $hasAssets;
+    public $env;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $strategy;
     protected $_name = [
-        'description' => 'Description',
-        'hasAssets' => 'HasAssets',
+        'codeVersionsShrink' => 'CodeVersions',
+        'env' => 'Env',
         'name' => 'Name',
+        'strategy' => 'Strategy',
     ];
 
     public function validate()
@@ -36,16 +42,20 @@ class CreateRoutineRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->codeVersionsShrink) {
+            $res['CodeVersions'] = $this->codeVersionsShrink;
         }
 
-        if (null !== $this->hasAssets) {
-            $res['HasAssets'] = $this->hasAssets;
+        if (null !== $this->env) {
+            $res['Env'] = $this->env;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->strategy) {
+            $res['Strategy'] = $this->strategy;
         }
 
         return $res;
@@ -59,16 +69,20 @@ class CreateRoutineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['CodeVersions'])) {
+            $model->codeVersionsShrink = $map['CodeVersions'];
         }
 
-        if (isset($map['HasAssets'])) {
-            $model->hasAssets = $map['HasAssets'];
+        if (isset($map['Env'])) {
+            $model->env = $map['Env'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Strategy'])) {
+            $model->strategy = $map['Strategy'];
         }
 
         return $model;
