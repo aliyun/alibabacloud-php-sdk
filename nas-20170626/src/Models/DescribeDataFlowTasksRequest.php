@@ -28,11 +28,17 @@ class DescribeDataFlowTasksRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var bool
+     */
+    public $withReports;
     protected $_name = [
         'fileSystemId' => 'FileSystemId',
         'filters' => 'Filters',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'withReports' => 'WithReports',
     ];
 
     public function validate()
@@ -69,6 +75,10 @@ class DescribeDataFlowTasksRequest extends Model
             $res['NextToken'] = $this->nextToken;
         }
 
+        if (null !== $this->withReports) {
+            $res['WithReports'] = $this->withReports;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class DescribeDataFlowTasksRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['WithReports'])) {
+            $model->withReports = $map['WithReports'];
         }
 
         return $model;

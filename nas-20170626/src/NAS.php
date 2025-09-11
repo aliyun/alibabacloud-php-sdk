@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\ApplyAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ApplyAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ApplyDataFlowAutoRefreshRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\ApplyDataFlowAutoRefreshResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\AttachVscToFilesystemsRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\AttachVscToFilesystemsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\CancelDataFlowAutoRefreshRequest;
@@ -127,6 +129,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesystemsVscAttachInfoRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesystemsVscAttachInfoResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLifecyclePoliciesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLifecyclePoliciesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLogAnalysisRequest;
@@ -151,6 +155,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeStoragePackagesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeStoragePackagesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DetachVscFromFilesystemsRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DetachVscFromFilesystemsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableAndCleanRecycleBinRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableAndCleanRecycleBinResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DisableNfsAclRequest;
@@ -275,7 +281,6 @@ class NAS extends OpenApiClient
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
-    // Deprecated
     /**
      * Adds a client to the blacklist of a Cloud Parallel File Storage (CPFS) file system and revokes the write access from the client. The blacklist serves as an I/O fence.
      *
@@ -534,6 +539,75 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyDataFlowAutoRefreshWithOptions($request, $runtime);
+    }
+
+    /**
+     * Associates the VSC device with the file system.
+     *
+     * @remarks
+     *   Only CPFS for Lingjun supports this operation.
+     * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+     *
+     * @param request - AttachVscToFilesystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachVscToFilesystemsResponse
+     *
+     * @param AttachVscToFilesystemsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AttachVscToFilesystemsResponse
+     */
+    public function attachVscToFilesystemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachVscToFilesystems',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachVscToFilesystemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates the VSC device with the file system.
+     *
+     * @remarks
+     *   Only CPFS for Lingjun supports this operation.
+     * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+     *
+     * @param request - AttachVscToFilesystemsRequest
+     *
+     * @returns AttachVscToFilesystemsResponse
+     *
+     * @param AttachVscToFilesystemsRequest $request
+     *
+     * @return AttachVscToFilesystemsResponse
+     */
+    public function attachVscToFilesystems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachVscToFilesystemsWithOptions($request, $runtime);
     }
 
     /**
@@ -1835,12 +1909,12 @@ class NAS extends OpenApiClient
      * Creates a dataflow task.
      *
      * @remarks
-     *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
-     * *   You can create a data flow task only for a data flow that is in the Running state.
-     * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-     * *   When you manually run a data flow task, the automatic data update task for the data flow is interrupted and enters the pending state.
-     * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS or CPFS for LINGJUN file system does not exceed 1,023 characters.
-     * *   CPFS for LINGJUN supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
+     *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.4.0 and later support dataflow. You can view the version information on the file system details page in the console.
+     * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+     * *   You can create a dataflow task only for a dataflow that is in the Running state.
+     * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+     * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS for Lingjun file system does not exceed 1,023 characters.
+     * *   CPFS for Lingjun supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
      *
      * @param request - CreateDataFlowTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1930,12 +2004,12 @@ class NAS extends OpenApiClient
      * Creates a dataflow task.
      *
      * @remarks
-     *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
-     * *   You can create a data flow task only for a data flow that is in the Running state.
-     * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-     * *   When you manually run a data flow task, the automatic data update task for the data flow is interrupted and enters the pending state.
-     * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS or CPFS for LINGJUN file system does not exceed 1,023 characters.
-     * *   CPFS for LINGJUN supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
+     *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.4.0 and later support dataflow. You can view the version information on the file system details page in the console.
+     * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+     * *   You can create a dataflow task only for a dataflow that is in the Running state.
+     * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+     * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS for Lingjun file system does not exceed 1,023 characters.
+     * *   CPFS for Lingjun supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
      *
      * @param request - CreateDataFlowTaskRequest
      *
@@ -2356,7 +2430,6 @@ class NAS extends OpenApiClient
         return $this->createFilesetWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Creates LDAP configurations.
      *
@@ -3693,7 +3766,6 @@ class NAS extends OpenApiClient
         return $this->deleteFilesetWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * 删除LDAP配置.
      *
@@ -4618,7 +4690,6 @@ class NAS extends OpenApiClient
         return $this->describeAutoSnapshotTasksWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the status of clients in the blacklist of a Cloud Parallel File Storage (CPFS) file system.
      *
@@ -4804,6 +4875,10 @@ class NAS extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->withReports) {
+            @$query['WithReports'] = $request->withReports;
         }
 
         $req = new OpenApiRequest([
@@ -4999,7 +5074,6 @@ class NAS extends OpenApiClient
         return $this->describeDirQuotasWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the statistics of file systems that are owned by the current account.
      *
@@ -5232,6 +5306,79 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFilesetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries information about virtual storage channels associated with a file system.
+     *
+     * @remarks
+     *   Only CPFS for Lingjun supports this operation.
+     * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+     *
+     * @param request - DescribeFilesystemsVscAttachInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFilesystemsVscAttachInfoResponse
+     *
+     * @param DescribeFilesystemsVscAttachInfoRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeFilesystemsVscAttachInfoResponse
+     */
+    public function describeFilesystemsVscAttachInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFilesystemsVscAttachInfo',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFilesystemsVscAttachInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries information about virtual storage channels associated with a file system.
+     *
+     * @remarks
+     *   Only CPFS for Lingjun supports this operation.
+     * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+     *
+     * @param request - DescribeFilesystemsVscAttachInfoRequest
+     *
+     * @returns DescribeFilesystemsVscAttachInfoResponse
+     *
+     * @param DescribeFilesystemsVscAttachInfoRequest $request
+     *
+     * @return DescribeFilesystemsVscAttachInfoResponse
+     */
+    public function describeFilesystemsVscAttachInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFilesystemsVscAttachInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -6086,6 +6233,75 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeZonesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Unassociates a VSC device from a file system.
+     *
+     * @remarks
+     *   Only CPFS for Lingjun supports this operation.
+     * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+     *
+     * @param request - DetachVscFromFilesystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachVscFromFilesystemsResponse
+     *
+     * @param DetachVscFromFilesystemsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetachVscFromFilesystemsResponse
+     */
+    public function detachVscFromFilesystemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachVscFromFilesystems',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachVscFromFilesystemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unassociates a VSC device from a file system.
+     *
+     * @remarks
+     *   Only CPFS for Lingjun supports this operation.
+     * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+     *
+     * @param request - DetachVscFromFilesystemsRequest
+     *
+     * @returns DetachVscFromFilesystemsResponse
+     *
+     * @param DetachVscFromFilesystemsRequest $request
+     *
+     * @return DetachVscFromFilesystemsResponse
+     */
+    public function detachVscFromFilesystems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachVscFromFilesystemsWithOptions($request, $runtime);
     }
 
     /**
@@ -7642,7 +7858,6 @@ class NAS extends OpenApiClient
         return $this->modifyFilesetWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Used to modify LDAP configuration.
      *
@@ -8166,7 +8381,6 @@ class NAS extends OpenApiClient
         return $this->openNASServiceWithOptions($runtime);
     }
 
-    // Deprecated
     /**
      * Remove the client from the blacklist.
      *
@@ -8477,7 +8691,8 @@ class NAS extends OpenApiClient
      *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.7.0 and later support this operation.
      * *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB.
      * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
-     * *   When you modify a directory quota, you must set the quota capacity or the file quantity to be greater than the capacity or file quantity that has been used.
+     * *   When modifying a directory quota, you must set the new capacity or file quantity higher than what is currently used.
+     * *   You must configure at least one of the Capacity Limit (GiB) and File Limit parameters.
      * *   The quota statistics have a 15-minute latency. The actual usage takes effect after 15 minutes.
      *
      * @param request - SetFilesetQuotaRequest
@@ -8543,7 +8758,8 @@ class NAS extends OpenApiClient
      *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.7.0 and later support this operation.
      * *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB.
      * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
-     * *   When you modify a directory quota, you must set the quota capacity or the file quantity to be greater than the capacity or file quantity that has been used.
+     * *   When modifying a directory quota, you must set the new capacity or file quantity higher than what is currently used.
+     * *   You must configure at least one of the Capacity Limit (GiB) and File Limit parameters.
      * *   The quota statistics have a 15-minute latency. The actual usage takes effect after 15 minutes.
      *
      * @param request - SetFilesetQuotaRequest
