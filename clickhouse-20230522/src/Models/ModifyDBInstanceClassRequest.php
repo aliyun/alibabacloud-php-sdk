@@ -14,6 +14,21 @@ class ModifyDBInstanceClassRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var int
+     */
+    public $nodeCount;
+
+    /**
+     * @var int
+     */
+    public $nodeScaleMax;
+
+    /**
+     * @var int
+     */
+    public $nodeScaleMin;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -27,11 +42,26 @@ class ModifyDBInstanceClassRequest extends Model
      * @var int
      */
     public $scaleMin;
+
+    /**
+     * @var string
+     */
+    public $storageQuota;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
+        'nodeCount' => 'NodeCount',
+        'nodeScaleMax' => 'NodeScaleMax',
+        'nodeScaleMin' => 'NodeScaleMin',
         'regionId' => 'RegionId',
         'scaleMax' => 'ScaleMax',
         'scaleMin' => 'ScaleMin',
+        'storageQuota' => 'StorageQuota',
+        'storageType' => 'StorageType',
     ];
 
     public function validate()
@@ -46,6 +76,18 @@ class ModifyDBInstanceClassRequest extends Model
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
 
+        if (null !== $this->nodeCount) {
+            $res['NodeCount'] = $this->nodeCount;
+        }
+
+        if (null !== $this->nodeScaleMax) {
+            $res['NodeScaleMax'] = $this->nodeScaleMax;
+        }
+
+        if (null !== $this->nodeScaleMin) {
+            $res['NodeScaleMin'] = $this->nodeScaleMin;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -56,6 +98,14 @@ class ModifyDBInstanceClassRequest extends Model
 
         if (null !== $this->scaleMin) {
             $res['ScaleMin'] = $this->scaleMin;
+        }
+
+        if (null !== $this->storageQuota) {
+            $res['StorageQuota'] = $this->storageQuota;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -73,6 +123,18 @@ class ModifyDBInstanceClassRequest extends Model
             $model->DBInstanceId = $map['DBInstanceId'];
         }
 
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = $map['NodeCount'];
+        }
+
+        if (isset($map['NodeScaleMax'])) {
+            $model->nodeScaleMax = $map['NodeScaleMax'];
+        }
+
+        if (isset($map['NodeScaleMin'])) {
+            $model->nodeScaleMin = $map['NodeScaleMin'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -83,6 +145,14 @@ class ModifyDBInstanceClassRequest extends Model
 
         if (isset($map['ScaleMin'])) {
             $model->scaleMin = $map['ScaleMin'];
+        }
+
+        if (isset($map['StorageQuota'])) {
+            $model->storageQuota = $map['StorageQuota'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;

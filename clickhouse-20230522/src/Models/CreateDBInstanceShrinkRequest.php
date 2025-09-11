@@ -44,6 +44,21 @@ class CreateDBInstanceShrinkRequest extends Model
     public $multiZoneShrink;
 
     /**
+     * @var int
+     */
+    public $nodeCount;
+
+    /**
+     * @var int
+     */
+    public $nodeScaleMax;
+
+    /**
+     * @var int
+     */
+    public $nodeScaleMin;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -71,6 +86,16 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $storageQuota;
+
+    /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
@@ -90,11 +115,16 @@ class CreateDBInstanceShrinkRequest extends Model
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'multiZoneShrink' => 'MultiZone',
+        'nodeCount' => 'NodeCount',
+        'nodeScaleMax' => 'NodeScaleMax',
+        'nodeScaleMin' => 'NodeScaleMin',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'scaleMax' => 'ScaleMax',
         'scaleMin' => 'ScaleMin',
         'sourceDBInstanceId' => 'SourceDBInstanceId',
+        'storageQuota' => 'StorageQuota',
+        'storageType' => 'StorageType',
         'vpcId' => 'VpcId',
         'vswitchId' => 'VswitchId',
         'zoneId' => 'ZoneId',
@@ -136,6 +166,18 @@ class CreateDBInstanceShrinkRequest extends Model
             $res['MultiZone'] = $this->multiZoneShrink;
         }
 
+        if (null !== $this->nodeCount) {
+            $res['NodeCount'] = $this->nodeCount;
+        }
+
+        if (null !== $this->nodeScaleMax) {
+            $res['NodeScaleMax'] = $this->nodeScaleMax;
+        }
+
+        if (null !== $this->nodeScaleMin) {
+            $res['NodeScaleMin'] = $this->nodeScaleMin;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -154,6 +196,14 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (null !== $this->sourceDBInstanceId) {
             $res['SourceDBInstanceId'] = $this->sourceDBInstanceId;
+        }
+
+        if (null !== $this->storageQuota) {
+            $res['StorageQuota'] = $this->storageQuota;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         if (null !== $this->vpcId) {
@@ -207,6 +257,18 @@ class CreateDBInstanceShrinkRequest extends Model
             $model->multiZoneShrink = $map['MultiZone'];
         }
 
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = $map['NodeCount'];
+        }
+
+        if (isset($map['NodeScaleMax'])) {
+            $model->nodeScaleMax = $map['NodeScaleMax'];
+        }
+
+        if (isset($map['NodeScaleMin'])) {
+            $model->nodeScaleMin = $map['NodeScaleMin'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -225,6 +287,14 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (isset($map['SourceDBInstanceId'])) {
             $model->sourceDBInstanceId = $map['SourceDBInstanceId'];
+        }
+
+        if (isset($map['StorageQuota'])) {
+            $model->storageQuota = $map['StorageQuota'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['VpcId'])) {

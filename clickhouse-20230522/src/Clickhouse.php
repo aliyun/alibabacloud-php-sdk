@@ -453,6 +453,18 @@ class Clickhouse extends OpenApiClient
             @$query['MultiZone'] = $request->multiZoneShrink;
         }
 
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
+        }
+
+        if (null !== $request->nodeScaleMax) {
+            @$query['NodeScaleMax'] = $request->nodeScaleMax;
+        }
+
+        if (null !== $request->nodeScaleMin) {
+            @$query['NodeScaleMin'] = $request->nodeScaleMin;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -471,6 +483,14 @@ class Clickhouse extends OpenApiClient
 
         if (null !== $request->sourceDBInstanceId) {
             @$query['SourceDBInstanceId'] = $request->sourceDBInstanceId;
+        }
+
+        if (null !== $request->storageQuota) {
+            @$query['StorageQuota'] = $request->storageQuota;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
 
         if (null !== $request->vpcId) {
@@ -2257,6 +2277,18 @@ class Clickhouse extends OpenApiClient
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
 
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
+        }
+
+        if (null !== $request->nodeScaleMax) {
+            @$query['NodeScaleMax'] = $request->nodeScaleMax;
+        }
+
+        if (null !== $request->nodeScaleMin) {
+            @$query['NodeScaleMin'] = $request->nodeScaleMin;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -2267,6 +2299,14 @@ class Clickhouse extends OpenApiClient
 
         if (null !== $request->scaleMin) {
             @$query['ScaleMin'] = $request->scaleMin;
+        }
+
+        if (null !== $request->storageQuota) {
+            @$query['StorageQuota'] = $request->storageQuota;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
 
         $req = new OpenApiRequest([

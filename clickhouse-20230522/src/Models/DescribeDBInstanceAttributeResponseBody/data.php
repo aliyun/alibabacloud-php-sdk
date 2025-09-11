@@ -24,6 +24,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -107,6 +112,21 @@ class data extends Model
     public $multiZones;
 
     /**
+     * @var string
+     */
+    public $nodeCount;
+
+    /**
+     * @var string
+     */
+    public $nodeScaleMax;
+
+    /**
+     * @var string
+     */
+    public $nodeScaleMin;
+
+    /**
      * @var nodes[]
      */
     public $nodes;
@@ -142,6 +162,11 @@ class data extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $storageQuota;
+
+    /**
      * @var int
      */
     public $storageSize;
@@ -173,6 +198,7 @@ class data extends Model
     protected $_name = [
         'aliUid' => 'AliUid',
         'bid' => 'Bid',
+        'category' => 'Category',
         'chargeType' => 'ChargeType',
         'createTime' => 'CreateTime',
         'DBInstanceId' => 'DBInstanceId',
@@ -190,6 +216,9 @@ class data extends Model
         'maintainEndTime' => 'MaintainEndTime',
         'maintainStartTime' => 'MaintainStartTime',
         'multiZones' => 'MultiZones',
+        'nodeCount' => 'NodeCount',
+        'nodeScaleMax' => 'NodeScaleMax',
+        'nodeScaleMin' => 'NodeScaleMin',
         'nodes' => 'Nodes',
         'objectStoreSize' => 'ObjectStoreSize',
         'regionId' => 'RegionId',
@@ -197,6 +226,7 @@ class data extends Model
         'scaleMax' => 'ScaleMax',
         'scaleMin' => 'ScaleMin',
         'status' => 'Status',
+        'storageQuota' => 'StorageQuota',
         'storageSize' => 'StorageSize',
         'storageType' => 'StorageType',
         'tags' => 'Tags',
@@ -228,6 +258,10 @@ class data extends Model
 
         if (null !== $this->bid) {
             $res['Bid'] = $this->bid;
+        }
+
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
 
         if (null !== $this->chargeType) {
@@ -305,6 +339,18 @@ class data extends Model
             }
         }
 
+        if (null !== $this->nodeCount) {
+            $res['NodeCount'] = $this->nodeCount;
+        }
+
+        if (null !== $this->nodeScaleMax) {
+            $res['NodeScaleMax'] = $this->nodeScaleMax;
+        }
+
+        if (null !== $this->nodeScaleMin) {
+            $res['NodeScaleMin'] = $this->nodeScaleMin;
+        }
+
         if (null !== $this->nodes) {
             if (\is_array($this->nodes)) {
                 $res['Nodes'] = [];
@@ -338,6 +384,10 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->storageQuota) {
+            $res['StorageQuota'] = $this->storageQuota;
         }
 
         if (null !== $this->storageSize) {
@@ -388,6 +438,10 @@ class data extends Model
 
         if (isset($map['Bid'])) {
             $model->bid = $map['Bid'];
+        }
+
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
 
         if (isset($map['ChargeType'])) {
@@ -465,6 +519,18 @@ class data extends Model
             }
         }
 
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = $map['NodeCount'];
+        }
+
+        if (isset($map['NodeScaleMax'])) {
+            $model->nodeScaleMax = $map['NodeScaleMax'];
+        }
+
+        if (isset($map['NodeScaleMin'])) {
+            $model->nodeScaleMin = $map['NodeScaleMin'];
+        }
+
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
@@ -498,6 +564,10 @@ class data extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StorageQuota'])) {
+            $model->storageQuota = $map['StorageQuota'];
         }
 
         if (isset($map['StorageSize'])) {

@@ -105,6 +105,11 @@ class DBInstances extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -143,6 +148,7 @@ class DBInstances extends Model
         'scaleMax' => 'ScaleMax',
         'scaleMin' => 'ScaleMin',
         'status' => 'Status',
+        'storageType' => 'StorageType',
         'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -234,6 +240,10 @@ class DBInstances extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         if (null !== $this->tags) {
@@ -344,6 +354,10 @@ class DBInstances extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['Tags'])) {
