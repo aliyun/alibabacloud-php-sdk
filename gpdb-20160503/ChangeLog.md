@@ -1,3 +1,7 @@
+2025-09-11 Version: 2.9.5
+- Update API QueryCollectionData: add response parameters Body.Matches.$.MetadataV2.
+
+
 2025-09-10 Version: 2.9.4
 - Update API CreateDocumentCollection: add request parameters EnableGraph.
 - Update API CreateDocumentCollection: add request parameters EntityTypes.

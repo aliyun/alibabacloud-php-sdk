@@ -15,6 +15,10 @@ class match extends Model {
    */
   public $metadata;
   /**
+   * @var mixed[]
+   */
+  public $metadataV2;
+  /**
    * @var float
    */
   public $score;
@@ -25,6 +29,7 @@ class match extends Model {
   protected $_name = [
       'id' => 'Id',
       'metadata' => 'Metadata',
+      'metadataV2' => 'MetadataV2',
       'score' => 'Score',
       'values' => 'Values',
   ];
@@ -33,6 +38,9 @@ class match extends Model {
   {
     if(is_array($this->metadata)) {
       Model::validateArray($this->metadata);
+    }
+    if(is_array($this->metadataV2)) {
+      Model::validateArray($this->metadataV2);
     }
     if(null !== $this->values) {
       $this->values->validate();
@@ -52,6 +60,15 @@ class match extends Model {
         $res['Metadata'] = [];
         foreach($this->metadata as $key1 => $value1) {
           $res['Metadata'][$key1] = $value1;
+        }
+      }
+    }
+
+    if (null !== $this->metadataV2) {
+      if(is_array($this->metadataV2)) {
+        $res['MetadataV2'] = [];
+        foreach($this->metadataV2 as $key1 => $value1) {
+          $res['MetadataV2'][$key1] = $value1;
         }
       }
     }
@@ -84,6 +101,15 @@ class match extends Model {
         $model->metadata = [];
         foreach($map['Metadata'] as $key1 => $value1) {
           $model->metadata[$key1] = $value1;
+        }
+      }
+    }
+
+    if (isset($map['MetadataV2'])) {
+      if(!empty($map['MetadataV2'])) {
+        $model->metadataV2 = [];
+        foreach($map['MetadataV2'] as $key1 => $value1) {
+          $model->metadataV2[$key1] = $value1;
         }
       }
     }
