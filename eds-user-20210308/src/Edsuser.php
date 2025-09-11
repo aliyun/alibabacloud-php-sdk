@@ -948,12 +948,20 @@ class Edsuser extends OpenApiClient
             @$query['BizType'] = $request->bizType;
         }
 
+        if (null !== $request->excludeAttachedLoginPolicyGroups) {
+            @$query['ExcludeAttachedLoginPolicyGroups'] = $request->excludeAttachedLoginPolicyGroups;
+        }
+
         if (null !== $request->groupId) {
             @$query['GroupId'] = $request->groupId;
         }
 
         if (null !== $request->groupName) {
             @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->loginPolicyId) {
+            @$query['LoginPolicyId'] = $request->loginPolicyId;
         }
 
         if (null !== $request->pageNumber) {

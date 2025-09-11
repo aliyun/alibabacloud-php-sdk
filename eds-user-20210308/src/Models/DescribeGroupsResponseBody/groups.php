@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeGroupsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeGroupsResponseBody\groups\attachedLoginPolicy;
 
 class groups extends Model
 {
+    /**
+     * @var attachedLoginPolicy
+     */
+    public $attachedLoginPolicy;
+
     /**
      * @var string[]
      */
@@ -43,6 +49,7 @@ class groups extends Model
      */
     public $userCount;
     protected $_name = [
+        'attachedLoginPolicy' => 'AttachedLoginPolicy',
         'authedResources' => 'AuthedResources',
         'createTime' => 'CreateTime',
         'description' => 'Description',
@@ -54,6 +61,9 @@ class groups extends Model
 
     public function validate()
     {
+        if (null !== $this->attachedLoginPolicy) {
+            $this->attachedLoginPolicy->validate();
+        }
         if (\is_array($this->authedResources)) {
             Model::validateArray($this->authedResources);
         }
@@ -63,6 +73,10 @@ class groups extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attachedLoginPolicy) {
+            $res['AttachedLoginPolicy'] = null !== $this->attachedLoginPolicy ? $this->attachedLoginPolicy->toArray($noStream) : $this->attachedLoginPolicy;
+        }
+
         if (null !== $this->authedResources) {
             if (\is_array($this->authedResources)) {
                 $res['AuthedResources'] = [];
@@ -107,6 +121,10 @@ class groups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachedLoginPolicy'])) {
+            $model->attachedLoginPolicy = attachedLoginPolicy::fromMap($map['AttachedLoginPolicy']);
+        }
+
         if (isset($map['AuthedResources'])) {
             if (!empty($map['AuthedResources'])) {
                 $model->authedResources = [];

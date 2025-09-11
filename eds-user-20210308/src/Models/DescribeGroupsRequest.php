@@ -14,6 +14,11 @@ class DescribeGroupsRequest extends Model
     public $bizType;
 
     /**
+     * @var bool
+     */
+    public $excludeAttachedLoginPolicyGroups;
+
+    /**
      * @var string
      */
     public $groupId;
@@ -22,6 +27,11 @@ class DescribeGroupsRequest extends Model
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var string
+     */
+    public $loginPolicyId;
 
     /**
      * @var int
@@ -44,8 +54,10 @@ class DescribeGroupsRequest extends Model
     public $transferFileNeedApproval;
     protected $_name = [
         'bizType' => 'BizType',
+        'excludeAttachedLoginPolicyGroups' => 'ExcludeAttachedLoginPolicyGroups',
         'groupId' => 'GroupId',
         'groupName' => 'GroupName',
+        'loginPolicyId' => 'LoginPolicyId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'solutionId' => 'SolutionId',
@@ -64,12 +76,20 @@ class DescribeGroupsRequest extends Model
             $res['BizType'] = $this->bizType;
         }
 
+        if (null !== $this->excludeAttachedLoginPolicyGroups) {
+            $res['ExcludeAttachedLoginPolicyGroups'] = $this->excludeAttachedLoginPolicyGroups;
+        }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
 
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+
+        if (null !== $this->loginPolicyId) {
+            $res['LoginPolicyId'] = $this->loginPolicyId;
         }
 
         if (null !== $this->pageNumber) {
@@ -103,12 +123,20 @@ class DescribeGroupsRequest extends Model
             $model->bizType = $map['BizType'];
         }
 
+        if (isset($map['ExcludeAttachedLoginPolicyGroups'])) {
+            $model->excludeAttachedLoginPolicyGroups = $map['ExcludeAttachedLoginPolicyGroups'];
+        }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
 
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+
+        if (isset($map['LoginPolicyId'])) {
+            $model->loginPolicyId = $map['LoginPolicyId'];
         }
 
         if (isset($map['PageNumber'])) {
