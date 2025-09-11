@@ -2066,6 +2066,10 @@ class Cms extends OpenApiClient
             @$query['Address'] = $request->address;
         }
 
+        if (null !== $request->agentGroup) {
+            @$query['AgentGroup'] = $request->agentGroup;
+        }
+
         if (null !== $request->alertIds) {
             @$query['AlertIds'] = $request->alertIds;
         }
@@ -7597,6 +7601,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询指定资源的进程数列表.
+     *
      * @remarks
      * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
      * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
@@ -7638,6 +7644,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询指定资源的进程数列表.
+     *
      * @remarks
      * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
      * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
@@ -9818,6 +9826,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 修改应用分组内的进程监控.
+     *
      * @param request - ModifyGroupMonitoringAgentProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9867,6 +9877,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 修改应用分组内的进程监控.
+     *
      * @param request - ModifyGroupMonitoringAgentProcessRequest
      *
      * @returns ModifyGroupMonitoringAgentProcessResponse
@@ -9978,6 +9990,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 修改非阿里云的主机显示信息.
+     *
      * @remarks
      *
      * @param request - ModifyHostInfoRequest
@@ -10021,6 +10035,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 修改非阿里云的主机显示信息.
+     *
      * @remarks
      *
      * @param request - ModifyHostInfoRequest
@@ -10440,6 +10456,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 修改应用分组.
+     *
      * @param request - ModifyMonitorGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10485,6 +10503,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 修改应用分组.
+     *
      * @param request - ModifyMonitorGroupRequest
      *
      * @returns ModifyMonitorGroupResponse
@@ -10501,7 +10521,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ModifyMonitorGroupInstances.
+     * 修改应用分组中的资源.
      *
      * @param request - ModifyMonitorGroupInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10544,7 +10564,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * ModifyMonitorGroupInstances.
+     * 修改应用分组中的资源.
      *
      * @param request - ModifyMonitorGroupInstancesRequest
      *

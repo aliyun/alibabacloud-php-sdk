@@ -16,6 +16,11 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @var string
      */
+    public $agentGroup;
+
+    /**
+     * @var string
+     */
     public $alertIds;
 
     /**
@@ -59,6 +64,7 @@ class CreateSiteMonitorRequest extends Model
     public $vpcConfig;
     protected $_name = [
         'address' => 'Address',
+        'agentGroup' => 'AgentGroup',
         'alertIds' => 'AlertIds',
         'customSchedule' => 'CustomSchedule',
         'interval' => 'Interval',
@@ -80,6 +86,10 @@ class CreateSiteMonitorRequest extends Model
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+
+        if (null !== $this->agentGroup) {
+            $res['AgentGroup'] = $this->agentGroup;
         }
 
         if (null !== $this->alertIds) {
@@ -131,6 +141,10 @@ class CreateSiteMonitorRequest extends Model
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
+        }
+
+        if (isset($map['AgentGroup'])) {
+            $model->agentGroup = $map['AgentGroup'];
         }
 
         if (isset($map['AlertIds'])) {
