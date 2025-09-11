@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class regions extends Model
 {
     /**
+     * @var string[]
+     */
+    public $dataRedundancyType;
+
+    /**
      * @var string
      */
     public $internetEndpoint;
@@ -28,6 +33,7 @@ class regions extends Model
      */
     public $region;
     protected $_name = [
+        'dataRedundancyType' => 'dataRedundancyType',
         'internetEndpoint' => 'internetEndpoint',
         'intranetEndpoint' => 'intranetEndpoint',
         'localName' => 'localName',
@@ -36,12 +42,26 @@ class regions extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataRedundancyType)) {
+            Model::validateArray($this->dataRedundancyType);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dataRedundancyType) {
+            if (\is_array($this->dataRedundancyType)) {
+                $res['dataRedundancyType'] = [];
+                $n1 = 0;
+                foreach ($this->dataRedundancyType as $item1) {
+                    $res['dataRedundancyType'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->internetEndpoint) {
             $res['internetEndpoint'] = $this->internetEndpoint;
         }
@@ -69,6 +89,17 @@ class regions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dataRedundancyType'])) {
+            if (!empty($map['dataRedundancyType'])) {
+                $model->dataRedundancyType = [];
+                $n1 = 0;
+                foreach ($map['dataRedundancyType'] as $item1) {
+                    $model->dataRedundancyType[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['internetEndpoint'])) {
             $model->internetEndpoint = $map['internetEndpoint'];
         }

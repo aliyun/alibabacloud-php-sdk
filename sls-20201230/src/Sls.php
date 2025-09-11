@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSIngestionRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateS3IngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateS3IngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateScheduledSQLRequest;
@@ -96,6 +98,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteOSSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteS3IngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteStoreViewResponse;
@@ -155,6 +158,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetS3IngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSlsServiceResponse;
@@ -210,6 +214,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSIngestionsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListOSSIngestionsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListProjectResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListS3IngestionsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListS3IngestionsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListScheduledSQLsRequest;
@@ -2499,6 +2505,88 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 创建S3文件导入任务
+     *
+     * @param request - CreateS3IngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateS3IngestionResponse
+     *
+     * @param string                   $project
+     * @param CreateS3IngestionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateS3IngestionResponse
+     */
+    public function createS3IngestionWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateS3Ingestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/s3ingestions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return CreateS3IngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建S3文件导入任务
+     *
+     * @param request - CreateS3IngestionRequest
+     *
+     * @returns CreateS3IngestionResponse
+     *
+     * @param string                   $project
+     * @param CreateS3IngestionRequest $request
+     *
+     * @return CreateS3IngestionResponse
+     */
+    public function createS3Ingestion($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createS3IngestionWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a saved search.
      *
      * @remarks
@@ -4558,6 +4646,62 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteProjectPolicyWithOptions($project, $headers, $runtime);
+    }
+
+    /**
+     * 删除s3导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteS3IngestionResponse
+     *
+     * @param string         $project
+     * @param string         $s3IngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteS3IngestionResponse
+     */
+    public function deleteS3IngestionWithOptions($project, $s3IngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteS3Ingestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/s3ingestions/' . $s3IngestionName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteS3IngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除s3导入任务
+     *
+     * @returns DeleteS3IngestionResponse
+     *
+     * @param string $project
+     * @param string $s3IngestionName
+     *
+     * @return DeleteS3IngestionResponse
+     */
+    public function deleteS3Ingestion($project, $s3IngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteS3IngestionWithOptions($project, $s3IngestionName, $headers, $runtime);
     }
 
     /**
@@ -7676,6 +7820,62 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 获取s3导入任务信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetS3IngestionResponse
+     *
+     * @param string         $project
+     * @param string         $s3IngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetS3IngestionResponse
+     */
+    public function getS3IngestionWithOptions($project, $s3IngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetS3Ingestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/s3ingestions/' . $s3IngestionName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetS3IngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取s3导入任务信息.
+     *
+     * @returns GetS3IngestionResponse
+     *
+     * @param string $project
+     * @param string $s3IngestionName
+     *
+     * @return GetS3IngestionResponse
+     */
+    public function getS3Ingestion($project, $s3IngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getS3IngestionWithOptions($project, $s3IngestionName, $headers, $runtime);
+    }
+
+    /**
      * Queries a saved search.
      *
      * @remarks
@@ -9999,6 +10199,80 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->listProjectWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出s3导入任务
+     *
+     * @param request - ListS3IngestionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListS3IngestionsResponse
+     *
+     * @param string                  $project
+     * @param ListS3IngestionsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListS3IngestionsResponse
+     */
+    public function listS3IngestionsWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListS3Ingestions',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/s3ingestions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListS3IngestionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列出s3导入任务
+     *
+     * @param request - ListS3IngestionsRequest
+     *
+     * @returns ListS3IngestionsResponse
+     *
+     * @param string                  $project
+     * @param ListS3IngestionsRequest $request
+     *
+     * @return ListS3IngestionsResponse
+     */
+    public function listS3Ingestions($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listS3IngestionsWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
