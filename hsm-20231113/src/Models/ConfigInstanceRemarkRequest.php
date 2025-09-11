@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigInstanceRemarkRequest extends Model
 {
     /**
-     * @description The ID of the HSM.
-     *
-     * This parameter is required.
-     *
-     * @example hsm-cn-vj30bil8****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The description of the HSM.
-     *
-     * This parameter is required.
-     *
-     * @example hsmOnline
-     *
      * @var string
      */
     public $remark;
@@ -34,14 +22,18 @@ class ConfigInstanceRemarkRequest extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -49,17 +41,18 @@ class ConfigInstanceRemarkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigInstanceRemarkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

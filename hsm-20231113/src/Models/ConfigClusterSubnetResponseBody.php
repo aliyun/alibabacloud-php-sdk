@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigClusterSubnetResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4C467B38-3910-447D-87BC-AC049366F216
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ConfigClusterSubnetResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ConfigClusterSubnetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigClusterSubnetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

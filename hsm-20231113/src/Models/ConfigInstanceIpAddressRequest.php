@@ -4,61 +4,31 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigInstanceIpAddressRequest extends Model
 {
     /**
-     * @description The ID of the HSM.
-     *
-     * This parameter is required.
-     *
-     * @example hsm-cn-mp90fxef****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The endpoint of the VPC to which the HMS belongs.
-     *
-     * This parameter is required.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the vSwitch to which the HMS belongs.
-     *
-     * This parameter is required.
-     *
-     * @example vsw-u7gb0qahu****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC to which the HMS belongs.
-     *
-     * This parameter is required.
-     *
-     * @example vpc-lmkmivmo6****
-     *
      * @var string
      */
     public $vpcId;
@@ -70,23 +40,30 @@ class ConfigInstanceIpAddressRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -94,26 +71,30 @@ class ConfigInstanceIpAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigInstanceIpAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

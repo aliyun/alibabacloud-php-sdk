@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResetBackupRequest extends Model
 {
     /**
-     * @description The ID of the backup.
-     *
-     * @example backup-fdb897sdfg5****
-     *
      * @var string
      */
     public $backupId;
@@ -20,9 +16,12 @@ class ResetBackupRequest extends Model
         'backupId' => 'BackupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupId) {
@@ -32,11 +31,11 @@ class ResetBackupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResetBackupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

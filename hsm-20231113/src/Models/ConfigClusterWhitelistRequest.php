@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigClusterWhitelistRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * This parameter is required.
-     *
-     * @example cluster-729dm40FG****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The IP address whitelist of the cluster.
-     *
-     * This parameter is required.
-     *
-     * @example 18.68.XX.XX
-     *
      * @var string
      */
     public $whitelist;
@@ -34,14 +22,18 @@ class ConfigClusterWhitelistRequest extends Model
         'whitelist' => 'Whitelist',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->whitelist) {
             $res['Whitelist'] = $this->whitelist;
         }
@@ -49,17 +41,18 @@ class ConfigClusterWhitelistRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigClusterWhitelistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Whitelist'])) {
             $model->whitelist = $map['Whitelist'];
         }

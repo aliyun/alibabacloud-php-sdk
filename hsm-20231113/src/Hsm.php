@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\ConfigAuditLogRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\ConfigAuditLogResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\ConfigBackupRemarkRequest;
@@ -37,6 +36,8 @@ use AlibabaCloud\SDK\Hsm\V20231113\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Hsm\V20231113\Models\DownloadClusterManagedCertRequest;
+use AlibabaCloud\SDK\Hsm\V20231113\Models\DownloadClusterManagedCertResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\EnableBackupRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\EnableBackupResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\ExportImageRequest;
@@ -72,6 +73,9 @@ use AlibabaCloud\SDK\Hsm\V20231113\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\PauseInstanceRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\PauseInstanceResponse;
+use AlibabaCloud\SDK\Hsm\V20231113\Models\QuickDeployClusterRequest;
+use AlibabaCloud\SDK\Hsm\V20231113\Models\QuickDeployClusterResponse;
+use AlibabaCloud\SDK\Hsm\V20231113\Models\QuickDeployClusterShrinkRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\QuickInitInstanceRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\QuickInitInstanceResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\ResetBackupRequest;
@@ -82,15 +86,16 @@ use AlibabaCloud\SDK\Hsm\V20231113\Models\RestoreInstanceRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\RestoreInstanceResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\ResumeInstanceRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\ResumeInstanceResponse;
+use AlibabaCloud\SDK\Hsm\V20231113\Models\RotateClusterManagedCertRequest;
+use AlibabaCloud\SDK\Hsm\V20231113\Models\RotateClusterManagedCertResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\SwitchClusterMasterRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\SwitchClusterMasterResponse;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\SyncClusterRequest;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\SyncClusterResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Hsm extends OpenApiClient
 {
@@ -115,43 +120,53 @@ class Hsm extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Enables or disables the audit log feature and delivers audit logs to buckets.
-     *  *
-     * @description *   The region of the bucket must be the same as the region where the security audit feature is enabled.
+     * Enables or disables the audit log feature and delivers audit logs to buckets.
+     *
+     * @remarks
+     *   The region of the bucket must be the same as the region where the security audit feature is enabled.
      * *   If the security audit feature is enabled, do not delete Object Storage Service (OSS) buckets. If you delete OSS buckets, audit logs fail to be delivered.
      * *   Only electronic virtual security modules (EVSMs) and general virtual security modules (GVSMs) within the Chinese mainland support the security audit feature.
-     *  *
-     * @param ConfigAuditLogRequest $request ConfigAuditLogRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigAuditLogResponse ConfigAuditLogResponse
+     * @param request - ConfigAuditLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigAuditLogResponse
+     *
+     * @param ConfigAuditLogRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ConfigAuditLogResponse
      */
     public function configAuditLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditAction)) {
-            $query['AuditAction'] = $request->auditAction;
+        if (null !== $request->auditAction) {
+            @$query['AuditAction'] = $request->auditAction;
         }
-        if (!Utils::isUnset($request->auditOssBucket)) {
-            $query['AuditOssBucket'] = $request->auditOssBucket;
+
+        if (null !== $request->auditOssBucket) {
+            @$query['AuditOssBucket'] = $request->auditOssBucket;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigAuditLog',
@@ -169,15 +184,20 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the audit log feature and delivers audit logs to buckets.
-     *  *
-     * @description *   The region of the bucket must be the same as the region where the security audit feature is enabled.
+     * Enables or disables the audit log feature and delivers audit logs to buckets.
+     *
+     * @remarks
+     *   The region of the bucket must be the same as the region where the security audit feature is enabled.
      * *   If the security audit feature is enabled, do not delete Object Storage Service (OSS) buckets. If you delete OSS buckets, audit logs fail to be delivered.
      * *   Only electronic virtual security modules (EVSMs) and general virtual security modules (GVSMs) within the Chinese mainland support the security audit feature.
-     *  *
-     * @param ConfigAuditLogRequest $request ConfigAuditLogRequest
      *
-     * @return ConfigAuditLogResponse ConfigAuditLogResponse
+     * @param request - ConfigAuditLogRequest
+     *
+     * @returns ConfigAuditLogResponse
+     *
+     * @param ConfigAuditLogRequest $request
+     *
+     * @return ConfigAuditLogResponse
      */
     public function configAuditLog($request)
     {
@@ -187,28 +207,36 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Configures the name and description of a backup.
-     *  *
-     * @param ConfigBackupRemarkRequest $request ConfigBackupRemarkRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Configures the name and description of a backup.
      *
-     * @return ConfigBackupRemarkResponse ConfigBackupRemarkResponse
+     * @param request - ConfigBackupRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigBackupRemarkResponse
+     *
+     * @param ConfigBackupRemarkRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConfigBackupRemarkResponse
      */
     public function configBackupRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigBackupRemark',
@@ -226,11 +254,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Configures the name and description of a backup.
-     *  *
-     * @param ConfigBackupRemarkRequest $request ConfigBackupRemarkRequest
+     * Configures the name and description of a backup.
      *
-     * @return ConfigBackupRemarkResponse ConfigBackupRemarkResponse
+     * @param request - ConfigBackupRemarkRequest
+     *
+     * @returns ConfigBackupRemarkResponse
+     *
+     * @param ConfigBackupRemarkRequest $request
+     *
+     * @return ConfigBackupRemarkResponse
      */
     public function configBackupRemark($request)
     {
@@ -240,36 +272,47 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the execution mode of a backup task.
-     *  *
-     * @description Only hardware security modules (HSMs) in the Chinese mainland support the operation.
-     *  *
-     * @param ConfigBackupTaskRequest $request ConfigBackupTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies the execution mode of a backup task.
      *
-     * @return ConfigBackupTaskResponse ConfigBackupTaskResponse
+     * @remarks
+     * Only hardware security modules (HSMs) in the Chinese mainland support the operation.
+     *
+     * @param request - ConfigBackupTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigBackupTaskResponse
+     *
+     * @param ConfigBackupTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ConfigBackupTaskResponse
      */
     public function configBackupTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupHourInDay)) {
-            $query['BackupHourInDay'] = $request->backupHourInDay;
+        if (null !== $request->backupHourInDay) {
+            @$query['BackupHourInDay'] = $request->backupHourInDay;
         }
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
-        if (!Utils::isUnset($request->backupPeriod)) {
-            $query['BackupPeriod'] = $request->backupPeriod;
+
+        if (null !== $request->backupPeriod) {
+            @$query['BackupPeriod'] = $request->backupPeriod;
         }
-        if (!Utils::isUnset($request->manual2PeriodicList)) {
-            $query['Manual2PeriodicList'] = $request->manual2PeriodicList;
+
+        if (null !== $request->manual2PeriodicList) {
+            @$query['Manual2PeriodicList'] = $request->manual2PeriodicList;
         }
-        if (!Utils::isUnset($request->periodic2ManualList)) {
-            $query['Periodic2ManualList'] = $request->periodic2ManualList;
+
+        if (null !== $request->periodic2ManualList) {
+            @$query['Periodic2ManualList'] = $request->periodic2ManualList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigBackupTask',
@@ -287,13 +330,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the execution mode of a backup task.
-     *  *
-     * @description Only hardware security modules (HSMs) in the Chinese mainland support the operation.
-     *  *
-     * @param ConfigBackupTaskRequest $request ConfigBackupTaskRequest
+     * Modifies the execution mode of a backup task.
      *
-     * @return ConfigBackupTaskResponse ConfigBackupTaskResponse
+     * @remarks
+     * Only hardware security modules (HSMs) in the Chinese mainland support the operation.
+     *
+     * @param request - ConfigBackupTaskRequest
+     *
+     * @returns ConfigBackupTaskResponse
+     *
+     * @param ConfigBackupTaskRequest $request
+     *
+     * @return ConfigBackupTaskResponse
      */
     public function configBackupTask($request)
     {
@@ -303,30 +351,39 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Configures a certificate for a cluster of hardware security modules (HSMs) outside the Chinese mainland.
-     *  *
-     * @description For more information about how to create a self-signed certificate and a cluster certificate on an Elastic Compute Service (ECS) instance, see [Create a NIST FIPS-validated GVSM cluster](https://help.aliyun.com/document_detail/293585.html).
-     *  *
-     * @param ConfigClusterCertificateRequest $request ConfigClusterCertificateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Configures a certificate for a cluster of hardware security modules (HSMs) outside the Chinese mainland.
      *
-     * @return ConfigClusterCertificateResponse ConfigClusterCertificateResponse
+     * @remarks
+     * For more information about how to create a self-signed certificate and a cluster certificate on an Elastic Compute Service (ECS) instance, see [Create a NIST FIPS-validated GVSM cluster](https://help.aliyun.com/document_detail/293585.html).
+     *
+     * @param request - ConfigClusterCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigClusterCertificateResponse
+     *
+     * @param ConfigClusterCertificateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ConfigClusterCertificateResponse
      */
     public function configClusterCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterCertificate)) {
-            $body['ClusterCertificate'] = $request->clusterCertificate;
+        if (null !== $request->clusterCertificate) {
+            @$body['ClusterCertificate'] = $request->clusterCertificate;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->issuerCertificate)) {
-            $body['IssuerCertificate'] = $request->issuerCertificate;
+
+        if (null !== $request->issuerCertificate) {
+            @$body['IssuerCertificate'] = $request->issuerCertificate;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigClusterCertificate',
@@ -344,13 +401,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Configures a certificate for a cluster of hardware security modules (HSMs) outside the Chinese mainland.
-     *  *
-     * @description For more information about how to create a self-signed certificate and a cluster certificate on an Elastic Compute Service (ECS) instance, see [Create a NIST FIPS-validated GVSM cluster](https://help.aliyun.com/document_detail/293585.html).
-     *  *
-     * @param ConfigClusterCertificateRequest $request ConfigClusterCertificateRequest
+     * Configures a certificate for a cluster of hardware security modules (HSMs) outside the Chinese mainland.
      *
-     * @return ConfigClusterCertificateResponse ConfigClusterCertificateResponse
+     * @remarks
+     * For more information about how to create a self-signed certificate and a cluster certificate on an Elastic Compute Service (ECS) instance, see [Create a NIST FIPS-validated GVSM cluster](https://help.aliyun.com/document_detail/293585.html).
+     *
+     * @param request - ConfigClusterCertificateRequest
+     *
+     * @returns ConfigClusterCertificateResponse
+     *
+     * @param ConfigClusterCertificateRequest $request
+     *
+     * @return ConfigClusterCertificateResponse
      */
     public function configClusterCertificate($request)
     {
@@ -360,25 +422,32 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name of a cluster.
-     *  *
-     * @param ConfigClusterNameRequest $request ConfigClusterNameRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Changes the name of a cluster.
      *
-     * @return ConfigClusterNameResponse ConfigClusterNameResponse
+     * @param request - ConfigClusterNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigClusterNameResponse
+     *
+     * @param ConfigClusterNameRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ConfigClusterNameResponse
      */
     public function configClusterNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $body['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$body['ClusterName'] = $request->clusterName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigClusterName',
@@ -396,11 +465,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name of a cluster.
-     *  *
-     * @param ConfigClusterNameRequest $request ConfigClusterNameRequest
+     * Changes the name of a cluster.
      *
-     * @return ConfigClusterNameResponse ConfigClusterNameResponse
+     * @param request - ConfigClusterNameRequest
+     *
+     * @returns ConfigClusterNameResponse
+     *
+     * @param ConfigClusterNameRequest $request
+     *
+     * @return ConfigClusterNameResponse
      */
     public function configClusterName($request)
     {
@@ -410,38 +483,49 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a list of vSwitches that are associated with a hardware security module (HSM) cluster.
-     *  *
-     * @description You can call the operation to configure all vSwitches that are associated with a HSM cluster. You can only add new vSwitches. You cannot delete vSwitches.
-     *  *
-     * @param ConfigClusterSubnetRequest $tmpReq  ConfigClusterSubnetRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies a list of vSwitches that are associated with a hardware security module (HSM) cluster.
      *
-     * @return ConfigClusterSubnetResponse ConfigClusterSubnetResponse
+     * @remarks
+     * You can call the operation to configure all vSwitches that are associated with a HSM cluster. You can only add new vSwitches. You cannot delete vSwitches.
+     *
+     * @param tmpReq - ConfigClusterSubnetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigClusterSubnetResponse
+     *
+     * @param ConfigClusterSubnetRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ConfigClusterSubnetResponse
      */
     public function configClusterSubnetWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ConfigClusterSubnetShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->vSwitchIds)) {
-            $request->vSwitchIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->vSwitchIds) {
+            $request->vSwitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIds, 'VSwitchIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vSwitchIdsShrink)) {
-            $body['VSwitchIds'] = $request->vSwitchIdsShrink;
+
+        if (null !== $request->vSwitchIdsShrink) {
+            @$body['VSwitchIds'] = $request->vSwitchIdsShrink;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigClusterSubnet',
@@ -459,13 +543,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a list of vSwitches that are associated with a hardware security module (HSM) cluster.
-     *  *
-     * @description You can call the operation to configure all vSwitches that are associated with a HSM cluster. You can only add new vSwitches. You cannot delete vSwitches.
-     *  *
-     * @param ConfigClusterSubnetRequest $request ConfigClusterSubnetRequest
+     * Modifies a list of vSwitches that are associated with a hardware security module (HSM) cluster.
      *
-     * @return ConfigClusterSubnetResponse ConfigClusterSubnetResponse
+     * @remarks
+     * You can call the operation to configure all vSwitches that are associated with a HSM cluster. You can only add new vSwitches. You cannot delete vSwitches.
+     *
+     * @param request - ConfigClusterSubnetRequest
+     *
+     * @returns ConfigClusterSubnetResponse
+     *
+     * @param ConfigClusterSubnetRequest $request
+     *
+     * @return ConfigClusterSubnetResponse
      */
     public function configClusterSubnet($request)
     {
@@ -475,27 +564,35 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the IP address whitelist of a cluster.
-     *  *
-     * @description The IP address whitelist of a cluster has a higher priority than the IP address whitelist of a hardware security module (HSM) in the cluster. In cluster mode, we recommend that you create an IP address whitelist for your cluster. You do not need to create an IP address for the HSM in the cluster.
-     *  *
-     * @param ConfigClusterWhitelistRequest $request ConfigClusterWhitelistRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies the IP address whitelist of a cluster.
      *
-     * @return ConfigClusterWhitelistResponse ConfigClusterWhitelistResponse
+     * @remarks
+     * The IP address whitelist of a cluster has a higher priority than the IP address whitelist of a hardware security module (HSM) in the cluster. In cluster mode, we recommend that you create an IP address whitelist for your cluster. You do not need to create an IP address for the HSM in the cluster.
+     *
+     * @param request - ConfigClusterWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigClusterWhitelistResponse
+     *
+     * @param ConfigClusterWhitelistRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ConfigClusterWhitelistResponse
      */
     public function configClusterWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->whitelist)) {
-            $body['Whitelist'] = $request->whitelist;
+
+        if (null !== $request->whitelist) {
+            @$body['Whitelist'] = $request->whitelist;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigClusterWhitelist',
@@ -513,13 +610,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the IP address whitelist of a cluster.
-     *  *
-     * @description The IP address whitelist of a cluster has a higher priority than the IP address whitelist of a hardware security module (HSM) in the cluster. In cluster mode, we recommend that you create an IP address whitelist for your cluster. You do not need to create an IP address for the HSM in the cluster.
-     *  *
-     * @param ConfigClusterWhitelistRequest $request ConfigClusterWhitelistRequest
+     * Modifies the IP address whitelist of a cluster.
      *
-     * @return ConfigClusterWhitelistResponse ConfigClusterWhitelistResponse
+     * @remarks
+     * The IP address whitelist of a cluster has a higher priority than the IP address whitelist of a hardware security module (HSM) in the cluster. In cluster mode, we recommend that you create an IP address whitelist for your cluster. You do not need to create an IP address for the HSM in the cluster.
+     *
+     * @param request - ConfigClusterWhitelistRequest
+     *
+     * @returns ConfigClusterWhitelistResponse
+     *
+     * @param ConfigClusterWhitelistRequest $request
+     *
+     * @return ConfigClusterWhitelistResponse
      */
     public function configClusterWhitelist($request)
     {
@@ -529,25 +631,32 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of an image.
-     *  *
-     * @param ConfigImageRemarkRequest $request ConfigImageRemarkRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of an image.
      *
-     * @return ConfigImageRemarkResponse ConfigImageRemarkResponse
+     * @param request - ConfigImageRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigImageRemarkResponse
+     *
+     * @param ConfigImageRemarkRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ConfigImageRemarkResponse
      */
     public function configImageRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigImageRemark',
@@ -565,11 +674,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of an image.
-     *  *
-     * @param ConfigImageRemarkRequest $request ConfigImageRemarkRequest
+     * Modifies the description of an image.
      *
-     * @return ConfigImageRemarkResponse ConfigImageRemarkResponse
+     * @param request - ConfigImageRemarkRequest
+     *
+     * @returns ConfigImageRemarkResponse
+     *
+     * @param ConfigImageRemarkRequest $request
+     *
+     * @return ConfigImageRemarkResponse
      */
     public function configImageRemark($request)
     {
@@ -579,36 +692,47 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the virtual private cloud (VPC) endpoint of a hardware security module (HSM).
-     *  *
-     * @description After you add an HSM to a cluster, you cannot modify the VPC endpoint of the HSM.
-     *  *
-     * @param ConfigInstanceIpAddressRequest $request ConfigInstanceIpAddressRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the virtual private cloud (VPC) endpoint of a hardware security module (HSM).
      *
-     * @return ConfigInstanceIpAddressResponse ConfigInstanceIpAddressResponse
+     * @remarks
+     * After you add an HSM to a cluster, you cannot modify the VPC endpoint of the HSM.
+     *
+     * @param request - ConfigInstanceIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigInstanceIpAddressResponse
+     *
+     * @param ConfigInstanceIpAddressRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ConfigInstanceIpAddressResponse
      */
     public function configInstanceIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $body['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$body['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $body['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$body['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigInstanceIpAddress',
@@ -626,13 +750,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the virtual private cloud (VPC) endpoint of a hardware security module (HSM).
-     *  *
-     * @description After you add an HSM to a cluster, you cannot modify the VPC endpoint of the HSM.
-     *  *
-     * @param ConfigInstanceIpAddressRequest $request ConfigInstanceIpAddressRequest
+     * Modifies the virtual private cloud (VPC) endpoint of a hardware security module (HSM).
      *
-     * @return ConfigInstanceIpAddressResponse ConfigInstanceIpAddressResponse
+     * @remarks
+     * After you add an HSM to a cluster, you cannot modify the VPC endpoint of the HSM.
+     *
+     * @param request - ConfigInstanceIpAddressRequest
+     *
+     * @returns ConfigInstanceIpAddressResponse
+     *
+     * @param ConfigInstanceIpAddressRequest $request
+     *
+     * @return ConfigInstanceIpAddressResponse
      */
     public function configInstanceIpAddress($request)
     {
@@ -642,25 +771,32 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a hardware security module (HSM).
-     *  *
-     * @param ConfigInstanceRemarkRequest $request ConfigInstanceRemarkRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of a hardware security module (HSM).
      *
-     * @return ConfigInstanceRemarkResponse ConfigInstanceRemarkResponse
+     * @param request - ConfigInstanceRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigInstanceRemarkResponse
+     *
+     * @param ConfigInstanceRemarkRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ConfigInstanceRemarkResponse
      */
     public function configInstanceRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigInstanceRemark',
@@ -678,11 +814,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a hardware security module (HSM).
-     *  *
-     * @param ConfigInstanceRemarkRequest $request ConfigInstanceRemarkRequest
+     * Modifies the description of a hardware security module (HSM).
      *
-     * @return ConfigInstanceRemarkResponse ConfigInstanceRemarkResponse
+     * @param request - ConfigInstanceRemarkRequest
+     *
+     * @returns ConfigInstanceRemarkResponse
+     *
+     * @param ConfigInstanceRemarkRequest $request
+     *
+     * @return ConfigInstanceRemarkResponse
      */
     public function configInstanceRemark($request)
     {
@@ -692,27 +832,35 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the IP address whitelist of a hardware security module (HSM).
-     *  *
-     * @description You can configure the IP address whitelist for HSMs that are not added to a cluster and are in the ACTIVE state.
-     *  *
-     * @param ConfigInstanceWhitelistRequest $request ConfigInstanceWhitelistRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the IP address whitelist of a hardware security module (HSM).
      *
-     * @return ConfigInstanceWhitelistResponse ConfigInstanceWhitelistResponse
+     * @remarks
+     * You can configure the IP address whitelist for HSMs that are not added to a cluster and are in the ACTIVE state.
+     *
+     * @param request - ConfigInstanceWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigInstanceWhitelistResponse
+     *
+     * @param ConfigInstanceWhitelistRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ConfigInstanceWhitelistResponse
      */
     public function configInstanceWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->whitelist)) {
-            $body['Whitelist'] = $request->whitelist;
+
+        if (null !== $request->whitelist) {
+            @$body['Whitelist'] = $request->whitelist;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigInstanceWhitelist',
@@ -730,13 +878,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the IP address whitelist of a hardware security module (HSM).
-     *  *
-     * @description You can configure the IP address whitelist for HSMs that are not added to a cluster and are in the ACTIVE state.
-     *  *
-     * @param ConfigInstanceWhitelistRequest $request ConfigInstanceWhitelistRequest
+     * Modifies the IP address whitelist of a hardware security module (HSM).
      *
-     * @return ConfigInstanceWhitelistResponse ConfigInstanceWhitelistResponse
+     * @remarks
+     * You can configure the IP address whitelist for HSMs that are not added to a cluster and are in the ACTIVE state.
+     *
+     * @param request - ConfigInstanceWhitelistRequest
+     *
+     * @returns ConfigInstanceWhitelistResponse
+     *
+     * @param ConfigInstanceWhitelistRequest $request
+     *
+     * @return ConfigInstanceWhitelistResponse
      */
     public function configInstanceWhitelist($request)
     {
@@ -746,27 +899,35 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Copies an image to another region.
-     *  *
-     * @description This operation requires that the destination region does not have the same image. This operation is available only for hardware security modules (HSMs) outside the Chinese mainland.
-     *  *
-     * @param CopyImageRequest $request CopyImageRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Copies an image to another region.
      *
-     * @return CopyImageResponse CopyImageResponse
+     * @remarks
+     * This operation requires that the destination region does not have the same image. This operation is available only for hardware security modules (HSMs) outside the Chinese mainland.
+     *
+     * @param request - CopyImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyImageResponse
+     *
+     * @param CopyImageRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CopyImageResponse
      */
     public function copyImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->imageUid)) {
-            $body['ImageUid'] = $request->imageUid;
+        if (null !== $request->imageUid) {
+            @$body['ImageUid'] = $request->imageUid;
         }
-        if (!Utils::isUnset($request->targetRegionId)) {
-            $body['TargetRegionId'] = $request->targetRegionId;
+
+        if (null !== $request->targetRegionId) {
+            @$body['TargetRegionId'] = $request->targetRegionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CopyImage',
@@ -784,13 +945,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Copies an image to another region.
-     *  *
-     * @description This operation requires that the destination region does not have the same image. This operation is available only for hardware security modules (HSMs) outside the Chinese mainland.
-     *  *
-     * @param CopyImageRequest $request CopyImageRequest
+     * Copies an image to another region.
      *
-     * @return CopyImageResponse CopyImageResponse
+     * @remarks
+     * This operation requires that the destination region does not have the same image. This operation is available only for hardware security modules (HSMs) outside the Chinese mainland.
+     *
+     * @param request - CopyImageRequest
+     *
+     * @returns CopyImageResponse
+     *
+     * @param CopyImageRequest $request
+     *
+     * @return CopyImageResponse
      */
     public function copyImage($request)
     {
@@ -800,30 +966,39 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cluster by specifying a hardware security module (HSM) as the master HSM.
-     *  *
-     * @description The master HSM that you specify to create a cluster must be in the ACTIVE state.
-     *  *
-     * @param CreateClusterRequest $request CreateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a cluster by specifying a hardware security module (HSM) as the master HSM.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @remarks
+     * The master HSM that you specify to create a cluster must be in the ACTIVE state.
+     *
+     * @param request - CreateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterName)) {
-            $body['ClusterName'] = $request->clusterName;
+        if (null !== $request->clusterName) {
+            @$body['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->masterInstanceId)) {
-            $body['MasterInstanceId'] = $request->masterInstanceId;
+
+        if (null !== $request->masterInstanceId) {
+            @$body['MasterInstanceId'] = $request->masterInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCluster',
@@ -841,13 +1016,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cluster by specifying a hardware security module (HSM) as the master HSM.
-     *  *
-     * @description The master HSM that you specify to create a cluster must be in the ACTIVE state.
-     *  *
-     * @param CreateClusterRequest $request CreateClusterRequest
+     * Creates a cluster by specifying a hardware security module (HSM) as the master HSM.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @remarks
+     * The master HSM that you specify to create a cluster must be in the ACTIVE state.
+     *
+     * @param request - CreateClusterRequest
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     *
+     * @return CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -857,24 +1037,31 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a hardware security module (HSM) cluster.
-     *  *
-     * @description You can delete an HSM only if the cluster does not contain HSMs.
-     *  *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a hardware security module (HSM) cluster.
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @remarks
+     * You can delete an HSM only if the cluster does not contain HSMs.
+     *
+     * @param request - DeleteClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteCluster',
@@ -892,13 +1079,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a hardware security module (HSM) cluster.
-     *  *
-     * @description You can delete an HSM only if the cluster does not contain HSMs.
-     *  *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * Deletes a hardware security module (HSM) cluster.
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @remarks
+     * You can delete an HSM only if the cluster does not contain HSMs.
+     *
+     * @param request - DeleteClusterRequest
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -908,22 +1100,28 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions that are supported by Cloud Hardware Security Module.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the regions that are supported by Cloud Hardware Security Module.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -941,11 +1139,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions that are supported by Cloud Hardware Security Module.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries the regions that are supported by Cloud Hardware Security Module.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -955,27 +1157,102 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Binds a backup to a specified hardware security module (HSM).
-     *  *
-     * @description This operation is available only for backups in the Chinese mainland.
-     *  *
-     * @param EnableBackupRequest $request EnableBackupRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 下载集群托管证书.
      *
-     * @return EnableBackupResponse EnableBackupResponse
+     * @remarks
+     * ## 请求说明
+     * - 该API允许用户获取特定集群的管理证书。
+     * - 返回的数据是经过base64编码的证书内容。
+     *
+     * @param request - DownloadClusterManagedCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadClusterManagedCertResponse
+     *
+     * @param DownloadClusterManagedCertRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DownloadClusterManagedCertResponse
+     */
+    public function downloadClusterManagedCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadClusterManagedCert',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadClusterManagedCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下载集群托管证书.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API允许用户获取特定集群的管理证书。
+     * - 返回的数据是经过base64编码的证书内容。
+     *
+     * @param request - DownloadClusterManagedCertRequest
+     *
+     * @returns DownloadClusterManagedCertResponse
+     *
+     * @param DownloadClusterManagedCertRequest $request
+     *
+     * @return DownloadClusterManagedCertResponse
+     */
+    public function downloadClusterManagedCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadClusterManagedCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * Binds a backup to a specified hardware security module (HSM).
+     *
+     * @remarks
+     * This operation is available only for backups in the Chinese mainland.
+     *
+     * @param request - EnableBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableBackupResponse
+     *
+     * @param EnableBackupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EnableBackupResponse
      */
     public function enableBackupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableBackup',
@@ -993,13 +1270,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Binds a backup to a specified hardware security module (HSM).
-     *  *
-     * @description This operation is available only for backups in the Chinese mainland.
-     *  *
-     * @param EnableBackupRequest $request EnableBackupRequest
+     * Binds a backup to a specified hardware security module (HSM).
      *
-     * @return EnableBackupResponse EnableBackupResponse
+     * @remarks
+     * This operation is available only for backups in the Chinese mainland.
+     *
+     * @param request - EnableBackupRequest
+     *
+     * @returns EnableBackupResponse
+     *
+     * @param EnableBackupRequest $request
+     *
+     * @return EnableBackupResponse
      */
     public function enableBackup($request)
     {
@@ -1009,25 +1291,32 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Exports the image for a specified hardware security module (HSM).
-     *  *
-     * @param ExportImageRequest $request ExportImageRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Exports the image for a specified hardware security module (HSM).
      *
-     * @return ExportImageResponse ExportImageResponse
+     * @param request - ExportImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportImageResponse
+     *
+     * @param ExportImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ExportImageResponse
      */
     public function exportImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ExportImage',
@@ -1045,11 +1334,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Exports the image for a specified hardware security module (HSM).
-     *  *
-     * @param ExportImageRequest $request ExportImageRequest
+     * Exports the image for a specified hardware security module (HSM).
      *
-     * @return ExportImageResponse ExportImageResponse
+     * @param request - ExportImageRequest
+     *
+     * @returns ExportImageResponse
+     *
+     * @param ExportImageRequest $request
+     *
+     * @return ExportImageResponse
      */
     public function exportImage($request)
     {
@@ -1059,25 +1352,32 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the audit log feature in the current region.
-     *  *
-     * @param GetAuditLogStatusRequest $request GetAuditLogStatusRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the audit log feature in the current region.
      *
-     * @return GetAuditLogStatusResponse GetAuditLogStatusResponse
+     * @param request - GetAuditLogStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuditLogStatusResponse
+     *
+     * @param GetAuditLogStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAuditLogStatusResponse
      */
     public function getAuditLogStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->getOssBucket)) {
-            $query['GetOssBucket'] = $request->getOssBucket;
+        if (null !== $request->getOssBucket) {
+            @$query['GetOssBucket'] = $request->getOssBucket;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAuditLogStatus',
@@ -1095,11 +1395,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the audit log feature in the current region.
-     *  *
-     * @param GetAuditLogStatusRequest $request GetAuditLogStatusRequest
+     * Queries the status of the audit log feature in the current region.
      *
-     * @return GetAuditLogStatusResponse GetAuditLogStatusResponse
+     * @param request - GetAuditLogStatusRequest
+     *
+     * @returns GetAuditLogStatusResponse
+     *
+     * @param GetAuditLogStatusRequest $request
+     *
+     * @return GetAuditLogStatusResponse
      */
     public function getAuditLogStatus($request)
     {
@@ -1109,22 +1413,28 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a specified backup.
-     *  *
-     * @param GetBackupRequest $request GetBackupRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a specified backup.
      *
-     * @return GetBackupResponse GetBackupResponse
+     * @param request - GetBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBackupResponse
+     *
+     * @param GetBackupRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetBackupResponse
      */
     public function getBackupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBackup',
@@ -1142,11 +1452,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a specified backup.
-     *  *
-     * @param GetBackupRequest $request GetBackupRequest
+     * Queries the information about a specified backup.
      *
-     * @return GetBackupResponse GetBackupResponse
+     * @param request - GetBackupRequest
+     *
+     * @returns GetBackupResponse
+     *
+     * @param GetBackupRequest $request
+     *
+     * @return GetBackupResponse
      */
     public function getBackup($request)
     {
@@ -1156,22 +1470,28 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a specified cluster.
-     *  *
-     * @param GetClusterRequest $request GetClusterRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries information about a specified cluster.
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @param request - GetClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterResponse
+     *
+     * @param GetClusterRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetClusterResponse
      */
     public function getClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetCluster',
@@ -1189,11 +1509,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a specified cluster.
-     *  *
-     * @param GetClusterRequest $request GetClusterRequest
+     * Queries information about a specified cluster.
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @param request - GetClusterRequest
+     *
+     * @returns GetClusterResponse
+     *
+     * @param GetClusterRequest $request
+     *
+     * @return GetClusterResponse
      */
     public function getCluster($request)
     {
@@ -1203,22 +1527,28 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about an image.
-     *  *
-     * @param GetImageRequest $request GetImageRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries information about an image.
      *
-     * @return GetImageResponse GetImageResponse
+     * @param request - GetImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageResponse
+     *
+     * @param GetImageRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetImageResponse
      */
     public function getImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetImage',
@@ -1236,11 +1566,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about an image.
-     *  *
-     * @param GetImageRequest $request GetImageRequest
+     * Queries information about an image.
      *
-     * @return GetImageResponse GetImageResponse
+     * @param request - GetImageRequest
+     *
+     * @returns GetImageResponse
+     *
+     * @param GetImageRequest $request
+     *
+     * @return GetImageResponse
      */
     public function getImage($request)
     {
@@ -1250,22 +1584,28 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a specified hardware security module (HSM).
-     *  *
-     * @param GetInstanceRequest $request GetInstanceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries information about a specified hardware security module (HSM).
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param request - GetInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceResponse
+     *
+     * @param GetInstanceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetInstanceResponse
      */
     public function getInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetInstance',
@@ -1283,11 +1623,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a specified hardware security module (HSM).
-     *  *
-     * @param GetInstanceRequest $request GetInstanceRequest
+     * Queries information about a specified hardware security module (HSM).
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param request - GetInstanceRequest
+     *
+     * @returns GetInstanceResponse
+     *
+     * @param GetInstanceRequest $request
+     *
+     * @return GetInstanceResponse
      */
     public function getInstance($request)
     {
@@ -1297,22 +1641,28 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an asynchronous task.
-     *  *
-     * @param GetJobRequest  $request GetJobRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an asynchronous task.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobResponse
+     *
+     * @param GetJobRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetJobResponse
      */
     public function getJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJob',
@@ -1330,11 +1680,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an asynchronous task.
-     *  *
-     * @param GetJobRequest $request GetJobRequest
+     * Queries the details of an asynchronous task.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     *
+     * @returns GetJobResponse
+     *
+     * @param GetJobRequest $request
+     *
+     * @return GetJobResponse
      */
     public function getJob($request)
     {
@@ -1344,11 +1698,16 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Authorizes Cloud Hardware Security Module to deliver logs.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Authorizes Cloud Hardware Security Module to deliver logs.
      *
-     * @return InitializeAuditLogResponse InitializeAuditLogResponse
+     * @param request - InitializeAuditLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitializeAuditLogResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return InitializeAuditLogResponse
      */
     public function initializeAuditLogWithOptions($runtime)
     {
@@ -1369,9 +1728,11 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Authorizes Cloud Hardware Security Module to deliver logs.
-     *  *
-     * @return InitializeAuditLogResponse InitializeAuditLogResponse
+     * Authorizes Cloud Hardware Security Module to deliver logs.
+     *
+     * @returns InitializeAuditLogResponse
+     *
+     * @return InitializeAuditLogResponse
      */
     public function initializeAuditLog()
     {
@@ -1381,25 +1742,32 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Initializes a cluster.
-     *  *
-     * @description *   The cluster is not initialized, but the master hardware security module (HSM) of the cluster is initialized.
-     * *   Two or more vSwitches are configured for the cluster.
-     *  *
-     * @param InitializeClusterRequest $request InitializeClusterRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Initializes a cluster.
      *
-     * @return InitializeClusterResponse InitializeClusterResponse
+     * @remarks
+     *   The cluster is not initialized, but the master hardware security module (HSM) of the cluster is initialized.
+     * *   Two or more vSwitches are configured for the cluster.
+     *
+     * @param request - InitializeClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitializeClusterResponse
+     *
+     * @param InitializeClusterRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InitializeClusterResponse
      */
     public function initializeClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InitializeCluster',
@@ -1417,14 +1785,19 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Initializes a cluster.
-     *  *
-     * @description *   The cluster is not initialized, but the master hardware security module (HSM) of the cluster is initialized.
-     * *   Two or more vSwitches are configured for the cluster.
-     *  *
-     * @param InitializeClusterRequest $request InitializeClusterRequest
+     * Initializes a cluster.
      *
-     * @return InitializeClusterResponse InitializeClusterResponse
+     * @remarks
+     *   The cluster is not initialized, but the master hardware security module (HSM) of the cluster is initialized.
+     * *   Two or more vSwitches are configured for the cluster.
+     *
+     * @param request - InitializeClusterRequest
+     *
+     * @returns InitializeClusterResponse
+     *
+     * @param InitializeClusterRequest $request
+     *
+     * @return InitializeClusterResponse
      */
     public function initializeCluster($request)
     {
@@ -1434,28 +1807,36 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Adds a hardware security module (HSM) to the current cluster.
-     *  *
-     * @description *   You can add the HSM to only the cluster that is in the INITIALIZED state.
-     * *   The HSM that you want to add to the cluster is enabled or disabled and is not initialized.
-     *  *
-     * @param JoinClusterRequest $request JoinClusterRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Adds a hardware security module (HSM) to the current cluster.
      *
-     * @return JoinClusterResponse JoinClusterResponse
+     * @remarks
+     *   You can add the HSM to only the cluster that is in the INITIALIZED state.
+     * *   The HSM that you want to add to the cluster is enabled or disabled and is not initialized.
+     *
+     * @param request - JoinClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns JoinClusterResponse
+     *
+     * @param JoinClusterRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return JoinClusterResponse
      */
     public function joinClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'JoinCluster',
@@ -1473,14 +1854,19 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Adds a hardware security module (HSM) to the current cluster.
-     *  *
-     * @description *   You can add the HSM to only the cluster that is in the INITIALIZED state.
-     * *   The HSM that you want to add to the cluster is enabled or disabled and is not initialized.
-     *  *
-     * @param JoinClusterRequest $request JoinClusterRequest
+     * Adds a hardware security module (HSM) to the current cluster.
      *
-     * @return JoinClusterResponse JoinClusterResponse
+     * @remarks
+     *   You can add the HSM to only the cluster that is in the INITIALIZED state.
+     * *   The HSM that you want to add to the cluster is enabled or disabled and is not initialized.
+     *
+     * @param request - JoinClusterRequest
+     *
+     * @returns JoinClusterResponse
+     *
+     * @param JoinClusterRequest $request
+     *
+     * @return JoinClusterResponse
      */
     public function joinCluster($request)
     {
@@ -1490,28 +1876,36 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Removes a hardware security module (HSM) from the current cluster.
-     *  *
-     * @description *   If non-master HSMs exist in a cluster, the master HSM cannot be removed from the cluster.
-     * *   After the master HSM is removed from a cluster, the cluster enters the TO_DELETE state and cannot be restored to the available state. Proceed with caution.
-     *  *
-     * @param LeaveClusterRequest $request LeaveClusterRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Removes a hardware security module (HSM) from the current cluster.
      *
-     * @return LeaveClusterResponse LeaveClusterResponse
+     * @remarks
+     *   If non-master HSMs exist in a cluster, the master HSM cannot be removed from the cluster.
+     * *   After the master HSM is removed from a cluster, the cluster enters the TO_DELETE state and cannot be restored to the available state. Proceed with caution.
+     *
+     * @param request - LeaveClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LeaveClusterResponse
+     *
+     * @param LeaveClusterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return LeaveClusterResponse
      */
     public function leaveClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'LeaveCluster',
@@ -1529,14 +1923,19 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Removes a hardware security module (HSM) from the current cluster.
-     *  *
-     * @description *   If non-master HSMs exist in a cluster, the master HSM cannot be removed from the cluster.
-     * *   After the master HSM is removed from a cluster, the cluster enters the TO_DELETE state and cannot be restored to the available state. Proceed with caution.
-     *  *
-     * @param LeaveClusterRequest $request LeaveClusterRequest
+     * Removes a hardware security module (HSM) from the current cluster.
      *
-     * @return LeaveClusterResponse LeaveClusterResponse
+     * @remarks
+     *   If non-master HSMs exist in a cluster, the master HSM cannot be removed from the cluster.
+     * *   After the master HSM is removed from a cluster, the cluster enters the TO_DELETE state and cannot be restored to the available state. Proceed with caution.
+     *
+     * @param request - LeaveClusterRequest
+     *
+     * @returns LeaveClusterResponse
+     *
+     * @param LeaveClusterRequest $request
+     *
+     * @return LeaveClusterResponse
      */
     public function leaveCluster($request)
     {
@@ -1546,37 +1945,48 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the backups that meet the query conditions.
-     *  *
-     * @param ListBackupsRequest $request ListBackupsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the backups that meet the query conditions.
      *
-     * @return ListBackupsResponse ListBackupsResponse
+     * @param request - ListBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBackupsResponse
+     *
+     * @param ListBackupsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListBackupsResponse
      */
     public function listBackupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBackups',
@@ -1594,11 +2004,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the backups that meet the query conditions.
-     *  *
-     * @param ListBackupsRequest $request ListBackupsRequest
+     * Queries the backups that meet the query conditions.
      *
-     * @return ListBackupsResponse ListBackupsResponse
+     * @param request - ListBackupsRequest
+     *
+     * @returns ListBackupsResponse
+     *
+     * @param ListBackupsRequest $request
+     *
+     * @return ListBackupsResponse
      */
     public function listBackups($request)
     {
@@ -1608,28 +2022,36 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the clusters that meet the query conditions.
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the clusters that meet the query conditions.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListClustersResponse
      */
     public function listClustersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListClusters',
@@ -1647,11 +2069,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the clusters that meet the query conditions.
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
+     * Queries the clusters that meet the query conditions.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     *
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     *
+     * @return ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -1661,34 +2087,44 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the images that meet the specified conditions.
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the images that meet the specified conditions.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @param request - ListImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListImagesResponse
      */
     public function listImagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListImages',
@@ -1706,11 +2142,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the images that meet the specified conditions.
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
+     * Queries the images that meet the specified conditions.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @param request - ListImagesRequest
+     *
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     *
+     * @return ListImagesResponse
      */
     public function listImages($request)
     {
@@ -1720,31 +2160,40 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the hardware security modules (HSMs) that meet the query conditions.
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the hardware security modules (HSMs) that meet the query conditions.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tenantIsolationType)) {
-            $body['TenantIsolationType'] = $request->tenantIsolationType;
+
+        if (null !== $request->tenantIsolationType) {
+            @$body['TenantIsolationType'] = $request->tenantIsolationType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListInstances',
@@ -1762,11 +2211,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the hardware security modules (HSMs) that meet the query conditions.
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * Queries the hardware security modules (HSMs) that meet the query conditions.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -1776,31 +2229,40 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Moves a resource to a new resource group.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Moves a resource to a new resource group.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'MoveResourceGroup',
@@ -1818,11 +2280,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Moves a resource to a new resource group.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * Moves a resource to a new resource group.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     *
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -1832,24 +2298,31 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Disables a hardware security module (HSM).
-     *  *
-     * @description After you disable an HSM, the relevant service operations fail. Proceed with caution.
-     *  *
-     * @param PauseInstanceRequest $request PauseInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Disables a hardware security module (HSM).
      *
-     * @return PauseInstanceResponse PauseInstanceResponse
+     * @remarks
+     * After you disable an HSM, the relevant service operations fail. Proceed with caution.
+     *
+     * @param request - PauseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseInstanceResponse
+     *
+     * @param PauseInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PauseInstanceResponse
      */
     public function pauseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PauseInstance',
@@ -1867,13 +2340,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Disables a hardware security module (HSM).
-     *  *
-     * @description After you disable an HSM, the relevant service operations fail. Proceed with caution.
-     *  *
-     * @param PauseInstanceRequest $request PauseInstanceRequest
+     * Disables a hardware security module (HSM).
      *
-     * @return PauseInstanceResponse PauseInstanceResponse
+     * @remarks
+     * After you disable an HSM, the relevant service operations fail. Proceed with caution.
+     *
+     * @param request - PauseInstanceRequest
+     *
+     * @returns PauseInstanceResponse
+     *
+     * @param PauseInstanceRequest $request
+     *
+     * @return PauseInstanceResponse
      */
     public function pauseInstance($request)
     {
@@ -1883,24 +2361,126 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Initializes a hardware security module (HSM).
-     *  *
-     * @description This operation is supported only for general virtual security modules (GVSMs) in the Chinese mainland.
-     *  *
-     * @param QuickInitInstanceRequest $request QuickInitInstanceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 快速部署集群.
      *
-     * @return QuickInitInstanceResponse QuickInitInstanceResponse
+     * @param tmpReq - QuickDeployClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuickDeployClusterResponse
+     *
+     * @param QuickDeployClusterRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QuickDeployClusterResponse
+     */
+    public function quickDeployClusterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QuickDeployClusterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceList) {
+            $request->instanceListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceList, 'InstanceList', 'json');
+        }
+
+        if (null !== $tmpReq->vSwitchIdList) {
+            $request->vSwitchIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchIdList, 'VSwitchIdList', 'json');
+        }
+
+        if (null !== $tmpReq->whiteList) {
+            $request->whiteListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->whiteList, 'WhiteList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->certManaged) {
+            @$query['CertManaged'] = $request->certManaged;
+        }
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->instanceListShrink) {
+            @$query['InstanceList'] = $request->instanceListShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vSwitchIdListShrink) {
+            @$query['VSwitchIdList'] = $request->vSwitchIdListShrink;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->whiteListShrink) {
+            @$query['WhiteList'] = $request->whiteListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuickDeployCluster',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuickDeployClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 快速部署集群.
+     *
+     * @param request - QuickDeployClusterRequest
+     *
+     * @returns QuickDeployClusterResponse
+     *
+     * @param QuickDeployClusterRequest $request
+     *
+     * @return QuickDeployClusterResponse
+     */
+    public function quickDeployCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->quickDeployClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Initializes a hardware security module (HSM).
+     *
+     * @remarks
+     * This operation is supported only for general virtual security modules (GVSMs) in the Chinese mainland.
+     *
+     * @param request - QuickInitInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuickInitInstanceResponse
+     *
+     * @param QuickInitInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QuickInitInstanceResponse
      */
     public function quickInitInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QuickInitInstance',
@@ -1918,13 +2498,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Initializes a hardware security module (HSM).
-     *  *
-     * @description This operation is supported only for general virtual security modules (GVSMs) in the Chinese mainland.
-     *  *
-     * @param QuickInitInstanceRequest $request QuickInitInstanceRequest
+     * Initializes a hardware security module (HSM).
      *
-     * @return QuickInitInstanceResponse QuickInitInstanceResponse
+     * @remarks
+     * This operation is supported only for general virtual security modules (GVSMs) in the Chinese mainland.
+     *
+     * @param request - QuickInitInstanceRequest
+     *
+     * @returns QuickInitInstanceResponse
+     *
+     * @param QuickInitInstanceRequest $request
+     *
+     * @return QuickInitInstanceResponse
      */
     public function quickInitInstance($request)
     {
@@ -1934,24 +2519,31 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates a backup from a hardware security module (HSM).
-     *  *
-     * @description This operation is available only for HSMs in the Chinese mainland.
-     *  *
-     * @param ResetBackupRequest $request ResetBackupRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Disassociates a backup from a hardware security module (HSM).
      *
-     * @return ResetBackupResponse ResetBackupResponse
+     * @remarks
+     * This operation is available only for HSMs in the Chinese mainland.
+     *
+     * @param request - ResetBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetBackupResponse
+     *
+     * @param ResetBackupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ResetBackupResponse
      */
     public function resetBackupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetBackup',
@@ -1969,13 +2561,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates a backup from a hardware security module (HSM).
-     *  *
-     * @description This operation is available only for HSMs in the Chinese mainland.
-     *  *
-     * @param ResetBackupRequest $request ResetBackupRequest
+     * Disassociates a backup from a hardware security module (HSM).
      *
-     * @return ResetBackupResponse ResetBackupResponse
+     * @remarks
+     * This operation is available only for HSMs in the Chinese mainland.
+     *
+     * @param request - ResetBackupRequest
+     *
+     * @returns ResetBackupResponse
+     *
+     * @param ResetBackupRequest $request
+     *
+     * @return ResetBackupResponse
      */
     public function resetBackup($request)
     {
@@ -1985,24 +2582,31 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Resets a hardware security module (HSM).
-     *  *
-     * @description After an HSM is reset, all related data is deleted and cannot be recovered. Proceed with caution.
-     *  *
-     * @param ResetInstanceRequest $request ResetInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Resets a hardware security module (HSM).
      *
-     * @return ResetInstanceResponse ResetInstanceResponse
+     * @remarks
+     * After an HSM is reset, all related data is deleted and cannot be recovered. Proceed with caution.
+     *
+     * @param request - ResetInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetInstanceResponse
+     *
+     * @param ResetInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResetInstanceResponse
      */
     public function resetInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ResetInstance',
@@ -2020,13 +2624,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Resets a hardware security module (HSM).
-     *  *
-     * @description After an HSM is reset, all related data is deleted and cannot be recovered. Proceed with caution.
-     *  *
-     * @param ResetInstanceRequest $request ResetInstanceRequest
+     * Resets a hardware security module (HSM).
      *
-     * @return ResetInstanceResponse ResetInstanceResponse
+     * @remarks
+     * After an HSM is reset, all related data is deleted and cannot be recovered. Proceed with caution.
+     *
+     * @param request - ResetInstanceRequest
+     *
+     * @returns ResetInstanceResponse
+     *
+     * @param ResetInstanceRequest $request
+     *
+     * @return ResetInstanceResponse
      */
     public function resetInstance($request)
     {
@@ -2036,27 +2645,35 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Restores a hardware security module (HSM) by using an image.
-     *  *
-     * @description You can use images to restore only HSMs that are paused or disabled.
-     *  *
-     * @param RestoreInstanceRequest $request RestoreInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Restores a hardware security module (HSM) by using an image.
      *
-     * @return RestoreInstanceResponse RestoreInstanceResponse
+     * @remarks
+     * You can use images to restore only HSMs that are paused or disabled.
+     *
+     * @param request - RestoreInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreInstanceResponse
+     *
+     * @param RestoreInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestoreInstanceResponse
      */
     public function restoreInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RestoreInstance',
@@ -2074,13 +2691,18 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Restores a hardware security module (HSM) by using an image.
-     *  *
-     * @description You can use images to restore only HSMs that are paused or disabled.
-     *  *
-     * @param RestoreInstanceRequest $request RestoreInstanceRequest
+     * Restores a hardware security module (HSM) by using an image.
      *
-     * @return RestoreInstanceResponse RestoreInstanceResponse
+     * @remarks
+     * You can use images to restore only HSMs that are paused or disabled.
+     *
+     * @param request - RestoreInstanceRequest
+     *
+     * @returns RestoreInstanceResponse
+     *
+     * @param RestoreInstanceRequest $request
+     *
+     * @return RestoreInstanceResponse
      */
     public function restoreInstance($request)
     {
@@ -2090,22 +2712,28 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Resumes a disabled hardware security module (HSM).
-     *  *
-     * @param ResumeInstanceRequest $request ResumeInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Resumes a disabled hardware security module (HSM).
      *
-     * @return ResumeInstanceResponse ResumeInstanceResponse
+     * @param request - ResumeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeInstanceResponse
+     *
+     * @param ResumeInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResumeInstanceResponse
      */
     public function resumeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ResumeInstance',
@@ -2123,11 +2751,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Resumes a disabled hardware security module (HSM).
-     *  *
-     * @param ResumeInstanceRequest $request ResumeInstanceRequest
+     * Resumes a disabled hardware security module (HSM).
      *
-     * @return ResumeInstanceResponse ResumeInstanceResponse
+     * @param request - ResumeInstanceRequest
+     *
+     * @returns ResumeInstanceResponse
+     *
+     * @param ResumeInstanceRequest $request
+     *
+     * @return ResumeInstanceResponse
      */
     public function resumeInstance($request)
     {
@@ -2137,25 +2769,103 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Promotes a slave hardware security module (HSM) to the master HSM within the cluster. Clusters that are manually synchronized in the Chinese Mainland do not support this operation.
-     *  *
-     * @param SwitchClusterMasterRequest $request SwitchClusterMasterRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 轮转集群托管证书.
      *
-     * @return SwitchClusterMasterResponse SwitchClusterMasterResponse
+     * @remarks
+     * ## 请求说明
+     * 该API用于触发指定集群的管理证书轮转过程。通过提供`ClusterId`参数，可以指定需要进行证书轮转的集群。此操作有助于提高集群的安全性，建议定期执行。
+     * ### 注意事项
+     * - 确保提供的`ClusterId`是有效的，并且用户具有对该集群的操作权限。
+     * - 证书轮转可能会影响依赖于旧证书的服务，请在适当的时间窗口内执行此操作。
+     *
+     * @param request - RotateClusterManagedCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RotateClusterManagedCertResponse
+     *
+     * @param RotateClusterManagedCertRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RotateClusterManagedCertResponse
+     */
+    public function rotateClusterManagedCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RotateClusterManagedCert',
+            'version' => '2023-11-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RotateClusterManagedCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 轮转集群托管证书.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于触发指定集群的管理证书轮转过程。通过提供`ClusterId`参数，可以指定需要进行证书轮转的集群。此操作有助于提高集群的安全性，建议定期执行。
+     * ### 注意事项
+     * - 确保提供的`ClusterId`是有效的，并且用户具有对该集群的操作权限。
+     * - 证书轮转可能会影响依赖于旧证书的服务，请在适当的时间窗口内执行此操作。
+     *
+     * @param request - RotateClusterManagedCertRequest
+     *
+     * @returns RotateClusterManagedCertResponse
+     *
+     * @param RotateClusterManagedCertRequest $request
+     *
+     * @return RotateClusterManagedCertResponse
+     */
+    public function rotateClusterManagedCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rotateClusterManagedCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * Promotes a slave hardware security module (HSM) to the master HSM within the cluster. Clusters that are manually synchronized in the Chinese Mainland do not support this operation.
+     *
+     * @param request - SwitchClusterMasterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchClusterMasterResponse
+     *
+     * @param SwitchClusterMasterRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SwitchClusterMasterResponse
      */
     public function switchClusterMasterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SwitchClusterMaster',
@@ -2173,11 +2883,15 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Promotes a slave hardware security module (HSM) to the master HSM within the cluster. Clusters that are manually synchronized in the Chinese Mainland do not support this operation.
-     *  *
-     * @param SwitchClusterMasterRequest $request SwitchClusterMasterRequest
+     * Promotes a slave hardware security module (HSM) to the master HSM within the cluster. Clusters that are manually synchronized in the Chinese Mainland do not support this operation.
      *
-     * @return SwitchClusterMasterResponse SwitchClusterMasterResponse
+     * @param request - SwitchClusterMasterRequest
+     *
+     * @returns SwitchClusterMasterResponse
+     *
+     * @param SwitchClusterMasterRequest $request
+     *
+     * @return SwitchClusterMasterResponse
      */
     public function switchClusterMaster($request)
     {
@@ -2187,25 +2901,32 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Synchronizes the data of hardware security modules (HSMs) in a cluster.
-     *  *
-     * @description *   This operation is used for manually synchronizing data within clusters located in the Chinese Mainland. For clusters outside the Chinese Mainland, automatic data synchronization is supported, and this operation is unnecessary. If you attempt to use this operation, a 400 error code will be returned.
-     * *   The data synchronization takes approximately 5 minutes. To avoid service interruptions, we recommend performing this operation during off-peak hours.
-     *  *
-     * @param SyncClusterRequest $request SyncClusterRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Synchronizes the data of hardware security modules (HSMs) in a cluster.
      *
-     * @return SyncClusterResponse SyncClusterResponse
+     * @remarks
+     *   This operation is used for manually synchronizing data within clusters located in the Chinese Mainland. For clusters outside the Chinese Mainland, automatic data synchronization is supported, and this operation is unnecessary. If you attempt to use this operation, a 400 error code will be returned.
+     * *   The data synchronization takes approximately 5 minutes. To avoid service interruptions, we recommend performing this operation during off-peak hours.
+     *
+     * @param request - SyncClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncClusterResponse
+     *
+     * @param SyncClusterRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SyncClusterResponse
      */
     public function syncClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SyncCluster',
@@ -2223,14 +2944,19 @@ class Hsm extends OpenApiClient
     }
 
     /**
-     * @summary Synchronizes the data of hardware security modules (HSMs) in a cluster.
-     *  *
-     * @description *   This operation is used for manually synchronizing data within clusters located in the Chinese Mainland. For clusters outside the Chinese Mainland, automatic data synchronization is supported, and this operation is unnecessary. If you attempt to use this operation, a 400 error code will be returned.
-     * *   The data synchronization takes approximately 5 minutes. To avoid service interruptions, we recommend performing this operation during off-peak hours.
-     *  *
-     * @param SyncClusterRequest $request SyncClusterRequest
+     * Synchronizes the data of hardware security modules (HSMs) in a cluster.
      *
-     * @return SyncClusterResponse SyncClusterResponse
+     * @remarks
+     *   This operation is used for manually synchronizing data within clusters located in the Chinese Mainland. For clusters outside the Chinese Mainland, automatic data synchronization is supported, and this operation is unnecessary. If you attempt to use this operation, a 400 error code will be returned.
+     * *   The data synchronization takes approximately 5 minutes. To avoid service interruptions, we recommend performing this operation during off-peak hours.
+     *
+     * @param request - SyncClusterRequest
+     *
+     * @returns SyncClusterResponse
+     *
+     * @param SyncClusterRequest $request
+     *
+     * @return SyncClusterResponse
      */
     public function syncCluster($request)
     {

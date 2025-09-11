@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigImageRemarkRequest extends Model
 {
     /**
-     * @description The ID of the image.
-     *
-     * This parameter is required.
-     *
-     * @example image-d79x4k11pmg19****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The description of the image.
-     *
-     * This parameter is required.
-     *
-     * @example hsm-****
-     *
      * @var string
      */
     public $remark;
@@ -34,14 +22,18 @@ class ConfigImageRemarkRequest extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -49,17 +41,18 @@ class ConfigImageRemarkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigImageRemarkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

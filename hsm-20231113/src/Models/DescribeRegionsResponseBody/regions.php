@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models\DescribeRegionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\DescribeRegionsResponseBody\regions\zones;
-use AlibabaCloud\Tea\Model;
 
 class regions extends Model
 {
     /**
-     * @description The name of the region.
-     *
-     * @example Singapore
-     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description The region ID.
-     *
-     * @example ap-southeast-1
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The zones.
-     *
      * @var zones[]
      */
     public $zones;
@@ -39,23 +29,32 @@ class regions extends Model
         'zones' => 'Zones',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->zones)) {
+            Model::validateArray($this->zones);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->zones) {
-            $res['Zones'] = [];
-            if (null !== $this->zones && \is_array($this->zones)) {
-                $n = 0;
-                foreach ($this->zones as $item) {
-                    $res['Zones'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->zones)) {
+                $res['Zones'] = [];
+                $n1 = 0;
+                foreach ($this->zones as $item1) {
+                    $res['Zones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,26 +62,29 @@ class regions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n = 0;
-                foreach ($map['Zones'] as $item) {
-                    $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Zones'] as $item1) {
+                    $model->zones[$n1] = zones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

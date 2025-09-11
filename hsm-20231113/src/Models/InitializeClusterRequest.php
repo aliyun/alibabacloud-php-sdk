@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InitializeClusterRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * This parameter is required.
-     *
-     * @example cluster-p94y1dud9****
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +16,12 @@ class InitializeClusterRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class InitializeClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InitializeClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

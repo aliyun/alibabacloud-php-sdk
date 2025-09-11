@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models\GetClusterResponseBody\cluster;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instances extends Model
 {
     /**
-     * @description The ID of the HSM.
-     *
-     * @example hsm-cn-g6z3v0uf****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Indicates whether the HSM is a master HSM. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $master;
 
     /**
-     * @description The ID of the HSM in the cluster.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $nodeId;
@@ -43,17 +28,22 @@ class instances extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->master) {
             $res['Master'] = $this->master;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -61,20 +51,22 @@ class instances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Master'])) {
             $model->master = $map['Master'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

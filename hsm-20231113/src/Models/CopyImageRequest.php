@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopyImageRequest extends Model
 {
     /**
-     * @description The ID of the image.
-     *
-     * @example image-hafiudfahdd****
-     *
      * @var string
      */
     public $imageUid;
 
     /**
-     * @description The ID of the destination region.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $targetRegionId;
@@ -30,14 +22,18 @@ class CopyImageRequest extends Model
         'targetRegionId' => 'TargetRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageUid) {
             $res['ImageUid'] = $this->imageUid;
         }
+
         if (null !== $this->targetRegionId) {
             $res['TargetRegionId'] = $this->targetRegionId;
         }
@@ -45,17 +41,18 @@ class CopyImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageUid'])) {
             $model->imageUid = $map['ImageUid'];
         }
+
         if (isset($map['TargetRegionId'])) {
             $model->targetRegionId = $map['TargetRegionId'];
         }

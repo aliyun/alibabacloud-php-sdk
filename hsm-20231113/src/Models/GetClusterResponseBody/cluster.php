@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models\GetClusterResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\GetClusterResponseBody\cluster\instances;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\GetClusterResponseBody\cluster\zones;
-use AlibabaCloud\Tea\Model;
 
 class cluster extends Model
 {
@@ -16,84 +16,41 @@ class cluster extends Model
     public $certManaged;
 
     /**
-     * @description The cluster certificate.
-     *
-     * @example -----BEGIN CERTIFICATE-----
-     * MIIDfTCCAmWgAwIBAgIJAMRqQMr5if66MA0GCSqGSIb3DQEBCwUAMFUxCzAJBgNV
-     * BAYTAmNuMQswCQYDVQQIDAJ6ajELMAkGA1UEBwwCaHoxFjAUBgNVBAoMDUFsaWJh
-     * YmEgQ2xvdWQxFDA****
-     * -----END CERTIFICATE-----
-     *
      * @var string
      */
     public $clusterCertificate;
 
     /**
-     * @description The certificate signing request (CSR) file of the cluster.
-     *
-     * @example -----BEGIN CERTIFICATE REQUEST-----\\nMIIC5TCCAc0CAQAwgZ8xWTAJBgNVBAYTAlVTMAkGA1UECAwCQ0EwDQYDVQQKDAZD\\nYXZpdW0wDQYDVQQLDAZOM0ZJUFMwDgYDVQQHDAdTYW5Kb3NlMBMGA1UdEQwMMTk****
-     * -----END CERTIFICATE REQUEST-----
-     *
      * @var string
      */
     public $clusterCsr;
 
     /**
-     * @description The ID of the cluster.
-     *
-     * @example cluster-p94y1dud9ts****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The cluster mode.
-     *
-     * 2: automatically synchronizes the cluster.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $clusterMode;
 
     /**
-     * @description The name of the cluster.
-     *
-     * @example cluster_polar_****
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description The self-signed certificate of the cluster.
-     *
-     * @example ----BEGIN CERTIFICATE-----
-     * MIIDaTCCAlECAQEwDQYJKoZIhvcNAQELBQAwVTELMAkGA1UEBhMCY24xCzAJBgNV
-     * BAgMAnpqMQswCQYDVQQHDAJoejEWMBQGA1UECgwNQWxpYmFiYSBDbG91ZDEUMBIG
-     * A1UECwwLU2VjQ2xvdWRIc20wHhcNMjQwNzAzM****
-     * -----END CERTIFICATE-----
-     *
      * @var string
      */
     public $clusterOwnerCertificate;
 
     /**
-     * @description The time when the cluster was created. Unit: milliseconds. The value is a UNIX timestamp.
-     *
-     * @example 1641275680000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description The type of the device.
-     *
-     * @example jnta
-     *
      * @var string
      */
     public $deviceType;
@@ -104,66 +61,36 @@ class cluster extends Model
     public $entityCertExpireTime;
 
     /**
-     * @description The HSMs in the cluster.
-     *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The ID of the region in which the cluster resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The number of hardware security modules (HSMs) in the cluster.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description The status of the cluster. Valid values:
-     *
-     *   NEW: The cluster is not initialized.
-     *   INITIALIZED: The cluster is initialized.
-     *   DELETED: The cluster is deleted.
-     *   SYNCHRONIZING: The cluster is being synchronized.
-     *   TO_DELETE: The cluster is pending deletion.
-     *
-     * @example NEW
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the cluster belongs.
-     *
-     * @example vpc-8vbt0fjdm29hofvbo****
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The IP address whitelist of the cluster.
-     *
-     * @example 130.176.XX.XX
-     *
      * @var string
      */
     public $whitelist;
 
     /**
-     * @description The information about the zones in which the cluster is deployed.
-     *
      * @var zones[]
      */
     public $zones;
@@ -187,71 +114,98 @@ class cluster extends Model
         'zones' => 'Zones',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        if (\is_array($this->zones)) {
+            Model::validateArray($this->zones);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certManaged) {
             $res['CertManaged'] = $this->certManaged;
         }
+
         if (null !== $this->clusterCertificate) {
             $res['ClusterCertificate'] = $this->clusterCertificate;
         }
+
         if (null !== $this->clusterCsr) {
             $res['ClusterCsr'] = $this->clusterCsr;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterMode) {
             $res['ClusterMode'] = $this->clusterMode;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->clusterOwnerCertificate) {
             $res['ClusterOwnerCertificate'] = $this->clusterOwnerCertificate;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
         }
+
         if (null !== $this->entityCertExpireTime) {
             $res['EntityCertExpireTime'] = $this->entityCertExpireTime;
         }
+
         if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->whitelist) {
             $res['Whitelist'] = $this->whitelist;
         }
+
         if (null !== $this->zones) {
-            $res['Zones'] = [];
-            if (null !== $this->zones && \is_array($this->zones)) {
-                $n = 0;
-                foreach ($this->zones as $item) {
-                    $res['Zones'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->zones)) {
+                $res['Zones'] = [];
+                $n1 = 0;
+                foreach ($this->zones as $item1) {
+                    $res['Zones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -259,74 +213,92 @@ class cluster extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cluster
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertManaged'])) {
             $model->certManaged = $map['CertManaged'];
         }
+
         if (isset($map['ClusterCertificate'])) {
             $model->clusterCertificate = $map['ClusterCertificate'];
         }
+
         if (isset($map['ClusterCsr'])) {
             $model->clusterCsr = $map['ClusterCsr'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterMode'])) {
             $model->clusterMode = $map['ClusterMode'];
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['ClusterOwnerCertificate'])) {
             $model->clusterOwnerCertificate = $map['ClusterOwnerCertificate'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
+
         if (isset($map['EntityCertExpireTime'])) {
             $model->entityCertExpireTime = $map['EntityCertExpireTime'];
         }
+
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['Whitelist'])) {
             $model->whitelist = $map['Whitelist'];
         }
+
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n = 0;
-                foreach ($map['Zones'] as $item) {
-                    $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Zones'] as $item1) {
+                    $model->zones[$n1] = zones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,40 +4,21 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigAuditLogRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the audit log feature. Valid values:
-     *
-     *   enable
-     *   disable
-     *
-     * This parameter is required.
-     *
-     * @example enable
-     *
      * @var string
      */
     public $auditAction;
 
     /**
-     * @description The bucket to which audit logs are delivered.
-     *
-     * @example hsm-log
-     *
      * @var string
      */
     public $auditOssBucket;
 
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -47,17 +28,22 @@ class ConfigAuditLogRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auditAction) {
             $res['AuditAction'] = $this->auditAction;
         }
+
         if (null !== $this->auditOssBucket) {
             $res['AuditOssBucket'] = $this->auditOssBucket;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -65,20 +51,22 @@ class ConfigAuditLogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigAuditLogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuditAction'])) {
             $model->auditAction = $map['AuditAction'];
         }
+
         if (isset($map['AuditOssBucket'])) {
             $model->auditOssBucket = $map['AuditOssBucket'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

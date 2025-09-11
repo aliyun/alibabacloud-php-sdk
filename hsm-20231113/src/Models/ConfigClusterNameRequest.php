@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigClusterNameRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * This parameter is required.
-     *
-     * @example cluster-BqxX63Bsgfaisdf****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
-     *
-     * This parameter is required.
-     *
-     * @example cluster_on****
-     *
      * @var string
      */
     public $clusterName;
@@ -34,14 +22,18 @@ class ConfigClusterNameRequest extends Model
         'clusterName' => 'ClusterName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -49,17 +41,18 @@ class ConfigClusterNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigClusterNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }

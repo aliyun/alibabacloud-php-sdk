@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The language of the content. Valid values:
-     *
-     *   zh: Chinese.
-     *   en: English.
-     *
-     * @example en
-     *
      * @var string
      */
     public $acceptLanguage;
@@ -23,9 +16,12 @@ class DescribeRegionsRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
@@ -35,11 +31,11 @@ class DescribeRegionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRegionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

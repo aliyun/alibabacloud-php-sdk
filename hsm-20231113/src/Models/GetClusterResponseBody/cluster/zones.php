@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models\GetClusterResponseBody\cluster;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zones extends Model
 {
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vsw-uf61s651p69bdgmki****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description The ID of the zone.
-     *
-     * @example cn-hangzhou-j
-     *
      * @var string
      */
     public $zoneId;
@@ -30,14 +22,18 @@ class zones extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -45,17 +41,18 @@ class zones extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

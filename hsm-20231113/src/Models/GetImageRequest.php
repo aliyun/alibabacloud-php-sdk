@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetImageRequest extends Model
 {
     /**
-     * @description The ID of the image.
-     *
-     * This parameter is required.
-     *
-     * @example image-wz9c5ths5dfuwx47****
-     *
      * @var string
      */
     public $imageId;
@@ -22,9 +16,12 @@ class GetImageRequest extends Model
         'imageId' => 'ImageId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
@@ -34,11 +31,11 @@ class GetImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\GetImageResponseBody\image;
-use AlibabaCloud\Tea\Model;
 
 class GetImageResponseBody extends Model
 {
     /**
-     * @description The image information.
-     *
      * @var image
      */
     public $image;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4C467B38-3910-447D-87BC-AC049166F216
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetImageResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->image) {
+            $this->image->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->image) {
-            $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
+            $res['Image'] = null !== $this->image ? $this->image->toArray($noStream) : $this->image;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetImageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Image'])) {
             $model->image = image::fromMap($map['Image']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

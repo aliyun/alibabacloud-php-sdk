@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestoreInstanceRequest extends Model
 {
     /**
-     * @description The ID of the image that you want to use to restore the HSM.
-     *
-     * This parameter is required.
-     *
-     * @example image-eaOGHkRDQgh4****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The ID of the HSM.
-     *
-     * This parameter is required.
-     *
-     * @example hsm-cn-mp90fxef****
-     *
      * @var string
      */
     public $instanceId;
@@ -34,14 +22,18 @@ class RestoreInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,17 +41,18 @@ class RestoreInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestoreInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

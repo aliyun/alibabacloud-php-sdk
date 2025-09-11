@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\JoinClusterResponseBody\job;
-use AlibabaCloud\Tea\Model;
 
 class JoinClusterResponseBody extends Model
 {
     /**
-     * @description The details of the task.
-     *
      * @var job
      */
     public $job;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4C467B38-3910-447D-87BC-AC049166F216
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class JoinClusterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->job) {
+            $this->job->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->job) {
-            $res['Job'] = null !== $this->job ? $this->job->toMap() : null;
+            $res['Job'] = null !== $this->job ? $this->job->toArray($noStream) : $this->job;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class JoinClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JoinClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Job'])) {
             $model->job = job::fromMap($map['Job']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

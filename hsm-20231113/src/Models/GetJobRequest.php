@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetJobRequest extends Model
 {
     /**
-     * @description The ID of the task.
-     *
-     * This parameter is required.
-     *
-     * @example job-202401250936hze747fd7e0007005
-     *
      * @var string
      */
     public $jobId;
@@ -22,9 +16,12 @@ class GetJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -34,11 +31,11 @@ class GetJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

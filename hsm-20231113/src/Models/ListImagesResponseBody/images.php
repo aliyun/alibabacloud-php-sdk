@@ -4,140 +4,76 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models\ListImagesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class images extends Model
 {
     /**
-     * @description The ID of the backup.
-     *
-     * @example backup-fdb897sdf****
-     *
      * @var string
      */
     public $backupId;
 
     /**
-     * @description The time when the image was copied. Unit: milliseconds. The value is a UNIX timestamp.
-     *
-     * @example 1641275680000
-     *
      * @var string
      */
     public $copyTime;
 
     /**
-     * @description The time when the image was generated. Unit: milliseconds. The value is a UNIX timestamp.
-     *
-     * @example 1782849566738
-     *
      * @var int
      */
     public $exportTime;
 
     /**
-     * @description The ID of the image.
-     *
-     * @example image-d79x4k11pmg19****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The ID of the hardware security module (HSM).
-     *
-     * @example hsm-cn-6ja1xknf****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The image generation mode. Valid values:
-     *
-     *   PERIODIC: It is automatically generated.
-     *   MANUAL: It is manually generated.
-     *
-     * @example MANUAL
-     *
      * @var string
      */
     public $mode;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The description of the backup.
-     *
-     * @example hsm-test
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The ID of the source backup.
-     *
-     * @example backup-hodfhaol****
-     *
      * @var string
      */
     public $sourceBackupUid;
 
     /**
-     * @description The ID of the source image.
-     *
-     * @example image-ooopjygsn****
-     *
      * @var string
      */
     public $sourceImageUid;
 
     /**
-     * @description The ID of the source HSM.
-     *
-     * @example hsm-cn-wz9i2dmefudfxtmb****
-     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
-     * @description The ID of the region in which the source image resides.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $sourceRegionId;
 
     /**
-     * @description The status of the image. Valid values:
-     *
-     *   NEW: It is disabled.
-     *   DELETED: It is deleted.
-     *   CREATING: It is being created.
-     *   NORMAL: It is created.
-     *
-     * @example CREATING
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The digest of the HSM.
-     *
-     * @example 3kGeHnmQzXwSsfF0Jk9eJYhe2gP6An0/HlYIiZh1****
-     *
      * @var string
      */
     public $vsmDigest;
@@ -158,50 +94,66 @@ class images extends Model
         'vsmDigest' => 'VsmDigest',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
         }
+
         if (null !== $this->copyTime) {
             $res['CopyTime'] = $this->copyTime;
         }
+
         if (null !== $this->exportTime) {
             $res['ExportTime'] = $this->exportTime;
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->sourceBackupUid) {
             $res['SourceBackupUid'] = $this->sourceBackupUid;
         }
+
         if (null !== $this->sourceImageUid) {
             $res['SourceImageUid'] = $this->sourceImageUid;
         }
+
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
+
         if (null !== $this->sourceRegionId) {
             $res['SourceRegionId'] = $this->sourceRegionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->vsmDigest) {
             $res['VsmDigest'] = $this->vsmDigest;
         }
@@ -209,53 +161,66 @@ class images extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return images
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }
+
         if (isset($map['CopyTime'])) {
             $model->copyTime = $map['CopyTime'];
         }
+
         if (isset($map['ExportTime'])) {
             $model->exportTime = $map['ExportTime'];
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['SourceBackupUid'])) {
             $model->sourceBackupUid = $map['SourceBackupUid'];
         }
+
         if (isset($map['SourceImageUid'])) {
             $model->sourceImageUid = $map['SourceImageUid'];
         }
+
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
         }
+
         if (isset($map['SourceRegionId'])) {
             $model->sourceRegionId = $map['SourceRegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['VsmDigest'])) {
             $model->vsmDigest = $map['VsmDigest'];
         }

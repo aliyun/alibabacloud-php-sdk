@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models\ListClustersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clusters extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * @example cluster-w3G9vOJI2****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The status of the cluster. Valid values:
-     *
-     *   NEW: The cluster is not initialized.
-     *   INITIALIZED: The cluster is initialized.
-     *   DELETED: The cluster is deleted.
-     *   SYNCHRONIZING: The cluster is being synchronized.
-     *   TO_DELETE: The cluster is pending deletion.
-     *
-     * @example INITIALIZED
-     *
      * @var string
      */
     public $status;
@@ -36,14 +22,18 @@ class clusters extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,17 +41,18 @@ class clusters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Hsm\V20231113\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hsm\V20231113\Models\GetInstanceResponseBody\instance;
-use AlibabaCloud\Tea\Model;
 
 class GetInstanceResponseBody extends Model
 {
     /**
-     * @description The information about the HSM.
-     *
      * @var instance
      */
     public $instance;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4C467B38-3910-447D-87BC-AC049166F216
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetInstanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instance) {
+            $this->instance->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instance) {
-            $res['Instance'] = null !== $this->instance ? $this->instance->toMap() : null;
+            $res['Instance'] = null !== $this->instance ? $this->instance->toArray($noStream) : $this->instance;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instance'])) {
             $model->instance = instance::fromMap($map['Instance']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
