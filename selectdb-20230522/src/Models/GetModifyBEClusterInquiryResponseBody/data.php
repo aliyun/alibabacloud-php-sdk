@@ -4,18 +4,20 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\GetModifyBEClusterInquiryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetModifyBEClusterInquiryResponseBody\data\optionalPromotions;
 
 class data extends Model
 {
     /**
-     * @description The currency.
-     *
-     * @example CNY
-     *
      * @var string
      */
     public $currency;
+
+    /**
+     * @var optionalPromotions[]
+     */
+    public $optionalPromotions;
 
     /**
      * @var string[]
@@ -23,43 +25,64 @@ class data extends Model
     public $pricingRules;
 
     /**
-     * @description The estimated refund amount when the subscription cluster of a subscription instance is changed to a pay-as-you-go cluster.
-     *
-     * @example -100
-     *
      * @var string
      */
     public $refundAmount;
 
     /**
-     * @description The amount of money.
-     *
-     * @example 1.76
-     *
      * @var string
      */
     public $tradeAmount;
     protected $_name = [
         'currency' => 'Currency',
+        'optionalPromotions' => 'OptionalPromotions',
         'pricingRules' => 'PricingRules',
         'refundAmount' => 'RefundAmount',
         'tradeAmount' => 'TradeAmount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->optionalPromotions)) {
+            Model::validateArray($this->optionalPromotions);
+        }
+        if (\is_array($this->pricingRules)) {
+            Model::validateArray($this->pricingRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
-        if (null !== $this->pricingRules) {
-            $res['PricingRules'] = $this->pricingRules;
+
+        if (null !== $this->optionalPromotions) {
+            if (\is_array($this->optionalPromotions)) {
+                $res['OptionalPromotions'] = [];
+                $n1 = 0;
+                foreach ($this->optionalPromotions as $item1) {
+                    $res['OptionalPromotions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (null !== $this->pricingRules) {
+            if (\is_array($this->pricingRules)) {
+                $res['PricingRules'] = [];
+                foreach ($this->pricingRules as $key1 => $value1) {
+                    $res['PricingRules'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->refundAmount) {
             $res['RefundAmount'] = $this->refundAmount;
         }
+
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -67,23 +90,42 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
-        if (isset($map['PricingRules'])) {
-            $model->pricingRules = $map['PricingRules'];
+
+        if (isset($map['OptionalPromotions'])) {
+            if (!empty($map['OptionalPromotions'])) {
+                $model->optionalPromotions = [];
+                $n1 = 0;
+                foreach ($map['OptionalPromotions'] as $item1) {
+                    $model->optionalPromotions[$n1] = optionalPromotions::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
+
+        if (isset($map['PricingRules'])) {
+            if (!empty($map['PricingRules'])) {
+                $model->pricingRules = [];
+                foreach ($map['PricingRules'] as $key1 => $value1) {
+                    $model->pricingRules[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['RefundAmount'])) {
             $model->refundAmount = $map['RefundAmount'];
         }
+
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterBindingResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example selectdb-cn-7213cjv2ez-be
-     *
      * @var string
      */
     public $dbClusterId;
 
     /**
-     * @description The numeric ID.
-     *
-     * @example 6585
-     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
-     * @description The instance ID.
-     *
-     * @example selectdb-cn-7213cjv2ez
-     *
      * @var string
      */
     public $dbInstanceName;
@@ -40,17 +28,22 @@ class data extends Model
         'dbInstanceName' => 'DbInstanceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbClusterId) {
             $res['DbClusterId'] = $this->dbClusterId;
         }
+
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
+
         if (null !== $this->dbInstanceName) {
             $res['DbInstanceName'] = $this->dbInstanceName;
         }
@@ -58,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbClusterId'])) {
             $model->dbClusterId = $map['DbClusterId'];
         }
+
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }
+
         if (isset($map['DbInstanceName'])) {
             $model->dbInstanceName = $map['DbInstanceName'];
         }

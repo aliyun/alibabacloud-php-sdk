@@ -4,49 +4,26 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyBEClusterAttributeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example selectdb-xxxb9f2w-be
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example selectdb-cn-7213cjv****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The attribute type of the instance. Set this parameter to DBInstanceDescription.
-     *
-     * Valid values:
-     *
-     *   MaintainTime
-     *   DBInstanceDescription
-     *
-     * This parameter is required.
-     *
-     * @example DBInstanceDescription
-     *
      * @var string
      */
     public $instanceAttributeType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -57,12 +34,6 @@ class ModifyBEClusterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The new name of the cluster.
-     *
-     * This parameter is required.
-     *
-     * @example testdb
-     *
      * @var string
      */
     public $value;
@@ -75,26 +46,34 @@ class ModifyBEClusterAttributeRequest extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->instanceAttributeType) {
             $res['InstanceAttributeType'] = $this->instanceAttributeType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -102,29 +81,34 @@ class ModifyBEClusterAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBEClusterAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['InstanceAttributeType'])) {
             $model->instanceAttributeType = $map['InstanceAttributeType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
