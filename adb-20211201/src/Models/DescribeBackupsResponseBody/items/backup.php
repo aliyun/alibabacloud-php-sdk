@@ -46,6 +46,11 @@ class backup extends Model
     /**
      * @var string
      */
+    public $backupStatus;
+
+    /**
+     * @var string
+     */
     public $backupType;
 
     /**
@@ -65,6 +70,7 @@ class backup extends Model
         'backupRegion' => 'BackupRegion',
         'backupSize' => 'BackupSize',
         'backupStartTime' => 'BackupStartTime',
+        'backupStatus' => 'BackupStatus',
         'backupType' => 'BackupType',
         'DBClusterId' => 'DBClusterId',
         'parentBackupId' => 'ParentBackupId',
@@ -104,6 +110,10 @@ class backup extends Model
 
         if (null !== $this->backupStartTime) {
             $res['BackupStartTime'] = $this->backupStartTime;
+        }
+
+        if (null !== $this->backupStatus) {
+            $res['BackupStatus'] = $this->backupStatus;
         }
 
         if (null !== $this->backupType) {
@@ -155,6 +165,10 @@ class backup extends Model
 
         if (isset($map['BackupStartTime'])) {
             $model->backupStartTime = $map['BackupStartTime'];
+        }
+
+        if (isset($map['BackupStatus'])) {
+            $model->backupStatus = $map['BackupStatus'];
         }
 
         if (isset($map['BackupType'])) {
