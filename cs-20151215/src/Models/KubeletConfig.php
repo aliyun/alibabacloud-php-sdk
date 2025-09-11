@@ -151,6 +151,11 @@ class KubeletConfig extends Model
     public $serializeImagePulls;
 
     /**
+     * @var bool
+     */
+    public $serverTLSBootstrap;
+
+    /**
      * @var mixed[]
      */
     public $systemReserved;
@@ -193,6 +198,7 @@ class KubeletConfig extends Model
         'registryPullQPS' => 'registryPullQPS',
         'reservedMemory' => 'reservedMemory',
         'serializeImagePulls' => 'serializeImagePulls',
+        'serverTLSBootstrap' => 'serverTLSBootstrap',
         'systemReserved' => 'systemReserved',
         'topologyManagerPolicy' => 'topologyManagerPolicy',
         'tracing' => 'tracing',
@@ -394,6 +400,10 @@ class KubeletConfig extends Model
             $res['serializeImagePulls'] = $this->serializeImagePulls;
         }
 
+        if (null !== $this->serverTLSBootstrap) {
+            $res['serverTLSBootstrap'] = $this->serverTLSBootstrap;
+        }
+
         if (null !== $this->systemReserved) {
             if (\is_array($this->systemReserved)) {
                 $res['systemReserved'] = [];
@@ -578,6 +588,10 @@ class KubeletConfig extends Model
 
         if (isset($map['serializeImagePulls'])) {
             $model->serializeImagePulls = $map['serializeImagePulls'];
+        }
+
+        if (isset($map['serverTLSBootstrap'])) {
+            $model->serverTLSBootstrap = $map['serverTLSBootstrap'];
         }
 
         if (isset($map['systemReserved'])) {
