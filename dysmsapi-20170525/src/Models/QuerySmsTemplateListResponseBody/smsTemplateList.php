@@ -37,6 +37,11 @@ class smsTemplateList extends Model
     /**
      * @var string
      */
+    public $signatureName;
+
+    /**
+     * @var string
+     */
     public $templateCode;
 
     /**
@@ -59,6 +64,7 @@ class smsTemplateList extends Model
         'orderId' => 'OrderId',
         'outerTemplateType' => 'OuterTemplateType',
         'reason' => 'Reason',
+        'signatureName' => 'SignatureName',
         'templateCode' => 'TemplateCode',
         'templateContent' => 'TemplateContent',
         'templateName' => 'TemplateName',
@@ -94,6 +100,10 @@ class smsTemplateList extends Model
 
         if (null !== $this->reason) {
             $res['Reason'] = null !== $this->reason ? $this->reason->toArray($noStream) : $this->reason;
+        }
+
+        if (null !== $this->signatureName) {
+            $res['SignatureName'] = $this->signatureName;
         }
 
         if (null !== $this->templateCode) {
@@ -141,6 +151,10 @@ class smsTemplateList extends Model
 
         if (isset($map['Reason'])) {
             $model->reason = reason::fromMap($map['Reason']);
+        }
+
+        if (isset($map['SignatureName'])) {
+            $model->signatureName = $map['SignatureName'];
         }
 
         if (isset($map['TemplateCode'])) {

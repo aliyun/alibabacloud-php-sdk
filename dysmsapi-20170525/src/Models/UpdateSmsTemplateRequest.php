@@ -72,6 +72,11 @@ class UpdateSmsTemplateRequest extends Model
      * @var int
      */
     public $templateType;
+
+    /**
+     * @var string
+     */
+    public $trafficDriving;
     protected $_name = [
         'applySceneContent' => 'ApplySceneContent',
         'intlType' => 'IntlType',
@@ -86,6 +91,7 @@ class UpdateSmsTemplateRequest extends Model
         'templateName' => 'TemplateName',
         'templateRule' => 'TemplateRule',
         'templateType' => 'TemplateType',
+        'trafficDriving' => 'TrafficDriving',
     ];
 
     public function validate()
@@ -158,6 +164,10 @@ class UpdateSmsTemplateRequest extends Model
             $res['TemplateType'] = $this->templateType;
         }
 
+        if (null !== $this->trafficDriving) {
+            $res['TrafficDriving'] = $this->trafficDriving;
+        }
+
         return $res;
     }
 
@@ -226,6 +236,10 @@ class UpdateSmsTemplateRequest extends Model
 
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+
+        if (isset($map['TrafficDriving'])) {
+            $model->trafficDriving = $map['TrafficDriving'];
         }
 
         return $model;

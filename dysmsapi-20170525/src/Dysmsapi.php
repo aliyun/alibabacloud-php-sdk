@@ -448,7 +448,6 @@ class Dysmsapi extends OpenApiClient
         return $this->addSmsSignWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Creates a message template.
      *
@@ -1239,6 +1238,10 @@ class Dysmsapi extends OpenApiClient
 
         if (null !== $request->templateType) {
             @$query['TemplateType'] = $request->templateType;
+        }
+
+        if (null !== $request->trafficDriving) {
+            @$query['TrafficDriving'] = $request->trafficDriving;
         }
 
         $req = new OpenApiRequest([
@@ -2513,7 +2516,6 @@ class Dysmsapi extends OpenApiClient
         return $this->modifySmsSignWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Modifies the information of an unapproved message template and submits it for review again.
      *
@@ -3687,7 +3689,6 @@ class Dysmsapi extends OpenApiClient
         return $this->querySmsSignListWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the approval status of a message template.
      *
@@ -5231,6 +5232,10 @@ class Dysmsapi extends OpenApiClient
 
         if (null !== $request->templateType) {
             @$query['TemplateType'] = $request->templateType;
+        }
+
+        if (null !== $request->trafficDriving) {
+            @$query['TrafficDriving'] = $request->trafficDriving;
         }
 
         $req = new OpenApiRequest([

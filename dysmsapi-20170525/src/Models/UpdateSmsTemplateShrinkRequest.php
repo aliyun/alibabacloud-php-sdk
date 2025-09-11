@@ -72,6 +72,11 @@ class UpdateSmsTemplateShrinkRequest extends Model
      * @var int
      */
     public $templateType;
+
+    /**
+     * @var string
+     */
+    public $trafficDriving;
     protected $_name = [
         'applySceneContent' => 'ApplySceneContent',
         'intlType' => 'IntlType',
@@ -86,6 +91,7 @@ class UpdateSmsTemplateShrinkRequest extends Model
         'templateName' => 'TemplateName',
         'templateRule' => 'TemplateRule',
         'templateType' => 'TemplateType',
+        'trafficDriving' => 'TrafficDriving',
     ];
 
     public function validate()
@@ -146,6 +152,10 @@ class UpdateSmsTemplateShrinkRequest extends Model
 
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
+        }
+
+        if (null !== $this->trafficDriving) {
+            $res['TrafficDriving'] = $this->trafficDriving;
         }
 
         return $res;
@@ -209,6 +219,10 @@ class UpdateSmsTemplateShrinkRequest extends Model
 
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+
+        if (isset($map['TrafficDriving'])) {
+            $model->trafficDriving = $map['TrafficDriving'];
         }
 
         return $model;
