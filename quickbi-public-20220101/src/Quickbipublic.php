@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataLevelPermissionRuleUs
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataLevelPermissionRuleUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataLevelPermissionWhiteListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataLevelPermissionWhiteListResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataSourceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddDataSourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddShareReportRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddShareReportResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddUserGroupMemberRequest;
@@ -37,8 +39,16 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CancelReportShareRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CancelReportShareResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ChangeVisibilityModelRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ChangeVisibilityModelResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CheckDatasetExistedRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CheckDatasetExistedResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CheckOrganizationMemberRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CheckOrganizationMemberResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CheckReadableRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CheckReadableResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateCubeBySqlRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateCubeBySqlResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateDatasetRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicket4CopilotRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicket4CopilotResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketRequest;
@@ -110,6 +120,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRolesResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceUserRolesByUserIdRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceUserRolesByUserIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ManualRunMailTaskRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ManualRunMailTaskResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersRequest;
@@ -216,8 +228,12 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthTransferRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthTransferResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateCubeBySqlRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateCubeBySqlResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataSourceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateEmbeddedStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateEmbeddedStatusResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateTicketNumRequest;
@@ -415,6 +431,63 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDataLevelPermissionWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据源.
+     *
+     * @param request - AddDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDataSourceResponse
+     *
+     * @param AddDataSourceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddDataSourceResponse
+     */
+    public function addDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addModel) {
+            @$query['AddModel'] = $request->addModel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddDataSource',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据源.
+     *
+     * @param request - AddDataSourceRequest
+     *
+     * @returns AddDataSourceResponse
+     *
+     * @param AddDataSourceRequest $request
+     *
+     * @return AddDataSourceResponse
+     */
+    public function addDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -1355,6 +1428,120 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * 检查给定的cubeId是否存在.
+     *
+     * @param request - CheckDatasetExistedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDatasetExistedResponse
+     *
+     * @param CheckDatasetExistedRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CheckDatasetExistedResponse
+     */
+    public function checkDatasetExistedWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cubeId) {
+            @$query['CubeId'] = $request->cubeId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckDatasetExisted',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckDatasetExistedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查给定的cubeId是否存在.
+     *
+     * @param request - CheckDatasetExistedRequest
+     *
+     * @returns CheckDatasetExistedResponse
+     *
+     * @param CheckDatasetExistedRequest $request
+     *
+     * @return CheckDatasetExistedResponse
+     */
+    public function checkDatasetExisted($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkDatasetExistedWithOptions($request, $runtime);
+    }
+
+    /**
+     * 判断用户是否属于组织.
+     *
+     * @param request - CheckOrganizationMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckOrganizationMemberResponse
+     *
+     * @param CheckOrganizationMemberRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckOrganizationMemberResponse
+     */
+    public function checkOrganizationMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckOrganizationMember',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 判断用户是否属于组织.
+     *
+     * @param request - CheckOrganizationMemberRequest
+     *
+     * @returns CheckOrganizationMemberResponse
+     *
+     * @param CheckOrganizationMemberRequest $request
+     *
+     * @return CheckOrganizationMemberResponse
+     */
+    public function checkOrganizationMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkOrganizationMemberWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries whether a user has permissions to view data works, such as dashboards and workbooks.
      *
      * @param request - CheckReadableRequest
@@ -1413,6 +1600,156 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkReadableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据自定义sql创建数据集.
+     *
+     * @param request - CreateCubeBySqlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCubeBySqlResponse
+     *
+     * @param CreateCubeBySqlRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateCubeBySqlResponse
+     */
+    public function createCubeBySqlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->caption) {
+            @$query['Caption'] = $request->caption;
+        }
+
+        if (null !== $request->customSql) {
+            @$query['CustomSql'] = $request->customSql;
+        }
+
+        if (null !== $request->dsId) {
+            @$query['DsId'] = $request->dsId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCubeBySql',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCubeBySqlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据自定义sql创建数据集.
+     *
+     * @param request - CreateCubeBySqlRequest
+     *
+     * @returns CreateCubeBySqlResponse
+     *
+     * @param CreateCubeBySqlRequest $request
+     *
+     * @return CreateCubeBySqlResponse
+     */
+    public function createCubeBySql($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCubeBySqlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据物理表名称创建数据集.
+     *
+     * @param request - CreateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dsId) {
+            @$query['DsId'] = $request->dsId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->targetDirectoryId) {
+            @$query['TargetDirectoryId'] = $request->targetDirectoryId;
+        }
+
+        if (null !== $request->userDefineCubeName) {
+            @$query['UserDefineCubeName'] = $request->userDefineCubeName;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataset',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据物理表名称创建数据集.
+     *
+     * @param request - CreateDatasetRequest
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $request
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasetWithOptions($request, $runtime);
     }
 
     /**
@@ -3720,6 +4057,63 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listWorkspaceRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户所有空间角色列表.
+     *
+     * @param request - ListWorkspaceUserRolesByUserIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkspaceUserRolesByUserIdResponse
+     *
+     * @param ListWorkspaceUserRolesByUserIdRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListWorkspaceUserRolesByUserIdResponse
+     */
+    public function listWorkspaceUserRolesByUserIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkspaceUserRolesByUserId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkspaceUserRolesByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户所有空间角色列表.
+     *
+     * @param request - ListWorkspaceUserRolesByUserIdRequest
+     *
+     * @returns ListWorkspaceUserRolesByUserIdResponse
+     *
+     * @param ListWorkspaceUserRolesByUserIdRequest $request
+     *
+     * @return ListWorkspaceUserRolesByUserIdResponse
+     */
+    public function listWorkspaceUserRolesByUserId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkspaceUserRolesByUserIdWithOptions($request, $runtime);
     }
 
     /**
@@ -7171,6 +7565,79 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * 更新自定义sql数据集.
+     *
+     * @param request - UpdateCubeBySqlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCubeBySqlResponse
+     *
+     * @param UpdateCubeBySqlRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateCubeBySqlResponse
+     */
+    public function updateCubeBySqlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cubeId) {
+            @$query['CubeId'] = $request->cubeId;
+        }
+
+        if (null !== $request->customSql) {
+            @$query['CustomSql'] = $request->customSql;
+        }
+
+        if (null !== $request->dsId) {
+            @$query['DsId'] = $request->dsId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCubeBySql',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCubeBySqlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自定义sql数据集.
+     *
+     * @param request - UpdateCubeBySqlRequest
+     *
+     * @returns UpdateCubeBySqlResponse
+     *
+     * @param UpdateCubeBySqlRequest $request
+     *
+     * @return UpdateCubeBySqlResponse
+     */
+    public function updateCubeBySql($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCubeBySqlWithOptions($request, $runtime);
+    }
+
+    /**
      * Indicates whether the request is successful. Valid values:
      * *   true: The request was successful.
      * *   false: The request failed.
@@ -7247,6 +7714,63 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataLevelPermissionStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改数据源配置.
+     *
+     * @param request - UpdateDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataSourceResponse
+     *
+     * @param UpdateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDataSourceResponse
+     */
+    public function updateDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->updateModel) {
+            @$query['UpdateModel'] = $request->updateModel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataSource',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改数据源配置.
+     *
+     * @param request - UpdateDataSourceRequest
+     *
+     * @returns UpdateDataSourceResponse
+     *
+     * @param UpdateDataSourceRequest $request
+     *
+     * @return UpdateDataSourceResponse
+     */
+    public function updateDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataSourceWithOptions($request, $runtime);
     }
 
     /**
