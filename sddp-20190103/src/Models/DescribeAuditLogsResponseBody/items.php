@@ -44,6 +44,11 @@ class items extends Model
     public $databaseName;
 
     /**
+     * @var string
+     */
+    public $dbType;
+
+    /**
      * @var int
      */
     public $effectRow;
@@ -175,6 +180,7 @@ class items extends Model
         'creationTime' => 'CreationTime',
         'dataSet' => 'DataSet',
         'databaseName' => 'DatabaseName',
+        'dbType' => 'DbType',
         'effectRow' => 'EffectRow',
         'executeStatus' => 'ExecuteStatus',
         'executeTime' => 'ExecuteTime',
@@ -236,6 +242,10 @@ class items extends Model
 
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
+        }
+
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
         }
 
         if (null !== $this->effectRow) {
@@ -375,6 +385,10 @@ class items extends Model
 
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
+        }
+
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
         }
 
         if (isset($map['EffectRow'])) {
