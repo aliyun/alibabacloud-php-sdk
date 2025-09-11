@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateRenderingInstanceShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $attributesShrink;
+
+    /**
      * @var bool
      */
     public $autoRenew;
@@ -53,6 +58,7 @@ class CreateRenderingInstanceShrinkRequest extends Model
      */
     public $storageSize;
     protected $_name = [
+        'attributesShrink' => 'Attributes',
         'autoRenew' => 'AutoRenew',
         'clientInfoShrink' => 'ClientInfo',
         'instanceBillingCycle' => 'InstanceBillingCycle',
@@ -72,6 +78,10 @@ class CreateRenderingInstanceShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attributesShrink) {
+            $res['Attributes'] = $this->attributesShrink;
+        }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -119,6 +129,10 @@ class CreateRenderingInstanceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Attributes'])) {
+            $model->attributesShrink = $map['Attributes'];
+        }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }

@@ -242,6 +242,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppPatchesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppPatchesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilePushStatusesRequest;
@@ -278,6 +280,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceAttributeRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceAttributeResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceBandwidthRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceBandwidthResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceRequest;
@@ -2758,11 +2762,19 @@ class Vs extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateRenderingInstanceShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributes) {
+            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
+        }
+
         if (null !== $tmpReq->clientInfo) {
             $request->clientInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clientInfo, 'ClientInfo', 'json');
         }
 
         $query = [];
+        if (null !== $request->attributesShrink) {
+            @$query['Attributes'] = $request->attributesShrink;
+        }
+
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
         }
@@ -8232,6 +8244,87 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * 查询一个云应用的Patch列表。
+     *
+     * @param request - ListCloudAppPatchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudAppPatchesResponse
+     *
+     * @param ListCloudAppPatchesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCloudAppPatchesResponse
+     */
+    public function listCloudAppPatchesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->patchId) {
+            @$query['PatchId'] = $request->patchId;
+        }
+
+        if (null !== $request->patchName) {
+            @$query['PatchName'] = $request->patchName;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloudAppPatches',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloudAppPatchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询一个云应用的Patch列表。
+     *
+     * @param request - ListCloudAppPatchesRequest
+     *
+     * @returns ListCloudAppPatchesResponse
+     *
+     * @param ListCloudAppPatchesRequest $request
+     *
+     * @return ListCloudAppPatchesResponse
+     */
+    public function listCloudAppPatches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAppPatchesWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询云应用列表.
      *
      * @param request - ListCloudAppsRequest
@@ -9672,6 +9765,67 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyRenderingInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改云应用服务实例密码
+     *
+     * @param request - ModifyRenderingInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRenderingInstanceAttributeResponse
+     *
+     * @param ModifyRenderingInstanceAttributeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyRenderingInstanceAttributeResponse
+     */
+    public function modifyRenderingInstanceAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->renderingInstanceId) {
+            @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRenderingInstanceAttribute',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyRenderingInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改云应用服务实例密码
+     *
+     * @param request - ModifyRenderingInstanceAttributeRequest
+     *
+     * @returns ModifyRenderingInstanceAttributeResponse
+     *
+     * @param ModifyRenderingInstanceAttributeRequest $request
+     *
+     * @return ModifyRenderingInstanceAttributeResponse
+     */
+    public function modifyRenderingInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRenderingInstanceAttributeWithOptions($request, $runtime);
     }
 
     /**

@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceRequest\attributes;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceRequest\clientInfo;
 
 class CreateRenderingInstanceRequest extends Model
 {
+    /**
+     * @var attributes
+     */
+    public $attributes;
+
     /**
      * @var bool
      */
@@ -54,6 +60,7 @@ class CreateRenderingInstanceRequest extends Model
      */
     public $storageSize;
     protected $_name = [
+        'attributes' => 'Attributes',
         'autoRenew' => 'AutoRenew',
         'clientInfo' => 'ClientInfo',
         'instanceBillingCycle' => 'InstanceBillingCycle',
@@ -67,6 +74,9 @@ class CreateRenderingInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->attributes) {
+            $this->attributes->validate();
+        }
         if (null !== $this->clientInfo) {
             $this->clientInfo->validate();
         }
@@ -76,6 +86,10 @@ class CreateRenderingInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attributes) {
+            $res['Attributes'] = null !== $this->attributes ? $this->attributes->toArray($noStream) : $this->attributes;
+        }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -123,6 +137,10 @@ class CreateRenderingInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Attributes'])) {
+            $model->attributes = attributes::fromMap($map['Attributes']);
+        }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
