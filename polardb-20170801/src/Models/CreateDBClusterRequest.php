@@ -220,6 +220,11 @@ class CreateDBClusterRequest extends Model
     public $sourceResourceId;
 
     /**
+     * @var int
+     */
+    public $sourceUid;
+
+    /**
      * @var string
      */
     public $standbyAZ;
@@ -341,6 +346,7 @@ class CreateDBClusterRequest extends Model
         'securityIPList' => 'SecurityIPList',
         'serverlessType' => 'ServerlessType',
         'sourceResourceId' => 'SourceResourceId',
+        'sourceUid' => 'SourceUid',
         'standbyAZ' => 'StandbyAZ',
         'storageAutoScale' => 'StorageAutoScale',
         'storageEncryption' => 'StorageEncryption',
@@ -536,6 +542,10 @@ class CreateDBClusterRequest extends Model
 
         if (null !== $this->sourceResourceId) {
             $res['SourceResourceId'] = $this->sourceResourceId;
+        }
+
+        if (null !== $this->sourceUid) {
+            $res['SourceUid'] = $this->sourceUid;
         }
 
         if (null !== $this->standbyAZ) {
@@ -786,6 +796,10 @@ class CreateDBClusterRequest extends Model
 
         if (isset($map['SourceResourceId'])) {
             $model->sourceResourceId = $map['SourceResourceId'];
+        }
+
+        if (isset($map['SourceUid'])) {
+            $model->sourceUid = $map['SourceUid'];
         }
 
         if (isset($map['StandbyAZ'])) {

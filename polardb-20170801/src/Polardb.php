@@ -101,6 +101,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupRegionsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupRegionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupTasksRequest;
@@ -1602,6 +1604,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->sourceResourceId) {
             @$query['SourceResourceId'] = $request->sourceResourceId;
+        }
+
+        if (null !== $request->sourceUid) {
+            @$query['SourceUid'] = $request->sourceUid;
         }
 
         if (null !== $request->standbyAZ) {
@@ -4741,6 +4747,79 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询备份集所在地域信息.
+     *
+     * @param request - DescribeBackupRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupRegionsResponse
+     *
+     * @param DescribeBackupRegionsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeBackupRegionsResponse
+     */
+    public function describeBackupRegionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackupRegions',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询备份集所在地域信息.
+     *
+     * @param request - DescribeBackupRegionsRequest
+     *
+     * @returns DescribeBackupRegionsResponse
+     *
+     * @param DescribeBackupRegionsRequest $request
+     *
+     * @return DescribeBackupRegionsResponse
+     */
+    public function describeBackupRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupRegionsWithOptions($request, $runtime);
     }
 
     /**
