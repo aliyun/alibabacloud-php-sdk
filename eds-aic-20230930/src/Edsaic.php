@@ -538,6 +538,10 @@ class Edsaic extends OpenApiClient
             @$query['AutoPay'] = $request->autoPay;
         }
 
+        if (null !== $request->displayConfig) {
+            @$query['DisplayConfig'] = $request->displayConfig;
+        }
+
         if (null !== $request->downBandwidthLimit) {
             @$query['DownBandwidthLimit'] = $request->downBandwidthLimit;
         }

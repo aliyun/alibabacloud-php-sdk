@@ -14,6 +14,11 @@ class ChangeCloudPhoneNodeRequest extends Model
     public $autoPay;
 
     /**
+     * @var string
+     */
+    public $displayConfig;
+
+    /**
      * @var int
      */
     public $downBandwidthLimit;
@@ -49,6 +54,7 @@ class ChangeCloudPhoneNodeRequest extends Model
     public $upBandwidthLimit;
     protected $_name = [
         'autoPay' => 'AutoPay',
+        'displayConfig' => 'DisplayConfig',
         'downBandwidthLimit' => 'DownBandwidthLimit',
         'instanceType' => 'InstanceType',
         'nodeId' => 'NodeId',
@@ -68,6 +74,10 @@ class ChangeCloudPhoneNodeRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+
+        if (null !== $this->displayConfig) {
+            $res['DisplayConfig'] = $this->displayConfig;
         }
 
         if (null !== $this->downBandwidthLimit) {
@@ -111,6 +121,10 @@ class ChangeCloudPhoneNodeRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+
+        if (isset($map['DisplayConfig'])) {
+            $model->displayConfig = $map['DisplayConfig'];
         }
 
         if (isset($map['DownBandwidthLimit'])) {

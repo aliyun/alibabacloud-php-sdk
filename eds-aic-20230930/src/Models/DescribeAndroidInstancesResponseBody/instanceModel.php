@@ -142,6 +142,11 @@ class instanceModel extends Model
     /**
      * @var string
      */
+    public $internetStatus;
+
+    /**
+     * @var string
+     */
     public $keyPairId;
 
     /**
@@ -284,6 +289,7 @@ class instanceModel extends Model
         'imageId' => 'ImageId',
         'imageVersion' => 'ImageVersion',
         'instanceType' => 'InstanceType',
+        'internetStatus' => 'InternetStatus',
         'keyPairId' => 'KeyPairId',
         'memory' => 'Memory',
         'networkInterfaceIp' => 'NetworkInterfaceIp',
@@ -448,6 +454,10 @@ class instanceModel extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->internetStatus) {
+            $res['InternetStatus'] = $this->internetStatus;
         }
 
         if (null !== $this->keyPairId) {
@@ -676,6 +686,10 @@ class instanceModel extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['InternetStatus'])) {
+            $model->internetStatus = $map['InternetStatus'];
         }
 
         if (isset($map['KeyPairId'])) {

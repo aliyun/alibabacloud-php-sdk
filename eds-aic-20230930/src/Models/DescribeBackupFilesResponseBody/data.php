@@ -91,6 +91,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $systemVersion;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -119,6 +124,7 @@ class data extends Model
         'sourceAppInfoList' => 'SourceAppInfoList',
         'sourceFilePathList' => 'SourceFilePathList',
         'status' => 'Status',
+        'systemVersion' => 'SystemVersion',
         'taskId' => 'TaskId',
         'uploadEndpoint' => 'UploadEndpoint',
         'uploadType' => 'UploadType',
@@ -214,6 +220,10 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->systemVersion) {
+            $res['SystemVersion'] = $this->systemVersion;
         }
 
         if (null !== $this->taskId) {
@@ -315,6 +325,10 @@ class data extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SystemVersion'])) {
+            $model->systemVersion = $map['SystemVersion'];
         }
 
         if (isset($map['TaskId'])) {
