@@ -48,7 +48,8 @@ class contentExtraction extends Model
                 $res['ExtractionContents'] = [];
                 $n1 = 0;
                 foreach ($this->extractionContents as $item1) {
-                    $res['ExtractionContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExtractionContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class contentExtraction extends Model
                 $model->extractionContents = [];
                 $n1 = 0;
                 foreach ($map['ExtractionContents'] as $item1) {
-                    $model->extractionContents[$n1++] = extractionContents::fromMap($item1);
+                    $model->extractionContents[$n1] = extractionContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

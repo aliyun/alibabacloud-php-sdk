@@ -14,6 +14,11 @@ class extraParams extends Model
     public $domainEducationEnabled;
 
     /**
+     * @var string
+     */
+    public $fullTextSummaryFormat;
+
+    /**
      * @var int
      */
     public $maxKeywords;
@@ -34,6 +39,7 @@ class extraParams extends Model
     public $translateLlmSceneEnabled;
     protected $_name = [
         'domainEducationEnabled' => 'DomainEducationEnabled',
+        'fullTextSummaryFormat' => 'FullTextSummaryFormat',
         'maxKeywords' => 'MaxKeywords',
         'nfixEnabled' => 'NfixEnabled',
         'ocrAuxiliaryEnabled' => 'OcrAuxiliaryEnabled',
@@ -50,6 +56,10 @@ class extraParams extends Model
         $res = [];
         if (null !== $this->domainEducationEnabled) {
             $res['DomainEducationEnabled'] = $this->domainEducationEnabled;
+        }
+
+        if (null !== $this->fullTextSummaryFormat) {
+            $res['FullTextSummaryFormat'] = $this->fullTextSummaryFormat;
         }
 
         if (null !== $this->maxKeywords) {
@@ -81,6 +91,10 @@ class extraParams extends Model
         $model = new self();
         if (isset($map['DomainEducationEnabled'])) {
             $model->domainEducationEnabled = $map['DomainEducationEnabled'];
+        }
+
+        if (isset($map['FullTextSummaryFormat'])) {
+            $model->fullTextSummaryFormat = $map['FullTextSummaryFormat'];
         }
 
         if (isset($map['MaxKeywords'])) {

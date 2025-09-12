@@ -39,7 +39,8 @@ class identityRecognition extends Model
                 $res['IdentityContents'] = [];
                 $n1 = 0;
                 foreach ($this->identityContents as $item1) {
-                    $res['IdentityContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IdentityContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class identityRecognition extends Model
                 $model->identityContents = [];
                 $n1 = 0;
                 foreach ($map['IdentityContents'] as $item1) {
-                    $model->identityContents[$n1++] = identityContents::fromMap($item1);
+                    $model->identityContents[$n1] = identityContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -52,7 +52,8 @@ class translation extends Model
                 $res['TargetLanguages'] = [];
                 $n1 = 0;
                 foreach ($this->targetLanguages as $item1) {
-                    $res['TargetLanguages'][$n1++] = $item1;
+                    $res['TargetLanguages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class translation extends Model
                 $model->targetLanguages = [];
                 $n1 = 0;
                 foreach ($map['TargetLanguages'] as $item1) {
-                    $model->targetLanguages[$n1++] = $item1;
+                    $model->targetLanguages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

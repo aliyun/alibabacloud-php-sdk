@@ -47,6 +47,11 @@ class transcription extends Model
     /**
      * @var bool
      */
+    public $profanityFilterEnabled;
+
+    /**
+     * @var bool
+     */
     public $realtimeDiarizationEnabled;
     protected $_name = [
         'additionalStreamOutputLevel' => 'AdditionalStreamOutputLevel',
@@ -56,6 +61,7 @@ class transcription extends Model
         'model' => 'Model',
         'outputLevel' => 'OutputLevel',
         'phraseId' => 'PhraseId',
+        'profanityFilterEnabled' => 'ProfanityFilterEnabled',
         'realtimeDiarizationEnabled' => 'RealtimeDiarizationEnabled',
     ];
 
@@ -96,6 +102,10 @@ class transcription extends Model
 
         if (null !== $this->phraseId) {
             $res['PhraseId'] = $this->phraseId;
+        }
+
+        if (null !== $this->profanityFilterEnabled) {
+            $res['ProfanityFilterEnabled'] = $this->profanityFilterEnabled;
         }
 
         if (null !== $this->realtimeDiarizationEnabled) {
@@ -139,6 +149,10 @@ class transcription extends Model
 
         if (isset($map['PhraseId'])) {
             $model->phraseId = $map['PhraseId'];
+        }
+
+        if (isset($map['ProfanityFilterEnabled'])) {
+            $model->profanityFilterEnabled = $map['ProfanityFilterEnabled'];
         }
 
         if (isset($map['RealtimeDiarizationEnabled'])) {

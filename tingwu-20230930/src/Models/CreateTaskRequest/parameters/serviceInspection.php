@@ -54,7 +54,8 @@ class serviceInspection extends Model
                 $res['InspectionContents'] = [];
                 $n1 = 0;
                 foreach ($this->inspectionContents as $item1) {
-                    $res['InspectionContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InspectionContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class serviceInspection extends Model
                 $model->inspectionContents = [];
                 $n1 = 0;
                 foreach ($map['InspectionContents'] as $item1) {
-                    $model->inspectionContents[$n1++] = inspectionContents::fromMap($item1);
+                    $model->inspectionContents[$n1] = inspectionContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

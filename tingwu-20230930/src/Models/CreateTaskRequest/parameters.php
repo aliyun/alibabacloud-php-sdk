@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\autoChapters;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\contentExtraction;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\customPrompt;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\extraParams;
@@ -18,6 +19,11 @@ use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\transl
 
 class parameters extends Model
 {
+    /**
+     * @var autoChapters
+     */
+    public $autoChapters;
+
     /**
      * @var bool
      */
@@ -59,6 +65,11 @@ class parameters extends Model
     public $identityRecognitionEnabled;
 
     /**
+     * @var string
+     */
+    public $llmOutputLanguage;
+
+    /**
      * @var meetingAssistance
      */
     public $meetingAssistance;
@@ -67,6 +78,11 @@ class parameters extends Model
      * @var bool
      */
     public $meetingAssistanceEnabled;
+
+    /**
+     * @var string
+     */
+    public $model;
 
     /**
      * @var bool
@@ -118,6 +134,7 @@ class parameters extends Model
      */
     public $translationEnabled;
     protected $_name = [
+        'autoChapters' => 'AutoChapters',
         'autoChaptersEnabled' => 'AutoChaptersEnabled',
         'contentExtraction' => 'ContentExtraction',
         'contentExtractionEnabled' => 'ContentExtractionEnabled',
@@ -126,8 +143,10 @@ class parameters extends Model
         'extraParams' => 'ExtraParams',
         'identityRecognition' => 'IdentityRecognition',
         'identityRecognitionEnabled' => 'IdentityRecognitionEnabled',
+        'llmOutputLanguage' => 'LlmOutputLanguage',
         'meetingAssistance' => 'MeetingAssistance',
         'meetingAssistanceEnabled' => 'MeetingAssistanceEnabled',
+        'model' => 'Model',
         'pptExtractionEnabled' => 'PptExtractionEnabled',
         'serviceInspection' => 'ServiceInspection',
         'serviceInspectionEnabled' => 'ServiceInspectionEnabled',
@@ -142,6 +161,9 @@ class parameters extends Model
 
     public function validate()
     {
+        if (null !== $this->autoChapters) {
+            $this->autoChapters->validate();
+        }
         if (null !== $this->contentExtraction) {
             $this->contentExtraction->validate();
         }
@@ -178,6 +200,10 @@ class parameters extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoChapters) {
+            $res['AutoChapters'] = null !== $this->autoChapters ? $this->autoChapters->toArray($noStream) : $this->autoChapters;
+        }
+
         if (null !== $this->autoChaptersEnabled) {
             $res['AutoChaptersEnabled'] = $this->autoChaptersEnabled;
         }
@@ -210,12 +236,20 @@ class parameters extends Model
             $res['IdentityRecognitionEnabled'] = $this->identityRecognitionEnabled;
         }
 
+        if (null !== $this->llmOutputLanguage) {
+            $res['LlmOutputLanguage'] = $this->llmOutputLanguage;
+        }
+
         if (null !== $this->meetingAssistance) {
             $res['MeetingAssistance'] = null !== $this->meetingAssistance ? $this->meetingAssistance->toArray($noStream) : $this->meetingAssistance;
         }
 
         if (null !== $this->meetingAssistanceEnabled) {
             $res['MeetingAssistanceEnabled'] = $this->meetingAssistanceEnabled;
+        }
+
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
         }
 
         if (null !== $this->pptExtractionEnabled) {
@@ -269,6 +303,10 @@ class parameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoChapters'])) {
+            $model->autoChapters = autoChapters::fromMap($map['AutoChapters']);
+        }
+
         if (isset($map['AutoChaptersEnabled'])) {
             $model->autoChaptersEnabled = $map['AutoChaptersEnabled'];
         }
@@ -301,12 +339,20 @@ class parameters extends Model
             $model->identityRecognitionEnabled = $map['IdentityRecognitionEnabled'];
         }
 
+        if (isset($map['LlmOutputLanguage'])) {
+            $model->llmOutputLanguage = $map['LlmOutputLanguage'];
+        }
+
         if (isset($map['MeetingAssistance'])) {
             $model->meetingAssistance = meetingAssistance::fromMap($map['MeetingAssistance']);
         }
 
         if (isset($map['MeetingAssistanceEnabled'])) {
             $model->meetingAssistanceEnabled = $map['MeetingAssistanceEnabled'];
+        }
+
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
         }
 
         if (isset($map['PptExtractionEnabled'])) {

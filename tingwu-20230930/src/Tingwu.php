@@ -111,11 +111,8 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -183,11 +180,8 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTranscriptionPhrasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -239,11 +233,8 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTranscriptionPhrasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -293,11 +284,8 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -347,11 +335,8 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTranscriptionPhrasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -400,11 +385,8 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTranscriptionPhrasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -469,11 +451,8 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTranscriptionPhrasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
