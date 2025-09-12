@@ -11,6 +11,11 @@ class SubmitDocParserJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $customOssConfigShrink;
+
+    /**
+     * @var string
+     */
     public $enhancementMode;
 
     /**
@@ -32,6 +37,11 @@ class SubmitDocParserJobShrinkRequest extends Model
      * @var bool
      */
     public $formulaEnhancement;
+
+    /**
+     * @var string
+     */
+    public $LLMParamShrink;
 
     /**
      * @var bool
@@ -68,11 +78,13 @@ class SubmitDocParserJobShrinkRequest extends Model
      */
     public $pageIndex;
     protected $_name = [
+        'customOssConfigShrink' => 'CustomOssConfig',
         'enhancementMode' => 'EnhancementMode',
         'fileName' => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrl' => 'FileUrl',
         'formulaEnhancement' => 'FormulaEnhancement',
+        'LLMParamShrink' => 'LLMParam',
         'llmEnhancement' => 'LlmEnhancement',
         'multimediaParametersShrink' => 'MultimediaParameters',
         'option' => 'Option',
@@ -90,6 +102,10 @@ class SubmitDocParserJobShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customOssConfigShrink) {
+            $res['CustomOssConfig'] = $this->customOssConfigShrink;
+        }
+
         if (null !== $this->enhancementMode) {
             $res['EnhancementMode'] = $this->enhancementMode;
         }
@@ -108,6 +124,10 @@ class SubmitDocParserJobShrinkRequest extends Model
 
         if (null !== $this->formulaEnhancement) {
             $res['FormulaEnhancement'] = $this->formulaEnhancement;
+        }
+
+        if (null !== $this->LLMParamShrink) {
+            $res['LLMParam'] = $this->LLMParamShrink;
         }
 
         if (null !== $this->llmEnhancement) {
@@ -149,6 +169,10 @@ class SubmitDocParserJobShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomOssConfig'])) {
+            $model->customOssConfigShrink = $map['CustomOssConfig'];
+        }
+
         if (isset($map['EnhancementMode'])) {
             $model->enhancementMode = $map['EnhancementMode'];
         }
@@ -167,6 +191,10 @@ class SubmitDocParserJobShrinkRequest extends Model
 
         if (isset($map['FormulaEnhancement'])) {
             $model->formulaEnhancement = $map['FormulaEnhancement'];
+        }
+
+        if (isset($map['LLMParam'])) {
+            $model->LLMParamShrink = $map['LLMParam'];
         }
 
         if (isset($map['LlmEnhancement'])) {

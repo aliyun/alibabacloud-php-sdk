@@ -5,11 +5,18 @@
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobAdvanceRequest\customOssConfig;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobAdvanceRequest\LLMParam;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobAdvanceRequest\multimediaParameters;
 use GuzzleHttp\Psr7\Stream;
 
 class SubmitDocParserJobAdvanceRequest extends Model
 {
+    /**
+     * @var customOssConfig
+     */
+    public $customOssConfig;
+
     /**
      * @var string
      */
@@ -34,6 +41,11 @@ class SubmitDocParserJobAdvanceRequest extends Model
      * @var bool
      */
     public $formulaEnhancement;
+
+    /**
+     * @var LLMParam
+     */
+    public $LLMParam;
 
     /**
      * @var bool
@@ -70,11 +82,13 @@ class SubmitDocParserJobAdvanceRequest extends Model
      */
     public $pageIndex;
     protected $_name = [
+        'customOssConfig' => 'CustomOssConfig',
         'enhancementMode' => 'EnhancementMode',
         'fileName' => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrlObject' => 'FileUrl',
         'formulaEnhancement' => 'FormulaEnhancement',
+        'LLMParam' => 'LLMParam',
         'llmEnhancement' => 'LlmEnhancement',
         'multimediaParameters' => 'MultimediaParameters',
         'option' => 'Option',
@@ -86,6 +100,12 @@ class SubmitDocParserJobAdvanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->customOssConfig) {
+            $this->customOssConfig->validate();
+        }
+        if (null !== $this->LLMParam) {
+            $this->LLMParam->validate();
+        }
         if (null !== $this->multimediaParameters) {
             $this->multimediaParameters->validate();
         }
@@ -95,6 +115,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customOssConfig) {
+            $res['CustomOssConfig'] = null !== $this->customOssConfig ? $this->customOssConfig->toArray($noStream) : $this->customOssConfig;
+        }
+
         if (null !== $this->enhancementMode) {
             $res['EnhancementMode'] = $this->enhancementMode;
         }
@@ -113,6 +137,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
 
         if (null !== $this->formulaEnhancement) {
             $res['FormulaEnhancement'] = $this->formulaEnhancement;
+        }
+
+        if (null !== $this->LLMParam) {
+            $res['LLMParam'] = null !== $this->LLMParam ? $this->LLMParam->toArray($noStream) : $this->LLMParam;
         }
 
         if (null !== $this->llmEnhancement) {
@@ -154,6 +182,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomOssConfig'])) {
+            $model->customOssConfig = customOssConfig::fromMap($map['CustomOssConfig']);
+        }
+
         if (isset($map['EnhancementMode'])) {
             $model->enhancementMode = $map['EnhancementMode'];
         }
@@ -172,6 +204,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
 
         if (isset($map['FormulaEnhancement'])) {
             $model->formulaEnhancement = $map['FormulaEnhancement'];
+        }
+
+        if (isset($map['LLMParam'])) {
+            $model->LLMParam = LLMParam::fromMap($map['LLMParam']);
         }
 
         if (isset($map['LlmEnhancement'])) {

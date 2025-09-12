@@ -1964,11 +1964,23 @@ class Docmindapi extends OpenApiClient
         $tmpReq->validate();
         $request = new SubmitDocParserJobShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customOssConfig) {
+            $request->customOssConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customOssConfig, 'CustomOssConfig', 'json');
+        }
+
+        if (null !== $tmpReq->LLMParam) {
+            $request->LLMParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->LLMParam, 'LLMParam', 'json');
+        }
+
         if (null !== $tmpReq->multimediaParameters) {
             $request->multimediaParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->multimediaParameters, 'MultimediaParameters', 'json');
         }
 
         $query = [];
+        if (null !== $request->customOssConfigShrink) {
+            @$query['CustomOssConfig'] = $request->customOssConfigShrink;
+        }
+
         if (null !== $request->enhancementMode) {
             @$query['EnhancementMode'] = $request->enhancementMode;
         }
@@ -1987,6 +1999,10 @@ class Docmindapi extends OpenApiClient
 
         if (null !== $request->formulaEnhancement) {
             @$query['FormulaEnhancement'] = $request->formulaEnhancement;
+        }
+
+        if (null !== $request->LLMParamShrink) {
+            @$query['LLMParam'] = $request->LLMParamShrink;
         }
 
         if (null !== $request->llmEnhancement) {
