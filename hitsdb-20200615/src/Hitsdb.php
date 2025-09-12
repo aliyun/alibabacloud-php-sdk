@@ -62,8 +62,12 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceEngineListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceEngineListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceSecurityGroupsRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceSecurityGroupsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StorageUsageRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StorageUsageResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2StreamEngineInfoRequest;
@@ -88,6 +92,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyLindormV2InstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyLindormV2InstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyLindormV2InstanceSecurityGroupsRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyLindormV2InstanceSecurityGroupsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyLindormV2WhiteIpListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyLindormV2WhiteIpListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\OpenComputeEngineRequest;
@@ -118,6 +124,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLdpsComputeGroupRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLdpsComputeGroupResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceParameterRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceParameterResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormV2StreamEngineRequest;
@@ -884,6 +892,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 创建Lindorm实例.
+     *
      * @param request - CreateLindormV2InstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1037,6 +1047,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 创建Lindorm实例.
+     *
      * @param request - CreateLindormV2InstanceRequest
      *
      * @returns CreateLindormV2InstanceResponse
@@ -2679,6 +2691,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 查询实例详情.
+     *
      * @param request - GetLindormV2InstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2736,6 +2750,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 查询实例详情.
+     *
      * @param request - GetLindormV2InstanceRequest
      *
      * @returns GetLindormV2InstanceResponse
@@ -2826,6 +2842,160 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLindormV2InstanceEngineListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例详情.
+     *
+     * @param request - GetLindormV2InstanceForTerraformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLindormV2InstanceForTerraformResponse
+     *
+     * @param GetLindormV2InstanceForTerraformRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetLindormV2InstanceForTerraformResponse
+     */
+    public function getLindormV2InstanceForTerraformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLindormV2InstanceForTerraform',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLindormV2InstanceForTerraformResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例详情.
+     *
+     * @param request - GetLindormV2InstanceForTerraformRequest
+     *
+     * @returns GetLindormV2InstanceForTerraformResponse
+     *
+     * @param GetLindormV2InstanceForTerraformRequest $request
+     *
+     * @return GetLindormV2InstanceForTerraformResponse
+     */
+    public function getLindormV2InstanceForTerraform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLindormV2InstanceForTerraformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询新架构实例安全组信息.
+     *
+     * @param request - GetLindormV2InstanceSecurityGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLindormV2InstanceSecurityGroupsResponse
+     *
+     * @param GetLindormV2InstanceSecurityGroupsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetLindormV2InstanceSecurityGroupsResponse
+     */
+    public function getLindormV2InstanceSecurityGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLindormV2InstanceSecurityGroups',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLindormV2InstanceSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询新架构实例安全组信息.
+     *
+     * @param request - GetLindormV2InstanceSecurityGroupsRequest
+     *
+     * @returns GetLindormV2InstanceSecurityGroupsResponse
+     *
+     * @param GetLindormV2InstanceSecurityGroupsRequest $request
+     *
+     * @return GetLindormV2InstanceSecurityGroupsResponse
+     */
+    public function getLindormV2InstanceSecurityGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLindormV2InstanceSecurityGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -3404,6 +3574,10 @@ class Hitsdb extends OpenApiClient
             @$query['ArbitraryZoneId'] = $request->arbitraryZoneId;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -3824,6 +3998,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 变配实例.
+     *
      * @param request - ModifyLindormV2InstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3905,6 +4081,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 变配实例.
+     *
      * @param request - ModifyLindormV2InstanceRequest
      *
      * @returns ModifyLindormV2InstanceResponse
@@ -3918,6 +4096,87 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyLindormV2InstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新架构修改安全组接口.
+     *
+     * @param request - ModifyLindormV2InstanceSecurityGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyLindormV2InstanceSecurityGroupsResponse
+     *
+     * @param ModifyLindormV2InstanceSecurityGroupsRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ModifyLindormV2InstanceSecurityGroupsResponse
+     */
+    public function modifyLindormV2InstanceSecurityGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityGroups) {
+            @$query['SecurityGroups'] = $request->securityGroups;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyLindormV2InstanceSecurityGroups',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyLindormV2InstanceSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新架构修改安全组接口.
+     *
+     * @param request - ModifyLindormV2InstanceSecurityGroupsRequest
+     *
+     * @returns ModifyLindormV2InstanceSecurityGroupsResponse
+     *
+     * @param ModifyLindormV2InstanceSecurityGroupsRequest $request
+     *
+     * @return ModifyLindormV2InstanceSecurityGroupsResponse
+     */
+    public function modifyLindormV2InstanceSecurityGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLindormV2InstanceSecurityGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -4010,6 +4269,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 开通计算引擎.
+     *
      * @param request - OpenComputeEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4075,6 +4336,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 开通计算引擎.
+     *
      * @param request - OpenComputeEngineRequest
      *
      * @returns OpenComputeEngineResponse
@@ -4091,6 +4354,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 开通计算引擎前置校验.
+     *
      * @param request - OpenComputePreCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4156,6 +4421,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 开通计算引擎前置校验.
+     *
      * @param request - OpenComputePreCheckRequest
      *
      * @returns OpenComputePreCheckResponse
@@ -4253,6 +4520,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 释放实例.
+     *
      * @param request - ReleaseLindormV2InstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4314,6 +4583,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 释放实例.
+     *
      * @param request - ReleaseLindormV2InstanceRequest
      *
      * @returns ReleaseLindormV2InstanceResponse
@@ -5118,6 +5389,107 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateLdpsComputeGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新LindormV2Instance.
+     *
+     * @param request - UpdateLindormV2InstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLindormV2InstanceResponse
+     *
+     * @param UpdateLindormV2InstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateLindormV2InstanceResponse
+     */
+    public function updateLindormV2InstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->capacityStorageSize) {
+            @$query['CapacityStorageSize'] = $request->capacityStorageSize;
+        }
+
+        if (null !== $request->cloudStorageSize) {
+            @$query['CloudStorageSize'] = $request->cloudStorageSize;
+        }
+
+        if (null !== $request->cloudStorageType) {
+            @$query['CloudStorageType'] = $request->cloudStorageType;
+        }
+
+        if (null !== $request->enableCapacityStorage) {
+            @$query['EnableCapacityStorage'] = $request->enableCapacityStorage;
+        }
+
+        if (null !== $request->engineList) {
+            @$query['EngineList'] = $request->engineList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLindormV2Instance',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLindormV2InstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新LindormV2Instance.
+     *
+     * @param request - UpdateLindormV2InstanceRequest
+     *
+     * @returns UpdateLindormV2InstanceResponse
+     *
+     * @param UpdateLindormV2InstanceRequest $request
+     *
+     * @return UpdateLindormV2InstanceResponse
+     */
+    public function updateLindormV2Instance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLindormV2InstanceWithOptions($request, $runtime);
     }
 
     /**

@@ -5,11 +5,11 @@
 namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\engineList;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\storageUsage;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\whiteIpList;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformResponseBody\engineList;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformResponseBody\storageUsage;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformResponseBody\whiteIpList;
 
-class GetLindormV2InstanceResponseBody extends Model
+class GetLindormV2InstanceForTerraformResponseBody extends Model
 {
     /**
      * @var int

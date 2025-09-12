@@ -15,6 +15,11 @@ class instanceList extends Model
     public $aliUid;
 
     /**
+     * @var string
+     */
+    public $createErrorCode;
+
+    /**
      * @var int
      */
     public $createMilliseconds;
@@ -135,6 +140,7 @@ class instanceList extends Model
     public $zoneId;
     protected $_name = [
         'aliUid' => 'AliUid',
+        'createErrorCode' => 'CreateErrorCode',
         'createMilliseconds' => 'CreateMilliseconds',
         'createTime' => 'CreateTime',
         'enableColumn' => 'EnableColumn',
@@ -174,6 +180,10 @@ class instanceList extends Model
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+
+        if (null !== $this->createErrorCode) {
+            $res['CreateErrorCode'] = $this->createErrorCode;
         }
 
         if (null !== $this->createMilliseconds) {
@@ -292,6 +302,10 @@ class instanceList extends Model
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+
+        if (isset($map['CreateErrorCode'])) {
+            $model->createErrorCode = $map['CreateErrorCode'];
         }
 
         if (isset($map['CreateMilliseconds'])) {

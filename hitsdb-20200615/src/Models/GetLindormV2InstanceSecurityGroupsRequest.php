@@ -6,23 +6,8 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class MigrateSingleZoneToMultiZoneRequest extends Model
+class GetLindormV2InstanceSecurityGroupsRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $arbitraryVSwitchId;
-
-    /**
-     * @var string
-     */
-    public $arbitraryZoneId;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
-
     /**
      * @var string
      */
@@ -52,28 +37,13 @@ class MigrateSingleZoneToMultiZoneRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $standbyVSwitchId;
-
-    /**
-     * @var string
-     */
-    public $standbyZoneId;
     protected $_name = [
-        'arbitraryVSwitchId' => 'ArbitraryVSwitchId',
-        'arbitraryZoneId' => 'ArbitraryZoneId',
-        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
-        'standbyVSwitchId' => 'StandbyVSwitchId',
-        'standbyZoneId' => 'StandbyZoneId',
     ];
 
     public function validate()
@@ -84,18 +54,6 @@ class MigrateSingleZoneToMultiZoneRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->arbitraryVSwitchId) {
-            $res['ArbitraryVSwitchId'] = $this->arbitraryVSwitchId;
-        }
-
-        if (null !== $this->arbitraryZoneId) {
-            $res['ArbitraryZoneId'] = $this->arbitraryZoneId;
-        }
-
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -120,14 +78,6 @@ class MigrateSingleZoneToMultiZoneRequest extends Model
             $res['SecurityToken'] = $this->securityToken;
         }
 
-        if (null !== $this->standbyVSwitchId) {
-            $res['StandbyVSwitchId'] = $this->standbyVSwitchId;
-        }
-
-        if (null !== $this->standbyZoneId) {
-            $res['StandbyZoneId'] = $this->standbyZoneId;
-        }
-
         return $res;
     }
 
@@ -139,18 +89,6 @@ class MigrateSingleZoneToMultiZoneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ArbitraryVSwitchId'])) {
-            $model->arbitraryVSwitchId = $map['ArbitraryVSwitchId'];
-        }
-
-        if (isset($map['ArbitraryZoneId'])) {
-            $model->arbitraryZoneId = $map['ArbitraryZoneId'];
-        }
-
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -173,14 +111,6 @@ class MigrateSingleZoneToMultiZoneRequest extends Model
 
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-
-        if (isset($map['StandbyVSwitchId'])) {
-            $model->standbyVSwitchId = $map['StandbyVSwitchId'];
-        }
-
-        if (isset($map['StandbyZoneId'])) {
-            $model->standbyZoneId = $map['StandbyZoneId'];
         }
 
         return $model;

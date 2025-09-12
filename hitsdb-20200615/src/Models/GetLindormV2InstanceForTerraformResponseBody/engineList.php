@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody;
+namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\engineList\connectAddressList;
-use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceResponseBody\engineList\nodeGroup;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformResponseBody\engineList\connectAddressList;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformResponseBody\engineList\nodeGroup;
 
 class engineList extends Model
 {
@@ -14,16 +14,6 @@ class engineList extends Model
      * @var connectAddressList[]
      */
     public $connectAddressList;
-
-    /**
-     * @var string
-     */
-    public $enableBackup;
-
-    /**
-     * @var string
-     */
-    public $enableCDC;
 
     /**
      * @var string
@@ -51,8 +41,6 @@ class engineList extends Model
     public $version;
     protected $_name = [
         'connectAddressList' => 'ConnectAddressList',
-        'enableBackup' => 'EnableBackup',
-        'enableCDC' => 'EnableCDC',
         'engine' => 'Engine',
         'isLastVersion' => 'IsLastVersion',
         'latestVersion' => 'LatestVersion',
@@ -83,14 +71,6 @@ class engineList extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->enableBackup) {
-            $res['EnableBackup'] = $this->enableBackup;
-        }
-
-        if (null !== $this->enableCDC) {
-            $res['EnableCDC'] = $this->enableCDC;
         }
 
         if (null !== $this->engine) {
@@ -140,14 +120,6 @@ class engineList extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['EnableBackup'])) {
-            $model->enableBackup = $map['EnableBackup'];
-        }
-
-        if (isset($map['EnableCDC'])) {
-            $model->enableCDC = $map['EnableCDC'];
         }
 
         if (isset($map['Engine'])) {
