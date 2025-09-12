@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeLifecycleActionsResponseBody\lifecycleActions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLifecycleActionsResponseBody extends Model
 {
     /**
-     * @description The actions of the lifecycle hook.
-     *
      * @var lifecycleActions[]
      */
     public $lifecycleActions;
 
     /**
-     * @description The maximum number of entries returned per page.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The query token returned in this call.
-     *
-     * @example AAAAAcSz4VTb1Nq****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 42A742EB-FCF3-459E-9C62-E107048C17E3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of the queried lifecycle actions.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $totalCount;
@@ -59,29 +41,40 @@ class DescribeLifecycleActionsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->lifecycleActions)) {
+            Model::validateArray($this->lifecycleActions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lifecycleActions) {
-            $res['LifecycleActions'] = [];
-            if (null !== $this->lifecycleActions && \is_array($this->lifecycleActions)) {
-                $n = 0;
-                foreach ($this->lifecycleActions as $item) {
-                    $res['LifecycleActions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->lifecycleActions)) {
+                $res['LifecycleActions'] = [];
+                $n1 = 0;
+                foreach ($this->lifecycleActions as $item1) {
+                    $res['LifecycleActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -89,32 +82,37 @@ class DescribeLifecycleActionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLifecycleActionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LifecycleActions'])) {
             if (!empty($map['LifecycleActions'])) {
                 $model->lifecycleActions = [];
-                $n = 0;
-                foreach ($map['LifecycleActions'] as $item) {
-                    $model->lifecycleActions[$n++] = null !== $item ? lifecycleActions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LifecycleActions'] as $item1) {
+                    $model->lifecycleActions[$n1] = lifecycleActions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,57 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\AttachLoadBalancersRequest\loadBalancerConfigs;
-use AlibabaCloud\Tea\Model;
 
 class AttachLoadBalancersRequest extends Model
 {
     /**
-     * @description Specifies whether to attach the CLB instance to the scaling group in an asynchronous manner. If you attach the CLB instance from the scaling group in an asynchronous manner, the call is successful only after all operations are successful. If a specific operation fails, the call fails. We recommend that you set this parameter to true. Valid values:
-     *
-     *   true: attaches the CLB instance to the scaling group in an asynchronous manner. In this case, the ID of the scaling activity is returned.
-     *   false: does not attach the CLB instance to the scaling group in an asynchronous manner.
-     *
-     * Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $async;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
-     *
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description Specifies whether to add the existing instances in the scaling group as backend servers of the load balancer. Valid values:
-     *
-     *   true: If you set this parameter to `true`, the attachment of the load balancer entails the addition of the existing instances in the scaling group to the backend server groups of the load balancer.
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $forceAttach;
 
     /**
-     * @description The configurations of the classic load balancer (CLB, formerly known as SLB) instance.
-     *
      * @var loadBalancerConfigs[]
      */
     public $loadBalancerConfigs;
 
     /**
-     * @description The IDs of the load balancers that you want to attach to the scaling group.
-     *
      * @var string[]
      */
     public $loadBalancers;
@@ -70,12 +45,6 @@ class AttachLoadBalancersRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The ID of the scaling group.
-     *
-     * This parameter is required.
-     *
-     * @example asg-bp1avr6ensitts3w****
-     *
      * @var string
      */
     public $scalingGroupId;
@@ -90,38 +59,62 @@ class AttachLoadBalancersRequest extends Model
         'scalingGroupId' => 'ScalingGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->loadBalancerConfigs)) {
+            Model::validateArray($this->loadBalancerConfigs);
+        }
+        if (\is_array($this->loadBalancers)) {
+            Model::validateArray($this->loadBalancers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->async) {
             $res['Async'] = $this->async;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->forceAttach) {
             $res['ForceAttach'] = $this->forceAttach;
         }
+
         if (null !== $this->loadBalancerConfigs) {
-            $res['LoadBalancerConfigs'] = [];
-            if (null !== $this->loadBalancerConfigs && \is_array($this->loadBalancerConfigs)) {
-                $n = 0;
-                foreach ($this->loadBalancerConfigs as $item) {
-                    $res['LoadBalancerConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->loadBalancerConfigs)) {
+                $res['LoadBalancerConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->loadBalancerConfigs as $item1) {
+                    $res['LoadBalancerConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->loadBalancers) {
-            $res['LoadBalancers'] = $this->loadBalancers;
+            if (\is_array($this->loadBalancers)) {
+                $res['LoadBalancers'] = [];
+                $n1 = 0;
+                foreach ($this->loadBalancers as $item1) {
+                    $res['LoadBalancers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
@@ -129,43 +122,56 @@ class AttachLoadBalancersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachLoadBalancersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ForceAttach'])) {
             $model->forceAttach = $map['ForceAttach'];
         }
+
         if (isset($map['LoadBalancerConfigs'])) {
             if (!empty($map['LoadBalancerConfigs'])) {
                 $model->loadBalancerConfigs = [];
-                $n = 0;
-                foreach ($map['LoadBalancerConfigs'] as $item) {
-                    $model->loadBalancerConfigs[$n++] = null !== $item ? loadBalancerConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LoadBalancerConfigs'] as $item1) {
+                    $model->loadBalancerConfigs[$n1] = loadBalancerConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['LoadBalancers'])) {
             if (!empty($map['LoadBalancers'])) {
-                $model->loadBalancers = $map['LoadBalancers'];
+                $model->loadBalancers = [];
+                $n1 = 0;
+                foreach ($map['LoadBalancers'] as $item1) {
+                    $model->loadBalancers[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
         }

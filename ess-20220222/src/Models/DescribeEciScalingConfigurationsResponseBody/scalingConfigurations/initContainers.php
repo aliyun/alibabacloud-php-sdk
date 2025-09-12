@@ -4,134 +4,84 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponseBody\scalingConfigurations;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponseBody\scalingConfigurations\initContainers\initContainerEnvironmentVars;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponseBody\scalingConfigurations\initContainers\initContainerPorts;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponseBody\scalingConfigurations\initContainers\initContainerVolumeMounts;
-use AlibabaCloud\Tea\Model;
 
 class initContainers extends Model
 {
     /**
-     * @description The number of vCPUs per init container.
-     *
-     * @example 0.5
-     *
      * @var float
      */
     public $cpu;
 
     /**
-     * @description The number of GPUs per init container.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $gpu;
 
     /**
-     * @description The image of the init container.
-     *
-     * @example nginx
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description The image pulling policy.
-     *
-     * @example Always
-     *
      * @var string
      */
     public $imagePullPolicy;
 
     /**
-     * @description The container startup arguments.
-     *
      * @var string[]
      */
     public $initContainerArgs;
 
     /**
-     * @description The container startup commands.
-     *
      * @var string[]
      */
     public $initContainerCommands;
 
     /**
-     * @description The environment variables.
-     *
      * @var initContainerEnvironmentVars[]
      */
     public $initContainerEnvironmentVars;
 
     /**
-     * @description The ports of the init container.
-     *
      * @var initContainerPorts[]
      */
     public $initContainerPorts;
 
     /**
-     * @description The volumes that are mounted to the init container.
-     *
      * @var initContainerVolumeMounts[]
      */
     public $initContainerVolumeMounts;
 
     /**
-     * @description The memory size per init container.
-     *
-     * @example 1.0
-     *
      * @var float
      */
     public $memory;
 
     /**
-     * @description The name of the init container.
-     *
-     * @example test-init
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The permissions that are granted to the processes in the init container. Valid values: NET_ADMIN and NET_RAW.
-     *
-     * >  To use NET_RAW, you must submit a ticket.
-     *
      * @var string[]
      */
     public $securityContextCapabilityAdds;
 
     /**
-     * @description Indicates whether the root file system is read-only. Valid value: true.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $securityContextReadOnlyRootFilesystem;
 
     /**
-     * @description The ID of the user that runs the init container.
-     *
-     * @example 587
-     *
      * @var string
      */
     public $securityContextRunAsUser;
 
     /**
-     * @description The working directory.
-     *
-     * @example /usr/local
-     *
      * @var string
      */
     public $workingDir;
@@ -153,71 +103,130 @@ class initContainers extends Model
         'workingDir' => 'WorkingDir',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->initContainerArgs)) {
+            Model::validateArray($this->initContainerArgs);
+        }
+        if (\is_array($this->initContainerCommands)) {
+            Model::validateArray($this->initContainerCommands);
+        }
+        if (\is_array($this->initContainerEnvironmentVars)) {
+            Model::validateArray($this->initContainerEnvironmentVars);
+        }
+        if (\is_array($this->initContainerPorts)) {
+            Model::validateArray($this->initContainerPorts);
+        }
+        if (\is_array($this->initContainerVolumeMounts)) {
+            Model::validateArray($this->initContainerVolumeMounts);
+        }
+        if (\is_array($this->securityContextCapabilityAdds)) {
+            Model::validateArray($this->securityContextCapabilityAdds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
         }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+
         if (null !== $this->imagePullPolicy) {
             $res['ImagePullPolicy'] = $this->imagePullPolicy;
         }
+
         if (null !== $this->initContainerArgs) {
-            $res['InitContainerArgs'] = $this->initContainerArgs;
+            if (\is_array($this->initContainerArgs)) {
+                $res['InitContainerArgs'] = [];
+                $n1 = 0;
+                foreach ($this->initContainerArgs as $item1) {
+                    $res['InitContainerArgs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->initContainerCommands) {
-            $res['InitContainerCommands'] = $this->initContainerCommands;
+            if (\is_array($this->initContainerCommands)) {
+                $res['InitContainerCommands'] = [];
+                $n1 = 0;
+                foreach ($this->initContainerCommands as $item1) {
+                    $res['InitContainerCommands'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->initContainerEnvironmentVars) {
-            $res['InitContainerEnvironmentVars'] = [];
-            if (null !== $this->initContainerEnvironmentVars && \is_array($this->initContainerEnvironmentVars)) {
-                $n = 0;
-                foreach ($this->initContainerEnvironmentVars as $item) {
-                    $res['InitContainerEnvironmentVars'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->initContainerEnvironmentVars)) {
+                $res['InitContainerEnvironmentVars'] = [];
+                $n1 = 0;
+                foreach ($this->initContainerEnvironmentVars as $item1) {
+                    $res['InitContainerEnvironmentVars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->initContainerPorts) {
-            $res['InitContainerPorts'] = [];
-            if (null !== $this->initContainerPorts && \is_array($this->initContainerPorts)) {
-                $n = 0;
-                foreach ($this->initContainerPorts as $item) {
-                    $res['InitContainerPorts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->initContainerPorts)) {
+                $res['InitContainerPorts'] = [];
+                $n1 = 0;
+                foreach ($this->initContainerPorts as $item1) {
+                    $res['InitContainerPorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->initContainerVolumeMounts) {
-            $res['InitContainerVolumeMounts'] = [];
-            if (null !== $this->initContainerVolumeMounts && \is_array($this->initContainerVolumeMounts)) {
-                $n = 0;
-                foreach ($this->initContainerVolumeMounts as $item) {
-                    $res['InitContainerVolumeMounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->initContainerVolumeMounts)) {
+                $res['InitContainerVolumeMounts'] = [];
+                $n1 = 0;
+                foreach ($this->initContainerVolumeMounts as $item1) {
+                    $res['InitContainerVolumeMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->securityContextCapabilityAdds) {
-            $res['SecurityContextCapabilityAdds'] = $this->securityContextCapabilityAdds;
+            if (\is_array($this->securityContextCapabilityAdds)) {
+                $res['SecurityContextCapabilityAdds'] = [];
+                $n1 = 0;
+                foreach ($this->securityContextCapabilityAdds as $item1) {
+                    $res['SecurityContextCapabilityAdds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->securityContextReadOnlyRootFilesystem) {
             $res['SecurityContextReadOnlyRootFilesystem'] = $this->securityContextReadOnlyRootFilesystem;
         }
+
         if (null !== $this->securityContextRunAsUser) {
             $res['SecurityContextRunAsUser'] = $this->securityContextRunAsUser;
         }
+
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
@@ -225,80 +234,112 @@ class initContainers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return initContainers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+
         if (isset($map['ImagePullPolicy'])) {
             $model->imagePullPolicy = $map['ImagePullPolicy'];
         }
+
         if (isset($map['InitContainerArgs'])) {
             if (!empty($map['InitContainerArgs'])) {
-                $model->initContainerArgs = $map['InitContainerArgs'];
+                $model->initContainerArgs = [];
+                $n1 = 0;
+                foreach ($map['InitContainerArgs'] as $item1) {
+                    $model->initContainerArgs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InitContainerCommands'])) {
             if (!empty($map['InitContainerCommands'])) {
-                $model->initContainerCommands = $map['InitContainerCommands'];
+                $model->initContainerCommands = [];
+                $n1 = 0;
+                foreach ($map['InitContainerCommands'] as $item1) {
+                    $model->initContainerCommands[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InitContainerEnvironmentVars'])) {
             if (!empty($map['InitContainerEnvironmentVars'])) {
                 $model->initContainerEnvironmentVars = [];
-                $n = 0;
-                foreach ($map['InitContainerEnvironmentVars'] as $item) {
-                    $model->initContainerEnvironmentVars[$n++] = null !== $item ? initContainerEnvironmentVars::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InitContainerEnvironmentVars'] as $item1) {
+                    $model->initContainerEnvironmentVars[$n1] = initContainerEnvironmentVars::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InitContainerPorts'])) {
             if (!empty($map['InitContainerPorts'])) {
                 $model->initContainerPorts = [];
-                $n = 0;
-                foreach ($map['InitContainerPorts'] as $item) {
-                    $model->initContainerPorts[$n++] = null !== $item ? initContainerPorts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InitContainerPorts'] as $item1) {
+                    $model->initContainerPorts[$n1] = initContainerPorts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InitContainerVolumeMounts'])) {
             if (!empty($map['InitContainerVolumeMounts'])) {
                 $model->initContainerVolumeMounts = [];
-                $n = 0;
-                foreach ($map['InitContainerVolumeMounts'] as $item) {
-                    $model->initContainerVolumeMounts[$n++] = null !== $item ? initContainerVolumeMounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InitContainerVolumeMounts'] as $item1) {
+                    $model->initContainerVolumeMounts[$n1] = initContainerVolumeMounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SecurityContextCapabilityAdds'])) {
             if (!empty($map['SecurityContextCapabilityAdds'])) {
-                $model->securityContextCapabilityAdds = $map['SecurityContextCapabilityAdds'];
+                $model->securityContextCapabilityAdds = [];
+                $n1 = 0;
+                foreach ($map['SecurityContextCapabilityAdds'] as $item1) {
+                    $model->securityContextCapabilityAdds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SecurityContextReadOnlyRootFilesystem'])) {
             $model->securityContextReadOnlyRootFilesystem = $map['SecurityContextReadOnlyRootFilesystem'];
         }
+
         if (isset($map['SecurityContextRunAsUser'])) {
             $model->securityContextRunAsUser = $map['SecurityContextRunAsUser'];
         }
+
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
         }

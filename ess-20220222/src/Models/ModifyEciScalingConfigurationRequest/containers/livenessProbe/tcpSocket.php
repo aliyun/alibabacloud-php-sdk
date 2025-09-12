@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\containers\livenessProbe;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tcpSocket extends Model
 {
@@ -16,9 +16,12 @@ class tcpSocket extends Model
         'port' => 'Port',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->port) {
@@ -28,11 +31,11 @@ class tcpSocket extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tcpSocket
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

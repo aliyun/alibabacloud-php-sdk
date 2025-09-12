@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentResponseBody\planResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceAllocations extends Model
 {
@@ -40,23 +40,30 @@ class resourceAllocations extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -64,26 +71,30 @@ class resourceAllocations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceAllocations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

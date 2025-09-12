@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelInstanceRefreshRequest extends Model
 {
     /**
-     * @description The ID of the instance refresh task.
-     *
-     * This parameter is required.
-     *
-     * @example ir-aca123sf****
-     *
      * @var string
      */
     public $instanceRefreshTaskId;
@@ -25,12 +19,6 @@ class CancelInstanceRefreshRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the scaling group.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -41,12 +29,6 @@ class CancelInstanceRefreshRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The ID of the scaling group.
-     *
-     * This parameter is required.
-     *
-     * @example asg-bp1igpak5ft1flyp****
-     *
      * @var string
      */
     public $scalingGroupId;
@@ -58,23 +40,30 @@ class CancelInstanceRefreshRequest extends Model
         'scalingGroupId' => 'ScalingGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceRefreshTaskId) {
             $res['InstanceRefreshTaskId'] = $this->instanceRefreshTaskId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
@@ -82,26 +71,30 @@ class CancelInstanceRefreshRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelInstanceRefreshRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceRefreshTaskId'])) {
             $model->instanceRefreshTaskId = $map['InstanceRefreshTaskId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
         }

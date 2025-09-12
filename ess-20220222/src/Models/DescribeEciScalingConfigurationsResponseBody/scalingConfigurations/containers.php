@@ -4,482 +4,269 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponseBody\scalingConfigurations;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponseBody\scalingConfigurations\containers\environmentVars;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponseBody\scalingConfigurations\containers\ports;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationsResponseBody\scalingConfigurations\containers\volumeMounts;
-use AlibabaCloud\Tea\Model;
 
 class containers extends Model
 {
     /**
-     * @description The container startup arguments. You can specify up to 10 arguments.
-     *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
-     *
      * @var string[]
      */
     public $commands;
 
     /**
-     * @description The number of vCPUs per container.
-     *
-     * @example 2.0
-     *
      * @var float
      */
     public $cpu;
 
     /**
-     * @description The environment variables.
-     *
      * @var environmentVars[]
      */
     public $environmentVars;
 
     /**
-     * @description The number of GPUs.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $gpu;
 
     /**
-     * @description The container image.
-     *
-     * @example mysql
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description The image pulling policy. Valid values:
-     *
-     *   Always: Each time image pulling is performed.
-     *   IfNotPresent: Image pulling is performed as needed. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
-     *   Never: On-premises images are always used. Image pulling is not performed.
-     *
-     * @example Always
-     *
      * @var string
      */
     public $imagePullPolicy;
 
     /**
-     * @description The commands that are run for configuring the postStart callback function by using the CLI within the container.
-     *
      * @var string[]
      */
     public $lifecyclePostStartHandlerExecs;
 
     /**
-     * @description The IP address of the host to which HTTP GET requests for configuring the postStart callback function are sent.
-     *
-     * @example 10.0.XX.XX
-     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetHost;
 
     /**
-     * @description The path to which HTTP GET requests for configuring the postStart callback function are sent.
-     *
-     * @example /healthyz
-     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetPath;
 
     /**
-     * @description The port over which HTTP GET requests for configuring the postStart callback function are sent.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $lifecyclePostStartHandlerHttpGetPort;
 
     /**
-     * @description The protocol type of the HTTP GET requests that are sent for configuring the postStart callback function.
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetScheme;
 
     /**
-     * @description The IP address of the host detected by the TCP sockets used for configuring the postStart callback function.
-     *
-     * @example 10.0.XX.XX
-     *
      * @var string
      */
     public $lifecyclePostStartHandlerTcpSocketHost;
 
     /**
-     * @description The port detected by the TCP sockets used for configuring the postStart callback function.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $lifecyclePostStartHandlerTcpSocketPort;
 
     /**
-     * @description The commands that are run for configuring the preStop callback function by using the CLI within the container.
-     *
      * @var string[]
      */
     public $lifecyclePreStopHandlerExecs;
 
     /**
-     * @description The IP address of the host to which HTTP GET requests for configuring the preStop callback function are sent.
-     *
-     * @example 10.0.XX.XX
-     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetHost;
 
     /**
-     * @description The path to which HTTP GET requests for configuring the preStop callback function are sent.
-     *
-     * @example /healthyz
-     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetPath;
 
     /**
-     * @description The port over which HTTP GET requests for configuring the preStop callback function are sent.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $lifecyclePreStopHandlerHttpGetPort;
 
     /**
-     * @description The protocol type of the HTTP Get requests that are sent for configuring the preStop callback function.
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetScheme;
 
     /**
-     * @description The IP address of the host detected by the TCP sockets used for configuring the preStop callback function.
-     *
-     * @example 10.0.XX.XX
-     *
      * @var string
      */
     public $lifecyclePreStopHandlerTcpSocketHost;
 
     /**
-     * @description The port detected by the TCP sockets used for configuring the preStop callback function.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $lifecyclePreStopHandlerTcpSocketPort;
 
     /**
-     * @description The commands that are run in the container when you use the CLI to perform liveness probes.
-     *
      * @var string[]
      */
     public $livenessProbeExecCommands;
 
     /**
-     * @description The minimum number of consecutive failures before a successful liveness probe is considered failed.
-     *
-     * Default value: 3.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $livenessProbeFailureThreshold;
 
     /**
-     * @description The path to which HTTP GET requests are sent when you use the HTTP GET requests to perform liveness probes.
-     *
-     * @example /usr/nginx/
-     *
      * @var string
      */
     public $livenessProbeHttpGetPath;
 
     /**
-     * @description The port to which HTTP GET requests are sent to perform liveness probes.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $livenessProbeHttpGetPort;
 
     /**
-     * @description The protocol type of HTTP GET requests when you use the HTTP GET requests to perform liveness probes. Valid values:
-     *
-     *   HTTP
-     *   HTTPS
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $livenessProbeHttpGetScheme;
 
     /**
-     * @description The number of seconds that elapses from the startup of the container to the start time of a liveness probe.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $livenessProbeInitialDelaySeconds;
 
     /**
-     * @description The interval at which liveness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $livenessProbePeriodSeconds;
 
     /**
-     * @description The minimum number of consecutive successes before a failed liveness probe is considered successful. Default value: 1. Valid value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $livenessProbeSuccessThreshold;
 
     /**
-     * @description The port detected by TCP sockets when you use the TCP sockets to perform liveness probes.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $livenessProbeTcpSocketPort;
 
     /**
-     * @description The timeout period of a liveness probe. Default value: 1. Minimum value: 1. Unit: seconds.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $livenessProbeTimeoutSeconds;
 
     /**
-     * @description The memory size per container.
-     *
-     * @example 2.0
-     *
      * @var float
      */
     public $memory;
 
     /**
-     * @description The custom name of the container.
-     *
-     * @example nginx
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The exposed ports and protocols.
-     *
      * @var ports[]
      */
     public $ports;
 
     /**
-     * @description The commands that are run in the container when you use the CLI to perform readiness probes.
-     *
      * @var string[]
      */
     public $readinessProbeExecCommands;
 
     /**
-     * @description The minimum number of consecutive failures before a successful readiness probe is considered failed.
-     *
-     * Default value: 3.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $readinessProbeFailureThreshold;
 
     /**
-     * @description The path to which HTTP GET requests are sent when you use the HTTP GET requests to perform readiness probes.
-     *
-     * @example /usr/local
-     *
      * @var string
      */
     public $readinessProbeHttpGetPath;
 
     /**
-     * @description The path to which HTTP GET requests are sent when you use the HTTP GET requests to perform readiness probes.
-     *
-     * @example /usr/nginx/
-     *
      * @var int
      */
     public $readinessProbeHttpGetPort;
 
     /**
-     * @description The protocol type of HTTP GET requests when you use the HTTP requests to perform readiness probes. Valid values:
-     *
-     *   HTTP
-     *   HTTPS
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $readinessProbeHttpGetScheme;
 
     /**
-     * @description The number of seconds that elapses from the startup of the container to the start time of a readiness probe.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $readinessProbeInitialDelaySeconds;
 
     /**
-     * @description The interval at which readiness probes are performed. Unit: seconds. Default value: 10. Minimum value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $readinessProbePeriodSeconds;
 
     /**
-     * @description The minimum number of consecutive successes before a failed readiness probe is considered successful. Default value: 1. Valid value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $readinessProbeSuccessThreshold;
 
     /**
-     * @description The port detected by TCP sockets when you use the TCP sockets to perform readiness probes.
-     *
-     * @example 8888
-     *
      * @var int
      */
     public $readinessProbeTcpSocketPort;
 
     /**
-     * @description The timeout period of a readiness probe. Default value: 1. Minimum value: 1. Unit: seconds.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $readinessProbeTimeoutSeconds;
 
     /**
-     * @description The permissions that are granted to the processes in the container. Valid values: NET_ADMIN and NET_RAW.
-     *
-     * >  To use NET_RAW, you must submit a ticket.
-     *
      * @var string[]
      */
     public $securityContextCapabilityAdds;
 
     /**
-     * @description Indicates whether the root file system on which the container runs is read-only. Valid value: true.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $securityContextReadOnlyRootFilesystem;
 
     /**
-     * @description The ID of the user that runs the entry point of the container process.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $securityContextRunAsUser;
 
     /**
-     * @description Indicates whether the container allocates buffer resources to standard input streams when the container is running. If this parameter is not specified, an end-of-file (EOF) error may occur when standard input streams in the container are read. Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $stdin;
 
     /**
-     * @description Indicates whether standard input streams are disconnected after a client is disconnected. If Stdin is set to true, standard input streams remain connected among multiple sessions.
-     *
-     * If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container restarts.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $stdinOnce;
 
     /**
-     * @description Indicates whether the Interaction feature is enabled. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * If the command is a /bin/bash command, the value of this parameter is true.
-     *
-     * Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $tty;
 
     /**
-     * @description The mounted volumes.
-     *
      * @var volumeMounts[]
      */
     public $volumeMounts;
 
     /**
-     * @description The working directory.
-     *
-     * @example /usr/local/nginx
-     *
      * @var string
      */
     public $workingDir;
@@ -538,182 +325,318 @@ class containers extends Model
         'workingDir' => 'WorkingDir',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->args)) {
+            Model::validateArray($this->args);
+        }
+        if (\is_array($this->commands)) {
+            Model::validateArray($this->commands);
+        }
+        if (\is_array($this->environmentVars)) {
+            Model::validateArray($this->environmentVars);
+        }
+        if (\is_array($this->lifecyclePostStartHandlerExecs)) {
+            Model::validateArray($this->lifecyclePostStartHandlerExecs);
+        }
+        if (\is_array($this->lifecyclePreStopHandlerExecs)) {
+            Model::validateArray($this->lifecyclePreStopHandlerExecs);
+        }
+        if (\is_array($this->livenessProbeExecCommands)) {
+            Model::validateArray($this->livenessProbeExecCommands);
+        }
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
+        }
+        if (\is_array($this->readinessProbeExecCommands)) {
+            Model::validateArray($this->readinessProbeExecCommands);
+        }
+        if (\is_array($this->securityContextCapabilityAdds)) {
+            Model::validateArray($this->securityContextCapabilityAdds);
+        }
+        if (\is_array($this->volumeMounts)) {
+            Model::validateArray($this->volumeMounts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->args) {
-            $res['Args'] = $this->args;
+            if (\is_array($this->args)) {
+                $res['Args'] = [];
+                $n1 = 0;
+                foreach ($this->args as $item1) {
+                    $res['Args'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->commands) {
-            $res['Commands'] = $this->commands;
+            if (\is_array($this->commands)) {
+                $res['Commands'] = [];
+                $n1 = 0;
+                foreach ($this->commands as $item1) {
+                    $res['Commands'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->environmentVars) {
-            $res['EnvironmentVars'] = [];
-            if (null !== $this->environmentVars && \is_array($this->environmentVars)) {
-                $n = 0;
-                foreach ($this->environmentVars as $item) {
-                    $res['EnvironmentVars'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->environmentVars)) {
+                $res['EnvironmentVars'] = [];
+                $n1 = 0;
+                foreach ($this->environmentVars as $item1) {
+                    $res['EnvironmentVars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
         }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+
         if (null !== $this->imagePullPolicy) {
             $res['ImagePullPolicy'] = $this->imagePullPolicy;
         }
+
         if (null !== $this->lifecyclePostStartHandlerExecs) {
-            $res['LifecyclePostStartHandlerExecs'] = $this->lifecyclePostStartHandlerExecs;
+            if (\is_array($this->lifecyclePostStartHandlerExecs)) {
+                $res['LifecyclePostStartHandlerExecs'] = [];
+                $n1 = 0;
+                foreach ($this->lifecyclePostStartHandlerExecs as $item1) {
+                    $res['LifecyclePostStartHandlerExecs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lifecyclePostStartHandlerHttpGetHost) {
             $res['LifecyclePostStartHandlerHttpGetHost'] = $this->lifecyclePostStartHandlerHttpGetHost;
         }
+
         if (null !== $this->lifecyclePostStartHandlerHttpGetPath) {
             $res['LifecyclePostStartHandlerHttpGetPath'] = $this->lifecyclePostStartHandlerHttpGetPath;
         }
+
         if (null !== $this->lifecyclePostStartHandlerHttpGetPort) {
             $res['LifecyclePostStartHandlerHttpGetPort'] = $this->lifecyclePostStartHandlerHttpGetPort;
         }
+
         if (null !== $this->lifecyclePostStartHandlerHttpGetScheme) {
             $res['LifecyclePostStartHandlerHttpGetScheme'] = $this->lifecyclePostStartHandlerHttpGetScheme;
         }
+
         if (null !== $this->lifecyclePostStartHandlerTcpSocketHost) {
             $res['LifecyclePostStartHandlerTcpSocketHost'] = $this->lifecyclePostStartHandlerTcpSocketHost;
         }
+
         if (null !== $this->lifecyclePostStartHandlerTcpSocketPort) {
             $res['LifecyclePostStartHandlerTcpSocketPort'] = $this->lifecyclePostStartHandlerTcpSocketPort;
         }
+
         if (null !== $this->lifecyclePreStopHandlerExecs) {
-            $res['LifecyclePreStopHandlerExecs'] = $this->lifecyclePreStopHandlerExecs;
+            if (\is_array($this->lifecyclePreStopHandlerExecs)) {
+                $res['LifecyclePreStopHandlerExecs'] = [];
+                $n1 = 0;
+                foreach ($this->lifecyclePreStopHandlerExecs as $item1) {
+                    $res['LifecyclePreStopHandlerExecs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lifecyclePreStopHandlerHttpGetHost) {
             $res['LifecyclePreStopHandlerHttpGetHost'] = $this->lifecyclePreStopHandlerHttpGetHost;
         }
+
         if (null !== $this->lifecyclePreStopHandlerHttpGetPath) {
             $res['LifecyclePreStopHandlerHttpGetPath'] = $this->lifecyclePreStopHandlerHttpGetPath;
         }
+
         if (null !== $this->lifecyclePreStopHandlerHttpGetPort) {
             $res['LifecyclePreStopHandlerHttpGetPort'] = $this->lifecyclePreStopHandlerHttpGetPort;
         }
+
         if (null !== $this->lifecyclePreStopHandlerHttpGetScheme) {
             $res['LifecyclePreStopHandlerHttpGetScheme'] = $this->lifecyclePreStopHandlerHttpGetScheme;
         }
+
         if (null !== $this->lifecyclePreStopHandlerTcpSocketHost) {
             $res['LifecyclePreStopHandlerTcpSocketHost'] = $this->lifecyclePreStopHandlerTcpSocketHost;
         }
+
         if (null !== $this->lifecyclePreStopHandlerTcpSocketPort) {
             $res['LifecyclePreStopHandlerTcpSocketPort'] = $this->lifecyclePreStopHandlerTcpSocketPort;
         }
+
         if (null !== $this->livenessProbeExecCommands) {
-            $res['LivenessProbeExecCommands'] = $this->livenessProbeExecCommands;
+            if (\is_array($this->livenessProbeExecCommands)) {
+                $res['LivenessProbeExecCommands'] = [];
+                $n1 = 0;
+                foreach ($this->livenessProbeExecCommands as $item1) {
+                    $res['LivenessProbeExecCommands'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->livenessProbeFailureThreshold) {
             $res['LivenessProbeFailureThreshold'] = $this->livenessProbeFailureThreshold;
         }
+
         if (null !== $this->livenessProbeHttpGetPath) {
             $res['LivenessProbeHttpGetPath'] = $this->livenessProbeHttpGetPath;
         }
+
         if (null !== $this->livenessProbeHttpGetPort) {
             $res['LivenessProbeHttpGetPort'] = $this->livenessProbeHttpGetPort;
         }
+
         if (null !== $this->livenessProbeHttpGetScheme) {
             $res['LivenessProbeHttpGetScheme'] = $this->livenessProbeHttpGetScheme;
         }
+
         if (null !== $this->livenessProbeInitialDelaySeconds) {
             $res['LivenessProbeInitialDelaySeconds'] = $this->livenessProbeInitialDelaySeconds;
         }
+
         if (null !== $this->livenessProbePeriodSeconds) {
             $res['LivenessProbePeriodSeconds'] = $this->livenessProbePeriodSeconds;
         }
+
         if (null !== $this->livenessProbeSuccessThreshold) {
             $res['LivenessProbeSuccessThreshold'] = $this->livenessProbeSuccessThreshold;
         }
+
         if (null !== $this->livenessProbeTcpSocketPort) {
             $res['LivenessProbeTcpSocketPort'] = $this->livenessProbeTcpSocketPort;
         }
+
         if (null !== $this->livenessProbeTimeoutSeconds) {
             $res['LivenessProbeTimeoutSeconds'] = $this->livenessProbeTimeoutSeconds;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ports) {
-            $res['Ports'] = [];
-            if (null !== $this->ports && \is_array($this->ports)) {
-                $n = 0;
-                foreach ($this->ports as $item) {
-                    $res['Ports'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ports)) {
+                $res['Ports'] = [];
+                $n1 = 0;
+                foreach ($this->ports as $item1) {
+                    $res['Ports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->readinessProbeExecCommands) {
-            $res['ReadinessProbeExecCommands'] = $this->readinessProbeExecCommands;
+            if (\is_array($this->readinessProbeExecCommands)) {
+                $res['ReadinessProbeExecCommands'] = [];
+                $n1 = 0;
+                foreach ($this->readinessProbeExecCommands as $item1) {
+                    $res['ReadinessProbeExecCommands'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->readinessProbeFailureThreshold) {
             $res['ReadinessProbeFailureThreshold'] = $this->readinessProbeFailureThreshold;
         }
+
         if (null !== $this->readinessProbeHttpGetPath) {
             $res['ReadinessProbeHttpGetPath'] = $this->readinessProbeHttpGetPath;
         }
+
         if (null !== $this->readinessProbeHttpGetPort) {
             $res['ReadinessProbeHttpGetPort'] = $this->readinessProbeHttpGetPort;
         }
+
         if (null !== $this->readinessProbeHttpGetScheme) {
             $res['ReadinessProbeHttpGetScheme'] = $this->readinessProbeHttpGetScheme;
         }
+
         if (null !== $this->readinessProbeInitialDelaySeconds) {
             $res['ReadinessProbeInitialDelaySeconds'] = $this->readinessProbeInitialDelaySeconds;
         }
+
         if (null !== $this->readinessProbePeriodSeconds) {
             $res['ReadinessProbePeriodSeconds'] = $this->readinessProbePeriodSeconds;
         }
+
         if (null !== $this->readinessProbeSuccessThreshold) {
             $res['ReadinessProbeSuccessThreshold'] = $this->readinessProbeSuccessThreshold;
         }
+
         if (null !== $this->readinessProbeTcpSocketPort) {
             $res['ReadinessProbeTcpSocketPort'] = $this->readinessProbeTcpSocketPort;
         }
+
         if (null !== $this->readinessProbeTimeoutSeconds) {
             $res['ReadinessProbeTimeoutSeconds'] = $this->readinessProbeTimeoutSeconds;
         }
+
         if (null !== $this->securityContextCapabilityAdds) {
-            $res['SecurityContextCapabilityAdds'] = $this->securityContextCapabilityAdds;
-        }
-        if (null !== $this->securityContextReadOnlyRootFilesystem) {
-            $res['SecurityContextReadOnlyRootFilesystem'] = $this->securityContextReadOnlyRootFilesystem;
-        }
-        if (null !== $this->securityContextRunAsUser) {
-            $res['SecurityContextRunAsUser'] = $this->securityContextRunAsUser;
-        }
-        if (null !== $this->stdin) {
-            $res['Stdin'] = $this->stdin;
-        }
-        if (null !== $this->stdinOnce) {
-            $res['StdinOnce'] = $this->stdinOnce;
-        }
-        if (null !== $this->tty) {
-            $res['Tty'] = $this->tty;
-        }
-        if (null !== $this->volumeMounts) {
-            $res['VolumeMounts'] = [];
-            if (null !== $this->volumeMounts && \is_array($this->volumeMounts)) {
-                $n = 0;
-                foreach ($this->volumeMounts as $item) {
-                    $res['VolumeMounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->securityContextCapabilityAdds)) {
+                $res['SecurityContextCapabilityAdds'] = [];
+                $n1 = 0;
+                foreach ($this->securityContextCapabilityAdds as $item1) {
+                    $res['SecurityContextCapabilityAdds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->securityContextReadOnlyRootFilesystem) {
+            $res['SecurityContextReadOnlyRootFilesystem'] = $this->securityContextReadOnlyRootFilesystem;
+        }
+
+        if (null !== $this->securityContextRunAsUser) {
+            $res['SecurityContextRunAsUser'] = $this->securityContextRunAsUser;
+        }
+
+        if (null !== $this->stdin) {
+            $res['Stdin'] = $this->stdin;
+        }
+
+        if (null !== $this->stdinOnce) {
+            $res['StdinOnce'] = $this->stdinOnce;
+        }
+
+        if (null !== $this->tty) {
+            $res['Tty'] = $this->tty;
+        }
+
+        if (null !== $this->volumeMounts) {
+            if (\is_array($this->volumeMounts)) {
+                $res['VolumeMounts'] = [];
+                $n1 = 0;
+                foreach ($this->volumeMounts as $item1) {
+                    $res['VolumeMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
@@ -721,199 +644,288 @@ class containers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return containers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Args'])) {
             if (!empty($map['Args'])) {
-                $model->args = $map['Args'];
+                $model->args = [];
+                $n1 = 0;
+                foreach ($map['Args'] as $item1) {
+                    $model->args[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
-                $model->commands = $map['Commands'];
+                $model->commands = [];
+                $n1 = 0;
+                foreach ($map['Commands'] as $item1) {
+                    $model->commands[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['EnvironmentVars'])) {
             if (!empty($map['EnvironmentVars'])) {
                 $model->environmentVars = [];
-                $n = 0;
-                foreach ($map['EnvironmentVars'] as $item) {
-                    $model->environmentVars[$n++] = null !== $item ? environmentVars::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EnvironmentVars'] as $item1) {
+                    $model->environmentVars[$n1] = environmentVars::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+
         if (isset($map['ImagePullPolicy'])) {
             $model->imagePullPolicy = $map['ImagePullPolicy'];
         }
+
         if (isset($map['LifecyclePostStartHandlerExecs'])) {
             if (!empty($map['LifecyclePostStartHandlerExecs'])) {
-                $model->lifecyclePostStartHandlerExecs = $map['LifecyclePostStartHandlerExecs'];
+                $model->lifecyclePostStartHandlerExecs = [];
+                $n1 = 0;
+                foreach ($map['LifecyclePostStartHandlerExecs'] as $item1) {
+                    $model->lifecyclePostStartHandlerExecs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['LifecyclePostStartHandlerHttpGetHost'])) {
             $model->lifecyclePostStartHandlerHttpGetHost = $map['LifecyclePostStartHandlerHttpGetHost'];
         }
+
         if (isset($map['LifecyclePostStartHandlerHttpGetPath'])) {
             $model->lifecyclePostStartHandlerHttpGetPath = $map['LifecyclePostStartHandlerHttpGetPath'];
         }
+
         if (isset($map['LifecyclePostStartHandlerHttpGetPort'])) {
             $model->lifecyclePostStartHandlerHttpGetPort = $map['LifecyclePostStartHandlerHttpGetPort'];
         }
+
         if (isset($map['LifecyclePostStartHandlerHttpGetScheme'])) {
             $model->lifecyclePostStartHandlerHttpGetScheme = $map['LifecyclePostStartHandlerHttpGetScheme'];
         }
+
         if (isset($map['LifecyclePostStartHandlerTcpSocketHost'])) {
             $model->lifecyclePostStartHandlerTcpSocketHost = $map['LifecyclePostStartHandlerTcpSocketHost'];
         }
+
         if (isset($map['LifecyclePostStartHandlerTcpSocketPort'])) {
             $model->lifecyclePostStartHandlerTcpSocketPort = $map['LifecyclePostStartHandlerTcpSocketPort'];
         }
+
         if (isset($map['LifecyclePreStopHandlerExecs'])) {
             if (!empty($map['LifecyclePreStopHandlerExecs'])) {
-                $model->lifecyclePreStopHandlerExecs = $map['LifecyclePreStopHandlerExecs'];
+                $model->lifecyclePreStopHandlerExecs = [];
+                $n1 = 0;
+                foreach ($map['LifecyclePreStopHandlerExecs'] as $item1) {
+                    $model->lifecyclePreStopHandlerExecs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['LifecyclePreStopHandlerHttpGetHost'])) {
             $model->lifecyclePreStopHandlerHttpGetHost = $map['LifecyclePreStopHandlerHttpGetHost'];
         }
+
         if (isset($map['LifecyclePreStopHandlerHttpGetPath'])) {
             $model->lifecyclePreStopHandlerHttpGetPath = $map['LifecyclePreStopHandlerHttpGetPath'];
         }
+
         if (isset($map['LifecyclePreStopHandlerHttpGetPort'])) {
             $model->lifecyclePreStopHandlerHttpGetPort = $map['LifecyclePreStopHandlerHttpGetPort'];
         }
+
         if (isset($map['LifecyclePreStopHandlerHttpGetScheme'])) {
             $model->lifecyclePreStopHandlerHttpGetScheme = $map['LifecyclePreStopHandlerHttpGetScheme'];
         }
+
         if (isset($map['LifecyclePreStopHandlerTcpSocketHost'])) {
             $model->lifecyclePreStopHandlerTcpSocketHost = $map['LifecyclePreStopHandlerTcpSocketHost'];
         }
+
         if (isset($map['LifecyclePreStopHandlerTcpSocketPort'])) {
             $model->lifecyclePreStopHandlerTcpSocketPort = $map['LifecyclePreStopHandlerTcpSocketPort'];
         }
+
         if (isset($map['LivenessProbeExecCommands'])) {
             if (!empty($map['LivenessProbeExecCommands'])) {
-                $model->livenessProbeExecCommands = $map['LivenessProbeExecCommands'];
+                $model->livenessProbeExecCommands = [];
+                $n1 = 0;
+                foreach ($map['LivenessProbeExecCommands'] as $item1) {
+                    $model->livenessProbeExecCommands[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['LivenessProbeFailureThreshold'])) {
             $model->livenessProbeFailureThreshold = $map['LivenessProbeFailureThreshold'];
         }
+
         if (isset($map['LivenessProbeHttpGetPath'])) {
             $model->livenessProbeHttpGetPath = $map['LivenessProbeHttpGetPath'];
         }
+
         if (isset($map['LivenessProbeHttpGetPort'])) {
             $model->livenessProbeHttpGetPort = $map['LivenessProbeHttpGetPort'];
         }
+
         if (isset($map['LivenessProbeHttpGetScheme'])) {
             $model->livenessProbeHttpGetScheme = $map['LivenessProbeHttpGetScheme'];
         }
+
         if (isset($map['LivenessProbeInitialDelaySeconds'])) {
             $model->livenessProbeInitialDelaySeconds = $map['LivenessProbeInitialDelaySeconds'];
         }
+
         if (isset($map['LivenessProbePeriodSeconds'])) {
             $model->livenessProbePeriodSeconds = $map['LivenessProbePeriodSeconds'];
         }
+
         if (isset($map['LivenessProbeSuccessThreshold'])) {
             $model->livenessProbeSuccessThreshold = $map['LivenessProbeSuccessThreshold'];
         }
+
         if (isset($map['LivenessProbeTcpSocketPort'])) {
             $model->livenessProbeTcpSocketPort = $map['LivenessProbeTcpSocketPort'];
         }
+
         if (isset($map['LivenessProbeTimeoutSeconds'])) {
             $model->livenessProbeTimeoutSeconds = $map['LivenessProbeTimeoutSeconds'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Ports'])) {
             if (!empty($map['Ports'])) {
                 $model->ports = [];
-                $n = 0;
-                foreach ($map['Ports'] as $item) {
-                    $model->ports[$n++] = null !== $item ? ports::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Ports'] as $item1) {
+                    $model->ports[$n1] = ports::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ReadinessProbeExecCommands'])) {
             if (!empty($map['ReadinessProbeExecCommands'])) {
-                $model->readinessProbeExecCommands = $map['ReadinessProbeExecCommands'];
+                $model->readinessProbeExecCommands = [];
+                $n1 = 0;
+                foreach ($map['ReadinessProbeExecCommands'] as $item1) {
+                    $model->readinessProbeExecCommands[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ReadinessProbeFailureThreshold'])) {
             $model->readinessProbeFailureThreshold = $map['ReadinessProbeFailureThreshold'];
         }
+
         if (isset($map['ReadinessProbeHttpGetPath'])) {
             $model->readinessProbeHttpGetPath = $map['ReadinessProbeHttpGetPath'];
         }
+
         if (isset($map['ReadinessProbeHttpGetPort'])) {
             $model->readinessProbeHttpGetPort = $map['ReadinessProbeHttpGetPort'];
         }
+
         if (isset($map['ReadinessProbeHttpGetScheme'])) {
             $model->readinessProbeHttpGetScheme = $map['ReadinessProbeHttpGetScheme'];
         }
+
         if (isset($map['ReadinessProbeInitialDelaySeconds'])) {
             $model->readinessProbeInitialDelaySeconds = $map['ReadinessProbeInitialDelaySeconds'];
         }
+
         if (isset($map['ReadinessProbePeriodSeconds'])) {
             $model->readinessProbePeriodSeconds = $map['ReadinessProbePeriodSeconds'];
         }
+
         if (isset($map['ReadinessProbeSuccessThreshold'])) {
             $model->readinessProbeSuccessThreshold = $map['ReadinessProbeSuccessThreshold'];
         }
+
         if (isset($map['ReadinessProbeTcpSocketPort'])) {
             $model->readinessProbeTcpSocketPort = $map['ReadinessProbeTcpSocketPort'];
         }
+
         if (isset($map['ReadinessProbeTimeoutSeconds'])) {
             $model->readinessProbeTimeoutSeconds = $map['ReadinessProbeTimeoutSeconds'];
         }
+
         if (isset($map['SecurityContextCapabilityAdds'])) {
             if (!empty($map['SecurityContextCapabilityAdds'])) {
-                $model->securityContextCapabilityAdds = $map['SecurityContextCapabilityAdds'];
-            }
-        }
-        if (isset($map['SecurityContextReadOnlyRootFilesystem'])) {
-            $model->securityContextReadOnlyRootFilesystem = $map['SecurityContextReadOnlyRootFilesystem'];
-        }
-        if (isset($map['SecurityContextRunAsUser'])) {
-            $model->securityContextRunAsUser = $map['SecurityContextRunAsUser'];
-        }
-        if (isset($map['Stdin'])) {
-            $model->stdin = $map['Stdin'];
-        }
-        if (isset($map['StdinOnce'])) {
-            $model->stdinOnce = $map['StdinOnce'];
-        }
-        if (isset($map['Tty'])) {
-            $model->tty = $map['Tty'];
-        }
-        if (isset($map['VolumeMounts'])) {
-            if (!empty($map['VolumeMounts'])) {
-                $model->volumeMounts = [];
-                $n = 0;
-                foreach ($map['VolumeMounts'] as $item) {
-                    $model->volumeMounts[$n++] = null !== $item ? volumeMounts::fromMap($item) : $item;
+                $model->securityContextCapabilityAdds = [];
+                $n1 = 0;
+                foreach ($map['SecurityContextCapabilityAdds'] as $item1) {
+                    $model->securityContextCapabilityAdds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['SecurityContextReadOnlyRootFilesystem'])) {
+            $model->securityContextReadOnlyRootFilesystem = $map['SecurityContextReadOnlyRootFilesystem'];
+        }
+
+        if (isset($map['SecurityContextRunAsUser'])) {
+            $model->securityContextRunAsUser = $map['SecurityContextRunAsUser'];
+        }
+
+        if (isset($map['Stdin'])) {
+            $model->stdin = $map['Stdin'];
+        }
+
+        if (isset($map['StdinOnce'])) {
+            $model->stdinOnce = $map['StdinOnce'];
+        }
+
+        if (isset($map['Tty'])) {
+            $model->tty = $map['Tty'];
+        }
+
+        if (isset($map['VolumeMounts'])) {
+            if (!empty($map['VolumeMounts'])) {
+                $model->volumeMounts = [];
+                $n1 = 0;
+                foreach ($map['VolumeMounts'] as $item1) {
+                    $model->volumeMounts[$n1] = volumeMounts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
         }

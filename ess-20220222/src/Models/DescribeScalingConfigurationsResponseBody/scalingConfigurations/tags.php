@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag key of the ECS instance. You can specify up to 20 tags for each ECS instance.
-     *
-     * The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` and cannot contain `http://` or `https://`.
-     *
-     * @example binary
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value of the ECS instance. You can specify up to 20 tags for each ECS instance.
-     *
-     * The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
-     *
-     * @example alterTable
-     *
      * @var string
      */
     public $value;
@@ -34,14 +22,18 @@ class tags extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

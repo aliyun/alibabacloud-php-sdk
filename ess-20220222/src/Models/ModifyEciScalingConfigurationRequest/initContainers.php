@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\initContainers\initContainerEnvironmentVars;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\initContainers\initContainerPorts;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\initContainers\initContainerVolumeMounts;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\initContainers\securityContext;
-use AlibabaCloud\Tea\Model;
 
 class initContainers extends Model
 {
@@ -18,103 +18,61 @@ class initContainers extends Model
     public $securityContext;
 
     /**
-     * @description The container startup arguments.
-     *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The commands that you can run to start the init container.
-     *
      * @var string[]
      */
     public $commands;
 
     /**
-     * @description The number of vCPUs per init container.
-     *
-     * @example 0.5
-     *
      * @var float
      */
     public $cpu;
 
     /**
-     * @description The number of GPUs per init container.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $gpu;
 
     /**
-     * @description The image of the init container.
-     *
-     * @example nginx
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description The image pulling policy. Valid values:
-     *
-     *   Always: Image pulling is performed each time instances are created.
-     *   IfNotPresent: Image pulling is performed as needed. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
-     *   Never: On-premises images are always used. Image pulling is not performed.
-     *
-     * @example Always
-     *
      * @var string
      */
     public $imagePullPolicy;
 
     /**
-     * @description The environment variables of the init container.
-     *
      * @var initContainerEnvironmentVars[]
      */
     public $initContainerEnvironmentVars;
 
     /**
-     * @description The ports of the init container.
-     *
      * @var initContainerPorts[]
      */
     public $initContainerPorts;
 
     /**
-     * @description The volume mounts of the init container.
-     *
      * @var initContainerVolumeMounts[]
      */
     public $initContainerVolumeMounts;
 
     /**
-     * @description The memory size per init container. Unit: GiB.
-     *
-     * @example 1.0
-     *
      * @var float
      */
     public $memory;
 
     /**
-     * @description The name of the init container.
-     *
-     * @example test-init
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The working directory.
-     *
-     * @example /usr/local
-     *
      * @var string
      */
     public $workingDir;
@@ -134,65 +92,115 @@ class initContainers extends Model
         'workingDir' => 'WorkingDir',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->securityContext) {
+            $this->securityContext->validate();
+        }
+        if (\is_array($this->args)) {
+            Model::validateArray($this->args);
+        }
+        if (\is_array($this->commands)) {
+            Model::validateArray($this->commands);
+        }
+        if (\is_array($this->initContainerEnvironmentVars)) {
+            Model::validateArray($this->initContainerEnvironmentVars);
+        }
+        if (\is_array($this->initContainerPorts)) {
+            Model::validateArray($this->initContainerPorts);
+        }
+        if (\is_array($this->initContainerVolumeMounts)) {
+            Model::validateArray($this->initContainerVolumeMounts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityContext) {
-            $res['SecurityContext'] = null !== $this->securityContext ? $this->securityContext->toMap() : null;
+            $res['SecurityContext'] = null !== $this->securityContext ? $this->securityContext->toArray($noStream) : $this->securityContext;
         }
+
         if (null !== $this->args) {
-            $res['Args'] = $this->args;
+            if (\is_array($this->args)) {
+                $res['Args'] = [];
+                $n1 = 0;
+                foreach ($this->args as $item1) {
+                    $res['Args'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->commands) {
-            $res['Commands'] = $this->commands;
+            if (\is_array($this->commands)) {
+                $res['Commands'] = [];
+                $n1 = 0;
+                foreach ($this->commands as $item1) {
+                    $res['Commands'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
         }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+
         if (null !== $this->imagePullPolicy) {
             $res['ImagePullPolicy'] = $this->imagePullPolicy;
         }
+
         if (null !== $this->initContainerEnvironmentVars) {
-            $res['InitContainerEnvironmentVars'] = [];
-            if (null !== $this->initContainerEnvironmentVars && \is_array($this->initContainerEnvironmentVars)) {
-                $n = 0;
-                foreach ($this->initContainerEnvironmentVars as $item) {
-                    $res['InitContainerEnvironmentVars'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->initContainerEnvironmentVars)) {
+                $res['InitContainerEnvironmentVars'] = [];
+                $n1 = 0;
+                foreach ($this->initContainerEnvironmentVars as $item1) {
+                    $res['InitContainerEnvironmentVars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->initContainerPorts) {
-            $res['InitContainerPorts'] = [];
-            if (null !== $this->initContainerPorts && \is_array($this->initContainerPorts)) {
-                $n = 0;
-                foreach ($this->initContainerPorts as $item) {
-                    $res['InitContainerPorts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->initContainerPorts)) {
+                $res['InitContainerPorts'] = [];
+                $n1 = 0;
+                foreach ($this->initContainerPorts as $item1) {
+                    $res['InitContainerPorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->initContainerVolumeMounts) {
-            $res['InitContainerVolumeMounts'] = [];
-            if (null !== $this->initContainerVolumeMounts && \is_array($this->initContainerVolumeMounts)) {
-                $n = 0;
-                foreach ($this->initContainerVolumeMounts as $item) {
-                    $res['InitContainerVolumeMounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->initContainerVolumeMounts)) {
+                $res['InitContainerVolumeMounts'] = [];
+                $n1 = 0;
+                foreach ($this->initContainerVolumeMounts as $item1) {
+                    $res['InitContainerVolumeMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
@@ -200,72 +208,97 @@ class initContainers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return initContainers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityContext'])) {
             $model->securityContext = securityContext::fromMap($map['SecurityContext']);
         }
+
         if (isset($map['Args'])) {
             if (!empty($map['Args'])) {
-                $model->args = $map['Args'];
+                $model->args = [];
+                $n1 = 0;
+                foreach ($map['Args'] as $item1) {
+                    $model->args[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
-                $model->commands = $map['Commands'];
+                $model->commands = [];
+                $n1 = 0;
+                foreach ($map['Commands'] as $item1) {
+                    $model->commands[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+
         if (isset($map['ImagePullPolicy'])) {
             $model->imagePullPolicy = $map['ImagePullPolicy'];
         }
+
         if (isset($map['InitContainerEnvironmentVars'])) {
             if (!empty($map['InitContainerEnvironmentVars'])) {
                 $model->initContainerEnvironmentVars = [];
-                $n = 0;
-                foreach ($map['InitContainerEnvironmentVars'] as $item) {
-                    $model->initContainerEnvironmentVars[$n++] = null !== $item ? initContainerEnvironmentVars::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InitContainerEnvironmentVars'] as $item1) {
+                    $model->initContainerEnvironmentVars[$n1] = initContainerEnvironmentVars::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InitContainerPorts'])) {
             if (!empty($map['InitContainerPorts'])) {
                 $model->initContainerPorts = [];
-                $n = 0;
-                foreach ($map['InitContainerPorts'] as $item) {
-                    $model->initContainerPorts[$n++] = null !== $item ? initContainerPorts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InitContainerPorts'] as $item1) {
+                    $model->initContainerPorts[$n1] = initContainerPorts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InitContainerVolumeMounts'])) {
             if (!empty($map['InitContainerVolumeMounts'])) {
                 $model->initContainerVolumeMounts = [];
-                $n = 0;
-                foreach ($map['InitContainerVolumeMounts'] as $item) {
-                    $model->initContainerVolumeMounts[$n++] = null !== $item ? initContainerVolumeMounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InitContainerVolumeMounts'] as $item1) {
+                    $model->initContainerVolumeMounts[$n1] = initContainerVolumeMounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
         }

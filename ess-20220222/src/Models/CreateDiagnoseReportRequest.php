@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDiagnoseReportRequest extends Model
 {
     /**
-     * @description The region ID of the scaling group.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the scaling group.
-     *
-     * This parameter is required.
-     *
-     * @example asg-bp1f2f6oxc2*******
-     *
      * @var string
      */
     public $scalingGroupId;
@@ -34,14 +22,18 @@ class CreateDiagnoseReportRequest extends Model
         'scalingGroupId' => 'ScalingGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
@@ -49,17 +41,18 @@ class CreateDiagnoseReportRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDiagnoseReportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
         }

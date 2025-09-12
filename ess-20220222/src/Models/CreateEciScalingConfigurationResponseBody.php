@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEciScalingConfigurationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 89945DD3-9072-47D0-A318-353284CF****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the elastic container instance (container group).
-     *
-     * @example eci-uf6fonnghi50u374****
-     *
      * @var string
      */
     public $scalingConfigurationId;
@@ -30,14 +22,18 @@ class CreateEciScalingConfigurationResponseBody extends Model
         'scalingConfigurationId' => 'ScalingConfigurationId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scalingConfigurationId) {
             $res['ScalingConfigurationId'] = $this->scalingConfigurationId;
         }
@@ -45,17 +41,18 @@ class CreateEciScalingConfigurationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEciScalingConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ScalingConfigurationId'])) {
             $model->scalingConfigurationId = $map['ScalingConfigurationId'];
         }

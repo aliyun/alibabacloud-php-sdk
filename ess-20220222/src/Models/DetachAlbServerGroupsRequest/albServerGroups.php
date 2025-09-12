@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DetachAlbServerGroupsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class albServerGroups extends Model
 {
     /**
-     * @description The ID of the ALB server group.
-     *
-     * This parameter is required.
-     *
-     * @example sgp-ddwb0y0g6y9bjm****
-     *
      * @var string
      */
     public $albServerGroupId;
 
     /**
-     * @description The port number used by the ECS instances in the ALB server group.
-     *
-     * This parameter is required.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $port;
@@ -34,14 +22,18 @@ class albServerGroups extends Model
         'port' => 'Port',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->albServerGroupId) {
             $res['AlbServerGroupId'] = $this->albServerGroupId;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -49,17 +41,18 @@ class albServerGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return albServerGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlbServerGroupId'])) {
             $model->albServerGroupId = $map['AlbServerGroupId'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

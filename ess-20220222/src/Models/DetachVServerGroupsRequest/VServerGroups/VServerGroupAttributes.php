@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DetachVServerGroupsRequest\VServerGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VServerGroupAttributes extends Model
 {
     /**
-     * @description The port number that Auto Scaling employs to incorporate instances into the vServer group. Valid values: 1 to 65535.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The ID of the backend vServer group.
-     *
-     * @example rsp-bp1jp1rge****
-     *
      * @var string
      */
     public $VServerGroupId;
@@ -30,14 +22,18 @@ class VServerGroupAttributes extends Model
         'VServerGroupId' => 'VServerGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
@@ -45,17 +41,18 @@ class VServerGroupAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VServerGroupAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }

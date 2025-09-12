@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\volumes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostPathVolume extends Model
 {
@@ -22,14 +22,18 @@ class hostPathVolume extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -37,17 +41,18 @@ class hostPathVolume extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostPathVolume
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

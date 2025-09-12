@@ -4,23 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class alarmOptions extends Model
 {
     /**
-     * @description The statistical period of the metric data in the target tracking scaling rule. Unit: seconds. Valid values:
-     *
-     *   15
-     *   60
-     *   120
-     *   300
-     *   900
-     *
-     * >  Default value: 60.
-     *
-     * @example 60
-     *
      * @var int
      */
     public $period;
@@ -28,9 +16,12 @@ class alarmOptions extends Model
         'period' => 'Period',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->period) {
@@ -40,11 +31,11 @@ class alarmOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alarmOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,163 +4,76 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataDisks extends Model
 {
     /**
-     * @description The ID of the automatic snapshot policy that is applied to the data disk.
-     *
-     * @example sp-bp19nq9enxqkomib****
-     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
-     * @description Indicates whether the Performance Burst feature is enabled for the data disk. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * >  This parameter is available only when you set `DataDisk.Category` to `cloud_auto`.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $burstingEnabled;
 
     /**
-     * @description The categories of the data disks. The values are sorted based on their priorities. The first value has the highest priority. If Auto Scaling cannot create instances by using the disk category of the highest priority, Auto Scaling creates instances by using the disk category of the next highest priority. Valid values:
-     *
-     *   cloud: basic disk. DeleteWithInstance of a basic disk created along with the ECS instance is set to true.
-     *   cloud_efficiency: ultra disk.
-     *   cloud_ssd: standard SSD.
-     *   cloud_essd: ESSD.
-     *
      * @var string[]
      */
     public $categories;
 
     /**
-     * @description The category of the data disk. Valid values:
-     *
-     *   cloud: basic disk. DeleteWithInstance of a basic disk created along with the ECS instance is set to true.
-     *   cloud_efficiency: ultra disk.
-     *   cloud_ssd: standard SSD.
-     *   ephemeral_ssd: local SSD.
-     *   cloud_essd: ESSD.
-     *   cloud_auto: ESSD AutoPL.
-     *
-     * @example cloud
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description Indicates whether the data disk is released when the instance to which the data disk is attached is released. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $deleteWithInstance;
 
     /**
-     * @description The description of the data disk.
-     *
-     * @example FinanceDept
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The mount target of the data disk.
-     *
-     * @example /dev/xvdb
-     *
      * @var string
      */
     public $device;
 
     /**
-     * @description The name of the data disk.
-     *
-     * @example cloud_ssdData
-     *
      * @var string
      */
     public $diskName;
 
     /**
-     * @description Indicates whether the data disk is encrypted. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * @example false
-     *
      * @var string
      */
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is applied to the data disk.
-     *
-     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
-     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
-     * @description The PL of the data disk that is an ESSD.
-     *
-     * @example PL1
-     *
      * @var string
      */
     public $performanceLevel;
 
     /**
-     * @description The provisioned IOPS of the data disk.
-     *
-     * >  IOPS measures the number of read and write operations that an Elastic Block Storage (EBS) device can process per second.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $provisionedIops;
 
     /**
-     * @description The size of the data disk. Unit: GB. Valid values:
-     *
-     *   5 to 2000 if you set Category to cloud.
-     *   20 to 32768 if you set Category to cloud_efficiency.
-     *   20 to 32768 if you set Category to cloud_ssd.
-     *   20 to 32768 if you set Category to cloud_essd.
-     *   5 to 800 if you set Category to ephemeral_ssd.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description The ID of the snapshot based on which the data disk is created.
-     *
-     * @example s-23f2i****
-     *
      * @var string
      */
     public $snapshotId;
@@ -181,50 +94,76 @@ class dataDisks extends Model
         'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->categories)) {
+            Model::validateArray($this->categories);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
+
         if (null !== $this->burstingEnabled) {
             $res['BurstingEnabled'] = $this->burstingEnabled;
         }
+
         if (null !== $this->categories) {
-            $res['Categories'] = $this->categories;
+            if (\is_array($this->categories)) {
+                $res['Categories'] = [];
+                $n1 = 0;
+                foreach ($this->categories as $item1) {
+                    $res['Categories'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->device) {
             $res['Device'] = $this->device;
         }
+
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
         }
+
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
+
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
         }
+
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
+
         if (null !== $this->provisionedIops) {
             $res['ProvisionedIops'] = $this->provisionedIops;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
@@ -232,55 +171,73 @@ class dataDisks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDisks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
         }
+
         if (isset($map['BurstingEnabled'])) {
             $model->burstingEnabled = $map['BurstingEnabled'];
         }
+
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
-                $model->categories = $map['Categories'];
+                $model->categories = [];
+                $n1 = 0;
+                foreach ($map['Categories'] as $item1) {
+                    $model->categories[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
         }
+
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
         }
+
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
+
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
         }
+
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
+
         if (isset($map['ProvisionedIops'])) {
             $model->provisionedIops = $map['ProvisionedIops'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }

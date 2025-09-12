@@ -4,57 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\AttachServerGroupsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serverGroups extends Model
 {
     /**
-     * @description The port used by ECS instances or elastic container instances after being added as backend servers to the server group.
-     *
-     * Valid values: 1 to 65535.
-     *
-     * This parameter is required.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The ID of the server group.
-     *
-     * This parameter is required.
-     *
-     * @example sgp-5yc3bd9lfyh*****
-     *
      * @var string
      */
     public $serverGroupId;
 
     /**
-     * @description The type of the server group. Valid values:
-     *
-     *   ALB
-     *   NLB
-     *
-     * This parameter is required.
-     *
-     * @example ALB
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The weight of an ECS instance or elastic container instance as a backend server of the server group. Valid values: 0 to 100.
-     *
-     * If you assign a higher weight to an instance, the instance is allocated a larger proportion of access requests. If you assign zero weight to an instance, the instance is allocated no access requests.
-     *
-     * This parameter is required.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $weight;
@@ -65,20 +34,26 @@ class serverGroups extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -86,23 +61,26 @@ class serverGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serverGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

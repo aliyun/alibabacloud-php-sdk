@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeNotificationConfigurationsResponseBody\notificationConfigurationModels;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNotificationConfigurationsResponseBody extends Model
 {
     /**
-     * @description The notification settings.
-     *
      * @var notificationConfigurationModels[]
      */
     public $notificationConfigurationModels;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeNotificationConfigurationsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->notificationConfigurationModels)) {
+            Model::validateArray($this->notificationConfigurationModels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->notificationConfigurationModels) {
-            $res['NotificationConfigurationModels'] = [];
-            if (null !== $this->notificationConfigurationModels && \is_array($this->notificationConfigurationModels)) {
-                $n = 0;
-                foreach ($this->notificationConfigurationModels as $item) {
-                    $res['NotificationConfigurationModels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->notificationConfigurationModels)) {
+                $res['NotificationConfigurationModels'] = [];
+                $n1 = 0;
+                foreach ($this->notificationConfigurationModels as $item1) {
+                    $res['NotificationConfigurationModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeNotificationConfigurationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNotificationConfigurationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NotificationConfigurationModels'])) {
             if (!empty($map['NotificationConfigurationModels'])) {
                 $model->notificationConfigurationModels = [];
-                $n = 0;
-                foreach ($map['NotificationConfigurationModels'] as $item) {
-                    $model->notificationConfigurationModels[$n++] = null !== $item ? notificationConfigurationModels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NotificationConfigurationModels'] as $item1) {
+                    $model->notificationConfigurationModels[$n1] = notificationConfigurationModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

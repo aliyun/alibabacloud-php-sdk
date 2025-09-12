@@ -4,56 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleRequest\hybridMetrics\dimensions;
-use AlibabaCloud\Tea\Model;
 
 class hybridMetrics extends Model
 {
     /**
-     * @description The metric dimensions. You can use this parameter to specify the monitored resources.
-     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
-     * @description The metric expression that consists of multiple Hybrid Cloud Monitoring metrics. It calculates a result used to trigger scaling events.
-     *
-     * The expression must be written in Reverse Polish Notation (RPN) format and supports only the following operators: `+, -, *, /`.
-     *
-     * @example (a+b)/2
-     *
      * @var string
      */
     public $expression;
 
     /**
-     * @description The reference ID of the metric in the metric expression.
-     *
-     * @example a
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The name of the Hybrid Cloud Monitoring metric.
-     *
-     * @example AliyunSmq_NumberOfMessagesVisible
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The statistical method of the metric value. Valid values:
-     *
-     *   Average: calculates the average value of all metric values within a specified interval.
-     *   Minimum: calculates the minimum value of all metric values within a specified interval.
-     *   Maximum: calculates the maximum value of all metric values within a specified interval.
-     *
-     * @example Average
-     *
      * @var string
      */
     public $statistic;
@@ -65,29 +41,40 @@ class hybridMetrics extends Model
         'statistic' => 'Statistic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimensions) {
-            $res['Dimensions'] = [];
-            if (null !== $this->dimensions && \is_array($this->dimensions)) {
-                $n = 0;
-                foreach ($this->dimensions as $item) {
-                    $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->statistic) {
             $res['Statistic'] = $this->statistic;
         }
@@ -95,32 +82,37 @@ class hybridMetrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hybridMetrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];
-                $n = 0;
-                foreach ($map['Dimensions'] as $item) {
-                    $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1] = dimensions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Statistic'])) {
             $model->statistic = $map['Statistic'];
         }

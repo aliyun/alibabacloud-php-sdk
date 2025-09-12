@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentResponseBody\planResult\resourceAllocations;
-use AlibabaCloud\Tea\Model;
 
 class planResult extends Model
 {
@@ -17,17 +17,24 @@ class planResult extends Model
         'resourceAllocations' => 'ResourceAllocations',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceAllocations)) {
+            Model::validateArray($this->resourceAllocations);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceAllocations) {
-            $res['ResourceAllocations'] = [];
-            if (null !== $this->resourceAllocations && \is_array($this->resourceAllocations)) {
-                $n = 0;
-                foreach ($this->resourceAllocations as $item) {
-                    $res['ResourceAllocations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceAllocations)) {
+                $res['ResourceAllocations'] = [];
+                $n1 = 0;
+                foreach ($this->resourceAllocations as $item1) {
+                    $res['ResourceAllocations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class planResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return planResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceAllocations'])) {
             if (!empty($map['ResourceAllocations'])) {
                 $model->resourceAllocations = [];
-                $n = 0;
-                foreach ($map['ResourceAllocations'] as $item) {
-                    $model->resourceAllocations[$n++] = null !== $item ? resourceAllocations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceAllocations'] as $item1) {
+                    $model->resourceAllocations[$n1] = resourceAllocations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
