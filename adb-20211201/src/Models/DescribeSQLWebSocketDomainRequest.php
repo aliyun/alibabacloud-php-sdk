@@ -16,9 +16,15 @@ class DescribeSQLWebSocketDomainRequest extends Model
     /**
      * @var string
      */
+    public $module;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'module' => 'Module',
         'regionId' => 'RegionId',
     ];
 
@@ -32,6 +38,10 @@ class DescribeSQLWebSocketDomainRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->module) {
+            $res['Module'] = $this->module;
         }
 
         if (null !== $this->regionId) {
@@ -51,6 +61,10 @@ class DescribeSQLWebSocketDomainRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['Module'])) {
+            $model->module = $map['Module'];
         }
 
         if (isset($map['RegionId'])) {
