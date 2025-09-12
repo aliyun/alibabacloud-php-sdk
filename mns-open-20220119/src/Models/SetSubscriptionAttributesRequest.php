@@ -23,6 +23,11 @@ class SetSubscriptionAttributesRequest extends Model
     /**
      * @var string
      */
+    public $stsRoleArn;
+
+    /**
+     * @var string
+     */
     public $subscriptionName;
 
     /**
@@ -37,6 +42,7 @@ class SetSubscriptionAttributesRequest extends Model
     protected $_name = [
         'dlqPolicy' => 'DlqPolicy',
         'notifyStrategy' => 'NotifyStrategy',
+        'stsRoleArn' => 'StsRoleArn',
         'subscriptionName' => 'SubscriptionName',
         'tenantRateLimitPolicy' => 'TenantRateLimitPolicy',
         'topicName' => 'TopicName',
@@ -62,6 +68,10 @@ class SetSubscriptionAttributesRequest extends Model
 
         if (null !== $this->notifyStrategy) {
             $res['NotifyStrategy'] = $this->notifyStrategy;
+        }
+
+        if (null !== $this->stsRoleArn) {
+            $res['StsRoleArn'] = $this->stsRoleArn;
         }
 
         if (null !== $this->subscriptionName) {
@@ -93,6 +103,10 @@ class SetSubscriptionAttributesRequest extends Model
 
         if (isset($map['NotifyStrategy'])) {
             $model->notifyStrategy = $map['NotifyStrategy'];
+        }
+
+        if (isset($map['StsRoleArn'])) {
+            $model->stsRoleArn = $map['StsRoleArn'];
         }
 
         if (isset($map['SubscriptionName'])) {
