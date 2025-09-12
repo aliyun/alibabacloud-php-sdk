@@ -94,6 +94,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $sqlMode;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
@@ -132,6 +137,7 @@ class data extends Model
         'requestMethod' => 'RequestMethod',
         'responseContentType' => 'ResponseContentType',
         'scriptDetails' => 'ScriptDetails',
+        'sqlMode' => 'SqlMode',
         'status' => 'Status',
         'tenantId' => 'TenantId',
         'timeout' => 'Timeout',
@@ -228,6 +234,10 @@ class data extends Model
 
         if (null !== $this->scriptDetails) {
             $res['ScriptDetails'] = null !== $this->scriptDetails ? $this->scriptDetails->toArray($noStream) : $this->scriptDetails;
+        }
+
+        if (null !== $this->sqlMode) {
+            $res['SqlMode'] = $this->sqlMode;
         }
 
         if (null !== $this->status) {
@@ -330,6 +340,10 @@ class data extends Model
 
         if (isset($map['ScriptDetails'])) {
             $model->scriptDetails = scriptDetails::fromMap($map['ScriptDetails']);
+        }
+
+        if (isset($map['SqlMode'])) {
+            $model->sqlMode = $map['SqlMode'];
         }
 
         if (isset($map['Status'])) {
