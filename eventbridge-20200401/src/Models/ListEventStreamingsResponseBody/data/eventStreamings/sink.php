@@ -22,6 +22,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBod
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkSLSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkDataWorksTriggerParameters;
 
 class sink extends Model
 {
@@ -59,6 +60,11 @@ class sink extends Model
      * @var sinkDataHubParameters
      */
     public $sinkDataHubParameters;
+
+    /**
+     * @var SinkDataWorksTriggerParameters
+     */
+    public $sinkDataWorksTriggerParameters;
 
     /**
      * @var sinkDorisParameters
@@ -117,6 +123,7 @@ class sink extends Model
         'sinkCustomizedKafkaParameters' => 'SinkCustomizedKafkaParameters',
         'sinkDashVectorParameters' => 'SinkDashVectorParameters',
         'sinkDataHubParameters' => 'SinkDataHubParameters',
+        'sinkDataWorksTriggerParameters' => 'SinkDataWorksTriggerParameters',
         'sinkDorisParameters' => 'SinkDorisParameters',
         'sinkFcParameters' => 'SinkFcParameters',
         'sinkFnfParameters' => 'SinkFnfParameters',
@@ -151,6 +158,9 @@ class sink extends Model
         }
         if (null !== $this->sinkDataHubParameters) {
             $this->sinkDataHubParameters->validate();
+        }
+        if (null !== $this->sinkDataWorksTriggerParameters) {
+            $this->sinkDataWorksTriggerParameters->validate();
         }
         if (null !== $this->sinkDorisParameters) {
             $this->sinkDorisParameters->validate();
@@ -214,6 +224,10 @@ class sink extends Model
 
         if (null !== $this->sinkDataHubParameters) {
             $res['SinkDataHubParameters'] = null !== $this->sinkDataHubParameters ? $this->sinkDataHubParameters->toArray($noStream) : $this->sinkDataHubParameters;
+        }
+
+        if (null !== $this->sinkDataWorksTriggerParameters) {
+            $res['SinkDataWorksTriggerParameters'] = null !== $this->sinkDataWorksTriggerParameters ? $this->sinkDataWorksTriggerParameters->toArray($noStream) : $this->sinkDataWorksTriggerParameters;
         }
 
         if (null !== $this->sinkDorisParameters) {
@@ -293,6 +307,10 @@ class sink extends Model
 
         if (isset($map['SinkDataHubParameters'])) {
             $model->sinkDataHubParameters = sinkDataHubParameters::fromMap($map['SinkDataHubParameters']);
+        }
+
+        if (isset($map['SinkDataWorksTriggerParameters'])) {
+            $model->sinkDataWorksTriggerParameters = SinkDataWorksTriggerParameters::fromMap($map['SinkDataWorksTriggerParameters']);
         }
 
         if (isset($map['SinkDorisParameters'])) {
