@@ -1,3 +1,8 @@
+2025-09-12 Version: 1.2.0
+- Support API CreateExternalCACertificate.
+- Support API ListPcaCaCertificate.
+
+
 2025-08-19 Version: 1.1.6
 - Generated php 2020-06-30 for cas.
 

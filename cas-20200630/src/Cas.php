@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateWithCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateWithCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\CreateExternalCACertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\CreateExternalCACertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\CreateExternalCACertificateShrinkRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateRevokeClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateRevokeClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateRootCACertificateRequest;
@@ -40,6 +43,8 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListClientCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListPcaCaCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200630\Models\ListPcaCaCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\UpdateCACertificateStatusRequest;
@@ -513,6 +518,81 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建外部子CA证书.
+     *
+     * @param tmpReq - CreateExternalCACertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExternalCACertificateResponse
+     *
+     * @param CreateExternalCACertificateRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateExternalCACertificateResponse
+     */
+    public function createExternalCACertificateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateExternalCACertificateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->apiPassthrough) {
+            $request->apiPassthroughShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiPassthrough, 'ApiPassthrough', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->apiPassthroughShrink) {
+            @$query['ApiPassthrough'] = $request->apiPassthroughShrink;
+        }
+
+        if (null !== $request->csr) {
+            @$query['Csr'] = $request->csr;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->validity) {
+            @$query['Validity'] = $request->validity;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateExternalCACertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateExternalCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建外部子CA证书.
+     *
+     * @param request - CreateExternalCACertificateRequest
+     *
+     * @returns CreateExternalCACertificateResponse
+     *
+     * @param CreateExternalCACertificateRequest $request
+     *
+     * @return CreateExternalCACertificateResponse
+     */
+    public function createExternalCACertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExternalCACertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -1807,6 +1887,67 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询私有CA机构证书.
+     *
+     * @param request - ListPcaCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPcaCaCertificateResponse
+     *
+     * @param ListPcaCaCertificateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPcaCaCertificateResponse
+     */
+    public function listPcaCaCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPcaCaCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPcaCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询私有CA机构证书.
+     *
+     * @param request - ListPcaCaCertificateRequest
+     *
+     * @returns ListPcaCaCertificateResponse
+     *
+     * @param ListPcaCaCertificateRequest $request
+     *
+     * @return ListPcaCaCertificateResponse
+     */
+    public function listPcaCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPcaCaCertificateWithOptions($request, $runtime);
     }
 
     /**
