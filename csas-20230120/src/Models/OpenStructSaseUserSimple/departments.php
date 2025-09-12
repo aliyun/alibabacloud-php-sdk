@@ -16,10 +16,28 @@ class departments extends Model
     /**
      * @var string
      */
+    public $fullDepartmentIdPath;
+
+    /**
+     * @var string
+     */
+    public $fullDn;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $parentDepartmentId;
     protected $_name = [
         'departmentId' => 'DepartmentId',
+        'fullDepartmentIdPath' => 'FullDepartmentIdPath',
+        'fullDn' => 'FullDn',
         'name' => 'Name',
+        'parentDepartmentId' => 'ParentDepartmentId',
     ];
 
     public function validate()
@@ -34,8 +52,20 @@ class departments extends Model
             $res['DepartmentId'] = $this->departmentId;
         }
 
+        if (null !== $this->fullDepartmentIdPath) {
+            $res['FullDepartmentIdPath'] = $this->fullDepartmentIdPath;
+        }
+
+        if (null !== $this->fullDn) {
+            $res['FullDn'] = $this->fullDn;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->parentDepartmentId) {
+            $res['ParentDepartmentId'] = $this->parentDepartmentId;
         }
 
         return $res;
@@ -53,8 +83,20 @@ class departments extends Model
             $model->departmentId = $map['DepartmentId'];
         }
 
+        if (isset($map['FullDepartmentIdPath'])) {
+            $model->fullDepartmentIdPath = $map['FullDepartmentIdPath'];
+        }
+
+        if (isset($map['FullDn'])) {
+            $model->fullDn = $map['FullDn'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ParentDepartmentId'])) {
+            $model->parentDepartmentId = $map['ParentDepartmentId'];
         }
 
         return $model;

@@ -19,6 +19,11 @@ class ListUserDevicesRequest extends Model
     public $appVersions;
 
     /**
+     * @var string[]
+     */
+    public $autoLoginStatuses;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -125,6 +130,7 @@ class ListUserDevicesRequest extends Model
     protected $_name = [
         'appStatuses' => 'AppStatuses',
         'appVersions' => 'AppVersions',
+        'autoLoginStatuses' => 'AutoLoginStatuses',
         'currentPage' => 'CurrentPage',
         'department' => 'Department',
         'deviceBelong' => 'DeviceBelong',
@@ -155,6 +161,9 @@ class ListUserDevicesRequest extends Model
         }
         if (\is_array($this->appVersions)) {
             Model::validateArray($this->appVersions);
+        }
+        if (\is_array($this->autoLoginStatuses)) {
+            Model::validateArray($this->autoLoginStatuses);
         }
         if (\is_array($this->deviceStatuses)) {
             Model::validateArray($this->deviceStatuses);
@@ -200,6 +209,17 @@ class ListUserDevicesRequest extends Model
                 $n1 = 0;
                 foreach ($this->appVersions as $item1) {
                     $res['AppVersions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->autoLoginStatuses) {
+            if (\is_array($this->autoLoginStatuses)) {
+                $res['AutoLoginStatuses'] = [];
+                $n1 = 0;
+                foreach ($this->autoLoginStatuses as $item1) {
+                    $res['AutoLoginStatuses'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -366,6 +386,17 @@ class ListUserDevicesRequest extends Model
                 $n1 = 0;
                 foreach ($map['AppVersions'] as $item1) {
                     $model->appVersions[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AutoLoginStatuses'])) {
+            if (!empty($map['AutoLoginStatuses'])) {
+                $model->autoLoginStatuses = [];
+                $n1 = 0;
+                foreach ($map['AutoLoginStatuses'] as $item1) {
+                    $model->autoLoginStatuses[$n1] = $item1;
                     ++$n1;
                 }
             }

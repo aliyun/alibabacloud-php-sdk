@@ -22,6 +22,11 @@ class devices extends Model
     /**
      * @var string
      */
+    public $autoLoginStatus;
+
+    /**
+     * @var string
+     */
     public $CPU;
 
     /**
@@ -181,6 +186,7 @@ class devices extends Model
     protected $_name = [
         'appStatus' => 'AppStatus',
         'appVersion' => 'AppVersion',
+        'autoLoginStatus' => 'AutoLoginStatus',
         'CPU' => 'CPU',
         'createTime' => 'CreateTime',
         'department' => 'Department',
@@ -235,6 +241,10 @@ class devices extends Model
 
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
+        }
+
+        if (null !== $this->autoLoginStatus) {
+            $res['AutoLoginStatus'] = $this->autoLoginStatus;
         }
 
         if (null !== $this->CPU) {
@@ -396,6 +406,10 @@ class devices extends Model
 
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
+        }
+
+        if (isset($map['AutoLoginStatus'])) {
+            $model->autoLoginStatus = $map['AutoLoginStatus'];
         }
 
         if (isset($map['CPU'])) {
