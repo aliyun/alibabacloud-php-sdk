@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerRequest;
@@ -186,6 +188,71 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCreateLogoTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提供给服务商的域名查询接口.
+     *
+     * @param request - GetDomainInfoForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDomainInfoForPartnerResponse
+     *
+     * @param GetDomainInfoForPartnerRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDomainInfoForPartnerResponse
+     */
+    public function getDomainInfoForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDomainInfoForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDomainInfoForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提供给服务商的域名查询接口.
+     *
+     * @param request - GetDomainInfoForPartnerRequest
+     *
+     * @returns GetDomainInfoForPartnerResponse
+     *
+     * @param GetDomainInfoForPartnerRequest $request
+     *
+     * @return GetDomainInfoForPartnerResponse
+     */
+    public function getDomainInfoForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDomainInfoForPartnerWithOptions($request, $runtime);
     }
 
     /**
