@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Starrocks\V20221019\Models;
+namespace AlibabaCloud\SDK\Starrocks\V20221019\Models\CreateInstanceV1Request;
 
 use AlibabaCloud\Dara\Model;
 
-class TagResourcesResponseBody extends Model
+class agentNodeGroup extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $cu;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'cu' => 'cu',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class TagResourcesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->cu) {
+            $res['cu'] = $this->cu;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class TagResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['cu'])) {
+            $model->cu = $map['cu'];
         }
 
         return $model;

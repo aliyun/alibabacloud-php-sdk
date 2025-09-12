@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Starrocks\V20221019\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnTagResourcesResponseBody extends Model
 {
     /**
-     * @example 32A44F0D-BFF6-5664-999A-218BBDE74XXX
-     *
      * @var string
      */
     public $requestId;
@@ -18,9 +16,12 @@ class UnTagResourcesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -30,11 +31,11 @@ class UnTagResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnTagResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

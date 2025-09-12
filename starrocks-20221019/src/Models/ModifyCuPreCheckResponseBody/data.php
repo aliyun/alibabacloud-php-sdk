@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyCuPreCheckResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description Indicates whether the number of CUs can be modified.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $allow;
 
     /**
-     * @description The reason why the number of CUs cannot be modified.
-     *
-     * @example Failed to find node group[ng-3d5ce6454354****].
-     *
      * @var string
      */
     public $reason;
@@ -30,14 +22,18 @@ class data extends Model
         'reason' => 'Reason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allow) {
             $res['Allow'] = $this->allow;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Allow'])) {
             $model->allow = $map['Allow'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

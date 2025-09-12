@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Starrocks\V20221019\Models\CreateInstanceV1ResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example c-b25e21e243889XXX
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 241526000650XXX
-     *
      * @var int
      */
     public $orderId;
@@ -26,14 +22,18 @@ class data extends Model
         'orderId' => 'OrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
