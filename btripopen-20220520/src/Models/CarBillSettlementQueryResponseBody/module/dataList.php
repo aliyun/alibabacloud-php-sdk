@@ -51,6 +51,21 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $approverEmail;
+
+    /**
+     * @var string
+     */
+    public $approverId;
+
+    /**
+     * @var string
+     */
+    public $approverName;
+
+    /**
+     * @var string
+     */
     public $arrCity;
 
     /**
@@ -241,6 +256,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $foreignersTag;
+
+    /**
+     * @var string
+     */
     public $index;
 
     /**
@@ -252,6 +272,11 @@ class dataList extends Model
      * @var string
      */
     public $levelName;
+
+    /**
+     * @var string
+     */
+    public $location;
 
     /**
      * @var string
@@ -396,6 +421,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $sio;
+
+    /**
+     * @var string
+     */
     public $specialOrder;
 
     /**
@@ -442,6 +472,11 @@ class dataList extends Model
      * @var string
      */
     public $tradeActionDesc;
+
+    /**
+     * @var string
+     */
+    public $travelerEmail;
 
     /**
      * @var string
@@ -501,6 +536,9 @@ class dataList extends Model
         'applyDepCityName' => 'apply_dep_city_name',
         'applyExtendField' => 'apply_extend_field',
         'applyId' => 'apply_id',
+        'approverEmail' => 'approver_email',
+        'approverId' => 'approver_id',
+        'approverName' => 'approver_name',
         'arrCity' => 'arr_city',
         'arrCityCode' => 'arr_city_code',
         'arrDate' => 'arr_date',
@@ -539,9 +577,11 @@ class dataList extends Model
         'estimatePrice' => 'estimate_price',
         'feeType' => 'fee_type',
         'feeTypeDesc' => 'fee_type_desc',
+        'foreignersTag' => 'foreigners_tag',
         'index' => 'index',
         'invoiceTitle' => 'invoice_title',
         'levelName' => 'level_name',
+        'location' => 'location',
         'mappingCompanyCode' => 'mapping_company_code',
         'memo' => 'memo',
         'orderId' => 'order_id',
@@ -570,6 +610,7 @@ class dataList extends Model
         'settlementGrantFee' => 'settlement_grant_fee',
         'settlementTime' => 'settlement_time',
         'settlementType' => 'settlement_type',
+        'sio' => 'sio',
         'specialOrder' => 'special_order',
         'specialReason' => 'special_reason',
         'status' => 'status',
@@ -580,6 +621,7 @@ class dataList extends Model
         'thirdItineraryId' => 'third_itinerary_id',
         'timeType' => 'time_type',
         'tradeActionDesc' => 'trade_action_desc',
+        'travelerEmail' => 'traveler_email',
         'travelerId' => 'traveler_id',
         'travelerJobNo' => 'traveler_job_no',
         'travelerMemberType' => 'traveler_member_type',
@@ -630,6 +672,18 @@ class dataList extends Model
 
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
+        }
+
+        if (null !== $this->approverEmail) {
+            $res['approver_email'] = $this->approverEmail;
+        }
+
+        if (null !== $this->approverId) {
+            $res['approver_id'] = $this->approverId;
+        }
+
+        if (null !== $this->approverName) {
+            $res['approver_name'] = $this->approverName;
         }
 
         if (null !== $this->arrCity) {
@@ -784,6 +838,10 @@ class dataList extends Model
             $res['fee_type_desc'] = $this->feeTypeDesc;
         }
 
+        if (null !== $this->foreignersTag) {
+            $res['foreigners_tag'] = $this->foreignersTag;
+        }
+
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
@@ -794,6 +852,10 @@ class dataList extends Model
 
         if (null !== $this->levelName) {
             $res['level_name'] = $this->levelName;
+        }
+
+        if (null !== $this->location) {
+            $res['location'] = $this->location;
         }
 
         if (null !== $this->mappingCompanyCode) {
@@ -908,6 +970,10 @@ class dataList extends Model
             $res['settlement_type'] = $this->settlementType;
         }
 
+        if (null !== $this->sio) {
+            $res['sio'] = $this->sio;
+        }
+
         if (null !== $this->specialOrder) {
             $res['special_order'] = $this->specialOrder;
         }
@@ -946,6 +1012,10 @@ class dataList extends Model
 
         if (null !== $this->tradeActionDesc) {
             $res['trade_action_desc'] = $this->tradeActionDesc;
+        }
+
+        if (null !== $this->travelerEmail) {
+            $res['traveler_email'] = $this->travelerEmail;
         }
 
         if (null !== $this->travelerId) {
@@ -1029,6 +1099,18 @@ class dataList extends Model
 
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
+        }
+
+        if (isset($map['approver_email'])) {
+            $model->approverEmail = $map['approver_email'];
+        }
+
+        if (isset($map['approver_id'])) {
+            $model->approverId = $map['approver_id'];
+        }
+
+        if (isset($map['approver_name'])) {
+            $model->approverName = $map['approver_name'];
         }
 
         if (isset($map['arr_city'])) {
@@ -1183,6 +1265,10 @@ class dataList extends Model
             $model->feeTypeDesc = $map['fee_type_desc'];
         }
 
+        if (isset($map['foreigners_tag'])) {
+            $model->foreignersTag = $map['foreigners_tag'];
+        }
+
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
@@ -1193,6 +1279,10 @@ class dataList extends Model
 
         if (isset($map['level_name'])) {
             $model->levelName = $map['level_name'];
+        }
+
+        if (isset($map['location'])) {
+            $model->location = $map['location'];
         }
 
         if (isset($map['mapping_company_code'])) {
@@ -1307,6 +1397,10 @@ class dataList extends Model
             $model->settlementType = $map['settlement_type'];
         }
 
+        if (isset($map['sio'])) {
+            $model->sio = $map['sio'];
+        }
+
         if (isset($map['special_order'])) {
             $model->specialOrder = $map['special_order'];
         }
@@ -1345,6 +1439,10 @@ class dataList extends Model
 
         if (isset($map['trade_action_desc'])) {
             $model->tradeActionDesc = $map['trade_action_desc'];
+        }
+
+        if (isset($map['traveler_email'])) {
+            $model->travelerEmail = $map['traveler_email'];
         }
 
         if (isset($map['traveler_id'])) {

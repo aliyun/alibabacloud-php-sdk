@@ -101,6 +101,11 @@ class travelers extends Model
     /**
      * @var string
      */
+    public $taxNumber;
+
+    /**
+     * @var string
+     */
     public $userId;
 
     /**
@@ -126,6 +131,7 @@ class travelers extends Model
         'phone' => 'phone',
         'projectCode' => 'project_code',
         'projectTitle' => 'project_title',
+        'taxNumber' => 'tax_number',
         'userId' => 'user_id',
         'userType' => 'user_type',
     ];
@@ -208,6 +214,10 @@ class travelers extends Model
 
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
+        }
+
+        if (null !== $this->taxNumber) {
+            $res['tax_number'] = $this->taxNumber;
         }
 
         if (null !== $this->userId) {
@@ -299,6 +309,10 @@ class travelers extends Model
 
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
+        }
+
+        if (isset($map['tax_number'])) {
+            $model->taxNumber = $map['tax_number'];
         }
 
         if (isset($map['user_id'])) {

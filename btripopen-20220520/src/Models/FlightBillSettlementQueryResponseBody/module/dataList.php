@@ -71,6 +71,21 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $approverEmail;
+
+    /**
+     * @var string
+     */
+    public $approverId;
+
+    /**
+     * @var string
+     */
+    public $approverName;
+
+    /**
+     * @var string
+     */
     public $arrAirportCode;
 
     /**
@@ -162,6 +177,11 @@ class dataList extends Model
      * @var string
      */
     public $cabinClass;
+
+    /**
+     * @var string
+     */
+    public $cabinClassCode;
 
     /**
      * @var string
@@ -306,6 +326,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $foreignersTag;
+
+    /**
+     * @var string
+     */
     public $index;
 
     /**
@@ -342,6 +367,11 @@ class dataList extends Model
      * @var float
      */
     public $itineraryPrice;
+
+    /**
+     * @var string
+     */
+    public $location;
 
     /**
      * @var string
@@ -549,6 +579,11 @@ class dataList extends Model
     public $settlementType;
 
     /**
+     * @var string
+     */
+    public $sio;
+
+    /**
      * @var int
      */
     public $status;
@@ -582,6 +617,11 @@ class dataList extends Model
      * @var string
      */
     public $tradeActionDesc;
+
+    /**
+     * @var string
+     */
+    public $travelerEmail;
 
     /**
      * @var string
@@ -640,6 +680,9 @@ class dataList extends Model
         'applyDepCityName' => 'apply_dep_city_name',
         'applyExtendField' => 'apply_extend_field',
         'applyId' => 'apply_id',
+        'approverEmail' => 'approver_email',
+        'approverId' => 'approver_id',
+        'approverName' => 'approver_name',
         'arrAirportCode' => 'arr_airport_code',
         'arrCity' => 'arr_city',
         'arrCityCode' => 'arr_city_code',
@@ -659,6 +702,7 @@ class dataList extends Model
         'businessTripResult' => 'business_trip_result',
         'cabin' => 'cabin',
         'cabinClass' => 'cabin_class',
+        'cabinClassCode' => 'cabin_class_code',
         'capitalDirection' => 'capital_direction',
         'cascadeDepartment' => 'cascade_department',
         'categoryDesc' => 'category_desc',
@@ -687,6 +731,7 @@ class dataList extends Model
         'feeTypeDesc' => 'fee_type_desc',
         'flightNo' => 'flight_no',
         'flightTripType' => 'flight_trip_type',
+        'foreignersTag' => 'foreigners_tag',
         'index' => 'index',
         'insOrderId' => 'ins_order_id',
         'insuranceFee' => 'insurance_fee',
@@ -695,6 +740,7 @@ class dataList extends Model
         'itemType' => 'item_type',
         'itineraryNum' => 'itinerary_num',
         'itineraryPrice' => 'itinerary_price',
+        'location' => 'location',
         'mappingCompanyCode' => 'mapping_company_code',
         'mileage' => 'mileage',
         'mostDifferenceDeptTime' => 'most_difference_dept_time',
@@ -736,6 +782,7 @@ class dataList extends Model
         'settlementGrantFee' => 'settlement_grant_fee',
         'settlementTime' => 'settlement_time',
         'settlementType' => 'settlement_type',
+        'sio' => 'sio',
         'status' => 'status',
         'statusDesc' => 'status_desc',
         'taxRate' => 'tax_rate',
@@ -743,6 +790,7 @@ class dataList extends Model
         'ticketId' => 'ticket_id',
         'trade' => 'trade',
         'tradeActionDesc' => 'trade_action_desc',
+        'travelerEmail' => 'traveler_email',
         'travelerId' => 'traveler_id',
         'travelerJobNo' => 'traveler_job_no',
         'travelerMemberType' => 'traveler_member_type',
@@ -808,6 +856,18 @@ class dataList extends Model
 
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
+        }
+
+        if (null !== $this->approverEmail) {
+            $res['approver_email'] = $this->approverEmail;
+        }
+
+        if (null !== $this->approverId) {
+            $res['approver_id'] = $this->approverId;
+        }
+
+        if (null !== $this->approverName) {
+            $res['approver_name'] = $this->approverName;
         }
 
         if (null !== $this->arrAirportCode) {
@@ -884,6 +944,10 @@ class dataList extends Model
 
         if (null !== $this->cabinClass) {
             $res['cabin_class'] = $this->cabinClass;
+        }
+
+        if (null !== $this->cabinClassCode) {
+            $res['cabin_class_code'] = $this->cabinClassCode;
         }
 
         if (null !== $this->capitalDirection) {
@@ -998,6 +1062,10 @@ class dataList extends Model
             $res['flight_trip_type'] = $this->flightTripType;
         }
 
+        if (null !== $this->foreignersTag) {
+            $res['foreigners_tag'] = $this->foreignersTag;
+        }
+
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
@@ -1028,6 +1096,10 @@ class dataList extends Model
 
         if (null !== $this->itineraryPrice) {
             $res['itinerary_price'] = $this->itineraryPrice;
+        }
+
+        if (null !== $this->location) {
+            $res['location'] = $this->location;
         }
 
         if (null !== $this->mappingCompanyCode) {
@@ -1194,6 +1266,10 @@ class dataList extends Model
             $res['settlement_type'] = $this->settlementType;
         }
 
+        if (null !== $this->sio) {
+            $res['sio'] = $this->sio;
+        }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -1220,6 +1296,10 @@ class dataList extends Model
 
         if (null !== $this->tradeActionDesc) {
             $res['trade_action_desc'] = $this->tradeActionDesc;
+        }
+
+        if (null !== $this->travelerEmail) {
+            $res['traveler_email'] = $this->travelerEmail;
         }
 
         if (null !== $this->travelerId) {
@@ -1317,6 +1397,18 @@ class dataList extends Model
             $model->applyId = $map['apply_id'];
         }
 
+        if (isset($map['approver_email'])) {
+            $model->approverEmail = $map['approver_email'];
+        }
+
+        if (isset($map['approver_id'])) {
+            $model->approverId = $map['approver_id'];
+        }
+
+        if (isset($map['approver_name'])) {
+            $model->approverName = $map['approver_name'];
+        }
+
         if (isset($map['arr_airport_code'])) {
             $model->arrAirportCode = $map['arr_airport_code'];
         }
@@ -1391,6 +1483,10 @@ class dataList extends Model
 
         if (isset($map['cabin_class'])) {
             $model->cabinClass = $map['cabin_class'];
+        }
+
+        if (isset($map['cabin_class_code'])) {
+            $model->cabinClassCode = $map['cabin_class_code'];
         }
 
         if (isset($map['capital_direction'])) {
@@ -1505,6 +1601,10 @@ class dataList extends Model
             $model->flightTripType = $map['flight_trip_type'];
         }
 
+        if (isset($map['foreigners_tag'])) {
+            $model->foreignersTag = $map['foreigners_tag'];
+        }
+
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
@@ -1535,6 +1635,10 @@ class dataList extends Model
 
         if (isset($map['itinerary_price'])) {
             $model->itineraryPrice = $map['itinerary_price'];
+        }
+
+        if (isset($map['location'])) {
+            $model->location = $map['location'];
         }
 
         if (isset($map['mapping_company_code'])) {
@@ -1701,6 +1805,10 @@ class dataList extends Model
             $model->settlementType = $map['settlement_type'];
         }
 
+        if (isset($map['sio'])) {
+            $model->sio = $map['sio'];
+        }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
@@ -1727,6 +1835,10 @@ class dataList extends Model
 
         if (isset($map['trade_action_desc'])) {
             $model->tradeActionDesc = $map['trade_action_desc'];
+        }
+
+        if (isset($map['traveler_email'])) {
+            $model->travelerEmail = $map['traveler_email'];
         }
 
         if (isset($map['traveler_id'])) {
