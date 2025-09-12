@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloneServiceResponseBody extends Model
 {
     /**
-     * @description The public endpoint of the service.
-     *
-     * @example http://10123*****.cn-shanghai.aliyuncs.com/api/predict/echo
-     *
      * @var string
      */
     public $internetEndpoint;
 
     /**
-     * @description The private endpoint of the service.
-     *
-     * @example http://10123*****.vpc.cn-shanghai.aliyuncs.com/api/predict/echo
-     *
      * @var string
      */
     public $intranetEndpoint;
 
     /**
-     * @description Id of the request
-     *
-     * @example 40325405-579C-4D82****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The service ID.
-     *
-     * @example eas-m-r9knx7n9guf2p*****
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @description The service name.
-     *
-     * @example foo
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The service status.
-     *
-     * @example Creating
-     *
      * @var string
      */
     public $status;
@@ -70,26 +46,34 @@ class CloneServiceResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->internetEndpoint) {
             $res['InternetEndpoint'] = $this->internetEndpoint;
         }
+
         if (null !== $this->intranetEndpoint) {
             $res['IntranetEndpoint'] = $this->intranetEndpoint;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -97,29 +81,34 @@ class CloneServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloneServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InternetEndpoint'])) {
             $model->internetEndpoint = $map['InternetEndpoint'];
         }
+
         if (isset($map['IntranetEndpoint'])) {
             $model->intranetEndpoint = $map['IntranetEndpoint'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

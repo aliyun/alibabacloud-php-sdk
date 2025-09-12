@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMachineSpecRequest extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @deprecated
-     *
      * @var string[]
      */
     public $instanceTypes;
@@ -20,29 +16,47 @@ class DescribeMachineSpecRequest extends Model
         'instanceTypes' => 'InstanceTypes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = $this->instanceTypes;
+            if (\is_array($this->instanceTypes)) {
+                $res['InstanceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['InstanceTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMachineSpecRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = $map['InstanceTypes'];
+                $model->instanceTypes = [];
+                $n1 = 0;
+                foreach ($map['InstanceTypes'] as $item1) {
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

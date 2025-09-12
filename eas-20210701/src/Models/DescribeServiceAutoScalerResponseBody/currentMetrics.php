@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceAutoScalerResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class currentMetrics extends Model
 {
     /**
-     * @description The metric name. Valid values:
-     *
-     *   QPS
-     *   CPU
-     *
-     * @example qps
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The service for which the metric is specified.
-     *
-     * @example demo_svc
-     *
      * @var string
      */
     public $service;
 
     /**
-     * @description The metric value.
-     *
-     * @example 10
-     *
      * @var float
      */
     public $value;
@@ -43,17 +28,22 @@ class currentMetrics extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricName) {
             $res['metricName'] = $this->metricName;
         }
+
         if (null !== $this->service) {
             $res['service'] = $this->service;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -61,20 +51,22 @@ class currentMetrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return currentMetrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['metricName'])) {
             $model->metricName = $map['metricName'];
         }
+
         if (isset($map['service'])) {
             $model->service = $map['service'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

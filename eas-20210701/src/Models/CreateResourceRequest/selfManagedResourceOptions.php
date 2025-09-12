@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceRequest\selfManagedResourceOptions\nodeTolerations;
-use AlibabaCloud\Tea\Model;
 
 class selfManagedResourceOptions extends Model
 {
     /**
-     * @description The ID of the self-managed cluster.
-     *
-     * @example cf0386f250f2545689ca7fdd1cd******
-     *
      * @var string
      */
     public $externalClusterId;
 
     /**
-     * @description The tag key-value pairs of the node.
-     *
      * @var string[]
      */
     public $nodeMatchLabels;
 
     /**
-     * @description The tolerations for the node taint.
-     *
      * @var nodeTolerations[]
      */
     public $nodeTolerations;
 
     /**
-     * @description The name of the RAM user to which the permissions on Elastic Algorithm Service (EAS) of Platform for AI (PAI) are granted.
-     *
-     * @example clusterrole
-     *
      * @var string
      */
     public $roleName;
@@ -47,26 +35,44 @@ class selfManagedResourceOptions extends Model
         'roleName' => 'RoleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nodeMatchLabels)) {
+            Model::validateArray($this->nodeMatchLabels);
+        }
+        if (\is_array($this->nodeTolerations)) {
+            Model::validateArray($this->nodeTolerations);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->externalClusterId) {
             $res['ExternalClusterId'] = $this->externalClusterId;
         }
+
         if (null !== $this->nodeMatchLabels) {
-            $res['NodeMatchLabels'] = $this->nodeMatchLabels;
-        }
-        if (null !== $this->nodeTolerations) {
-            $res['NodeTolerations'] = [];
-            if (null !== $this->nodeTolerations && \is_array($this->nodeTolerations)) {
-                $n = 0;
-                foreach ($this->nodeTolerations as $item) {
-                    $res['NodeTolerations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeMatchLabels)) {
+                $res['NodeMatchLabels'] = [];
+                foreach ($this->nodeMatchLabels as $key1 => $value1) {
+                    $res['NodeMatchLabels'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->nodeTolerations) {
+            if (\is_array($this->nodeTolerations)) {
+                $res['NodeTolerations'] = [];
+                $n1 = 0;
+                foreach ($this->nodeTolerations as $item1) {
+                    $res['NodeTolerations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
@@ -74,29 +80,38 @@ class selfManagedResourceOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return selfManagedResourceOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExternalClusterId'])) {
             $model->externalClusterId = $map['ExternalClusterId'];
         }
+
         if (isset($map['NodeMatchLabels'])) {
-            $model->nodeMatchLabels = $map['NodeMatchLabels'];
-        }
-        if (isset($map['NodeTolerations'])) {
-            if (!empty($map['NodeTolerations'])) {
-                $model->nodeTolerations = [];
-                $n = 0;
-                foreach ($map['NodeTolerations'] as $item) {
-                    $model->nodeTolerations[$n++] = null !== $item ? nodeTolerations::fromMap($item) : $item;
+            if (!empty($map['NodeMatchLabels'])) {
+                $model->nodeMatchLabels = [];
+                foreach ($map['NodeMatchLabels'] as $key1 => $value1) {
+                    $model->nodeMatchLabels[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['NodeTolerations'])) {
+            if (!empty($map['NodeTolerations'])) {
+                $model->nodeTolerations = [];
+                $n1 = 0;
+                foreach ($map['NodeTolerations'] as $item1) {
+                    $model->nodeTolerations[$n1] = nodeTolerations::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }

@@ -4,53 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\CreateResourceRequest\selfManagedResourceOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodeTolerations extends Model
 {
     /**
-     * @description The effect.
-     *
-     * Valid values:
-     *
-     *   PreferNoSchedule
-     *   NoSchedule
-     *   NoExecute
-     *
-     * @example NoSchedule
-     *
      * @var string
      */
     public $effect;
 
     /**
-     * @description The key name.
-     *
-     * @example key1
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The relationship between key names and key values.
-     *
-     * Valid values:
-     *
-     *   Equal
-     *   Exists
-     *
-     * @example Equal
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description The key value.
-     *
-     * @example value1
-     *
      * @var string
      */
     public $value;
@@ -61,20 +34,26 @@ class nodeTolerations extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effect) {
             $res['effect'] = $this->effect;
         }
+
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->operator) {
             $res['operator'] = $this->operator;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -82,23 +61,26 @@ class nodeTolerations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeTolerations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['effect'])) {
             $model->effect = $map['effect'];
         }
+
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['operator'])) {
             $model->operator = $map['operator'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryResponseBody\spotDiscounts;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSpotDiscountHistoryResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 40325405-579C-4D82***
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The discount for the preemptible instance.
-     *
      * @var spotDiscounts[]
      */
     public $spotDiscounts;
@@ -29,20 +23,28 @@ class DescribeSpotDiscountHistoryResponseBody extends Model
         'spotDiscounts' => 'SpotDiscounts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->spotDiscounts)) {
+            Model::validateArray($this->spotDiscounts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->spotDiscounts) {
-            $res['SpotDiscounts'] = [];
-            if (null !== $this->spotDiscounts && \is_array($this->spotDiscounts)) {
-                $n = 0;
-                foreach ($this->spotDiscounts as $item) {
-                    $res['SpotDiscounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->spotDiscounts)) {
+                $res['SpotDiscounts'] = [];
+                $n1 = 0;
+                foreach ($this->spotDiscounts as $item1) {
+                    $res['SpotDiscounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class DescribeSpotDiscountHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSpotDiscountHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SpotDiscounts'])) {
             if (!empty($map['SpotDiscounts'])) {
                 $model->spotDiscounts = [];
-                $n = 0;
-                foreach ($map['SpotDiscounts'] as $item) {
-                    $model->spotDiscounts[$n++] = null !== $item ? spotDiscounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpotDiscounts'] as $item1) {
+                    $model->spotDiscounts[$n1] = spotDiscounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,68 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\UpdateVirtualResourceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resources extends Model
 {
     /**
-     * @description The instance type of the public resource group.
-     *
-     * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-     *
-     * @example ecs.s6-c1m2.xlarge
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The priority of resource scheduling. A greater number indicates a higher priority.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description The ID of the Lingjun resource quota.
-     *
-     * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-     *
-     * @example quota185lqf994k6
-     *
      * @var string
      */
     public $quotaId;
 
     /**
-     * @description The region in which the resource resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The ID of the dedicated resource group. For information about how to obtain the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
-     *
-     * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-     *
-     * @example eas-r-g55ieatgg3butwrn7a
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The maximum price of preemptible instances in a public resource group.
-     *
-     * >  If you leave this parameter empty, preemptible instances are not used.
-     *
-     * @example 10.05
-     *
      * @var float
      */
     public $spotPriceLimit;
@@ -78,26 +46,34 @@ class resources extends Model
         'spotPriceLimit' => 'SpotPriceLimit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
         }
@@ -105,29 +81,34 @@ class resources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];
         }

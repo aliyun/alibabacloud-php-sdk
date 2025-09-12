@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloneServiceRequest extends Model
 {
     /**
-     * @description The label of the service to be cloned.
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description The request body. For more information, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
-     *
-     * @example {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }
-     *
      * @var string
      */
     public $body;
@@ -28,14 +22,26 @@ class CloneServiceRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -43,17 +49,23 @@ class CloneServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloneServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

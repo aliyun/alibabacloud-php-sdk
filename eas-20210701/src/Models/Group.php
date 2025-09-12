@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Group extends Model
 {
@@ -64,35 +64,46 @@ class Group extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->internetEndpoint) {
             $res['InternetEndpoint'] = $this->internetEndpoint;
         }
+
         if (null !== $this->intranetEndpoint) {
             $res['IntranetEndpoint'] = $this->intranetEndpoint;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->queueService) {
             $res['QueueService'] = $this->queueService;
         }
+
         if (null !== $this->trafficMode) {
             $res['TrafficMode'] = $this->trafficMode;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -100,38 +111,46 @@ class Group extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Group
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['InternetEndpoint'])) {
             $model->internetEndpoint = $map['InternetEndpoint'];
         }
+
         if (isset($map['IntranetEndpoint'])) {
             $model->intranetEndpoint = $map['IntranetEndpoint'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['QueueService'])) {
             $model->queueService = $map['QueueService'];
         }
+
         if (isset($map['TrafficMode'])) {
             $model->trafficMode = $map['TrafficMode'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

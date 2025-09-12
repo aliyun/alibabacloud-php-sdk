@@ -4,38 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeServiceSignedUrlRequest extends Model
 {
     /**
-     * @description The period of time for which the URL expires.
-     *
-     * @example 43200
-     *
      * @var int
      */
     public $expire;
 
     /**
-     * @description Specifies whether to use the VPC connection.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $internal;
 
     /**
-     * @description The page type.
-     *
-     * Valid values:
-     *
-     *   webview
-     *   monitor
-     *
-     * @example webview
-     *
      * @var string
      */
     public $type;
@@ -45,17 +28,22 @@ class DescribeServiceSignedUrlRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
         }
+
         if (null !== $this->internal) {
             $res['Internal'] = $this->internal;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -63,20 +51,22 @@ class DescribeServiceSignedUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServiceSignedUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
         }
+
         if (isset($map['Internal'])) {
             $model->internal = $map['Internal'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

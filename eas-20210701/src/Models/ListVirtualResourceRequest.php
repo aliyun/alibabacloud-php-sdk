@@ -4,66 +4,76 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVirtualResourceRequest extends Model
 {
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
+     * @var string
+     */
+    public $order;
+
+    /**
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 100.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the virtual resource group.
-     *
-     * @example eas-vr-npovr28onap1xxxxxx
-     *
+     * @var string
+     */
+    public $sort;
+
+    /**
      * @var string
      */
     public $virtualResourceId;
 
     /**
-     * @description The name of the virtual resource group.
-     *
-     * @example MyVirtualResource
-     *
      * @var string
      */
     public $virtualResourceName;
     protected $_name = [
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sort' => 'Sort',
         'virtualResourceId' => 'VirtualResourceId',
         'virtualResourceName' => 'VirtualResourceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
+        }
+
         if (null !== $this->virtualResourceId) {
             $res['VirtualResourceId'] = $this->virtualResourceId;
         }
+
         if (null !== $this->virtualResourceName) {
             $res['VirtualResourceName'] = $this->virtualResourceName;
         }
@@ -71,23 +81,34 @@ class ListVirtualResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVirtualResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
+        }
+
         if (isset($map['VirtualResourceId'])) {
             $model->virtualResourceId = $map['VirtualResourceId'];
         }
+
         if (isset($map['VirtualResourceName'])) {
             $model->virtualResourceName = $map['VirtualResourceName'];
         }

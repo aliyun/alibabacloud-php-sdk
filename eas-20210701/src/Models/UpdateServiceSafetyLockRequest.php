@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateServiceSafetyLockRequest extends Model
 {
     /**
-     * @description The lock scope. Valid values:
-     *
-     *   all: locks all operations.
-     *   dangerous: locks dangerous operations such as delete and stop operations.
-     *   none: locks no operations.
-     *
-     * This parameter is required.
-     *
-     * @example dangerous
-     *
      * @var string
      */
     public $lock;
@@ -26,9 +16,12 @@ class UpdateServiceSafetyLockRequest extends Model
         'lock' => 'Lock',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lock) {
@@ -38,11 +31,11 @@ class UpdateServiceSafetyLockRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateServiceSafetyLockRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -1,3 +1,18 @@
+2025-09-12 Version: 7.1.5
+- Update API CreateServiceCronScaler: add request parameters body.ScaleJobs.$.TimeZone.
+- Update API ListResourceInstanceWorker: add request parameters Order.
+- Update API ListResourceInstanceWorker: add request parameters Ready.
+- Update API ListResourceInstanceWorker: add request parameters ServiceName.
+- Update API ListResourceInstanceWorker: add request parameters Sort.
+- Update API ListResourceInstanceWorker: add request parameters Status.
+- Update API ListServiceInstances: add request parameters MemberType.
+- Update API ListServices: add request parameters TrafficState.
+- Update API ListVirtualResource: add request parameters Order.
+- Update API ListVirtualResource: add request parameters Sort.
+- Update API UpdateService: add request parameters MemberToUpdate.
+- Update API UpdateServiceCronScaler: add request parameters body.ScaleJobs.$.TimeZone.
+
+
 2025-07-18 Version: 7.1.4
 - Generated php 2021-07-01 for eas.
 

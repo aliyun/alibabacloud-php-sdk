@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\DescribeMachineSpecResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class types extends Model
 {
     /**
-     * @description Valid values:
-     *
-     * @example 1
-     *
      * @var int
      */
     public $CPU;
 
     /**
-     * @description The optional values for memory when CPU is set to a specific value as above.
-     *
      * @var int[]
      */
     public $memory;
@@ -28,35 +22,55 @@ class types extends Model
         'memory' => 'Memory',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->memory)) {
+            Model::validateArray($this->memory);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CPU) {
             $res['CPU'] = $this->CPU;
         }
+
         if (null !== $this->memory) {
-            $res['Memory'] = $this->memory;
+            if (\is_array($this->memory)) {
+                $res['Memory'] = [];
+                $n1 = 0;
+                foreach ($this->memory as $item1) {
+                    $res['Memory'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return types
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CPU'])) {
             $model->CPU = $map['CPU'];
         }
+
         if (isset($map['Memory'])) {
             if (!empty($map['Memory'])) {
-                $model->memory = $map['Memory'];
+                $model->memory = [];
+                $n1 = 0;
+                foreach ($map['Memory'] as $item1) {
+                    $model->memory[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

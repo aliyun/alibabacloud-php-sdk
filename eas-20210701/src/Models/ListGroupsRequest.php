@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListGroupsRequest extends Model
 {
     /**
-     * @description The name of the filter that is used to filter out unwanted service groups. Fuzzy match is supported.
-     *
-     * @example foo
-     *
      * @var string
      */
     public $filter;
 
     /**
-     * @description The page number. Default value: 1.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 100.
-     *
-     * @example 20
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description The workspace ID.
-     *
-     * @example 123***
-     *
      * @var string
      */
     public $workspaceId;
@@ -50,20 +34,26 @@ class ListGroupsRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -71,23 +61,26 @@ class ListGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\ListTenantAddonsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class addons extends Model
 {
     /**
-     * @description The attributes of the plug-in.
-     *
      * @var string[]
      */
     public $attributes;
 
     /**
-     * @description The name of the plug-in.
-     *
-     * @example prometheus_discovery
-     *
      * @var string
      */
     public $name;
@@ -28,14 +22,26 @@ class addons extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['Attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['Attributes'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,17 +49,23 @@ class addons extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addons
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
+            if (!empty($map['Attributes'])) {
+                $model->attributes = [];
+                foreach ($map['Attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

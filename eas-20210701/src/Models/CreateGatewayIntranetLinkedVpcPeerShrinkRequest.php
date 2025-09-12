@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends Model
 {
     /**
-     * @description The list of VPC peers.
-     *
      * @var string
      */
     public $peerVpcsShrink;
 
     /**
-     * @description The VPC ID. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
-     *
-     * @example vpc-2zetuli9ws0qgjd******
-     *
      * @var string
      */
     public $vpcId;
@@ -28,14 +22,18 @@ class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->peerVpcsShrink) {
             $res['PeerVpcs'] = $this->peerVpcsShrink;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -43,17 +41,18 @@ class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGatewayIntranetLinkedVpcPeerShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeerVpcs'])) {
             $model->peerVpcsShrink = $map['PeerVpcs'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

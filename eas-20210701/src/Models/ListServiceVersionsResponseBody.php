@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsResponseBody\versions;
-use AlibabaCloud\Tea\Model;
 
 class ListServiceVersionsResponseBody extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
-     * @example E089D584-B6F4-50C4-9902-DA2295B7****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 166
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The historical versions of the service.
-     *
      * @var versions[]
      */
     public $versions;
@@ -59,29 +41,40 @@ class ListServiceVersionsResponseBody extends Model
         'versions' => 'Versions',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->versions)) {
+            Model::validateArray($this->versions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->versions) {
-            $res['Versions'] = [];
-            if (null !== $this->versions && \is_array($this->versions)) {
-                $n = 0;
-                foreach ($this->versions as $item) {
-                    $res['Versions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->versions)) {
+                $res['Versions'] = [];
+                $n1 = 0;
+                foreach ($this->versions as $item1) {
+                    $res['Versions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,32 +82,37 @@ class ListServiceVersionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServiceVersionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['Versions'])) {
             if (!empty($map['Versions'])) {
                 $model->versions = [];
-                $n = 0;
-                foreach ($map['Versions'] as $item) {
-                    $model->versions[$n++] = null !== $item ? versions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Versions'] as $item1) {
+                    $model->versions[$n1] = versions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DevelopServiceRequest extends Model
 {
     /**
-     * @description Specifies whether to exit development mode. Valid values:
-     *
-     *   true: exits development mode.
-     *   false (default): enters development mode.
-     *
-     * @example true
-     *
      * @var string
      */
     public $exit;
@@ -23,9 +16,12 @@ class DevelopServiceRequest extends Model
         'exit' => 'Exit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exit) {
@@ -35,11 +31,11 @@ class DevelopServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DevelopServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

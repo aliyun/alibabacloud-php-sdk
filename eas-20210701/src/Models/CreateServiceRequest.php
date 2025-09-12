@@ -4,128 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateServiceRequest extends Model
 {
     /**
-     * @description Specifies whether to enter development mode.
-     *
-     * Valid values:
-     *
-     *   true
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   false
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example true
-     *
      * @var string
      */
     public $develop;
 
     /**
-     * @description The custom label.
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description The workspace ID.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $workspaceId;
 
     /**
-     * @description The request body. For more information about the key request parameters, see **Table 1. Request body parameters** and **Table 2. Metadata parameters**. For more information about all related parameters, see [Parameters of model services](https://help.aliyun.com/document_detail/450525.html).
-     *
-     * @example Service deployment by using an image:
-     * {
-     * "name": "foo",
-     * "metadata": {
-     * "instance": 2,
-     * "memory": 7000,
-     * "cpu": 4
-     * },
-     * "containers": [
-     * {
-     * "image": "****",
-     * "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
-     * "port": 8000
-     * }
-     * ],
-     * "storage": [
-     * {
-     * "oss": {
-     * "path": "oss://examplebuket/data111/",
-     * "readOnly": false
-     * },
-     * "properties": {
-     * "resource_type": "model"
-     * },
-     * "mount_path": "/data"
-     * }
-     * ]
-     * }
-     * AI-Web application deployment by using an image:
-     * {
-     * "name": "foo",
-     * "metadata": {
-     * "instance": 1,
-     * "memory": 7000,
-     * "cpu": 4,
-     * "enable_webservice": true
-     * },
-     * "containers": [
-     * {
-     * "image": "****",
-     * "script": "**** --listen=0.0.0.0 --server_port=8000 --headless",
-     * "port": 8000
-     * }
-     * ],
-     * "storage": [
-     * {
-     * "oss": {
-     * "path": "oss://examplebucket/data111/",
-     * "readOnly": false
-     * },
-     * "properties": {
-     * "resource_type": "model"
-     * },
-     * "mount_path": "/data"
-     * }
-     * ]
-     * }
-     * Service deployment by using models and processors:
-     * {
-     * "metadata": {
-     * "instance": 1,
-     * "memory": 7000,
-     * "cpu": 4
-     * },
-     * "name": "foo",
-     * "model_config": {},
-     * "processor_type": "python",
-     * "processor_path": "oss://****",
-     * "processor_entry": "a.py",
-     * "model_path": "oss://****"
-     * }
-     *
      * @var string
      */
     public $body;
@@ -136,20 +34,34 @@ class CreateServiceRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->develop) {
             $res['Develop'] = $this->develop;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
+
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -157,23 +69,31 @@ class CreateServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Develop'])) {
             $model->develop = $map['Develop'];
         }
+
         if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
+
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

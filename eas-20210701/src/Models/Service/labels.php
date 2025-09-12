@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\Service;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class labels extends Model
 {
@@ -22,14 +22,18 @@ class labels extends Model
         'labelValue' => 'LabelValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelKey) {
             $res['LabelKey'] = $this->labelKey;
         }
+
         if (null !== $this->labelValue) {
             $res['LabelValue'] = $this->labelValue;
         }
@@ -37,17 +41,18 @@ class labels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return labels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelKey'])) {
             $model->labelKey = $map['LabelKey'];
         }
+
         if (isset($map['LabelValue'])) {
             $model->labelValue = $map['LabelValue'];
         }

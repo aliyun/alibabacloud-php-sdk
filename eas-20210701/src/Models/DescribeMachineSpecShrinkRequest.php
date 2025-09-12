@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMachineSpecShrinkRequest extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $instanceTypesShrink;
@@ -20,9 +16,12 @@ class DescribeMachineSpecShrinkRequest extends Model
         'instanceTypesShrink' => 'InstanceTypes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTypesShrink) {
@@ -32,11 +31,11 @@ class DescribeMachineSpecShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMachineSpecShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

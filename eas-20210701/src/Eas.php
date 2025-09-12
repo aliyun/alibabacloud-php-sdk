@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainShrinkRequest;
@@ -182,11 +182,10 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceVersionRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceVersionResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateVirtualResourceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateVirtualResourceResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eas extends OpenApiClient
 {
@@ -228,48 +227,57 @@ class Eas extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Binds a custom domain name to a private gateway.
-     *  *
+     * Binds a custom domain name to a private gateway.
+     *
+     * @param tmpReq - AttachGatewayDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachGatewayDomainResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $GatewayId
-     * @param AttachGatewayDomainRequest $tmpReq    AttachGatewayDomainRequest
-     * @param string[]                   $headers   map
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     * @param AttachGatewayDomainRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return AttachGatewayDomainResponse AttachGatewayDomainResponse
+     * @return AttachGatewayDomainResponse
      */
     public function attachGatewayDomainWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AttachGatewayDomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customDomain)) {
-            $request->customDomainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customDomain, 'CustomDomain', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customDomain) {
+            $request->customDomainShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customDomain, 'CustomDomain', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->customDomainShrink)) {
-            $query['CustomDomain'] = $request->customDomainShrink;
+        if (null !== $request->customDomainShrink) {
+            @$query['CustomDomain'] = $request->customDomainShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AttachGatewayDomain',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/domain/attach',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domain/attach',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -281,13 +289,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Binds a custom domain name to a private gateway.
-     *  *
+     * Binds a custom domain name to a private gateway.
+     *
+     * @param request - AttachGatewayDomainRequest
+     *
+     * @returns AttachGatewayDomainResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $GatewayId
-     * @param AttachGatewayDomainRequest $request   AttachGatewayDomainRequest
+     * @param AttachGatewayDomainRequest $request
      *
-     * @return AttachGatewayDomainResponse AttachGatewayDomainResponse
+     * @return AttachGatewayDomainResponse
      */
     public function attachGatewayDomain($ClusterId, $GatewayId, $request)
     {
@@ -298,38 +310,46 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Clones a service.
-     *  *
+     * Clones a service.
+     *
+     * @param tmpReq - CloneServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloneServiceResponse
+     *
      * @param string              $ClusterId
      * @param string              $ServiceName
-     * @param CloneServiceRequest $tmpReq      CloneServiceRequest
-     * @param string[]            $headers     map
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * @param CloneServiceRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return CloneServiceResponse CloneServiceResponse
+     * @return CloneServiceResponse
      */
     public function cloneServiceWithOptions($ClusterId, $ServiceName, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CloneServiceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->labels)) {
-            $request->labelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labels) {
+            $request->labelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->labelsShrink)) {
-            $query['Labels'] = $request->labelsShrink;
+        if (null !== $request->labelsShrink) {
+            @$query['Labels'] = $request->labelsShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
             'action' => 'CloneService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/clone',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/clone',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -341,13 +361,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Clones a service.
-     *  *
+     * Clones a service.
+     *
+     * @param request - CloneServiceRequest
+     *
+     * @returns CloneServiceResponse
+     *
      * @param string              $ClusterId
      * @param string              $ServiceName
-     * @param CloneServiceRequest $request     CloneServiceRequest
+     * @param CloneServiceRequest $request
      *
-     * @return CloneServiceResponse CloneServiceResponse
+     * @return CloneServiceResponse
      */
     public function cloneService($ClusterId, $ServiceName, $request)
     {
@@ -358,14 +382,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
-     *  *
+     * Commits the Worker0 container in the custom container service and deploys the container as a new image.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CommitServiceResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return CommitServiceResponse CommitServiceResponse
+     * @return CommitServiceResponse
      */
     public function commitServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -376,7 +405,7 @@ class Eas extends OpenApiClient
             'action' => 'CommitService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/commit',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/commit',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -388,12 +417,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
-     *  *
+     * Commits the Worker0 container in the custom container service and deploys the container as a new image.
+     *
+     * @returns CommitServiceResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return CommitServiceResponse CommitServiceResponse
+     * @return CommitServiceResponse
      */
     public function commitService($ClusterId, $ServiceName)
     {
@@ -404,40 +435,49 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
-     *  *
+     * Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
+     *
+     * @param tmpReq - CreateAclPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAclPolicyResponse
+     *
      * @param string                 $ClusterId
      * @param string                 $GatewayId
-     * @param CreateAclPolicyRequest $tmpReq    CreateAclPolicyRequest
-     * @param string[]               $headers   map
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * @param CreateAclPolicyRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return CreateAclPolicyResponse CreateAclPolicyResponse
+     * @return CreateAclPolicyResponse
      */
     public function createAclPolicyWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAclPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aclPolicyList)) {
-            $request->aclPolicyListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aclPolicyList, 'AclPolicyList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aclPolicyList) {
+            $request->aclPolicyListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aclPolicyList, 'AclPolicyList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aclPolicyListShrink)) {
-            $query['AclPolicyList'] = $request->aclPolicyListShrink;
+        if (null !== $request->aclPolicyListShrink) {
+            @$query['AclPolicyList'] = $request->aclPolicyListShrink;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAclPolicy',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/acl_policy',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -449,13 +489,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
-     *  *
+     * Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
+     *
+     * @param request - CreateAclPolicyRequest
+     *
+     * @returns CreateAclPolicyResponse
+     *
      * @param string                 $ClusterId
      * @param string                 $GatewayId
-     * @param CreateAclPolicyRequest $request   CreateAclPolicyRequest
+     * @param CreateAclPolicyRequest $request
      *
-     * @return CreateAclPolicyResponse CreateAclPolicyResponse
+     * @return CreateAclPolicyResponse
      */
     public function createAclPolicy($ClusterId, $GatewayId, $request)
     {
@@ -466,47 +510,61 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates an application service to obtain the inference capabilities of large models.
-     *  *
-     * @param CreateAppServiceRequest $request CreateAppServiceRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates an application service to obtain the inference capabilities of large models.
      *
-     * @return CreateAppServiceResponse CreateAppServiceResponse
+     * @param request - CreateAppServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppServiceResponse
+     *
+     * @param CreateAppServiceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAppServiceResponse
      */
     public function createAppServiceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->quotaId)) {
-            $query['QuotaId'] = $request->quotaId;
+        if (null !== $request->quotaId) {
+            @$query['QuotaId'] = $request->quotaId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appType)) {
-            $body['AppType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$body['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->appVersion)) {
-            $body['AppVersion'] = $request->appVersion;
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->replicas)) {
-            $body['Replicas'] = $request->replicas;
+
+        if (null !== $request->replicas) {
+            @$body['Replicas'] = $request->replicas;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $body['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$body['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->serviceSpec)) {
-            $body['ServiceSpec'] = $request->serviceSpec;
+
+        if (null !== $request->serviceSpec) {
+            @$body['ServiceSpec'] = $request->serviceSpec;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAppService',
@@ -524,11 +582,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates an application service to obtain the inference capabilities of large models.
-     *  *
-     * @param CreateAppServiceRequest $request CreateAppServiceRequest
+     * Creates an application service to obtain the inference capabilities of large models.
      *
-     * @return CreateAppServiceResponse CreateAppServiceResponse
+     * @param request - CreateAppServiceRequest
+     *
+     * @returns CreateAppServiceResponse
+     *
+     * @param CreateAppServiceRequest $request
+     *
+     * @return CreateAppServiceResponse
      */
     public function createAppService($request)
     {
@@ -539,17 +601,23 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a stress testing task.
-     *  *
-     * @param CreateBenchmarkTaskRequest $request CreateBenchmarkTaskRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a stress testing task.
      *
-     * @return CreateBenchmarkTaskResponse CreateBenchmarkTaskResponse
+     * @param request - CreateBenchmarkTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBenchmarkTaskResponse
+     *
+     * @param CreateBenchmarkTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateBenchmarkTaskResponse
      */
     public function createBenchmarkTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => $request->body,
@@ -570,11 +638,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a stress testing task.
-     *  *
-     * @param CreateBenchmarkTaskRequest $request CreateBenchmarkTaskRequest
+     * Creates a stress testing task.
      *
-     * @return CreateBenchmarkTaskResponse CreateBenchmarkTaskResponse
+     * @param request - CreateBenchmarkTaskRequest
+     *
+     * @returns CreateBenchmarkTaskResponse
+     *
+     * @param CreateBenchmarkTaskRequest $request
+     *
+     * @return CreateBenchmarkTaskResponse
      */
     public function createBenchmarkTask($request)
     {
@@ -585,47 +657,61 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a gateway.
-     *  *
-     * @param CreateGatewayRequest $request CreateGatewayRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a gateway.
      *
-     * @return CreateGatewayResponse CreateGatewayResponse
+     * @param request - CreateGatewayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGatewayResponse
+     *
+     * @param CreateGatewayRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateGatewayResponse
      */
     public function createGatewayWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->autoRenewal)) {
-            $body['AutoRenewal'] = $request->autoRenewal;
+        if (null !== $request->autoRenewal) {
+            @$body['AutoRenewal'] = $request->autoRenewal;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->enableInternet)) {
-            $body['EnableInternet'] = $request->enableInternet;
+
+        if (null !== $request->enableInternet) {
+            @$body['EnableInternet'] = $request->enableInternet;
         }
-        if (!Utils::isUnset($request->enableIntranet)) {
-            $body['EnableIntranet'] = $request->enableIntranet;
+
+        if (null !== $request->enableIntranet) {
+            @$body['EnableIntranet'] = $request->enableIntranet;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->replicas)) {
-            $body['Replicas'] = $request->replicas;
+
+        if (null !== $request->replicas) {
+            @$body['Replicas'] = $request->replicas;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateGateway',
@@ -643,11 +729,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a gateway.
-     *  *
-     * @param CreateGatewayRequest $request CreateGatewayRequest
+     * Creates a gateway.
      *
-     * @return CreateGatewayResponse CreateGatewayResponse
+     * @param request - CreateGatewayRequest
+     *
+     * @returns CreateGatewayResponse
+     *
+     * @param CreateGatewayRequest $request
+     *
+     * @return CreateGatewayResponse
      */
     public function createGateway($request)
     {
@@ -658,41 +748,51 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates an internal endpoint of a private gateway.
-     *  *
+     * Creates an internal endpoint of a private gateway.
+     *
+     * @param request - CreateGatewayIntranetLinkedVpcRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGatewayIntranetLinkedVpcResponse
+     *
      * @param string                                $ClusterId
      * @param string                                $GatewayId
-     * @param CreateGatewayIntranetLinkedVpcRequest $request   CreateGatewayIntranetLinkedVpcRequest
-     * @param string[]                              $headers   map
-     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
+     * @param CreateGatewayIntranetLinkedVpcRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
      *
-     * @return CreateGatewayIntranetLinkedVpcResponse CreateGatewayIntranetLinkedVpcResponse
+     * @return CreateGatewayIntranetLinkedVpcResponse
      */
     public function createGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->enableAuthoritativeDns)) {
-            $query['EnableAuthoritativeDns'] = $request->enableAuthoritativeDns;
+
+        if (null !== $request->enableAuthoritativeDns) {
+            @$query['EnableAuthoritativeDns'] = $request->enableAuthoritativeDns;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateGatewayIntranetLinkedVpc',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -704,13 +804,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates an internal endpoint of a private gateway.
-     *  *
+     * Creates an internal endpoint of a private gateway.
+     *
+     * @param request - CreateGatewayIntranetLinkedVpcRequest
+     *
+     * @returns CreateGatewayIntranetLinkedVpcResponse
+     *
      * @param string                                $ClusterId
      * @param string                                $GatewayId
-     * @param CreateGatewayIntranetLinkedVpcRequest $request   CreateGatewayIntranetLinkedVpcRequest
+     * @param CreateGatewayIntranetLinkedVpcRequest $request
      *
-     * @return CreateGatewayIntranetLinkedVpcResponse CreateGatewayIntranetLinkedVpcResponse
+     * @return CreateGatewayIntranetLinkedVpcResponse
      */
     public function createGatewayIntranetLinkedVpc($ClusterId, $GatewayId, $request)
     {
@@ -721,40 +825,49 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a VPC peering connection on an internal endpoint of a gateway.
-     *  *
+     * Creates a VPC peering connection on an internal endpoint of a gateway.
+     *
+     * @param tmpReq - CreateGatewayIntranetLinkedVpcPeerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGatewayIntranetLinkedVpcPeerResponse
+     *
      * @param string                                    $ClusterId
      * @param string                                    $GatewayId
-     * @param CreateGatewayIntranetLinkedVpcPeerRequest $tmpReq    CreateGatewayIntranetLinkedVpcPeerRequest
-     * @param string[]                                  $headers   map
-     * @param RuntimeOptions                            $runtime   runtime options for this request RuntimeOptions
+     * @param CreateGatewayIntranetLinkedVpcPeerRequest $tmpReq
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
      *
-     * @return CreateGatewayIntranetLinkedVpcPeerResponse CreateGatewayIntranetLinkedVpcPeerResponse
+     * @return CreateGatewayIntranetLinkedVpcPeerResponse
      */
     public function createGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateGatewayIntranetLinkedVpcPeerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->peerVpcs)) {
-            $request->peerVpcsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->peerVpcs, 'PeerVpcs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->peerVpcs) {
+            $request->peerVpcsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->peerVpcs, 'PeerVpcs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->peerVpcsShrink)) {
-            $query['PeerVpcs'] = $request->peerVpcsShrink;
+        if (null !== $request->peerVpcsShrink) {
+            @$query['PeerVpcs'] = $request->peerVpcsShrink;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateGatewayIntranetLinkedVpcPeer',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -766,13 +879,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a VPC peering connection on an internal endpoint of a gateway.
-     *  *
+     * Creates a VPC peering connection on an internal endpoint of a gateway.
+     *
+     * @param request - CreateGatewayIntranetLinkedVpcPeerRequest
+     *
+     * @returns CreateGatewayIntranetLinkedVpcPeerResponse
+     *
      * @param string                                    $ClusterId
      * @param string                                    $GatewayId
-     * @param CreateGatewayIntranetLinkedVpcPeerRequest $request   CreateGatewayIntranetLinkedVpcPeerRequest
+     * @param CreateGatewayIntranetLinkedVpcPeerRequest $request
      *
-     * @return CreateGatewayIntranetLinkedVpcPeerResponse CreateGatewayIntranetLinkedVpcPeerResponse
+     * @return CreateGatewayIntranetLinkedVpcPeerResponse
      */
     public function createGatewayIntranetLinkedVpcPeer($ClusterId, $GatewayId, $request)
     {
@@ -783,53 +900,70 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a resource group.
-     *  *
-     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
-     *  *
-     * @param CreateResourceRequest $request CreateResourceRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a resource group.
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @remarks
+     * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+     *
+     * @param request - CreateResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceResponse
+     *
+     * @param CreateResourceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateResourceResponse
      */
     public function createResourceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoRenewal)) {
-            $body['AutoRenewal'] = $request->autoRenewal;
+        if (null !== $request->autoRenewal) {
+            @$body['AutoRenewal'] = $request->autoRenewal;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->ecsInstanceCount)) {
-            $body['EcsInstanceCount'] = $request->ecsInstanceCount;
+
+        if (null !== $request->ecsInstanceCount) {
+            @$body['EcsInstanceCount'] = $request->ecsInstanceCount;
         }
-        if (!Utils::isUnset($request->ecsInstanceType)) {
-            $body['EcsInstanceType'] = $request->ecsInstanceType;
+
+        if (null !== $request->ecsInstanceType) {
+            @$body['EcsInstanceType'] = $request->ecsInstanceType;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $body['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$body['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->selfManagedResourceOptions)) {
-            $body['SelfManagedResourceOptions'] = $request->selfManagedResourceOptions;
+
+        if (null !== $request->selfManagedResourceOptions) {
+            @$body['SelfManagedResourceOptions'] = $request->selfManagedResourceOptions;
         }
-        if (!Utils::isUnset($request->systemDiskSize)) {
-            $body['SystemDiskSize'] = $request->systemDiskSize;
+
+        if (null !== $request->systemDiskSize) {
+            @$body['SystemDiskSize'] = $request->systemDiskSize;
         }
-        if (!Utils::isUnset($request->zone)) {
-            $body['Zone'] = $request->zone;
+
+        if (null !== $request->zone) {
+            @$body['Zone'] = $request->zone;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateResource',
@@ -847,13 +981,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a resource group.
-     *  *
-     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
-     *  *
-     * @param CreateResourceRequest $request CreateResourceRequest
+     * Creates a resource group.
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @remarks
+     * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+     *
+     * @param request - CreateResourceRequest
+     *
+     * @returns CreateResourceResponse
+     *
+     * @param CreateResourceRequest $request
+     *
+     * @return CreateResourceResponse
      */
     public function createResource($request)
     {
@@ -864,53 +1003,67 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates instances in a dedicated resource group.
-     *  *
+     * Creates instances in a dedicated resource group.
+     *
+     * @param request - CreateResourceInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceInstancesResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ResourceId
-     * @param CreateResourceInstancesRequest $request    CreateResourceInstancesRequest
-     * @param string[]                       $headers    map
-     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
+     * @param CreateResourceInstancesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return CreateResourceInstancesResponse CreateResourceInstancesResponse
+     * @return CreateResourceInstancesResponse
      */
     public function createResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoRenewal)) {
-            $body['AutoRenewal'] = $request->autoRenewal;
+        if (null !== $request->autoRenewal) {
+            @$body['AutoRenewal'] = $request->autoRenewal;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->ecsInstanceCount)) {
-            $body['EcsInstanceCount'] = $request->ecsInstanceCount;
+
+        if (null !== $request->ecsInstanceCount) {
+            @$body['EcsInstanceCount'] = $request->ecsInstanceCount;
         }
-        if (!Utils::isUnset($request->ecsInstanceType)) {
-            $body['EcsInstanceType'] = $request->ecsInstanceType;
+
+        if (null !== $request->ecsInstanceType) {
+            @$body['EcsInstanceType'] = $request->ecsInstanceType;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->systemDiskSize)) {
-            $body['SystemDiskSize'] = $request->systemDiskSize;
+
+        if (null !== $request->systemDiskSize) {
+            @$body['SystemDiskSize'] = $request->systemDiskSize;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $body['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->zone)) {
-            $body['Zone'] = $request->zone;
+
+        if (null !== $request->zone) {
+            @$body['Zone'] = $request->zone;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateResourceInstances',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instances',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -922,13 +1075,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates instances in a dedicated resource group.
-     *  *
+     * Creates instances in a dedicated resource group.
+     *
+     * @param request - CreateResourceInstancesRequest
+     *
+     * @returns CreateResourceInstancesResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ResourceId
-     * @param CreateResourceInstancesRequest $request    CreateResourceInstancesRequest
+     * @param CreateResourceInstancesRequest $request
      *
-     * @return CreateResourceInstancesResponse CreateResourceInstancesResponse
+     * @return CreateResourceInstancesResponse
      */
     public function createResourceInstances($ClusterId, $ResourceId, $request)
     {
@@ -939,35 +1096,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the LogShipper feature of Log Service for a resource group.
-     *  *
+     * Enables the LogShipper feature of Log Service for a resource group.
+     *
+     * @param request - CreateResourceLogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceLogResponse
+     *
      * @param string                   $ClusterId
      * @param string                   $ResourceId
-     * @param CreateResourceLogRequest $request    CreateResourceLogRequest
-     * @param string[]                 $headers    map
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * @param CreateResourceLogRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateResourceLogResponse CreateResourceLogResponse
+     * @return CreateResourceLogResponse
      */
     public function createResourceLogWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->logStore)) {
-            $body['LogStore'] = $request->logStore;
+        if (null !== $request->logStore) {
+            @$body['LogStore'] = $request->logStore;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateResourceLog',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/log',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -979,13 +1144,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the LogShipper feature of Log Service for a resource group.
-     *  *
+     * Enables the LogShipper feature of Log Service for a resource group.
+     *
+     * @param request - CreateResourceLogRequest
+     *
+     * @returns CreateResourceLogResponse
+     *
      * @param string                   $ClusterId
      * @param string                   $ResourceId
-     * @param CreateResourceLogRequest $request    CreateResourceLogRequest
+     * @param CreateResourceLogRequest $request
      *
-     * @return CreateResourceLogResponse CreateResourceLogResponse
+     * @return CreateResourceLogResponse
      */
     public function createResourceLog($ClusterId, $ResourceId, $request)
     {
@@ -996,37 +1165,48 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a model service in Elastic Algorithm Service (EAS).
-     *  *
-     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
-     *  *
-     * @param CreateServiceRequest $tmpReq  CreateServiceRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a model service in Elastic Algorithm Service (EAS).
      *
-     * @return CreateServiceResponse CreateServiceResponse
+     * @remarks
+     * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+     *
+     * @param tmpReq - CreateServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceResponse
+     *
+     * @param CreateServiceRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateServiceResponse
      */
     public function createServiceWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateServiceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->labels)) {
-            $request->labelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labels) {
+            $request->labelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->develop)) {
-            $query['Develop'] = $request->develop;
+        if (null !== $request->develop) {
+            @$query['Develop'] = $request->develop;
         }
-        if (!Utils::isUnset($request->labelsShrink)) {
-            $query['Labels'] = $request->labelsShrink;
+
+        if (null !== $request->labelsShrink) {
+            @$query['Labels'] = $request->labelsShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
@@ -1045,13 +1225,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a model service in Elastic Algorithm Service (EAS).
-     *  *
-     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
-     *  *
-     * @param CreateServiceRequest $request CreateServiceRequest
+     * Creates a model service in Elastic Algorithm Service (EAS).
      *
-     * @return CreateServiceResponse CreateServiceResponse
+     * @remarks
+     * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+     *
+     * @param request - CreateServiceRequest
+     *
+     * @returns CreateServiceResponse
+     *
+     * @param CreateServiceRequest $request
+     *
+     * @return CreateServiceResponse
      */
     public function createService($request)
     {
@@ -1062,41 +1247,51 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the Autoscaler feature and creates an Autoscaler controller for a service.
-     *  *
+     * Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+     *
+     * @param request - CreateServiceAutoScalerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceAutoScalerResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceAutoScalerRequest $request     CreateServiceAutoScalerRequest
-     * @param string[]                       $headers     map
-     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
+     * @param CreateServiceAutoScalerRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return CreateServiceAutoScalerResponse CreateServiceAutoScalerResponse
+     * @return CreateServiceAutoScalerResponse
      */
     public function createServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->behavior)) {
-            $body['behavior'] = $request->behavior;
+        if (null !== $request->behavior) {
+            @$body['behavior'] = $request->behavior;
         }
-        if (!Utils::isUnset($request->max)) {
-            $body['max'] = $request->max;
+
+        if (null !== $request->max) {
+            @$body['max'] = $request->max;
         }
-        if (!Utils::isUnset($request->min)) {
-            $body['min'] = $request->min;
+
+        if (null !== $request->min) {
+            @$body['min'] = $request->min;
         }
-        if (!Utils::isUnset($request->scaleStrategies)) {
-            $body['scaleStrategies'] = $request->scaleStrategies;
+
+        if (null !== $request->scaleStrategies) {
+            @$body['scaleStrategies'] = $request->scaleStrategies;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateServiceAutoScaler',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/autoscaler',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1108,13 +1303,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the Autoscaler feature and creates an Autoscaler controller for a service.
-     *  *
+     * Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+     *
+     * @param request - CreateServiceAutoScalerRequest
+     *
+     * @returns CreateServiceAutoScalerResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceAutoScalerRequest $request     CreateServiceAutoScalerRequest
+     * @param CreateServiceAutoScalerRequest $request
      *
-     * @return CreateServiceAutoScalerResponse CreateServiceAutoScalerResponse
+     * @return CreateServiceAutoScalerResponse
      */
     public function createServiceAutoScaler($ClusterId, $ServiceName, $request)
     {
@@ -1125,35 +1324,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
-     *  *
+     * Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+     *
+     * @param request - CreateServiceCronScalerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceCronScalerResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceCronScalerRequest $request     CreateServiceCronScalerRequest
-     * @param string[]                       $headers     map
-     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
+     * @param CreateServiceCronScalerRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return CreateServiceCronScalerResponse CreateServiceCronScalerResponse
+     * @return CreateServiceCronScalerResponse
      */
     public function createServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->excludeDates)) {
-            $body['ExcludeDates'] = $request->excludeDates;
+        if (null !== $request->excludeDates) {
+            @$body['ExcludeDates'] = $request->excludeDates;
         }
-        if (!Utils::isUnset($request->scaleJobs)) {
-            $body['ScaleJobs'] = $request->scaleJobs;
+
+        if (null !== $request->scaleJobs) {
+            @$body['ScaleJobs'] = $request->scaleJobs;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateServiceCronScaler',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/cronscaler',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1165,13 +1372,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
-     *  *
+     * Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+     *
+     * @param request - CreateServiceCronScalerRequest
+     *
+     * @returns CreateServiceCronScalerResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param CreateServiceCronScalerRequest $request     CreateServiceCronScalerRequest
+     * @param CreateServiceCronScalerRequest $request
      *
-     * @return CreateServiceCronScalerResponse CreateServiceCronScalerResponse
+     * @return CreateServiceCronScalerResponse
      */
     public function createServiceCronScaler($ClusterId, $ServiceName, $request)
     {
@@ -1182,35 +1393,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
-     *  *
+     * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+     *
+     * @param request - CreateServiceMirrorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceMirrorResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param CreateServiceMirrorRequest $request     CreateServiceMirrorRequest
-     * @param string[]                   $headers     map
-     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     * @param CreateServiceMirrorRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return CreateServiceMirrorResponse CreateServiceMirrorResponse
+     * @return CreateServiceMirrorResponse
      */
     public function createServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ratio)) {
-            $body['Ratio'] = $request->ratio;
+        if (null !== $request->ratio) {
+            @$body['Ratio'] = $request->ratio;
         }
-        if (!Utils::isUnset($request->target)) {
-            $body['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$body['Target'] = $request->target;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateServiceMirror',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/mirror',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1222,13 +1441,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
-     *  *
+     * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+     *
+     * @param request - CreateServiceMirrorRequest
+     *
+     * @returns CreateServiceMirrorResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param CreateServiceMirrorRequest $request     CreateServiceMirrorRequest
+     * @param CreateServiceMirrorRequest $request
      *
-     * @return CreateServiceMirrorResponse CreateServiceMirrorResponse
+     * @return CreateServiceMirrorResponse
      */
     public function createServiceMirror($ClusterId, $ServiceName, $request)
     {
@@ -1239,30 +1462,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a virtual resource group.
-     *  *
-     * @param CreateVirtualResourceRequest $request CreateVirtualResourceRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a virtual resource group.
      *
-     * @return CreateVirtualResourceResponse CreateVirtualResourceResponse
+     * @param request - CreateVirtualResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVirtualResourceResponse
+     *
+     * @param CreateVirtualResourceRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateVirtualResourceResponse
      */
     public function createVirtualResourceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->disableSpotProtectionPeriod)) {
-            $body['DisableSpotProtectionPeriod'] = $request->disableSpotProtectionPeriod;
+        if (null !== $request->disableSpotProtectionPeriod) {
+            @$body['DisableSpotProtectionPeriod'] = $request->disableSpotProtectionPeriod;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $body['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$body['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->virtualResourceName)) {
-            $body['VirtualResourceName'] = $request->virtualResourceName;
+
+        if (null !== $request->virtualResourceName) {
+            @$body['VirtualResourceName'] = $request->virtualResourceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateVirtualResource',
@@ -1280,11 +1512,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a virtual resource group.
-     *  *
-     * @param CreateVirtualResourceRequest $request CreateVirtualResourceRequest
+     * Creates a virtual resource group.
      *
-     * @return CreateVirtualResourceResponse CreateVirtualResourceResponse
+     * @param request - CreateVirtualResourceRequest
+     *
+     * @returns CreateVirtualResourceResponse
+     *
+     * @param CreateVirtualResourceRequest $request
+     *
+     * @return CreateVirtualResourceResponse
      */
     public function createVirtualResource($request)
     {
@@ -1295,40 +1531,49 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
-     *  *
+     * Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
+     *
+     * @param tmpReq - DeleteAclPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAclPolicyResponse
+     *
      * @param string                 $ClusterId
      * @param string                 $GatewayId
-     * @param DeleteAclPolicyRequest $tmpReq    DeleteAclPolicyRequest
-     * @param string[]               $headers   map
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * @param DeleteAclPolicyRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return DeleteAclPolicyResponse DeleteAclPolicyResponse
+     * @return DeleteAclPolicyResponse
      */
     public function deleteAclPolicyWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteAclPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aclPolicyList)) {
-            $request->aclPolicyListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aclPolicyList, 'AclPolicyList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aclPolicyList) {
+            $request->aclPolicyListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aclPolicyList, 'AclPolicyList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aclPolicyListShrink)) {
-            $query['AclPolicyList'] = $request->aclPolicyListShrink;
+        if (null !== $request->aclPolicyListShrink) {
+            @$query['AclPolicyList'] = $request->aclPolicyListShrink;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAclPolicy',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/acl_policy',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1340,13 +1585,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
-     *  *
+     * Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
+     *
+     * @param request - DeleteAclPolicyRequest
+     *
+     * @returns DeleteAclPolicyResponse
+     *
      * @param string                 $ClusterId
      * @param string                 $GatewayId
-     * @param DeleteAclPolicyRequest $request   DeleteAclPolicyRequest
+     * @param DeleteAclPolicyRequest $request
      *
-     * @return DeleteAclPolicyResponse DeleteAclPolicyResponse
+     * @return DeleteAclPolicyResponse
      */
     public function deleteAclPolicy($ClusterId, $GatewayId, $request)
     {
@@ -1357,14 +1606,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a stress testing task.
-     *  *
+     * Deletes a stress testing task.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBenchmarkTaskResponse
+     *
      * @param string         $ClusterId
      * @param string         $TaskName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteBenchmarkTaskResponse DeleteBenchmarkTaskResponse
+     * @return DeleteBenchmarkTaskResponse
      */
     public function deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
@@ -1375,7 +1629,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteBenchmarkTask',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1387,12 +1641,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a stress testing task.
-     *  *
+     * Deletes a stress testing task.
+     *
+     * @returns DeleteBenchmarkTaskResponse
+     *
      * @param string $ClusterId
      * @param string $TaskName
      *
-     * @return DeleteBenchmarkTaskResponse DeleteBenchmarkTaskResponse
+     * @return DeleteBenchmarkTaskResponse
      */
     public function deleteBenchmarkTask($ClusterId, $TaskName)
     {
@@ -1403,14 +1659,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a private gateway.
-     *  *
+     * Deletes a private gateway.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayResponse
+     *
      * @param string         $ClusterId
      * @param string         $GatewayId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteGatewayResponse DeleteGatewayResponse
+     * @return DeleteGatewayResponse
      */
     public function deleteGatewayWithOptions($ClusterId, $GatewayId, $headers, $runtime)
     {
@@ -1421,7 +1682,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteGateway',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1433,12 +1694,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a private gateway.
-     *  *
+     * Deletes a private gateway.
+     *
+     * @returns DeleteGatewayResponse
+     *
      * @param string $ClusterId
      * @param string $GatewayId
      *
-     * @return DeleteGatewayResponse DeleteGatewayResponse
+     * @return DeleteGatewayResponse
      */
     public function deleteGateway($ClusterId, $GatewayId)
     {
@@ -1449,35 +1712,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 删除网关内网访问端点
-     *  *
+     * 删除网关内网访问端点.
+     *
+     * @param request - DeleteGatewayIntranetLinkedVpcRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayIntranetLinkedVpcResponse
+     *
      * @param string                                $ClusterId
      * @param string                                $GatewayId
-     * @param DeleteGatewayIntranetLinkedVpcRequest $request   DeleteGatewayIntranetLinkedVpcRequest
-     * @param string[]                              $headers   map
-     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
+     * @param DeleteGatewayIntranetLinkedVpcRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
      *
-     * @return DeleteGatewayIntranetLinkedVpcResponse DeleteGatewayIntranetLinkedVpcResponse
+     * @return DeleteGatewayIntranetLinkedVpcResponse
      */
     public function deleteGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGatewayIntranetLinkedVpc',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1489,13 +1760,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 删除网关内网访问端点
-     *  *
+     * 删除网关内网访问端点.
+     *
+     * @param request - DeleteGatewayIntranetLinkedVpcRequest
+     *
+     * @returns DeleteGatewayIntranetLinkedVpcResponse
+     *
      * @param string                                $ClusterId
      * @param string                                $GatewayId
-     * @param DeleteGatewayIntranetLinkedVpcRequest $request   DeleteGatewayIntranetLinkedVpcRequest
+     * @param DeleteGatewayIntranetLinkedVpcRequest $request
      *
-     * @return DeleteGatewayIntranetLinkedVpcResponse DeleteGatewayIntranetLinkedVpcResponse
+     * @return DeleteGatewayIntranetLinkedVpcResponse
      */
     public function deleteGatewayIntranetLinkedVpc($ClusterId, $GatewayId, $request)
     {
@@ -1506,40 +1781,49 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a VPC peering connection from an internal endpoint of a gateway.
-     *  *
+     * Deletes a VPC peering connection from an internal endpoint of a gateway.
+     *
+     * @param tmpReq - DeleteGatewayIntranetLinkedVpcPeerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
+     *
      * @param string                                    $ClusterId
      * @param string                                    $GatewayId
-     * @param DeleteGatewayIntranetLinkedVpcPeerRequest $tmpReq    DeleteGatewayIntranetLinkedVpcPeerRequest
-     * @param string[]                                  $headers   map
-     * @param RuntimeOptions                            $runtime   runtime options for this request RuntimeOptions
+     * @param DeleteGatewayIntranetLinkedVpcPeerRequest $tmpReq
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
      *
-     * @return DeleteGatewayIntranetLinkedVpcPeerResponse DeleteGatewayIntranetLinkedVpcPeerResponse
+     * @return DeleteGatewayIntranetLinkedVpcPeerResponse
      */
     public function deleteGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteGatewayIntranetLinkedVpcPeerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->peerVpcs)) {
-            $request->peerVpcsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->peerVpcs, 'PeerVpcs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->peerVpcs) {
+            $request->peerVpcsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->peerVpcs, 'PeerVpcs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->peerVpcsShrink)) {
-            $query['PeerVpcs'] = $request->peerVpcsShrink;
+        if (null !== $request->peerVpcsShrink) {
+            @$query['PeerVpcs'] = $request->peerVpcsShrink;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGatewayIntranetLinkedVpcPeer',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1551,13 +1835,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a VPC peering connection from an internal endpoint of a gateway.
-     *  *
+     * Deletes a VPC peering connection from an internal endpoint of a gateway.
+     *
+     * @param request - DeleteGatewayIntranetLinkedVpcPeerRequest
+     *
+     * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
+     *
      * @param string                                    $ClusterId
      * @param string                                    $GatewayId
-     * @param DeleteGatewayIntranetLinkedVpcPeerRequest $request   DeleteGatewayIntranetLinkedVpcPeerRequest
+     * @param DeleteGatewayIntranetLinkedVpcPeerRequest $request
      *
-     * @return DeleteGatewayIntranetLinkedVpcPeerResponse DeleteGatewayIntranetLinkedVpcPeerResponse
+     * @return DeleteGatewayIntranetLinkedVpcPeerResponse
      */
     public function deleteGatewayIntranetLinkedVpcPeer($ClusterId, $GatewayId, $request)
     {
@@ -1568,14 +1856,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a resource group that contains no resources or instances.
-     *  *
+     * Deletes a resource group that contains no resources or instances.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceResponse
+     *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteResourceResponse DeleteResourceResponse
+     * @return DeleteResourceResponse
      */
     public function deleteResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1586,7 +1879,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteResource',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1598,12 +1891,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a resource group that contains no resources or instances.
-     *  *
+     * Deletes a resource group that contains no resources or instances.
+     *
+     * @returns DeleteResourceResponse
+     *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DeleteResourceResponse DeleteResourceResponse
+     * @return DeleteResourceResponse
      */
     public function deleteResource($ClusterId, $ResourceId)
     {
@@ -1614,14 +1909,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
-     *  *
+     * Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceDLinkResponse
+     *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteResourceDLinkResponse DeleteResourceDLinkResponse
+     * @return DeleteResourceDLinkResponse
      */
     public function deleteResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1632,7 +1932,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteResourceDLink',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/dlink',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1644,12 +1944,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
-     *  *
+     * Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+     *
+     * @returns DeleteResourceDLinkResponse
+     *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DeleteResourceDLinkResponse DeleteResourceDLinkResponse
+     * @return DeleteResourceDLinkResponse
      */
     public function deleteResourceDLink($ClusterId, $ResourceId)
     {
@@ -1660,46 +1962,57 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the tags of an instance in a resource group.
-     *  *
+     * Deletes the tags of an instance in a resource group.
+     *
+     * @param tmpReq - DeleteResourceInstanceLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceInstanceLabelResponse
+     *
      * @param string                             $ClusterId
      * @param string                             $ResourceId
-     * @param DeleteResourceInstanceLabelRequest $tmpReq     DeleteResourceInstanceLabelRequest
-     * @param string[]                           $headers    map
-     * @param RuntimeOptions                     $runtime    runtime options for this request RuntimeOptions
+     * @param DeleteResourceInstanceLabelRequest $tmpReq
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
-     * @return DeleteResourceInstanceLabelResponse DeleteResourceInstanceLabelResponse
+     * @return DeleteResourceInstanceLabelResponse
      */
     public function deleteResourceInstanceLabelWithOptions($ClusterId, $ResourceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteResourceInstanceLabelShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->keys)) {
-            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
+
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->allInstances)) {
-            $query['AllInstances'] = $request->allInstances;
+        if (null !== $request->allInstances) {
+            @$query['AllInstances'] = $request->allInstances;
         }
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
-        if (!Utils::isUnset($request->keysShrink)) {
-            $query['Keys'] = $request->keysShrink;
+
+        if (null !== $request->keysShrink) {
+            @$query['Keys'] = $request->keysShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteResourceInstanceLabel',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/label',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/label',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1711,13 +2024,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the tags of an instance in a resource group.
-     *  *
+     * Deletes the tags of an instance in a resource group.
+     *
+     * @param request - DeleteResourceInstanceLabelRequest
+     *
+     * @returns DeleteResourceInstanceLabelResponse
+     *
      * @param string                             $ClusterId
      * @param string                             $ResourceId
-     * @param DeleteResourceInstanceLabelRequest $request    DeleteResourceInstanceLabelRequest
+     * @param DeleteResourceInstanceLabelRequest $request
      *
-     * @return DeleteResourceInstanceLabelResponse DeleteResourceInstanceLabelResponse
+     * @return DeleteResourceInstanceLabelResponse
      */
     public function deleteResourceInstanceLabel($ClusterId, $ResourceId, $request)
     {
@@ -1728,35 +2045,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
-     *  *
+     * Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
+     *
+     * @param request - DeleteResourceInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceInstancesResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ResourceId
-     * @param DeleteResourceInstancesRequest $request    DeleteResourceInstancesRequest
-     * @param string[]                       $headers    map
-     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
+     * @param DeleteResourceInstancesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DeleteResourceInstancesResponse DeleteResourceInstancesResponse
+     * @return DeleteResourceInstancesResponse
      */
     public function deleteResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allFailed)) {
-            $query['AllFailed'] = $request->allFailed;
+        if (null !== $request->allFailed) {
+            @$query['AllFailed'] = $request->allFailed;
         }
-        if (!Utils::isUnset($request->instanceList)) {
-            $query['InstanceList'] = $request->instanceList;
+
+        if (null !== $request->instanceList) {
+            @$query['InstanceList'] = $request->instanceList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteResourceInstances',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instances',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1768,13 +2093,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
-     *  *
+     * Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
+     *
+     * @param request - DeleteResourceInstancesRequest
+     *
+     * @returns DeleteResourceInstancesResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ResourceId
-     * @param DeleteResourceInstancesRequest $request    DeleteResourceInstancesRequest
+     * @param DeleteResourceInstancesRequest $request
      *
-     * @return DeleteResourceInstancesResponse DeleteResourceInstancesResponse
+     * @return DeleteResourceInstancesResponse
      */
     public function deleteResourceInstances($ClusterId, $ResourceId, $request)
     {
@@ -1785,14 +2114,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
-     *  *
+     * Disables the LogShipper feature of Log Service for a dedicated resource group.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceLogResponse
+     *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteResourceLogResponse DeleteResourceLogResponse
+     * @return DeleteResourceLogResponse
      */
     public function deleteResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -1803,7 +2137,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteResourceLog',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/log',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1815,12 +2149,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
-     *  *
+     * Disables the LogShipper feature of Log Service for a dedicated resource group.
+     *
+     * @returns DeleteResourceLogResponse
+     *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DeleteResourceLogResponse DeleteResourceLogResponse
+     * @return DeleteResourceLogResponse
      */
     public function deleteResourceLog($ClusterId, $ResourceId)
     {
@@ -1831,14 +2167,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a service.
-     *  *
+     * Deletes a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteServiceResponse DeleteServiceResponse
+     * @return DeleteServiceResponse
      */
     public function deleteServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1849,7 +2190,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1861,12 +2202,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a service.
-     *  *
+     * Deletes a service.
+     *
+     * @returns DeleteServiceResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceResponse DeleteServiceResponse
+     * @return DeleteServiceResponse
      */
     public function deleteService($ClusterId, $ServiceName)
     {
@@ -1877,14 +2220,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
-     *  *
+     * Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceAutoScalerResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteServiceAutoScalerResponse DeleteServiceAutoScalerResponse
+     * @return DeleteServiceAutoScalerResponse
      */
     public function deleteServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1895,7 +2243,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteServiceAutoScaler',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/autoscaler',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1907,12 +2255,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
-     *  *
+     * Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+     *
+     * @returns DeleteServiceAutoScalerResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceAutoScalerResponse DeleteServiceAutoScalerResponse
+     * @return DeleteServiceAutoScalerResponse
      */
     public function deleteServiceAutoScaler($ClusterId, $ServiceName)
     {
@@ -1923,14 +2273,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Disables the Cronscaler feature for a service.
-     *  *
+     * Disables the Cronscaler feature for a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceCronScalerResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteServiceCronScalerResponse DeleteServiceCronScalerResponse
+     * @return DeleteServiceCronScalerResponse
      */
     public function deleteServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -1941,7 +2296,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteServiceCronScaler',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/cronscaler',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1953,12 +2308,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Disables the Cronscaler feature for a service.
-     *  *
+     * Disables the Cronscaler feature for a service.
+     *
+     * @returns DeleteServiceCronScalerResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceCronScalerResponse DeleteServiceCronScalerResponse
+     * @return DeleteServiceCronScalerResponse
      */
     public function deleteServiceCronScaler($ClusterId, $ServiceName)
     {
@@ -1969,38 +2326,47 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Restarts the instances of a service.
-     *  *
+     * Restarts the instances of a service.
+     *
+     * @param request - DeleteServiceInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceInstancesResponse
+     *
      * @param string                        $ClusterId
      * @param string                        $ServiceName
-     * @param DeleteServiceInstancesRequest $request     DeleteServiceInstancesRequest
-     * @param string[]                      $headers     map
-     * @param RuntimeOptions                $runtime     runtime options for this request RuntimeOptions
+     * @param DeleteServiceInstancesRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return DeleteServiceInstancesResponse DeleteServiceInstancesResponse
+     * @return DeleteServiceInstancesResponse
      */
     public function deleteServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->container)) {
-            $query['Container'] = $request->container;
+        if (null !== $request->container) {
+            @$query['Container'] = $request->container;
         }
-        if (!Utils::isUnset($request->instanceList)) {
-            $query['InstanceList'] = $request->instanceList;
+
+        if (null !== $request->instanceList) {
+            @$query['InstanceList'] = $request->instanceList;
         }
-        if (!Utils::isUnset($request->softRestart)) {
-            $query['SoftRestart'] = $request->softRestart;
+
+        if (null !== $request->softRestart) {
+            @$query['SoftRestart'] = $request->softRestart;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteServiceInstances',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2012,13 +2378,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Restarts the instances of a service.
-     *  *
+     * Restarts the instances of a service.
+     *
+     * @param request - DeleteServiceInstancesRequest
+     *
+     * @returns DeleteServiceInstancesResponse
+     *
      * @param string                        $ClusterId
      * @param string                        $ServiceName
-     * @param DeleteServiceInstancesRequest $request     DeleteServiceInstancesRequest
+     * @param DeleteServiceInstancesRequest $request
      *
-     * @return DeleteServiceInstancesResponse DeleteServiceInstancesResponse
+     * @return DeleteServiceInstancesResponse
      */
     public function deleteServiceInstances($ClusterId, $ServiceName, $request)
     {
@@ -2029,37 +2399,45 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes existing service tags.
-     *  *
+     * Deletes existing service tags.
+     *
+     * @param tmpReq - DeleteServiceLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceLabelResponse
+     *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param DeleteServiceLabelRequest $tmpReq      DeleteServiceLabelRequest
-     * @param string[]                  $headers     map
-     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     * @param DeleteServiceLabelRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return DeleteServiceLabelResponse DeleteServiceLabelResponse
+     * @return DeleteServiceLabelResponse
      */
     public function deleteServiceLabelWithOptions($ClusterId, $ServiceName, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteServiceLabelShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->keys)) {
-            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->keysShrink)) {
-            $query['Keys'] = $request->keysShrink;
+        if (null !== $request->keysShrink) {
+            @$query['Keys'] = $request->keysShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteServiceLabel',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/label',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/label',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2071,13 +2449,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes existing service tags.
-     *  *
+     * Deletes existing service tags.
+     *
+     * @param request - DeleteServiceLabelRequest
+     *
+     * @returns DeleteServiceLabelResponse
+     *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param DeleteServiceLabelRequest $request     DeleteServiceLabelRequest
+     * @param DeleteServiceLabelRequest $request
      *
-     * @return DeleteServiceLabelResponse DeleteServiceLabelResponse
+     * @return DeleteServiceLabelResponse
      */
     public function deleteServiceLabel($ClusterId, $ServiceName, $request)
     {
@@ -2088,14 +2470,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Disables the traffic mirroring feature for a service.
-     *  *
+     * Disables the traffic mirroring feature for a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceMirrorResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteServiceMirrorResponse DeleteServiceMirrorResponse
+     * @return DeleteServiceMirrorResponse
      */
     public function deleteServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -2106,7 +2493,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteServiceMirror',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/mirror',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2118,12 +2505,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Disables the traffic mirroring feature for a service.
-     *  *
+     * Disables the traffic mirroring feature for a service.
+     *
+     * @returns DeleteServiceMirrorResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DeleteServiceMirrorResponse DeleteServiceMirrorResponse
+     * @return DeleteServiceMirrorResponse
      */
     public function deleteServiceMirror($ClusterId, $ServiceName)
     {
@@ -2134,14 +2523,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a virtual resource group that contains no resources or instances.
-     *  *
+     * Deletes a virtual resource group that contains no resources or instances.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVirtualResourceResponse
+     *
      * @param string         $ClusterId
      * @param string         $VirtualResourceId
-     * @param string[]       $headers           map
-     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteVirtualResourceResponse DeleteVirtualResourceResponse
+     * @return DeleteVirtualResourceResponse
      */
     public function deleteVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $headers, $runtime)
     {
@@ -2152,7 +2546,7 @@ class Eas extends OpenApiClient
             'action' => 'DeleteVirtualResource',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/virtualresources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($VirtualResourceId) . '',
+            'pathname' => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2164,12 +2558,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a virtual resource group that contains no resources or instances.
-     *  *
+     * Deletes a virtual resource group that contains no resources or instances.
+     *
+     * @returns DeleteVirtualResourceResponse
+     *
      * @param string $ClusterId
      * @param string $VirtualResourceId
      *
-     * @return DeleteVirtualResourceResponse DeleteVirtualResourceResponse
+     * @return DeleteVirtualResourceResponse
      */
     public function deleteVirtualResource($ClusterId, $VirtualResourceId)
     {
@@ -2180,14 +2576,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about the configurations of a stress testing task.
-     *  *
+     * Queries details about the configurations of a stress testing task.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBenchmarkTaskResponse
+     *
      * @param string         $ClusterId
      * @param string         $TaskName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeBenchmarkTaskResponse DescribeBenchmarkTaskResponse
+     * @return DescribeBenchmarkTaskResponse
      */
     public function describeBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
@@ -2198,7 +2599,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeBenchmarkTask',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2210,12 +2611,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about the configurations of a stress testing task.
-     *  *
+     * Queries details about the configurations of a stress testing task.
+     *
+     * @returns DescribeBenchmarkTaskResponse
+     *
      * @param string $ClusterId
      * @param string $TaskName
      *
-     * @return DescribeBenchmarkTaskResponse DescribeBenchmarkTaskResponse
+     * @return DescribeBenchmarkTaskResponse
      */
     public function describeBenchmarkTask($ClusterId, $TaskName)
     {
@@ -2226,32 +2629,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the report of a stress testing task.
-     *  *
+     * Queries the report of a stress testing task.
+     *
+     * @param request - DescribeBenchmarkTaskReportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBenchmarkTaskReportResponse
+     *
      * @param string                             $ClusterId
      * @param string                             $TaskName
-     * @param DescribeBenchmarkTaskReportRequest $request   DescribeBenchmarkTaskReportRequest
-     * @param string[]                           $headers   map
-     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
+     * @param DescribeBenchmarkTaskReportRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
-     * @return DescribeBenchmarkTaskReportResponse DescribeBenchmarkTaskReportResponse
+     * @return DescribeBenchmarkTaskReportResponse
      */
     public function describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reportType)) {
-            $query['ReportType'] = $request->reportType;
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBenchmarkTaskReport',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '/report',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/report',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2263,13 +2673,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the report of a stress testing task.
-     *  *
+     * Queries the report of a stress testing task.
+     *
+     * @param request - DescribeBenchmarkTaskReportRequest
+     *
+     * @returns DescribeBenchmarkTaskReportResponse
+     *
      * @param string                             $ClusterId
      * @param string                             $TaskName
-     * @param DescribeBenchmarkTaskReportRequest $request   DescribeBenchmarkTaskReportRequest
+     * @param DescribeBenchmarkTaskReportRequest $request
      *
-     * @return DescribeBenchmarkTaskReportResponse DescribeBenchmarkTaskReportResponse
+     * @return DescribeBenchmarkTaskReportResponse
      */
     public function describeBenchmarkTaskReport($ClusterId, $TaskName, $request)
     {
@@ -2280,14 +2694,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a private gateway.
-     *  *
+     * Queries the details of a private gateway.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGatewayResponse
+     *
      * @param string         $ClusterId
      * @param string         $GatewayId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeGatewayResponse DescribeGatewayResponse
+     * @return DescribeGatewayResponse
      */
     public function describeGatewayWithOptions($ClusterId, $GatewayId, $headers, $runtime)
     {
@@ -2298,7 +2717,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeGateway',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2310,12 +2729,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a private gateway.
-     *  *
+     * Queries the details of a private gateway.
+     *
+     * @returns DescribeGatewayResponse
+     *
      * @param string $ClusterId
      * @param string $GatewayId
      *
-     * @return DescribeGatewayResponse DescribeGatewayResponse
+     * @return DescribeGatewayResponse
      */
     public function describeGateway($ClusterId, $GatewayId)
     {
@@ -2326,14 +2747,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a service group.
-     *  *
+     * Queries the information about a service group.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupResponse
+     *
      * @param string         $ClusterId
      * @param string         $GroupName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeGroupResponse DescribeGroupResponse
+     * @return DescribeGroupResponse
      */
     public function describeGroupWithOptions($ClusterId, $GroupName, $headers, $runtime)
     {
@@ -2344,7 +2770,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeGroup',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/groups/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GroupName) . '',
+            'pathname' => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2356,12 +2782,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a service group.
-     *  *
+     * Queries the information about a service group.
+     *
+     * @returns DescribeGroupResponse
+     *
      * @param string $ClusterId
      * @param string $GroupName
      *
-     * @return DescribeGroupResponse DescribeGroupResponse
+     * @return DescribeGroupResponse
      */
     public function describeGroup($ClusterId, $GroupName)
     {
@@ -2372,14 +2800,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of endpoints of service groups.
-     *  *
+     * Obtains a list of endpoints of service groups.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupEndpointsResponse
+     *
      * @param string         $ClusterId
      * @param string         $GroupName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeGroupEndpointsResponse DescribeGroupEndpointsResponse
+     * @return DescribeGroupEndpointsResponse
      */
     public function describeGroupEndpointsWithOptions($ClusterId, $GroupName, $headers, $runtime)
     {
@@ -2390,7 +2823,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeGroupEndpoints',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/groups/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GroupName) . '/endpoints',
+            'pathname' => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '/endpoints',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2402,12 +2835,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of endpoints of service groups.
-     *  *
+     * Obtains a list of endpoints of service groups.
+     *
+     * @returns DescribeGroupEndpointsResponse
+     *
      * @param string $ClusterId
      * @param string $GroupName
      *
-     * @return DescribeGroupEndpointsResponse DescribeGroupEndpointsResponse
+     * @return DescribeGroupEndpointsResponse
      */
     public function describeGroupEndpoints($ClusterId, $GroupName)
     {
@@ -2418,29 +2853,37 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of instance types for an available instance in a shared resource group.
-     *  *
-     * @param DescribeMachineSpecRequest $tmpReq  DescribeMachineSpecRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of instance types for an available instance in a shared resource group.
      *
-     * @return DescribeMachineSpecResponse DescribeMachineSpecResponse
+     * @param tmpReq - DescribeMachineSpecRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMachineSpecResponse
+     *
+     * @param DescribeMachineSpecRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeMachineSpecResponse
      */
     public function describeMachineSpecWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeMachineSpecShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceTypes)) {
-            $request->instanceTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceTypes, 'InstanceTypes', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceTypes) {
+            $request->instanceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceTypes, 'InstanceTypes', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceTypesShrink)) {
-            $query['InstanceTypes'] = $request->instanceTypesShrink;
+        if (null !== $request->instanceTypesShrink) {
+            @$query['InstanceTypes'] = $request->instanceTypesShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMachineSpec',
@@ -2458,11 +2901,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of instance types for an available instance in a shared resource group.
-     *  *
-     * @param DescribeMachineSpecRequest $request DescribeMachineSpecRequest
+     * Queries a list of instance types for an available instance in a shared resource group.
      *
-     * @return DescribeMachineSpecResponse DescribeMachineSpecResponse
+     * @param request - DescribeMachineSpecRequest
+     *
+     * @returns DescribeMachineSpecResponse
+     *
+     * @param DescribeMachineSpecRequest $request
+     *
+     * @return DescribeMachineSpecResponse
      */
     public function describeMachineSpec($request)
     {
@@ -2473,12 +2920,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries available regions.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($headers, $runtime)
     {
@@ -2501,9 +2953,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries available regions.
-     *  *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * Queries available regions.
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -2514,14 +2968,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a resource group.
-     *  *
+     * Queries the information about a resource group.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceResponse
+     *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeResourceResponse DescribeResourceResponse
+     * @return DescribeResourceResponse
      */
     public function describeResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -2532,7 +2991,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeResource',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2544,12 +3003,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a resource group.
-     *  *
+     * Queries the information about a resource group.
+     *
+     * @returns DescribeResourceResponse
+     *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DescribeResourceResponse DescribeResourceResponse
+     * @return DescribeResourceResponse
      */
     public function describeResource($ClusterId, $ResourceId)
     {
@@ -2560,14 +3021,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
-     *  *
+     * Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceDLinkResponse
+     *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeResourceDLinkResponse DescribeResourceDLinkResponse
+     * @return DescribeResourceDLinkResponse
      */
     public function describeResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -2578,7 +3044,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeResourceDLink',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/dlink',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2590,12 +3056,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
-     *  *
+     * Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+     *
+     * @returns DescribeResourceDLinkResponse
+     *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DescribeResourceDLinkResponse DescribeResourceDLinkResponse
+     * @return DescribeResourceDLinkResponse
      */
     public function describeResourceDLink($ClusterId, $ResourceId)
     {
@@ -2606,14 +3074,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
-     *  *
+     * Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceLogResponse
+     *
      * @param string         $ClusterId
      * @param string         $ResourceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeResourceLogResponse DescribeResourceLogResponse
+     * @return DescribeResourceLogResponse
      */
     public function describeResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
@@ -2624,7 +3097,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeResourceLog',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/log',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2636,12 +3109,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
-     *  *
+     * Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+     *
+     * @returns DescribeResourceLogResponse
+     *
      * @param string $ClusterId
      * @param string $ResourceId
      *
-     * @return DescribeResourceLogResponse DescribeResourceLogResponse
+     * @return DescribeResourceLogResponse
      */
     public function describeResourceLog($ClusterId, $ResourceId)
     {
@@ -2652,14 +3127,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a service.
-     *  *
+     * Queries the details about a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeServiceResponse DescribeServiceResponse
+     * @return DescribeServiceResponse
      */
     public function describeServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -2670,7 +3150,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2682,12 +3162,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a service.
-     *  *
+     * Queries the details about a service.
+     *
+     * @returns DescribeServiceResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceResponse DescribeServiceResponse
+     * @return DescribeServiceResponse
      */
     public function describeService($ClusterId, $ServiceName)
     {
@@ -2698,14 +3180,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the Autoscaler configurations of a service.
-     *  *
+     * Queries information about the Autoscaler configurations of a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceAutoScalerResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeServiceAutoScalerResponse DescribeServiceAutoScalerResponse
+     * @return DescribeServiceAutoScalerResponse
      */
     public function describeServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -2716,7 +3203,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeServiceAutoScaler',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/autoscaler',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2728,12 +3215,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the Autoscaler configurations of a service.
-     *  *
+     * Queries information about the Autoscaler configurations of a service.
+     *
+     * @returns DescribeServiceAutoScalerResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceAutoScalerResponse DescribeServiceAutoScalerResponse
+     * @return DescribeServiceAutoScalerResponse
      */
     public function describeServiceAutoScaler($ClusterId, $ServiceName)
     {
@@ -2744,14 +3233,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
-     *  *
+     * Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceCronScalerResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeServiceCronScalerResponse DescribeServiceCronScalerResponse
+     * @return DescribeServiceCronScalerResponse
      */
     public function describeServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -2762,7 +3256,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeServiceCronScaler',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/cronscaler',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2774,12 +3268,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
-     *  *
+     * Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+     *
+     * @returns DescribeServiceCronScalerResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceCronScalerResponse DescribeServiceCronScalerResponse
+     * @return DescribeServiceCronScalerResponse
      */
     public function describeServiceCronScaler($ClusterId, $ServiceName)
     {
@@ -2790,14 +3286,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the diagnostics details of a service.
-     *  *
+     * Queries the diagnostics details of a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceDiagnosisResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeServiceDiagnosisResponse DescribeServiceDiagnosisResponse
+     * @return DescribeServiceDiagnosisResponse
      */
     public function describeServiceDiagnosisWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -2808,7 +3309,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeServiceDiagnosis',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/diagnosis',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/diagnosis',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2820,12 +3321,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the diagnostics details of a service.
-     *  *
+     * Queries the diagnostics details of a service.
+     *
+     * @returns DescribeServiceDiagnosisResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceDiagnosisResponse DescribeServiceDiagnosisResponse
+     * @return DescribeServiceDiagnosisResponse
      */
     public function describeServiceDiagnosis($ClusterId, $ServiceName)
     {
@@ -2836,14 +3339,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of service endpoints.
-     *  *
+     * Obtains a list of service endpoints.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceEndpointsResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeServiceEndpointsResponse DescribeServiceEndpointsResponse
+     * @return DescribeServiceEndpointsResponse
      */
     public function describeServiceEndpointsWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -2854,7 +3362,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeServiceEndpoints',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/endpoints',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/endpoints',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2866,12 +3374,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of service endpoints.
-     *  *
+     * Obtains a list of service endpoints.
+     *
+     * @returns DescribeServiceEndpointsResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceEndpointsResponse DescribeServiceEndpointsResponse
+     * @return DescribeServiceEndpointsResponse
      */
     public function describeServiceEndpoints($ClusterId, $ServiceName)
     {
@@ -2882,47 +3392,59 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about recent service deployment events.
-     *  *
+     * Queries information about recent service deployment events.
+     *
+     * @param request - DescribeServiceEventRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceEventResponse
+     *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param DescribeServiceEventRequest $request     DescribeServiceEventRequest
-     * @param string[]                    $headers     map
-     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     * @param DescribeServiceEventRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return DescribeServiceEventResponse DescribeServiceEventResponse
+     * @return DescribeServiceEventResponse
      */
     public function describeServiceEventWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeServiceEvent',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/events',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/events',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2934,13 +3456,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about recent service deployment events.
-     *  *
+     * Queries information about recent service deployment events.
+     *
+     * @param request - DescribeServiceEventRequest
+     *
+     * @returns DescribeServiceEventResponse
+     *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param DescribeServiceEventRequest $request     DescribeServiceEventRequest
+     * @param DescribeServiceEventRequest $request
      *
-     * @return DescribeServiceEventResponse DescribeServiceEventResponse
+     * @return DescribeServiceEventResponse
      */
     public function describeServiceEvent($ClusterId, $ServiceName, $request)
     {
@@ -2951,15 +3477,20 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
-     *  *
+     * Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceInstanceDiagnosisResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
      * @param string         $InstanceName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeServiceInstanceDiagnosisResponse DescribeServiceInstanceDiagnosisResponse
+     * @return DescribeServiceInstanceDiagnosisResponse
      */
     public function describeServiceInstanceDiagnosisWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime)
     {
@@ -2970,7 +3501,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeServiceInstanceDiagnosis',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceName) . '/diagnosis',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/diagnosis',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2982,13 +3513,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
-     *  *
+     * Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+     *
+     * @returns DescribeServiceInstanceDiagnosisResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      * @param string $InstanceName
      *
-     * @return DescribeServiceInstanceDiagnosisResponse DescribeServiceInstanceDiagnosisResponse
+     * @return DescribeServiceInstanceDiagnosisResponse
      */
     public function describeServiceInstanceDiagnosis($ClusterId, $ServiceName, $InstanceName)
     {
@@ -2999,56 +3532,71 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the logs of a service.
-     *  *
+     * Queries the information about the logs of a service.
+     *
+     * @param request - DescribeServiceLogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceLogResponse
+     *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param DescribeServiceLogRequest $request     DescribeServiceLogRequest
-     * @param string[]                  $headers     map
-     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     * @param DescribeServiceLogRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return DescribeServiceLogResponse DescribeServiceLogResponse
+     * @return DescribeServiceLogResponse
      */
     public function describeServiceLogWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containerName)) {
-            $query['ContainerName'] = $request->containerName;
+        if (null !== $request->containerName) {
+            @$query['ContainerName'] = $request->containerName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->previous)) {
-            $query['Previous'] = $request->previous;
+
+        if (null !== $request->previous) {
+            @$query['Previous'] = $request->previous;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeServiceLog',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/logs',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/logs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3060,13 +3608,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the logs of a service.
-     *  *
+     * Queries the information about the logs of a service.
+     *
+     * @param request - DescribeServiceLogRequest
+     *
+     * @returns DescribeServiceLogResponse
+     *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param DescribeServiceLogRequest $request     DescribeServiceLogRequest
+     * @param DescribeServiceLogRequest $request
      *
-     * @return DescribeServiceLogResponse DescribeServiceLogResponse
+     * @return DescribeServiceLogResponse
      */
     public function describeServiceLog($ClusterId, $ServiceName, $request)
     {
@@ -3077,14 +3629,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about the traffic mirroring settings of a service.
-     *  *
+     * Queries details about the traffic mirroring settings of a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceMirrorResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeServiceMirrorResponse DescribeServiceMirrorResponse
+     * @return DescribeServiceMirrorResponse
      */
     public function describeServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -3095,7 +3652,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeServiceMirror',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/mirror',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3107,12 +3664,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about the traffic mirroring settings of a service.
-     *  *
+     * Queries details about the traffic mirroring settings of a service.
+     *
+     * @returns DescribeServiceMirrorResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return DescribeServiceMirrorResponse DescribeServiceMirrorResponse
+     * @return DescribeServiceMirrorResponse
      */
     public function describeServiceMirror($ClusterId, $ServiceName)
     {
@@ -3123,38 +3682,47 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the logon-free URL of the service.
-     *  *
+     * Obtains the logon-free URL of the service.
+     *
+     * @param request - DescribeServiceSignedUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceSignedUrlResponse
+     *
      * @param string                          $ClusterId
      * @param string                          $ServiceName
-     * @param DescribeServiceSignedUrlRequest $request     DescribeServiceSignedUrlRequest
-     * @param string[]                        $headers     map
-     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
+     * @param DescribeServiceSignedUrlRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return DescribeServiceSignedUrlResponse DescribeServiceSignedUrlResponse
+     * @return DescribeServiceSignedUrlResponse
      */
     public function describeServiceSignedUrlWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expire)) {
-            $query['Expire'] = $request->expire;
+        if (null !== $request->expire) {
+            @$query['Expire'] = $request->expire;
         }
-        if (!Utils::isUnset($request->internal)) {
-            $query['Internal'] = $request->internal;
+
+        if (null !== $request->internal) {
+            @$query['Internal'] = $request->internal;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeServiceSignedUrl',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/signed_url',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/signed_url',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3166,13 +3734,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the logon-free URL of the service.
-     *  *
+     * Obtains the logon-free URL of the service.
+     *
+     * @param request - DescribeServiceSignedUrlRequest
+     *
+     * @returns DescribeServiceSignedUrlResponse
+     *
      * @param string                          $ClusterId
      * @param string                          $ServiceName
-     * @param DescribeServiceSignedUrlRequest $request     DescribeServiceSignedUrlRequest
+     * @param DescribeServiceSignedUrlRequest $request
      *
-     * @return DescribeServiceSignedUrlResponse DescribeServiceSignedUrlResponse
+     * @return DescribeServiceSignedUrlResponse
      */
     public function describeServiceSignedUrl($ClusterId, $ServiceName, $request)
     {
@@ -3183,27 +3755,35 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
-     *  *
-     * @param DescribeSpotDiscountHistoryRequest $request DescribeSpotDiscountHistoryRequest
-     * @param string[]                           $headers map
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
      *
-     * @return DescribeSpotDiscountHistoryResponse DescribeSpotDiscountHistoryResponse
+     * @param request - DescribeSpotDiscountHistoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSpotDiscountHistoryResponse
+     *
+     * @param DescribeSpotDiscountHistoryRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSpotDiscountHistoryResponse
      */
     public function describeSpotDiscountHistoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->isProtect)) {
-            $query['IsProtect'] = $request->isProtect;
+
+        if (null !== $request->isProtect) {
+            @$query['IsProtect'] = $request->isProtect;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSpotDiscountHistory',
@@ -3221,11 +3801,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
-     *  *
-     * @param DescribeSpotDiscountHistoryRequest $request DescribeSpotDiscountHistoryRequest
+     * Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
      *
-     * @return DescribeSpotDiscountHistoryResponse DescribeSpotDiscountHistoryResponse
+     * @param request - DescribeSpotDiscountHistoryRequest
+     *
+     * @returns DescribeSpotDiscountHistoryResponse
+     *
+     * @param DescribeSpotDiscountHistoryRequest $request
+     *
+     * @return DescribeSpotDiscountHistoryResponse
      */
     public function describeSpotDiscountHistory($request)
     {
@@ -3236,14 +3820,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Views the details of a virtual resource group.
-     *  *
+     * Views the details of a virtual resource group.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVirtualResourceResponse
+     *
      * @param string         $ClusterId
      * @param string         $VirtualResourceId
-     * @param string[]       $headers           map
-     * @param RuntimeOptions $runtime           runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeVirtualResourceResponse DescribeVirtualResourceResponse
+     * @return DescribeVirtualResourceResponse
      */
     public function describeVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $headers, $runtime)
     {
@@ -3254,7 +3843,7 @@ class Eas extends OpenApiClient
             'action' => 'DescribeVirtualResource',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/virtualresources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($VirtualResourceId) . '',
+            'pathname' => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3266,12 +3855,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Views the details of a virtual resource group.
-     *  *
+     * Views the details of a virtual resource group.
+     *
+     * @returns DescribeVirtualResourceResponse
+     *
      * @param string $ClusterId
      * @param string $VirtualResourceId
      *
-     * @return DescribeVirtualResourceResponse DescribeVirtualResourceResponse
+     * @return DescribeVirtualResourceResponse
      */
     public function describeVirtualResource($ClusterId, $VirtualResourceId)
     {
@@ -3282,37 +3873,45 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds a custom domain name from a private gateway.
-     *  *
+     * Unbinds a custom domain name from a private gateway.
+     *
+     * @param tmpReq - DetachGatewayDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachGatewayDomainResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $GatewayId
-     * @param DetachGatewayDomainRequest $tmpReq    DetachGatewayDomainRequest
-     * @param string[]                   $headers   map
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     * @param DetachGatewayDomainRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return DetachGatewayDomainResponse DetachGatewayDomainResponse
+     * @return DetachGatewayDomainResponse
      */
     public function detachGatewayDomainWithOptions($ClusterId, $GatewayId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetachGatewayDomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customDomain)) {
-            $request->customDomainShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customDomain, 'CustomDomain', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customDomain) {
+            $request->customDomainShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customDomain, 'CustomDomain', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->customDomainShrink)) {
-            $query['CustomDomain'] = $request->customDomainShrink;
+        if (null !== $request->customDomainShrink) {
+            @$query['CustomDomain'] = $request->customDomainShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DetachGatewayDomain',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/domain/detach',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domain/detach',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3324,13 +3923,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds a custom domain name from a private gateway.
-     *  *
+     * Unbinds a custom domain name from a private gateway.
+     *
+     * @param request - DetachGatewayDomainRequest
+     *
+     * @returns DetachGatewayDomainResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $GatewayId
-     * @param DetachGatewayDomainRequest $request   DetachGatewayDomainRequest
+     * @param DetachGatewayDomainRequest $request
      *
-     * @return DetachGatewayDomainResponse DetachGatewayDomainResponse
+     * @return DetachGatewayDomainResponse
      */
     public function detachGatewayDomain($ClusterId, $GatewayId, $request)
     {
@@ -3341,32 +3944,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Switches a container service to development mode or exits development mode.
-     *  *
+     * Switches a container service to development mode or exits development mode.
+     *
+     * @param request - DevelopServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DevelopServiceResponse
+     *
      * @param string                $ClusterId
      * @param string                $ServiceName
-     * @param DevelopServiceRequest $request     DevelopServiceRequest
-     * @param string[]              $headers     map
-     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
+     * @param DevelopServiceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return DevelopServiceResponse DevelopServiceResponse
+     * @return DevelopServiceResponse
      */
     public function developServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->exit_)) {
-            $query['Exit'] = $request->exit_;
+        if (null !== $request->exit) {
+            @$query['Exit'] = $request->exit;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DevelopService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/develop',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/develop',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3378,13 +3988,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Switches a container service to development mode or exits development mode.
-     *  *
+     * Switches a container service to development mode or exits development mode.
+     *
+     * @param request - DevelopServiceRequest
+     *
+     * @returns DevelopServiceResponse
+     *
      * @param string                $ClusterId
      * @param string                $ServiceName
-     * @param DevelopServiceRequest $request     DevelopServiceRequest
+     * @param DevelopServiceRequest $request
      *
-     * @return DevelopServiceResponse DevelopServiceResponse
+     * @return DevelopServiceResponse
      */
     public function developService($ClusterId, $ServiceName, $request)
     {
@@ -3395,32 +4009,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries access control lists (ACLs) created for a private gateway.
-     *  *
+     * Queries access control lists (ACLs) created for a private gateway.
+     *
+     * @param request - ListAclPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAclPolicyResponse
+     *
      * @param string               $ClusterId
      * @param string               $GatewayId
-     * @param ListAclPolicyRequest $request   ListAclPolicyRequest
-     * @param string[]             $headers   map
-     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     * @param ListAclPolicyRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return ListAclPolicyResponse ListAclPolicyResponse
+     * @return ListAclPolicyResponse
      */
     public function listAclPolicyWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAclPolicy',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/acl_policy',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3432,13 +4053,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries access control lists (ACLs) created for a private gateway.
-     *  *
+     * Queries access control lists (ACLs) created for a private gateway.
+     *
+     * @param request - ListAclPolicyRequest
+     *
+     * @returns ListAclPolicyResponse
+     *
      * @param string               $ClusterId
      * @param string               $GatewayId
-     * @param ListAclPolicyRequest $request   ListAclPolicyRequest
+     * @param ListAclPolicyRequest $request
      *
-     * @return ListAclPolicyResponse ListAclPolicyResponse
+     * @return ListAclPolicyResponse
      */
     public function listAclPolicy($ClusterId, $GatewayId, $request)
     {
@@ -3449,33 +4074,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of stress testing tasks that are created by the current user.
-     *  *
-     * @param ListBenchmarkTaskRequest $request ListBenchmarkTaskRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of stress testing tasks that are created by the current user.
      *
-     * @return ListBenchmarkTaskResponse ListBenchmarkTaskResponse
+     * @param request - ListBenchmarkTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBenchmarkTaskResponse
+     *
+     * @param ListBenchmarkTaskRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListBenchmarkTaskResponse
      */
     public function listBenchmarkTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBenchmarkTask',
@@ -3493,11 +4128,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of stress testing tasks that are created by the current user.
-     *  *
-     * @param ListBenchmarkTaskRequest $request ListBenchmarkTaskRequest
+     * Queries a list of stress testing tasks that are created by the current user.
      *
-     * @return ListBenchmarkTaskResponse ListBenchmarkTaskResponse
+     * @param request - ListBenchmarkTaskRequest
+     *
+     * @returns ListBenchmarkTaskResponse
+     *
+     * @param ListBenchmarkTaskRequest $request
+     *
+     * @return ListBenchmarkTaskResponse
      */
     public function listBenchmarkTask($request)
     {
@@ -3508,36 +4147,47 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of private gateways.
-     *  *
-     * @param ListGatewayRequest $request ListGatewayRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries a list of private gateways.
      *
-     * @return ListGatewayResponse ListGatewayResponse
+     * @param request - ListGatewayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayResponse
+     *
+     * @param ListGatewayRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListGatewayResponse
      */
     public function listGatewayWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->gatewayId)) {
-            $query['GatewayId'] = $request->gatewayId;
+        if (null !== $request->gatewayId) {
+            @$query['GatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->gatewayName)) {
-            $query['GatewayName'] = $request->gatewayName;
+
+        if (null !== $request->gatewayName) {
+            @$query['GatewayName'] = $request->gatewayName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListGateway',
@@ -3555,11 +4205,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of private gateways.
-     *  *
-     * @param ListGatewayRequest $request ListGatewayRequest
+     * Queries a list of private gateways.
      *
-     * @return ListGatewayResponse ListGatewayResponse
+     * @param request - ListGatewayRequest
+     *
+     * @returns ListGatewayResponse
+     *
+     * @param ListGatewayRequest $request
+     *
+     * @return ListGatewayResponse
      */
     public function listGateway($request)
     {
@@ -3570,14 +4224,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of custom domain names of a private gateway.
-     *  *
+     * Queries a list of custom domain names of a private gateway.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayDomainsResponse
+     *
      * @param string         $ClusterId
      * @param string         $GatewayId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListGatewayDomainsResponse ListGatewayDomainsResponse
+     * @return ListGatewayDomainsResponse
      */
     public function listGatewayDomainsWithOptions($ClusterId, $GatewayId, $headers, $runtime)
     {
@@ -3588,7 +4247,7 @@ class Eas extends OpenApiClient
             'action' => 'ListGatewayDomains',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/domains',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domains',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3600,12 +4259,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of custom domain names of a private gateway.
-     *  *
+     * Queries a list of custom domain names of a private gateway.
+     *
+     * @returns ListGatewayDomainsResponse
+     *
      * @param string $ClusterId
      * @param string $GatewayId
      *
-     * @return ListGatewayDomainsResponse ListGatewayDomainsResponse
+     * @return ListGatewayDomainsResponse
      */
     public function listGatewayDomains($ClusterId, $GatewayId)
     {
@@ -3616,14 +4277,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of the internal endpoints of a private gateway.
-     *  *
+     * Queries a list of the internal endpoints of a private gateway.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayIntranetLinkedVpcResponse
+     *
      * @param string         $ClusterId
      * @param string         $GatewayId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListGatewayIntranetLinkedVpcResponse ListGatewayIntranetLinkedVpcResponse
+     * @return ListGatewayIntranetLinkedVpcResponse
      */
     public function listGatewayIntranetLinkedVpcWithOptions($ClusterId, $GatewayId, $headers, $runtime)
     {
@@ -3634,7 +4300,7 @@ class Eas extends OpenApiClient
             'action' => 'ListGatewayIntranetLinkedVpc',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3646,12 +4312,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of the internal endpoints of a private gateway.
-     *  *
+     * Queries a list of the internal endpoints of a private gateway.
+     *
+     * @returns ListGatewayIntranetLinkedVpcResponse
+     *
      * @param string $ClusterId
      * @param string $GatewayId
      *
-     * @return ListGatewayIntranetLinkedVpcResponse ListGatewayIntranetLinkedVpcResponse
+     * @return ListGatewayIntranetLinkedVpcResponse
      */
     public function listGatewayIntranetLinkedVpc($ClusterId, $GatewayId)
     {
@@ -3662,32 +4330,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of all VPC peering connections on internal endpoint of a gateway.
-     *  *
+     * Obtains a list of all VPC peering connections on internal endpoint of a gateway.
+     *
+     * @param request - ListGatewayIntranetLinkedVpcPeerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayIntranetLinkedVpcPeerResponse
+     *
      * @param string                                  $ClusterId
      * @param string                                  $GatewayId
-     * @param ListGatewayIntranetLinkedVpcPeerRequest $request   ListGatewayIntranetLinkedVpcPeerRequest
-     * @param string[]                                $headers   map
-     * @param RuntimeOptions                          $runtime   runtime options for this request RuntimeOptions
+     * @param ListGatewayIntranetLinkedVpcPeerRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
      *
-     * @return ListGatewayIntranetLinkedVpcPeerResponse ListGatewayIntranetLinkedVpcPeerResponse
+     * @return ListGatewayIntranetLinkedVpcPeerResponse
      */
     public function listGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListGatewayIntranetLinkedVpcPeer',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3699,13 +4374,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of all VPC peering connections on internal endpoint of a gateway.
-     *  *
+     * Obtains a list of all VPC peering connections on internal endpoint of a gateway.
+     *
+     * @param request - ListGatewayIntranetLinkedVpcPeerRequest
+     *
+     * @returns ListGatewayIntranetLinkedVpcPeerResponse
+     *
      * @param string                                  $ClusterId
      * @param string                                  $GatewayId
-     * @param ListGatewayIntranetLinkedVpcPeerRequest $request   ListGatewayIntranetLinkedVpcPeerRequest
+     * @param ListGatewayIntranetLinkedVpcPeerRequest $request
      *
-     * @return ListGatewayIntranetLinkedVpcPeerResponse ListGatewayIntranetLinkedVpcPeerResponse
+     * @return ListGatewayIntranetLinkedVpcPeerResponse
      */
     public function listGatewayIntranetLinkedVpcPeer($ClusterId, $GatewayId, $request)
     {
@@ -3716,14 +4395,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the zones supported by a gateway within an intranet.
-     *  *
+     * Obtains the zones supported by a gateway within an intranet.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayIntranetSupportedZoneResponse
+     *
      * @param string         $GatewayId
      * @param string         $ClusterId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListGatewayIntranetSupportedZoneResponse ListGatewayIntranetSupportedZoneResponse
+     * @return ListGatewayIntranetSupportedZoneResponse
      */
     public function listGatewayIntranetSupportedZoneWithOptions($GatewayId, $ClusterId, $headers, $runtime)
     {
@@ -3734,7 +4418,7 @@ class Eas extends OpenApiClient
             'action' => 'ListGatewayIntranetSupportedZone',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_supported_zone',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_supported_zone',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3746,12 +4430,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the zones supported by a gateway within an intranet.
-     *  *
+     * Obtains the zones supported by a gateway within an intranet.
+     *
+     * @returns ListGatewayIntranetSupportedZoneResponse
+     *
      * @param string $GatewayId
      * @param string $ClusterId
      *
-     * @return ListGatewayIntranetSupportedZoneResponse ListGatewayIntranetSupportedZoneResponse
+     * @return ListGatewayIntranetSupportedZoneResponse
      */
     public function listGatewayIntranetSupportedZone($GatewayId, $ClusterId)
     {
@@ -3762,33 +4448,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries created service groups.
-     *  *
-     * @param ListGroupsRequest $request ListGroupsRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries created service groups.
      *
-     * @return ListGroupsResponse ListGroupsResponse
+     * @param request - ListGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupsResponse
+     *
+     * @param ListGroupsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListGroups',
@@ -3806,11 +4502,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries created service groups.
-     *  *
-     * @param ListGroupsRequest $request ListGroupsRequest
+     * Queries created service groups.
      *
-     * @return ListGroupsResponse ListGroupsResponse
+     * @param request - ListGroupsRequest
+     *
+     * @returns ListGroupsResponse
+     *
+     * @param ListGroupsRequest $request
+     *
+     * @return ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -3821,39 +4521,68 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of workers in a resource group.
-     *  *
+     * Queries a list of workers in a resource group.
+     *
+     * @param request - ListResourceInstanceWorkerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceInstanceWorkerResponse
+     *
      * @param string                            $ClusterId
      * @param string                            $ResourceId
      * @param string                            $InstanceName
-     * @param ListResourceInstanceWorkerRequest $request      ListResourceInstanceWorkerRequest
-     * @param string[]                          $headers      map
-     * @param RuntimeOptions                    $runtime      runtime options for this request RuntimeOptions
+     * @param ListResourceInstanceWorkerRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
-     * @return ListResourceInstanceWorkerResponse ListResourceInstanceWorkerResponse
+     * @return ListResourceInstanceWorkerResponse
      */
     public function listResourceInstanceWorkerWithOptions($ClusterId, $ResourceId, $InstanceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->workerName)) {
-            $query['WorkerName'] = $request->workerName;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
+        if (null !== $request->ready) {
+            @$query['Ready'] = $request->ready;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workerName) {
+            @$query['WorkerName'] = $request->workerName;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListResourceInstanceWorker',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instance/' . OpenApiUtilClient::getEncodeParam($InstanceName) . '/workers',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instance/' . Url::percentEncode($InstanceName) . '/workers',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3865,14 +4594,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of workers in a resource group.
-     *  *
+     * Queries a list of workers in a resource group.
+     *
+     * @param request - ListResourceInstanceWorkerRequest
+     *
+     * @returns ListResourceInstanceWorkerResponse
+     *
      * @param string                            $ClusterId
      * @param string                            $ResourceId
      * @param string                            $InstanceName
-     * @param ListResourceInstanceWorkerRequest $request      ListResourceInstanceWorkerRequest
+     * @param ListResourceInstanceWorkerRequest $request
      *
-     * @return ListResourceInstanceWorkerResponse ListResourceInstanceWorkerResponse
+     * @return ListResourceInstanceWorkerResponse
      */
     public function listResourceInstanceWorker($ClusterId, $ResourceId, $InstanceName, $request)
     {
@@ -3883,67 +4616,85 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of instances in a dedicated resource group.
-     *  *
+     * Queries a list of instances in a dedicated resource group.
+     *
+     * @param tmpReq - ListResourceInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceInstancesResponse
+     *
      * @param string                       $ClusterId
      * @param string                       $ResourceId
-     * @param ListResourceInstancesRequest $tmpReq     ListResourceInstancesRequest
-     * @param string[]                     $headers    map
-     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
+     * @param ListResourceInstancesRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return ListResourceInstancesResponse ListResourceInstancesResponse
+     * @return ListResourceInstancesResponse
      */
     public function listResourceInstancesWithOptions($ClusterId, $ResourceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListResourceInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->label)) {
-            $request->labelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->label, 'Label', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->label) {
+            $request->labelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->label, 'Label', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->instanceIP)) {
-            $query['InstanceIP'] = $request->instanceIP;
+
+        if (null !== $request->instanceIP) {
+            @$query['InstanceIP'] = $request->instanceIP;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->instanceStatus)) {
-            $query['InstanceStatus'] = $request->instanceStatus;
+
+        if (null !== $request->instanceStatus) {
+            @$query['InstanceStatus'] = $request->instanceStatus;
         }
-        if (!Utils::isUnset($request->labelShrink)) {
-            $query['Label'] = $request->labelShrink;
+
+        if (null !== $request->labelShrink) {
+            @$query['Label'] = $request->labelShrink;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListResourceInstances',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instances',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3955,13 +4706,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of instances in a dedicated resource group.
-     *  *
+     * Queries a list of instances in a dedicated resource group.
+     *
+     * @param request - ListResourceInstancesRequest
+     *
+     * @returns ListResourceInstancesResponse
+     *
      * @param string                       $ClusterId
      * @param string                       $ResourceId
-     * @param ListResourceInstancesRequest $request    ListResourceInstancesRequest
+     * @param ListResourceInstancesRequest $request
      *
-     * @return ListResourceInstancesResponse ListResourceInstancesResponse
+     * @return ListResourceInstancesResponse
      */
     public function listResourceInstances($ClusterId, $ResourceId, $request)
     {
@@ -3972,39 +4727,45 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * Queries a list of services that are deployed in the dedicated resource group.
+     *
      * @deprecated OpenAPI ListResourceServices is deprecated
-     *  *
-     * @summary Queries a list of services that are deployed in the dedicated resource group.
-     *  *
-     * Deprecated
+     *
+     * @param request - ListResourceServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceServicesResponse
      *
      * @param string                      $ClusterId
      * @param string                      $ResourceId
-     * @param ListResourceServicesRequest $request    ListResourceServicesRequest
-     * @param string[]                    $headers    map
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     * @param ListResourceServicesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListResourceServicesResponse ListResourceServicesResponse
+     * @return ListResourceServicesResponse
      */
     public function listResourceServicesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListResourceServices',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/services',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/services',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4015,18 +4776,21 @@ class Eas extends OpenApiClient
         return ListResourceServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries a list of services that are deployed in the dedicated resource group.
+     *
      * @deprecated OpenAPI ListResourceServices is deprecated
-     *  *
-     * @summary Queries a list of services that are deployed in the dedicated resource group.
-     *  *
-     * Deprecated
+     *
+     * @param request - ListResourceServicesRequest
+     *
+     * @returns ListResourceServicesResponse
      *
      * @param string                      $ClusterId
      * @param string                      $ResourceId
-     * @param ListResourceServicesRequest $request    ListResourceServicesRequest
+     * @param ListResourceServicesRequest $request
      *
-     * @return ListResourceServicesResponse ListResourceServicesResponse
+     * @return ListResourceServicesResponse
      */
     public function listResourceServices($ClusterId, $ResourceId, $request)
     {
@@ -4037,45 +4801,59 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of dedicated resource groups for the current user.
-     *  *
-     * @param ListResourcesRequest $request ListResourcesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of dedicated resource groups for the current user.
      *
-     * @return ListResourcesResponse ListResourcesResponse
+     * @param request - ListResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourcesResponse
+     *
+     * @param ListResourcesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListResourcesResponse
      */
     public function listResourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceStatus)) {
-            $query['ResourceStatus'] = $request->resourceStatus;
+
+        if (null !== $request->resourceStatus) {
+            @$query['ResourceStatus'] = $request->resourceStatus;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListResources',
@@ -4093,11 +4871,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of dedicated resource groups for the current user.
-     *  *
-     * @param ListResourcesRequest $request ListResourcesRequest
+     * Queries a list of dedicated resource groups for the current user.
      *
-     * @return ListResourcesResponse ListResourcesResponse
+     * @param request - ListResourcesRequest
+     *
+     * @returns ListResourcesResponse
+     *
+     * @param ListResourcesRequest $request
+     *
+     * @return ListResourcesResponse
      */
     public function listResources($request)
     {
@@ -4108,15 +4890,20 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the containers of a service.
-     *  *
+     * Queries the containers of a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceContainersResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
      * @param string         $InstanceName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListServiceContainersResponse ListServiceContainersResponse
+     * @return ListServiceContainersResponse
      */
     public function listServiceContainersWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime)
     {
@@ -4127,7 +4914,7 @@ class Eas extends OpenApiClient
             'action' => 'ListServiceContainers',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceName) . '/containers',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/containers',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4139,13 +4926,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the containers of a service.
-     *  *
+     * Queries the containers of a service.
+     *
+     * @returns ListServiceContainersResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      * @param string $InstanceName
      *
-     * @return ListServiceContainersResponse ListServiceContainersResponse
+     * @return ListServiceContainersResponse
      */
     public function listServiceContainers($ClusterId, $ServiceName, $InstanceName)
     {
@@ -4156,68 +4945,91 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries instances of a service.
-     *  *
+     * Queries instances of a service.
+     *
+     * @param request - ListServiceInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceInstancesResponse
+     *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param ListServiceInstancesRequest $request     ListServiceInstancesRequest
-     * @param string[]                    $headers     map
-     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     * @param ListServiceInstancesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListServiceInstancesResponse ListServiceInstancesResponse
+     * @return ListServiceInstancesResponse
      */
     public function listServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->hostIP)) {
-            $query['HostIP'] = $request->hostIP;
+
+        if (null !== $request->hostIP) {
+            @$query['HostIP'] = $request->hostIP;
         }
-        if (!Utils::isUnset($request->instanceIP)) {
-            $query['InstanceIP'] = $request->instanceIP;
+
+        if (null !== $request->instanceIP) {
+            @$query['InstanceIP'] = $request->instanceIP;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->instanceStatus)) {
-            $query['InstanceStatus'] = $request->instanceStatus;
+
+        if (null !== $request->instanceStatus) {
+            @$query['InstanceStatus'] = $request->instanceStatus;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->isSpot)) {
-            $query['IsSpot'] = $request->isSpot;
+
+        if (null !== $request->isSpot) {
+            @$query['IsSpot'] = $request->isSpot;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->memberType) {
+            @$query['MemberType'] = $request->memberType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->role)) {
-            $query['Role'] = $request->role;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
         }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListServiceInstances',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4229,13 +5041,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries instances of a service.
-     *  *
+     * Queries instances of a service.
+     *
+     * @param request - ListServiceInstancesRequest
+     *
+     * @returns ListServiceInstancesResponse
+     *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param ListServiceInstancesRequest $request     ListServiceInstancesRequest
+     * @param ListServiceInstancesRequest $request
      *
-     * @return ListServiceInstancesResponse ListServiceInstancesResponse
+     * @return ListServiceInstancesResponse
      */
     public function listServiceInstances($ClusterId, $ServiceName, $request)
     {
@@ -4246,35 +5062,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the historical versions of a service.
-     *  *
+     * Queries the information about the historical versions of a service.
+     *
+     * @param request - ListServiceVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceVersionsResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param ListServiceVersionsRequest $request     ListServiceVersionsRequest
-     * @param string[]                   $headers     map
-     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     * @param ListServiceVersionsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return ListServiceVersionsResponse ListServiceVersionsResponse
+     * @return ListServiceVersionsResponse
      */
     public function listServiceVersionsWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListServiceVersions',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/versions',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/versions',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4286,13 +5110,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the historical versions of a service.
-     *  *
+     * Queries the information about the historical versions of a service.
+     *
+     * @param request - ListServiceVersionsRequest
+     *
+     * @returns ListServiceVersionsResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param ListServiceVersionsRequest $request     ListServiceVersionsRequest
+     * @param ListServiceVersionsRequest $request
      *
-     * @return ListServiceVersionsResponse ListServiceVersionsResponse
+     * @return ListServiceVersionsResponse
      */
     public function listServiceVersions($ClusterId, $ServiceName, $request)
     {
@@ -4303,98 +5131,133 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Lists services.
-     *  *
-     * @param ListServicesRequest $tmpReq  ListServicesRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Lists services.
      *
-     * @return ListServicesResponse ListServicesResponse
+     * @param tmpReq - ListServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServicesResponse
+     *
+     * @param ListServicesRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListServicesResponse
      */
     public function listServicesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListServicesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->label)) {
-            $request->labelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->label, 'Label', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->label) {
+            $request->labelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->label, 'Label', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->autoscalerEnabled)) {
-            $query['AutoscalerEnabled'] = $request->autoscalerEnabled;
+        if (null !== $request->autoscalerEnabled) {
+            @$query['AutoscalerEnabled'] = $request->autoscalerEnabled;
         }
-        if (!Utils::isUnset($request->cronscalerEnabled)) {
-            $query['CronscalerEnabled'] = $request->cronscalerEnabled;
+
+        if (null !== $request->cronscalerEnabled) {
+            @$query['CronscalerEnabled'] = $request->cronscalerEnabled;
         }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->gateway)) {
-            $query['Gateway'] = $request->gateway;
+
+        if (null !== $request->gateway) {
+            @$query['Gateway'] = $request->gateway;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->includeNoWorkspace)) {
-            $query['IncludeNoWorkspace'] = $request->includeNoWorkspace;
+
+        if (null !== $request->includeNoWorkspace) {
+            @$query['IncludeNoWorkspace'] = $request->includeNoWorkspace;
         }
-        if (!Utils::isUnset($request->labelShrink)) {
-            $query['Label'] = $request->labelShrink;
+
+        if (null !== $request->labelShrink) {
+            @$query['Label'] = $request->labelShrink;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentServiceUid)) {
-            $query['ParentServiceUid'] = $request->parentServiceUid;
+
+        if (null !== $request->parentServiceUid) {
+            @$query['ParentServiceUid'] = $request->parentServiceUid;
         }
-        if (!Utils::isUnset($request->quotaId)) {
-            $query['QuotaId'] = $request->quotaId;
+
+        if (null !== $request->quotaId) {
+            @$query['QuotaId'] = $request->quotaId;
         }
-        if (!Utils::isUnset($request->resourceAliasName)) {
-            $query['ResourceAliasName'] = $request->resourceAliasName;
+
+        if (null !== $request->resourceAliasName) {
+            @$query['ResourceAliasName'] = $request->resourceAliasName;
         }
-        if (!Utils::isUnset($request->resourceBurstable)) {
-            $query['ResourceBurstable'] = $request->resourceBurstable;
+
+        if (null !== $request->resourceBurstable) {
+            @$query['ResourceBurstable'] = $request->resourceBurstable;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->role)) {
-            $query['Role'] = $request->role;
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->serviceStatus)) {
-            $query['ServiceStatus'] = $request->serviceStatus;
+
+        if (null !== $request->serviceStatus) {
+            @$query['ServiceStatus'] = $request->serviceStatus;
         }
-        if (!Utils::isUnset($request->serviceType)) {
-            $query['ServiceType'] = $request->serviceType;
+
+        if (null !== $request->serviceType) {
+            @$query['ServiceType'] = $request->serviceType;
         }
-        if (!Utils::isUnset($request->serviceUid)) {
-            $query['ServiceUid'] = $request->serviceUid;
+
+        if (null !== $request->serviceUid) {
+            @$query['ServiceUid'] = $request->serviceUid;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->trafficState) {
+            @$query['TrafficState'] = $request->trafficState;
         }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListServices',
@@ -4412,11 +5275,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Lists services.
-     *  *
-     * @param ListServicesRequest $request ListServicesRequest
+     * Lists services.
      *
-     * @return ListServicesResponse ListServicesResponse
+     * @param request - ListServicesRequest
+     *
+     * @returns ListServicesResponse
+     *
+     * @param ListServicesRequest $request
+     *
+     * @return ListServicesResponse
      */
     public function listServices($request)
     {
@@ -4427,12 +5294,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tenant plug-ins.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries a list of tenant plug-ins.
      *
-     * @return ListTenantAddonsResponse ListTenantAddonsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTenantAddonsResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListTenantAddonsResponse
      */
     public function listTenantAddonsWithOptions($headers, $runtime)
     {
@@ -4455,9 +5327,11 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tenant plug-ins.
-     *  *
-     * @return ListTenantAddonsResponse ListTenantAddonsResponse
+     * Queries a list of tenant plug-ins.
+     *
+     * @returns ListTenantAddonsResponse
+     *
+     * @return ListTenantAddonsResponse
      */
     public function listTenantAddons()
     {
@@ -4468,33 +5342,51 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of virtual resource groups for the current user.
-     *  *
-     * @param ListVirtualResourceRequest $request ListVirtualResourceRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of virtual resource groups for the current user.
      *
-     * @return ListVirtualResourceResponse ListVirtualResourceResponse
+     * @param request - ListVirtualResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVirtualResourceResponse
+     *
+     * @param ListVirtualResourceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListVirtualResourceResponse
      */
     public function listVirtualResourceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->virtualResourceId)) {
-            $query['VirtualResourceId'] = $request->virtualResourceId;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->virtualResourceName)) {
-            $query['VirtualResourceName'] = $request->virtualResourceName;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
+
+        if (null !== $request->virtualResourceId) {
+            @$query['VirtualResourceId'] = $request->virtualResourceId;
+        }
+
+        if (null !== $request->virtualResourceName) {
+            @$query['VirtualResourceName'] = $request->virtualResourceName;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListVirtualResource',
@@ -4512,11 +5404,15 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of virtual resource groups for the current user.
-     *  *
-     * @param ListVirtualResourceRequest $request ListVirtualResourceRequest
+     * Queries a list of virtual resource groups for the current user.
      *
-     * @return ListVirtualResourceResponse ListVirtualResourceResponse
+     * @param request - ListVirtualResourceRequest
+     *
+     * @returns ListVirtualResourceResponse
+     *
+     * @param ListVirtualResourceRequest $request
+     *
+     * @return ListVirtualResourceResponse
      */
     public function listVirtualResource($request)
     {
@@ -4527,14 +5423,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Resets tenant configurations.
-     *  *
+     * Resets tenant configurations.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReinstallTenantAddonResponse
+     *
      * @param string         $ClusterId
      * @param string         $TenantAddonName
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ReinstallTenantAddonResponse ReinstallTenantAddonResponse
+     * @return ReinstallTenantAddonResponse
      */
     public function reinstallTenantAddonWithOptions($ClusterId, $TenantAddonName, $headers, $runtime)
     {
@@ -4545,7 +5446,7 @@ class Eas extends OpenApiClient
             'action' => 'ReinstallTenantAddon',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/tenantaddons/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TenantAddonName) . '/reinstall',
+            'pathname' => '/api/v2/tenantaddons/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TenantAddonName) . '/reinstall',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4557,12 +5458,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Resets tenant configurations.
-     *  *
+     * Resets tenant configurations.
+     *
+     * @returns ReinstallTenantAddonResponse
+     *
      * @param string $ClusterId
      * @param string $TenantAddonName
      *
-     * @return ReinstallTenantAddonResponse ReinstallTenantAddonResponse
+     * @return ReinstallTenantAddonResponse
      */
     public function reinstallTenantAddon($ClusterId, $TenantAddonName)
     {
@@ -4573,35 +5476,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Switch the traffic state or weight of the service.
-     *  *
+     * Switch the traffic state or weight of the service.
+     *
+     * @param request - ReleaseServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseServiceResponse
+     *
      * @param string                $ClusterId
      * @param string                $ServiceName
-     * @param ReleaseServiceRequest $request     ReleaseServiceRequest
-     * @param string[]              $headers     map
-     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
+     * @param ReleaseServiceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return ReleaseServiceResponse ReleaseServiceResponse
+     * @return ReleaseServiceResponse
      */
     public function releaseServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->trafficState)) {
-            $body['TrafficState'] = $request->trafficState;
+        if (null !== $request->trafficState) {
+            @$body['TrafficState'] = $request->trafficState;
         }
-        if (!Utils::isUnset($request->weight)) {
-            $body['Weight'] = $request->weight;
+
+        if (null !== $request->weight) {
+            @$body['Weight'] = $request->weight;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ReleaseService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/release',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/release',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4613,13 +5524,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Switch the traffic state or weight of the service.
-     *  *
+     * Switch the traffic state or weight of the service.
+     *
+     * @param request - ReleaseServiceRequest
+     *
+     * @returns ReleaseServiceResponse
+     *
      * @param string                $ClusterId
      * @param string                $ServiceName
-     * @param ReleaseServiceRequest $request     ReleaseServiceRequest
+     * @param ReleaseServiceRequest $request
      *
-     * @return ReleaseServiceResponse ReleaseServiceResponse
+     * @return ReleaseServiceResponse
      */
     public function releaseService($ClusterId, $ServiceName, $request)
     {
@@ -4630,14 +5545,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Restarts a service.
-     *  *
+     * Restarts a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartServiceResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RestartServiceResponse RestartServiceResponse
+     * @return RestartServiceResponse
      */
     public function restartServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -4648,7 +5568,7 @@ class Eas extends OpenApiClient
             'action' => 'RestartService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/restart',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/restart',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4660,12 +5580,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Restarts a service.
-     *  *
+     * Restarts a service.
+     *
+     * @returns RestartServiceResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return RestartServiceResponse RestartServiceResponse
+     * @return RestartServiceResponse
      */
     public function restartService($ClusterId, $ServiceName)
     {
@@ -4676,14 +5598,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Starts a stress testing task.
-     *  *
+     * Starts a stress testing task.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartBenchmarkTaskResponse
+     *
      * @param string         $ClusterId
      * @param string         $TaskName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StartBenchmarkTaskResponse StartBenchmarkTaskResponse
+     * @return StartBenchmarkTaskResponse
      */
     public function startBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
@@ -4694,7 +5621,7 @@ class Eas extends OpenApiClient
             'action' => 'StartBenchmarkTask',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '/start',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/start',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4706,12 +5633,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Starts a stress testing task.
-     *  *
+     * Starts a stress testing task.
+     *
+     * @returns StartBenchmarkTaskResponse
+     *
      * @param string $ClusterId
      * @param string $TaskName
      *
-     * @return StartBenchmarkTaskResponse StartBenchmarkTaskResponse
+     * @return StartBenchmarkTaskResponse
      */
     public function startBenchmarkTask($ClusterId, $TaskName)
     {
@@ -4722,14 +5651,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Starts a service.
-     *  *
+     * Starts a service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartServiceResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StartServiceResponse StartServiceResponse
+     * @return StartServiceResponse
      */
     public function startServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -4740,7 +5674,7 @@ class Eas extends OpenApiClient
             'action' => 'StartService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/start',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/start',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4752,12 +5686,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Starts a service.
-     *  *
+     * Starts a service.
+     *
+     * @returns StartServiceResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return StartServiceResponse StartServiceResponse
+     * @return StartServiceResponse
      */
     public function startService($ClusterId, $ServiceName)
     {
@@ -4768,14 +5704,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Stops a stress testing task.
-     *  *
+     * Stops a stress testing task.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopBenchmarkTaskResponse
+     *
      * @param string         $ClusterId
      * @param string         $TaskName
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopBenchmarkTaskResponse StopBenchmarkTaskResponse
+     * @return StopBenchmarkTaskResponse
      */
     public function stopBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
@@ -4786,7 +5727,7 @@ class Eas extends OpenApiClient
             'action' => 'StopBenchmarkTask',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '/stop',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/stop',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4798,12 +5739,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Stops a stress testing task.
-     *  *
+     * Stops a stress testing task.
+     *
+     * @returns StopBenchmarkTaskResponse
+     *
      * @param string $ClusterId
      * @param string $TaskName
      *
-     * @return StopBenchmarkTaskResponse StopBenchmarkTaskResponse
+     * @return StopBenchmarkTaskResponse
      */
     public function stopBenchmarkTask($ClusterId, $TaskName)
     {
@@ -4814,14 +5757,19 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Stops a running service.
-     *  *
+     * Stops a running service.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopServiceResponse
+     *
      * @param string         $ClusterId
      * @param string         $ServiceName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopServiceResponse StopServiceResponse
+     * @return StopServiceResponse
      */
     public function stopServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
@@ -4832,7 +5780,7 @@ class Eas extends OpenApiClient
             'action' => 'StopService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/stop',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/stop',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4844,12 +5792,14 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Stops a running service.
-     *  *
+     * Stops a running service.
+     *
+     * @returns StopServiceResponse
+     *
      * @param string $ClusterId
      * @param string $ServiceName
      *
-     * @return StopServiceResponse StopServiceResponse
+     * @return StopServiceResponse
      */
     public function stopService($ClusterId, $ServiceName)
     {
@@ -4860,52 +5810,65 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates an application service.
-     *  *
+     * Updates an application service.
+     *
+     * @param request - UpdateAppServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppServiceResponse
+     *
      * @param string                  $ClusterId
      * @param string                  $ServiceName
-     * @param UpdateAppServiceRequest $request     UpdateAppServiceRequest
-     * @param string[]                $headers     map
-     * @param RuntimeOptions          $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateAppServiceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return UpdateAppServiceResponse UpdateAppServiceResponse
+     * @return UpdateAppServiceResponse
      */
     public function updateAppServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->quotaId)) {
-            $query['QuotaId'] = $request->quotaId;
+        if (null !== $request->quotaId) {
+            @$query['QuotaId'] = $request->quotaId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appType)) {
-            $body['AppType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$body['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->appVersion)) {
-            $body['AppVersion'] = $request->appVersion;
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->config)) {
-            $body['Config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->replicas)) {
-            $body['Replicas'] = $request->replicas;
+
+        if (null !== $request->replicas) {
+            @$body['Replicas'] = $request->replicas;
         }
-        if (!Utils::isUnset($request->serviceSpec)) {
-            $body['ServiceSpec'] = $request->serviceSpec;
+
+        if (null !== $request->serviceSpec) {
+            @$body['ServiceSpec'] = $request->serviceSpec;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateAppService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/app_services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '',
+            'pathname' => '/api/v2/app_services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4917,13 +5880,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates an application service.
-     *  *
+     * Updates an application service.
+     *
+     * @param request - UpdateAppServiceRequest
+     *
+     * @returns UpdateAppServiceResponse
+     *
      * @param string                  $ClusterId
      * @param string                  $ServiceName
-     * @param UpdateAppServiceRequest $request     UpdateAppServiceRequest
+     * @param UpdateAppServiceRequest $request
      *
-     * @return UpdateAppServiceResponse UpdateAppServiceResponse
+     * @return UpdateAppServiceResponse
      */
     public function updateAppService($ClusterId, $ServiceName, $request)
     {
@@ -4934,19 +5901,25 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates a stress testing task.
-     *  *
+     * Updates a stress testing task.
+     *
+     * @param request - UpdateBenchmarkTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBenchmarkTaskResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $TaskName
-     * @param UpdateBenchmarkTaskRequest $request   UpdateBenchmarkTaskRequest
-     * @param string[]                   $headers   map
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     * @param UpdateBenchmarkTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateBenchmarkTaskResponse UpdateBenchmarkTaskResponse
+     * @return UpdateBenchmarkTaskResponse
      */
     public function updateBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => $request->body,
@@ -4955,7 +5928,7 @@ class Eas extends OpenApiClient
             'action' => 'UpdateBenchmarkTask',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4967,13 +5940,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates a stress testing task.
-     *  *
+     * Updates a stress testing task.
+     *
+     * @param request - UpdateBenchmarkTaskRequest
+     *
+     * @returns UpdateBenchmarkTaskResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $TaskName
-     * @param UpdateBenchmarkTaskRequest $request   UpdateBenchmarkTaskRequest
+     * @param UpdateBenchmarkTaskRequest $request
      *
-     * @return UpdateBenchmarkTaskResponse UpdateBenchmarkTaskResponse
+     * @return UpdateBenchmarkTaskResponse
      */
     public function updateBenchmarkTask($ClusterId, $TaskName, $request)
     {
@@ -4984,50 +5961,63 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Update a private gateway.
-     *  *
+     * Update a private gateway.
+     *
+     * @param request - UpdateGatewayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayResponse
+     *
      * @param string               $GatewayId
      * @param string               $ClusterId
-     * @param UpdateGatewayRequest $request   UpdateGatewayRequest
-     * @param string[]             $headers   map
-     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     * @param UpdateGatewayRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return UpdateGatewayResponse UpdateGatewayResponse
+     * @return UpdateGatewayResponse
      */
     public function updateGatewayWithOptions($GatewayId, $ClusterId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enableInternet)) {
-            $body['EnableInternet'] = $request->enableInternet;
+        if (null !== $request->enableInternet) {
+            @$body['EnableInternet'] = $request->enableInternet;
         }
-        if (!Utils::isUnset($request->enableIntranet)) {
-            $body['EnableIntranet'] = $request->enableIntranet;
+
+        if (null !== $request->enableIntranet) {
+            @$body['EnableIntranet'] = $request->enableIntranet;
         }
-        if (!Utils::isUnset($request->enableSSLRedirection)) {
-            $body['EnableSSLRedirection'] = $request->enableSSLRedirection;
+
+        if (null !== $request->enableSSLRedirection) {
+            @$body['EnableSSLRedirection'] = $request->enableSSLRedirection;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->isDefault)) {
-            $body['IsDefault'] = $request->isDefault;
+
+        if (null !== $request->isDefault) {
+            @$body['IsDefault'] = $request->isDefault;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->replicas)) {
-            $body['Replicas'] = $request->replicas;
+
+        if (null !== $request->replicas) {
+            @$body['Replicas'] = $request->replicas;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateGateway',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5039,13 +6029,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Update a private gateway.
-     *  *
+     * Update a private gateway.
+     *
+     * @param request - UpdateGatewayRequest
+     *
+     * @returns UpdateGatewayResponse
+     *
      * @param string               $GatewayId
      * @param string               $ClusterId
-     * @param UpdateGatewayRequest $request   UpdateGatewayRequest
+     * @param UpdateGatewayRequest $request
      *
-     * @return UpdateGatewayResponse UpdateGatewayResponse
+     * @return UpdateGatewayResponse
      */
     public function updateGateway($GatewayId, $ClusterId, $request)
     {
@@ -5056,32 +6050,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the specific fields of a service group.
-     *  *
+     * Updates the specific fields of a service group.
+     *
+     * @param request - UpdateGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGroupResponse
+     *
      * @param string             $ClusterId
      * @param string             $GroupName
-     * @param UpdateGroupRequest $request   UpdateGroupRequest
-     * @param string[]           $headers   map
-     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     * @param UpdateGroupRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @return UpdateGroupResponse
      */
     public function updateGroupWithOptions($ClusterId, $GroupName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->trafficMode)) {
-            $body['TrafficMode'] = $request->trafficMode;
+        if (null !== $request->trafficMode) {
+            @$body['TrafficMode'] = $request->trafficMode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateGroup',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/groups/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GroupName) . '',
+            'pathname' => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5093,13 +6094,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the specific fields of a service group.
-     *  *
+     * Updates the specific fields of a service group.
+     *
+     * @param request - UpdateGroupRequest
+     *
+     * @returns UpdateGroupResponse
+     *
      * @param string             $ClusterId
      * @param string             $GroupName
-     * @param UpdateGroupRequest $request   UpdateGroupRequest
+     * @param UpdateGroupRequest $request
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @return UpdateGroupResponse
      */
     public function updateGroup($ClusterId, $GroupName, $request)
     {
@@ -5110,35 +6115,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
-     *  *
+     * Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+     *
+     * @param request - UpdateResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceResponse
+     *
      * @param string                $ClusterId
      * @param string                $ResourceId
-     * @param UpdateResourceRequest $request    UpdateResourceRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateResourceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdateResourceResponse UpdateResourceResponse
+     * @return UpdateResourceResponse
      */
     public function updateResourceWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceName)) {
-            $body['ResourceName'] = $request->resourceName;
+        if (null !== $request->resourceName) {
+            @$body['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->selfManagedResourceOptions)) {
-            $body['SelfManagedResourceOptions'] = $request->selfManagedResourceOptions;
+
+        if (null !== $request->selfManagedResourceOptions) {
+            @$body['SelfManagedResourceOptions'] = $request->selfManagedResourceOptions;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateResource',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5150,13 +6163,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
-     *  *
+     * Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+     *
+     * @param request - UpdateResourceRequest
+     *
+     * @returns UpdateResourceResponse
+     *
      * @param string                $ClusterId
      * @param string                $ResourceId
-     * @param UpdateResourceRequest $request    UpdateResourceRequest
+     * @param UpdateResourceRequest $request
      *
-     * @return UpdateResourceResponse UpdateResourceResponse
+     * @return UpdateResourceResponse
      */
     public function updateResource($ClusterId, $ResourceId, $request)
     {
@@ -5167,41 +6184,51 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
-     *  *
+     * Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
+     *
+     * @param request - UpdateResourceDLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceDLinkResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $ResourceId
-     * @param UpdateResourceDLinkRequest $request    UpdateResourceDLinkRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateResourceDLinkRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateResourceDLinkResponse UpdateResourceDLinkResponse
+     * @return UpdateResourceDLinkResponse
      */
     public function updateResourceDLinkWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCIDRs)) {
-            $body['DestinationCIDRs'] = $request->destinationCIDRs;
+        if (null !== $request->destinationCIDRs) {
+            @$body['DestinationCIDRs'] = $request->destinationCIDRs;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $body['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$body['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $body['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$body['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vSwitchIdList)) {
-            $body['VSwitchIdList'] = $request->vSwitchIdList;
+
+        if (null !== $request->vSwitchIdList) {
+            @$body['VSwitchIdList'] = $request->vSwitchIdList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateResourceDLink',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/dlink',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5213,13 +6240,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
-     *  *
+     * Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
+     *
+     * @param request - UpdateResourceDLinkRequest
+     *
+     * @returns UpdateResourceDLinkResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $ResourceId
-     * @param UpdateResourceDLinkRequest $request    UpdateResourceDLinkRequest
+     * @param UpdateResourceDLinkRequest $request
      *
-     * @return UpdateResourceDLinkResponse UpdateResourceDLinkResponse
+     * @return UpdateResourceDLinkResponse
      */
     public function updateResourceDLink($ClusterId, $ResourceId, $request)
     {
@@ -5230,33 +6261,40 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the service scheduling status of an instance in a dedicated resource group.
-     *  *
+     * Updates the service scheduling status of an instance in a dedicated resource group.
+     *
+     * @param request - UpdateResourceInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceInstanceResponse
+     *
      * @param string                        $ClusterId
      * @param string                        $ResourceId
      * @param string                        $InstanceId
-     * @param UpdateResourceInstanceRequest $request    UpdateResourceInstanceRequest
-     * @param string[]                      $headers    map
-     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateResourceInstanceRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdateResourceInstanceResponse UpdateResourceInstanceResponse
+     * @return UpdateResourceInstanceResponse
      */
     public function updateResourceInstanceWithOptions($ClusterId, $ResourceId, $InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->action)) {
-            $body['Action'] = $request->action;
+        if (null !== $request->action) {
+            @$body['Action'] = $request->action;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateResourceInstance',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances/' . Url::percentEncode($InstanceId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5268,14 +6306,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the service scheduling status of an instance in a dedicated resource group.
-     *  *
+     * Updates the service scheduling status of an instance in a dedicated resource group.
+     *
+     * @param request - UpdateResourceInstanceRequest
+     *
+     * @returns UpdateResourceInstanceResponse
+     *
      * @param string                        $ClusterId
      * @param string                        $ResourceId
      * @param string                        $InstanceId
-     * @param UpdateResourceInstanceRequest $request    UpdateResourceInstanceRequest
+     * @param UpdateResourceInstanceRequest $request
      *
-     * @return UpdateResourceInstanceResponse UpdateResourceInstanceResponse
+     * @return UpdateResourceInstanceResponse
      */
     public function updateResourceInstance($ClusterId, $ResourceId, $InstanceId, $request)
     {
@@ -5286,45 +6328,55 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the tag of an instance in a resource group.
-     *  *
+     * Updates the tag of an instance in a resource group.
+     *
+     * @param tmpReq - UpdateResourceInstanceLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceInstanceLabelResponse
+     *
      * @param string                             $ClusterId
      * @param string                             $ResourceId
-     * @param UpdateResourceInstanceLabelRequest $tmpReq     UpdateResourceInstanceLabelRequest
-     * @param string[]                           $headers    map
-     * @param RuntimeOptions                     $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateResourceInstanceLabelRequest $tmpReq
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
-     * @return UpdateResourceInstanceLabelResponse UpdateResourceInstanceLabelResponse
+     * @return UpdateResourceInstanceLabelResponse
      */
     public function updateResourceInstanceLabelWithOptions($ClusterId, $ResourceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateResourceInstanceLabelShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->allInstances)) {
-            $query['AllInstances'] = $request->allInstances;
+        if (null !== $request->allInstances) {
+            @$query['AllInstances'] = $request->allInstances;
         }
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateResourceInstanceLabel',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/label',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/label',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5336,13 +6388,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the tag of an instance in a resource group.
-     *  *
+     * Updates the tag of an instance in a resource group.
+     *
+     * @param request - UpdateResourceInstanceLabelRequest
+     *
+     * @returns UpdateResourceInstanceLabelResponse
+     *
      * @param string                             $ClusterId
      * @param string                             $ResourceId
-     * @param UpdateResourceInstanceLabelRequest $request    UpdateResourceInstanceLabelRequest
+     * @param UpdateResourceInstanceLabelRequest $request
      *
-     * @return UpdateResourceInstanceLabelResponse UpdateResourceInstanceLabelResponse
+     * @return UpdateResourceInstanceLabelResponse
      */
     public function updateResourceInstanceLabel($ClusterId, $ResourceId, $request)
     {
@@ -5353,33 +6409,44 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
-     *  *
+     * Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+     *
+     * @param request - UpdateServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceResponse
+     *
      * @param string               $ClusterId
      * @param string               $ServiceName
-     * @param UpdateServiceRequest $request     UpdateServiceRequest
-     * @param string[]             $headers     map
-     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateServiceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return UpdateServiceResponse UpdateServiceResponse
+     * @return UpdateServiceResponse
      */
     public function updateServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->updateType)) {
-            $query['UpdateType'] = $request->updateType;
+        if (null !== $request->memberToUpdate) {
+            @$query['MemberToUpdate'] = $request->memberToUpdate;
         }
+
+        if (null !== $request->updateType) {
+            @$query['UpdateType'] = $request->updateType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
             'action' => 'UpdateService',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5391,13 +6458,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
-     *  *
+     * Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+     *
+     * @param request - UpdateServiceRequest
+     *
+     * @returns UpdateServiceResponse
+     *
      * @param string               $ClusterId
      * @param string               $ServiceName
-     * @param UpdateServiceRequest $request     UpdateServiceRequest
+     * @param UpdateServiceRequest $request
      *
-     * @return UpdateServiceResponse UpdateServiceResponse
+     * @return UpdateServiceResponse
      */
     public function updateService($ClusterId, $ServiceName, $request)
     {
@@ -5408,41 +6479,51 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the Autoscaler configurations of a service.
-     *  *
+     * Updates the Autoscaler configurations of a service.
+     *
+     * @param request - UpdateServiceAutoScalerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceAutoScalerResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceAutoScalerRequest $request     UpdateServiceAutoScalerRequest
-     * @param string[]                       $headers     map
-     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateServiceAutoScalerRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateServiceAutoScalerResponse UpdateServiceAutoScalerResponse
+     * @return UpdateServiceAutoScalerResponse
      */
     public function updateServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->behavior)) {
-            $body['behavior'] = $request->behavior;
+        if (null !== $request->behavior) {
+            @$body['behavior'] = $request->behavior;
         }
-        if (!Utils::isUnset($request->max)) {
-            $body['max'] = $request->max;
+
+        if (null !== $request->max) {
+            @$body['max'] = $request->max;
         }
-        if (!Utils::isUnset($request->min)) {
-            $body['min'] = $request->min;
+
+        if (null !== $request->min) {
+            @$body['min'] = $request->min;
         }
-        if (!Utils::isUnset($request->scaleStrategies)) {
-            $body['scaleStrategies'] = $request->scaleStrategies;
+
+        if (null !== $request->scaleStrategies) {
+            @$body['scaleStrategies'] = $request->scaleStrategies;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServiceAutoScaler',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/autoscaler',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5454,13 +6535,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the Autoscaler configurations of a service.
-     *  *
+     * Updates the Autoscaler configurations of a service.
+     *
+     * @param request - UpdateServiceAutoScalerRequest
+     *
+     * @returns UpdateServiceAutoScalerResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceAutoScalerRequest $request     UpdateServiceAutoScalerRequest
+     * @param UpdateServiceAutoScalerRequest $request
      *
-     * @return UpdateServiceAutoScalerResponse UpdateServiceAutoScalerResponse
+     * @return UpdateServiceAutoScalerResponse
      */
     public function updateServiceAutoScaler($ClusterId, $ServiceName, $request)
     {
@@ -5471,35 +6556,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
-     *  *
+     * Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+     *
+     * @param request - UpdateServiceCronScalerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceCronScalerResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceCronScalerRequest $request     UpdateServiceCronScalerRequest
-     * @param string[]                       $headers     map
-     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateServiceCronScalerRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateServiceCronScalerResponse UpdateServiceCronScalerResponse
+     * @return UpdateServiceCronScalerResponse
      */
     public function updateServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->excludeDates)) {
-            $body['ExcludeDates'] = $request->excludeDates;
+        if (null !== $request->excludeDates) {
+            @$body['ExcludeDates'] = $request->excludeDates;
         }
-        if (!Utils::isUnset($request->scaleJobs)) {
-            $body['ScaleJobs'] = $request->scaleJobs;
+
+        if (null !== $request->scaleJobs) {
+            @$body['ScaleJobs'] = $request->scaleJobs;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServiceCronScaler',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/cronscaler',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5511,13 +6604,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
-     *  *
+     * Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+     *
+     * @param request - UpdateServiceCronScalerRequest
+     *
+     * @returns UpdateServiceCronScalerResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceCronScalerRequest $request     UpdateServiceCronScalerRequest
+     * @param UpdateServiceCronScalerRequest $request
      *
-     * @return UpdateServiceCronScalerResponse UpdateServiceCronScalerResponse
+     * @return UpdateServiceCronScalerResponse
      */
     public function updateServiceCronScaler($ClusterId, $ServiceName, $request)
     {
@@ -5528,33 +6625,40 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
-     *  *
+     * Updates attributes of service instances. Only isolation can be performed for service instances.
+     *
+     * @param request - UpdateServiceInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceInstanceResponse
+     *
      * @param string                       $ClusterId
      * @param string                       $ServiceName
      * @param string                       $InstanceName
-     * @param UpdateServiceInstanceRequest $request      UpdateServiceInstanceRequest
-     * @param string[]                     $headers      map
-     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateServiceInstanceRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return UpdateServiceInstanceResponse UpdateServiceInstanceResponse
+     * @return UpdateServiceInstanceResponse
      */
     public function updateServiceInstanceWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->isolate)) {
-            $body['Isolate'] = $request->isolate;
+        if (null !== $request->isolate) {
+            @$body['Isolate'] = $request->isolate;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServiceInstance',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceName) . '',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5566,14 +6670,18 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
-     *  *
+     * Updates attributes of service instances. Only isolation can be performed for service instances.
+     *
+     * @param request - UpdateServiceInstanceRequest
+     *
+     * @returns UpdateServiceInstanceResponse
+     *
      * @param string                       $ClusterId
      * @param string                       $ServiceName
      * @param string                       $InstanceName
-     * @param UpdateServiceInstanceRequest $request      UpdateServiceInstanceRequest
+     * @param UpdateServiceInstanceRequest $request
      *
-     * @return UpdateServiceInstanceResponse UpdateServiceInstanceResponse
+     * @return UpdateServiceInstanceResponse
      */
     public function updateServiceInstance($ClusterId, $ServiceName, $InstanceName, $request)
     {
@@ -5584,32 +6692,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Adds service tags or updates existing service tags.
-     *  *
+     * Adds service tags or updates existing service tags.
+     *
+     * @param request - UpdateServiceLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceLabelResponse
+     *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param UpdateServiceLabelRequest $request     UpdateServiceLabelRequest
-     * @param string[]                  $headers     map
-     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateServiceLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateServiceLabelResponse UpdateServiceLabelResponse
+     * @return UpdateServiceLabelResponse
      */
     public function updateServiceLabelWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServiceLabel',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/label',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/label',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5621,13 +6736,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Adds service tags or updates existing service tags.
-     *  *
+     * Adds service tags or updates existing service tags.
+     *
+     * @param request - UpdateServiceLabelRequest
+     *
+     * @returns UpdateServiceLabelResponse
+     *
      * @param string                    $ClusterId
      * @param string                    $ServiceName
-     * @param UpdateServiceLabelRequest $request     UpdateServiceLabelRequest
+     * @param UpdateServiceLabelRequest $request
      *
-     * @return UpdateServiceLabelResponse UpdateServiceLabelResponse
+     * @return UpdateServiceLabelResponse
      */
     public function updateServiceLabel($ClusterId, $ServiceName, $request)
     {
@@ -5638,35 +6757,43 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the traffic mirroring configurations of a service.
-     *  *
+     * Updates the traffic mirroring configurations of a service.
+     *
+     * @param request - UpdateServiceMirrorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceMirrorResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param UpdateServiceMirrorRequest $request     UpdateServiceMirrorRequest
-     * @param string[]                   $headers     map
-     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateServiceMirrorRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateServiceMirrorResponse UpdateServiceMirrorResponse
+     * @return UpdateServiceMirrorResponse
      */
     public function updateServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ratio)) {
-            $body['Ratio'] = $request->ratio;
+        if (null !== $request->ratio) {
+            @$body['Ratio'] = $request->ratio;
         }
-        if (!Utils::isUnset($request->target)) {
-            $body['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$body['Target'] = $request->target;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServiceMirror',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/mirror',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5678,13 +6805,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the traffic mirroring configurations of a service.
-     *  *
+     * Updates the traffic mirroring configurations of a service.
+     *
+     * @param request - UpdateServiceMirrorRequest
+     *
+     * @returns UpdateServiceMirrorResponse
+     *
      * @param string                     $ClusterId
      * @param string                     $ServiceName
-     * @param UpdateServiceMirrorRequest $request     UpdateServiceMirrorRequest
+     * @param UpdateServiceMirrorRequest $request
      *
-     * @return UpdateServiceMirrorResponse UpdateServiceMirrorResponse
+     * @return UpdateServiceMirrorResponse
      */
     public function updateServiceMirror($ClusterId, $ServiceName, $request)
     {
@@ -5695,32 +6826,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the safety lock of a service to minimize misoperations on the service.
-     *  *
+     * Updates the safety lock of a service to minimize misoperations on the service.
+     *
+     * @param request - UpdateServiceSafetyLockRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceSafetyLockResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceSafetyLockRequest $request     UpdateServiceSafetyLockRequest
-     * @param string[]                       $headers     map
-     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateServiceSafetyLockRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateServiceSafetyLockResponse UpdateServiceSafetyLockResponse
+     * @return UpdateServiceSafetyLockResponse
      */
     public function updateServiceSafetyLockWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->lock)) {
-            $body['Lock'] = $request->lock;
+        if (null !== $request->lock) {
+            @$body['Lock'] = $request->lock;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServiceSafetyLock',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/lock',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/lock',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5732,13 +6870,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the safety lock of a service to minimize misoperations on the service.
-     *  *
+     * Updates the safety lock of a service to minimize misoperations on the service.
+     *
+     * @param request - UpdateServiceSafetyLockRequest
+     *
+     * @returns UpdateServiceSafetyLockResponse
+     *
      * @param string                         $ClusterId
      * @param string                         $ServiceName
-     * @param UpdateServiceSafetyLockRequest $request     UpdateServiceSafetyLockRequest
+     * @param UpdateServiceSafetyLockRequest $request
      *
-     * @return UpdateServiceSafetyLockResponse UpdateServiceSafetyLockResponse
+     * @return UpdateServiceSafetyLockResponse
      */
     public function updateServiceSafetyLock($ClusterId, $ServiceName, $request)
     {
@@ -5749,32 +6891,39 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the version of a service or rolls back the service to a specific version.
-     *  *
+     * Updates the version of a service or rolls back the service to a specific version.
+     *
+     * @param request - UpdateServiceVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceVersionResponse
+     *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param UpdateServiceVersionRequest $request     UpdateServiceVersionRequest
-     * @param string[]                    $headers     map
-     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateServiceVersionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return UpdateServiceVersionResponse UpdateServiceVersionResponse
+     * @return UpdateServiceVersionResponse
      */
     public function updateServiceVersionWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->version)) {
-            $body['Version'] = $request->version;
+        if (null !== $request->version) {
+            @$body['Version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServiceVersion',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/version',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/version',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5786,13 +6935,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the version of a service or rolls back the service to a specific version.
-     *  *
+     * Updates the version of a service or rolls back the service to a specific version.
+     *
+     * @param request - UpdateServiceVersionRequest
+     *
+     * @returns UpdateServiceVersionResponse
+     *
      * @param string                      $ClusterId
      * @param string                      $ServiceName
-     * @param UpdateServiceVersionRequest $request     UpdateServiceVersionRequest
+     * @param UpdateServiceVersionRequest $request
      *
-     * @return UpdateServiceVersionResponse UpdateServiceVersionResponse
+     * @return UpdateServiceVersionResponse
      */
     public function updateServiceVersion($ClusterId, $ServiceName, $request)
     {
@@ -5803,38 +6956,47 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a virtual resource group.
-     *  *
+     * Updates the information about a virtual resource group.
+     *
+     * @param request - UpdateVirtualResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVirtualResourceResponse
+     *
      * @param string                       $ClusterId
      * @param string                       $VirtualResourceId
-     * @param UpdateVirtualResourceRequest $request           UpdateVirtualResourceRequest
-     * @param string[]                     $headers           map
-     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
+     * @param UpdateVirtualResourceRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return UpdateVirtualResourceResponse UpdateVirtualResourceResponse
+     * @return UpdateVirtualResourceResponse
      */
     public function updateVirtualResourceWithOptions($ClusterId, $VirtualResourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->disableSpotProtectionPeriod)) {
-            $body['DisableSpotProtectionPeriod'] = $request->disableSpotProtectionPeriod;
+        if (null !== $request->disableSpotProtectionPeriod) {
+            @$body['DisableSpotProtectionPeriod'] = $request->disableSpotProtectionPeriod;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $body['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$body['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->virtualResourceName)) {
-            $body['VirtualResourceName'] = $request->virtualResourceName;
+
+        if (null !== $request->virtualResourceName) {
+            @$body['VirtualResourceName'] = $request->virtualResourceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateVirtualResource',
             'version' => '2021-07-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v2/virtualresources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($VirtualResourceId) . '',
+            'pathname' => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5846,13 +7008,17 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a virtual resource group.
-     *  *
+     * Updates the information about a virtual resource group.
+     *
+     * @param request - UpdateVirtualResourceRequest
+     *
+     * @returns UpdateVirtualResourceResponse
+     *
      * @param string                       $ClusterId
      * @param string                       $VirtualResourceId
-     * @param UpdateVirtualResourceRequest $request           UpdateVirtualResourceRequest
+     * @param UpdateVirtualResourceRequest $request
      *
-     * @return UpdateVirtualResourceResponse UpdateVirtualResourceResponse
+     * @return UpdateVirtualResourceResponse
      */
     public function updateVirtualResource($ClusterId, $VirtualResourceId, $request)
     {

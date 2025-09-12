@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateResourceInstanceLabelShrinkRequest extends Model
 {
     /**
-     * @description Specifies whether the modification takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $allInstances;
 
     /**
-     * @description The instance IDs.
-     *
      * @var string
      */
     public $instanceIdsShrink;
 
     /**
-     * @description The custom tag.
-     *
      * @var string[]
      */
     public $labels;
@@ -36,40 +28,60 @@ class UpdateResourceInstanceLabelShrinkRequest extends Model
         'labels' => 'Labels',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allInstances) {
             $res['AllInstances'] = $this->allInstances;
         }
+
         if (null !== $this->instanceIdsShrink) {
             $res['InstanceIds'] = $this->instanceIdsShrink;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResourceInstanceLabelShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllInstances'])) {
             $model->allInstances = $map['AllInstances'];
         }
+
         if (isset($map['InstanceIds'])) {
             $model->instanceIdsShrink = $map['InstanceIds'];
         }
+
         if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

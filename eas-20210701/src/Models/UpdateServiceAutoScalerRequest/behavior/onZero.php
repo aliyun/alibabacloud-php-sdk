@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerRequest\behavior;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class onZero extends Model
 {
     /**
-     * @description The time window that is required before the number of instances is reduced to 0. Default value: 600. The number of instances can be reduced to 0 only if no request is available or no traffic exists in the specified time window.
-     *
-     * @example 600
-     *
      * @var int
      */
     public $scaleDownGracePeriodSeconds;
 
     /**
-     * @description The number of instances that you want to create at a time if the number of instances is scaled out from 0. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $scaleUpActivationReplicas;
@@ -30,14 +22,18 @@ class onZero extends Model
         'scaleUpActivationReplicas' => 'scaleUpActivationReplicas',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scaleDownGracePeriodSeconds) {
             $res['scaleDownGracePeriodSeconds'] = $this->scaleDownGracePeriodSeconds;
         }
+
         if (null !== $this->scaleUpActivationReplicas) {
             $res['scaleUpActivationReplicas'] = $this->scaleUpActivationReplicas;
         }
@@ -45,17 +41,18 @@ class onZero extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return onZero
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['scaleDownGracePeriodSeconds'])) {
             $model->scaleDownGracePeriodSeconds = $map['scaleDownGracePeriodSeconds'];
         }
+
         if (isset($map['scaleUpActivationReplicas'])) {
             $model->scaleUpActivationReplicas = $map['scaleUpActivationReplicas'];
         }
