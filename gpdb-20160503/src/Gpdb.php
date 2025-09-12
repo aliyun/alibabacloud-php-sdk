@@ -260,6 +260,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableCollectionGraphRAGRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableCollectionGraphRAGResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableCollectionGraphRAGShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableDBResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementRequest;
@@ -267,6 +270,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetGraphRAGJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetGraphRAGJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetStatementResultRequest;
@@ -10446,6 +10451,117 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 知识库开启构建知识图谱.
+     *
+     * @param tmpReq - EnableCollectionGraphRAGRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableCollectionGraphRAGResponse
+     *
+     * @param EnableCollectionGraphRAGRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnableCollectionGraphRAGResponse
+     */
+    public function enableCollectionGraphRAGWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnableCollectionGraphRAGShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entityTypes) {
+            $request->entityTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entityTypes, 'EntityTypes', 'json');
+        }
+
+        if (null !== $tmpReq->relationshipTypes) {
+            $request->relationshipTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relationshipTypes, 'RelationshipTypes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->entityTypesShrink) {
+            @$query['EntityTypes'] = $request->entityTypesShrink;
+        }
+
+        if (null !== $request->LLMModel) {
+            @$query['LLMModel'] = $request->LLMModel;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->managerAccount) {
+            @$query['ManagerAccount'] = $request->managerAccount;
+        }
+
+        if (null !== $request->managerAccountPassword) {
+            @$query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relationshipTypesShrink) {
+            @$query['RelationshipTypes'] = $request->relationshipTypesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableCollectionGraphRAG',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableCollectionGraphRAGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 知识库开启构建知识图谱.
+     *
+     * @param Request - EnableCollectionGraphRAGRequest
+     *
+     * @returns EnableCollectionGraphRAGResponse
+     *
+     * @param EnableCollectionGraphRAGRequest $request
+     *
+     * @return EnableCollectionGraphRAGResponse
+     */
+    public function enableCollectionGraphRAG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableCollectionGraphRAGWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
      *
      * @remarks
@@ -10692,6 +10808,87 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取构建知识图谱任务
+     *
+     * @param Request - GetGraphRAGJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGraphRAGJobResponse
+     *
+     * @param GetGraphRAGJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetGraphRAGJobResponse
+     */
+    public function getGraphRAGJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetGraphRAGJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGraphRAGJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取构建知识图谱任务
+     *
+     * @param Request - GetGraphRAGJobRequest
+     *
+     * @returns GetGraphRAGJobResponse
+     *
+     * @param GetGraphRAGJobRequest $request
+     *
+     * @return GetGraphRAGJobResponse
+     */
+    public function getGraphRAGJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGraphRAGJobWithOptions($request, $runtime);
     }
 
     /**
