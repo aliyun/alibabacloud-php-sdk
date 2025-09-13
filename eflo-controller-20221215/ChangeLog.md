@@ -1,3 +1,9 @@
+2025-09-13 Version: 2.8.2
+- Update API CreateCluster: add request parameters NodeGroups.$.HyperNodes.
+- Update API ExtendCluster: add request parameters NodeGroups.$.HyperNodes.
+- Update API ShrinkCluster: add request parameters NodeGroups.$.HyperNodes.
+
+
 2025-09-10 Version: 2.8.1
 - Generated php 2022-12-15 for eflo-controller.
 

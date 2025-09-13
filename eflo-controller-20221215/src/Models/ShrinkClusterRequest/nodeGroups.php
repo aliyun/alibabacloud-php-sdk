@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterRequest\nodeGroups\hyperNodes;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterRequest\nodeGroups\nodes;
 
 class nodeGroups extends Model
 {
+    /**
+     * @var hyperNodes[]
+     */
+    public $hyperNodes;
+
     /**
      * @var string
      */
@@ -19,12 +25,16 @@ class nodeGroups extends Model
      */
     public $nodes;
     protected $_name = [
+        'hyperNodes' => 'HyperNodes',
         'nodeGroupId' => 'NodeGroupId',
         'nodes' => 'Nodes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->hyperNodes)) {
+            Model::validateArray($this->hyperNodes);
+        }
         if (\is_array($this->nodes)) {
             Model::validateArray($this->nodes);
         }
@@ -34,6 +44,17 @@ class nodeGroups extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->hyperNodes) {
+            if (\is_array($this->hyperNodes)) {
+                $res['HyperNodes'] = [];
+                $n1 = 0;
+                foreach ($this->hyperNodes as $item1) {
+                    $res['HyperNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
@@ -60,6 +81,17 @@ class nodeGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HyperNodes'])) {
+            if (!empty($map['HyperNodes'])) {
+                $model->hyperNodes = [];
+                $n1 = 0;
+                foreach ($map['HyperNodes'] as $item1) {
+                    $model->hyperNodes[$n1] = hyperNodes::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }

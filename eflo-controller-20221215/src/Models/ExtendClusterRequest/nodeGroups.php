@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\nodeGroups\hyperNodes;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\nodeGroups\nodes;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\nodeGroups\nodeTag;
 
@@ -29,6 +30,11 @@ class nodeGroups extends Model
      * @var string[]
      */
     public $hostnames;
+
+    /**
+     * @var hyperNodes[]
+     */
+    public $hyperNodes;
 
     /**
      * @var string
@@ -79,6 +85,7 @@ class nodeGroups extends Model
         'autoRenew' => 'AutoRenew',
         'chargeType' => 'ChargeType',
         'hostnames' => 'Hostnames',
+        'hyperNodes' => 'HyperNodes',
         'loginPassword' => 'LoginPassword',
         'nodeGroupId' => 'NodeGroupId',
         'nodeTag' => 'NodeTag',
@@ -94,6 +101,9 @@ class nodeGroups extends Model
     {
         if (\is_array($this->hostnames)) {
             Model::validateArray($this->hostnames);
+        }
+        if (\is_array($this->hyperNodes)) {
+            Model::validateArray($this->hyperNodes);
         }
         if (\is_array($this->nodeTag)) {
             Model::validateArray($this->nodeTag);
@@ -125,6 +135,17 @@ class nodeGroups extends Model
                 $n1 = 0;
                 foreach ($this->hostnames as $item1) {
                     $res['Hostnames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->hyperNodes) {
+            if (\is_array($this->hyperNodes)) {
+                $res['HyperNodes'] = [];
+                $n1 = 0;
+                foreach ($this->hyperNodes as $item1) {
+                    $res['HyperNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -209,6 +230,17 @@ class nodeGroups extends Model
                 $n1 = 0;
                 foreach ($map['Hostnames'] as $item1) {
                     $model->hostnames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['HyperNodes'])) {
+            if (!empty($map['HyperNodes'])) {
+                $model->hyperNodes = [];
+                $n1 = 0;
+                foreach ($map['HyperNodes'] as $item1) {
+                    $model->hyperNodes[$n1] = hyperNodes::fromMap($item1);
                     ++$n1;
                 }
             }

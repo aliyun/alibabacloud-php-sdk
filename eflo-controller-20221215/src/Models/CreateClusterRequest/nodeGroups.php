@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups\hyperNodes;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups\nodes;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups\systemDisk;
 
@@ -14,6 +15,11 @@ class nodeGroups extends Model
      * @var bool
      */
     public $fileSystemMountEnabled;
+
+    /**
+     * @var hyperNodes[]
+     */
+    public $hyperNodes;
 
     /**
      * @var string
@@ -71,6 +77,7 @@ class nodeGroups extends Model
     public $zoneId;
     protected $_name = [
         'fileSystemMountEnabled' => 'FileSystemMountEnabled',
+        'hyperNodes' => 'HyperNodes',
         'imageId' => 'ImageId',
         'keyPairName' => 'KeyPairName',
         'loginPassword' => 'LoginPassword',
@@ -86,6 +93,9 @@ class nodeGroups extends Model
 
     public function validate()
     {
+        if (\is_array($this->hyperNodes)) {
+            Model::validateArray($this->hyperNodes);
+        }
         if (\is_array($this->nodes)) {
             Model::validateArray($this->nodes);
         }
@@ -100,6 +110,17 @@ class nodeGroups extends Model
         $res = [];
         if (null !== $this->fileSystemMountEnabled) {
             $res['FileSystemMountEnabled'] = $this->fileSystemMountEnabled;
+        }
+
+        if (null !== $this->hyperNodes) {
+            if (\is_array($this->hyperNodes)) {
+                $res['HyperNodes'] = [];
+                $n1 = 0;
+                foreach ($this->hyperNodes as $item1) {
+                    $res['HyperNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->imageId) {
@@ -166,6 +187,17 @@ class nodeGroups extends Model
         $model = new self();
         if (isset($map['FileSystemMountEnabled'])) {
             $model->fileSystemMountEnabled = $map['FileSystemMountEnabled'];
+        }
+
+        if (isset($map['HyperNodes'])) {
+            if (!empty($map['HyperNodes'])) {
+                $model->hyperNodes = [];
+                $n1 = 0;
+                foreach ($map['HyperNodes'] as $item1) {
+                    $model->hyperNodes[$n1] = hyperNodes::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ImageId'])) {
