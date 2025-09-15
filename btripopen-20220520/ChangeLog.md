@@ -1,3 +1,6 @@
+2025-09-15 Version: 5.0.2
+- Generated php 2022-05-20 for btripOpen.
+
 2025-09-12 Version: 5.0.1
 - Update API CarBillSettlementQuery: add response parameters Body.module.data_list.$.approver_email.
 - Update API CarBillSettlementQuery: add response parameters Body.module.data_list.$.approver_id.
