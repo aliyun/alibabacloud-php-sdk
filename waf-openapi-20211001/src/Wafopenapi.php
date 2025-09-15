@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseTemplateResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudClusterRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudClusterResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudClusterRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudClusterRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudGroupRequest;
@@ -120,12 +122,17 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCnameCountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCnameCountResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCommonLogFieldsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCommonLogFieldsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCommonLogFieldsShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCustomBaseRuleCompileResultRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCustomBaseRuleCompileResultResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDDoSStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDDoSStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefaultHttpsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefaultHttpsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseGroupValidResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseGroupValidResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupNamesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupNamesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupRequest;
@@ -156,6 +163,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplatesRequest
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplatesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateValidGroupsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateValidGroupsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateValidResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateValidResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDNSRecordRequest;
@@ -289,6 +298,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserEventTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserEventTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserEventTypeRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserEventTypeResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserLogFieldConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserLogFieldConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserWafLogStatusRequest;
@@ -369,6 +380,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyUserLogFieldConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyUserLogFieldConfigResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyUserWafLogStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyUserWafLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReCreateCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReCreateCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ReleaseInstanceRequest;
@@ -1381,6 +1396,123 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a hybrid cloud cluster.
+     *
+     * @param request - CreateHybridCloudClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHybridCloudClusterResponse
+     *
+     * @param CreateHybridCloudClusterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateHybridCloudClusterResponse
+     */
+    public function createHybridCloudClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessMode) {
+            @$query['AccessMode'] = $request->accessMode;
+        }
+
+        if (null !== $request->accessRegion) {
+            @$query['AccessRegion'] = $request->accessRegion;
+        }
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->httpPorts) {
+            @$query['HttpPorts'] = $request->httpPorts;
+        }
+
+        if (null !== $request->httpsPorts) {
+            @$query['HttpsPorts'] = $request->httpsPorts;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logFieldsNotReturned) {
+            @$query['LogFieldsNotReturned'] = $request->logFieldsNotReturned;
+        }
+
+        if (null !== $request->protectionServerCount) {
+            @$query['ProtectionServerCount'] = $request->protectionServerCount;
+        }
+
+        if (null !== $request->proxyStatus) {
+            @$query['ProxyStatus'] = $request->proxyStatus;
+        }
+
+        if (null !== $request->proxyType) {
+            @$query['ProxyType'] = $request->proxyType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleConfig) {
+            @$query['RuleConfig'] = $request->ruleConfig;
+        }
+
+        if (null !== $request->ruleStatus) {
+            @$query['RuleStatus'] = $request->ruleStatus;
+        }
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateHybridCloudCluster',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateHybridCloudClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a hybrid cloud cluster.
+     *
+     * @param request - CreateHybridCloudClusterRequest
+     *
+     * @returns CreateHybridCloudClusterResponse
+     *
+     * @param CreateHybridCloudClusterRequest $request
+     *
+     * @return CreateHybridCloudClusterResponse
+     */
+    public function createHybridCloudCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHybridCloudClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -5079,6 +5211,89 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 查询日志服务支持的所有字段.
+     *
+     * @param tmpReq - DescribeCommonLogFieldsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCommonLogFieldsResponse
+     *
+     * @param DescribeCommonLogFieldsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCommonLogFieldsResponse
+     */
+    public function describeCommonLogFieldsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeCommonLogFieldsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->logKeyList) {
+            $request->logKeyListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->logKeyList, 'LogKeyList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->isDefault) {
+            @$query['IsDefault'] = $request->isDefault;
+        }
+
+        if (null !== $request->isRequired) {
+            @$query['IsRequired'] = $request->isRequired;
+        }
+
+        if (null !== $request->logKeyListShrink) {
+            @$query['LogKeyList'] = $request->logKeyListShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCommonLogFields',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCommonLogFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询日志服务支持的所有字段.
+     *
+     * @param request - DescribeCommonLogFieldsRequest
+     *
+     * @returns DescribeCommonLogFieldsResponse
+     *
+     * @param DescribeCommonLogFieldsRequest $request
+     *
+     * @return DescribeCommonLogFieldsResponse
+     */
+    public function describeCommonLogFields($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCommonLogFieldsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询自定义正则规则编译结果.
      *
      * @param request - DescribeCustomBaseRuleCompileResultRequest
@@ -5271,6 +5486,87 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDefaultHttpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询可以被防护组绑定的防护对象列表.
+     *
+     * @param request - DescribeDefenseGroupValidResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDefenseGroupValidResourcesResponse
+     *
+     * @param DescribeDefenseGroupValidResourcesRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDefenseGroupValidResourcesResponse
+     */
+    public function describeDefenseGroupValidResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDefenseGroupValidResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDefenseGroupValidResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询可以被防护组绑定的防护对象列表.
+     *
+     * @param request - DescribeDefenseGroupValidResourcesRequest
+     *
+     * @returns DescribeDefenseGroupValidResourcesResponse
+     *
+     * @param DescribeDefenseGroupValidResourcesRequest $request
+     *
+     * @return DescribeDefenseGroupValidResourcesResponse
+     */
+    public function describeDefenseGroupValidResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseGroupValidResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -6361,6 +6657,91 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDefenseTemplateValidGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询可以被自定义模板绑定的防护对象列表.
+     *
+     * @param request - DescribeDefenseTemplateValidResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDefenseTemplateValidResourcesResponse
+     *
+     * @param DescribeDefenseTemplateValidResourcesRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDefenseTemplateValidResourcesResponse
+     */
+    public function describeDefenseTemplateValidResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->defenseScene) {
+            @$query['DefenseScene'] = $request->defenseScene;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDefenseTemplateValidResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDefenseTemplateValidResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询可以被自定义模板绑定的防护对象列表.
+     *
+     * @param request - DescribeDefenseTemplateValidResourcesRequest
+     *
+     * @returns DescribeDefenseTemplateValidResourcesResponse
+     *
+     * @param DescribeDefenseTemplateValidResourcesRequest $request
+     *
+     * @return DescribeDefenseTemplateValidResourcesResponse
+     */
+    public function describeDefenseTemplateValidResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseTemplateValidResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -11451,6 +11832,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 查询用户日志配置.
+     *
+     * @param request - DescribeUserLogFieldConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserLogFieldConfigResponse
+     *
+     * @param DescribeUserLogFieldConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeUserLogFieldConfigResponse
+     */
+    public function describeUserLogFieldConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryType) {
+            @$query['DeliveryType'] = $request->deliveryType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUserLogFieldConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUserLogFieldConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户日志配置.
+     *
+     * @param request - DescribeUserLogFieldConfigRequest
+     *
+     * @returns DescribeUserLogFieldConfigResponse
+     *
+     * @param DescribeUserLogFieldConfigRequest $request
+     *
+     * @return DescribeUserLogFieldConfigResponse
+     */
+    public function describeUserLogFieldConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserLogFieldConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries available regions for log storage.
      *
      * @param request - DescribeUserSlsLogRegionsRequest
@@ -14473,6 +14923,160 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyTemplateResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改用户日志服务的默认字段配置.
+     *
+     * @param request - ModifyUserLogFieldConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyUserLogFieldConfigResponse
+     *
+     * @param ModifyUserLogFieldConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyUserLogFieldConfigResponse
+     */
+    public function modifyUserLogFieldConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryType) {
+            @$query['DeliveryType'] = $request->deliveryType;
+        }
+
+        if (null !== $request->extendConfig) {
+            @$query['ExtendConfig'] = $request->extendConfig;
+        }
+
+        if (null !== $request->fieldList) {
+            @$query['FieldList'] = $request->fieldList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logDeliveryStrategy) {
+            @$query['LogDeliveryStrategy'] = $request->logDeliveryStrategy;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyUserLogFieldConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyUserLogFieldConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改用户日志服务的默认字段配置.
+     *
+     * @param request - ModifyUserLogFieldConfigRequest
+     *
+     * @returns ModifyUserLogFieldConfigResponse
+     *
+     * @param ModifyUserLogFieldConfigRequest $request
+     *
+     * @return ModifyUserLogFieldConfigResponse
+     */
+    public function modifyUserLogFieldConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserLogFieldConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开通或关闭WAF日志服务
+     *
+     * @param request - ModifyUserWafLogStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyUserWafLogStatusResponse
+     *
+     * @param ModifyUserWafLogStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyUserWafLogStatusResponse
+     */
+    public function modifyUserWafLogStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logRegionId) {
+            @$query['LogRegionId'] = $request->logRegionId;
+        }
+
+        if (null !== $request->logStatus) {
+            @$query['LogStatus'] = $request->logStatus;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyUserWafLogStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyUserWafLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开通或关闭WAF日志服务
+     *
+     * @param request - ModifyUserWafLogStatusRequest
+     *
+     * @returns ModifyUserWafLogStatusResponse
+     *
+     * @param ModifyUserWafLogStatusRequest $request
+     *
+     * @return ModifyUserWafLogStatusResponse
+     */
+    public function modifyUserWafLogStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserWafLogStatusWithOptions($request, $runtime);
     }
 
     /**
