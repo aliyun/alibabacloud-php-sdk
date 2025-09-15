@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\codeSource;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\dataSources;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\pods;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\restartRecord;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\userVpc;
 
 class GetJobResponseBody extends Model
@@ -153,6 +154,11 @@ class GetJobResponseBody extends Model
     public $resourceType;
 
     /**
+     * @var restartRecord[]
+     */
+    public $restartRecord;
+
+    /**
      * @var string
      */
     public $restartTimes;
@@ -245,6 +251,7 @@ class GetJobResponseBody extends Model
         'resourceId' => 'ResourceId',
         'resourceLevel' => 'ResourceLevel',
         'resourceType' => 'ResourceType',
+        'restartRecord' => 'RestartRecord',
         'restartTimes' => 'RestartTimes',
         'settings' => 'Settings',
         'status' => 'Status',
@@ -282,6 +289,9 @@ class GetJobResponseBody extends Model
         }
         if (\is_array($this->pods)) {
             Model::validateArray($this->pods);
+        }
+        if (\is_array($this->restartRecord)) {
+            Model::validateArray($this->restartRecord);
         }
         if (null !== $this->settings) {
             $this->settings->validate();
@@ -437,6 +447,17 @@ class GetJobResponseBody extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->restartRecord) {
+            if (\is_array($this->restartRecord)) {
+                $res['RestartRecord'] = [];
+                $n1 = 0;
+                foreach ($this->restartRecord as $item1) {
+                    $res['RestartRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->restartTimes) {
@@ -652,6 +673,17 @@ class GetJobResponseBody extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['RestartRecord'])) {
+            if (!empty($map['RestartRecord'])) {
+                $model->restartRecord = [];
+                $n1 = 0;
+                foreach ($map['RestartRecord'] as $item1) {
+                    $model->restartRecord[$n1] = restartRecord::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RestartTimes'])) {
