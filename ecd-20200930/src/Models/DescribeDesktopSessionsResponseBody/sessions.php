@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsResponseB
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsResponseBody\sessions\resourceGroups;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsResponseBody\sessions\terminalInfo;
 
 class sessions extends Model
 {
@@ -105,6 +106,11 @@ class sessions extends Model
     public $subPayType;
 
     /**
+     * @var terminalInfo
+     */
+    public $terminalInfo;
+
+    /**
      * @var int
      */
     public $totalConnectionTime;
@@ -128,6 +134,7 @@ class sessions extends Model
         'sessionStartTime' => 'SessionStartTime',
         'sessionStatus' => 'SessionStatus',
         'subPayType' => 'SubPayType',
+        'terminalInfo' => 'TerminalInfo',
         'totalConnectionTime' => 'TotalConnectionTime',
     ];
 
@@ -135,6 +142,9 @@ class sessions extends Model
     {
         if (\is_array($this->resourceGroups)) {
             Model::validateArray($this->resourceGroups);
+        }
+        if (null !== $this->terminalInfo) {
+            $this->terminalInfo->validate();
         }
         parent::validate();
     }
@@ -223,6 +233,10 @@ class sessions extends Model
 
         if (null !== $this->subPayType) {
             $res['SubPayType'] = $this->subPayType;
+        }
+
+        if (null !== $this->terminalInfo) {
+            $res['TerminalInfo'] = null !== $this->terminalInfo ? $this->terminalInfo->toArray($noStream) : $this->terminalInfo;
         }
 
         if (null !== $this->totalConnectionTime) {
@@ -321,6 +335,10 @@ class sessions extends Model
 
         if (isset($map['SubPayType'])) {
             $model->subPayType = $map['SubPayType'];
+        }
+
+        if (isset($map['TerminalInfo'])) {
+            $model->terminalInfo = terminalInfo::fromMap($map['TerminalInfo']);
         }
 
         if (isset($map['TotalConnectionTime'])) {

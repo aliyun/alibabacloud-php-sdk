@@ -8,10 +8,12 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\authorizeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\authorizeSecurityPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\clientType;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\clipboardGraineds;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\deviceRedirects;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\deviceRules;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\domainResolveRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\netRedirectRule;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\recordEventLevels;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCenterPolicyRequest\usbSupplyRedirectRule;
 
 class CreateCenterPolicyRequest extends Model
@@ -37,6 +39,11 @@ class CreateCenterPolicyRequest extends Model
     public $authorizeSecurityPolicyRule;
 
     /**
+     * @var string
+     */
+    public $autoReconnect;
+
+    /**
      * @var int
      */
     public $businessType;
@@ -60,6 +67,16 @@ class CreateCenterPolicyRequest extends Model
      * @var string
      */
     public $clipboard;
+
+    /**
+     * @var clipboardGraineds[]
+     */
+    public $clipboardGraineds;
+
+    /**
+     * @var string
+     */
+    public $clipboardScope;
 
     /**
      * @var string
@@ -244,7 +261,22 @@ class CreateCenterPolicyRequest extends Model
     /**
      * @var string
      */
+    public $mobileSafeMenu;
+
+    /**
+     * @var string
+     */
     public $mobileShutdown;
+
+    /**
+     * @var string
+     */
+    public $mobileWuyingKeeper;
+
+    /**
+     * @var string
+     */
+    public $mobileWyAssistant;
 
     /**
      * @var string
@@ -289,7 +321,17 @@ class CreateCenterPolicyRequest extends Model
     /**
      * @var string[]
      */
+    public $recordEventFileExts;
+
+    /**
+     * @var string[]
+     */
     public $recordEventFilePaths;
+
+    /**
+     * @var recordEventLevels[]
+     */
+    public $recordEventLevels;
 
     /**
      * @var string[]
@@ -560,11 +602,14 @@ class CreateCenterPolicyRequest extends Model
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRule' => 'AuthorizeAccessPolicyRule',
         'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
+        'autoReconnect' => 'AutoReconnect',
         'businessType' => 'BusinessType',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
         'clientType' => 'ClientType',
         'clipboard' => 'Clipboard',
+        'clipboardGraineds' => 'ClipboardGraineds',
+        'clipboardScope' => 'ClipboardScope',
         'colorEnhancement' => 'ColorEnhancement',
         'cpdDriveClipboard' => 'CpdDriveClipboard',
         'cpuDownGradeDuration' => 'CpuDownGradeDuration',
@@ -601,7 +646,10 @@ class CreateCenterPolicyRequest extends Model
         'memorySampleDuration' => 'MemorySampleDuration',
         'memorySingleRateLimit' => 'MemorySingleRateLimit',
         'mobileRestart' => 'MobileRestart',
+        'mobileSafeMenu' => 'MobileSafeMenu',
         'mobileShutdown' => 'MobileShutdown',
+        'mobileWuyingKeeper' => 'MobileWuyingKeeper',
+        'mobileWyAssistant' => 'MobileWyAssistant',
         'name' => 'Name',
         'netRedirect' => 'NetRedirect',
         'netRedirectRule' => 'NetRedirectRule',
@@ -610,7 +658,9 @@ class CreateCenterPolicyRequest extends Model
         'printerRedirect' => 'PrinterRedirect',
         'qualityEnhancement' => 'QualityEnhancement',
         'recordEventDuration' => 'RecordEventDuration',
+        'recordEventFileExts' => 'RecordEventFileExts',
         'recordEventFilePaths' => 'RecordEventFilePaths',
+        'recordEventLevels' => 'RecordEventLevels',
         'recordEventRegisters' => 'RecordEventRegisters',
         'recordEvents' => 'RecordEvents',
         'recording' => 'Recording',
@@ -677,6 +727,9 @@ class CreateCenterPolicyRequest extends Model
         if (\is_array($this->clientType)) {
             Model::validateArray($this->clientType);
         }
+        if (\is_array($this->clipboardGraineds)) {
+            Model::validateArray($this->clipboardGraineds);
+        }
         if (\is_array($this->cpuProcessors)) {
             Model::validateArray($this->cpuProcessors);
         }
@@ -695,8 +748,14 @@ class CreateCenterPolicyRequest extends Model
         if (\is_array($this->netRedirectRule)) {
             Model::validateArray($this->netRedirectRule);
         }
+        if (\is_array($this->recordEventFileExts)) {
+            Model::validateArray($this->recordEventFileExts);
+        }
         if (\is_array($this->recordEventFilePaths)) {
             Model::validateArray($this->recordEventFilePaths);
+        }
+        if (\is_array($this->recordEventLevels)) {
+            Model::validateArray($this->recordEventLevels);
         }
         if (\is_array($this->recordEventRegisters)) {
             Model::validateArray($this->recordEventRegisters);
@@ -746,6 +805,10 @@ class CreateCenterPolicyRequest extends Model
             }
         }
 
+        if (null !== $this->autoReconnect) {
+            $res['AutoReconnect'] = $this->autoReconnect;
+        }
+
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
@@ -771,6 +834,21 @@ class CreateCenterPolicyRequest extends Model
 
         if (null !== $this->clipboard) {
             $res['Clipboard'] = $this->clipboard;
+        }
+
+        if (null !== $this->clipboardGraineds) {
+            if (\is_array($this->clipboardGraineds)) {
+                $res['ClipboardGraineds'] = [];
+                $n1 = 0;
+                foreach ($this->clipboardGraineds as $item1) {
+                    $res['ClipboardGraineds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->clipboardScope) {
+            $res['ClipboardScope'] = $this->clipboardScope;
         }
 
         if (null !== $this->colorEnhancement) {
@@ -952,8 +1030,20 @@ class CreateCenterPolicyRequest extends Model
             $res['MobileRestart'] = $this->mobileRestart;
         }
 
+        if (null !== $this->mobileSafeMenu) {
+            $res['MobileSafeMenu'] = $this->mobileSafeMenu;
+        }
+
         if (null !== $this->mobileShutdown) {
             $res['MobileShutdown'] = $this->mobileShutdown;
+        }
+
+        if (null !== $this->mobileWuyingKeeper) {
+            $res['MobileWuyingKeeper'] = $this->mobileWuyingKeeper;
+        }
+
+        if (null !== $this->mobileWyAssistant) {
+            $res['MobileWyAssistant'] = $this->mobileWyAssistant;
         }
 
         if (null !== $this->name) {
@@ -995,12 +1085,34 @@ class CreateCenterPolicyRequest extends Model
             $res['RecordEventDuration'] = $this->recordEventDuration;
         }
 
+        if (null !== $this->recordEventFileExts) {
+            if (\is_array($this->recordEventFileExts)) {
+                $res['RecordEventFileExts'] = [];
+                $n1 = 0;
+                foreach ($this->recordEventFileExts as $item1) {
+                    $res['RecordEventFileExts'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->recordEventFilePaths) {
             if (\is_array($this->recordEventFilePaths)) {
                 $res['RecordEventFilePaths'] = [];
                 $n1 = 0;
                 foreach ($this->recordEventFilePaths as $item1) {
                     $res['RecordEventFilePaths'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->recordEventLevels) {
+            if (\is_array($this->recordEventLevels)) {
+                $res['RecordEventLevels'] = [];
+                $n1 = 0;
+                foreach ($this->recordEventLevels as $item1) {
+                    $res['RecordEventLevels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -1287,6 +1399,10 @@ class CreateCenterPolicyRequest extends Model
             }
         }
 
+        if (isset($map['AutoReconnect'])) {
+            $model->autoReconnect = $map['AutoReconnect'];
+        }
+
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
@@ -1312,6 +1428,21 @@ class CreateCenterPolicyRequest extends Model
 
         if (isset($map['Clipboard'])) {
             $model->clipboard = $map['Clipboard'];
+        }
+
+        if (isset($map['ClipboardGraineds'])) {
+            if (!empty($map['ClipboardGraineds'])) {
+                $model->clipboardGraineds = [];
+                $n1 = 0;
+                foreach ($map['ClipboardGraineds'] as $item1) {
+                    $model->clipboardGraineds[$n1] = clipboardGraineds::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ClipboardScope'])) {
+            $model->clipboardScope = $map['ClipboardScope'];
         }
 
         if (isset($map['ColorEnhancement'])) {
@@ -1493,8 +1624,20 @@ class CreateCenterPolicyRequest extends Model
             $model->mobileRestart = $map['MobileRestart'];
         }
 
+        if (isset($map['MobileSafeMenu'])) {
+            $model->mobileSafeMenu = $map['MobileSafeMenu'];
+        }
+
         if (isset($map['MobileShutdown'])) {
             $model->mobileShutdown = $map['MobileShutdown'];
+        }
+
+        if (isset($map['MobileWuyingKeeper'])) {
+            $model->mobileWuyingKeeper = $map['MobileWuyingKeeper'];
+        }
+
+        if (isset($map['MobileWyAssistant'])) {
+            $model->mobileWyAssistant = $map['MobileWyAssistant'];
         }
 
         if (isset($map['Name'])) {
@@ -1536,12 +1679,34 @@ class CreateCenterPolicyRequest extends Model
             $model->recordEventDuration = $map['RecordEventDuration'];
         }
 
+        if (isset($map['RecordEventFileExts'])) {
+            if (!empty($map['RecordEventFileExts'])) {
+                $model->recordEventFileExts = [];
+                $n1 = 0;
+                foreach ($map['RecordEventFileExts'] as $item1) {
+                    $model->recordEventFileExts[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RecordEventFilePaths'])) {
             if (!empty($map['RecordEventFilePaths'])) {
                 $model->recordEventFilePaths = [];
                 $n1 = 0;
                 foreach ($map['RecordEventFilePaths'] as $item1) {
                     $model->recordEventFilePaths[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RecordEventLevels'])) {
+            if (!empty($map['RecordEventLevels'])) {
+                $model->recordEventLevels = [];
+                $n1 = 0;
+                foreach ($map['RecordEventLevels'] as $item1) {
+                    $model->recordEventLevels[$n1] = recordEventLevels::fromMap($item1);
                     ++$n1;
                 }
             }

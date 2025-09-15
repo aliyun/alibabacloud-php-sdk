@@ -3448,6 +3448,10 @@ class Ecd extends OpenApiClient
             @$query['AuthorizeSecurityPolicyRule'] = $request->authorizeSecurityPolicyRule;
         }
 
+        if (null !== $request->autoReconnect) {
+            @$query['AutoReconnect'] = $request->autoReconnect;
+        }
+
         if (null !== $request->businessType) {
             @$query['BusinessType'] = $request->businessType;
         }
@@ -3466,6 +3470,14 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->clipboard) {
             @$query['Clipboard'] = $request->clipboard;
+        }
+
+        if (null !== $request->clipboardGraineds) {
+            @$query['ClipboardGraineds'] = $request->clipboardGraineds;
+        }
+
+        if (null !== $request->clipboardScope) {
+            @$query['ClipboardScope'] = $request->clipboardScope;
         }
 
         if (null !== $request->colorEnhancement) {
@@ -3612,8 +3624,20 @@ class Ecd extends OpenApiClient
             @$query['MobileRestart'] = $request->mobileRestart;
         }
 
+        if (null !== $request->mobileSafeMenu) {
+            @$query['MobileSafeMenu'] = $request->mobileSafeMenu;
+        }
+
         if (null !== $request->mobileShutdown) {
             @$query['MobileShutdown'] = $request->mobileShutdown;
+        }
+
+        if (null !== $request->mobileWuyingKeeper) {
+            @$query['MobileWuyingKeeper'] = $request->mobileWuyingKeeper;
+        }
+
+        if (null !== $request->mobileWyAssistant) {
+            @$query['MobileWyAssistant'] = $request->mobileWyAssistant;
         }
 
         if (null !== $request->name) {
@@ -3648,8 +3672,16 @@ class Ecd extends OpenApiClient
             @$query['RecordEventDuration'] = $request->recordEventDuration;
         }
 
+        if (null !== $request->recordEventFileExts) {
+            @$query['RecordEventFileExts'] = $request->recordEventFileExts;
+        }
+
         if (null !== $request->recordEventFilePaths) {
             @$query['RecordEventFilePaths'] = $request->recordEventFilePaths;
+        }
+
+        if (null !== $request->recordEventLevels) {
+            @$query['RecordEventLevels'] = $request->recordEventLevels;
         }
 
         if (null !== $request->recordEventRegisters) {
@@ -9409,12 +9441,28 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->desktopGroupIds) {
+            @$query['DesktopGroupIds'] = $request->desktopGroupIds;
+        }
+
+        if (null !== $request->desktopGroupName) {
+            @$query['DesktopGroupName'] = $request->desktopGroupName;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
         }
 
         if (null !== $request->endUserId) {
             @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->fillTerminalInfo) {
+            @$query['FillTerminalInfo'] = $request->fillTerminalInfo;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
 
         if (null !== $request->maxResults) {
@@ -9932,6 +9980,14 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->endUserIdFilter) {
             @$query['EndUserIdFilter'] = $request->endUserIdFilter;
+        }
+
+        if (null !== $request->fillHardwareInfo) {
+            @$query['FillHardwareInfo'] = $request->fillHardwareInfo;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
 
         if (null !== $request->officeSiteId) {
@@ -16978,6 +17034,10 @@ class Ecd extends OpenApiClient
             @$query['AuthorizeSecurityPolicyRule'] = $request->authorizeSecurityPolicyRule;
         }
 
+        if (null !== $request->autoReconnect) {
+            @$query['AutoReconnect'] = $request->autoReconnect;
+        }
+
         if (null !== $request->businessType) {
             @$query['BusinessType'] = $request->businessType;
         }
@@ -16996,6 +17056,14 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->clipboard) {
             @$query['Clipboard'] = $request->clipboard;
+        }
+
+        if (null !== $request->clipboardGraineds) {
+            @$query['ClipboardGraineds'] = $request->clipboardGraineds;
+        }
+
+        if (null !== $request->clipboardScope) {
+            @$query['ClipboardScope'] = $request->clipboardScope;
         }
 
         if (null !== $request->colorEnhancement) {
@@ -17142,8 +17210,20 @@ class Ecd extends OpenApiClient
             @$query['MobileRestart'] = $request->mobileRestart;
         }
 
+        if (null !== $request->mobileSafeMenu) {
+            @$query['MobileSafeMenu'] = $request->mobileSafeMenu;
+        }
+
         if (null !== $request->mobileShutdown) {
             @$query['MobileShutdown'] = $request->mobileShutdown;
+        }
+
+        if (null !== $request->mobileWuyingKeeper) {
+            @$query['MobileWuyingKeeper'] = $request->mobileWuyingKeeper;
+        }
+
+        if (null !== $request->mobileWyAssistant) {
+            @$query['MobileWyAssistant'] = $request->mobileWyAssistant;
         }
 
         if (null !== $request->name) {
@@ -17182,8 +17262,16 @@ class Ecd extends OpenApiClient
             @$query['RecordEventDuration'] = $request->recordEventDuration;
         }
 
+        if (null !== $request->recordEventFileExts) {
+            @$query['RecordEventFileExts'] = $request->recordEventFileExts;
+        }
+
         if (null !== $request->recordEventFilePaths) {
             @$query['RecordEventFilePaths'] = $request->recordEventFilePaths;
+        }
+
+        if (null !== $request->recordEventLevels) {
+            @$query['RecordEventLevels'] = $request->recordEventLevels;
         }
 
         if (null !== $request->recordEventRegisters) {

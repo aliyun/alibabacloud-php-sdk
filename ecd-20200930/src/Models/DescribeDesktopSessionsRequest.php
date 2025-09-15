@@ -39,6 +39,16 @@ class DescribeDesktopSessionsRequest extends Model
     public $endUserIdFilter;
 
     /**
+     * @var bool
+     */
+    public $fillHardwareInfo;
+
+    /**
+     * @var string
+     */
+    public $language;
+
+    /**
      * @var string
      */
     public $officeSiteId;
@@ -84,6 +94,8 @@ class DescribeDesktopSessionsRequest extends Model
         'endTime' => 'EndTime',
         'endUserId' => 'EndUserId',
         'endUserIdFilter' => 'EndUserIdFilter',
+        'fillHardwareInfo' => 'FillHardwareInfo',
+        'language' => 'Language',
         'officeSiteId' => 'OfficeSiteId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -134,6 +146,14 @@ class DescribeDesktopSessionsRequest extends Model
 
         if (null !== $this->endUserIdFilter) {
             $res['EndUserIdFilter'] = $this->endUserIdFilter;
+        }
+
+        if (null !== $this->fillHardwareInfo) {
+            $res['FillHardwareInfo'] = $this->fillHardwareInfo;
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->officeSiteId) {
@@ -208,6 +228,14 @@ class DescribeDesktopSessionsRequest extends Model
 
         if (isset($map['EndUserIdFilter'])) {
             $model->endUserIdFilter = $map['EndUserIdFilter'];
+        }
+
+        if (isset($map['FillHardwareInfo'])) {
+            $model->fillHardwareInfo = $map['FillHardwareInfo'];
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['OfficeSiteId'])) {

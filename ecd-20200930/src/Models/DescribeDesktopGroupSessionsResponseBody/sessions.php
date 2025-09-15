@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupSessionsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupSessionsResponseBody\sessions\terminalInfo;
 
 class sessions extends Model
 {
@@ -99,6 +100,11 @@ class sessions extends Model
     public $sessionStatus;
 
     /**
+     * @var terminalInfo
+     */
+    public $terminalInfo;
+
+    /**
      * @var int
      */
     public $totalConnectionDuration;
@@ -121,11 +127,15 @@ class sessions extends Model
         'protocolType' => 'ProtocolType',
         'sessionIdleTime' => 'SessionIdleTime',
         'sessionStatus' => 'SessionStatus',
+        'terminalInfo' => 'TerminalInfo',
         'totalConnectionDuration' => 'TotalConnectionDuration',
     ];
 
     public function validate()
     {
+        if (null !== $this->terminalInfo) {
+            $this->terminalInfo->validate();
+        }
         parent::validate();
     }
 
@@ -202,6 +212,10 @@ class sessions extends Model
 
         if (null !== $this->sessionStatus) {
             $res['SessionStatus'] = $this->sessionStatus;
+        }
+
+        if (null !== $this->terminalInfo) {
+            $res['TerminalInfo'] = null !== $this->terminalInfo ? $this->terminalInfo->toArray($noStream) : $this->terminalInfo;
         }
 
         if (null !== $this->totalConnectionDuration) {
@@ -289,6 +303,10 @@ class sessions extends Model
 
         if (isset($map['SessionStatus'])) {
             $model->sessionStatus = $map['SessionStatus'];
+        }
+
+        if (isset($map['TerminalInfo'])) {
+            $model->terminalInfo = terminalInfo::fromMap($map['TerminalInfo']);
         }
 
         if (isset($map['TotalConnectionDuration'])) {

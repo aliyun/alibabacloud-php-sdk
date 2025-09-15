@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\descr
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\deviceRules;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\domainResolveRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\netRedirectRule;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\recordEventLevels;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\usbSupplyRedirectRule;
 
 class describePolicyGroups extends Model
@@ -35,6 +36,11 @@ class describePolicyGroups extends Model
      * @var authorizeSecurityPolicyRules[]
      */
     public $authorizeSecurityPolicyRules;
+
+    /**
+     * @var string
+     */
+    public $autoReconnect;
 
     /**
      * @var string
@@ -254,7 +260,22 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $mobileSafeMenu;
+
+    /**
+     * @var string
+     */
     public $mobileShutdown;
+
+    /**
+     * @var string
+     */
+    public $mobileWuyingKeeper;
+
+    /**
+     * @var string
+     */
+    public $mobileWyAssistant;
 
     /**
      * @var string
@@ -324,7 +345,17 @@ class describePolicyGroups extends Model
     /**
      * @var string[]
      */
+    public $recordEventFileExts;
+
+    /**
+     * @var string[]
+     */
     public $recordEventFilePaths;
+
+    /**
+     * @var recordEventLevels[]
+     */
+    public $recordEventLevels;
 
     /**
      * @var string[]
@@ -580,6 +611,7 @@ class describePolicyGroups extends Model
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
         'authorizeSecurityPolicyRules' => 'AuthorizeSecurityPolicyRules',
+        'autoReconnect' => 'AutoReconnect',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
         'clientTypes' => 'ClientTypes',
@@ -623,7 +655,10 @@ class describePolicyGroups extends Model
         'memorySampleDuration' => 'MemorySampleDuration',
         'memorySingleRateLimit' => 'MemorySingleRateLimit',
         'mobileRestart' => 'MobileRestart',
+        'mobileSafeMenu' => 'MobileSafeMenu',
         'mobileShutdown' => 'MobileShutdown',
+        'mobileWuyingKeeper' => 'MobileWuyingKeeper',
+        'mobileWyAssistant' => 'MobileWyAssistant',
         'name' => 'Name',
         'netRedirect' => 'NetRedirect',
         'netRedirectRule' => 'NetRedirectRule',
@@ -637,7 +672,9 @@ class describePolicyGroups extends Model
         'recordContent' => 'RecordContent',
         'recordContentExpires' => 'RecordContentExpires',
         'recordEventDuration' => 'RecordEventDuration',
+        'recordEventFileExts' => 'RecordEventFileExts',
         'recordEventFilePaths' => 'RecordEventFilePaths',
+        'recordEventLevels' => 'RecordEventLevels',
         'recordEventRegisters' => 'RecordEventRegisters',
         'recording' => 'Recording',
         'recordingAudio' => 'RecordingAudio',
@@ -722,8 +759,14 @@ class describePolicyGroups extends Model
         if (\is_array($this->preemptLoginUsers)) {
             Model::validateArray($this->preemptLoginUsers);
         }
+        if (\is_array($this->recordEventFileExts)) {
+            Model::validateArray($this->recordEventFileExts);
+        }
         if (\is_array($this->recordEventFilePaths)) {
             Model::validateArray($this->recordEventFilePaths);
+        }
+        if (\is_array($this->recordEventLevels)) {
+            Model::validateArray($this->recordEventLevels);
         }
         if (\is_array($this->recordEventRegisters)) {
             Model::validateArray($this->recordEventRegisters);
@@ -768,6 +811,10 @@ class describePolicyGroups extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->autoReconnect) {
+            $res['AutoReconnect'] = $this->autoReconnect;
         }
 
         if (null !== $this->cameraRedirect) {
@@ -984,8 +1031,20 @@ class describePolicyGroups extends Model
             $res['MobileRestart'] = $this->mobileRestart;
         }
 
+        if (null !== $this->mobileSafeMenu) {
+            $res['MobileSafeMenu'] = $this->mobileSafeMenu;
+        }
+
         if (null !== $this->mobileShutdown) {
             $res['MobileShutdown'] = $this->mobileShutdown;
+        }
+
+        if (null !== $this->mobileWuyingKeeper) {
+            $res['MobileWuyingKeeper'] = $this->mobileWuyingKeeper;
+        }
+
+        if (null !== $this->mobileWyAssistant) {
+            $res['MobileWyAssistant'] = $this->mobileWyAssistant;
         }
 
         if (null !== $this->name) {
@@ -1054,12 +1113,34 @@ class describePolicyGroups extends Model
             $res['RecordEventDuration'] = $this->recordEventDuration;
         }
 
+        if (null !== $this->recordEventFileExts) {
+            if (\is_array($this->recordEventFileExts)) {
+                $res['RecordEventFileExts'] = [];
+                $n1 = 0;
+                foreach ($this->recordEventFileExts as $item1) {
+                    $res['RecordEventFileExts'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->recordEventFilePaths) {
             if (\is_array($this->recordEventFilePaths)) {
                 $res['RecordEventFilePaths'] = [];
                 $n1 = 0;
                 foreach ($this->recordEventFilePaths as $item1) {
                     $res['RecordEventFilePaths'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->recordEventLevels) {
+            if (\is_array($this->recordEventLevels)) {
+                $res['RecordEventLevels'] = [];
+                $n1 = 0;
+                foreach ($this->recordEventLevels as $item1) {
+                    $res['RecordEventLevels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -1327,6 +1408,10 @@ class describePolicyGroups extends Model
             }
         }
 
+        if (isset($map['AutoReconnect'])) {
+            $model->autoReconnect = $map['AutoReconnect'];
+        }
+
         if (isset($map['CameraRedirect'])) {
             $model->cameraRedirect = $map['CameraRedirect'];
         }
@@ -1541,8 +1626,20 @@ class describePolicyGroups extends Model
             $model->mobileRestart = $map['MobileRestart'];
         }
 
+        if (isset($map['MobileSafeMenu'])) {
+            $model->mobileSafeMenu = $map['MobileSafeMenu'];
+        }
+
         if (isset($map['MobileShutdown'])) {
             $model->mobileShutdown = $map['MobileShutdown'];
+        }
+
+        if (isset($map['MobileWuyingKeeper'])) {
+            $model->mobileWuyingKeeper = $map['MobileWuyingKeeper'];
+        }
+
+        if (isset($map['MobileWyAssistant'])) {
+            $model->mobileWyAssistant = $map['MobileWyAssistant'];
         }
 
         if (isset($map['Name'])) {
@@ -1611,12 +1708,34 @@ class describePolicyGroups extends Model
             $model->recordEventDuration = $map['RecordEventDuration'];
         }
 
+        if (isset($map['RecordEventFileExts'])) {
+            if (!empty($map['RecordEventFileExts'])) {
+                $model->recordEventFileExts = [];
+                $n1 = 0;
+                foreach ($map['RecordEventFileExts'] as $item1) {
+                    $model->recordEventFileExts[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RecordEventFilePaths'])) {
             if (!empty($map['RecordEventFilePaths'])) {
                 $model->recordEventFilePaths = [];
                 $n1 = 0;
                 foreach ($map['RecordEventFilePaths'] as $item1) {
                     $model->recordEventFilePaths[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RecordEventLevels'])) {
+            if (!empty($map['RecordEventLevels'])) {
+                $model->recordEventLevels = [];
+                $n1 = 0;
+                foreach ($map['RecordEventLevels'] as $item1) {
+                    $model->recordEventLevels[$n1] = recordEventLevels::fromMap($item1);
                     ++$n1;
                 }
             }
