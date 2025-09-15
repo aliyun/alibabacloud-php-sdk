@@ -53,6 +53,11 @@ class DescribeNodeResponseBody extends Model
     /**
      * @var string
      */
+    public $hyperNodeId;
+
+    /**
+     * @var string
+     */
     public $imageId;
 
     /**
@@ -128,6 +133,7 @@ class DescribeNodeResponseBody extends Model
         'fileSystemMountEnabled' => 'FileSystemMountEnabled',
         'hostname' => 'Hostname',
         'hpnZone' => 'HpnZone',
+        'hyperNodeId' => 'HyperNodeId',
         'imageId' => 'ImageId',
         'imageName' => 'ImageName',
         'machineType' => 'MachineType',
@@ -195,6 +201,10 @@ class DescribeNodeResponseBody extends Model
 
         if (null !== $this->hpnZone) {
             $res['HpnZone'] = $this->hpnZone;
+        }
+
+        if (null !== $this->hyperNodeId) {
+            $res['HyperNodeId'] = $this->hyperNodeId;
         }
 
         if (null !== $this->imageId) {
@@ -308,6 +318,10 @@ class DescribeNodeResponseBody extends Model
 
         if (isset($map['HpnZone'])) {
             $model->hpnZone = $map['HpnZone'];
+        }
+
+        if (isset($map['HyperNodeId'])) {
+            $model->hyperNodeId = $map['HyperNodeId'];
         }
 
         if (isset($map['ImageId'])) {

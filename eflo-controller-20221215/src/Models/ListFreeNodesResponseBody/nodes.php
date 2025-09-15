@@ -32,6 +32,11 @@ class nodes extends Model
     /**
      * @var string
      */
+    public $hyperNodeId;
+
+    /**
+     * @var string
+     */
     public $machineType;
 
     /**
@@ -68,6 +73,7 @@ class nodes extends Model
         'createTime' => 'CreateTime',
         'expiredTime' => 'ExpiredTime',
         'hpnZone' => 'HpnZone',
+        'hyperNodeId' => 'HyperNodeId',
         'machineType' => 'MachineType',
         'nodeId' => 'NodeId',
         'operatingState' => 'OperatingState',
@@ -102,6 +108,10 @@ class nodes extends Model
 
         if (null !== $this->hpnZone) {
             $res['HpnZone'] = $this->hpnZone;
+        }
+
+        if (null !== $this->hyperNodeId) {
+            $res['HyperNodeId'] = $this->hyperNodeId;
         }
 
         if (null !== $this->machineType) {
@@ -164,6 +174,10 @@ class nodes extends Model
 
         if (isset($map['HpnZone'])) {
             $model->hpnZone = $map['HpnZone'];
+        }
+
+        if (isset($map['HyperNodeId'])) {
+            $model->hyperNodeId = $map['HyperNodeId'];
         }
 
         if (isset($map['MachineType'])) {
