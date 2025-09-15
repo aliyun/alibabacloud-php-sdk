@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDeploymentJobStatusResponseBody extends Model
 {
     /**
-     * @description The response parameters.
-     *
-     * @example []
-     *
      * @var mixed
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example EA69E364-5CBB-50E8-BF09-E8CAA396A4F8
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class UpdateDeploymentJobStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class UpdateDeploymentJobStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDeploymentJobStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

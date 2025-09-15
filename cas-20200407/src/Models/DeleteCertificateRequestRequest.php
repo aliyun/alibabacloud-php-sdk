@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCertificateRequestRequest extends Model
 {
     /**
-     * @description The ID of the certificate application order that you want to delete.
-     *
-     * >  After you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html), [CreateCertificateRequest](https://help.aliyun.com/document_detail/455292.html), or [CreateCertificateWithCsrRequest](https://help.aliyun.com/document_detail/455801.html) operation to submit a certificate application, you can obtain the ID of the certificate application order from the **OrderId** response parameter. You can also call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the order ID.
-     *
-     * This parameter is required.
-     *
-     * @example 123451222
-     *
      * @var int
      */
     public $orderId;
@@ -24,9 +16,12 @@ class DeleteCertificateRequestRequest extends Model
         'orderId' => 'OrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
@@ -36,11 +31,11 @@ class DeleteCertificateRequestRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCertificateRequestRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

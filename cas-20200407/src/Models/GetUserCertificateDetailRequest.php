@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserCertificateDetailRequest extends Model
 {
     /**
-     * @description Specifies whether to filter return results. Valid values: true and false. Default value: false. **true** specifies that the Cert, Key, EncryptCert, EncryptPrivateKey, SignCert, and SignPrivateKey parameters are not returned. **false** specifies that the parameters are returned.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $certFilter;
 
     /**
-     * @description The ID of the certificate.
-     *
-     * >  You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 6055048
-     *
      * @var int
      */
     public $certId;
@@ -34,14 +22,18 @@ class GetUserCertificateDetailRequest extends Model
         'certId' => 'CertId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certFilter) {
             $res['CertFilter'] = $this->certFilter;
         }
+
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
@@ -49,17 +41,18 @@ class GetUserCertificateDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserCertificateDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertFilter'])) {
             $model->certFilter = $map['CertFilter'];
         }
+
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }

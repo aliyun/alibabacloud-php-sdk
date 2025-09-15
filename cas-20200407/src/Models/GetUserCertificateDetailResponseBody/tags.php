@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestRequest;
+namespace AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
@@ -11,15 +11,15 @@ class tags extends Model
     /**
      * @var string
      */
-    public $key;
+    public $tagKey;
 
     /**
      * @var string
      */
-    public $value;
+    public $tagValue;
     protected $_name = [
-        'key' => 'Key',
-        'value' => 'Value',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class tags extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
         }
 
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['TagKey'])) {
+            $model->tagKey = $map['TagKey'];
         }
 
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
 
         return $model;

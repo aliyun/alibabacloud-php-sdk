@@ -4,43 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWorkerResourceStatusRequest extends Model
 {
     /**
-     * @description The ID of the deployment task. You can call the [CreateDeploymentJob](https://help.aliyun.com/document_detail/2712234.html) operation to obtain the ID of a deployment task from the **JobId** parameter. You can also call the [ListDeploymentJob](https://help.aliyun.com/document_detail/2712223.html) operation to obtain the ID of a deployment task.
-     *
-     * This parameter is required.
-     *
-     * @example 8888
-     *
      * @var int
      */
     public $jobId;
 
     /**
-     * @description The desired status.
-     *
-     * Valid values:
-     *
-     *   rollback
-     *
-     * This parameter is required.
-     *
-     * @example rollback
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The ID of the worker task. You can call the [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html) operation to obtain the ID of a worker task.
-     *
-     * This parameter is required.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $workerId;
@@ -50,17 +28,22 @@ class UpdateWorkerResourceStatusRequest extends Model
         'workerId' => 'WorkerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->workerId) {
             $res['WorkerId'] = $this->workerId;
         }
@@ -68,20 +51,22 @@ class UpdateWorkerResourceStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWorkerResourceStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['WorkerId'])) {
             $model->workerId = $map['WorkerId'];
         }

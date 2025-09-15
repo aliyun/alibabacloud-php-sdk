@@ -4,111 +4,41 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCloudResourcesRequest extends Model
 {
     /**
-     * @description The certificate IDs.
-     *
      * @var int[]
      */
     public $certIds;
 
     /**
-     * @description The cloud service provider.
-     *
-     * Valid values:
-     *
-     *   Tencent
-     *   Huawei
-     *   Aws
-     *   aliyun
-     *
-     * @example Tencent
-     *
      * @var string
      */
     public $cloudName;
 
     /**
-     * @description The cloud service.
-     *
-     * Valid values when CloudName is set to aliyun:
-     *
-     *   SLB: Classic Load Balancer (CLB). This value is available only on the China site (aliyun.com).
-     *   LIVE: ApsaraVideo Live. This value is available only on the China site (aliyun.com).
-     *   webHosting: Cloud Web Hosting. This value is available only on the China site (aliyun.com).
-     *   VOD: ApsaraVideo VOD. This value is available only on the China site (aliyun.com).
-     *   CR: Container Registry. This value is available only on the China site (aliyun.com).
-     *   DCDN: Dynamic Content Delivery Network (DCDN).
-     *   DDOS: Anti-DDoS.
-     *   CDN: Alibaba Cloud CDN (CDN).
-     *   ALB: Application Load Balancer (ALB).
-     *   APIGateway: API Gateway.
-     *   FC: Function Compute.
-     *   GA: Global Accelerator (GA).
-     *   MSE: Microservices Engine (MSE).
-     *   NLB: Network Load Balancer (NLB).
-     *   OSS: Object Storage Service (OSS).
-     *   SAE: Serverless App Engine (SAE).
-     *   WAF: Web Application Firewall (WAF).
-     *
-     * Valid values when CloudName is set to Tencent:
-     *
-     *   TencentCDN: Content Delivery Network (CDN).
-     *   TencentCLB: CLB.
-     *   TencentWAF: WAF.
-     *
-     * Valid value when CloudName is set to Huawei:
-     *
-     *   HuaweiCDN: CDN.
-     *
-     * Valid values when CloudName is set to Aws:
-     *
-     *   AwsCloudFront: Amazon CloudFront.
-     *   AwsCLB: CLB.
-     *   AwsALB: ALB.
-     *   AwsNLB: NLB.
-     *
-     * @example SLB
-     *
      * @var string
      */
     public $cloudProduct;
 
     /**
-     * @description The page number. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The keyword of the domain name or instance ID bound to the cloud resource.
-     *
-     * @example cert-instanceId
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description The AccessKey ID that is used to access cloud resources.
-     *
-     * @example 21
-     *
      * @var string
      */
     public $secretId;
 
     /**
-     * @description The number of entries per page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $showSize;
@@ -122,29 +52,48 @@ class ListCloudResourcesRequest extends Model
         'showSize' => 'ShowSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->certIds)) {
+            Model::validateArray($this->certIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certIds) {
-            $res['CertIds'] = $this->certIds;
+            if (\is_array($this->certIds)) {
+                $res['CertIds'] = [];
+                $n1 = 0;
+                foreach ($this->certIds as $item1) {
+                    $res['CertIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->cloudName) {
             $res['CloudName'] = $this->cloudName;
         }
+
         if (null !== $this->cloudProduct) {
             $res['CloudProduct'] = $this->cloudProduct;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->secretId) {
             $res['SecretId'] = $this->secretId;
         }
+
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
         }
@@ -152,34 +101,45 @@ class ListCloudResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCloudResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertIds'])) {
             if (!empty($map['CertIds'])) {
-                $model->certIds = $map['CertIds'];
+                $model->certIds = [];
+                $n1 = 0;
+                foreach ($map['CertIds'] as $item1) {
+                    $model->certIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['CloudName'])) {
             $model->cloudName = $map['CloudName'];
         }
+
         if (isset($map['CloudProduct'])) {
             $model->cloudProduct = $map['CloudProduct'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['SecretId'])) {
             $model->secretId = $map['SecretId'];
         }
+
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];
         }
