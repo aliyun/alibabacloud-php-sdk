@@ -68,6 +68,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingResponseHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingResponseHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingResponseHeaderModificationRuleShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpRequestHeaderModificationRuleShrinkRequest;
@@ -171,6 +177,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingRequestHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingRequestHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingResponseHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingResponseHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpResponseHeaderModificationRuleRequest;
@@ -328,6 +338,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpIncomingRequestHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpIncomingRequestHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpIncomingResponseHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpIncomingResponseHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpResponseHeaderModificationRuleRequest;
@@ -455,6 +469,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListESAIPInfoRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListESAIPInfoResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpIncomingRequestHeaderModificationRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpIncomingRequestHeaderModificationRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpIncomingResponseHeaderModificationRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpIncomingResponseHeaderModificationRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpRequestHeaderModificationRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpRequestHeaderModificationRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpResponseHeaderModificationRulesRequest;
@@ -626,6 +644,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppLogRiverResponse
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppResourceReserveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppResourceReserveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppResourceReserveShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingResponseHeaderModificationRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingResponseHeaderModificationRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleShrinkRequest;
@@ -2899,6 +2923,180 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEdgeContainerAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增HTTP入站请求头规则.
+     *
+     * @param tmpReq - CreateHttpIncomingRequestHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHttpIncomingRequestHeaderModificationRuleResponse
+     *
+     * @param CreateHttpIncomingRequestHeaderModificationRuleRequest $tmpReq
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
+     */
+    public function createHttpIncomingRequestHeaderModificationRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->requestHeaderModification) {
+            $request->requestHeaderModificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestHeaderModification, 'RequestHeaderModification', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->requestHeaderModificationShrink) {
+            @$query['RequestHeaderModification'] = $request->requestHeaderModificationShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateHttpIncomingRequestHeaderModificationRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateHttpIncomingRequestHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增HTTP入站请求头规则.
+     *
+     * @param Request - CreateHttpIncomingRequestHeaderModificationRuleRequest
+     *
+     * @returns CreateHttpIncomingRequestHeaderModificationRuleResponse
+     *
+     * @param CreateHttpIncomingRequestHeaderModificationRuleRequest $request
+     *
+     * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
+     */
+    public function createHttpIncomingRequestHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHttpIncomingRequestHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增HTTP入站响应头规则.
+     *
+     * @param tmpReq - CreateHttpIncomingResponseHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHttpIncomingResponseHeaderModificationRuleResponse
+     *
+     * @param CreateHttpIncomingResponseHeaderModificationRuleRequest $tmpReq
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
+     */
+    public function createHttpIncomingResponseHeaderModificationRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateHttpIncomingResponseHeaderModificationRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->responseHeaderModification) {
+            $request->responseHeaderModificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->responseHeaderModification, 'ResponseHeaderModification', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->responseHeaderModificationShrink) {
+            @$query['ResponseHeaderModification'] = $request->responseHeaderModificationShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateHttpIncomingResponseHeaderModificationRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateHttpIncomingResponseHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增HTTP入站响应头规则.
+     *
+     * @param Request - CreateHttpIncomingResponseHeaderModificationRuleRequest
+     *
+     * @returns CreateHttpIncomingResponseHeaderModificationRuleResponse
+     *
+     * @param CreateHttpIncomingResponseHeaderModificationRuleRequest $request
+     *
+     * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
+     */
+    public function createHttpIncomingResponseHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHttpIncomingResponseHeaderModificationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -6651,6 +6849,128 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEdgeContainerAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除HTTP入站请求头规则.
+     *
+     * @param Request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHttpIncomingRequestHeaderModificationRuleResponse
+     *
+     * @param DeleteHttpIncomingRequestHeaderModificationRuleRequest $request
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
+     */
+    public function deleteHttpIncomingRequestHeaderModificationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteHttpIncomingRequestHeaderModificationRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteHttpIncomingRequestHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除HTTP入站请求头规则.
+     *
+     * @param Request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
+     *
+     * @returns DeleteHttpIncomingRequestHeaderModificationRuleResponse
+     *
+     * @param DeleteHttpIncomingRequestHeaderModificationRuleRequest $request
+     *
+     * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
+     */
+    public function deleteHttpIncomingRequestHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHttpIncomingRequestHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除HTTP入站响应头规则.
+     *
+     * @param Request - DeleteHttpIncomingResponseHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHttpIncomingResponseHeaderModificationRuleResponse
+     *
+     * @param DeleteHttpIncomingResponseHeaderModificationRuleRequest $request
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
+     */
+    public function deleteHttpIncomingResponseHeaderModificationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteHttpIncomingResponseHeaderModificationRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteHttpIncomingResponseHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除HTTP入站响应头规则.
+     *
+     * @param Request - DeleteHttpIncomingResponseHeaderModificationRuleRequest
+     *
+     * @returns DeleteHttpIncomingResponseHeaderModificationRuleResponse
+     *
+     * @param DeleteHttpIncomingResponseHeaderModificationRuleRequest $request
+     *
+     * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
+     */
+    public function deleteHttpIncomingResponseHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHttpIncomingResponseHeaderModificationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -11260,6 +11580,112 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询HTTP入站请求头规则详情.
+     *
+     * @param Request - GetHttpIncomingRequestHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHttpIncomingRequestHeaderModificationRuleResponse
+     *
+     * @param GetHttpIncomingRequestHeaderModificationRuleRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return GetHttpIncomingRequestHeaderModificationRuleResponse
+     */
+    public function getHttpIncomingRequestHeaderModificationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetHttpIncomingRequestHeaderModificationRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetHttpIncomingRequestHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询HTTP入站请求头规则详情.
+     *
+     * @param Request - GetHttpIncomingRequestHeaderModificationRuleRequest
+     *
+     * @returns GetHttpIncomingRequestHeaderModificationRuleResponse
+     *
+     * @param GetHttpIncomingRequestHeaderModificationRuleRequest $request
+     *
+     * @return GetHttpIncomingRequestHeaderModificationRuleResponse
+     */
+    public function getHttpIncomingRequestHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHttpIncomingRequestHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询HTTP入站响应头规则.
+     *
+     * @param Request - GetHttpIncomingResponseHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHttpIncomingResponseHeaderModificationRuleResponse
+     *
+     * @param GetHttpIncomingResponseHeaderModificationRuleRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return GetHttpIncomingResponseHeaderModificationRuleResponse
+     */
+    public function getHttpIncomingResponseHeaderModificationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetHttpIncomingResponseHeaderModificationRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetHttpIncomingResponseHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询HTTP入站响应头规则.
+     *
+     * @param Request - GetHttpIncomingResponseHeaderModificationRuleRequest
+     *
+     * @returns GetHttpIncomingResponseHeaderModificationRuleResponse
+     *
+     * @param GetHttpIncomingResponseHeaderModificationRuleRequest $request
+     *
+     * @return GetHttpIncomingResponseHeaderModificationRuleResponse
+     */
+    public function getHttpIncomingResponseHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHttpIncomingResponseHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Query HTTP Request Header Rule Details.
      *
      * @param Request - GetHttpRequestHeaderModificationRuleRequest
@@ -14884,6 +15310,112 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEdgeRoutineRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询HTTP入站请求头规则列表.
+     *
+     * @param Request - ListHttpIncomingRequestHeaderModificationRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHttpIncomingRequestHeaderModificationRulesResponse
+     *
+     * @param ListHttpIncomingRequestHeaderModificationRulesRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return ListHttpIncomingRequestHeaderModificationRulesResponse
+     */
+    public function listHttpIncomingRequestHeaderModificationRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListHttpIncomingRequestHeaderModificationRules',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHttpIncomingRequestHeaderModificationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询HTTP入站请求头规则列表.
+     *
+     * @param Request - ListHttpIncomingRequestHeaderModificationRulesRequest
+     *
+     * @returns ListHttpIncomingRequestHeaderModificationRulesResponse
+     *
+     * @param ListHttpIncomingRequestHeaderModificationRulesRequest $request
+     *
+     * @return ListHttpIncomingRequestHeaderModificationRulesResponse
+     */
+    public function listHttpIncomingRequestHeaderModificationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHttpIncomingRequestHeaderModificationRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询HTTP入站响应头规则列表.
+     *
+     * @param Request - ListHttpIncomingResponseHeaderModificationRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHttpIncomingResponseHeaderModificationRulesResponse
+     *
+     * @param ListHttpIncomingResponseHeaderModificationRulesRequest $request
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return ListHttpIncomingResponseHeaderModificationRulesResponse
+     */
+    public function listHttpIncomingResponseHeaderModificationRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListHttpIncomingResponseHeaderModificationRules',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHttpIncomingResponseHeaderModificationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询HTTP入站响应头规则列表.
+     *
+     * @param Request - ListHttpIncomingResponseHeaderModificationRulesRequest
+     *
+     * @returns ListHttpIncomingResponseHeaderModificationRulesResponse
+     *
+     * @param ListHttpIncomingResponseHeaderModificationRulesRequest $request
+     *
+     * @return ListHttpIncomingResponseHeaderModificationRulesResponse
+     */
+    public function listHttpIncomingResponseHeaderModificationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHttpIncomingResponseHeaderModificationRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -20290,6 +20822,180 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEdgeContainerAppResourceReserveWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改HTTP入站请求头规则.
+     *
+     * @param tmpReq - UpdateHttpIncomingRequestHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHttpIncomingRequestHeaderModificationRuleResponse
+     *
+     * @param UpdateHttpIncomingRequestHeaderModificationRuleRequest $tmpReq
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
+     */
+    public function updateHttpIncomingRequestHeaderModificationRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateHttpIncomingRequestHeaderModificationRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->requestHeaderModification) {
+            $request->requestHeaderModificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestHeaderModification, 'RequestHeaderModification', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->requestHeaderModificationShrink) {
+            @$query['RequestHeaderModification'] = $request->requestHeaderModificationShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateHttpIncomingRequestHeaderModificationRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateHttpIncomingRequestHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改HTTP入站请求头规则.
+     *
+     * @param Request - UpdateHttpIncomingRequestHeaderModificationRuleRequest
+     *
+     * @returns UpdateHttpIncomingRequestHeaderModificationRuleResponse
+     *
+     * @param UpdateHttpIncomingRequestHeaderModificationRuleRequest $request
+     *
+     * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
+     */
+    public function updateHttpIncomingRequestHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHttpIncomingRequestHeaderModificationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改HTTP入站响应头规则.
+     *
+     * @param tmpReq - UpdateHttpIncomingResponseHeaderModificationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHttpIncomingResponseHeaderModificationRuleResponse
+     *
+     * @param UpdateHttpIncomingResponseHeaderModificationRuleRequest $tmpReq
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
+     */
+    public function updateHttpIncomingResponseHeaderModificationRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->responseHeaderModification) {
+            $request->responseHeaderModificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->responseHeaderModification, 'ResponseHeaderModification', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->responseHeaderModificationShrink) {
+            @$query['ResponseHeaderModification'] = $request->responseHeaderModificationShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateHttpIncomingResponseHeaderModificationRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateHttpIncomingResponseHeaderModificationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改HTTP入站响应头规则.
+     *
+     * @param Request - UpdateHttpIncomingResponseHeaderModificationRuleRequest
+     *
+     * @returns UpdateHttpIncomingResponseHeaderModificationRuleResponse
+     *
+     * @param UpdateHttpIncomingResponseHeaderModificationRuleRequest $request
+     *
+     * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
+     */
+    public function updateHttpIncomingResponseHeaderModificationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHttpIncomingResponseHeaderModificationRuleWithOptions($request, $runtime);
     }
 
     /**
