@@ -25,6 +25,11 @@ class CreateApplicationRequest extends Model
     public $configuration;
 
     /**
+     * @var bool
+     */
+    public $createAsync;
+
+    /**
      * @var instances[]
      */
     public $instances;
@@ -57,6 +62,7 @@ class CreateApplicationRequest extends Model
         'areaId' => 'AreaId',
         'clientToken' => 'ClientToken',
         'configuration' => 'Configuration',
+        'createAsync' => 'CreateAsync',
         'instances' => 'Instances',
         'name' => 'Name',
         'processVariables' => 'ProcessVariables',
@@ -100,6 +106,10 @@ class CreateApplicationRequest extends Model
                     $res['Configuration'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->createAsync) {
+            $res['CreateAsync'] = $this->createAsync;
         }
 
         if (null !== $this->instances) {
@@ -169,6 +179,10 @@ class CreateApplicationRequest extends Model
                     $model->configuration[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['CreateAsync'])) {
+            $model->createAsync = $map['CreateAsync'];
         }
 
         if (isset($map['Instances'])) {

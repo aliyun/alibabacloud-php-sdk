@@ -24,6 +24,11 @@ class CreateApplicationShrinkRequest extends Model
     public $configurationShrink;
 
     /**
+     * @var bool
+     */
+    public $createAsync;
+
+    /**
      * @var string
      */
     public $instancesShrink;
@@ -56,6 +61,7 @@ class CreateApplicationShrinkRequest extends Model
         'areaId' => 'AreaId',
         'clientToken' => 'ClientToken',
         'configurationShrink' => 'Configuration',
+        'createAsync' => 'CreateAsync',
         'instancesShrink' => 'Instances',
         'name' => 'Name',
         'processVariablesShrink' => 'ProcessVariables',
@@ -82,6 +88,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->configurationShrink) {
             $res['Configuration'] = $this->configurationShrink;
+        }
+
+        if (null !== $this->createAsync) {
+            $res['CreateAsync'] = $this->createAsync;
         }
 
         if (null !== $this->instancesShrink) {
@@ -129,6 +139,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['Configuration'])) {
             $model->configurationShrink = $map['Configuration'];
+        }
+
+        if (isset($map['CreateAsync'])) {
+            $model->createAsync = $map['CreateAsync'];
         }
 
         if (isset($map['Instances'])) {

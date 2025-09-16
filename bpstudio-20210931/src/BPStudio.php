@@ -14,6 +14,9 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\CreateApplicationShrinkRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\CreateTaskRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\CreateTaskResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\CreateTaskShrinkRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\DeployApplicationRequest;
@@ -24,6 +27,8 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationASyncShrinkReques
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteOperationSyncShrinkRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteTaskRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteTaskResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariables4FailRequest;
@@ -43,6 +48,8 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResource4ModifyRecordRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResource4ModifyRecordResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResult4QueryInstancePrice4ModifyRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResult4QueryInstancePrice4ModifyResponse;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTaskRequest;
+use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTaskResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTokenRequest;
@@ -358,6 +365,10 @@ class BPStudio extends OpenApiClient
             @$body['Configuration'] = $request->configurationShrink;
         }
 
+        if (null !== $request->createAsync) {
+            @$body['CreateAsync'] = $request->createAsync;
+        }
+
         if (null !== $request->instancesShrink) {
             @$body['Instances'] = $request->instancesShrink;
         }
@@ -416,6 +427,81 @@ class BPStudio extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建任务
+     *
+     * @param tmpReq - CreateTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTaskResponse
+     *
+     * @param CreateTaskRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateTaskResponse
+     */
+    public function createTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->variables) {
+            $request->variablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->processId) {
+            @$body['ProcessId'] = $request->processId;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->variablesShrink) {
+            @$body['Variables'] = $request->variablesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTask',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建任务
+     *
+     * @param request - CreateTaskRequest
+     *
+     * @returns CreateTaskResponse
+     *
+     * @param CreateTaskRequest $request
+     *
+     * @return CreateTaskResponse
+     */
+    public function createTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -716,6 +802,63 @@ class BPStudio extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeOperationSyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建任务
+     *
+     * @param request - ExecuteTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteTaskResponse
+     *
+     * @param ExecuteTaskRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ExecuteTaskResponse
+     */
+    public function executeTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteTask',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建任务
+     *
+     * @param request - ExecuteTaskRequest
+     *
+     * @returns ExecuteTaskResponse
+     *
+     * @param ExecuteTaskRequest $request
+     *
+     * @return ExecuteTaskResponse
+     */
+    public function executeTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1299,6 +1442,63 @@ class BPStudio extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResult4QueryInstancePrice4ModifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Task信息.
+     *
+     * @param request - GetTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTaskResponse
+     */
+    public function getTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTask',
+            'version' => '2021-09-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Task信息.
+     *
+     * @param request - GetTaskRequest
+     *
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     *
+     * @return GetTaskResponse
+     */
+    public function getTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskWithOptions($request, $runtime);
     }
 
     /**
