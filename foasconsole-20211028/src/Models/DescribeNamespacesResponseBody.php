@@ -69,7 +69,8 @@ class DescribeNamespacesResponseBody extends Model
                 $res['Namespaces'] = [];
                 $n1 = 0;
                 foreach ($this->namespaces as $item1) {
-                    $res['Namespaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Namespaces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class DescribeNamespacesResponseBody extends Model
                 $model->namespaces = [];
                 $n1 = 0;
                 foreach ($map['Namespaces'] as $item1) {
-                    $model->namespaces[$n1++] = namespaces::fromMap($item1);
+                    $model->namespaces[$n1] = namespaces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -2,18 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterState;
+namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterState\clusterStage\totalStageWithWeight;
 
-class clusterStage extends Model
+class ClusterStage extends Model
 {
-    /**
-     * @var string
-     */
-    public $clusterId;
-
     /**
      * @var int
      */
@@ -30,11 +24,10 @@ class clusterStage extends Model
     public $status;
 
     /**
-     * @var totalStageWithWeight[]
+     * @var StageWithWeight[]
      */
     public $totalStageWithWeight;
     protected $_name = [
-        'clusterId' => 'ClusterId',
         'currentStage' => 'CurrentStage',
         'message' => 'Message',
         'status' => 'Status',
@@ -52,10 +45,6 @@ class clusterStage extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-
         if (null !== $this->currentStage) {
             $res['CurrentStage'] = $this->currentStage;
         }
@@ -90,10 +79,6 @@ class clusterStage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-
         if (isset($map['CurrentStage'])) {
             $model->currentStage = $map['CurrentStage'];
         }
@@ -111,7 +96,7 @@ class clusterStage extends Model
                 $model->totalStageWithWeight = [];
                 $n1 = 0;
                 foreach ($map['TotalStageWithWeight'] as $item1) {
-                    $model->totalStageWithWeight[$n1] = totalStageWithWeight::fromMap($item1);
+                    $model->totalStageWithWeight[$n1] = StageWithWeight::fromMap($item1);
                     ++$n1;
                 }
             }

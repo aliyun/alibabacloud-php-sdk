@@ -92,7 +92,8 @@ class DescribeSupportedZonesResponseBody extends Model
                 $res['ZoneIds'] = [];
                 $n1 = 0;
                 foreach ($this->zoneIds as $item1) {
-                    $res['ZoneIds'][$n1++] = $item1;
+                    $res['ZoneIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class DescribeSupportedZonesResponseBody extends Model
                 $model->zoneIds = [];
                 $n1 = 0;
                 foreach ($map['ZoneIds'] as $item1) {
-                    $model->zoneIds[$n1++] = $item1;
+                    $model->zoneIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

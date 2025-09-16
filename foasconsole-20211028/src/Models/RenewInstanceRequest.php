@@ -26,12 +26,24 @@ class RenewInstanceRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $region;
+
+    /**
+     * @var bool
+     */
+    public $usePromotionCode;
     protected $_name = [
         'duration' => 'Duration',
         'instanceId' => 'InstanceId',
         'pricingCycle' => 'PricingCycle',
+        'promotionCode' => 'PromotionCode',
         'region' => 'Region',
+        'usePromotionCode' => 'UsePromotionCode',
     ];
 
     public function validate()
@@ -54,8 +66,16 @@ class RenewInstanceRequest extends Model
             $res['PricingCycle'] = $this->pricingCycle;
         }
 
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
+        }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+
+        if (null !== $this->usePromotionCode) {
+            $res['UsePromotionCode'] = $this->usePromotionCode;
         }
 
         return $res;
@@ -81,8 +101,16 @@ class RenewInstanceRequest extends Model
             $model->pricingCycle = $map['PricingCycle'];
         }
 
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
+        }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['UsePromotionCode'])) {
+            $model->usePromotionCode = $map['UsePromotionCode'];
         }
 
         return $model;

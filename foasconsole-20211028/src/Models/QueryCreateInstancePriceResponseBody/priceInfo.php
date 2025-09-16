@@ -131,7 +131,8 @@ class priceInfo extends Model
                 $res['OptionalPromotions'] = [];
                 $n1 = 0;
                 foreach ($this->optionalPromotions as $item1) {
-                    $res['OptionalPromotions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OptionalPromotions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +146,8 @@ class priceInfo extends Model
                 $res['Rules'] = [];
                 $n1 = 0;
                 foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,7 +204,8 @@ class priceInfo extends Model
                 $model->optionalPromotions = [];
                 $n1 = 0;
                 foreach ($map['OptionalPromotions'] as $item1) {
-                    $model->optionalPromotions[$n1++] = optionalPromotions::fromMap($item1);
+                    $model->optionalPromotions[$n1] = optionalPromotions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +219,8 @@ class priceInfo extends Model
                 $model->rules = [];
                 $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                    $model->rules[$n1] = rules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

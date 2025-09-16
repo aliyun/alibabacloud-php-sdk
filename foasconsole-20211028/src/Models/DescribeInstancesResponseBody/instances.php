@@ -349,7 +349,8 @@ class instances extends Model
                 $res['HaVSwitchIds'] = [];
                 $n1 = 0;
                 foreach ($this->haVSwitchIds as $item1) {
-                    $res['HaVSwitchIds'][$n1++] = $item1;
+                    $res['HaVSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -359,7 +360,8 @@ class instances extends Model
                 $res['HaVSwitchInfo'] = [];
                 $n1 = 0;
                 foreach ($this->haVSwitchInfo as $item1) {
-                    $res['HaVSwitchInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HaVSwitchInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -373,7 +375,8 @@ class instances extends Model
                 $res['HostAliases'] = [];
                 $n1 = 0;
                 foreach ($this->hostAliases as $item1) {
-                    $res['HostAliases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HostAliases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -431,7 +434,8 @@ class instances extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -445,7 +449,8 @@ class instances extends Model
                 $res['VSwitchIds'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
-                    $res['VSwitchIds'][$n1++] = $item1;
+                    $res['VSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -455,7 +460,8 @@ class instances extends Model
                 $res['VSwitchInfo'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchInfo as $item1) {
-                    $res['VSwitchInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VSwitchInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -540,7 +546,8 @@ class instances extends Model
                 $model->haVSwitchIds = [];
                 $n1 = 0;
                 foreach ($map['HaVSwitchIds'] as $item1) {
-                    $model->haVSwitchIds[$n1++] = $item1;
+                    $model->haVSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -550,7 +557,8 @@ class instances extends Model
                 $model->haVSwitchInfo = [];
                 $n1 = 0;
                 foreach ($map['HaVSwitchInfo'] as $item1) {
-                    $model->haVSwitchInfo[$n1++] = haVSwitchInfo::fromMap($item1);
+                    $model->haVSwitchInfo[$n1] = haVSwitchInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -564,7 +572,8 @@ class instances extends Model
                 $model->hostAliases = [];
                 $n1 = 0;
                 foreach ($map['HostAliases'] as $item1) {
-                    $model->hostAliases[$n1++] = hostAliases::fromMap($item1);
+                    $model->hostAliases[$n1] = hostAliases::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -622,7 +631,8 @@ class instances extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -636,7 +646,8 @@ class instances extends Model
                 $model->vSwitchIds = [];
                 $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -646,7 +657,8 @@ class instances extends Model
                 $model->vSwitchInfo = [];
                 $n1 = 0;
                 foreach ($map['VSwitchInfo'] as $item1) {
-                    $model->vSwitchInfo[$n1++] = vSwitchInfo::fromMap($item1);
+                    $model->vSwitchInfo[$n1] = vSwitchInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

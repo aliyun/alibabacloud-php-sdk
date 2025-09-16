@@ -37,14 +37,26 @@ class ConvertInstanceRequest extends Model
     /**
      * @var string
      */
+    public $promotionCode;
+
+    /**
+     * @var string
+     */
     public $region;
+
+    /**
+     * @var bool
+     */
+    public $usePromotionCode;
     protected $_name = [
         'duration' => 'Duration',
         'instanceId' => 'InstanceId',
         'isAutoRenew' => 'IsAutoRenew',
         'namespaceResourceSpecs' => 'NamespaceResourceSpecs',
         'pricingCycle' => 'PricingCycle',
+        'promotionCode' => 'PromotionCode',
         'region' => 'Region',
+        'usePromotionCode' => 'UsePromotionCode',
     ];
 
     public function validate()
@@ -75,7 +87,8 @@ class ConvertInstanceRequest extends Model
                 $res['NamespaceResourceSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->namespaceResourceSpecs as $item1) {
-                    $res['NamespaceResourceSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NamespaceResourceSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,8 +97,16 @@ class ConvertInstanceRequest extends Model
             $res['PricingCycle'] = $this->pricingCycle;
         }
 
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
+        }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+
+        if (null !== $this->usePromotionCode) {
+            $res['UsePromotionCode'] = $this->usePromotionCode;
         }
 
         return $res;
@@ -116,7 +137,8 @@ class ConvertInstanceRequest extends Model
                 $model->namespaceResourceSpecs = [];
                 $n1 = 0;
                 foreach ($map['NamespaceResourceSpecs'] as $item1) {
-                    $model->namespaceResourceSpecs[$n1++] = namespaceResourceSpecs::fromMap($item1);
+                    $model->namespaceResourceSpecs[$n1] = namespaceResourceSpecs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -125,8 +147,16 @@ class ConvertInstanceRequest extends Model
             $model->pricingCycle = $map['PricingCycle'];
         }
 
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
+        }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['UsePromotionCode'])) {
+            $model->usePromotionCode = $map['UsePromotionCode'];
         }
 
         return $model;

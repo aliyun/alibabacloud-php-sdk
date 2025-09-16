@@ -73,7 +73,8 @@ class userSlbDto extends Model
                 $res['UserSlbListeners'] = [];
                 $n1 = 0;
                 foreach ($this->userSlbListeners as $item1) {
-                    $res['UserSlbListeners'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserSlbListeners'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class userSlbDto extends Model
                 $model->userSlbListeners = [];
                 $n1 = 0;
                 foreach ($map['UserSlbListeners'] as $item1) {
-                    $model->userSlbListeners[$n1++] = userSlbListeners::fromMap($item1);
+                    $model->userSlbListeners[$n1] = userSlbListeners::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

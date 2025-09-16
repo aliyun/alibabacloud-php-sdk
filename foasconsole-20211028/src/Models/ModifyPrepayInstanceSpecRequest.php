@@ -84,7 +84,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
                 $res['HaVSwitchIds'] = [];
                 $n1 = 0;
                 foreach ($this->haVSwitchIds as $item1) {
-                    $res['HaVSwitchIds'][$n1++] = $item1;
+                    $res['HaVSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -129,7 +130,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
                 $model->haVSwitchIds = [];
                 $n1 = 0;
                 foreach ($map['HaVSwitchIds'] as $item1) {
-                    $model->haVSwitchIds[$n1++] = $item1;
+                    $model->haVSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

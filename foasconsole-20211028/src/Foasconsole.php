@@ -221,8 +221,16 @@ class Foasconsole extends OpenApiClient
             @$body['PricingCycle'] = $request->pricingCycle;
         }
 
+        if (null !== $request->promotionCode) {
+            @$body['PromotionCode'] = $request->promotionCode;
+        }
+
         if (null !== $request->region) {
             @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->usePromotionCode) {
+            @$body['UsePromotionCode'] = $request->usePromotionCode;
         }
 
         $req = new OpenApiRequest([
@@ -1048,6 +1056,8 @@ class Foasconsole extends OpenApiClient
     /**
      * 修改集群交换机.
      *
+     * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
+     *
      * @param tmpReq - ModifyInstanceVswitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1102,8 +1112,11 @@ class Foasconsole extends OpenApiClient
         return ModifyInstanceVswitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * 修改集群交换机.
+     *
+     * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
      *
      * @param request - ModifyInstanceVswitchRequest
      *
@@ -1209,7 +1222,6 @@ class Foasconsole extends OpenApiClient
         return $this->modifyNamespaceSpecV2WithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * 扩容/缩容.
      *
@@ -1310,7 +1322,6 @@ class Foasconsole extends OpenApiClient
         return $this->modifyPrepayInstanceSpecWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * 修改namespace资源分配.
      *
@@ -1434,8 +1445,16 @@ class Foasconsole extends OpenApiClient
             @$body['PricingCycle'] = $request->pricingCycle;
         }
 
+        if (null !== $request->promotionCode) {
+            @$body['PromotionCode'] = $request->promotionCode;
+        }
+
         if (null !== $request->region) {
             @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->usePromotionCode) {
+            @$body['UsePromotionCode'] = $request->usePromotionCode;
         }
 
         $req = new OpenApiRequest([
@@ -1798,8 +1817,16 @@ class Foasconsole extends OpenApiClient
             @$body['PricingCycle'] = $request->pricingCycle;
         }
 
+        if (null !== $request->promotionCode) {
+            @$body['PromotionCode'] = $request->promotionCode;
+        }
+
         if (null !== $request->region) {
             @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->usePromotionCode) {
+            @$body['UsePromotionCode'] = $request->usePromotionCode;
         }
 
         $req = new OpenApiRequest([
@@ -1867,8 +1894,16 @@ class Foasconsole extends OpenApiClient
             @$body['PricingCycle'] = $request->pricingCycle;
         }
 
+        if (null !== $request->promotionCode) {
+            @$body['PromotionCode'] = $request->promotionCode;
+        }
+
         if (null !== $request->region) {
             @$body['Region'] = $request->region;
+        }
+
+        if (null !== $request->usePromotionCode) {
+            @$body['UsePromotionCode'] = $request->usePromotionCode;
         }
 
         $req = new OpenApiRequest([
