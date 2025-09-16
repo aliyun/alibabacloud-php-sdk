@@ -11,6 +11,11 @@ class CreateWmEmbedTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $audioControlShrink;
+
+    /**
+     * @var string
+     */
     public $csvControlShrink;
 
     /**
@@ -44,9 +49,19 @@ class CreateWmEmbedTaskShrinkRequest extends Model
     public $imageEmbedLevel;
 
     /**
+     * @var bool
+     */
+    public $invisibleEnable;
+
+    /**
      * @var string
      */
     public $videoBitrate;
+
+    /**
+     * @var string
+     */
+    public $videoControlShrink;
 
     /**
      * @var bool
@@ -73,6 +88,7 @@ class CreateWmEmbedTaskShrinkRequest extends Model
      */
     public $wmType;
     protected $_name = [
+        'audioControlShrink' => 'AudioControl',
         'csvControlShrink' => 'CsvControl',
         'documentControlShrink' => 'DocumentControl',
         'fileUrl' => 'FileUrl',
@@ -80,7 +96,9 @@ class CreateWmEmbedTaskShrinkRequest extends Model
         'imageControlShrink' => 'ImageControl',
         'imageEmbedJpegQuality' => 'ImageEmbedJpegQuality',
         'imageEmbedLevel' => 'ImageEmbedLevel',
+        'invisibleEnable' => 'InvisibleEnable',
         'videoBitrate' => 'VideoBitrate',
+        'videoControlShrink' => 'VideoControl',
         'videoIsLong' => 'VideoIsLong',
         'wmInfoBytesB64' => 'WmInfoBytesB64',
         'wmInfoSize' => 'WmInfoSize',
@@ -96,6 +114,10 @@ class CreateWmEmbedTaskShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->audioControlShrink) {
+            $res['AudioControl'] = $this->audioControlShrink;
+        }
+
         if (null !== $this->csvControlShrink) {
             $res['CsvControl'] = $this->csvControlShrink;
         }
@@ -124,8 +146,16 @@ class CreateWmEmbedTaskShrinkRequest extends Model
             $res['ImageEmbedLevel'] = $this->imageEmbedLevel;
         }
 
+        if (null !== $this->invisibleEnable) {
+            $res['InvisibleEnable'] = $this->invisibleEnable;
+        }
+
         if (null !== $this->videoBitrate) {
             $res['VideoBitrate'] = $this->videoBitrate;
+        }
+
+        if (null !== $this->videoControlShrink) {
+            $res['VideoControl'] = $this->videoControlShrink;
         }
 
         if (null !== $this->videoIsLong) {
@@ -159,6 +189,10 @@ class CreateWmEmbedTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioControl'])) {
+            $model->audioControlShrink = $map['AudioControl'];
+        }
+
         if (isset($map['CsvControl'])) {
             $model->csvControlShrink = $map['CsvControl'];
         }
@@ -187,8 +221,16 @@ class CreateWmEmbedTaskShrinkRequest extends Model
             $model->imageEmbedLevel = $map['ImageEmbedLevel'];
         }
 
+        if (isset($map['InvisibleEnable'])) {
+            $model->invisibleEnable = $map['InvisibleEnable'];
+        }
+
         if (isset($map['VideoBitrate'])) {
             $model->videoBitrate = $map['VideoBitrate'];
+        }
+
+        if (isset($map['VideoControl'])) {
+            $model->videoControlShrink = $map['VideoControl'];
         }
 
         if (isset($map['VideoIsLong'])) {

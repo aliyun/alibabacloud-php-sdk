@@ -5,12 +5,19 @@
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\audioControl;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\csvControl;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\documentControl;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\imageControl;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmEmbedTaskRequest\videoControl;
 
 class CreateWmEmbedTaskRequest extends Model
 {
+    /**
+     * @var audioControl
+     */
+    public $audioControl;
+
     /**
      * @var csvControl
      */
@@ -47,9 +54,19 @@ class CreateWmEmbedTaskRequest extends Model
     public $imageEmbedLevel;
 
     /**
+     * @var bool
+     */
+    public $invisibleEnable;
+
+    /**
      * @var string
      */
     public $videoBitrate;
+
+    /**
+     * @var videoControl
+     */
+    public $videoControl;
 
     /**
      * @var bool
@@ -76,6 +93,7 @@ class CreateWmEmbedTaskRequest extends Model
      */
     public $wmType;
     protected $_name = [
+        'audioControl' => 'AudioControl',
         'csvControl' => 'CsvControl',
         'documentControl' => 'DocumentControl',
         'fileUrl' => 'FileUrl',
@@ -83,7 +101,9 @@ class CreateWmEmbedTaskRequest extends Model
         'imageControl' => 'ImageControl',
         'imageEmbedJpegQuality' => 'ImageEmbedJpegQuality',
         'imageEmbedLevel' => 'ImageEmbedLevel',
+        'invisibleEnable' => 'InvisibleEnable',
         'videoBitrate' => 'VideoBitrate',
+        'videoControl' => 'VideoControl',
         'videoIsLong' => 'VideoIsLong',
         'wmInfoBytesB64' => 'WmInfoBytesB64',
         'wmInfoSize' => 'WmInfoSize',
@@ -93,6 +113,9 @@ class CreateWmEmbedTaskRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->audioControl) {
+            $this->audioControl->validate();
+        }
         if (null !== $this->csvControl) {
             $this->csvControl->validate();
         }
@@ -102,12 +125,19 @@ class CreateWmEmbedTaskRequest extends Model
         if (null !== $this->imageControl) {
             $this->imageControl->validate();
         }
+        if (null !== $this->videoControl) {
+            $this->videoControl->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->audioControl) {
+            $res['AudioControl'] = null !== $this->audioControl ? $this->audioControl->toArray($noStream) : $this->audioControl;
+        }
+
         if (null !== $this->csvControl) {
             $res['CsvControl'] = null !== $this->csvControl ? $this->csvControl->toArray($noStream) : $this->csvControl;
         }
@@ -136,8 +166,16 @@ class CreateWmEmbedTaskRequest extends Model
             $res['ImageEmbedLevel'] = $this->imageEmbedLevel;
         }
 
+        if (null !== $this->invisibleEnable) {
+            $res['InvisibleEnable'] = $this->invisibleEnable;
+        }
+
         if (null !== $this->videoBitrate) {
             $res['VideoBitrate'] = $this->videoBitrate;
+        }
+
+        if (null !== $this->videoControl) {
+            $res['VideoControl'] = null !== $this->videoControl ? $this->videoControl->toArray($noStream) : $this->videoControl;
         }
 
         if (null !== $this->videoIsLong) {
@@ -171,6 +209,10 @@ class CreateWmEmbedTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioControl'])) {
+            $model->audioControl = audioControl::fromMap($map['AudioControl']);
+        }
+
         if (isset($map['CsvControl'])) {
             $model->csvControl = csvControl::fromMap($map['CsvControl']);
         }
@@ -199,8 +241,16 @@ class CreateWmEmbedTaskRequest extends Model
             $model->imageEmbedLevel = $map['ImageEmbedLevel'];
         }
 
+        if (isset($map['InvisibleEnable'])) {
+            $model->invisibleEnable = $map['InvisibleEnable'];
+        }
+
         if (isset($map['VideoBitrate'])) {
             $model->videoBitrate = $map['VideoBitrate'];
+        }
+
+        if (isset($map['VideoControl'])) {
+            $model->videoControl = videoControl::fromMap($map['VideoControl']);
         }
 
         if (isset($map['VideoIsLong'])) {

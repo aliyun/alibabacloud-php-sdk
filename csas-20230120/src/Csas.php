@@ -1480,6 +1480,10 @@ class Csas extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateWmEmbedTaskShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->audioControl) {
+            $request->audioControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->audioControl, 'AudioControl', 'json');
+        }
+
         if (null !== $tmpReq->csvControl) {
             $request->csvControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->csvControl, 'CsvControl', 'json');
         }
@@ -1492,12 +1496,19 @@ class Csas extends OpenApiClient
             $request->imageControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageControl, 'ImageControl', 'json');
         }
 
-        $query = [];
-        if (null !== $request->csvControlShrink) {
-            @$query['CsvControl'] = $request->csvControlShrink;
+        if (null !== $tmpReq->videoControl) {
+            $request->videoControlShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoControl, 'VideoControl', 'json');
         }
 
         $body = [];
+        if (null !== $request->audioControlShrink) {
+            @$body['AudioControl'] = $request->audioControlShrink;
+        }
+
+        if (null !== $request->csvControlShrink) {
+            @$body['CsvControl'] = $request->csvControlShrink;
+        }
+
         if (null !== $request->documentControlShrink) {
             @$body['DocumentControl'] = $request->documentControlShrink;
         }
@@ -1522,8 +1533,16 @@ class Csas extends OpenApiClient
             @$body['ImageEmbedLevel'] = $request->imageEmbedLevel;
         }
 
+        if (null !== $request->invisibleEnable) {
+            @$body['InvisibleEnable'] = $request->invisibleEnable;
+        }
+
         if (null !== $request->videoBitrate) {
             @$body['VideoBitrate'] = $request->videoBitrate;
+        }
+
+        if (null !== $request->videoControlShrink) {
+            @$body['VideoControl'] = $request->videoControlShrink;
         }
 
         if (null !== $request->videoIsLong) {
@@ -1547,7 +1566,6 @@ class Csas extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -4139,7 +4157,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询connector.
+     * Batch query connectors.
      *
      * @param request - ListConnectorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4174,7 +4192,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询connector.
+     * Batch query connectors.
      *
      * @param request - ListConnectorsRequest
      *
