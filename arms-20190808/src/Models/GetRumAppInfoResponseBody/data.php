@@ -120,6 +120,11 @@ class data extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $webSDKConfigJson;
     protected $_name = [
         'appConfig' => 'AppConfig',
         'appGroup' => 'AppGroup',
@@ -143,6 +148,7 @@ class data extends Model
         'status' => 'Status',
         'tags' => 'Tags',
         'type' => 'Type',
+        'webSDKConfigJson' => 'WebSDKConfigJson',
     ];
 
     public function validate()
@@ -264,6 +270,10 @@ class data extends Model
             $res['Type'] = $this->type;
         }
 
+        if (null !== $this->webSDKConfigJson) {
+            $res['WebSDKConfigJson'] = $this->webSDKConfigJson;
+        }
+
         return $res;
     }
 
@@ -375,6 +385,10 @@ class data extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['WebSDKConfigJson'])) {
+            $model->webSDKConfigJson = $map['WebSDKConfigJson'];
         }
 
         return $model;

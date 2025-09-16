@@ -72,6 +72,11 @@ class UpdateRumAppRequest extends Model
      * @var bool
      */
     public $stop;
+
+    /**
+     * @var string
+     */
+    public $webSDKConfigJson;
     protected $_name = [
         'appConfig' => 'AppConfig',
         'autoRestart' => 'AutoRestart',
@@ -86,6 +91,7 @@ class UpdateRumAppRequest extends Model
         'restart' => 'Restart',
         'serviceDomainOperationJson' => 'ServiceDomainOperationJson',
         'stop' => 'Stop',
+        'webSDKConfigJson' => 'WebSDKConfigJson',
     ];
 
     public function validate()
@@ -146,6 +152,10 @@ class UpdateRumAppRequest extends Model
 
         if (null !== $this->stop) {
             $res['Stop'] = $this->stop;
+        }
+
+        if (null !== $this->webSDKConfigJson) {
+            $res['WebSDKConfigJson'] = $this->webSDKConfigJson;
         }
 
         return $res;
@@ -209,6 +219,10 @@ class UpdateRumAppRequest extends Model
 
         if (isset($map['Stop'])) {
             $model->stop = $map['Stop'];
+        }
+
+        if (isset($map['WebSDKConfigJson'])) {
+            $model->webSDKConfigJson = $map['WebSDKConfigJson'];
         }
 
         return $model;

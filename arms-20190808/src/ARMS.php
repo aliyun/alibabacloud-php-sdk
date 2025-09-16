@@ -18567,6 +18567,10 @@ class ARMS extends OpenApiClient
             @$query['Stop'] = $request->stop;
         }
 
+        if (null !== $request->webSDKConfigJson) {
+            @$query['WebSDKConfigJson'] = $request->webSDKConfigJson;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
