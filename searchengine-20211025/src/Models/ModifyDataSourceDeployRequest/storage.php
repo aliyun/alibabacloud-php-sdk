@@ -71,6 +71,11 @@ class storage extends Model
     /**
      * @var string
      */
+    public $tableFormat;
+
+    /**
+     * @var string
+     */
     public $tag;
     protected $_name = [
         'accessKey' => 'accessKey',
@@ -85,6 +90,7 @@ class storage extends Model
         'path' => 'path',
         'project' => 'project',
         'table' => 'table',
+        'tableFormat' => 'tableFormat',
         'tag' => 'tag',
     ];
 
@@ -142,6 +148,10 @@ class storage extends Model
 
         if (null !== $this->table) {
             $res['table'] = $this->table;
+        }
+
+        if (null !== $this->tableFormat) {
+            $res['tableFormat'] = $this->tableFormat;
         }
 
         if (null !== $this->tag) {
@@ -205,6 +215,10 @@ class storage extends Model
 
         if (isset($map['table'])) {
             $model->table = $map['table'];
+        }
+
+        if (isset($map['tableFormat'])) {
+            $model->tableFormat = $map['tableFormat'];
         }
 
         if (isset($map['tag'])) {

@@ -46,6 +46,11 @@ class BuildIndexRequest extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var string
+     */
     public $tag;
     protected $_name = [
         'buildMode' => 'buildMode',
@@ -55,6 +60,7 @@ class BuildIndexRequest extends Model
         'domain' => 'domain',
         'generation' => 'generation',
         'partition' => 'partition',
+        'path' => 'path',
         'tag' => 'tag',
     ];
 
@@ -92,6 +98,10 @@ class BuildIndexRequest extends Model
 
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
+        }
+
+        if (null !== $this->path) {
+            $res['path'] = $this->path;
         }
 
         if (null !== $this->tag) {
@@ -135,6 +145,10 @@ class BuildIndexRequest extends Model
 
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
+        }
+
+        if (isset($map['path'])) {
+            $model->path = $map['path'];
         }
 
         if (isset($map['tag'])) {

@@ -290,6 +290,10 @@ class Searchengine extends OpenApiClient
             @$body['partition'] = $request->partition;
         }
 
+        if (null !== $request->path) {
+            @$body['path'] = $request->path;
+        }
+
         if (null !== $request->tag) {
             @$body['tag'] = $request->tag;
         }
@@ -6360,6 +6364,8 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * 编辑索引表.
+     *
      * @param request - ModifyIndexRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6456,6 +6462,8 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * 编辑索引表.
+     *
      * @param request - ModifyIndexRequest
      *
      * @returns ModifyIndexResponse

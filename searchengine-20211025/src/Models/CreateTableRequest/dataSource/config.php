@@ -61,6 +61,11 @@ class config extends Model
     /**
      * @var string
      */
+    public $tableFormat;
+
+    /**
+     * @var string
+     */
     public $tag;
     protected $_name = [
         'accessKey' => 'accessKey',
@@ -73,6 +78,7 @@ class config extends Model
         'partition' => 'partition',
         'project' => 'project',
         'table' => 'table',
+        'tableFormat' => 'tableFormat',
         'tag' => 'tag',
     ];
 
@@ -122,6 +128,10 @@ class config extends Model
 
         if (null !== $this->table) {
             $res['table'] = $this->table;
+        }
+
+        if (null !== $this->tableFormat) {
+            $res['tableFormat'] = $this->tableFormat;
         }
 
         if (null !== $this->tag) {
@@ -177,6 +187,10 @@ class config extends Model
 
         if (isset($map['table'])) {
             $model->table = $map['table'];
+        }
+
+        if (isset($map['tableFormat'])) {
+            $model->tableFormat = $map['tableFormat'];
         }
 
         if (isset($map['tag'])) {
