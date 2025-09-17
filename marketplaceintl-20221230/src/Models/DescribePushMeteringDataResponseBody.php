@@ -5,19 +5,24 @@
 namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\NoticeInstanceUserResponseBody\accessDeniedDetail;
+use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\DescribePushMeteringDataResponseBody\result;
 
-class NoticeInstanceUserResponseBody extends Model
+class DescribePushMeteringDataResponseBody extends Model
 {
-    /**
-     * @var accessDeniedDetail
-     */
-    public $accessDeniedDetail;
-
     /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var string
+     */
+    public $dynamicMessage;
+
+    /**
+     * @var bool
+     */
+    public $forceFatal;
 
     /**
      * @var string
@@ -30,7 +35,7 @@ class NoticeInstanceUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var result
      */
     public $result;
 
@@ -39,8 +44,9 @@ class NoticeInstanceUserResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'accessDeniedDetail' => 'AccessDeniedDetail',
         'code' => 'Code',
+        'dynamicMessage' => 'DynamicMessage',
+        'forceFatal' => 'ForceFatal',
         'message' => 'Message',
         'requestId' => 'RequestId',
         'result' => 'Result',
@@ -49,8 +55,8 @@ class NoticeInstanceUserResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->accessDeniedDetail) {
-            $this->accessDeniedDetail->validate();
+        if (null !== $this->result) {
+            $this->result->validate();
         }
         parent::validate();
     }
@@ -58,12 +64,16 @@ class NoticeInstanceUserResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accessDeniedDetail) {
-            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toArray($noStream) : $this->accessDeniedDetail;
-        }
-
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->dynamicMessage) {
+            $res['DynamicMessage'] = $this->dynamicMessage;
+        }
+
+        if (null !== $this->forceFatal) {
+            $res['ForceFatal'] = $this->forceFatal;
         }
 
         if (null !== $this->message) {
@@ -75,7 +85,7 @@ class NoticeInstanceUserResponseBody extends Model
         }
 
         if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         if (null !== $this->success) {
@@ -93,12 +103,16 @@ class NoticeInstanceUserResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessDeniedDetail'])) {
-            $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
-        }
-
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['DynamicMessage'])) {
+            $model->dynamicMessage = $map['DynamicMessage'];
+        }
+
+        if (isset($map['ForceFatal'])) {
+            $model->forceFatal = $map['ForceFatal'];
         }
 
         if (isset($map['Message'])) {
@@ -110,7 +124,7 @@ class NoticeInstanceUserResponseBody extends Model
         }
 
         if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+            $model->result = result::fromMap($map['Result']);
         }
 
         if (isset($map['Success'])) {

@@ -4,19 +4,19 @@
 
 namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\DescribePushMeteringDataRequest;
+use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\DescribePushMeteringDataResponse;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\DescribeSellerInstancesRequest;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\DescribeSellerInstancesResponse;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\NoticeInstanceUserRequest;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\NoticeInstanceUserResponse;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataRequest;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class MarketplaceIntl extends OpenApiClient
 {
@@ -41,45 +41,113 @@ class MarketplaceIntl extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 卖家查询实例列表
-     *  *
-     * @param DescribeSellerInstancesRequest $request DescribeSellerInstancesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取推送计量数据结果.
      *
-     * @return DescribeSellerInstancesResponse DescribeSellerInstancesResponse
+     * @param request - DescribePushMeteringDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePushMeteringDataResponse
+     *
+     * @param DescribePushMeteringDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribePushMeteringDataResponse
+     */
+    public function describePushMeteringDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pushOrderBizId) {
+            @$query['PushOrderBizId'] = $request->pushOrderBizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePushMeteringData',
+            'version' => '2022-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取推送计量数据结果.
+     *
+     * @param request - DescribePushMeteringDataRequest
+     *
+     * @returns DescribePushMeteringDataResponse
+     *
+     * @param DescribePushMeteringDataRequest $request
+     *
+     * @return DescribePushMeteringDataResponse
+     */
+    public function describePushMeteringData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePushMeteringDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * 卖家查询实例列表.
+     *
+     * @param request - DescribeSellerInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSellerInstancesResponse
+     *
+     * @param DescribeSellerInstancesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSellerInstancesResponse
      */
     public function describeSellerInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceStatus)) {
-            $query['InstanceStatus'] = $request->instanceStatus;
+
+        if (null !== $request->instanceStatus) {
+            @$query['InstanceStatus'] = $request->instanceStatus;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSellerInstances',
@@ -92,19 +160,20 @@ class MarketplaceIntl extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeSellerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSellerInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSellerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 卖家查询实例列表
-     *  *
-     * @param DescribeSellerInstancesRequest $request DescribeSellerInstancesRequest
+     * 卖家查询实例列表.
      *
-     * @return DescribeSellerInstancesResponse DescribeSellerInstancesResponse
+     * @param request - DescribeSellerInstancesRequest
+     *
+     * @returns DescribeSellerInstancesResponse
+     *
+     * @param DescribeSellerInstancesRequest $request
+     *
+     * @return DescribeSellerInstancesResponse
      */
     public function describeSellerInstances($request)
     {
@@ -114,28 +183,36 @@ class MarketplaceIntl extends OpenApiClient
     }
 
     /**
-     * @summary isv推送实例消息给用户
-     *  *
-     * @param NoticeInstanceUserRequest $request NoticeInstanceUserRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * isv推送实例消息给用户.
      *
-     * @return NoticeInstanceUserResponse NoticeInstanceUserResponse
+     * @param request - NoticeInstanceUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns NoticeInstanceUserResponse
+     *
+     * @param NoticeInstanceUserRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return NoticeInstanceUserResponse
      */
     public function noticeInstanceUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->noticeParam)) {
-            $body['NoticeParam'] = $request->noticeParam;
+
+        if (null !== $request->noticeParam) {
+            @$body['NoticeParam'] = $request->noticeParam;
         }
-        if (!Utils::isUnset($request->noticeType)) {
-            $body['NoticeType'] = $request->noticeType;
+
+        if (null !== $request->noticeType) {
+            @$body['NoticeType'] = $request->noticeType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'NoticeInstanceUser',
@@ -148,19 +225,20 @@ class MarketplaceIntl extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return NoticeInstanceUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return NoticeInstanceUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return NoticeInstanceUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary isv推送实例消息给用户
-     *  *
-     * @param NoticeInstanceUserRequest $request NoticeInstanceUserRequest
+     * isv推送实例消息给用户.
      *
-     * @return NoticeInstanceUserResponse NoticeInstanceUserResponse
+     * @param request - NoticeInstanceUserRequest
+     *
+     * @returns NoticeInstanceUserResponse
+     *
+     * @param NoticeInstanceUserRequest $request
+     *
+     * @return NoticeInstanceUserResponse
      */
     public function noticeInstanceUser($request)
     {
@@ -170,25 +248,32 @@ class MarketplaceIntl extends OpenApiClient
     }
 
     /**
-     * @summary 国际云市场推送计量数据
-     *  *
-     * @param PushMeteringDataRequest $request PushMeteringDataRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 国际云市场推送计量数据.
      *
-     * @return PushMeteringDataResponse PushMeteringDataResponse
+     * @param request - PushMeteringDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushMeteringDataResponse
+     *
+     * @param PushMeteringDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PushMeteringDataResponse
      */
     public function pushMeteringDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->gmtCreate)) {
-            $body['GmtCreate'] = $request->gmtCreate;
+        if (null !== $request->gmtCreate) {
+            @$body['GmtCreate'] = $request->gmtCreate;
         }
-        if (!Utils::isUnset($request->meteringData)) {
-            $body['MeteringData'] = $request->meteringData;
+
+        if (null !== $request->meteringData) {
+            @$body['MeteringData'] = $request->meteringData;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PushMeteringData',
@@ -201,19 +286,20 @@ class MarketplaceIntl extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushMeteringDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际云市场推送计量数据
-     *  *
-     * @param PushMeteringDataRequest $request PushMeteringDataRequest
+     * 国际云市场推送计量数据.
      *
-     * @return PushMeteringDataResponse PushMeteringDataResponse
+     * @param request - PushMeteringDataRequest
+     *
+     * @returns PushMeteringDataResponse
+     *
+     * @param PushMeteringDataRequest $request
+     *
+     * @return PushMeteringDataResponse
      */
     public function pushMeteringData($request)
     {

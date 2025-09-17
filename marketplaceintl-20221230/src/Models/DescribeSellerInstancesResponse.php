@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSellerInstancesResponse extends Model
 {
@@ -28,38 +28,61 @@ class DescribeSellerInstancesResponse extends Model
         'body' => 'body',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+            if (\is_array($this->headers)) {
+                $res['headers'] = [];
+                foreach ($this->headers as $key1 => $value1) {
+                    $res['headers'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
+
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSellerInstancesResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+            if (!empty($map['headers'])) {
+                $model->headers = [];
+                foreach ($map['headers'] as $key1 => $value1) {
+                    $model->headers[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
         }
+
         if (isset($map['body'])) {
             $model->body = DescribeSellerInstancesResponseBody::fromMap($map['body']);
         }

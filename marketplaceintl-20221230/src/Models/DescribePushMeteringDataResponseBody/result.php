@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataRequest;
+namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\DescribePushMeteringDataResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class meteringData extends Model
+class result extends Model
 {
     /**
      * @var int
@@ -17,6 +17,11 @@ class meteringData extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $isPushBilling;
 
     /**
      * @var string
@@ -40,6 +45,7 @@ class meteringData extends Model
     protected $_name = [
         'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
+        'isPushBilling' => 'IsPushBilling',
         'meteringAssist' => 'MeteringAssist',
         'meteringEntity' => 'MeteringEntity',
         'pushOrderBizId' => 'PushOrderBizId',
@@ -60,6 +66,10 @@ class meteringData extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->isPushBilling) {
+            $res['IsPushBilling'] = $this->isPushBilling;
         }
 
         if (null !== $this->meteringAssist) {
@@ -95,6 +105,10 @@ class meteringData extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['IsPushBilling'])) {
+            $model->isPushBilling = $map['IsPushBilling'];
         }
 
         if (isset($map['MeteringAssist'])) {

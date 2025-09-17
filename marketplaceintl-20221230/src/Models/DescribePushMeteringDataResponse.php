@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class NoticeInstanceUserResponse extends Model
+class DescribePushMeteringDataResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class NoticeInstanceUserResponse extends Model
     public $statusCode;
 
     /**
-     * @var NoticeInstanceUserResponseBody
+     * @var DescribePushMeteringDataResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class NoticeInstanceUserResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = NoticeInstanceUserResponseBody::fromMap($map['body']);
+            $model->body = DescribePushMeteringDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NoticeInstanceUserRequest extends Model
 {
     /**
-     * @example 5000000264872
-     *
      * @var int
      */
     public $instanceId;
@@ -21,8 +19,6 @@ class NoticeInstanceUserRequest extends Model
     public $noticeParam;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $noticeType;
@@ -32,17 +28,22 @@ class NoticeInstanceUserRequest extends Model
         'noticeType' => 'NoticeType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->noticeParam) {
             $res['NoticeParam'] = $this->noticeParam;
         }
+
         if (null !== $this->noticeType) {
             $res['NoticeType'] = $this->noticeType;
         }
@@ -50,20 +51,22 @@ class NoticeInstanceUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NoticeInstanceUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NoticeParam'])) {
             $model->noticeParam = $map['NoticeParam'];
         }
+
         if (isset($map['NoticeType'])) {
             $model->noticeType = $map['NoticeType'];
         }
