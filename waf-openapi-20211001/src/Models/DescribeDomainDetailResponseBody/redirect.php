@@ -93,9 +93,29 @@ class redirect extends Model
     public $sniHost;
 
     /**
+     * @var bool
+     */
+    public $WLProxyClientIp;
+
+    /**
+     * @var bool
+     */
+    public $webServerType;
+
+    /**
      * @var int
      */
     public $writeTimeout;
+
+    /**
+     * @var bool
+     */
+    public $XClientIp;
+
+    /**
+     * @var bool
+     */
+    public $XTrueIp;
 
     /**
      * @var bool
@@ -118,7 +138,11 @@ class redirect extends Model
         'retry' => 'Retry',
         'sniEnabled' => 'SniEnabled',
         'sniHost' => 'SniHost',
+        'WLProxyClientIp' => 'WLProxyClientIp',
+        'webServerType' => 'WebServerType',
         'writeTimeout' => 'WriteTimeout',
+        'XClientIp' => 'XClientIp',
+        'XTrueIp' => 'XTrueIp',
         'xffProto' => 'XffProto',
     ];
 
@@ -254,8 +278,24 @@ class redirect extends Model
             $res['SniHost'] = $this->sniHost;
         }
 
+        if (null !== $this->WLProxyClientIp) {
+            $res['WLProxyClientIp'] = $this->WLProxyClientIp;
+        }
+
+        if (null !== $this->webServerType) {
+            $res['WebServerType'] = $this->webServerType;
+        }
+
         if (null !== $this->writeTimeout) {
             $res['WriteTimeout'] = $this->writeTimeout;
+        }
+
+        if (null !== $this->XClientIp) {
+            $res['XClientIp'] = $this->XClientIp;
+        }
+
+        if (null !== $this->XTrueIp) {
+            $res['XTrueIp'] = $this->XTrueIp;
         }
 
         if (null !== $this->xffProto) {
@@ -379,8 +419,24 @@ class redirect extends Model
             $model->sniHost = $map['SniHost'];
         }
 
+        if (isset($map['WLProxyClientIp'])) {
+            $model->WLProxyClientIp = $map['WLProxyClientIp'];
+        }
+
+        if (isset($map['WebServerType'])) {
+            $model->webServerType = $map['WebServerType'];
+        }
+
         if (isset($map['WriteTimeout'])) {
             $model->writeTimeout = $map['WriteTimeout'];
+        }
+
+        if (isset($map['XClientIp'])) {
+            $model->XClientIp = $map['XClientIp'];
+        }
+
+        if (isset($map['XTrueIp'])) {
+            $model->XTrueIp = $map['XTrueIp'];
         }
 
         if (isset($map['XffProto'])) {

@@ -2,28 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainRequest;
+namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailResponseBody\domain;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainRequest\redirect\backendPorts;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainRequest\redirect\requestHeaders;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailResponseBody\domain\redirect\requestHeaders;
 
 class redirect extends Model
 {
     /**
-     * @var backendPorts[]
-     */
-    public $backendPorts;
-
-    /**
      * @var string[]
      */
     public $backends;
-
-    /**
-     * @var string[]
-     */
-    public $backupBackends;
 
     /**
      * @var bool
@@ -91,38 +80,11 @@ class redirect extends Model
     public $sniHost;
 
     /**
-     * @var bool
-     */
-    public $WLProxyClientIp;
-
-    /**
-     * @var bool
-     */
-    public $webServerType;
-
-    /**
      * @var int
      */
     public $writeTimeout;
-
-    /**
-     * @var bool
-     */
-    public $XClientIp;
-
-    /**
-     * @var bool
-     */
-    public $XTrueIp;
-
-    /**
-     * @var bool
-     */
-    public $xffProto;
     protected $_name = [
-        'backendPorts' => 'BackendPorts',
         'backends' => 'Backends',
-        'backupBackends' => 'BackupBackends',
         'cnameEnabled' => 'CnameEnabled',
         'connectTimeout' => 'ConnectTimeout',
         'focusHttpBackend' => 'FocusHttpBackend',
@@ -136,24 +98,13 @@ class redirect extends Model
         'routingRules' => 'RoutingRules',
         'sniEnabled' => 'SniEnabled',
         'sniHost' => 'SniHost',
-        'WLProxyClientIp' => 'WLProxyClientIp',
-        'webServerType' => 'WebServerType',
         'writeTimeout' => 'WriteTimeout',
-        'XClientIp' => 'XClientIp',
-        'XTrueIp' => 'XTrueIp',
-        'xffProto' => 'XffProto',
     ];
 
     public function validate()
     {
-        if (\is_array($this->backendPorts)) {
-            Model::validateArray($this->backendPorts);
-        }
         if (\is_array($this->backends)) {
             Model::validateArray($this->backends);
-        }
-        if (\is_array($this->backupBackends)) {
-            Model::validateArray($this->backupBackends);
         }
         if (\is_array($this->requestHeaders)) {
             Model::validateArray($this->requestHeaders);
@@ -164,34 +115,12 @@ class redirect extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->backendPorts) {
-            if (\is_array($this->backendPorts)) {
-                $res['BackendPorts'] = [];
-                $n1 = 0;
-                foreach ($this->backendPorts as $item1) {
-                    $res['BackendPorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->backends) {
             if (\is_array($this->backends)) {
                 $res['Backends'] = [];
                 $n1 = 0;
                 foreach ($this->backends as $item1) {
                     $res['Backends'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
-        if (null !== $this->backupBackends) {
-            if (\is_array($this->backupBackends)) {
-                $res['BackupBackends'] = [];
-                $n1 = 0;
-                foreach ($this->backupBackends as $item1) {
-                    $res['BackupBackends'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -256,28 +185,8 @@ class redirect extends Model
             $res['SniHost'] = $this->sniHost;
         }
 
-        if (null !== $this->WLProxyClientIp) {
-            $res['WLProxyClientIp'] = $this->WLProxyClientIp;
-        }
-
-        if (null !== $this->webServerType) {
-            $res['WebServerType'] = $this->webServerType;
-        }
-
         if (null !== $this->writeTimeout) {
             $res['WriteTimeout'] = $this->writeTimeout;
-        }
-
-        if (null !== $this->XClientIp) {
-            $res['XClientIp'] = $this->XClientIp;
-        }
-
-        if (null !== $this->XTrueIp) {
-            $res['XTrueIp'] = $this->XTrueIp;
-        }
-
-        if (null !== $this->xffProto) {
-            $res['XffProto'] = $this->xffProto;
         }
 
         return $res;
@@ -291,34 +200,12 @@ class redirect extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackendPorts'])) {
-            if (!empty($map['BackendPorts'])) {
-                $model->backendPorts = [];
-                $n1 = 0;
-                foreach ($map['BackendPorts'] as $item1) {
-                    $model->backendPorts[$n1] = backendPorts::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['Backends'])) {
             if (!empty($map['Backends'])) {
                 $model->backends = [];
                 $n1 = 0;
                 foreach ($map['Backends'] as $item1) {
                     $model->backends[$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
-        if (isset($map['BackupBackends'])) {
-            if (!empty($map['BackupBackends'])) {
-                $model->backupBackends = [];
-                $n1 = 0;
-                foreach ($map['BackupBackends'] as $item1) {
-                    $model->backupBackends[$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -383,28 +270,8 @@ class redirect extends Model
             $model->sniHost = $map['SniHost'];
         }
 
-        if (isset($map['WLProxyClientIp'])) {
-            $model->WLProxyClientIp = $map['WLProxyClientIp'];
-        }
-
-        if (isset($map['WebServerType'])) {
-            $model->webServerType = $map['WebServerType'];
-        }
-
         if (isset($map['WriteTimeout'])) {
             $model->writeTimeout = $map['WriteTimeout'];
-        }
-
-        if (isset($map['XClientIp'])) {
-            $model->XClientIp = $map['XClientIp'];
-        }
-
-        if (isset($map['XTrueIp'])) {
-            $model->XTrueIp = $map['XTrueIp'];
-        }
-
-        if (isset($map['XffProto'])) {
-            $model->xffProto = $map['XffProto'];
         }
 
         return $model;

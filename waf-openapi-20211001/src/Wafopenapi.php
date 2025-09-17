@@ -187,20 +187,34 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventTypesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserEventTypesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudBasicMonitorRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudBasicMonitorResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRulesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRulesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterServersRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterServersResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClustersRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClustersResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudGroupsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudGroupsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudProcessMonitorRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudProcessMonitorResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudSdkServersRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudSdkServersResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudServerRegionsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudServerRegionsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudSupportRegionsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudSupportRegionsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUnassignedMachinesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUnassignedMachinesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUnsupportPortsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUnsupportPortsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUserRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUserResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceRequest;
@@ -358,6 +372,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterBypassStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterBypassStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudGroupExpansionServerRequest;
@@ -7625,6 +7641,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Queries the system status of a node in a hybrid cloud cluster.
+     *
+     * @param request - DescribeHybridCloudBasicMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridCloudBasicMonitorResponse
+     *
+     * @param DescribeHybridCloudBasicMonitorRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeHybridCloudBasicMonitorResponse
+     */
+    public function describeHybridCloudBasicMonitorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mid) {
+            @$query['Mid'] = $request->mid;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudBasicMonitor',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudBasicMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the system status of a node in a hybrid cloud cluster.
+     *
+     * @param request - DescribeHybridCloudBasicMonitorRequest
+     *
+     * @returns DescribeHybridCloudBasicMonitorResponse
+     *
+     * @param DescribeHybridCloudBasicMonitorRequest $request
+     *
+     * @return DescribeHybridCloudBasicMonitorResponse
+     */
+    public function describeHybridCloudBasicMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudBasicMonitorWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtains the rule information about a hybrid cloud cluster.
      *
      * @param request - DescribeHybridCloudClusterRuleRequest
@@ -7764,6 +7849,99 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHybridCloudClusterRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 集群机器列表.
+     *
+     * @param request - DescribeHybridCloudClusterServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridCloudClusterServersResponse
+     *
+     * @param DescribeHybridCloudClusterServersRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeHybridCloudClusterServersResponse
+     */
+    public function describeHybridCloudClusterServersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->groupType) {
+            @$query['GroupType'] = $request->groupType;
+        }
+
+        if (null !== $request->hostName) {
+            @$query['HostName'] = $request->hostName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudClusterServers',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudClusterServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 集群机器列表.
+     *
+     * @param request - DescribeHybridCloudClusterServersRequest
+     *
+     * @returns DescribeHybridCloudClusterServersResponse
+     *
+     * @param DescribeHybridCloudClusterServersRequest $request
+     *
+     * @return DescribeHybridCloudClusterServersResponse
+     */
+    public function describeHybridCloudClusterServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudClusterServersWithOptions($request, $runtime);
     }
 
     /**
@@ -7921,6 +8099,160 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Queries the status of applications running on a hybrid cloud cluster node.
+     *
+     * @param request - DescribeHybridCloudProcessMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridCloudProcessMonitorResponse
+     *
+     * @param DescribeHybridCloudProcessMonitorRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeHybridCloudProcessMonitorResponse
+     */
+    public function describeHybridCloudProcessMonitorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mid) {
+            @$query['Mid'] = $request->mid;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudProcessMonitor',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudProcessMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status of applications running on a hybrid cloud cluster node.
+     *
+     * @param request - DescribeHybridCloudProcessMonitorRequest
+     *
+     * @returns DescribeHybridCloudProcessMonitorResponse
+     *
+     * @param DescribeHybridCloudProcessMonitorRequest $request
+     *
+     * @return DescribeHybridCloudProcessMonitorResponse
+     */
+    public function describeHybridCloudProcessMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudProcessMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询混合云域名详情.
+     *
+     * @param request - DescribeHybridCloudResourceDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridCloudResourceDetailResponse
+     *
+     * @param DescribeHybridCloudResourceDetailRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeHybridCloudResourceDetailResponse
+     */
+    public function describeHybridCloudResourceDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backend) {
+            @$query['Backend'] = $request->backend;
+        }
+
+        if (null !== $request->cnameEnabled) {
+            @$query['CnameEnabled'] = $request->cnameEnabled;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudResourceDetail',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudResourceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询混合云域名详情.
+     *
+     * @param request - DescribeHybridCloudResourceDetailRequest
+     *
+     * @returns DescribeHybridCloudResourceDetailResponse
+     *
+     * @param DescribeHybridCloudResourceDetailRequest $request
+     *
+     * @return DescribeHybridCloudResourceDetailResponse
+     */
+    public function describeHybridCloudResourceDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudResourceDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
      *
      * @param request - DescribeHybridCloudResourcesRequest
@@ -8006,6 +8338,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 获取SDK信息.
+     *
+     * @param request - DescribeHybridCloudSdkServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridCloudSdkServersResponse
+     *
+     * @param DescribeHybridCloudSdkServersRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHybridCloudSdkServersResponse
+     */
+    public function describeHybridCloudSdkServersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudSdkServers',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudSdkServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取SDK信息.
+     *
+     * @param request - DescribeHybridCloudSdkServersRequest
+     *
+     * @returns DescribeHybridCloudSdkServersResponse
+     *
+     * @param DescribeHybridCloudSdkServersRequest $request
+     *
+     * @return DescribeHybridCloudSdkServersResponse
+     */
+    public function describeHybridCloudSdkServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudSdkServersWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
      *
      * @param request - DescribeHybridCloudServerRegionsRequest
@@ -8076,6 +8461,71 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHybridCloudServerRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询接入区域
+     *
+     * @param request - DescribeHybridCloudSupportRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridCloudSupportRegionsResponse
+     *
+     * @param DescribeHybridCloudSupportRegionsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeHybridCloudSupportRegionsResponse
+     */
+    public function describeHybridCloudSupportRegionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudSupportRegions',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudSupportRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询接入区域
+     *
+     * @param request - DescribeHybridCloudSupportRegionsRequest
+     *
+     * @returns DescribeHybridCloudSupportRegionsResponse
+     *
+     * @param DescribeHybridCloudSupportRegionsRequest $request
+     *
+     * @return DescribeHybridCloudSupportRegionsResponse
+     */
+    public function describeHybridCloudSupportRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudSupportRegionsWithOptions($request, $runtime);
     }
 
     /**
@@ -8161,6 +8611,71 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHybridCloudUnassignedMachinesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the ports that are not supported by the hybrid cloud mode.
+     *
+     * @param request - DescribeHybridCloudUnsupportPortsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridCloudUnsupportPortsResponse
+     *
+     * @param DescribeHybridCloudUnsupportPortsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeHybridCloudUnsupportPortsResponse
+     */
+    public function describeHybridCloudUnsupportPortsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudUnsupportPorts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudUnsupportPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the ports that are not supported by the hybrid cloud mode.
+     *
+     * @param request - DescribeHybridCloudUnsupportPortsRequest
+     *
+     * @returns DescribeHybridCloudUnsupportPortsResponse
+     *
+     * @param DescribeHybridCloudUnsupportPortsRequest $request
+     *
+     * @return DescribeHybridCloudUnsupportPortsResponse
+     */
+    public function describeHybridCloudUnsupportPorts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudUnsupportPortsWithOptions($request, $runtime);
     }
 
     /**
@@ -13991,6 +14506,127 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDomainPunishStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies information about a hybrid cloud cluster.
+     *
+     * @param request - ModifyHybridCloudClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyHybridCloudClusterResponse
+     *
+     * @param ModifyHybridCloudClusterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyHybridCloudClusterResponse
+     */
+    public function modifyHybridCloudClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessMode) {
+            @$query['AccessMode'] = $request->accessMode;
+        }
+
+        if (null !== $request->accessRegion) {
+            @$query['AccessRegion'] = $request->accessRegion;
+        }
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->httpPorts) {
+            @$query['HttpPorts'] = $request->httpPorts;
+        }
+
+        if (null !== $request->httpsPorts) {
+            @$query['HttpsPorts'] = $request->httpsPorts;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logFieldsNotReturned) {
+            @$query['LogFieldsNotReturned'] = $request->logFieldsNotReturned;
+        }
+
+        if (null !== $request->protectionServerCount) {
+            @$query['ProtectionServerCount'] = $request->protectionServerCount;
+        }
+
+        if (null !== $request->proxyStatus) {
+            @$query['ProxyStatus'] = $request->proxyStatus;
+        }
+
+        if (null !== $request->proxyType) {
+            @$query['ProxyType'] = $request->proxyType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleConfig) {
+            @$query['RuleConfig'] = $request->ruleConfig;
+        }
+
+        if (null !== $request->ruleStatus) {
+            @$query['RuleStatus'] = $request->ruleStatus;
+        }
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyHybridCloudCluster',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyHybridCloudClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies information about a hybrid cloud cluster.
+     *
+     * @param request - ModifyHybridCloudClusterRequest
+     *
+     * @returns ModifyHybridCloudClusterResponse
+     *
+     * @param ModifyHybridCloudClusterRequest $request
+     *
+     * @return ModifyHybridCloudClusterResponse
+     */
+    public function modifyHybridCloudCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHybridCloudClusterWithOptions($request, $runtime);
     }
 
     /**
