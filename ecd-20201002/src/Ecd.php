@@ -901,6 +901,14 @@ class Ecd extends OpenApiClient
             @$query['ProtocolType'] = $request->protocolType;
         }
 
+        if (null !== $request->queryDesktopDurationList) {
+            @$query['QueryDesktopDurationList'] = $request->queryDesktopDurationList;
+        }
+
+        if (null !== $request->queryDesktopTimers) {
+            @$query['QueryDesktopTimers'] = $request->queryDesktopTimers;
+        }
+
         if (null !== $request->queryFotaUpdate) {
             @$query['QueryFotaUpdate'] = $request->queryFotaUpdate;
         }

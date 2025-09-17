@@ -96,6 +96,16 @@ class DescribeUserResourcesRequest extends Model
     /**
      * @var bool
      */
+    public $queryDesktopDurationList;
+
+    /**
+     * @var bool
+     */
+    public $queryDesktopTimers;
+
+    /**
+     * @var bool
+     */
     public $queryFotaUpdate;
 
     /**
@@ -155,6 +165,8 @@ class DescribeUserResourcesRequest extends Model
         'orderBy' => 'OrderBy',
         'productTypes' => 'ProductTypes',
         'protocolType' => 'ProtocolType',
+        'queryDesktopDurationList' => 'QueryDesktopDurationList',
+        'queryDesktopTimers' => 'QueryDesktopTimers',
         'queryFotaUpdate' => 'QueryFotaUpdate',
         'refreshFotaUpdate' => 'RefreshFotaUpdate',
         'resourceIds' => 'ResourceIds',
@@ -266,6 +278,14 @@ class DescribeUserResourcesRequest extends Model
 
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
+        }
+
+        if (null !== $this->queryDesktopDurationList) {
+            $res['QueryDesktopDurationList'] = $this->queryDesktopDurationList;
+        }
+
+        if (null !== $this->queryDesktopTimers) {
+            $res['QueryDesktopTimers'] = $this->queryDesktopTimers;
         }
 
         if (null !== $this->queryFotaUpdate) {
@@ -409,6 +429,14 @@ class DescribeUserResourcesRequest extends Model
 
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+
+        if (isset($map['QueryDesktopDurationList'])) {
+            $model->queryDesktopDurationList = $map['QueryDesktopDurationList'];
+        }
+
+        if (isset($map['QueryDesktopTimers'])) {
+            $model->queryDesktopTimers = $map['QueryDesktopTimers'];
         }
 
         if (isset($map['QueryFotaUpdate'])) {
