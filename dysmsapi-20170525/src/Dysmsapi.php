@@ -104,6 +104,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendLogisticsSmsRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendLogisticsSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SmsConversionIntlRequest;
@@ -128,6 +130,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ValidPhoneCodeRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ValidPhoneCodeResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\VerifyLogisticsSmsMailNoRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\VerifyLogisticsSmsMailNoResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -4251,6 +4255,99 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 发送物流短信
+     *
+     * @param request - SendLogisticsSmsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendLogisticsSmsResponse
+     *
+     * @param SendLogisticsSmsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SendLogisticsSmsResponse
+     */
+    public function sendLogisticsSmsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->expressCompanyCode) {
+            @$query['ExpressCompanyCode'] = $request->expressCompanyCode;
+        }
+
+        if (null !== $request->mailNo) {
+            @$query['MailNo'] = $request->mailNo;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->platformCompanyCode) {
+            @$query['PlatformCompanyCode'] = $request->platformCompanyCode;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->signName) {
+            @$query['SignName'] = $request->signName;
+        }
+
+        if (null !== $request->templateCode) {
+            @$query['TemplateCode'] = $request->templateCode;
+        }
+
+        if (null !== $request->templateParam) {
+            @$query['TemplateParam'] = $request->templateParam;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SendLogisticsSms',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendLogisticsSmsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发送物流短信
+     *
+     * @param request - SendLogisticsSmsRequest
+     *
+     * @returns SendLogisticsSmsResponse
+     *
+     * @param SendLogisticsSmsRequest $request
+     *
+     * @return SendLogisticsSmsResponse
+     */
+    public function sendLogisticsSms($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendLogisticsSmsWithOptions($request, $runtime);
+    }
+
+    /**
      * Sends a message. Before you call this operation, submit a message signature and message template, and make sure that the signature and template are approved.
      *
      * @remarks
@@ -5352,5 +5449,82 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->validPhoneCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 物流短信运单号校验.
+     *
+     * @param request - VerifyLogisticsSmsMailNoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyLogisticsSmsMailNoResponse
+     *
+     * @param VerifyLogisticsSmsMailNoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return VerifyLogisticsSmsMailNoResponse
+     */
+    public function verifyLogisticsSmsMailNoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->expressCompanyCode) {
+            @$query['ExpressCompanyCode'] = $request->expressCompanyCode;
+        }
+
+        if (null !== $request->mailNo) {
+            @$query['MailNo'] = $request->mailNo;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->platformCompanyCode) {
+            @$query['PlatformCompanyCode'] = $request->platformCompanyCode;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyLogisticsSmsMailNo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyLogisticsSmsMailNoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 物流短信运单号校验.
+     *
+     * @param request - VerifyLogisticsSmsMailNoRequest
+     *
+     * @returns VerifyLogisticsSmsMailNoResponse
+     *
+     * @param VerifyLogisticsSmsMailNoRequest $request
+     *
+     * @return VerifyLogisticsSmsMailNoResponse
+     */
+    public function verifyLogisticsSmsMailNo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyLogisticsSmsMailNoWithOptions($request, $runtime);
     }
 }
