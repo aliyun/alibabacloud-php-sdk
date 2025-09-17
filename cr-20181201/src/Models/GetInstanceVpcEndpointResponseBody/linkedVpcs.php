@@ -21,6 +21,11 @@ class linkedVpcs extends Model
     /**
      * @var string
      */
+    public $issue;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -35,6 +40,7 @@ class linkedVpcs extends Model
     protected $_name = [
         'defaultAccess' => 'DefaultAccess',
         'ip' => 'Ip',
+        'issue' => 'Issue',
         'status' => 'Status',
         'vpcId' => 'VpcId',
         'vswitchId' => 'VswitchId',
@@ -54,6 +60,10 @@ class linkedVpcs extends Model
 
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+
+        if (null !== $this->issue) {
+            $res['Issue'] = $this->issue;
         }
 
         if (null !== $this->status) {
@@ -85,6 +95,10 @@ class linkedVpcs extends Model
 
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+
+        if (isset($map['Issue'])) {
+            $model->issue = $map['Issue'];
         }
 
         if (isset($map['Status'])) {
