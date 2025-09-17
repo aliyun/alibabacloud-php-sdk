@@ -32,6 +32,16 @@ class applyOrderDetail extends Model
     public $approveContent;
 
     /**
+     * @var int
+     */
+    public $finishAapprovalTimestamp;
+
+    /**
+     * @var string
+     */
+    public $finishApprovalComment;
+
+    /**
      * @var string
      */
     public $flowId;
@@ -50,6 +60,8 @@ class applyOrderDetail extends Model
         'applyTimestamp' => 'ApplyTimestamp',
         'approveAccountList' => 'ApproveAccountList',
         'approveContent' => 'ApproveContent',
+        'finishAapprovalTimestamp' => 'FinishAapprovalTimestamp',
+        'finishApprovalComment' => 'FinishApprovalComment',
         'flowId' => 'FlowId',
         'flowStatus' => 'FlowStatus',
         'granteeObjectList' => 'GranteeObjectList',
@@ -93,6 +105,14 @@ class applyOrderDetail extends Model
 
         if (null !== $this->approveContent) {
             $res['ApproveContent'] = null !== $this->approveContent ? $this->approveContent->toArray($noStream) : $this->approveContent;
+        }
+
+        if (null !== $this->finishAapprovalTimestamp) {
+            $res['FinishAapprovalTimestamp'] = $this->finishAapprovalTimestamp;
+        }
+
+        if (null !== $this->finishApprovalComment) {
+            $res['FinishApprovalComment'] = $this->finishApprovalComment;
         }
 
         if (null !== $this->flowId) {
@@ -146,6 +166,14 @@ class applyOrderDetail extends Model
 
         if (isset($map['ApproveContent'])) {
             $model->approveContent = approveContent::fromMap($map['ApproveContent']);
+        }
+
+        if (isset($map['FinishAapprovalTimestamp'])) {
+            $model->finishAapprovalTimestamp = $map['FinishAapprovalTimestamp'];
+        }
+
+        if (isset($map['FinishApprovalComment'])) {
+            $model->finishApprovalComment = $map['FinishApprovalComment'];
         }
 
         if (isset($map['FlowId'])) {

@@ -16601,7 +16601,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of permission request orders.
+     * Views permission requests.
      *
      * @param Request - ListPermissionApplyOrdersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16688,7 +16688,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of permission request orders.
+     * Views permission requests.
      *
      * @param Request - ListPermissionApplyOrdersRequest
      *
