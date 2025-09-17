@@ -33,7 +33,6 @@ class Appstreamcenter extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appstream-center', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -195,7 +194,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return GetConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConnectionTicketResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -308,7 +307,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ListPublishedAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublishedAppInfoResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -409,7 +408,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ListRunningAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRunningAppsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -514,7 +513,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return ResetAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetAppResourcesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -619,7 +618,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return RestartAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartAppResourcesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -724,7 +723,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return StartAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartAppResourcesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -861,7 +860,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return StopAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopAppResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -966,7 +965,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return StopAppResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopAppResourcesResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -1071,7 +1070,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return UnbindResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
