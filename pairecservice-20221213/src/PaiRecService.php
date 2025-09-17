@@ -143,6 +143,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSampleConsistencyJobReque
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSampleConsistencyJobResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSceneRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSceneResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetServiceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetServiceResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSubCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetSubCrowdResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTableMetaRequest;
@@ -5552,6 +5554,69 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->getSceneWithOptions($SceneId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取服务详细信息。
+     *
+     * @param request - GetServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceResponse
+     *
+     * @param string            $ServiceId
+     * @param GetServiceRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetServiceResponse
+     */
+    public function getServiceWithOptions($ServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetService',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/services/' . Url::percentEncode($ServiceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取服务详细信息。
+     *
+     * @param request - GetServiceRequest
+     *
+     * @returns GetServiceResponse
+     *
+     * @param string            $ServiceId
+     * @param GetServiceRequest $request
+     *
+     * @return GetServiceResponse
+     */
+    public function getService($ServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getServiceWithOptions($ServiceId, $request, $headers, $runtime);
     }
 
     /**
