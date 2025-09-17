@@ -116,7 +116,8 @@ class FindIdpListByLoginIdentifierRequest extends Model
                 $res['SupportTypes'] = [];
                 $n1 = 0;
                 foreach ($this->supportTypes as $item1) {
-                    $res['SupportTypes'][$n1++] = $item1;
+                    $res['SupportTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +175,8 @@ class FindIdpListByLoginIdentifierRequest extends Model
                 $model->supportTypes = [];
                 $n1 = 0;
                 foreach ($map['SupportTypes'] as $item1) {
-                    $model->supportTypes[$n1++] = $item1;
+                    $model->supportTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -1,3 +1,7 @@
+2025-09-17 Version: 1.2.4
+- Update API GetLoginToken: add request parameters Channel.
+
+
 2025-04-27 Version: 1.2.3
 - Update API GetLoginToken: add response parameters Body.NickName.
 

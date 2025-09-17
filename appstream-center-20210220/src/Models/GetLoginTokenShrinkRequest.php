@@ -21,6 +21,11 @@ class GetLoginTokenShrinkRequest extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $clientId;
 
     /**
@@ -190,6 +195,7 @@ class GetLoginTokenShrinkRequest extends Model
     protected $_name = [
         'authenticationCode' => 'AuthenticationCode',
         'availableFeaturesShrink' => 'AvailableFeatures',
+        'channel' => 'Channel',
         'clientId' => 'ClientId',
         'clientName' => 'ClientName',
         'clientOS' => 'ClientOS',
@@ -240,6 +246,10 @@ class GetLoginTokenShrinkRequest extends Model
 
         if (null !== $this->availableFeaturesShrink) {
             $res['AvailableFeatures'] = $this->availableFeaturesShrink;
+        }
+
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
 
         if (null !== $this->clientId) {
@@ -395,6 +405,10 @@ class GetLoginTokenShrinkRequest extends Model
 
         if (isset($map['AvailableFeatures'])) {
             $model->availableFeaturesShrink = $map['AvailableFeatures'];
+        }
+
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
 
         if (isset($map['ClientId'])) {

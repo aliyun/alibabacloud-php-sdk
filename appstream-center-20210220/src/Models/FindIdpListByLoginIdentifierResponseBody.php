@@ -74,7 +74,8 @@ class FindIdpListByLoginIdentifierResponseBody extends Model
                 $res['IdpInfos'] = [];
                 $n1 = 0;
                 foreach ($this->idpInfos as $item1) {
-                    $res['IdpInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IdpInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -120,7 +121,8 @@ class FindIdpListByLoginIdentifierResponseBody extends Model
                 $model->idpInfos = [];
                 $n1 = 0;
                 foreach ($map['IdpInfos'] as $item1) {
-                    $model->idpInfos[$n1++] = idpInfos::fromMap($item1);
+                    $model->idpInfos[$n1] = idpInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

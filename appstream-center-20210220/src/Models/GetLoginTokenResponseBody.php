@@ -259,7 +259,8 @@ class GetLoginTokenResponseBody extends Model
                 $res['MfaTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->mfaTypeList as $item1) {
-                    $res['MfaTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MfaTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -277,7 +278,8 @@ class GetLoginTokenResponseBody extends Model
                 $res['OfficeSites'] = [];
                 $n1 = 0;
                 foreach ($this->officeSites as $item1) {
-                    $res['OfficeSites'][$n1++] = $item1;
+                    $res['OfficeSites'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -336,7 +338,8 @@ class GetLoginTokenResponseBody extends Model
                 $res['TenantInfos'] = [];
                 $n1 = 0;
                 foreach ($this->tenantInfos as $item1) {
-                    $res['TenantInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TenantInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -409,7 +412,8 @@ class GetLoginTokenResponseBody extends Model
                 $model->mfaTypeList = [];
                 $n1 = 0;
                 foreach ($map['MfaTypeList'] as $item1) {
-                    $model->mfaTypeList[$n1++] = mfaTypeList::fromMap($item1);
+                    $model->mfaTypeList[$n1] = mfaTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -427,7 +431,8 @@ class GetLoginTokenResponseBody extends Model
                 $model->officeSites = [];
                 $n1 = 0;
                 foreach ($map['OfficeSites'] as $item1) {
-                    $model->officeSites[$n1++] = $item1;
+                    $model->officeSites[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -486,7 +491,8 @@ class GetLoginTokenResponseBody extends Model
                 $model->tenantInfos = [];
                 $n1 = 0;
                 foreach ($map['TenantInfos'] as $item1) {
-                    $model->tenantInfos[$n1++] = tenantInfos::fromMap($item1);
+                    $model->tenantInfos[$n1] = tenantInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

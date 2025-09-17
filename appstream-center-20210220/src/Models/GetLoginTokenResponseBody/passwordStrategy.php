@@ -38,7 +38,8 @@ class passwordStrategy extends Model
                 $res['TenantAlternativeChars'] = [];
                 $n1 = 0;
                 foreach ($this->tenantAlternativeChars as $item1) {
-                    $res['TenantAlternativeChars'][$n1++] = $item1;
+                    $res['TenantAlternativeChars'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class passwordStrategy extends Model
                 $model->tenantAlternativeChars = [];
                 $n1 = 0;
                 foreach ($map['TenantAlternativeChars'] as $item1) {
-                    $model->tenantAlternativeChars[$n1++] = $item1;
+                    $model->tenantAlternativeChars[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

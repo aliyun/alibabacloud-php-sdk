@@ -21,6 +21,11 @@ class GetLoginTokenRequest extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $clientId;
 
     /**
@@ -190,6 +195,7 @@ class GetLoginTokenRequest extends Model
     protected $_name = [
         'authenticationCode' => 'AuthenticationCode',
         'availableFeatures' => 'AvailableFeatures',
+        'channel' => 'Channel',
         'clientId' => 'ClientId',
         'clientName' => 'ClientName',
         'clientOS' => 'ClientOS',
@@ -248,6 +254,10 @@ class GetLoginTokenRequest extends Model
                     $res['AvailableFeatures'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
 
         if (null !== $this->clientId) {
@@ -408,6 +418,10 @@ class GetLoginTokenRequest extends Model
                     $model->availableFeatures[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
 
         if (isset($map['ClientId'])) {

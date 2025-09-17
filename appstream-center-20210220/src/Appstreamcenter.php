@@ -25,7 +25,6 @@ class Appstreamcenter extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appstream-center', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -131,7 +130,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return FindIdpListByLoginIdentifierResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FindIdpListByLoginIdentifierResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -181,6 +180,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->availableFeaturesShrink) {
             @$query['AvailableFeatures'] = $request->availableFeaturesShrink;
+        }
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
         }
 
         if (null !== $request->clientId) {
@@ -334,7 +337,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return GetLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLoginTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -411,7 +414,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return GetStsTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStsTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
@@ -498,7 +501,7 @@ class Appstreamcenter extends OpenApiClient
             'bodyType' => 'json',
         ]);
 
-        return RefreshLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshLoginTokenResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
     }
 
     /**
