@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDataSourcesShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example RegionId
-     *
      * @var string
      */
     public $attributeName;
@@ -23,19 +19,21 @@ class ListDataSourcesShrinkRequest extends Model
     public $filterShrink;
     protected $_name = [
         'attributeName' => 'attributeName',
-        'filterShrink'  => 'filter',
+        'filterShrink' => 'filter',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeName) {
             $res['attributeName'] = $this->attributeName;
         }
+
         if (null !== $this->filterShrink) {
             $res['filter'] = $this->filterShrink;
         }
@@ -43,17 +41,18 @@ class ListDataSourcesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataSourcesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['attributeName'])) {
             $model->attributeName = $map['attributeName'];
         }
+
         if (isset($map['filter'])) {
             $model->filterShrink = $map['filter'];
         }

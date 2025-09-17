@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListResourceTypesResponseBody\resourceTypes;
-use AlibabaCloud\Tea\Model;
 
 class ListResourceTypesResponseBody extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example ECS::Disk
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
@@ -36,44 +30,51 @@ class ListResourceTypesResponseBody extends Model
     public $resourceTypes;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'    => 'maxResults',
-        'nextToken'     => 'nextToken',
-        'requestId'     => 'requestId',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
         'resourceTypes' => 'resourceTypes',
-        'totalCount'    => 'totalCount',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceTypes)) {
+            Model::validateArray($this->resourceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceTypes) {
-            $res['resourceTypes'] = [];
-            if (null !== $this->resourceTypes && \is_array($this->resourceTypes)) {
-                $n = 0;
-                foreach ($this->resourceTypes as $item) {
-                    $res['resourceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceTypes)) {
+                $res['resourceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->resourceTypes as $item1) {
+                    $res['resourceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -81,32 +82,37 @@ class ListResourceTypesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceTypesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['resourceTypes'])) {
             if (!empty($map['resourceTypes'])) {
                 $model->resourceTypes = [];
-                $n                    = 0;
-                foreach ($map['resourceTypes'] as $item) {
-                    $model->resourceTypes[$n++] = null !== $item ? resourceTypes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['resourceTypes'] as $item1) {
+                    $model->resourceTypes[$n1] = resourceTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

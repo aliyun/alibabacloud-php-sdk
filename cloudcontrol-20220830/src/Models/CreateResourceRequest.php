@@ -4,51 +4,54 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateResourceRequest extends Model
 {
     /**
-     * @example {
-     * "AccountName": "cctest",
-     * "AccountPassword": "Aa1234****"
-     * }
      * @var mixed[]
      */
     public $body;
 
     /**
-     * @example 1e810dfe1468721d0664a49b9d9f74f4
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'body'        => 'body',
+        'body' => 'body',
         'clientToken' => 'clientToken',
-        'regionId'    => 'regionId',
+        'regionId' => 'regionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                foreach ($this->body as $key1 => $value1) {
+                    $res['body'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -56,20 +59,27 @@ class CreateResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = $map['body'];
+            if (!empty($map['body'])) {
+                $model->body = [];
+                foreach ($map['body'] as $key1 => $value1) {
+                    $model->body[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetResourceTypeResponseBody\resourceType;
-use AlibabaCloud\Tea\Model;
 
 class GetResourceTypeResponseBody extends Model
 {
     /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
@@ -21,38 +19,44 @@ class GetResourceTypeResponseBody extends Model
      */
     public $resourceType;
     protected $_name = [
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
         'resourceType' => 'resourceType',
     ];
 
     public function validate()
     {
+        if (null !== $this->resourceType) {
+            $this->resourceType->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceType) {
-            $res['resourceType'] = null !== $this->resourceType ? $this->resourceType->toMap() : null;
+            $res['resourceType'] = null !== $this->resourceType ? $this->resourceType->toArray($noStream) : $this->resourceType;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = resourceType::fromMap($map['resourceType']);
         }

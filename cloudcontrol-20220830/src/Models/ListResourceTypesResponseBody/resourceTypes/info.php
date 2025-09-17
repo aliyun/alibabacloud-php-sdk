@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListResourceTypesResponseBody\resourceTypes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class info extends Model
 {
     /**
-     * @example paid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @example region
-     *
      * @var string
      */
     public $deliveryScope;
 
     /**
-     * @example An ECS instance is equivalent to a virtual machine, including the most basic computing components such as CPU, memory, operating system, network, and disk. You can easily customize and change the configuration of the instance. You have full control over the virtual machine.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example Instance
-     *
      * @var string
      */
     public $title;
     protected $_name = [
-        'chargeType'    => 'chargeType',
+        'chargeType' => 'chargeType',
         'deliveryScope' => 'deliveryScope',
-        'description'   => 'description',
-        'title'         => 'title',
+        'description' => 'description',
+        'title' => 'title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['chargeType'] = $this->chargeType;
         }
+
         if (null !== $this->deliveryScope) {
             $res['deliveryScope'] = $this->deliveryScope;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -65,23 +61,26 @@ class info extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return info
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chargeType'])) {
             $model->chargeType = $map['chargeType'];
         }
+
         if (isset($map['deliveryScope'])) {
             $model->deliveryScope = $map['deliveryScope'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

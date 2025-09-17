@@ -6,31 +6,25 @@ namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetResourcesShrinkRequest extends Model
+class DeleteResourceShrinkRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $clientToken;
+
     /**
      * @var string
      */
     public $filterShrink;
 
     /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
+        'clientToken' => 'clientToken',
         'filterShrink' => 'filter',
-        'maxResults' => 'maxResults',
-        'nextToken' => 'nextToken',
         'regionId' => 'regionId',
     ];
 
@@ -42,16 +36,12 @@ class GetResourcesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->filterShrink) {
             $res['filter'] = $this->filterShrink;
-        }
-
-        if (null !== $this->maxResults) {
-            $res['maxResults'] = $this->maxResults;
-        }
-
-        if (null !== $this->nextToken) {
-            $res['nextToken'] = $this->nextToken;
         }
 
         if (null !== $this->regionId) {
@@ -69,16 +59,12 @@ class GetResourcesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+
         if (isset($map['filter'])) {
             $model->filterShrink = $map['filter'];
-        }
-
-        if (isset($map['maxResults'])) {
-            $model->maxResults = $map['maxResults'];
-        }
-
-        if (isset($map['nextToken'])) {
-            $model->nextToken = $map['nextToken'];
         }
 
         if (isset($map['regionId'])) {

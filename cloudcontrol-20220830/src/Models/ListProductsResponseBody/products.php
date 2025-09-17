@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListProductsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class products extends Model
 {
     /**
-     * @example ECS
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @example Elastic Compute Service
-     *
      * @var string
      */
     public $productName;
@@ -28,14 +24,16 @@ class products extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productCode) {
             $res['productCode'] = $this->productCode;
         }
+
         if (null !== $this->productName) {
             $res['productName'] = $this->productName;
         }
@@ -43,17 +41,18 @@ class products extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return products
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['productCode'])) {
             $model->productCode = $map['productCode'];
         }
+
         if (isset($map['productName'])) {
             $model->productName = $map['productName'];
         }

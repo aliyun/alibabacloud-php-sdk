@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourcesRequest extends Model
 {
@@ -14,48 +14,54 @@ class GetResourcesRequest extends Model
     public $filter;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example AAAAAdDWBF2****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'filter'     => 'filter',
+        'filter' => 'filter',
         'maxResults' => 'maxResults',
-        'nextToken'  => 'nextToken',
-        'regionId'   => 'regionId',
+        'nextToken' => 'nextToken',
+        'regionId' => 'regionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->filter)) {
+            Model::validateArray($this->filter);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
-            $res['filter'] = $this->filter;
+            if (\is_array($this->filter)) {
+                $res['filter'] = [];
+                foreach ($this->filter as $key1 => $value1) {
+                    $res['filter'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -63,23 +69,31 @@ class GetResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['filter'])) {
-            $model->filter = $map['filter'];
+            if (!empty($map['filter'])) {
+                $model->filter = [];
+                foreach ($map['filter'] as $key1 => $value1) {
+                    $model->filter[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }

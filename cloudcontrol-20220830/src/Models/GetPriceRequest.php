@@ -4,58 +4,70 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPriceRequest extends Model
 {
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example {
-     * }
      * @var mixed[]
      */
     public $resourceAttributes;
     protected $_name = [
-        'regionId'           => 'regionId',
+        'regionId' => 'regionId',
         'resourceAttributes' => 'resourceAttributes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceAttributes)) {
+            Model::validateArray($this->resourceAttributes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceAttributes) {
-            $res['resourceAttributes'] = $this->resourceAttributes;
+            if (\is_array($this->resourceAttributes)) {
+                $res['resourceAttributes'] = [];
+                foreach ($this->resourceAttributes as $key1 => $value1) {
+                    $res['resourceAttributes'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['resourceAttributes'])) {
-            $model->resourceAttributes = $map['resourceAttributes'];
+            if (!empty($map['resourceAttributes'])) {
+                $model->resourceAttributes = [];
+                foreach ($map['resourceAttributes'] as $key1 => $value1) {
+                    $model->resourceAttributes[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

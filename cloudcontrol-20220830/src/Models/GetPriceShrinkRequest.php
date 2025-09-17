@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPriceShrinkRequest extends Model
 {
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example {
-     * }
      * @var string
      */
     public $resourceAttributesShrink;
     protected $_name = [
-        'regionId'                 => 'regionId',
+        'regionId' => 'regionId',
         'resourceAttributesShrink' => 'resourceAttributes',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceAttributesShrink) {
             $res['resourceAttributes'] = $this->resourceAttributesShrink;
         }
@@ -43,17 +41,18 @@ class GetPriceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPriceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['resourceAttributes'])) {
             $model->resourceAttributesShrink = $map['resourceAttributes'];
         }

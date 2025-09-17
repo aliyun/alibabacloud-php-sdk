@@ -4,13 +4,14 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\CancelTaskResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\DeleteResourceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\DeleteResourceResponse;
+use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\DeleteResourceShrinkRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetPriceShrinkRequest;
@@ -32,11 +33,10 @@ use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListResourceTypesResponse;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\ListResourceTypesShrinkRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\UpdateResourceRequest;
 use AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\UpdateResourceResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Cloudcontrol extends OpenApiClient
 {
@@ -61,24 +61,34 @@ class Cloudcontrol extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 取消任务
-     *  *
-     * @param string         $taskId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Calls this operation to cancel a specified asynchronous task.
      *
-     * @return CancelTaskResponse CancelTaskResponse
+     * @remarks
+     * Only tasks that are in the Pending or Running state can be canceled.
+     * You can call the CancelTask operation to cancel a Cloud Control API task, but the tasks that have been started in the downstream Alibaba Cloud services cannot be canceled.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelTaskResponse
+     *
+     * @param string         $taskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CancelTaskResponse
      */
     public function cancelTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -86,26 +96,32 @@ class Cloudcontrol extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CancelTask',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/operation/cancel',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CancelTask',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tasks/' . Url::percentEncode($taskId) . '/operation/cancel',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消任务
-     *  *
+     * Calls this operation to cancel a specified asynchronous task.
+     *
+     * @remarks
+     * Only tasks that are in the Pending or Running state can be canceled.
+     * You can call the CancelTask operation to cancel a Cloud Control API task, but the tasks that have been started in the downstream Alibaba Cloud services cannot be canceled.
+     *
+     * @returns CancelTaskResponse
+     *
      * @param string $taskId
      *
-     * @return CancelTaskResponse CancelTaskResponse
+     * @return CancelTaskResponse
      */
     public function cancelTask($taskId)
     {
@@ -116,52 +132,72 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 创建资源
-     *  *
-     * @param string                $requestPath the whole path of resource string
-     * @param CreateResourceRequest $request     CreateResourceRequest
-     * @param string[]              $headers     map
-     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
+     * Calls this operation to create resources.
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @remarks
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+     *
+     * @param requestPath - the whole path of resource string
+     * @param request - CreateResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceResponse
+     *
+     * @param string                $requestPath
+     * @param CreateResourceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateResourceResponse
      */
     public function createResourceWithOptions($requestPath, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['clientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['regionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateResource',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '' . $requestPath . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateResource',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '' . $requestPath . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建资源
-     *  *
-     * @param string                $requestPath the whole path of resource string
-     * @param CreateResourceRequest $request     CreateResourceRequest
+     * Calls this operation to create resources.
      *
-     * @return CreateResourceResponse CreateResourceResponse
+     * @remarks
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+     *
+     * @param requestPath - the whole path of resource string
+     * @param request - CreateResourceRequest
+     *
+     * @returns CreateResourceResponse
+     *
+     * @param string                $requestPath
+     * @param CreateResourceRequest $request
+     *
+     * @return CreateResourceResponse
      */
     public function createResource($requestPath, $request)
     {
@@ -172,51 +208,81 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 删除资源
-     *  *
-     * @param string                $requestPath the whole path of resource string
-     * @param DeleteResourceRequest $request     DeleteResourceRequest
-     * @param string[]              $headers     map
-     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
+     * Calls this operation to delete resources.
      *
-     * @return DeleteResourceResponse DeleteResourceResponse
+     * @remarks
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+     *
+     * @param requestPath - the whole path of resource string
+     * @param tmpReq - DeleteResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceResponse
+     *
+     * @param string                $requestPath
+     * @param DeleteResourceRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteResourceResponse
      */
-    public function deleteResourceWithOptions($requestPath, $request, $headers, $runtime)
+    public function deleteResourceWithOptions($requestPath, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new DeleteResourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['clientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['regionId'] = $request->regionId;
+
+        if (null !== $request->filterShrink) {
+            @$query['filter'] = $request->filterShrink;
         }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteResource',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '' . $requestPath . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteResource',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '' . $requestPath . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除资源
-     *  *
-     * @param string                $requestPath the whole path of resource string
-     * @param DeleteResourceRequest $request     DeleteResourceRequest
+     * Calls this operation to delete resources.
      *
-     * @return DeleteResourceResponse DeleteResourceResponse
+     * @remarks
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+     *
+     * @param requestPath - the whole path of resource string
+     * @param request - DeleteResourceRequest
+     *
+     * @returns DeleteResourceResponse
+     *
+     * @param string                $requestPath
+     * @param DeleteResourceRequest $request
+     *
+     * @return DeleteResourceResponse
      */
     public function deleteResource($requestPath, $request)
     {
@@ -227,56 +293,71 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 查询价格
-     *  *
-     * @param string          $requestPath the whole path of resource string
-     * @param GetPriceRequest $tmpReq      GetPriceRequest
-     * @param string[]        $headers     map
-     * @param RuntimeOptions  $runtime     runtime options for this request RuntimeOptions
+     * An RFQ interface through which users can query resource prices.
      *
-     * @return GetPriceResponse GetPriceResponse
+     * @param requestPath - the whole path of resource string
+     * @param tmpReq - GetPriceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPriceResponse
+     *
+     * @param string          $requestPath
+     * @param GetPriceRequest $tmpReq
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetPriceResponse
      */
     public function getPriceWithOptions($requestPath, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetPriceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceAttributes)) {
-            $request->resourceAttributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceAttributes, 'resourceAttributes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceAttributes) {
+            $request->resourceAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceAttributes, 'resourceAttributes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['regionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceAttributesShrink)) {
-            $query['resourceAttributes'] = $request->resourceAttributesShrink;
+
+        if (null !== $request->resourceAttributesShrink) {
+            @$query['resourceAttributes'] = $request->resourceAttributesShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPrice',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '' . $requestPath . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetPrice',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '' . $requestPath . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询价格
-     *  *
-     * @param string          $requestPath the whole path of resource string
-     * @param GetPriceRequest $request     GetPriceRequest
+     * An RFQ interface through which users can query resource prices.
      *
-     * @return GetPriceResponse GetPriceResponse
+     * @param requestPath - the whole path of resource string
+     * @param request - GetPriceRequest
+     *
+     * @returns GetPriceResponse
+     *
+     * @param string          $requestPath
+     * @param GetPriceRequest $request
+     *
+     * @return GetPriceResponse
      */
     public function getPrice($requestPath, $request)
     {
@@ -287,47 +368,59 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源元数据
-     *  *
-     * @param string                 $requestPath the whole path of resource string
-     * @param GetResourceTypeHeaders $headers     GetResourceTypeHeaders
-     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     * You can call the operation to obtain resource metadata.
      *
-     * @return GetResourceTypeResponse GetResourceTypeResponse
+     * @param requestPath - the whole path of resource string
+     * @param headers - GetResourceTypeHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceTypeResponse
+     *
+     * @param string                 $requestPath
+     * @param GetResourceTypeHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetResourceTypeResponse
      */
     public function getResourceTypeWithOptions($requestPath, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAcceptLanguage)) {
-            $realHeaders['x-acs-accept-language'] = Utils::toJSONString($headers->xAcsAcceptLanguage);
+
+        if (null !== $headers->xAcsAcceptLanguage) {
+            @$realHeaders['x-acs-accept-language'] = '' . $headers->xAcsAcceptLanguage;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetResourceType',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '' . $requestPath . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetResourceType',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '' . $requestPath . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取资源元数据
-     *  *
-     * @param string $requestPath the whole path of resource string
+     * You can call the operation to obtain resource metadata.
      *
-     * @return GetResourceTypeResponse GetResourceTypeResponse
+     * @param requestPath - the whole path of resource string
+     *
+     * @returns GetResourceTypeResponse
+     *
+     * @param string $requestPath
+     *
+     * @return GetResourceTypeResponse
      */
     public function getResourceType($requestPath)
     {
@@ -338,62 +431,87 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 查询资源
-     *  *
-     * @param string              $requestPath the whole path of resource string
-     * @param GetResourcesRequest $tmpReq      GetResourcesRequest
-     * @param string[]            $headers     map
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * You can call the operation to query resources.
      *
-     * @return GetResourcesResponse GetResourcesResponse
+     * @remarks
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
+     * You can call this operation to query resources List and Get based on different request paths.
+     *
+     * @param requestPath - the whole path of resource string
+     * @param tmpReq - GetResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourcesResponse
+     *
+     * @param string              $requestPath
+     * @param GetResourcesRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetResourcesResponse
      */
     public function getResourcesWithOptions($requestPath, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->filterShrink)) {
-            $query['filter'] = $request->filterShrink;
+        if (null !== $request->filterShrink) {
+            @$query['filter'] = $request->filterShrink;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['regionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResources',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '' . $requestPath . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetResources',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '' . $requestPath . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询资源
-     *  *
-     * @param string              $requestPath the whole path of resource string
-     * @param GetResourcesRequest $request     GetResourcesRequest
+     * You can call the operation to query resources.
      *
-     * @return GetResourcesResponse GetResourcesResponse
+     * @remarks
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
+     * You can call this operation to query resources List and Get based on different request paths.
+     *
+     * @param requestPath - the whole path of resource string
+     * @param request - GetResourcesRequest
+     *
+     * @returns GetResourcesResponse
+     *
+     * @param string              $requestPath
+     * @param GetResourcesRequest $request
+     *
+     * @return GetResourcesResponse
      */
     public function getResources($requestPath, $request)
     {
@@ -404,15 +522,21 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务
-     *  *
-     * @description GET /api/v1/tasks/{taskId}。
-     *  *
-     * @param string         $taskId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Calls this operation to query a specified asynchronous task.
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @remarks
+     * GET /api/v1/tasks/{taskId}.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskResponse
+     *
+     * @param string         $taskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTaskResponse
      */
     public function getTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -420,28 +544,31 @@ class Cloudcontrol extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTask',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTask',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询任务
-     *  *
-     * @description GET /api/v1/tasks/{taskId}。
-     *  *
+     * Calls this operation to query a specified asynchronous task.
+     *
+     * @remarks
+     * GET /api/v1/tasks/{taskId}.
+     *
+     * @returns GetTaskResponse
+     *
      * @param string $taskId
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @return GetTaskResponse
      */
     public function getTask($taskId)
     {
@@ -452,56 +579,71 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 列举资源属性可选值
-     *  *
-     * @param string                 $requestPath the whole path of resource string
-     * @param ListDataSourcesRequest $tmpReq      ListDataSourcesRequest
-     * @param string[]               $headers     map
-     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     * You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
      *
-     * @return ListDataSourcesResponse ListDataSourcesResponse
+     * @param requestPath - the whole path of resource string
+     * @param tmpReq - ListDataSourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourcesResponse
+     *
+     * @param string                 $requestPath
+     * @param ListDataSourcesRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDataSourcesResponse
      */
     public function listDataSourcesWithOptions($requestPath, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataSourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->attributeName)) {
-            $query['attributeName'] = $request->attributeName;
+        if (null !== $request->attributeName) {
+            @$query['attributeName'] = $request->attributeName;
         }
-        if (!Utils::isUnset($request->filterShrink)) {
-            $query['filter'] = $request->filterShrink;
+
+        if (null !== $request->filterShrink) {
+            @$query['filter'] = $request->filterShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataSources',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '' . $requestPath . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDataSources',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '' . $requestPath . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举资源属性可选值
-     *  *
-     * @param string                 $requestPath the whole path of resource string
-     * @param ListDataSourcesRequest $request     ListDataSourcesRequest
+     * You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
      *
-     * @return ListDataSourcesResponse ListDataSourcesResponse
+     * @param requestPath - the whole path of resource string
+     * @param request - ListDataSourcesRequest
+     *
+     * @returns ListDataSourcesResponse
+     *
+     * @param string                 $requestPath
+     * @param ListDataSourcesRequest $request
+     *
+     * @return ListDataSourcesResponse
      */
     public function listDataSources($requestPath, $request)
     {
@@ -512,62 +654,78 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 列举资源类型
-     *  *
-     * @description GET /api/v1/providers/{provider}/products。
-     *  *
-     * @param string              $provider
-     * @param ListProductsRequest $request  ListProductsRequest
-     * @param ListProductsHeaders $headers  ListProductsHeaders
-     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
+     * Calls this operation to list the supported services.
      *
-     * @return ListProductsResponse ListProductsResponse
+     * @remarks
+     * GET /api/v1/providers/{provider}/products.
+     *
+     * @param request - ListProductsRequest
+     * @param headers - ListProductsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductsResponse
+     *
+     * @param string              $provider
+     * @param ListProductsRequest $request
+     * @param ListProductsHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProductsResponse
      */
     public function listProductsWithOptions($provider, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAcceptLanguage)) {
-            $realHeaders['x-acs-accept-language'] = Utils::toJSONString($headers->xAcsAcceptLanguage);
+
+        if (null !== $headers->xAcsAcceptLanguage) {
+            @$realHeaders['x-acs-accept-language'] = '' . $headers->xAcsAcceptLanguage;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProducts',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/providers/' . OpenApiUtilClient::getEncodeParam($provider) . '/products',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListProducts',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/providers/' . Url::percentEncode($provider) . '/products',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举资源类型
-     *  *
-     * @description GET /api/v1/providers/{provider}/products。
-     *  *
-     * @param string              $provider
-     * @param ListProductsRequest $request  ListProductsRequest
+     * Calls this operation to list the supported services.
      *
-     * @return ListProductsResponse ListProductsResponse
+     * @remarks
+     * GET /api/v1/providers/{provider}/products.
+     *
+     * @param request - ListProductsRequest
+     *
+     * @returns ListProductsResponse
+     *
+     * @param string              $provider
+     * @param ListProductsRequest $request
+     *
+     * @return ListProductsResponse
      */
     public function listProducts($provider, $request)
     {
@@ -578,72 +736,90 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 列举资源类型
-     *  *
-     * @description GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
-     *  *
+     * Calls this operation to list the resource types of a service.
+     *
+     * @remarks
+     * GET /api/v1/providers/{provider}/products/{product}/resourceTypes.
+     *
+     * @param tmpReq - ListResourceTypesRequest
+     * @param headers - ListResourceTypesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceTypesResponse
+     *
      * @param string                   $provider
      * @param string                   $product
-     * @param ListResourceTypesRequest $tmpReq   ListResourceTypesRequest
-     * @param ListResourceTypesHeaders $headers  ListResourceTypesHeaders
-     * @param RuntimeOptions           $runtime  runtime options for this request RuntimeOptions
+     * @param ListResourceTypesRequest $tmpReq
+     * @param ListResourceTypesHeaders $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListResourceTypesResponse ListResourceTypesResponse
+     * @return ListResourceTypesResponse
      */
     public function listResourceTypesWithOptions($provider, $product, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListResourceTypesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceTypes)) {
-            $request->resourceTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypes, 'resourceTypes', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceTypes) {
+            $request->resourceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypes, 'resourceTypes', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceTypesShrink)) {
-            $query['resourceTypes'] = $request->resourceTypesShrink;
+
+        if (null !== $request->resourceTypesShrink) {
+            @$query['resourceTypes'] = $request->resourceTypesShrink;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xAcsAcceptLanguage)) {
-            $realHeaders['x-acs-accept-language'] = Utils::toJSONString($headers->xAcsAcceptLanguage);
+
+        if (null !== $headers->xAcsAcceptLanguage) {
+            @$realHeaders['x-acs-accept-language'] = '' . $headers->xAcsAcceptLanguage;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceTypes',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/providers/' . OpenApiUtilClient::getEncodeParam($provider) . '/products/' . OpenApiUtilClient::getEncodeParam($product) . '/resourceTypes',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListResourceTypes',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/providers/' . Url::percentEncode($provider) . '/products/' . Url::percentEncode($product) . '/resourceTypes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举资源类型
-     *  *
-     * @description GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
-     *  *
+     * Calls this operation to list the resource types of a service.
+     *
+     * @remarks
+     * GET /api/v1/providers/{provider}/products/{product}/resourceTypes.
+     *
+     * @param request - ListResourceTypesRequest
+     *
+     * @returns ListResourceTypesResponse
+     *
      * @param string                   $provider
      * @param string                   $product
-     * @param ListResourceTypesRequest $request  ListResourceTypesRequest
+     * @param ListResourceTypesRequest $request
      *
-     * @return ListResourceTypesResponse ListResourceTypesResponse
+     * @return ListResourceTypesResponse
      */
     public function listResourceTypes($provider, $product, $request)
     {
@@ -654,52 +830,76 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * @summary 更新资源
-     *  *
-     * @param string                $requestPath the whole path of resource string
-     * @param UpdateResourceRequest $request     UpdateResourceRequest
-     * @param string[]              $headers     map
-     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
+     * Calls this operation to update resources.
      *
-     * @return UpdateResourceResponse UpdateResourceResponse
+     * @remarks
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+     * If resources fail to be updated at any time, the Cloud Control API does not roll the resource back to the original status.
+     * The resource APIs cannot be rolled back. If the API operation is partially failed to be called, you can call the GetResource operation to view the latest status of the resource. If necessary, you can call the UpdateResource or DeleteResource operation to manually compensate for the failure.
+     *
+     * @param requestPath - the whole path of resource string
+     * @param request - UpdateResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceResponse
+     *
+     * @param string                $requestPath
+     * @param UpdateResourceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateResourceResponse
      */
     public function updateResourceWithOptions($requestPath, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['clientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['regionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResource',
-            'version'     => '2022-08-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '' . $requestPath . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateResource',
+            'version' => '2022-08-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '' . $requestPath . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新资源
-     *  *
-     * @param string                $requestPath the whole path of resource string
-     * @param UpdateResourceRequest $request     UpdateResourceRequest
+     * Calls this operation to update resources.
      *
-     * @return UpdateResourceResponse UpdateResourceResponse
+     * @remarks
+     * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+     * If resources fail to be updated at any time, the Cloud Control API does not roll the resource back to the original status.
+     * The resource APIs cannot be rolled back. If the API operation is partially failed to be called, you can call the GetResource operation to view the latest status of the resource. If necessary, you can call the UpdateResource or DeleteResource operation to manually compensate for the failure.
+     *
+     * @param requestPath - the whole path of resource string
+     * @param request - UpdateResourceRequest
+     *
+     * @returns UpdateResourceResponse
+     *
+     * @param string                $requestPath
+     * @param UpdateResourceRequest $request
+     *
+     * @return UpdateResourceResponse
      */
     public function updateResource($requestPath, $request)
     {

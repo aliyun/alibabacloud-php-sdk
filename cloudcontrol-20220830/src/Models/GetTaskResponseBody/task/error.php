@@ -4,39 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudcontrol\V20220830\Models\GetTaskResponseBody\task;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class error extends Model
 {
     /**
-     * @example OperationFailure.OperationFailed
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example {
-     * "requestId": "123****",
-     * }
      * @var string
      */
     public $message;
     protected $_name = [
-        'code'    => 'code',
+        'code' => 'code',
         'message' => 'message',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
@@ -44,17 +41,18 @@ class error extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return error
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
