@@ -138,6 +138,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSlrRoleForRealtimeLogResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateTransportLayerApplicationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateTransportLayerApplicationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateTransportLayerApplicationShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUrlObservationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUrlObservationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
@@ -237,6 +240,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteOriginClientCertificateReque
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteOriginClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteTransportLayerApplicationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteTransportLayerApplicationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUrlObservationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUrlObservationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskRequest;
@@ -423,6 +428,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetTieredCacheRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetTieredCacheResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetTransportLayerApplicationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetTransportLayerApplicationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUploadTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUploadTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserDeliveryTaskRequest;
@@ -539,6 +546,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListTransportLayerApplicationsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListTransportLayerApplicationsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUploadTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUploadTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUrlObservationsRequest;
@@ -719,6 +728,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTransportLayerApplicationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTransportLayerApplicationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTransportLayerApplicationShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUrlObservationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUrlObservationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskRequest;
@@ -5468,6 +5480,89 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 创建四层应用.
+     *
+     * @param tmpReq - CreateTransportLayerApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTransportLayerApplicationResponse
+     *
+     * @param CreateTransportLayerApplicationRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateTransportLayerApplicationResponse
+     */
+    public function createTransportLayerApplicationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateTransportLayerApplicationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->crossBorderOptimization) {
+            @$query['CrossBorderOptimization'] = $request->crossBorderOptimization;
+        }
+
+        if (null !== $request->ipAccessRule) {
+            @$query['IpAccessRule'] = $request->ipAccessRule;
+        }
+
+        if (null !== $request->ipv6) {
+            @$query['Ipv6'] = $request->ipv6;
+        }
+
+        if (null !== $request->recordName) {
+            @$query['RecordName'] = $request->recordName;
+        }
+
+        if (null !== $request->rulesShrink) {
+            @$query['Rules'] = $request->rulesShrink;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTransportLayerApplication',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTransportLayerApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建四层应用.
+     *
+     * @param Request - CreateTransportLayerApplicationRequest
+     *
+     * @returns CreateTransportLayerApplicationResponse
+     *
+     * @param CreateTransportLayerApplicationRequest $request
+     *
+     * @return CreateTransportLayerApplicationResponse
+     */
+    public function createTransportLayerApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTransportLayerApplicationWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建网页监测配置.
      *
      * @param Request - CreateUrlObservationRequest
@@ -7936,6 +8031,10 @@ class ESA extends OpenApiClient
             @$query['RecordId'] = $request->recordId;
         }
 
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -8635,6 +8734,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSiteOriginClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除四层应用.
+     *
+     * @param Request - DeleteTransportLayerApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTransportLayerApplicationResponse
+     *
+     * @param DeleteTransportLayerApplicationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteTransportLayerApplicationResponse
+     */
+    public function deleteTransportLayerApplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTransportLayerApplication',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTransportLayerApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除四层应用.
+     *
+     * @param Request - DeleteTransportLayerApplicationRequest
+     *
+     * @returns DeleteTransportLayerApplicationResponse
+     *
+     * @param DeleteTransportLayerApplicationRequest $request
+     *
+     * @return DeleteTransportLayerApplicationResponse
+     */
+    public function deleteTransportLayerApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTransportLayerApplicationWithOptions($request, $runtime);
     }
 
     /**
@@ -13965,6 +14125,59 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询四层应用详情.
+     *
+     * @param Request - GetTransportLayerApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTransportLayerApplicationResponse
+     *
+     * @param GetTransportLayerApplicationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetTransportLayerApplicationResponse
+     */
+    public function getTransportLayerApplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTransportLayerApplication',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTransportLayerApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询四层应用详情.
+     *
+     * @param Request - GetTransportLayerApplicationRequest
+     *
+     * @returns GetTransportLayerApplicationResponse
+     *
+     * @param GetTransportLayerApplicationRequest $request
+     *
+     * @return GetTransportLayerApplicationResponse
+     */
+    public function getTransportLayerApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTransportLayerApplicationWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the execution status and running information of a file upload task based on the task ID.
      *
      * @param Request - GetUploadTaskRequest
@@ -17279,6 +17492,59 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询四层应用列表.
+     *
+     * @param Request - ListTransportLayerApplicationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTransportLayerApplicationsResponse
+     *
+     * @param ListTransportLayerApplicationsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListTransportLayerApplicationsResponse
+     */
+    public function listTransportLayerApplicationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTransportLayerApplications',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTransportLayerApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询四层应用列表.
+     *
+     * @param Request - ListTransportLayerApplicationsRequest
+     *
+     * @returns ListTransportLayerApplicationsResponse
+     *
+     * @param ListTransportLayerApplicationsRequest $request
+     *
+     * @return ListTransportLayerApplicationsResponse
+     */
+    public function listTransportLayerApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTransportLayerApplicationsWithOptions($request, $runtime);
     }
 
     /**
@@ -23553,6 +23819,89 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateTieredCacheWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改四层应用.
+     *
+     * @param tmpReq - UpdateTransportLayerApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTransportLayerApplicationResponse
+     *
+     * @param UpdateTransportLayerApplicationRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateTransportLayerApplicationResponse
+     */
+    public function updateTransportLayerApplicationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateTransportLayerApplicationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->crossBorderOptimization) {
+            @$query['CrossBorderOptimization'] = $request->crossBorderOptimization;
+        }
+
+        if (null !== $request->ipAccessRule) {
+            @$query['IpAccessRule'] = $request->ipAccessRule;
+        }
+
+        if (null !== $request->ipv6) {
+            @$query['Ipv6'] = $request->ipv6;
+        }
+
+        if (null !== $request->rulesShrink) {
+            @$query['Rules'] = $request->rulesShrink;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTransportLayerApplication',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTransportLayerApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改四层应用.
+     *
+     * @param Request - UpdateTransportLayerApplicationRequest
+     *
+     * @returns UpdateTransportLayerApplicationResponse
+     *
+     * @param UpdateTransportLayerApplicationRequest $request
+     *
+     * @return UpdateTransportLayerApplicationResponse
+     */
+    public function updateTransportLayerApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTransportLayerApplicationWithOptions($request, $runtime);
     }
 
     /**

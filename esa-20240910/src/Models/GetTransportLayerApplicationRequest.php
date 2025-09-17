@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteRecordRequest extends Model
+class GetTransportLayerApplicationRequest extends Model
 {
     /**
      * @var int
      */
-    public $recordId;
+    public $applicationId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $securityToken;
+    public $siteId;
     protected $_name = [
-        'recordId' => 'RecordId',
-        'securityToken' => 'SecurityToken',
+        'applicationId' => 'ApplicationId',
+        'siteId' => 'SiteId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class DeleteRecordRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->recordId) {
-            $res['RecordId'] = $this->recordId;
+        if (null !== $this->applicationId) {
+            $res['ApplicationId'] = $this->applicationId;
         }
 
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->siteId) {
+            $res['SiteId'] = $this->siteId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class DeleteRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RecordId'])) {
-            $model->recordId = $map['RecordId'];
+        if (isset($map['ApplicationId'])) {
+            $model->applicationId = $map['ApplicationId'];
         }
 
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['SiteId'])) {
+            $model->siteId = $map['SiteId'];
         }
 
         return $model;
