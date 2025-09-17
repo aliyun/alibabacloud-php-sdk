@@ -56,7 +56,8 @@ class ListAccessTokensRequest extends Model
                 $res['AccessTokenId'] = [];
                 $n1 = 0;
                 foreach ($this->accessTokenId as $item1) {
-                    $res['AccessTokenId'][$n1++] = $item1;
+                    $res['AccessTokenId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class ListAccessTokensRequest extends Model
                 $model->accessTokenId = [];
                 $n1 = 0;
                 foreach ($map['AccessTokenId'] as $item1) {
-                    $model->accessTokenId[$n1++] = $item1;
+                    $model->accessTokenId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

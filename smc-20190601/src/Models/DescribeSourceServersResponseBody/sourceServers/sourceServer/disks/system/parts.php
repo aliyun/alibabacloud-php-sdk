@@ -33,7 +33,8 @@ class parts extends Model
                 $res['Part'] = [];
                 $n1 = 0;
                 foreach ($this->part as $item1) {
-                    $res['Part'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Part'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class parts extends Model
                 $model->part = [];
                 $n1 = 0;
                 foreach ($map['Part'] as $item1) {
-                    $model->part[$n1++] = part::fromMap($item1);
+                    $model->part[$n1] = part::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

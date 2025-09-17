@@ -101,7 +101,8 @@ class CreateCrossZoneMigrationJobRequest extends Model
                 $res['Disk'] = [];
                 $n1 = 0;
                 foreach ($this->disk as $item1) {
-                    $res['Disk'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Disk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +163,8 @@ class CreateCrossZoneMigrationJobRequest extends Model
                 $model->disk = [];
                 $n1 = 0;
                 foreach ($map['Disk'] as $item1) {
-                    $model->disk[$n1++] = disk::fromMap($item1);
+                    $model->disk[$n1] = disk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

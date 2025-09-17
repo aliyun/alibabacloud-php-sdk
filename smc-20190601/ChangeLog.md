@@ -1,3 +1,7 @@
+2025-09-17 Version: 1.0.3
+- Update API DescribeReplicationJobs: add response parameters Body.ReplicationJobs.$.WorkgroupId.
+
+
 2025-03-31 Version: 1.0.2
 - Generated php 2019-06-01 for smc.
 

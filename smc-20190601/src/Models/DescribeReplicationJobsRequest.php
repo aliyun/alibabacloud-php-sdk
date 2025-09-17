@@ -124,7 +124,8 @@ class DescribeReplicationJobsRequest extends Model
                 $res['InstanceId'] = [];
                 $n1 = 0;
                 foreach ($this->instanceId as $item1) {
-                    $res['InstanceId'][$n1++] = $item1;
+                    $res['InstanceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class DescribeReplicationJobsRequest extends Model
                 $res['JobId'] = [];
                 $n1 = 0;
                 foreach ($this->jobId as $item1) {
-                    $res['JobId'][$n1++] = $item1;
+                    $res['JobId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +178,8 @@ class DescribeReplicationJobsRequest extends Model
                 $res['SourceId'] = [];
                 $n1 = 0;
                 foreach ($this->sourceId as $item1) {
-                    $res['SourceId'][$n1++] = $item1;
+                    $res['SourceId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +193,8 @@ class DescribeReplicationJobsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -215,7 +219,8 @@ class DescribeReplicationJobsRequest extends Model
                 $model->instanceId = [];
                 $n1 = 0;
                 foreach ($map['InstanceId'] as $item1) {
-                    $model->instanceId[$n1++] = $item1;
+                    $model->instanceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -225,7 +230,8 @@ class DescribeReplicationJobsRequest extends Model
                 $model->jobId = [];
                 $n1 = 0;
                 foreach ($map['JobId'] as $item1) {
-                    $model->jobId[$n1++] = $item1;
+                    $model->jobId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +273,8 @@ class DescribeReplicationJobsRequest extends Model
                 $model->sourceId = [];
                 $n1 = 0;
                 foreach ($map['SourceId'] as $item1) {
-                    $model->sourceId[$n1++] = $item1;
+                    $model->sourceId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -281,7 +288,8 @@ class DescribeReplicationJobsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

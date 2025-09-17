@@ -33,7 +33,8 @@ class warnings extends Model
                 $res['Warning'] = [];
                 $n1 = 0;
                 foreach ($this->warning as $item1) {
-                    $res['Warning'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Warning'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class warnings extends Model
                 $model->warning = [];
                 $n1 = 0;
                 foreach ($map['Warning'] as $item1) {
-                    $model->warning[$n1++] = warning::fromMap($item1);
+                    $model->warning[$n1] = warning::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -199,7 +199,8 @@ class ModifyReplicationJobAttributeRequest extends Model
                 $res['DataDisk'] = [];
                 $n1 = 0;
                 foreach ($this->dataDisk as $item1) {
-                    $res['DataDisk'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DataDisk'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -273,7 +274,8 @@ class ModifyReplicationJobAttributeRequest extends Model
                 $res['SystemDiskPart'] = [];
                 $n1 = 0;
                 foreach ($this->systemDiskPart as $item1) {
-                    $res['SystemDiskPart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SystemDiskPart'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -326,7 +328,8 @@ class ModifyReplicationJobAttributeRequest extends Model
                 $model->dataDisk = [];
                 $n1 = 0;
                 foreach ($map['DataDisk'] as $item1) {
-                    $model->dataDisk[$n1++] = dataDisk::fromMap($item1);
+                    $model->dataDisk[$n1] = dataDisk::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -400,7 +403,8 @@ class ModifyReplicationJobAttributeRequest extends Model
                 $model->systemDiskPart = [];
                 $n1 = 0;
                 foreach ($map['SystemDiskPart'] as $item1) {
-                    $model->systemDiskPart[$n1++] = systemDiskPart::fromMap($item1);
+                    $model->systemDiskPart[$n1] = systemDiskPart::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

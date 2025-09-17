@@ -142,11 +142,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateSourceServersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateSourceServersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateSourceServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -228,11 +225,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccessTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -334,11 +328,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCrossZoneMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCrossZoneMigrationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCrossZoneMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -538,11 +529,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateReplicationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -632,11 +620,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWorkgroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWorkgroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWorkgroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -714,11 +699,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CutOverReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CutOverReplicationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CutOverReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -790,11 +772,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAccessTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -866,11 +845,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteReplicationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -948,11 +924,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSourceServerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSourceServerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSourceServerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1024,11 +997,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWorkgroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWorkgroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWorkgroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1144,11 +1114,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeReplicationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeReplicationJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeReplicationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1257,11 +1224,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSourceServersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSourceServersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSourceServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1349,11 +1313,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeWorkgroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeWorkgroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeWorkgroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1420,11 +1381,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableAccessTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1495,11 +1453,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisassociateSourceServersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisassociateSourceServersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisassociateSourceServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1574,11 +1529,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAccessTokensResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAccessTokensResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAccessTokensResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1657,11 +1609,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1824,11 +1773,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyReplicationJobAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyReplicationJobAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyReplicationJobAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1911,11 +1857,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySourceServerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySourceServerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySourceServerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1991,11 +1934,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyWorkgroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyWorkgroupAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyWorkgroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2063,11 +2003,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartReplicationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2139,11 +2076,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopReplicationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopReplicationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2224,11 +2158,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2312,11 +2243,8 @@ class Smc extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

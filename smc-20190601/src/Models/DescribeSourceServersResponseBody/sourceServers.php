@@ -33,7 +33,8 @@ class sourceServers extends Model
                 $res['SourceServer'] = [];
                 $n1 = 0;
                 foreach ($this->sourceServer as $item1) {
-                    $res['SourceServer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceServer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class sourceServers extends Model
                 $model->sourceServer = [];
                 $n1 = 0;
                 foreach ($map['SourceServer'] as $item1) {
-                    $model->sourceServer[$n1++] = sourceServer::fromMap($item1);
+                    $model->sourceServer[$n1] = sourceServer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

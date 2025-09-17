@@ -227,6 +227,11 @@ class replicationJob extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $workgroupId;
     protected $_name = [
         'businessStatus' => 'BusinessStatus',
         'containerNamespace' => 'ContainerNamespace',
@@ -271,6 +276,7 @@ class replicationJob extends Model
         'vSwitchId' => 'VSwitchId',
         'validTime' => 'ValidTime',
         'vpcId' => 'VpcId',
+        'workgroupId' => 'WorkgroupId',
     ];
 
     public function validate()
@@ -468,6 +474,10 @@ class replicationJob extends Model
             $res['VpcId'] = $this->vpcId;
         }
 
+        if (null !== $this->workgroupId) {
+            $res['WorkgroupId'] = $this->workgroupId;
+        }
+
         return $res;
     }
 
@@ -649,6 +659,10 @@ class replicationJob extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['WorkgroupId'])) {
+            $model->workgroupId = $map['WorkgroupId'];
         }
 
         return $model;

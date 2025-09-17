@@ -33,7 +33,8 @@ class replicationJobs extends Model
                 $res['ReplicationJob'] = [];
                 $n1 = 0;
                 foreach ($this->replicationJob as $item1) {
-                    $res['ReplicationJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReplicationJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class replicationJobs extends Model
                 $model->replicationJob = [];
                 $n1 = 0;
                 foreach ($map['ReplicationJob'] as $item1) {
-                    $model->replicationJob[$n1++] = replicationJob::fromMap($item1);
+                    $model->replicationJob[$n1] = replicationJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

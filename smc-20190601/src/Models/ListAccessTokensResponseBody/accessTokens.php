@@ -33,7 +33,8 @@ class accessTokens extends Model
                 $res['AccessToken'] = [];
                 $n1 = 0;
                 foreach ($this->accessToken as $item1) {
-                    $res['AccessToken'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessToken'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class accessTokens extends Model
                 $model->accessToken = [];
                 $n1 = 0;
                 foreach ($map['AccessToken'] as $item1) {
-                    $model->accessToken[$n1++] = accessToken::fromMap($item1);
+                    $model->accessToken[$n1] = accessToken::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

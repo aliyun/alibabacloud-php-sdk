@@ -102,7 +102,8 @@ class DescribeWorkgroupsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class DescribeWorkgroupsRequest extends Model
                 $res['WorkgroupId'] = [];
                 $n1 = 0;
                 foreach ($this->workgroupId as $item1) {
-                    $res['WorkgroupId'][$n1++] = $item1;
+                    $res['WorkgroupId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +159,8 @@ class DescribeWorkgroupsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +170,8 @@ class DescribeWorkgroupsRequest extends Model
                 $model->workgroupId = [];
                 $n1 = 0;
                 foreach ($map['WorkgroupId'] as $item1) {
-                    $model->workgroupId[$n1++] = $item1;
+                    $model->workgroupId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

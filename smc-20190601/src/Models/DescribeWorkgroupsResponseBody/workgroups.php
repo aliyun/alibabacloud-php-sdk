@@ -33,7 +33,8 @@ class workgroups extends Model
                 $res['Workgroup'] = [];
                 $n1 = 0;
                 foreach ($this->workgroup as $item1) {
-                    $res['Workgroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Workgroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class workgroups extends Model
                 $model->workgroup = [];
                 $n1 = 0;
                 foreach ($map['Workgroup'] as $item1) {
-                    $model->workgroup[$n1++] = workgroup::fromMap($item1);
+                    $model->workgroup[$n1] = workgroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
