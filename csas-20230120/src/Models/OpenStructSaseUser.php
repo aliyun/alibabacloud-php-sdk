@@ -26,6 +26,11 @@ class OpenStructSaseUser extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $email;
 
     /**
@@ -86,6 +91,7 @@ class OpenStructSaseUser extends Model
         'createTimeUnix' => 'CreateTimeUnix',
         'customFields' => 'CustomFields',
         'departments' => 'Departments',
+        'description' => 'Description',
         'email' => 'Email',
         'idpConfigId' => 'IdpConfigId',
         'leaveTimeUnix' => 'LeaveTimeUnix',
@@ -138,6 +144,10 @@ class OpenStructSaseUser extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->email) {
@@ -223,6 +233,10 @@ class OpenStructSaseUser extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['Email'])) {
