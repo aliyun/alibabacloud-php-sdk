@@ -31,13 +31,13 @@ class imageRegistryCredentials extends Model
     /**
      * @var string
      */
-    public $userName;
+    public $username;
     protected $_name = [
         'password' => 'Password',
         'server' => 'Server',
         'skipCertVerification' => 'SkipCertVerification',
         'usePlainHttp' => 'UsePlainHttp',
-        'userName' => 'UserName',
+        'username' => 'Username',
     ];
 
     public function validate()
@@ -64,8 +64,8 @@ class imageRegistryCredentials extends Model
             $res['UsePlainHttp'] = $this->usePlainHttp;
         }
 
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -95,8 +95,8 @@ class imageRegistryCredentials extends Model
             $model->usePlainHttp = $map['UsePlainHttp'];
         }
 
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;
