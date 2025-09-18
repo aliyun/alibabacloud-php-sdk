@@ -11,6 +11,11 @@ class FaceCompareRequest extends Model
     /**
      * @var string
      */
+    public $facePictureQualityCheck;
+
+    /**
+     * @var string
+     */
     public $merchantBizId;
 
     /**
@@ -33,6 +38,7 @@ class FaceCompareRequest extends Model
      */
     public $targetFacePictureUrl;
     protected $_name = [
+        'facePictureQualityCheck' => 'FacePictureQualityCheck',
         'merchantBizId' => 'MerchantBizId',
         'sourceFacePicture' => 'SourceFacePicture',
         'sourceFacePictureUrl' => 'SourceFacePictureUrl',
@@ -48,6 +54,10 @@ class FaceCompareRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->facePictureQualityCheck) {
+            $res['FacePictureQualityCheck'] = $this->facePictureQualityCheck;
+        }
+
         if (null !== $this->merchantBizId) {
             $res['MerchantBizId'] = $this->merchantBizId;
         }
@@ -79,6 +89,10 @@ class FaceCompareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FacePictureQualityCheck'])) {
+            $model->facePictureQualityCheck = $map['FacePictureQualityCheck'];
+        }
+
         if (isset($map['MerchantBizId'])) {
             $model->merchantBizId = $map['MerchantBizId'];
         }

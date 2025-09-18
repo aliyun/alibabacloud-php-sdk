@@ -1444,6 +1444,10 @@ class Cloudauthintl extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->facePictureQualityCheck) {
+            @$query['FacePictureQualityCheck'] = $request->facePictureQualityCheck;
+        }
+
         if (null !== $request->merchantBizId) {
             @$query['MerchantBizId'] = $request->merchantBizId;
         }
