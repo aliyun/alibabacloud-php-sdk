@@ -37,6 +37,11 @@ class UpdateTransportLayerApplicationShrinkRequest extends Model
      * @var int
      */
     public $siteId;
+
+    /**
+     * @var string
+     */
+    public $staticIp;
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'crossBorderOptimization' => 'CrossBorderOptimization',
@@ -44,6 +49,7 @@ class UpdateTransportLayerApplicationShrinkRequest extends Model
         'ipv6' => 'Ipv6',
         'rulesShrink' => 'Rules',
         'siteId' => 'SiteId',
+        'staticIp' => 'StaticIp',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class UpdateTransportLayerApplicationShrinkRequest extends Model
 
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
+        }
+
+        if (null !== $this->staticIp) {
+            $res['StaticIp'] = $this->staticIp;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class UpdateTransportLayerApplicationShrinkRequest extends Model
 
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
+        }
+
+        if (isset($map['StaticIp'])) {
+            $model->staticIp = $map['StaticIp'];
         }
 
         return $model;

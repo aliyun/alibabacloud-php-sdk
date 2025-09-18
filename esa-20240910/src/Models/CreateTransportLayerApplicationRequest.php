@@ -38,6 +38,11 @@ class CreateTransportLayerApplicationRequest extends Model
      * @var int
      */
     public $siteId;
+
+    /**
+     * @var string
+     */
+    public $staticIp;
     protected $_name = [
         'crossBorderOptimization' => 'CrossBorderOptimization',
         'ipAccessRule' => 'IpAccessRule',
@@ -45,6 +50,7 @@ class CreateTransportLayerApplicationRequest extends Model
         'recordName' => 'RecordName',
         'rules' => 'Rules',
         'siteId' => 'SiteId',
+        'staticIp' => 'StaticIp',
     ];
 
     public function validate()
@@ -89,6 +95,10 @@ class CreateTransportLayerApplicationRequest extends Model
             $res['SiteId'] = $this->siteId;
         }
 
+        if (null !== $this->staticIp) {
+            $res['StaticIp'] = $this->staticIp;
+        }
+
         return $res;
     }
 
@@ -129,6 +139,10 @@ class CreateTransportLayerApplicationRequest extends Model
 
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
+        }
+
+        if (isset($map['StaticIp'])) {
+            $model->staticIp = $map['StaticIp'];
         }
 
         return $model;

@@ -5480,7 +5480,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 创建四层应用.
+     * Create Transport Layer Application.
      *
      * @param tmpReq - CreateTransportLayerApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5526,6 +5526,10 @@ class ESA extends OpenApiClient
             @$query['SiteId'] = $request->siteId;
         }
 
+        if (null !== $request->staticIp) {
+            @$query['StaticIp'] = $request->staticIp;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5545,7 +5549,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 创建四层应用.
+     * Create Transport Layer Application.
      *
      * @param Request - CreateTransportLayerApplicationRequest
      *
@@ -8737,7 +8741,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除四层应用.
+     * Delete Transport Layer Application.
      *
      * @param Request - DeleteTransportLayerApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8780,7 +8784,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除四层应用.
+     * Delete Transport Layer Application.
      *
      * @param Request - DeleteTransportLayerApplicationRequest
      *
@@ -14125,7 +14129,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询四层应用详情.
+     * Query details of the transport layer application.
      *
      * @param Request - GetTransportLayerApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14160,7 +14164,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询四层应用详情.
+     * Query details of the transport layer application.
      *
      * @param Request - GetTransportLayerApplicationRequest
      *
@@ -17495,7 +17499,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询四层应用列表.
+     * List of Transport Layer Applications.
      *
      * @param Request - ListTransportLayerApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17530,7 +17534,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询四层应用列表.
+     * List of Transport Layer Applications.
      *
      * @param Request - ListTransportLayerApplicationsRequest
      *
@@ -23822,7 +23826,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改四层应用.
+     * Modify Transport Layer Application.
      *
      * @param tmpReq - UpdateTransportLayerApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23868,6 +23872,10 @@ class ESA extends OpenApiClient
             @$query['SiteId'] = $request->siteId;
         }
 
+        if (null !== $request->staticIp) {
+            @$query['StaticIp'] = $request->staticIp;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -23887,7 +23895,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改四层应用.
+     * Modify Transport Layer Application.
      *
      * @param Request - UpdateTransportLayerApplicationRequest
      *

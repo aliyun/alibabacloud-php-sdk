@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetTransportLayerApplicationResponseBody\rules;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetTransportLayerApplicationResponseBody\staticIpV4List;
 
 class GetTransportLayerApplicationResponseBody extends Model
 {
@@ -62,6 +63,16 @@ class GetTransportLayerApplicationResponseBody extends Model
     /**
      * @var string
      */
+    public $staticIp;
+
+    /**
+     * @var staticIpV4List[]
+     */
+    public $staticIpV4List;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'applicationId' => 'ApplicationId',
@@ -74,6 +85,8 @@ class GetTransportLayerApplicationResponseBody extends Model
         'rules' => 'Rules',
         'rulesCount' => 'RulesCount',
         'siteId' => 'SiteId',
+        'staticIp' => 'StaticIp',
+        'staticIpV4List' => 'StaticIpV4List',
         'status' => 'Status',
     ];
 
@@ -81,6 +94,9 @@ class GetTransportLayerApplicationResponseBody extends Model
     {
         if (\is_array($this->rules)) {
             Model::validateArray($this->rules);
+        }
+        if (\is_array($this->staticIpV4List)) {
+            Model::validateArray($this->staticIpV4List);
         }
         parent::validate();
     }
@@ -133,6 +149,21 @@ class GetTransportLayerApplicationResponseBody extends Model
 
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
+        }
+
+        if (null !== $this->staticIp) {
+            $res['StaticIp'] = $this->staticIp;
+        }
+
+        if (null !== $this->staticIpV4List) {
+            if (\is_array($this->staticIpV4List)) {
+                $res['StaticIpV4List'] = [];
+                $n1 = 0;
+                foreach ($this->staticIpV4List as $item1) {
+                    $res['StaticIpV4List'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->status) {
@@ -195,6 +226,21 @@ class GetTransportLayerApplicationResponseBody extends Model
 
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
+        }
+
+        if (isset($map['StaticIp'])) {
+            $model->staticIp = $map['StaticIp'];
+        }
+
+        if (isset($map['StaticIpV4List'])) {
+            if (!empty($map['StaticIpV4List'])) {
+                $model->staticIpV4List = [];
+                $n1 = 0;
+                foreach ($map['StaticIpV4List'] as $item1) {
+                    $model->staticIpV4List[$n1] = staticIpV4List::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Status'])) {
