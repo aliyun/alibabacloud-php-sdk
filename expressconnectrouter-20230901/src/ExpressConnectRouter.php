@@ -136,6 +136,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function activateFlowLogWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -154,6 +159,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -208,6 +214,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function attachExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->childInstanceId) {
             @$body['ChildInstanceId'] = $request->childInstanceId;
@@ -242,6 +253,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -296,6 +308,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function checkAddRegionToExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -314,6 +331,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -368,6 +386,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function createExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->alibabaSideAsn) {
             @$body['AlibabaSideAsn'] = $request->alibabaSideAsn;
@@ -398,6 +421,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -452,6 +476,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function createExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->allowedPrefixes) {
             @$body['AllowedPrefixes'] = $request->allowedPrefixes;
@@ -506,6 +535,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -590,6 +620,10 @@ class ExpressConnectRouter extends OpenApiClient
             @$query['Tag'] = $request->tag;
         }
 
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -664,6 +698,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function deactivateFlowLogWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -682,6 +721,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -738,6 +778,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function deleteExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -752,6 +797,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -808,6 +854,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function deleteExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->associationId) {
             @$body['AssociationId'] = $request->associationId;
@@ -830,6 +881,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -884,6 +936,10 @@ class ExpressConnectRouter extends OpenApiClient
         $query = [];
         if (null !== $request->flowLogId) {
             @$query['FlowLogId'] = $request->flowLogId;
+        }
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
         }
 
         $body = [];
@@ -952,6 +1008,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeDisabledExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -974,6 +1035,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1025,6 +1087,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -1059,6 +1126,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1110,6 +1178,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeExpressConnectRouterAllowedPrefixHistoryWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->associationId) {
             @$body['AssociationId'] = $request->associationId;
@@ -1136,6 +1209,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1187,6 +1261,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->associationId) {
             @$body['AssociationId'] = $request->associationId;
@@ -1233,6 +1312,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1284,6 +1364,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->associationId) {
             @$body['AssociationId'] = $request->associationId;
@@ -1322,6 +1407,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1373,6 +1459,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeExpressConnectRouterInterRegionTransitModeWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -1387,6 +1478,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1438,6 +1530,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeExpressConnectRouterRegionWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -1452,6 +1549,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1503,6 +1601,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->asPath) {
             @$body['AsPath'] = $request->asPath;
@@ -1545,6 +1648,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1633,6 +1737,10 @@ class ExpressConnectRouter extends OpenApiClient
             @$query['Tag'] = $request->tag;
         }
 
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -1699,6 +1807,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function describeInstanceGrantedToExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->callerType) {
             @$body['CallerType'] = $request->callerType;
@@ -1749,6 +1862,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1803,6 +1917,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function detachExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->childInstanceId) {
             @$body['ChildInstanceId'] = $request->childInstanceId;
@@ -1825,6 +1944,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1879,6 +1999,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function disableExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -1901,6 +2026,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1952,6 +2078,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function enableExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -1974,6 +2105,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2029,6 +2161,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function forceDeleteExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -2043,6 +2180,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2101,6 +2239,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function grantInstanceToExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -2131,6 +2274,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2185,6 +2329,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function listExpressConnectRouterSupportedRegionWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -2195,6 +2344,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2246,6 +2396,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->maxResults) {
             @$body['MaxResults'] = $request->maxResults;
@@ -2268,6 +2423,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2322,6 +2478,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function modifyExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -2344,6 +2505,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2398,6 +2560,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function modifyExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->associationId) {
             @$body['AssociationId'] = $request->associationId;
@@ -2420,6 +2587,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2471,6 +2639,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function modifyExpressConnectRouterAssociationAllowedPrefixWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->allowedPrefixes) {
             @$body['AllowedPrefixes'] = $request->allowedPrefixes;
@@ -2501,6 +2674,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2552,6 +2726,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function modifyExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->childInstanceId) {
             @$body['ChildInstanceId'] = $request->childInstanceId;
@@ -2578,6 +2757,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2629,6 +2809,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function modifyExpressConnectRouterInterRegionTransitModeWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -2647,6 +2832,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2713,6 +2899,10 @@ class ExpressConnectRouter extends OpenApiClient
 
         if (null !== $request->samplingRate) {
             @$query['SamplingRate'] = $request->samplingRate;
+        }
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
         }
 
         $body = [];
@@ -2785,6 +2975,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function moveResourceGroupWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -2807,6 +3002,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2858,6 +3054,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function revokeInstanceFromExpressConnectRouterWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -2888,6 +3089,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2942,6 +3144,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function synchronizeExpressConnectRouterInterRegionBandwidthWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -2956,6 +3163,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3010,6 +3218,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->clientToken) {
             @$body['ClientToken'] = $request->clientToken;
@@ -3032,6 +3245,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3083,6 +3297,11 @@ class ExpressConnectRouter extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
         $body = [];
         if (null !== $request->all) {
             @$body['All'] = $request->all;
@@ -3109,6 +3328,7 @@ class ExpressConnectRouter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([

@@ -28,11 +28,17 @@ class ModifyExpressConnectRouterInterRegionTransitModeRequest extends Model
      * @var transitModeList[]
      */
     public $transitModeList;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
         'transitModeList' => 'TransitModeList',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -69,6 +75,10 @@ class ModifyExpressConnectRouterInterRegionTransitModeRequest extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class ModifyExpressConnectRouterInterRegionTransitModeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

@@ -66,6 +66,11 @@ class CreateExpressConnectRouterAssociationRequest extends Model
     /**
      * @var string
      */
+    public $version;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
@@ -84,6 +89,7 @@ class CreateExpressConnectRouterAssociationRequest extends Model
         'ecrId' => 'EcrId',
         'transitRouterId' => 'TransitRouterId',
         'transitRouterOwnerId' => 'TransitRouterOwnerId',
+        'version' => 'Version',
         'vpcId' => 'VpcId',
         'vpcOwnerId' => 'VpcOwnerId',
     ];
@@ -148,6 +154,10 @@ class CreateExpressConnectRouterAssociationRequest extends Model
 
         if (null !== $this->transitRouterOwnerId) {
             $res['TransitRouterOwnerId'] = $this->transitRouterOwnerId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         if (null !== $this->vpcId) {
@@ -218,6 +228,10 @@ class CreateExpressConnectRouterAssociationRequest extends Model
 
         if (isset($map['TransitRouterOwnerId'])) {
             $model->transitRouterOwnerId = $map['TransitRouterOwnerId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         if (isset($map['VpcId'])) {

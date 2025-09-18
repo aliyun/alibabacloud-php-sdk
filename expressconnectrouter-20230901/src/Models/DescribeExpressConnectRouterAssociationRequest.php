@@ -61,6 +61,11 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
     /**
      * @var string
      */
+    public $version;
+
+    /**
+     * @var string
+     */
     public $vpcId;
     protected $_name = [
         'associationId' => 'AssociationId',
@@ -73,6 +78,7 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'transitRouterId' => 'TransitRouterId',
+        'version' => 'Version',
         'vpcId' => 'VpcId',
     ];
 
@@ -122,6 +128,10 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
 
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         if (null !== $this->vpcId) {
@@ -177,6 +187,10 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
 
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         if (isset($map['VpcId'])) {

@@ -42,6 +42,11 @@ class RevokeInstanceFromExpressConnectRouterRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
@@ -50,6 +55,7 @@ class RevokeInstanceFromExpressConnectRouterRequest extends Model
         'instanceId' => 'InstanceId',
         'instanceRegionId' => 'InstanceRegionId',
         'instanceType' => 'InstanceType',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class RevokeInstanceFromExpressConnectRouterRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class RevokeInstanceFromExpressConnectRouterRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

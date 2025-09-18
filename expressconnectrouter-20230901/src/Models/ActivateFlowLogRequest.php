@@ -27,11 +27,17 @@ class ActivateFlowLogRequest extends Model
      * @var string
      */
     public $flowLogId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
         'flowLogId' => 'FlowLogId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ActivateFlowLogRequest extends Model
 
         if (null !== $this->flowLogId) {
             $res['FlowLogId'] = $this->flowLogId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ActivateFlowLogRequest extends Model
 
         if (isset($map['FlowLogId'])) {
             $model->flowLogId = $map['FlowLogId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

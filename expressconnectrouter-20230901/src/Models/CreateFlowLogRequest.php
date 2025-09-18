@@ -73,6 +73,11 @@ class CreateFlowLogRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
@@ -87,6 +92,7 @@ class CreateFlowLogRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'samplingRate' => 'SamplingRate',
         'tag' => 'Tag',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -159,6 +165,10 @@ class CreateFlowLogRequest extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -227,6 +237,10 @@ class CreateFlowLogRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

@@ -52,6 +52,11 @@ class DescribeExpressConnectRouterChildInstanceRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'associationId' => 'AssociationId',
         'childInstanceId' => 'ChildInstanceId',
@@ -62,6 +67,7 @@ class DescribeExpressConnectRouterChildInstanceRequest extends Model
         'ecrId' => 'EcrId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class DescribeExpressConnectRouterChildInstanceRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class DescribeExpressConnectRouterChildInstanceRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

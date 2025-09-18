@@ -32,12 +32,18 @@ class DisableExpressConnectRouterRouteEntriesRequest extends Model
      * @var string
      */
     public $nexthopInstanceId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'destinationCidrBlock' => 'DestinationCidrBlock',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
         'nexthopInstanceId' => 'NexthopInstanceId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class DisableExpressConnectRouterRouteEntriesRequest extends Model
 
         if (null !== $this->nexthopInstanceId) {
             $res['NexthopInstanceId'] = $this->nexthopInstanceId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class DisableExpressConnectRouterRouteEntriesRequest extends Model
 
         if (isset($map['NexthopInstanceId'])) {
             $model->nexthopInstanceId = $map['NexthopInstanceId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

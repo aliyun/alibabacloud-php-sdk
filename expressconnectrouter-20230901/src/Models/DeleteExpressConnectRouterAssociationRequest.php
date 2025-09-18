@@ -32,12 +32,18 @@ class DeleteExpressConnectRouterAssociationRequest extends Model
      * @var string
      */
     public $ecrId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'associationId' => 'AssociationId',
         'clientToken' => 'ClientToken',
         'deleteAttachment' => 'DeleteAttachment',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class DeleteExpressConnectRouterAssociationRequest extends Model
 
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class DeleteExpressConnectRouterAssociationRequest extends Model
 
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

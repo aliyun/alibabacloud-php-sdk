@@ -47,6 +47,11 @@ class ModifyFlowLogAttributeRequest extends Model
      * @var string
      */
     public $samplingRate;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
@@ -56,6 +61,7 @@ class ModifyFlowLogAttributeRequest extends Model
         'flowLogName' => 'FlowLogName',
         'interval' => 'Interval',
         'samplingRate' => 'SamplingRate',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class ModifyFlowLogAttributeRequest extends Model
 
         if (null !== $this->samplingRate) {
             $res['SamplingRate'] = $this->samplingRate;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class ModifyFlowLogAttributeRequest extends Model
 
         if (isset($map['SamplingRate'])) {
             $model->samplingRate = $map['SamplingRate'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

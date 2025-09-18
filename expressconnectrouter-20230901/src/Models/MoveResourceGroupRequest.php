@@ -32,12 +32,18 @@ class MoveResourceGroupRequest extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'newResourceGroupId' => 'NewResourceGroupId',
         'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class MoveResourceGroupRequest extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class MoveResourceGroupRequest extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

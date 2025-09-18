@@ -68,6 +68,11 @@ class DescribeInstanceGrantedToExpressConnectRouterRequest extends Model
      * @var tagModels[]
      */
     public $tagModels;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'callerType' => 'CallerType',
         'clientToken' => 'ClientToken',
@@ -81,6 +86,7 @@ class DescribeInstanceGrantedToExpressConnectRouterRequest extends Model
         'nextToken' => 'NextToken',
         'resourceGroupId' => 'ResourceGroupId',
         'tagModels' => 'TagModels',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -149,6 +155,10 @@ class DescribeInstanceGrantedToExpressConnectRouterRequest extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -213,6 +223,10 @@ class DescribeInstanceGrantedToExpressConnectRouterRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

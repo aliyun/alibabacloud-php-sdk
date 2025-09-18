@@ -33,12 +33,18 @@ class TagResourcesRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tag' => 'Tag',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -89,6 +95,10 @@ class TagResourcesRequest extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -132,6 +142,10 @@ class TagResourcesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

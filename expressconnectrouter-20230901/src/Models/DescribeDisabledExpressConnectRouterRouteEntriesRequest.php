@@ -32,12 +32,18 @@ class DescribeDisabledExpressConnectRouterRouteEntriesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class DescribeDisabledExpressConnectRouterRouteEntriesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class DescribeDisabledExpressConnectRouterRouteEntriesRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

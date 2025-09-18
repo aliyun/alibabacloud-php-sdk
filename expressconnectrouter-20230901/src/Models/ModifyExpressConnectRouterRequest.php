@@ -32,12 +32,18 @@ class ModifyExpressConnectRouterRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
         'name' => 'Name',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ModifyExpressConnectRouterRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ModifyExpressConnectRouterRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

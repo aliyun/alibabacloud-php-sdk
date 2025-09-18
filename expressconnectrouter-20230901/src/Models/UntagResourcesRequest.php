@@ -37,6 +37,11 @@ class UntagResourcesRequest extends Model
      * @var string[]
      */
     public $tagKey;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'all' => 'All',
         'clientToken' => 'ClientToken',
@@ -44,6 +49,7 @@ class UntagResourcesRequest extends Model
         'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tagKey' => 'TagKey',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -98,6 +104,10 @@ class UntagResourcesRequest extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -145,6 +155,10 @@ class UntagResourcesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

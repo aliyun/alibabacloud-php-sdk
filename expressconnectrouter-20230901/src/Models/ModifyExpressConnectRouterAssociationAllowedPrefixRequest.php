@@ -42,6 +42,11 @@ class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'allowedPrefixes' => 'AllowedPrefixes',
         'allowedPrefixesMode' => 'AllowedPrefixesMode',
@@ -50,6 +55,7 @@ class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends Model
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
         'ownerAccount' => 'OwnerAccount',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -98,6 +104,10 @@ class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends Model
             $res['OwnerAccount'] = $this->ownerAccount;
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -142,6 +152,10 @@ class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends Model
 
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

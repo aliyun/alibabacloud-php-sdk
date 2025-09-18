@@ -27,11 +27,17 @@ class CheckAddRegionToExpressConnectRouterRequest extends Model
      * @var string
      */
     public $freshRegionId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
         'freshRegionId' => 'FreshRegionId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class CheckAddRegionToExpressConnectRouterRequest extends Model
 
         if (null !== $this->freshRegionId) {
             $res['FreshRegionId'] = $this->freshRegionId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class CheckAddRegionToExpressConnectRouterRequest extends Model
 
         if (isset($map['FreshRegionId'])) {
             $model->freshRegionId = $map['FreshRegionId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

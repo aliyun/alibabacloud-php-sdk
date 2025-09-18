@@ -43,6 +43,11 @@ class CreateExpressConnectRouterRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'alibabaSideAsn' => 'AlibabaSideAsn',
         'clientToken' => 'ClientToken',
@@ -51,6 +56,7 @@ class CreateExpressConnectRouterRequest extends Model
         'name' => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
         'tag' => 'Tag',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -99,6 +105,10 @@ class CreateExpressConnectRouterRequest extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -143,6 +153,10 @@ class CreateExpressConnectRouterRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

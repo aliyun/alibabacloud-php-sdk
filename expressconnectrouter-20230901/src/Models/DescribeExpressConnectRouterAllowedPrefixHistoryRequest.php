@@ -37,6 +37,11 @@ class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'associationId' => 'AssociationId',
         'clientToken' => 'ClientToken',
@@ -44,6 +49,7 @@ class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends Model
         'ecrId' => 'EcrId',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

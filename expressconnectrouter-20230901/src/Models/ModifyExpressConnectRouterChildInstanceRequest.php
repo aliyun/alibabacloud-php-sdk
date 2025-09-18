@@ -37,6 +37,11 @@ class ModifyExpressConnectRouterChildInstanceRequest extends Model
      * @var string
      */
     public $ecrId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'childInstanceId' => 'ChildInstanceId',
         'childInstanceType' => 'ChildInstanceType',
@@ -44,6 +49,7 @@ class ModifyExpressConnectRouterChildInstanceRequest extends Model
         'description' => 'Description',
         'dryRun' => 'DryRun',
         'ecrId' => 'EcrId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class ModifyExpressConnectRouterChildInstanceRequest extends Model
 
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class ModifyExpressConnectRouterChildInstanceRequest extends Model
 
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

@@ -17,9 +17,15 @@ class ListExpressConnectRouterSupportedRegionRequest extends Model
      * @var string
      */
     public $nodeType;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'nodeType' => 'NodeType',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ListExpressConnectRouterSupportedRegionRequest extends Model
 
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ListExpressConnectRouterSupportedRegionRequest extends Model
 
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

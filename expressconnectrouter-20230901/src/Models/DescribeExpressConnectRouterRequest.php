@@ -48,6 +48,11 @@ class DescribeExpressConnectRouterRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
@@ -57,6 +62,7 @@ class DescribeExpressConnectRouterRequest extends Model
         'nextToken' => 'NextToken',
         'resourceGroupId' => 'ResourceGroupId',
         'tag' => 'Tag',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -109,6 +115,10 @@ class DescribeExpressConnectRouterRequest extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -157,6 +167,10 @@ class DescribeExpressConnectRouterRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

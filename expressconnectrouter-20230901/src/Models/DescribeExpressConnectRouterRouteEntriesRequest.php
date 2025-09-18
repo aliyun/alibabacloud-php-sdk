@@ -57,6 +57,11 @@ class DescribeExpressConnectRouterRouteEntriesRequest extends Model
      * @var string
      */
     public $queryRegionId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'asPath' => 'AsPath',
         'clientToken' => 'ClientToken',
@@ -68,6 +73,7 @@ class DescribeExpressConnectRouterRouteEntriesRequest extends Model
         'nextToken' => 'NextToken',
         'nexthopInstanceId' => 'NexthopInstanceId',
         'queryRegionId' => 'QueryRegionId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class DescribeExpressConnectRouterRouteEntriesRequest extends Model
 
         if (null !== $this->queryRegionId) {
             $res['QueryRegionId'] = $this->queryRegionId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class DescribeExpressConnectRouterRouteEntriesRequest extends Model
 
         if (isset($map['QueryRegionId'])) {
             $model->queryRegionId = $map['QueryRegionId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;
