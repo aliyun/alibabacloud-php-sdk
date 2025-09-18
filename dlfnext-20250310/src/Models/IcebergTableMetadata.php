@@ -19,6 +19,11 @@ class IcebergTableMetadata extends Model
     public $fields;
 
     /**
+     * @var int[]
+     */
+    public $identifierFieldIds;
+
+    /**
      * @var IcebergPartitionField[]
      */
     public $partitionFields;
@@ -30,6 +35,7 @@ class IcebergTableMetadata extends Model
     protected $_name = [
         'currentSnapshot' => 'currentSnapshot',
         'fields' => 'fields',
+        'identifierFieldIds' => 'identifierFieldIds',
         'partitionFields' => 'partitionFields',
         'properties' => 'properties',
     ];
@@ -41,6 +47,9 @@ class IcebergTableMetadata extends Model
         }
         if (\is_array($this->fields)) {
             Model::validateArray($this->fields);
+        }
+        if (\is_array($this->identifierFieldIds)) {
+            Model::validateArray($this->identifierFieldIds);
         }
         if (\is_array($this->partitionFields)) {
             Model::validateArray($this->partitionFields);
@@ -64,6 +73,17 @@ class IcebergTableMetadata extends Model
                 $n1 = 0;
                 foreach ($this->fields as $item1) {
                     $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->identifierFieldIds) {
+            if (\is_array($this->identifierFieldIds)) {
+                $res['identifierFieldIds'] = [];
+                $n1 = 0;
+                foreach ($this->identifierFieldIds as $item1) {
+                    $res['identifierFieldIds'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -110,6 +130,17 @@ class IcebergTableMetadata extends Model
                 $n1 = 0;
                 foreach ($map['fields'] as $item1) {
                     $model->fields[$n1] = IcebergNestedField::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['identifierFieldIds'])) {
+            if (!empty($map['identifierFieldIds'])) {
+                $model->identifierFieldIds = [];
+                $n1 = 0;
+                foreach ($map['identifierFieldIds'] as $item1) {
+                    $model->identifierFieldIds[$n1] = $item1;
                     ++$n1;
                 }
             }

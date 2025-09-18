@@ -91,6 +91,11 @@ class TableSummary extends Model
     /**
      * @var int
      */
+    public $totalMetaSizeInBytes;
+
+    /**
+     * @var int
+     */
     public $updatedAt;
     protected $_name = [
         'createdAt' => 'createdAt',
@@ -109,6 +114,7 @@ class TableSummary extends Model
         'tableName' => 'tableName',
         'totalFileCount' => 'totalFileCount',
         'totalFileSizeInBytes' => 'totalFileSizeInBytes',
+        'totalMetaSizeInBytes' => 'totalMetaSizeInBytes',
         'updatedAt' => 'updatedAt',
     ];
 
@@ -190,6 +196,10 @@ class TableSummary extends Model
 
         if (null !== $this->totalFileSizeInBytes) {
             $res['totalFileSizeInBytes'] = $this->totalFileSizeInBytes;
+        }
+
+        if (null !== $this->totalMetaSizeInBytes) {
+            $res['totalMetaSizeInBytes'] = $this->totalMetaSizeInBytes;
         }
 
         if (null !== $this->updatedAt) {
@@ -274,6 +284,10 @@ class TableSummary extends Model
 
         if (isset($map['totalFileSizeInBytes'])) {
             $model->totalFileSizeInBytes = $map['totalFileSizeInBytes'];
+        }
+
+        if (isset($map['totalMetaSizeInBytes'])) {
+            $model->totalMetaSizeInBytes = $map['totalMetaSizeInBytes'];
         }
 
         if (isset($map['updatedAt'])) {

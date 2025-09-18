@@ -67,6 +67,11 @@ class DatabaseSummary extends Model
      * @var int
      */
     public $totalFileSizeInBytes;
+
+    /**
+     * @var int
+     */
+    public $totalMetaSizeInBytes;
     protected $_name = [
         'createdAt' => 'createdAt',
         'databaseName' => 'databaseName',
@@ -80,6 +85,7 @@ class DatabaseSummary extends Model
         'tableCount' => 'tableCount',
         'totalFileCount' => 'totalFileCount',
         'totalFileSizeInBytes' => 'totalFileSizeInBytes',
+        'totalMetaSizeInBytes' => 'totalMetaSizeInBytes',
     ];
 
     public function validate()
@@ -136,6 +142,10 @@ class DatabaseSummary extends Model
 
         if (null !== $this->totalFileSizeInBytes) {
             $res['totalFileSizeInBytes'] = $this->totalFileSizeInBytes;
+        }
+
+        if (null !== $this->totalMetaSizeInBytes) {
+            $res['totalMetaSizeInBytes'] = $this->totalMetaSizeInBytes;
         }
 
         return $res;
@@ -195,6 +205,10 @@ class DatabaseSummary extends Model
 
         if (isset($map['totalFileSizeInBytes'])) {
             $model->totalFileSizeInBytes = $map['totalFileSizeInBytes'];
+        }
+
+        if (isset($map['totalMetaSizeInBytes'])) {
+            $model->totalMetaSizeInBytes = $map['totalMetaSizeInBytes'];
         }
 
         return $model;

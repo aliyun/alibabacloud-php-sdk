@@ -24,6 +24,11 @@ class TableCompaction extends Model
     public $lastCompactedFileTime;
 
     /**
+     * @var int
+     */
+    public $latencyFileEarliestTime;
+
+    /**
      * @var string
      */
     public $maxLevel0FileCount;
@@ -36,6 +41,7 @@ class TableCompaction extends Model
         'catalogId' => 'catalogId',
         'cuUsage' => 'cuUsage',
         'lastCompactedFileTime' => 'lastCompactedFileTime',
+        'latencyFileEarliestTime' => 'latencyFileEarliestTime',
         'maxLevel0FileCount' => 'maxLevel0FileCount',
         'tableId' => 'tableId',
     ];
@@ -58,6 +64,10 @@ class TableCompaction extends Model
 
         if (null !== $this->lastCompactedFileTime) {
             $res['lastCompactedFileTime'] = $this->lastCompactedFileTime;
+        }
+
+        if (null !== $this->latencyFileEarliestTime) {
+            $res['latencyFileEarliestTime'] = $this->latencyFileEarliestTime;
         }
 
         if (null !== $this->maxLevel0FileCount) {
@@ -89,6 +99,10 @@ class TableCompaction extends Model
 
         if (isset($map['lastCompactedFileTime'])) {
             $model->lastCompactedFileTime = $map['lastCompactedFileTime'];
+        }
+
+        if (isset($map['latencyFileEarliestTime'])) {
+            $model->latencyFileEarliestTime = $map['latencyFileEarliestTime'];
         }
 
         if (isset($map['maxLevel0FileCount'])) {

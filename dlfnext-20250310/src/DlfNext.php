@@ -65,6 +65,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableSnapshotResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableSummaryRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableSummaryResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableTokenRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableTokenResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetUserRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetUserResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersRequest;
@@ -2447,6 +2449,73 @@ class DlfNext extends OpenApiClient
     }
 
     /**
+     * 获取数据湖表的临时访问凭证
+     *
+     * @param request - GetTableTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableTokenResponse
+     *
+     * @param string               $catalogId
+     * @param string               $database
+     * @param string               $table
+     * @param GetTableTokenRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetTableTokenResponse
+     */
+    public function getTableTokenWithOptions($catalogId, $database, $table, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->isInternal) {
+            @$query['isInternal'] = $request->isInternal;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableToken',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '/token',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据湖表的临时访问凭证
+     *
+     * @param request - GetTableTokenRequest
+     *
+     * @returns GetTableTokenResponse
+     *
+     * @param string               $catalogId
+     * @param string               $database
+     * @param string               $table
+     * @param GetTableTokenRequest $request
+     *
+     * @return GetTableTokenResponse
+     */
+    public function getTableToken($catalogId, $database, $table, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTableTokenWithOptions($catalogId, $database, $table, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取用户.
      *
      * @param request - GetUserRequest
@@ -3737,6 +3806,10 @@ class DlfNext extends OpenApiClient
 
         if (null !== $request->tableNamePattern) {
             @$query['tableNamePattern'] = $request->tableNamePattern;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
 
         $req = new OpenApiRequest([

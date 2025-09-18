@@ -22,10 +22,16 @@ class ListTableDetailsRequest extends Model
      * @var string
      */
     public $tableNamePattern;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'maxResults' => 'maxResults',
         'pageToken' => 'pageToken',
         'tableNamePattern' => 'tableNamePattern',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ListTableDetailsRequest extends Model
 
         if (null !== $this->tableNamePattern) {
             $res['tableNamePattern'] = $this->tableNamePattern;
+        }
+
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ListTableDetailsRequest extends Model
 
         if (isset($map['tableNamePattern'])) {
             $model->tableNamePattern = $map['tableNamePattern'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;
