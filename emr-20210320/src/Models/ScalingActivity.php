@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScalingActivity extends Model
 {
@@ -94,50 +94,66 @@ class ScalingActivity extends Model
         'transition' => 'Transition',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cause) {
             $res['Cause'] = $this->cause;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->essScalingRuleId) {
             $res['EssScalingRuleId'] = $this->essScalingRuleId;
         }
+
         if (null !== $this->expectNum) {
             $res['ExpectNum'] = $this->expectNum;
         }
+
         if (null !== $this->hostGroupName) {
             $res['HostGroupName'] = $this->hostGroupName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
+
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
+
         if (null !== $this->scalingRuleName) {
             $res['ScalingRuleName'] = $this->scalingRuleName;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->totalCapacity) {
             $res['TotalCapacity'] = $this->totalCapacity;
         }
+
         if (null !== $this->transition) {
             $res['Transition'] = $this->transition;
         }
@@ -145,53 +161,66 @@ class ScalingActivity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScalingActivity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cause'])) {
             $model->cause = $map['Cause'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['EssScalingRuleId'])) {
             $model->essScalingRuleId = $map['EssScalingRuleId'];
         }
+
         if (isset($map['ExpectNum'])) {
             $model->expectNum = $map['ExpectNum'];
         }
+
         if (isset($map['HostGroupName'])) {
             $model->hostGroupName = $map['HostGroupName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
+
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
         }
+
         if (isset($map['ScalingRuleName'])) {
             $model->scalingRuleName = $map['ScalingRuleName'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TotalCapacity'])) {
             $model->totalCapacity = $map['TotalCapacity'];
         }
+
         if (isset($map['Transition'])) {
             $model->transition = $map['Transition'];
         }

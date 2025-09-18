@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OperationData extends Model
 {
@@ -22,14 +22,18 @@ class OperationData extends Model
         'toBeDeliveredAmounts' => 'toBeDeliveredAmounts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actualDeliveredAmounts) {
             $res['actualDeliveredAmounts'] = $this->actualDeliveredAmounts;
         }
+
         if (null !== $this->toBeDeliveredAmounts) {
             $res['toBeDeliveredAmounts'] = $this->toBeDeliveredAmounts;
         }
@@ -37,17 +41,18 @@ class OperationData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperationData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actualDeliveredAmounts'])) {
             $model->actualDeliveredAmounts = $map['actualDeliveredAmounts'];
         }
+
         if (isset($map['toBeDeliveredAmounts'])) {
             $model->toBeDeliveredAmounts = $map['toBeDeliveredAmounts'];
         }

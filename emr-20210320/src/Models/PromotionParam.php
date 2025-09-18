@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PromotionParam extends Model
 {
@@ -28,17 +28,22 @@ class PromotionParam extends Model
         'promotionOptionNo' => 'PromotionOptionNo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->promotionOptionCode) {
             $res['PromotionOptionCode'] = $this->promotionOptionCode;
         }
+
         if (null !== $this->promotionOptionNo) {
             $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
@@ -46,20 +51,22 @@ class PromotionParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PromotionParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['PromotionOptionCode'])) {
             $model->promotionOptionCode = $map['PromotionOptionCode'];
         }
+
         if (isset($map['PromotionOptionNo'])) {
             $model->promotionOptionNo = $map['PromotionOptionNo'];
         }

@@ -4,93 +4,51 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InstanceType extends Model
 {
     /**
-     * @description cpu架构。
-     *
-     * @example X86
-     *
      * @var string
      */
     public $cpuArchitecture;
 
     /**
-     * @description vCPU内核数目。
-     *
-     * @example 4
-     *
      * @var int
      */
     public $cpuCore;
 
     /**
-     * @description 实例规格分类。取值范围：
-     * - General-purpose： 通用型。
-     * - Compute-optimized：计算型。
-     * - Memory-optimized：内存型。
-     * - Big data：大数据型。
-     * - Local SSDs ：本地SSD型。
-     * - High Clock Speed ：高主频型。
-     * - Enhanced ：增强型。
-     * - Shared：共享型。
-     * - Compute-optimized with GPU ：GPU计算型。
-     * - Visual Compute-optimized ：视觉计算型。
-     * - Heterogeneous Service ：异构服务型。
-     * - Compute-optimized with FPGA ：FPGA计算型。
-     * - Compute-optimized with NPU ：NPU计算型。
-     * - ECS Bare Metal ：弹性裸金属服务器。
-     * - Super Computing Cluster：超级计算集群。
-     *
-     * @example Compute-optimized
-     *
      * @var string
      */
     public $instanceCategory;
 
     /**
-     * @description 实例规格。
-     *
-     * @example ecs.g6.large
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 实例规格所属的实例规格族。取值请参见DescribeInstanceTypeFamilies。
-     *
-     * @example ecs.g6
-     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
-     * @description 实例挂载的本地盘的数量。
-     *
-     * @example 8
-     *
      * @var int
      */
     public $localStorageAmount;
 
     /**
-     * @description 实例挂载的本地盘的单盘容量。单位：GiB
-     *
-     * @example 40
-     *
      * @var int
      */
     public $localStorageCapacity;
 
     /**
-     * @description 是否IO优化类型。
-     *
-     * @example true
-     *
+     * @var string
+     */
+    public $modifyType;
+
+    /**
      * @var bool
      */
     public $optimized;
@@ -102,35 +60,50 @@ class InstanceType extends Model
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'localStorageAmount' => 'LocalStorageAmount',
         'localStorageCapacity' => 'LocalStorageCapacity',
+        'modifyType' => 'ModifyType',
         'optimized' => 'Optimized',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpuArchitecture) {
             $res['CpuArchitecture'] = $this->cpuArchitecture;
         }
+
         if (null !== $this->cpuCore) {
             $res['CpuCore'] = $this->cpuCore;
         }
+
         if (null !== $this->instanceCategory) {
             $res['InstanceCategory'] = $this->instanceCategory;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
+
         if (null !== $this->localStorageAmount) {
             $res['LocalStorageAmount'] = $this->localStorageAmount;
         }
+
         if (null !== $this->localStorageCapacity) {
             $res['LocalStorageCapacity'] = $this->localStorageCapacity;
         }
+
+        if (null !== $this->modifyType) {
+            $res['ModifyType'] = $this->modifyType;
+        }
+
         if (null !== $this->optimized) {
             $res['Optimized'] = $this->optimized;
         }
@@ -138,35 +111,46 @@ class InstanceType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InstanceType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CpuArchitecture'])) {
             $model->cpuArchitecture = $map['CpuArchitecture'];
         }
+
         if (isset($map['CpuCore'])) {
             $model->cpuCore = $map['CpuCore'];
         }
+
         if (isset($map['InstanceCategory'])) {
             $model->instanceCategory = $map['InstanceCategory'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
+
         if (isset($map['LocalStorageAmount'])) {
             $model->localStorageAmount = $map['LocalStorageAmount'];
         }
+
         if (isset($map['LocalStorageCapacity'])) {
             $model->localStorageCapacity = $map['LocalStorageCapacity'];
         }
+
+        if (isset($map['ModifyType'])) {
+            $model->modifyType = $map['ModifyType'];
+        }
+
         if (isset($map['Optimized'])) {
             $model->optimized = $map['Optimized'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScalingPolicy extends Model
 {
@@ -39,8 +39,6 @@ class ScalingPolicy extends Model
     public $scalingPolicyId;
 
     /**
-     * @example AUTO / MANAGED
-     *
      * @var string
      */
     public $scalingPolicyType;
@@ -60,38 +58,55 @@ class ScalingPolicy extends Model
         'scalingRules' => 'ScalingRules',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->constraints) {
+            $this->constraints->validate();
+        }
+        if (\is_array($this->scalingRules)) {
+            Model::validateArray($this->scalingRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->constraints) {
-            $res['Constraints'] = null !== $this->constraints ? $this->constraints->toMap() : null;
+            $res['Constraints'] = null !== $this->constraints ? $this->constraints->toArray($noStream) : $this->constraints;
         }
+
         if (null !== $this->disabled) {
             $res['Disabled'] = $this->disabled;
         }
+
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
+
         if (null !== $this->nodeGroupName) {
             $res['NodeGroupName'] = $this->nodeGroupName;
         }
+
         if (null !== $this->scalingPolicyId) {
             $res['ScalingPolicyId'] = $this->scalingPolicyId;
         }
+
         if (null !== $this->scalingPolicyType) {
             $res['ScalingPolicyType'] = $this->scalingPolicyType;
         }
+
         if (null !== $this->scalingRules) {
-            $res['ScalingRules'] = [];
-            if (null !== $this->scalingRules && \is_array($this->scalingRules)) {
-                $n = 0;
-                foreach ($this->scalingRules as $item) {
-                    $res['ScalingRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->scalingRules)) {
+                $res['ScalingRules'] = [];
+                $n1 = 0;
+                foreach ($this->scalingRules as $item1) {
+                    $res['ScalingRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,41 +114,49 @@ class ScalingPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScalingPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Constraints'])) {
             $model->constraints = ManagedScalingConstraints::fromMap($map['Constraints']);
         }
+
         if (isset($map['Disabled'])) {
             $model->disabled = $map['Disabled'];
         }
+
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }
+
         if (isset($map['NodeGroupName'])) {
             $model->nodeGroupName = $map['NodeGroupName'];
         }
+
         if (isset($map['ScalingPolicyId'])) {
             $model->scalingPolicyId = $map['ScalingPolicyId'];
         }
+
         if (isset($map['ScalingPolicyType'])) {
             $model->scalingPolicyType = $map['ScalingPolicyType'];
         }
+
         if (isset($map['ScalingRules'])) {
             if (!empty($map['ScalingRules'])) {
                 $model->scalingRules = [];
-                $n = 0;
-                foreach ($map['ScalingRules'] as $item) {
-                    $model->scalingRules[$n++] = null !== $item ? ScalingRule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ScalingRules'] as $item1) {
+                    $model->scalingRules[$n1] = ScalingRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

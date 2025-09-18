@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponseBody\data\metrics\coldDataDayGrowthSize;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponseBody\data\metrics\coldDataSize;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponseBody\data\metrics\coldDataSizeDayGrowthRatio;
@@ -37,237 +38,170 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponseBody\dat
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponseBody\data\metrics\warmDataDayGrowthSize;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponseBody\data\metrics\warmDataSize;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSDirectoryResponseBody\data\metrics\warmDataSizeDayGrowthRatio;
-use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
     /**
-     * @description The daily increment of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
-     *
      * @var coldDataDayGrowthSize
      */
     public $coldDataDayGrowthSize;
 
     /**
-     * @description The amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
-     *
      * @var coldDataSize
      */
     public $coldDataSize;
 
     /**
-     * @description The day-to-day growth rate of the amount of cold data. Cold data refers to data that is not accessed for more than 30 days but is accessed in previous 90 days.
-     *
      * @var coldDataSizeDayGrowthRatio
      */
     public $coldDataSizeDayGrowthRatio;
 
     /**
-     * @description The number of empty files. Empty files are those with a size of 0 MB.
-     *
      * @var emptyFileCount
      */
     public $emptyFileCount;
 
     /**
-     * @description The day-to-day growth rate of the number of empty files. Empty files are those with a size of 0 MB.
-     *
      * @var emptyFileCountDayGrowthRatio
      */
     public $emptyFileCountDayGrowthRatio;
 
     /**
-     * @description The daily increment of the number of empty files. Empty files are those with a size of 0 MB.
-     *
      * @var emptyFileDayGrowthCount
      */
     public $emptyFileDayGrowthCount;
 
     /**
-     * @description The daily increment of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
-     *
      * @var freezeDataDayGrowthSize
      */
     public $freezeDataDayGrowthSize;
 
     /**
-     * @description The amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
-     *
      * @var freezeDataSize
      */
     public $freezeDataSize;
 
     /**
-     * @description The day-to-day growth rate of the amount of very cold data. Very cold data refers to data that is not accessed for more than 90 days.
-     *
      * @var freezeDataSizeDayGrowthRatio
      */
     public $freezeDataSizeDayGrowthRatio;
 
     /**
-     * @description The daily increment of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
-     *
      * @var hotDataDayGrowthSize
      */
     public $hotDataDayGrowthSize;
 
     /**
-     * @description The amount of hot data. Hot data refers to data that is accessed in previous seven days.
-     *
      * @var hotDataSize
      */
     public $hotDataSize;
 
     /**
-     * @description The day-to-day growth rate of the amount of hot data. Hot data refers to data that is accessed in previous seven days.
-     *
      * @var hotDataSizeDayGrowthRatio
      */
     public $hotDataSizeDayGrowthRatio;
 
     /**
-     * @description The number of large files. Large files are those with a size greater than 1 GB.
-     *
      * @var largeFileCount
      */
     public $largeFileCount;
 
     /**
-     * @description The day-to-day growth rate of the number of large files. Large files are those with a size greater than 1 GB.
-     *
      * @var largeFileCountDayGrowthRatio
      */
     public $largeFileCountDayGrowthRatio;
 
     /**
-     * @description The daily increment of the number of large files. Large files are those with a size greater than 1 GB.
-     *
      * @var largeFileDayGrowthCount
      */
     public $largeFileDayGrowthCount;
 
     /**
-     * @description The number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
-     *
      * @var mediumFileCount
      */
     public $mediumFileCount;
 
     /**
-     * @description The day-to-day growth rate of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
-     *
      * @var mediumFileCountDayGrowthRatio
      */
     public $mediumFileCountDayGrowthRatio;
 
     /**
-     * @description The daily increment of the number of medium files. Medium files are those with a size greater than or equal to 128 MB and less than or equal to 1 GB.
-     *
      * @var mediumFileDayGrowthCount
      */
     public $mediumFileDayGrowthCount;
 
     /**
-     * @description The number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
-     *
      * @var smallFileCount
      */
     public $smallFileCount;
 
     /**
-     * @description The day-to-day growth rate of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
-     *
      * @var smallFileCountDayGrowthRatio
      */
     public $smallFileCountDayGrowthRatio;
 
     /**
-     * @description The daily increment of the number of small files. Small files are those with a size greater than or equal to 10 MB and less than 128 MB.
-     *
      * @var smallFileDayGrowthCount
      */
     public $smallFileDayGrowthCount;
 
     /**
-     * @description The number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
-     *
      * @var tinyFileCount
      */
     public $tinyFileCount;
 
     /**
-     * @description The day-to-day growth rate of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
-     *
      * @var tinyFileCountDayGrowthRatio
      */
     public $tinyFileCountDayGrowthRatio;
 
     /**
-     * @description The daily increment of the number of very small files. Very small files are those with a size greater than 0 MB and less than 10 MB.
-     *
      * @var tinyFileDayGrowthCount
      */
     public $tinyFileDayGrowthCount;
 
     /**
-     * @description The daily incremental of the total amount of data.
-     *
      * @var totalDataDayGrowthSize
      */
     public $totalDataDayGrowthSize;
 
     /**
-     * @description The total amount of data.
-     *
      * @var totalDataSize
      */
     public $totalDataSize;
 
     /**
-     * @description The day-to-day growth rate of the total data volume.
-     *
      * @var totalDataSizeDayGrowthRatio
      */
     public $totalDataSizeDayGrowthRatio;
 
     /**
-     * @description The total number of files.
-     *
      * @var totalFileCount
      */
     public $totalFileCount;
 
     /**
-     * @description The day-to-day growth rate of the total number of files.
-     *
      * @var totalFileCountDayGrowthRatio
      */
     public $totalFileCountDayGrowthRatio;
 
     /**
-     * @description The daily increment of the total number of files.
-     *
      * @var totalFileDayGrowthCount
      */
     public $totalFileDayGrowthCount;
 
     /**
-     * @description The daily increment of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
-     *
      * @var warmDataDayGrowthSize
      */
     public $warmDataDayGrowthSize;
 
     /**
-     * @description The amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
-     *
      * @var warmDataSize
      */
     public $warmDataSize;
 
     /**
-     * @description The day-to-day growth rate of the amount of warm data. Warm data refers to data that is not accessed for more than 7 days but is accessed in previous 30 days.
-     *
      * @var warmDataSizeDayGrowthRatio
      */
     public $warmDataSizeDayGrowthRatio;
@@ -307,218 +241,384 @@ class metrics extends Model
         'warmDataSizeDayGrowthRatio' => 'WarmDataSizeDayGrowthRatio',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->coldDataDayGrowthSize) {
+            $this->coldDataDayGrowthSize->validate();
+        }
+        if (null !== $this->coldDataSize) {
+            $this->coldDataSize->validate();
+        }
+        if (null !== $this->coldDataSizeDayGrowthRatio) {
+            $this->coldDataSizeDayGrowthRatio->validate();
+        }
+        if (null !== $this->emptyFileCount) {
+            $this->emptyFileCount->validate();
+        }
+        if (null !== $this->emptyFileCountDayGrowthRatio) {
+            $this->emptyFileCountDayGrowthRatio->validate();
+        }
+        if (null !== $this->emptyFileDayGrowthCount) {
+            $this->emptyFileDayGrowthCount->validate();
+        }
+        if (null !== $this->freezeDataDayGrowthSize) {
+            $this->freezeDataDayGrowthSize->validate();
+        }
+        if (null !== $this->freezeDataSize) {
+            $this->freezeDataSize->validate();
+        }
+        if (null !== $this->freezeDataSizeDayGrowthRatio) {
+            $this->freezeDataSizeDayGrowthRatio->validate();
+        }
+        if (null !== $this->hotDataDayGrowthSize) {
+            $this->hotDataDayGrowthSize->validate();
+        }
+        if (null !== $this->hotDataSize) {
+            $this->hotDataSize->validate();
+        }
+        if (null !== $this->hotDataSizeDayGrowthRatio) {
+            $this->hotDataSizeDayGrowthRatio->validate();
+        }
+        if (null !== $this->largeFileCount) {
+            $this->largeFileCount->validate();
+        }
+        if (null !== $this->largeFileCountDayGrowthRatio) {
+            $this->largeFileCountDayGrowthRatio->validate();
+        }
+        if (null !== $this->largeFileDayGrowthCount) {
+            $this->largeFileDayGrowthCount->validate();
+        }
+        if (null !== $this->mediumFileCount) {
+            $this->mediumFileCount->validate();
+        }
+        if (null !== $this->mediumFileCountDayGrowthRatio) {
+            $this->mediumFileCountDayGrowthRatio->validate();
+        }
+        if (null !== $this->mediumFileDayGrowthCount) {
+            $this->mediumFileDayGrowthCount->validate();
+        }
+        if (null !== $this->smallFileCount) {
+            $this->smallFileCount->validate();
+        }
+        if (null !== $this->smallFileCountDayGrowthRatio) {
+            $this->smallFileCountDayGrowthRatio->validate();
+        }
+        if (null !== $this->smallFileDayGrowthCount) {
+            $this->smallFileDayGrowthCount->validate();
+        }
+        if (null !== $this->tinyFileCount) {
+            $this->tinyFileCount->validate();
+        }
+        if (null !== $this->tinyFileCountDayGrowthRatio) {
+            $this->tinyFileCountDayGrowthRatio->validate();
+        }
+        if (null !== $this->tinyFileDayGrowthCount) {
+            $this->tinyFileDayGrowthCount->validate();
+        }
+        if (null !== $this->totalDataDayGrowthSize) {
+            $this->totalDataDayGrowthSize->validate();
+        }
+        if (null !== $this->totalDataSize) {
+            $this->totalDataSize->validate();
+        }
+        if (null !== $this->totalDataSizeDayGrowthRatio) {
+            $this->totalDataSizeDayGrowthRatio->validate();
+        }
+        if (null !== $this->totalFileCount) {
+            $this->totalFileCount->validate();
+        }
+        if (null !== $this->totalFileCountDayGrowthRatio) {
+            $this->totalFileCountDayGrowthRatio->validate();
+        }
+        if (null !== $this->totalFileDayGrowthCount) {
+            $this->totalFileDayGrowthCount->validate();
+        }
+        if (null !== $this->warmDataDayGrowthSize) {
+            $this->warmDataDayGrowthSize->validate();
+        }
+        if (null !== $this->warmDataSize) {
+            $this->warmDataSize->validate();
+        }
+        if (null !== $this->warmDataSizeDayGrowthRatio) {
+            $this->warmDataSizeDayGrowthRatio->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coldDataDayGrowthSize) {
-            $res['ColdDataDayGrowthSize'] = null !== $this->coldDataDayGrowthSize ? $this->coldDataDayGrowthSize->toMap() : null;
+            $res['ColdDataDayGrowthSize'] = null !== $this->coldDataDayGrowthSize ? $this->coldDataDayGrowthSize->toArray($noStream) : $this->coldDataDayGrowthSize;
         }
+
         if (null !== $this->coldDataSize) {
-            $res['ColdDataSize'] = null !== $this->coldDataSize ? $this->coldDataSize->toMap() : null;
+            $res['ColdDataSize'] = null !== $this->coldDataSize ? $this->coldDataSize->toArray($noStream) : $this->coldDataSize;
         }
+
         if (null !== $this->coldDataSizeDayGrowthRatio) {
-            $res['ColdDataSizeDayGrowthRatio'] = null !== $this->coldDataSizeDayGrowthRatio ? $this->coldDataSizeDayGrowthRatio->toMap() : null;
+            $res['ColdDataSizeDayGrowthRatio'] = null !== $this->coldDataSizeDayGrowthRatio ? $this->coldDataSizeDayGrowthRatio->toArray($noStream) : $this->coldDataSizeDayGrowthRatio;
         }
+
         if (null !== $this->emptyFileCount) {
-            $res['EmptyFileCount'] = null !== $this->emptyFileCount ? $this->emptyFileCount->toMap() : null;
+            $res['EmptyFileCount'] = null !== $this->emptyFileCount ? $this->emptyFileCount->toArray($noStream) : $this->emptyFileCount;
         }
+
         if (null !== $this->emptyFileCountDayGrowthRatio) {
-            $res['EmptyFileCountDayGrowthRatio'] = null !== $this->emptyFileCountDayGrowthRatio ? $this->emptyFileCountDayGrowthRatio->toMap() : null;
+            $res['EmptyFileCountDayGrowthRatio'] = null !== $this->emptyFileCountDayGrowthRatio ? $this->emptyFileCountDayGrowthRatio->toArray($noStream) : $this->emptyFileCountDayGrowthRatio;
         }
+
         if (null !== $this->emptyFileDayGrowthCount) {
-            $res['EmptyFileDayGrowthCount'] = null !== $this->emptyFileDayGrowthCount ? $this->emptyFileDayGrowthCount->toMap() : null;
+            $res['EmptyFileDayGrowthCount'] = null !== $this->emptyFileDayGrowthCount ? $this->emptyFileDayGrowthCount->toArray($noStream) : $this->emptyFileDayGrowthCount;
         }
+
         if (null !== $this->freezeDataDayGrowthSize) {
-            $res['FreezeDataDayGrowthSize'] = null !== $this->freezeDataDayGrowthSize ? $this->freezeDataDayGrowthSize->toMap() : null;
+            $res['FreezeDataDayGrowthSize'] = null !== $this->freezeDataDayGrowthSize ? $this->freezeDataDayGrowthSize->toArray($noStream) : $this->freezeDataDayGrowthSize;
         }
+
         if (null !== $this->freezeDataSize) {
-            $res['FreezeDataSize'] = null !== $this->freezeDataSize ? $this->freezeDataSize->toMap() : null;
+            $res['FreezeDataSize'] = null !== $this->freezeDataSize ? $this->freezeDataSize->toArray($noStream) : $this->freezeDataSize;
         }
+
         if (null !== $this->freezeDataSizeDayGrowthRatio) {
-            $res['FreezeDataSizeDayGrowthRatio'] = null !== $this->freezeDataSizeDayGrowthRatio ? $this->freezeDataSizeDayGrowthRatio->toMap() : null;
+            $res['FreezeDataSizeDayGrowthRatio'] = null !== $this->freezeDataSizeDayGrowthRatio ? $this->freezeDataSizeDayGrowthRatio->toArray($noStream) : $this->freezeDataSizeDayGrowthRatio;
         }
+
         if (null !== $this->hotDataDayGrowthSize) {
-            $res['HotDataDayGrowthSize'] = null !== $this->hotDataDayGrowthSize ? $this->hotDataDayGrowthSize->toMap() : null;
+            $res['HotDataDayGrowthSize'] = null !== $this->hotDataDayGrowthSize ? $this->hotDataDayGrowthSize->toArray($noStream) : $this->hotDataDayGrowthSize;
         }
+
         if (null !== $this->hotDataSize) {
-            $res['HotDataSize'] = null !== $this->hotDataSize ? $this->hotDataSize->toMap() : null;
+            $res['HotDataSize'] = null !== $this->hotDataSize ? $this->hotDataSize->toArray($noStream) : $this->hotDataSize;
         }
+
         if (null !== $this->hotDataSizeDayGrowthRatio) {
-            $res['HotDataSizeDayGrowthRatio'] = null !== $this->hotDataSizeDayGrowthRatio ? $this->hotDataSizeDayGrowthRatio->toMap() : null;
+            $res['HotDataSizeDayGrowthRatio'] = null !== $this->hotDataSizeDayGrowthRatio ? $this->hotDataSizeDayGrowthRatio->toArray($noStream) : $this->hotDataSizeDayGrowthRatio;
         }
+
         if (null !== $this->largeFileCount) {
-            $res['LargeFileCount'] = null !== $this->largeFileCount ? $this->largeFileCount->toMap() : null;
+            $res['LargeFileCount'] = null !== $this->largeFileCount ? $this->largeFileCount->toArray($noStream) : $this->largeFileCount;
         }
+
         if (null !== $this->largeFileCountDayGrowthRatio) {
-            $res['LargeFileCountDayGrowthRatio'] = null !== $this->largeFileCountDayGrowthRatio ? $this->largeFileCountDayGrowthRatio->toMap() : null;
+            $res['LargeFileCountDayGrowthRatio'] = null !== $this->largeFileCountDayGrowthRatio ? $this->largeFileCountDayGrowthRatio->toArray($noStream) : $this->largeFileCountDayGrowthRatio;
         }
+
         if (null !== $this->largeFileDayGrowthCount) {
-            $res['LargeFileDayGrowthCount'] = null !== $this->largeFileDayGrowthCount ? $this->largeFileDayGrowthCount->toMap() : null;
+            $res['LargeFileDayGrowthCount'] = null !== $this->largeFileDayGrowthCount ? $this->largeFileDayGrowthCount->toArray($noStream) : $this->largeFileDayGrowthCount;
         }
+
         if (null !== $this->mediumFileCount) {
-            $res['MediumFileCount'] = null !== $this->mediumFileCount ? $this->mediumFileCount->toMap() : null;
+            $res['MediumFileCount'] = null !== $this->mediumFileCount ? $this->mediumFileCount->toArray($noStream) : $this->mediumFileCount;
         }
+
         if (null !== $this->mediumFileCountDayGrowthRatio) {
-            $res['MediumFileCountDayGrowthRatio'] = null !== $this->mediumFileCountDayGrowthRatio ? $this->mediumFileCountDayGrowthRatio->toMap() : null;
+            $res['MediumFileCountDayGrowthRatio'] = null !== $this->mediumFileCountDayGrowthRatio ? $this->mediumFileCountDayGrowthRatio->toArray($noStream) : $this->mediumFileCountDayGrowthRatio;
         }
+
         if (null !== $this->mediumFileDayGrowthCount) {
-            $res['MediumFileDayGrowthCount'] = null !== $this->mediumFileDayGrowthCount ? $this->mediumFileDayGrowthCount->toMap() : null;
+            $res['MediumFileDayGrowthCount'] = null !== $this->mediumFileDayGrowthCount ? $this->mediumFileDayGrowthCount->toArray($noStream) : $this->mediumFileDayGrowthCount;
         }
+
         if (null !== $this->smallFileCount) {
-            $res['SmallFileCount'] = null !== $this->smallFileCount ? $this->smallFileCount->toMap() : null;
+            $res['SmallFileCount'] = null !== $this->smallFileCount ? $this->smallFileCount->toArray($noStream) : $this->smallFileCount;
         }
+
         if (null !== $this->smallFileCountDayGrowthRatio) {
-            $res['SmallFileCountDayGrowthRatio'] = null !== $this->smallFileCountDayGrowthRatio ? $this->smallFileCountDayGrowthRatio->toMap() : null;
+            $res['SmallFileCountDayGrowthRatio'] = null !== $this->smallFileCountDayGrowthRatio ? $this->smallFileCountDayGrowthRatio->toArray($noStream) : $this->smallFileCountDayGrowthRatio;
         }
+
         if (null !== $this->smallFileDayGrowthCount) {
-            $res['SmallFileDayGrowthCount'] = null !== $this->smallFileDayGrowthCount ? $this->smallFileDayGrowthCount->toMap() : null;
+            $res['SmallFileDayGrowthCount'] = null !== $this->smallFileDayGrowthCount ? $this->smallFileDayGrowthCount->toArray($noStream) : $this->smallFileDayGrowthCount;
         }
+
         if (null !== $this->tinyFileCount) {
-            $res['TinyFileCount'] = null !== $this->tinyFileCount ? $this->tinyFileCount->toMap() : null;
+            $res['TinyFileCount'] = null !== $this->tinyFileCount ? $this->tinyFileCount->toArray($noStream) : $this->tinyFileCount;
         }
+
         if (null !== $this->tinyFileCountDayGrowthRatio) {
-            $res['TinyFileCountDayGrowthRatio'] = null !== $this->tinyFileCountDayGrowthRatio ? $this->tinyFileCountDayGrowthRatio->toMap() : null;
+            $res['TinyFileCountDayGrowthRatio'] = null !== $this->tinyFileCountDayGrowthRatio ? $this->tinyFileCountDayGrowthRatio->toArray($noStream) : $this->tinyFileCountDayGrowthRatio;
         }
+
         if (null !== $this->tinyFileDayGrowthCount) {
-            $res['TinyFileDayGrowthCount'] = null !== $this->tinyFileDayGrowthCount ? $this->tinyFileDayGrowthCount->toMap() : null;
+            $res['TinyFileDayGrowthCount'] = null !== $this->tinyFileDayGrowthCount ? $this->tinyFileDayGrowthCount->toArray($noStream) : $this->tinyFileDayGrowthCount;
         }
+
         if (null !== $this->totalDataDayGrowthSize) {
-            $res['TotalDataDayGrowthSize'] = null !== $this->totalDataDayGrowthSize ? $this->totalDataDayGrowthSize->toMap() : null;
+            $res['TotalDataDayGrowthSize'] = null !== $this->totalDataDayGrowthSize ? $this->totalDataDayGrowthSize->toArray($noStream) : $this->totalDataDayGrowthSize;
         }
+
         if (null !== $this->totalDataSize) {
-            $res['TotalDataSize'] = null !== $this->totalDataSize ? $this->totalDataSize->toMap() : null;
+            $res['TotalDataSize'] = null !== $this->totalDataSize ? $this->totalDataSize->toArray($noStream) : $this->totalDataSize;
         }
+
         if (null !== $this->totalDataSizeDayGrowthRatio) {
-            $res['TotalDataSizeDayGrowthRatio'] = null !== $this->totalDataSizeDayGrowthRatio ? $this->totalDataSizeDayGrowthRatio->toMap() : null;
+            $res['TotalDataSizeDayGrowthRatio'] = null !== $this->totalDataSizeDayGrowthRatio ? $this->totalDataSizeDayGrowthRatio->toArray($noStream) : $this->totalDataSizeDayGrowthRatio;
         }
+
         if (null !== $this->totalFileCount) {
-            $res['TotalFileCount'] = null !== $this->totalFileCount ? $this->totalFileCount->toMap() : null;
+            $res['TotalFileCount'] = null !== $this->totalFileCount ? $this->totalFileCount->toArray($noStream) : $this->totalFileCount;
         }
+
         if (null !== $this->totalFileCountDayGrowthRatio) {
-            $res['TotalFileCountDayGrowthRatio'] = null !== $this->totalFileCountDayGrowthRatio ? $this->totalFileCountDayGrowthRatio->toMap() : null;
+            $res['TotalFileCountDayGrowthRatio'] = null !== $this->totalFileCountDayGrowthRatio ? $this->totalFileCountDayGrowthRatio->toArray($noStream) : $this->totalFileCountDayGrowthRatio;
         }
+
         if (null !== $this->totalFileDayGrowthCount) {
-            $res['TotalFileDayGrowthCount'] = null !== $this->totalFileDayGrowthCount ? $this->totalFileDayGrowthCount->toMap() : null;
+            $res['TotalFileDayGrowthCount'] = null !== $this->totalFileDayGrowthCount ? $this->totalFileDayGrowthCount->toArray($noStream) : $this->totalFileDayGrowthCount;
         }
+
         if (null !== $this->warmDataDayGrowthSize) {
-            $res['WarmDataDayGrowthSize'] = null !== $this->warmDataDayGrowthSize ? $this->warmDataDayGrowthSize->toMap() : null;
+            $res['WarmDataDayGrowthSize'] = null !== $this->warmDataDayGrowthSize ? $this->warmDataDayGrowthSize->toArray($noStream) : $this->warmDataDayGrowthSize;
         }
+
         if (null !== $this->warmDataSize) {
-            $res['WarmDataSize'] = null !== $this->warmDataSize ? $this->warmDataSize->toMap() : null;
+            $res['WarmDataSize'] = null !== $this->warmDataSize ? $this->warmDataSize->toArray($noStream) : $this->warmDataSize;
         }
+
         if (null !== $this->warmDataSizeDayGrowthRatio) {
-            $res['WarmDataSizeDayGrowthRatio'] = null !== $this->warmDataSizeDayGrowthRatio ? $this->warmDataSizeDayGrowthRatio->toMap() : null;
+            $res['WarmDataSizeDayGrowthRatio'] = null !== $this->warmDataSizeDayGrowthRatio ? $this->warmDataSizeDayGrowthRatio->toArray($noStream) : $this->warmDataSizeDayGrowthRatio;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColdDataDayGrowthSize'])) {
             $model->coldDataDayGrowthSize = coldDataDayGrowthSize::fromMap($map['ColdDataDayGrowthSize']);
         }
+
         if (isset($map['ColdDataSize'])) {
             $model->coldDataSize = coldDataSize::fromMap($map['ColdDataSize']);
         }
+
         if (isset($map['ColdDataSizeDayGrowthRatio'])) {
             $model->coldDataSizeDayGrowthRatio = coldDataSizeDayGrowthRatio::fromMap($map['ColdDataSizeDayGrowthRatio']);
         }
+
         if (isset($map['EmptyFileCount'])) {
             $model->emptyFileCount = emptyFileCount::fromMap($map['EmptyFileCount']);
         }
+
         if (isset($map['EmptyFileCountDayGrowthRatio'])) {
             $model->emptyFileCountDayGrowthRatio = emptyFileCountDayGrowthRatio::fromMap($map['EmptyFileCountDayGrowthRatio']);
         }
+
         if (isset($map['EmptyFileDayGrowthCount'])) {
             $model->emptyFileDayGrowthCount = emptyFileDayGrowthCount::fromMap($map['EmptyFileDayGrowthCount']);
         }
+
         if (isset($map['FreezeDataDayGrowthSize'])) {
             $model->freezeDataDayGrowthSize = freezeDataDayGrowthSize::fromMap($map['FreezeDataDayGrowthSize']);
         }
+
         if (isset($map['FreezeDataSize'])) {
             $model->freezeDataSize = freezeDataSize::fromMap($map['FreezeDataSize']);
         }
+
         if (isset($map['FreezeDataSizeDayGrowthRatio'])) {
             $model->freezeDataSizeDayGrowthRatio = freezeDataSizeDayGrowthRatio::fromMap($map['FreezeDataSizeDayGrowthRatio']);
         }
+
         if (isset($map['HotDataDayGrowthSize'])) {
             $model->hotDataDayGrowthSize = hotDataDayGrowthSize::fromMap($map['HotDataDayGrowthSize']);
         }
+
         if (isset($map['HotDataSize'])) {
             $model->hotDataSize = hotDataSize::fromMap($map['HotDataSize']);
         }
+
         if (isset($map['HotDataSizeDayGrowthRatio'])) {
             $model->hotDataSizeDayGrowthRatio = hotDataSizeDayGrowthRatio::fromMap($map['HotDataSizeDayGrowthRatio']);
         }
+
         if (isset($map['LargeFileCount'])) {
             $model->largeFileCount = largeFileCount::fromMap($map['LargeFileCount']);
         }
+
         if (isset($map['LargeFileCountDayGrowthRatio'])) {
             $model->largeFileCountDayGrowthRatio = largeFileCountDayGrowthRatio::fromMap($map['LargeFileCountDayGrowthRatio']);
         }
+
         if (isset($map['LargeFileDayGrowthCount'])) {
             $model->largeFileDayGrowthCount = largeFileDayGrowthCount::fromMap($map['LargeFileDayGrowthCount']);
         }
+
         if (isset($map['MediumFileCount'])) {
             $model->mediumFileCount = mediumFileCount::fromMap($map['MediumFileCount']);
         }
+
         if (isset($map['MediumFileCountDayGrowthRatio'])) {
             $model->mediumFileCountDayGrowthRatio = mediumFileCountDayGrowthRatio::fromMap($map['MediumFileCountDayGrowthRatio']);
         }
+
         if (isset($map['MediumFileDayGrowthCount'])) {
             $model->mediumFileDayGrowthCount = mediumFileDayGrowthCount::fromMap($map['MediumFileDayGrowthCount']);
         }
+
         if (isset($map['SmallFileCount'])) {
             $model->smallFileCount = smallFileCount::fromMap($map['SmallFileCount']);
         }
+
         if (isset($map['SmallFileCountDayGrowthRatio'])) {
             $model->smallFileCountDayGrowthRatio = smallFileCountDayGrowthRatio::fromMap($map['SmallFileCountDayGrowthRatio']);
         }
+
         if (isset($map['SmallFileDayGrowthCount'])) {
             $model->smallFileDayGrowthCount = smallFileDayGrowthCount::fromMap($map['SmallFileDayGrowthCount']);
         }
+
         if (isset($map['TinyFileCount'])) {
             $model->tinyFileCount = tinyFileCount::fromMap($map['TinyFileCount']);
         }
+
         if (isset($map['TinyFileCountDayGrowthRatio'])) {
             $model->tinyFileCountDayGrowthRatio = tinyFileCountDayGrowthRatio::fromMap($map['TinyFileCountDayGrowthRatio']);
         }
+
         if (isset($map['TinyFileDayGrowthCount'])) {
             $model->tinyFileDayGrowthCount = tinyFileDayGrowthCount::fromMap($map['TinyFileDayGrowthCount']);
         }
+
         if (isset($map['TotalDataDayGrowthSize'])) {
             $model->totalDataDayGrowthSize = totalDataDayGrowthSize::fromMap($map['TotalDataDayGrowthSize']);
         }
+
         if (isset($map['TotalDataSize'])) {
             $model->totalDataSize = totalDataSize::fromMap($map['TotalDataSize']);
         }
+
         if (isset($map['TotalDataSizeDayGrowthRatio'])) {
             $model->totalDataSizeDayGrowthRatio = totalDataSizeDayGrowthRatio::fromMap($map['TotalDataSizeDayGrowthRatio']);
         }
+
         if (isset($map['TotalFileCount'])) {
             $model->totalFileCount = totalFileCount::fromMap($map['TotalFileCount']);
         }
+
         if (isset($map['TotalFileCountDayGrowthRatio'])) {
             $model->totalFileCountDayGrowthRatio = totalFileCountDayGrowthRatio::fromMap($map['TotalFileCountDayGrowthRatio']);
         }
+
         if (isset($map['TotalFileDayGrowthCount'])) {
             $model->totalFileDayGrowthCount = totalFileDayGrowthCount::fromMap($map['TotalFileDayGrowthCount']);
         }
+
         if (isset($map['WarmDataDayGrowthSize'])) {
             $model->warmDataDayGrowthSize = warmDataDayGrowthSize::fromMap($map['WarmDataDayGrowthSize']);
         }
+
         if (isset($map['WarmDataSize'])) {
             $model->warmDataSize = warmDataSize::fromMap($map['WarmDataSize']);
         }
+
         if (isset($map['WarmDataSizeDayGrowthRatio'])) {
             $model->warmDataSizeDayGrowthRatio = warmDataSizeDayGrowthRatio::fromMap($map['WarmDataSizeDayGrowthRatio']);
         }

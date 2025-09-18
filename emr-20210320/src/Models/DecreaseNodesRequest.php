@@ -4,71 +4,41 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DecreaseNodesRequest extends Model
 {
     /**
-     * @description The cooldown interval between two batches.
-     *
      * @var int
      */
     public $batchInterval;
 
     /**
-     * @description The number of nodes to be removed in a single batch.
-     *
      * @var int
      */
     public $batchSize;
 
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     *
-     * @example c-b933c5aac8fe****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The number of nodes to scale out. The number of nodes to be scaled out. The value should be less than the number of surviving nodes in the current node group.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $decreaseNodeCount;
 
     /**
-     * @description The ID of the node group.
-     *
-     * This parameter is required.
-     *
-     * @example ng-869471354ecd****
-     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
-     * @description The array of node IDs. Valid values of array element N: 1 to 500.
-     *
-     * @example ["i-bp1cudc25w2bfwl5****"]
-     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
-     * @description The ID of the region in which you want to create the instance.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -82,29 +52,48 @@ class DecreaseNodesRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nodeIds)) {
+            Model::validateArray($this->nodeIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchInterval) {
             $res['BatchInterval'] = $this->batchInterval;
         }
+
         if (null !== $this->batchSize) {
             $res['BatchSize'] = $this->batchSize;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->decreaseNodeCount) {
             $res['DecreaseNodeCount'] = $this->decreaseNodeCount;
         }
+
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
+
         if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
+            if (\is_array($this->nodeIds)) {
+                $res['NodeIds'] = [];
+                $n1 = 0;
+                foreach ($this->nodeIds as $item1) {
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -112,34 +101,45 @@ class DecreaseNodesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DecreaseNodesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchInterval'])) {
             $model->batchInterval = $map['BatchInterval'];
         }
+
         if (isset($map['BatchSize'])) {
             $model->batchSize = $map['BatchSize'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DecreaseNodeCount'])) {
             $model->decreaseNodeCount = $map['DecreaseNodeCount'];
         }
+
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }
+
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
-                $model->nodeIds = $map['NodeIds'];
+                $model->nodeIds = [];
+                $n1 = 0;
+                foreach ($map['NodeIds'] as $item1) {
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

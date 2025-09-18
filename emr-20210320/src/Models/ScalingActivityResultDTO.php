@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScalingActivityResultDTO extends Model
 {
     /**
-     * @description 实例ID。
-     *
-     * @example i-bp1cudc25w2bfwl5****
-     *
      * @var string
      */
     public $instanceId;
@@ -20,9 +16,12 @@ class ScalingActivityResultDTO extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -32,11 +31,11 @@ class ScalingActivityResultDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScalingActivityResultDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

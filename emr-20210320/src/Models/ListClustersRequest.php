@@ -4,98 +4,56 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClustersRequest extends Model
 {
     /**
-     * @description The cluster IDs. Number of elements in the array: 1 to 100.
-     *
-     * @example rg-acfmzabjyop****
-     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
-     * @description The name of the cluster.
-     *
-     * @example emrtest
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description The states of the clusters. Number of elements in the array: 1 to 100.
-     *
-     * @example ["HADOOP"]
-     *
      * @var string[]
      */
     public $clusterStates;
 
     /**
-     * @description The list of cluster types. Number of elements in the array: 1 to 100.
-     *
-     * @example ["c-b933c5aac8fe****"]
-     *
      * @var string[]
      */
     public $clusterTypes;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The starting point of the current query. If you do not configure this parameter, the query starts from the beginning.
-     *
-     * @example eyJlY21OZXh0VG9rZW4iOiIxIiwidGFpaGFvTmV4dFRva2VuIjoiNTYiLCJ0YWloYW9OZXh0VG9rZW5JbnQiOjU2LCJlY21OZXh0VG9rZW5JbnQiOjF9
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The billing methods. You can specify a maximum of 2 items.
-     *
-     * @example ["ECS"]
-     *
      * @var string[]
      */
     public $paymentTypes;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmzabjyop****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tag list. Number of elements in the array: 1 to 20.
-     *
-     * @example ["PayAsYouGo"]
-     *
      * @var Tag[]
      */
     public $tags;
@@ -112,44 +70,100 @@ class ListClustersRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusterIds)) {
+            Model::validateArray($this->clusterIds);
+        }
+        if (\is_array($this->clusterStates)) {
+            Model::validateArray($this->clusterStates);
+        }
+        if (\is_array($this->clusterTypes)) {
+            Model::validateArray($this->clusterTypes);
+        }
+        if (\is_array($this->paymentTypes)) {
+            Model::validateArray($this->paymentTypes);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterIds) {
-            $res['ClusterIds'] = $this->clusterIds;
+            if (\is_array($this->clusterIds)) {
+                $res['ClusterIds'] = [];
+                $n1 = 0;
+                foreach ($this->clusterIds as $item1) {
+                    $res['ClusterIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->clusterStates) {
-            $res['ClusterStates'] = $this->clusterStates;
+            if (\is_array($this->clusterStates)) {
+                $res['ClusterStates'] = [];
+                $n1 = 0;
+                foreach ($this->clusterStates as $item1) {
+                    $res['ClusterStates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->clusterTypes) {
-            $res['ClusterTypes'] = $this->clusterTypes;
+            if (\is_array($this->clusterTypes)) {
+                $res['ClusterTypes'] = [];
+                $n1 = 0;
+                foreach ($this->clusterTypes as $item1) {
+                    $res['ClusterTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->paymentTypes) {
-            $res['PaymentTypes'] = $this->paymentTypes;
+            if (\is_array($this->paymentTypes)) {
+                $res['PaymentTypes'] = [];
+                $n1 = 0;
+                foreach ($this->paymentTypes as $item1) {
+                    $res['PaymentTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,55 +171,85 @@ class ListClustersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClustersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
-                $model->clusterIds = $map['ClusterIds'];
+                $model->clusterIds = [];
+                $n1 = 0;
+                foreach ($map['ClusterIds'] as $item1) {
+                    $model->clusterIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['ClusterStates'])) {
             if (!empty($map['ClusterStates'])) {
-                $model->clusterStates = $map['ClusterStates'];
+                $model->clusterStates = [];
+                $n1 = 0;
+                foreach ($map['ClusterStates'] as $item1) {
+                    $model->clusterStates[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ClusterTypes'])) {
             if (!empty($map['ClusterTypes'])) {
-                $model->clusterTypes = $map['ClusterTypes'];
+                $model->clusterTypes = [];
+                $n1 = 0;
+                foreach ($map['ClusterTypes'] as $item1) {
+                    $model->clusterTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PaymentTypes'])) {
             if (!empty($map['PaymentTypes'])) {
-                $model->paymentTypes = $map['PaymentTypes'];
+                $model->paymentTypes = [];
+                $n1 = 0;
+                foreach ($map['PaymentTypes'] as $item1) {
+                    $model->paymentTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,66 +4,36 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The number of maximum number of records to obtain at a time.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the request to retrieve a new page of results. If NextToken is empty, the query starts from the beginning.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the region in which you want to create the instance.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The list of resource IDs. Number of array elements N Valid values: 1 to 1
-     *
-     * This parameter is required.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
-     * @description The type of the resource. Set the value to cluster.
-     *
-     * This parameter is required.
-     *
-     * @example cluster
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description An array of tags. The number of elements in the array. Valid values: 1 to 20.
-     *
-     * @example 20
-     *
      * @var Tag[]
      */
     public $tags;
@@ -76,32 +46,54 @@ class ListTagResourcesRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceIds)) {
+            Model::validateArray($this->resourceIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
+            if (\is_array($this->resourceIds)) {
+                $res['ResourceIds'] = [];
+                $n1 = 0;
+                foreach ($this->resourceIds as $item1) {
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,37 +101,48 @@ class ListTagResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
-                $model->resourceIds = $map['ResourceIds'];
+                $model->resourceIds = [];
+                $n1 = 0;
+                foreach ($map['ResourceIds'] as $item1) {
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

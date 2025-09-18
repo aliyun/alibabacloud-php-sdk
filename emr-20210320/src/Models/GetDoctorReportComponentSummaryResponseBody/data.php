@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorReportComponentSummaryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description Score.
-     *
-     * @example 88
-     *
      * @var int
      */
     public $score;
 
     /**
-     * @description Optimization suggestions.
-     *
      * @var string
      */
     public $suggestion;
 
     /**
-     * @description The summary of the report.
-     *
      * @var string
      */
     public $summary;
@@ -36,17 +28,22 @@ class data extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
@@ -54,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }

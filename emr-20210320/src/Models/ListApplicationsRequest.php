@@ -4,55 +4,31 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListApplicationsRequest extends Model
 {
     /**
-     * @description The application names.
-     *
-     * @example c-b933c5aac8fe****
-     *
      * @var string[]
      */
     public $applicationNames;
 
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     *
-     * @example c-e6a9d46e92675****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The total number of pages.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The page number of the next page returned.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -64,23 +40,40 @@ class ListApplicationsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->applicationNames)) {
+            Model::validateArray($this->applicationNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationNames) {
-            $res['ApplicationNames'] = $this->applicationNames;
+            if (\is_array($this->applicationNames)) {
+                $res['ApplicationNames'] = [];
+                $n1 = 0;
+                foreach ($this->applicationNames as $item1) {
+                    $res['ApplicationNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -88,28 +81,37 @@ class ListApplicationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListApplicationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationNames'])) {
             if (!empty($map['ApplicationNames'])) {
-                $model->applicationNames = $map['ApplicationNames'];
+                $model->applicationNames = [];
+                $n1 = 0;
+                foreach ($map['ApplicationNames'] as $item1) {
+                    $model->applicationNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

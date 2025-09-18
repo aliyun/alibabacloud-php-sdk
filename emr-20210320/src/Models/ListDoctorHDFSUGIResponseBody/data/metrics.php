@@ -4,30 +4,24 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHDFSUGIResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHDFSUGIResponseBody\data\metrics\totalDataSize;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHDFSUGIResponseBody\data\metrics\totalDirCount;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHDFSUGIResponseBody\data\metrics\totalFileCount;
-use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
     /**
-     * @description The total data size.
-     *
      * @var totalDataSize
      */
     public $totalDataSize;
 
     /**
-     * @description The total number of directories.
-     *
      * @var totalDirCount
      */
     public $totalDirCount;
 
     /**
-     * @description The total number of files.
-     *
      * @var totalFileCount
      */
     public $totalFileCount;
@@ -37,38 +31,54 @@ class metrics extends Model
         'totalFileCount' => 'TotalFileCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->totalDataSize) {
+            $this->totalDataSize->validate();
+        }
+        if (null !== $this->totalDirCount) {
+            $this->totalDirCount->validate();
+        }
+        if (null !== $this->totalFileCount) {
+            $this->totalFileCount->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalDataSize) {
-            $res['TotalDataSize'] = null !== $this->totalDataSize ? $this->totalDataSize->toMap() : null;
+            $res['TotalDataSize'] = null !== $this->totalDataSize ? $this->totalDataSize->toArray($noStream) : $this->totalDataSize;
         }
+
         if (null !== $this->totalDirCount) {
-            $res['TotalDirCount'] = null !== $this->totalDirCount ? $this->totalDirCount->toMap() : null;
+            $res['TotalDirCount'] = null !== $this->totalDirCount ? $this->totalDirCount->toArray($noStream) : $this->totalDirCount;
         }
+
         if (null !== $this->totalFileCount) {
-            $res['TotalFileCount'] = null !== $this->totalFileCount ? $this->totalFileCount->toMap() : null;
+            $res['TotalFileCount'] = null !== $this->totalFileCount ? $this->totalFileCount->toArray($noStream) : $this->totalFileCount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalDataSize'])) {
             $model->totalDataSize = totalDataSize::fromMap($map['TotalDataSize']);
         }
+
         if (isset($map['TotalDirCount'])) {
             $model->totalDirCount = totalDirCount::fromMap($map['TotalDirCount']);
         }
+
         if (isset($map['TotalFileCount'])) {
             $model->totalFileCount = totalFileCount::fromMap($map['TotalFileCount']);
         }

@@ -4,107 +4,61 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListNodesRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * This parameter is required.
-     *
-     * @example c-b933c5aac8fe****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The number of maximum number of records to obtain at a time. Valid values: 1 to 100.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description Marks the current position where reading starts. If you set this value to null, you can start from the beginning.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The IDs of node groups.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string[]
      */
     public $nodeGroupIds;
 
     /**
-     * @description An array that consists of information about the ID of the node.
-     *
-     * @example c-b933c5aac8fe****
-     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
-     * @description The names of the nodes.
-     *
-     * @example 20
-     *
      * @var string[]
      */
     public $nodeNames;
 
     /**
-     * @description The status of the node.
-     *
-     * @example ["CREATED"]
-     *
      * @var string[]
      */
     public $nodeStates;
 
     /**
-     * @description The private IP address.
-     *
-     * @example ["172.12.0.91"]
-     *
      * @var string[]
      */
     public $privateIps;
 
     /**
-     * @description The public IP address.
-     *
-     * @example ["120.13.14.38"]
-     *
      * @var string[]
      */
     public $publicIps;
 
     /**
-     * @description The ID of the region in which you want to create the instance.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The tags.
-     *
      * @var Tag[]
      */
     public $tags;
@@ -122,47 +76,124 @@ class ListNodesRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nodeGroupIds)) {
+            Model::validateArray($this->nodeGroupIds);
+        }
+        if (\is_array($this->nodeIds)) {
+            Model::validateArray($this->nodeIds);
+        }
+        if (\is_array($this->nodeNames)) {
+            Model::validateArray($this->nodeNames);
+        }
+        if (\is_array($this->nodeStates)) {
+            Model::validateArray($this->nodeStates);
+        }
+        if (\is_array($this->privateIps)) {
+            Model::validateArray($this->privateIps);
+        }
+        if (\is_array($this->publicIps)) {
+            Model::validateArray($this->publicIps);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->nodeGroupIds) {
-            $res['NodeGroupIds'] = $this->nodeGroupIds;
+            if (\is_array($this->nodeGroupIds)) {
+                $res['NodeGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->nodeGroupIds as $item1) {
+                    $res['NodeGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
+            if (\is_array($this->nodeIds)) {
+                $res['NodeIds'] = [];
+                $n1 = 0;
+                foreach ($this->nodeIds as $item1) {
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nodeNames) {
-            $res['NodeNames'] = $this->nodeNames;
+            if (\is_array($this->nodeNames)) {
+                $res['NodeNames'] = [];
+                $n1 = 0;
+                foreach ($this->nodeNames as $item1) {
+                    $res['NodeNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nodeStates) {
-            $res['NodeStates'] = $this->nodeStates;
+            if (\is_array($this->nodeStates)) {
+                $res['NodeStates'] = [];
+                $n1 = 0;
+                foreach ($this->nodeStates as $item1) {
+                    $res['NodeStates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->privateIps) {
-            $res['PrivateIps'] = $this->privateIps;
+            if (\is_array($this->privateIps)) {
+                $res['PrivateIps'] = [];
+                $n1 = 0;
+                foreach ($this->privateIps as $item1) {
+                    $res['PrivateIps'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->publicIps) {
-            $res['PublicIps'] = $this->publicIps;
+            if (\is_array($this->publicIps)) {
+                $res['PublicIps'] = [];
+                $n1 = 0;
+                foreach ($this->publicIps as $item1) {
+                    $res['PublicIps'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,62 +201,103 @@ class ListNodesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['NodeGroupIds'])) {
             if (!empty($map['NodeGroupIds'])) {
-                $model->nodeGroupIds = $map['NodeGroupIds'];
+                $model->nodeGroupIds = [];
+                $n1 = 0;
+                foreach ($map['NodeGroupIds'] as $item1) {
+                    $model->nodeGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
-                $model->nodeIds = $map['NodeIds'];
+                $model->nodeIds = [];
+                $n1 = 0;
+                foreach ($map['NodeIds'] as $item1) {
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NodeNames'])) {
             if (!empty($map['NodeNames'])) {
-                $model->nodeNames = $map['NodeNames'];
+                $model->nodeNames = [];
+                $n1 = 0;
+                foreach ($map['NodeNames'] as $item1) {
+                    $model->nodeNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NodeStates'])) {
             if (!empty($map['NodeStates'])) {
-                $model->nodeStates = $map['NodeStates'];
+                $model->nodeStates = [];
+                $n1 = 0;
+                foreach ($map['NodeStates'] as $item1) {
+                    $model->nodeStates[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PrivateIps'])) {
             if (!empty($map['PrivateIps'])) {
-                $model->privateIps = $map['PrivateIps'];
+                $model->privateIps = [];
+                $n1 = 0;
+                foreach ($map['PrivateIps'] as $item1) {
+                    $model->privateIps[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PublicIps'])) {
             if (!empty($map['PublicIps'])) {
-                $model->publicIps = $map['PublicIps'];
+                $model->publicIps = [];
+                $n1 = 0;
+                foreach ($map['PublicIps'] as $item1) {
+                    $model->publicIps[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

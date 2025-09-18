@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PromotionInfo extends Model
 {
@@ -46,26 +46,34 @@ class PromotionInfo extends Model
         'promotionOptionNo' => 'PromotionOptionNo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canPromFee) {
             $res['CanPromFee'] = $this->canPromFee;
         }
+
         if (null !== $this->isSelected) {
             $res['IsSelected'] = $this->isSelected;
         }
+
         if (null !== $this->promotionDesc) {
             $res['PromotionDesc'] = $this->promotionDesc;
         }
+
         if (null !== $this->promotionName) {
             $res['PromotionName'] = $this->promotionName;
         }
+
         if (null !== $this->promotionOptionCode) {
             $res['PromotionOptionCode'] = $this->promotionOptionCode;
         }
+
         if (null !== $this->promotionOptionNo) {
             $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
@@ -73,29 +81,34 @@ class PromotionInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PromotionInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanPromFee'])) {
             $model->canPromFee = $map['CanPromFee'];
         }
+
         if (isset($map['IsSelected'])) {
             $model->isSelected = $map['IsSelected'];
         }
+
         if (isset($map['PromotionDesc'])) {
             $model->promotionDesc = $map['PromotionDesc'];
         }
+
         if (isset($map['PromotionName'])) {
             $model->promotionName = $map['PromotionName'];
         }
+
         if (isset($map['PromotionOptionCode'])) {
             $model->promotionOptionCode = $map['PromotionOptionCode'];
         }
+
         if (isset($map['PromotionOptionNo'])) {
             $model->promotionOptionNo = $map['PromotionOptionNo'];
         }

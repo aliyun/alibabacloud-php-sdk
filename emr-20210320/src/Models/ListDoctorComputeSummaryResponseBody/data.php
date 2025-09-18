@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorComputeSummaryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorComputeSummaryResponseBody\data\analysis;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorComputeSummaryResponseBody\data\metrics;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The resource analysis results.
-     *
      * @var analysis
      */
     public $analysis;
 
     /**
-     * @description The name of the resource whose details are obtained based on the value of ComponentTypes. For example, if the value of ComponentTypes is Queue, the value of this parameter is a queue, such as DW.
-     *
-     * @example DW
-     *
      * @var string
      */
     public $componentName;
 
     /**
-     * @description The metric information.
-     *
      * @var metrics
      */
     public $metrics;
@@ -38,38 +30,51 @@ class data extends Model
         'metrics' => 'Metrics',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->analysis) {
+            $this->analysis->validate();
+        }
+        if (null !== $this->metrics) {
+            $this->metrics->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analysis) {
-            $res['Analysis'] = null !== $this->analysis ? $this->analysis->toMap() : null;
+            $res['Analysis'] = null !== $this->analysis ? $this->analysis->toArray($noStream) : $this->analysis;
         }
+
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
         }
+
         if (null !== $this->metrics) {
-            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toMap() : null;
+            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toArray($noStream) : $this->metrics;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Analysis'])) {
             $model->analysis = analysis::fromMap($map['Analysis']);
         }
+
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
         }
+
         if (isset($map['Metrics'])) {
             $model->metrics = metrics::fromMap($map['Metrics']);
         }

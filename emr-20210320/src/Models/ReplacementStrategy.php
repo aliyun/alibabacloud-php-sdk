@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReplacementStrategy extends Model
 {
@@ -16,17 +16,24 @@ class ReplacementStrategy extends Model
         'instanceCategories' => 'InstanceCategories',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceCategories)) {
+            Model::validateArray($this->instanceCategories);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceCategories) {
-            $res['InstanceCategories'] = [];
-            if (null !== $this->instanceCategories && \is_array($this->instanceCategories)) {
-                $n = 0;
-                foreach ($this->instanceCategories as $item) {
-                    $res['InstanceCategories'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceCategories)) {
+                $res['InstanceCategories'] = [];
+                $n1 = 0;
+                foreach ($this->instanceCategories as $item1) {
+                    $res['InstanceCategories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +41,21 @@ class ReplacementStrategy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReplacementStrategy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceCategories'])) {
             if (!empty($map['InstanceCategories'])) {
                 $model->instanceCategories = [];
-                $n = 0;
-                foreach ($map['InstanceCategories'] as $item) {
-                    $model->instanceCategories[$n++] = null !== $item ? InstanceCategory::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceCategories'] as $item1) {
+                    $model->instanceCategories[$n1] = InstanceCategory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

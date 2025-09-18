@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DiskSize extends Model
 {
     /**
-     * @description 磁盘类型。
-     *
-     * This parameter is required.
-     *
-     * @example cloud_essd
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 单位GB。
-     *
-     * @example 80
-     *
      * @var int
      */
     public $size;
@@ -32,14 +22,18 @@ class DiskSize extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -47,17 +41,18 @@ class DiskSize extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DiskSize
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

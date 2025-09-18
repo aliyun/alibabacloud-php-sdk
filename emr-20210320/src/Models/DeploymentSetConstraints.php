@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeploymentSetConstraints extends Model
 {
     /**
-     * @description 默认值。
-     *
-     * @example CLUSTER
-     *
      * @var string
      */
     public $defaultValue;
 
     /**
-     * @example 是否启用部署集限制策略
-     *
      * @var string
      */
     public $enableState;
 
     /**
-     * @description 替换策略。
-     *
      * @var ReplacementStrategy
      */
     public $replacementStrategy;
 
     /**
-     * @description 枚举值。
-     *
-     * @example ["CLUSTER","NODE_GROUP","NONE"]
-     *
      * @var string[]
      */
     public $values;
@@ -46,47 +34,74 @@ class DeploymentSetConstraints extends Model
         'values' => 'Values',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->replacementStrategy) {
+            $this->replacementStrategy->validate();
+        }
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
+
         if (null !== $this->enableState) {
             $res['EnableState'] = $this->enableState;
         }
+
         if (null !== $this->replacementStrategy) {
-            $res['ReplacementStrategy'] = null !== $this->replacementStrategy ? $this->replacementStrategy->toMap() : null;
+            $res['ReplacementStrategy'] = null !== $this->replacementStrategy ? $this->replacementStrategy->toArray($noStream) : $this->replacementStrategy;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = $this->values;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeploymentSetConstraints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
+
         if (isset($map['EnableState'])) {
             $model->enableState = $map['EnableState'];
         }
+
         if (isset($map['ReplacementStrategy'])) {
             $model->replacementStrategy = ReplacementStrategy::fromMap($map['ReplacementStrategy']);
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+                $model->values = [];
+                $n1 = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

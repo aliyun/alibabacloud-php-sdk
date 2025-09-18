@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DecreaseNodeGroupParam extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example G-21E39B11837E****
-     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $releaseInstanceIds;
@@ -28,35 +22,55 @@ class DecreaseNodeGroupParam extends Model
         'releaseInstanceIds' => 'ReleaseInstanceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->releaseInstanceIds)) {
+            Model::validateArray($this->releaseInstanceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
+
         if (null !== $this->releaseInstanceIds) {
-            $res['ReleaseInstanceIds'] = $this->releaseInstanceIds;
+            if (\is_array($this->releaseInstanceIds)) {
+                $res['ReleaseInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->releaseInstanceIds as $item1) {
+                    $res['ReleaseInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DecreaseNodeGroupParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }
+
         if (isset($map['ReleaseInstanceIds'])) {
             if (!empty($map['ReleaseInstanceIds'])) {
-                $model->releaseInstanceIds = $map['ReleaseInstanceIds'];
+                $model->releaseInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['ReleaseInstanceIds'] as $item1) {
+                    $model->releaseInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

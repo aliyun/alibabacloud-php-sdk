@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorJobsResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorJobsResponseBody\data\metrics\memSeconds;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorJobsResponseBody\data\metrics\vcoreSeconds;
-use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
     /**
-     * @description The amount of memory consumed.
-     *
      * @var memSeconds
      */
     public $memSeconds;
 
     /**
-     * @description The CPU usage.
-     *
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
@@ -28,32 +24,43 @@ class metrics extends Model
         'vcoreSeconds' => 'VcoreSeconds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->memSeconds) {
+            $this->memSeconds->validate();
+        }
+        if (null !== $this->vcoreSeconds) {
+            $this->vcoreSeconds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->memSeconds) {
-            $res['MemSeconds'] = null !== $this->memSeconds ? $this->memSeconds->toMap() : null;
+            $res['MemSeconds'] = null !== $this->memSeconds ? $this->memSeconds->toArray($noStream) : $this->memSeconds;
         }
+
         if (null !== $this->vcoreSeconds) {
-            $res['VcoreSeconds'] = null !== $this->vcoreSeconds ? $this->vcoreSeconds->toMap() : null;
+            $res['VcoreSeconds'] = null !== $this->vcoreSeconds ? $this->vcoreSeconds->toArray($noStream) : $this->vcoreSeconds;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemSeconds'])) {
             $model->memSeconds = memSeconds::fromMap($map['MemSeconds']);
         }
+
         if (isset($map['VcoreSeconds'])) {
             $model->vcoreSeconds = vcoreSeconds::fromMap($map['VcoreSeconds']);
         }

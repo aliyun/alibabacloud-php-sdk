@@ -4,44 +4,46 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSpecNodeGroup extends Model
 {
     /**
-     * @description 新实例类型。
-     *
-     * This parameter is required.
-     *
-     * @example ecs.g7.xlarge
-     *
+     * @var string
+     */
+    public $modifyType;
+
+    /**
      * @var string
      */
     public $newInstanceType;
 
     /**
-     * @description 节点组ID。
-     *
-     * This parameter is required.
-     *
-     * @example ng-869471354ecd****
-     *
      * @var string
      */
     public $nodeGroupId;
     protected $_name = [
+        'modifyType' => 'ModifyType',
         'newInstanceType' => 'NewInstanceType',
         'nodeGroupId' => 'NodeGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->modifyType) {
+            $res['ModifyType'] = $this->modifyType;
+        }
+
         if (null !== $this->newInstanceType) {
             $res['NewInstanceType'] = $this->newInstanceType;
         }
+
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
@@ -49,17 +51,22 @@ class UpdateSpecNodeGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSpecNodeGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ModifyType'])) {
+            $model->modifyType = $map['ModifyType'];
+        }
+
         if (isset($map['NewInstanceType'])) {
             $model->newInstanceType = $map['NewInstanceType'];
         }
+
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }

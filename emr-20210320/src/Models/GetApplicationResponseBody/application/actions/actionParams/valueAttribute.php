@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationResponseBody\application\actions\actionParams;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class valueAttribute extends Model
 {
     /**
-     * @description 值表述。
-     *
-     * @example 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 值步长。
-     *
-     * @example 1
-     *
      * @var string
      */
     public $valueIncrementStep;
 
     /**
-     * @description 最大值。
-     *
-     * @example 100
-     *
      * @var string
      */
     public $valueMaximum;
 
     /**
-     * @description 最小值。
-     *
-     * @example 1
-     *
      * @var string
      */
     public $valueMinimum;
 
     /**
-     * @description 属性值类型。
-     *
-     * @example int
-     *
      * @var string
      */
     public $valueType;
 
     /**
-     * @description 值单位。
-     *
-     * @example number
-     *
      * @var string
      */
     public $valueUnit;
@@ -70,26 +46,34 @@ class valueAttribute extends Model
         'valueUnit' => 'ValueUnit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->valueIncrementStep) {
             $res['ValueIncrementStep'] = $this->valueIncrementStep;
         }
+
         if (null !== $this->valueMaximum) {
             $res['ValueMaximum'] = $this->valueMaximum;
         }
+
         if (null !== $this->valueMinimum) {
             $res['ValueMinimum'] = $this->valueMinimum;
         }
+
         if (null !== $this->valueType) {
             $res['ValueType'] = $this->valueType;
         }
+
         if (null !== $this->valueUnit) {
             $res['ValueUnit'] = $this->valueUnit;
         }
@@ -97,29 +81,34 @@ class valueAttribute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return valueAttribute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ValueIncrementStep'])) {
             $model->valueIncrementStep = $map['ValueIncrementStep'];
         }
+
         if (isset($map['ValueMaximum'])) {
             $model->valueMaximum = $map['ValueMaximum'];
         }
+
         if (isset($map['ValueMinimum'])) {
             $model->valueMinimum = $map['ValueMinimum'];
         }
+
         if (isset($map['ValueType'])) {
             $model->valueType = $map['ValueType'];
         }
+
         if (isset($map['ValueUnit'])) {
             $model->valueUnit = $map['ValueUnit'];
         }

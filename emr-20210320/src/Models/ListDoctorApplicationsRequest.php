@@ -4,122 +4,61 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDoctorApplicationsRequest extends Model
 {
     /**
-     * @description The IDs of jobs that are submitted to YARN.
-     *
-     * @example null
-     *
      * @var string[]
      */
     public $appIds;
 
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     *
-     * @example c-b933c5aac8fe****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
-     *
-     * This parameter is required.
-     *
-     * @example 2023-01-01
-     *
      * @var string
      */
     public $dateTime;
 
     /**
-     * @description The maximum number of entries to return on each page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the request to retrieve a new page of results.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The field that you use to sort the query results. Valid values:
-     *
-     * 1.  startTime: the time when the job starts
-     * 2.  endTime: the time when the job ends
-     * 3.  vcoreUtilization: the vCPU utilization of the job
-     * 4.  memUtilization: the memory usage of the job
-     * 5.  vcoreSeconds: the aggregated number of vCPUs that are allocated to the job multiplied by the number of seconds the job has been running
-     * 6.  memSeconds: the aggregated amount of memory that is allocated to the job multiplied by the number of seconds the job has been running
-     * 7.  score: the score of the job
-     *
-     * @example score
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description The order in which you want to sort the query results. Valid values:
-     *
-     *   ASC: the ascending order
-     *   DESC: the descending order
-     *
-     * @example ASC
-     *
      * @var string
      */
     public $orderType;
 
     /**
-     * @description The YARN queues to which the jobs are submitted.
-     *
-     * @example null
-     *
      * @var string[]
      */
     public $queues;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The YARN engines to which the jobs are submitted.
-     *
-     * @example null
-     *
      * @var string[]
      */
     public $types;
 
     /**
-     * @description The users who submit the jobs.
-     *
-     * @example null
-     *
      * @var string[]
      */
     public $users;
@@ -137,95 +76,178 @@ class ListDoctorApplicationsRequest extends Model
         'users' => 'Users',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appIds)) {
+            Model::validateArray($this->appIds);
+        }
+        if (\is_array($this->queues)) {
+            Model::validateArray($this->queues);
+        }
+        if (\is_array($this->types)) {
+            Model::validateArray($this->types);
+        }
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appIds) {
-            $res['AppIds'] = $this->appIds;
+            if (\is_array($this->appIds)) {
+                $res['AppIds'] = [];
+                $n1 = 0;
+                foreach ($this->appIds as $item1) {
+                    $res['AppIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->dateTime) {
             $res['DateTime'] = $this->dateTime;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
+
         if (null !== $this->queues) {
-            $res['Queues'] = $this->queues;
+            if (\is_array($this->queues)) {
+                $res['Queues'] = [];
+                $n1 = 0;
+                foreach ($this->queues as $item1) {
+                    $res['Queues'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->types) {
-            $res['Types'] = $this->types;
+            if (\is_array($this->types)) {
+                $res['Types'] = [];
+                $n1 = 0;
+                foreach ($this->types as $item1) {
+                    $res['Types'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->users) {
-            $res['Users'] = $this->users;
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDoctorApplicationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIds'])) {
             if (!empty($map['AppIds'])) {
-                $model->appIds = $map['AppIds'];
+                $model->appIds = [];
+                $n1 = 0;
+                foreach ($map['AppIds'] as $item1) {
+                    $model->appIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DateTime'])) {
             $model->dateTime = $map['DateTime'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
+
         if (isset($map['Queues'])) {
             if (!empty($map['Queues'])) {
-                $model->queues = $map['Queues'];
+                $model->queues = [];
+                $n1 = 0;
+                foreach ($map['Queues'] as $item1) {
+                    $model->queues[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Types'])) {
             if (!empty($map['Types'])) {
-                $model->types = $map['Types'];
+                $model->types = [];
+                $n1 = 0;
+                foreach ($map['Types'] as $item1) {
+                    $model->types[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
-                $model->users = $map['Users'];
+                $model->users = [];
+                $n1 = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

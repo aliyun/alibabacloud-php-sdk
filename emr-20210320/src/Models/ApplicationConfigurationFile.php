@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplicationConfigurationFile extends Model
 {
@@ -82,44 +82,58 @@ class ApplicationConfigurationFile extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->configFileFormat) {
             $res['ConfigFileFormat'] = $this->configFileFormat;
         }
+
         if (null !== $this->configFileGroup) {
             $res['ConfigFileGroup'] = $this->configFileGroup;
         }
+
         if (null !== $this->configFileLink) {
             $res['ConfigFileLink'] = $this->configFileLink;
         }
+
         if (null !== $this->configFileMode) {
             $res['ConfigFileMode'] = $this->configFileMode;
         }
+
         if (null !== $this->configFileName) {
             $res['ConfigFileName'] = $this->configFileName;
         }
+
         if (null !== $this->configFileOwner) {
             $res['ConfigFileOwner'] = $this->configFileOwner;
         }
+
         if (null !== $this->configFilePath) {
             $res['ConfigFilePath'] = $this->configFilePath;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -127,47 +141,58 @@ class ApplicationConfigurationFile extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplicationConfigurationFile
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ConfigFileFormat'])) {
             $model->configFileFormat = $map['ConfigFileFormat'];
         }
+
         if (isset($map['ConfigFileGroup'])) {
             $model->configFileGroup = $map['ConfigFileGroup'];
         }
+
         if (isset($map['ConfigFileLink'])) {
             $model->configFileLink = $map['ConfigFileLink'];
         }
+
         if (isset($map['ConfigFileMode'])) {
             $model->configFileMode = $map['ConfigFileMode'];
         }
+
         if (isset($map['ConfigFileName'])) {
             $model->configFileName = $map['ConfigFileName'];
         }
+
         if (isset($map['ConfigFileOwner'])) {
             $model->configFileOwner = $map['ConfigFileOwner'];
         }
+
         if (isset($map['ConfigFilePath'])) {
             $model->configFilePath = $map['ConfigFilePath'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorComputeSummaryResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class analysis extends Model
 {
     /**
-     * @description The total number of healthy jobs.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $healthyJobCount;
 
     /**
-     * @description The total number of jobs that require attention.
-     *
-     * @example 23
-     *
      * @var int
      */
     public $needAttentionJobCount;
 
     /**
-     * @description The score for jobs.
-     *
-     * @example 56
-     *
      * @var int
      */
     public $score;
 
     /**
-     * @description The day-to-day growth rate of the score for jobs.
-     *
-     * @example 0.03
-     *
      * @var float
      */
     public $scoreDayGrowthRatio;
 
     /**
-     * @description The total number of sub-healthy jobs.
-     *
-     * @example 13
-     *
      * @var int
      */
     public $subHealthyJobCount;
 
     /**
-     * @description The total number of unhealthy jobs.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $unhealthyJobCount;
@@ -70,26 +46,34 @@ class analysis extends Model
         'unhealthyJobCount' => 'UnhealthyJobCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->healthyJobCount) {
             $res['HealthyJobCount'] = $this->healthyJobCount;
         }
+
         if (null !== $this->needAttentionJobCount) {
             $res['NeedAttentionJobCount'] = $this->needAttentionJobCount;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->scoreDayGrowthRatio) {
             $res['ScoreDayGrowthRatio'] = $this->scoreDayGrowthRatio;
         }
+
         if (null !== $this->subHealthyJobCount) {
             $res['SubHealthyJobCount'] = $this->subHealthyJobCount;
         }
+
         if (null !== $this->unhealthyJobCount) {
             $res['UnhealthyJobCount'] = $this->unhealthyJobCount;
         }
@@ -97,29 +81,34 @@ class analysis extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return analysis
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HealthyJobCount'])) {
             $model->healthyJobCount = $map['HealthyJobCount'];
         }
+
         if (isset($map['NeedAttentionJobCount'])) {
             $model->needAttentionJobCount = $map['NeedAttentionJobCount'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['ScoreDayGrowthRatio'])) {
             $model->scoreDayGrowthRatio = $map['ScoreDayGrowthRatio'];
         }
+
         if (isset($map['SubHealthyJobCount'])) {
             $model->subHealthyJobCount = $map['SubHealthyJobCount'];
         }
+
         if (isset($map['UnhealthyJobCount'])) {
             $model->unhealthyJobCount = $map['UnhealthyJobCount'];
         }

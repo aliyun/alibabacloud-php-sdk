@@ -4,44 +4,21 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOperationRequest extends Model
 {
     /**
-     * @description The ID of the cluster that you want to query.
-     *
-     * This parameter is required.
-     *
-     * @example c-b933c5aac8fe****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The operation ID.
-     *
-     * References:
-     *
-     *   [CreateCluster](https://help.aliyun.com/document_detail/454393.html)
-     *   [IncreaseNodes](https://help.aliyun.com/document_detail/454397.html)
-     *
-     * This parameter is required.
-     *
-     * @example op-13c37a77c505****
-     *
      * @var string
      */
     public $operationId;
 
     /**
-     * @description The district ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -51,17 +28,22 @@ class GetOperationRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -69,20 +51,22 @@ class GetOperationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOperationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

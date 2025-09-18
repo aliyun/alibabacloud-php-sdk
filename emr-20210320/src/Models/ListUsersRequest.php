@@ -4,62 +4,36 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUsersRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     *
-     * @example c-b933c5aac8fe****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The maximum number of entries to return.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the request to retrieve a new page of results.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The username. Fuzzy match is supported.
-     *
-     * @example test
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @description The usernames. Number of elements in the array: 0 to 20.
-     *
      * @var string[]
      */
     public $userNames;
@@ -72,59 +46,87 @@ class ListUsersRequest extends Model
         'userNames' => 'UserNames',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userNames)) {
+            Model::validateArray($this->userNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->userNames) {
-            $res['UserNames'] = $this->userNames;
+            if (\is_array($this->userNames)) {
+                $res['UserNames'] = [];
+                $n1 = 0;
+                foreach ($this->userNames as $item1) {
+                    $res['UserNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['UserNames'])) {
             if (!empty($map['UserNames'])) {
-                $model->userNames = $map['UserNames'];
+                $model->userNames = [];
+                $n1 = 0;
+                foreach ($map['UserNames'] as $item1) {
+                    $model->userNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

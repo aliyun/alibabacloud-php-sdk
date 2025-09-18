@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHDFSClusterResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class analysis extends Model
 {
     /**
-     * @description The overall score of HDFS storage resources.
-     *
-     * @example 55
-     *
      * @var int
      */
     public $hdfsScore;
@@ -20,9 +16,12 @@ class analysis extends Model
         'hdfsScore' => 'HdfsScore',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hdfsScore) {
@@ -32,11 +31,11 @@ class analysis extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return analysis
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

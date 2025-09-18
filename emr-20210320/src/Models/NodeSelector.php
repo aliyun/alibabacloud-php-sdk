@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NodeSelector extends Model
 {
     /**
-     * @description 节点组ID。当NodeSelectType取值NodeGroup时，该参数生效。
-     *
-     * @example ng-869471354ecd****
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $nodeGroupId;
@@ -25,12 +19,6 @@ class NodeSelector extends Model
     public $nodeGroupIds;
 
     /**
-     * @description 节点组名称。当NodeSelectType取值NodeGroup，且参数NodeGroupId为空时生效，该参数生效。
-     *
-     * @example master-1
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $nodeGroupName;
@@ -41,33 +29,16 @@ class NodeSelector extends Model
     public $nodeGroupNames;
 
     /**
-     * @description 节点组类型。当NodeSelectType取值NodeGroup，且参数NodeGroupId为空时生效。数组元数个数N取值范围：0~10。
-     *
-     * @example ["CORE","TASK"]
-     *
      * @var string[]
      */
     public $nodeGroupTypes;
 
     /**
-     * @description 节点名称列表。当NodeSelectType取值Node时，该参数生效。
-     *
-     * @example ["core1-1"]
-     *
      * @var string[]
      */
     public $nodeNames;
 
     /**
-     * @description 节点选择类型。取值范围：
-     * - CLUSTER：集群。
-     * - NODE_GROUP：节点组。
-     * - NODE：节点。
-     *
-     * This parameter is required.
-     *
-     * @example CLUSTER
-     *
      * @var string
      */
     public $nodeSelectType;
@@ -81,29 +52,78 @@ class NodeSelector extends Model
         'nodeSelectType' => 'NodeSelectType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nodeGroupIds)) {
+            Model::validateArray($this->nodeGroupIds);
+        }
+        if (\is_array($this->nodeGroupNames)) {
+            Model::validateArray($this->nodeGroupNames);
+        }
+        if (\is_array($this->nodeGroupTypes)) {
+            Model::validateArray($this->nodeGroupTypes);
+        }
+        if (\is_array($this->nodeNames)) {
+            Model::validateArray($this->nodeNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
+
         if (null !== $this->nodeGroupIds) {
-            $res['NodeGroupIds'] = $this->nodeGroupIds;
+            if (\is_array($this->nodeGroupIds)) {
+                $res['NodeGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->nodeGroupIds as $item1) {
+                    $res['NodeGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nodeGroupName) {
             $res['NodeGroupName'] = $this->nodeGroupName;
         }
+
         if (null !== $this->nodeGroupNames) {
-            $res['NodeGroupNames'] = $this->nodeGroupNames;
+            if (\is_array($this->nodeGroupNames)) {
+                $res['NodeGroupNames'] = [];
+                $n1 = 0;
+                foreach ($this->nodeGroupNames as $item1) {
+                    $res['NodeGroupNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nodeGroupTypes) {
-            $res['NodeGroupTypes'] = $this->nodeGroupTypes;
+            if (\is_array($this->nodeGroupTypes)) {
+                $res['NodeGroupTypes'] = [];
+                $n1 = 0;
+                foreach ($this->nodeGroupTypes as $item1) {
+                    $res['NodeGroupTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nodeNames) {
-            $res['NodeNames'] = $this->nodeNames;
+            if (\is_array($this->nodeNames)) {
+                $res['NodeNames'] = [];
+                $n1 = 0;
+                foreach ($this->nodeNames as $item1) {
+                    $res['NodeNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nodeSelectType) {
             $res['NodeSelectType'] = $this->nodeSelectType;
         }
@@ -111,40 +131,66 @@ class NodeSelector extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NodeSelector
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }
+
         if (isset($map['NodeGroupIds'])) {
             if (!empty($map['NodeGroupIds'])) {
-                $model->nodeGroupIds = $map['NodeGroupIds'];
+                $model->nodeGroupIds = [];
+                $n1 = 0;
+                foreach ($map['NodeGroupIds'] as $item1) {
+                    $model->nodeGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NodeGroupName'])) {
             $model->nodeGroupName = $map['NodeGroupName'];
         }
+
         if (isset($map['NodeGroupNames'])) {
             if (!empty($map['NodeGroupNames'])) {
-                $model->nodeGroupNames = $map['NodeGroupNames'];
+                $model->nodeGroupNames = [];
+                $n1 = 0;
+                foreach ($map['NodeGroupNames'] as $item1) {
+                    $model->nodeGroupNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NodeGroupTypes'])) {
             if (!empty($map['NodeGroupTypes'])) {
-                $model->nodeGroupTypes = $map['NodeGroupTypes'];
+                $model->nodeGroupTypes = [];
+                $n1 = 0;
+                foreach ($map['NodeGroupTypes'] as $item1) {
+                    $model->nodeGroupTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NodeNames'])) {
             if (!empty($map['NodeNames'])) {
-                $model->nodeNames = $map['NodeNames'];
+                $model->nodeNames = [];
+                $n1 = 0;
+                foreach ($map['NodeNames'] as $item1) {
+                    $model->nodeNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NodeSelectType'])) {
             $model->nodeSelectType = $map['NodeSelectType'];
         }

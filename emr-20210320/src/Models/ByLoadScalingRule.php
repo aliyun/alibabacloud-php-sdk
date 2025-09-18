@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ByLoadScalingRule extends Model
 {
     /**
-     * @description 比较符。
-     *
-     * This parameter is required.
-     *
-     * @example LT
-     *
      * @var string
      */
     public $comparisonOperator;
@@ -25,56 +19,26 @@ class ByLoadScalingRule extends Model
     public $coolDownInterval;
 
     /**
-     * @description 统计次数。
-     *
-     * This parameter is required.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $evaluationCount;
 
     /**
-     * @description 指标名称。指标名称需要在 ListAutoScalingMetrics 接口返回的指标名称列表中。
-     *
-     * This parameter is required.
-     *
-     * @example yarn_resourcemanager_root_availablememoryusage
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description 统计量名称。
-     *
-     * This parameter is required.
-     *
-     * @example AVG
-     *
      * @var string
      */
     public $statistics;
 
     /**
-     * @description 阈值。
-     *
-     * This parameter is required.
-     *
-     * @example 12.5
-     *
      * @var float
      */
     public $threshold;
 
     /**
-     * @description 统计窗口。单位为秒。
-     *
-     * This parameter is required.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $timeWindow;
@@ -88,29 +52,38 @@ class ByLoadScalingRule extends Model
         'timeWindow' => 'TimeWindow',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
         }
+
         if (null !== $this->coolDownInterval) {
             $res['CoolDownInterval'] = $this->coolDownInterval;
         }
+
         if (null !== $this->evaluationCount) {
             $res['EvaluationCount'] = $this->evaluationCount;
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->statistics) {
             $res['Statistics'] = $this->statistics;
         }
+
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
+
         if (null !== $this->timeWindow) {
             $res['TimeWindow'] = $this->timeWindow;
         }
@@ -118,32 +91,38 @@ class ByLoadScalingRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ByLoadScalingRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
         }
+
         if (isset($map['CoolDownInterval'])) {
             $model->coolDownInterval = $map['CoolDownInterval'];
         }
+
         if (isset($map['EvaluationCount'])) {
             $model->evaluationCount = $map['EvaluationCount'];
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Statistics'])) {
             $model->statistics = $map['Statistics'];
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
+
         if (isset($map['TimeWindow'])) {
             $model->timeWindow = $map['TimeWindow'];
         }

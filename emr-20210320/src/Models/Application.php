@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Application extends Model
 {
     /**
-     * @description 应用名称。从EMR控制台集群创建页面可查看到指定发行版的应用名称列表。
-     *
-     * This parameter is required.
-     *
-     * @example HDFS
-     *
      * @var string
      */
     public $applicationName;
@@ -22,9 +16,12 @@ class Application extends Model
         'applicationName' => 'ApplicationName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationName) {
@@ -34,11 +31,11 @@ class Application extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Application
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

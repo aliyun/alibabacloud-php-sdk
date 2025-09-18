@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConvertNodeGroup extends Model
 {
     /**
-     * @description 节点组ID。
-     *
-     * @example ng-869471354ecd****
-     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
-     * @description 付费时长。
-     *
-     * @example 12
-     *
      * @var int
      */
     public $paymentDuration;
 
     /**
-     * @description 付费时长单位。
-     *
-     * @example Month
-     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
-     * @description 付费类型。
-     *
-     * @example PayAsYouGo
-     *
      * @var string
      */
     public $paymentType;
@@ -50,20 +34,26 @@ class ConvertNodeGroup extends Model
         'paymentType' => 'PaymentType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
+
         if (null !== $this->paymentDuration) {
             $res['PaymentDuration'] = $this->paymentDuration;
         }
+
         if (null !== $this->paymentDurationUnit) {
             $res['PaymentDurationUnit'] = $this->paymentDurationUnit;
         }
+
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
         }
@@ -71,23 +61,26 @@ class ConvertNodeGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConvertNodeGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }
+
         if (isset($map['PaymentDuration'])) {
             $model->paymentDuration = $map['PaymentDuration'];
         }
+
         if (isset($map['PaymentDurationUnit'])) {
             $model->paymentDurationUnit = $map['PaymentDurationUnit'];
         }
+
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
         }
