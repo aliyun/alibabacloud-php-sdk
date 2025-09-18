@@ -46,6 +46,16 @@ class extendedAttribute extends Model
     public $inactiveDisks;
 
     /**
+     * @var string
+     */
+    public $metricName;
+
+    /**
+     * @var string
+     */
+    public $metricValue;
+
+    /**
      * @var migrationOptions
      */
     public $migrationOptions;
@@ -87,6 +97,8 @@ class extendedAttribute extends Model
         'hostId' => 'HostId',
         'hostType' => 'HostType',
         'inactiveDisks' => 'InactiveDisks',
+        'metricName' => 'MetricName',
+        'metricValue' => 'MetricValue',
         'migrationOptions' => 'MigrationOptions',
         'onlineRepairPolicy' => 'OnlineRepairPolicy',
         'punishDomain' => 'PunishDomain',
@@ -136,6 +148,14 @@ class extendedAttribute extends Model
 
         if (null !== $this->inactiveDisks) {
             $res['InactiveDisks'] = null !== $this->inactiveDisks ? $this->inactiveDisks->toArray($noStream) : $this->inactiveDisks;
+        }
+
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
+        }
+
+        if (null !== $this->metricValue) {
+            $res['MetricValue'] = $this->metricValue;
         }
 
         if (null !== $this->migrationOptions) {
@@ -203,6 +223,14 @@ class extendedAttribute extends Model
 
         if (isset($map['InactiveDisks'])) {
             $model->inactiveDisks = inactiveDisks::fromMap($map['InactiveDisks']);
+        }
+
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
+        }
+
+        if (isset($map['MetricValue'])) {
+            $model->metricValue = $map['MetricValue'];
         }
 
         if (isset($map['MigrationOptions'])) {

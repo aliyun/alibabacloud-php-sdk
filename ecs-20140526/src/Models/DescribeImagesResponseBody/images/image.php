@@ -108,6 +108,11 @@ class image extends Model
     public $isSupportIoOptimized;
 
     /**
+     * @var string
+     */
+    public $licenseType;
+
+    /**
      * @var bool
      */
     public $loginAsNonRootSupported;
@@ -191,6 +196,7 @@ class image extends Model
         'isSubscribed' => 'IsSubscribed',
         'isSupportCloudinit' => 'IsSupportCloudinit',
         'isSupportIoOptimized' => 'IsSupportIoOptimized',
+        'licenseType' => 'LicenseType',
         'loginAsNonRootSupported' => 'LoginAsNonRootSupported',
         'OSName' => 'OSName',
         'OSNameEn' => 'OSNameEn',
@@ -300,6 +306,10 @@ class image extends Model
 
         if (null !== $this->isSupportIoOptimized) {
             $res['IsSupportIoOptimized'] = $this->isSupportIoOptimized;
+        }
+
+        if (null !== $this->licenseType) {
+            $res['LicenseType'] = $this->licenseType;
         }
 
         if (null !== $this->loginAsNonRootSupported) {
@@ -439,6 +449,10 @@ class image extends Model
 
         if (isset($map['IsSupportIoOptimized'])) {
             $model->isSupportIoOptimized = $map['IsSupportIoOptimized'];
+        }
+
+        if (isset($map['LicenseType'])) {
+            $model->licenseType = $map['LicenseType'];
         }
 
         if (isset($map['LoginAsNonRootSupported'])) {

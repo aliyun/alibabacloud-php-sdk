@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateRequest\dataDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateRequest\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateRequest\networkInterface;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateRequest\securityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateRequest\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateRequest\tag;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateLaunchTemplateRequest\templateTag;
@@ -230,6 +231,11 @@ class CreateLaunchTemplateRequest extends Model
     public $securityGroupIds;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @var int
      */
     public $spotDuration;
@@ -327,6 +333,7 @@ class CreateLaunchTemplateRequest extends Model
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId' => 'SecurityGroupId',
         'securityGroupIds' => 'SecurityGroupIds',
+        'securityOptions' => 'SecurityOptions',
         'spotDuration' => 'SpotDuration',
         'spotPriceLimit' => 'SpotPriceLimit',
         'spotStrategy' => 'SpotStrategy',
@@ -356,6 +363,9 @@ class CreateLaunchTemplateRequest extends Model
         }
         if (\is_array($this->securityGroupIds)) {
             Model::validateArray($this->securityGroupIds);
+        }
+        if (null !== $this->securityOptions) {
+            $this->securityOptions->validate();
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -560,6 +570,10 @@ class CreateLaunchTemplateRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toArray($noStream) : $this->securityOptions;
         }
 
         if (null !== $this->spotDuration) {
@@ -822,6 +836,10 @@ class CreateLaunchTemplateRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
 
         if (isset($map['SpotDuration'])) {

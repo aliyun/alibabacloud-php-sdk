@@ -716,6 +716,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstancesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartTerminalSessionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartTerminalSessionResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StartTerminalSessionShrinkRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StopInstancesRequest;
@@ -6855,6 +6856,10 @@ class Ecs extends OpenApiClient
             @$query['SecurityGroupIds'] = $request->securityGroupIds;
         }
 
+        if (null !== $request->securityOptions) {
+            @$query['SecurityOptions'] = $request->securityOptions;
+        }
+
         if (null !== $request->spotDuration) {
             @$query['SpotDuration'] = $request->spotDuration;
         }
@@ -7142,6 +7147,10 @@ class Ecs extends OpenApiClient
 
         if (null !== $request->securityGroupIds) {
             @$query['SecurityGroupIds'] = $request->securityGroupIds;
+        }
+
+        if (null !== $request->securityOptions) {
+            @$query['SecurityOptions'] = $request->securityOptions;
         }
 
         if (null !== $request->spotDuration) {
@@ -39782,19 +39791,25 @@ class Ecs extends OpenApiClient
      * *   The port forwarding feature supports only TCP port forwarding. UDP port forwarding is not supported.
      * *   If you want to permanently close a session and invalidate the WebSocket URL, call the EndTerminalSession operation.
      *
-     * @param request - StartTerminalSessionRequest
+     * @param tmpReq - StartTerminalSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StartTerminalSessionResponse
      *
-     * @param StartTerminalSessionRequest $request
+     * @param StartTerminalSessionRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
      * @return StartTerminalSessionResponse
      */
-    public function startTerminalSessionWithOptions($request, $runtime)
+    public function startTerminalSessionWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new StartTerminalSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->encryptionOptions) {
+            $request->encryptionOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->encryptionOptions, 'EncryptionOptions', 'json');
+        }
+
         $query = [];
         if (null !== $request->commandLine) {
             @$query['CommandLine'] = $request->commandLine;
@@ -39802,6 +39817,10 @@ class Ecs extends OpenApiClient
 
         if (null !== $request->connectionType) {
             @$query['ConnectionType'] = $request->connectionType;
+        }
+
+        if (null !== $request->encryptionOptionsShrink) {
+            @$query['EncryptionOptions'] = $request->encryptionOptionsShrink;
         }
 
         if (null !== $request->instanceId) {

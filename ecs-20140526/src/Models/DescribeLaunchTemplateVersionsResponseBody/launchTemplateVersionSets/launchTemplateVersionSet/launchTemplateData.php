@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponse
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\networkInterfaces;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\securityGroupIds;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\securityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\tags;
 
@@ -200,6 +201,11 @@ class launchTemplateData extends Model
     public $securityGroupIds;
 
     /**
+     * @var securityOptions
+     */
+    public $securityOptions;
+
+    /**
      * @var int
      */
     public $spotDuration;
@@ -276,6 +282,7 @@ class launchTemplateData extends Model
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId' => 'SecurityGroupId',
         'securityGroupIds' => 'SecurityGroupIds',
+        'securityOptions' => 'SecurityOptions',
         'spotDuration' => 'SpotDuration',
         'spotPriceLimit' => 'SpotPriceLimit',
         'spotStrategy' => 'SpotStrategy',
@@ -302,6 +309,9 @@ class launchTemplateData extends Model
         }
         if (null !== $this->securityGroupIds) {
             $this->securityGroupIds->validate();
+        }
+        if (null !== $this->securityOptions) {
+            $this->securityOptions->validate();
         }
         if (null !== $this->tags) {
             $this->tags->validate();
@@ -458,6 +468,10 @@ class launchTemplateData extends Model
 
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toArray($noStream) : $this->securityGroupIds;
+        }
+
+        if (null !== $this->securityOptions) {
+            $res['SecurityOptions'] = null !== $this->securityOptions ? $this->securityOptions->toArray($noStream) : $this->securityOptions;
         }
 
         if (null !== $this->spotDuration) {
@@ -649,6 +663,10 @@ class launchTemplateData extends Model
 
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
+        }
+
+        if (isset($map['SecurityOptions'])) {
+            $model->securityOptions = securityOptions::fromMap($map['SecurityOptions']);
         }
 
         if (isset($map['SpotDuration'])) {

@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\StartTerminalSessionRequest\encryptionOptions;
 
-class StartTerminalSessionRequest extends Model
+class StartTerminalSessionShrinkRequest extends Model
 {
     /**
      * @var string
@@ -20,9 +19,9 @@ class StartTerminalSessionRequest extends Model
     public $connectionType;
 
     /**
-     * @var encryptionOptions
+     * @var string
      */
-    public $encryptionOptions;
+    public $encryptionOptionsShrink;
 
     /**
      * @var string[]
@@ -76,7 +75,7 @@ class StartTerminalSessionRequest extends Model
     protected $_name = [
         'commandLine' => 'CommandLine',
         'connectionType' => 'ConnectionType',
-        'encryptionOptions' => 'EncryptionOptions',
+        'encryptionOptionsShrink' => 'EncryptionOptions',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -91,9 +90,6 @@ class StartTerminalSessionRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->encryptionOptions) {
-            $this->encryptionOptions->validate();
-        }
         if (\is_array($this->instanceId)) {
             Model::validateArray($this->instanceId);
         }
@@ -111,8 +107,8 @@ class StartTerminalSessionRequest extends Model
             $res['ConnectionType'] = $this->connectionType;
         }
 
-        if (null !== $this->encryptionOptions) {
-            $res['EncryptionOptions'] = null !== $this->encryptionOptions ? $this->encryptionOptions->toArray($noStream) : $this->encryptionOptions;
+        if (null !== $this->encryptionOptionsShrink) {
+            $res['EncryptionOptions'] = $this->encryptionOptionsShrink;
         }
 
         if (null !== $this->instanceId) {
@@ -182,7 +178,7 @@ class StartTerminalSessionRequest extends Model
         }
 
         if (isset($map['EncryptionOptions'])) {
-            $model->encryptionOptions = encryptionOptions::fromMap($map['EncryptionOptions']);
+            $model->encryptionOptionsShrink = $map['EncryptionOptions'];
         }
 
         if (isset($map['InstanceId'])) {
