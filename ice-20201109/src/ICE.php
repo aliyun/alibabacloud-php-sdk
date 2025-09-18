@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowOutputRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowOutputResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddStreamTagToSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddStreamTagToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexRequest;
@@ -38,6 +40,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ClearAIAgentVoiceprintRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ClearAIAgentVoiceprintResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CloseMediaConnectFlowFailoverRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CloseMediaConnectFlowFailoverResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CloseStreamToSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CloseStreamToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAvatarTrainingJobRequest;
@@ -99,6 +103,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSourceLocationRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSourceLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSourceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateSourceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateStreamToSearchLibRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateStreamToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamRequest;
@@ -336,6 +342,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetSourceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSourceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetStorageListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetStorageListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetStreamTagListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetStreamTagListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSystemTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSystemTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateMaterialsRequest;
@@ -1444,6 +1452,75 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 打标流媒资.
+     *
+     * @param request - AddStreamTagToSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddStreamTagToSearchLibResponse
+     *
+     * @param AddStreamTagToSearchLibRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddStreamTagToSearchLibResponse
+     */
+    public function addStreamTagToSearchLibWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
+        }
+
+        if (null !== $request->msgBody) {
+            @$query['MsgBody'] = $request->msgBody;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddStreamTagToSearchLib',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddStreamTagToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 打标流媒资.
+     *
+     * @param request - AddStreamTagToSearchLibRequest
+     *
+     * @returns AddStreamTagToSearchLibResponse
+     *
+     * @param AddStreamTagToSearchLibRequest $request
+     *
+     * @return AddStreamTagToSearchLibResponse
+     */
+    public function addStreamTagToSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addStreamTagToSearchLibWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a template.
      *
      * @remarks
@@ -2052,6 +2129,71 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->closeMediaConnectFlowFailoverWithOptions($request, $runtime);
+    }
+
+    /**
+     * 关闭流媒资.
+     *
+     * @param request - CloseStreamToSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseStreamToSearchLibResponse
+     *
+     * @param CloseStreamToSearchLibRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CloseStreamToSearchLibResponse
+     */
+    public function closeStreamToSearchLibWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloseStreamToSearchLib',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloseStreamToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭流媒资.
+     *
+     * @param request - CloseStreamToSearchLibRequest
+     *
+     * @returns CloseStreamToSearchLibResponse
+     *
+     * @param CloseStreamToSearchLibRequest $request
+     *
+     * @return CloseStreamToSearchLibResponse
+     */
+    public function closeStreamToSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeStreamToSearchLibWithOptions($request, $runtime);
     }
 
     /**
@@ -4185,6 +4327,71 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSourceLocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建流媒资.
+     *
+     * @param request - CreateStreamToSearchLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStreamToSearchLibResponse
+     *
+     * @param CreateStreamToSearchLibRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateStreamToSearchLibResponse
+     */
+    public function createStreamToSearchLibWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStreamToSearchLib',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStreamToSearchLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建流媒资.
+     *
+     * @param request - CreateStreamToSearchLibRequest
+     *
+     * @returns CreateStreamToSearchLibResponse
+     *
+     * @param CreateStreamToSearchLibRequest $request
+     *
+     * @return CreateStreamToSearchLibResponse
+     */
+    public function createStreamToSearchLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStreamToSearchLibWithOptions($request, $runtime);
     }
 
     /**
@@ -11761,6 +11968,95 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getStorageListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询流媒资打标.
+     *
+     * @param request - GetStreamTagListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStreamTagListResponse
+     *
+     * @param GetStreamTagListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetStreamTagListResponse
+     */
+    public function getStreamTagListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStreamTagList',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStreamTagListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询流媒资打标.
+     *
+     * @param request - GetStreamTagListRequest
+     *
+     * @returns GetStreamTagListResponse
+     *
+     * @param GetStreamTagListRequest $request
+     *
+     * @return GetStreamTagListResponse
+     */
+    public function getStreamTagList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStreamTagListWithOptions($request, $runtime);
     }
 
     /**

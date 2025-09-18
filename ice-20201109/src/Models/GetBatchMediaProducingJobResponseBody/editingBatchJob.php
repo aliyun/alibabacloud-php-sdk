@@ -32,6 +32,16 @@ class editingBatchJob extends Model
     /**
      * @var string
      */
+    public $extendInput;
+
+    /**
+     * @var string
+     */
+    public $extendOutput;
+
+    /**
+     * @var string
+     */
     public $inputConfig;
 
     /**
@@ -73,6 +83,8 @@ class editingBatchJob extends Model
         'createTime' => 'CreateTime',
         'editingConfig' => 'EditingConfig',
         'extend' => 'Extend',
+        'extendInput' => 'ExtendInput',
+        'extendOutput' => 'ExtendOutput',
         'inputConfig' => 'InputConfig',
         'jobId' => 'JobId',
         'jobType' => 'JobType',
@@ -108,6 +120,14 @@ class editingBatchJob extends Model
 
         if (null !== $this->extend) {
             $res['Extend'] = $this->extend;
+        }
+
+        if (null !== $this->extendInput) {
+            $res['ExtendInput'] = $this->extendInput;
+        }
+
+        if (null !== $this->extendOutput) {
+            $res['ExtendOutput'] = $this->extendOutput;
         }
 
         if (null !== $this->inputConfig) {
@@ -174,6 +194,14 @@ class editingBatchJob extends Model
 
         if (isset($map['Extend'])) {
             $model->extend = $map['Extend'];
+        }
+
+        if (isset($map['ExtendInput'])) {
+            $model->extendInput = $map['ExtendInput'];
+        }
+
+        if (isset($map['ExtendOutput'])) {
+            $model->extendOutput = $map['ExtendOutput'];
         }
 
         if (isset($map['InputConfig'])) {

@@ -111,6 +111,11 @@ class mediaBasicInfo extends Model
     /**
      * @var string
      */
+    public $streamStatus;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -153,6 +158,7 @@ class mediaBasicInfo extends Model
         'source' => 'Source',
         'spriteImages' => 'SpriteImages',
         'status' => 'Status',
+        'streamStatus' => 'StreamStatus',
         'title' => 'Title',
         'transcodeStatus' => 'TranscodeStatus',
         'uploadSource' => 'UploadSource',
@@ -246,6 +252,10 @@ class mediaBasicInfo extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->streamStatus) {
+            $res['StreamStatus'] = $this->streamStatus;
         }
 
         if (null !== $this->title) {
@@ -357,6 +367,10 @@ class mediaBasicInfo extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StreamStatus'])) {
+            $model->streamStatus = $map['StreamStatus'];
         }
 
         if (isset($map['Title'])) {
