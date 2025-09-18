@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceConfigsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c-123xxx
-     *
      * @var string
      */
     public $instanceId;
@@ -20,9 +16,12 @@ class DescribeInstanceConfigsRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -32,11 +31,11 @@ class DescribeInstanceConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

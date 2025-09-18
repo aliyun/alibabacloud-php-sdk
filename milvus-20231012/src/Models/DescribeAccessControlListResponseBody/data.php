@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models\DescribeAccessControlListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example acl-xxxx
-     *
      * @var string
      */
     public $aclId;
@@ -24,35 +22,55 @@ class data extends Model
         'cidr' => 'Cidr',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cidr)) {
+            Model::validateArray($this->cidr);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
         if (null !== $this->cidr) {
-            $res['Cidr'] = $this->cidr;
+            if (\is_array($this->cidr)) {
+                $res['Cidr'] = [];
+                $n1 = 0;
+                foreach ($this->cidr as $item1) {
+                    $res['Cidr'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
         if (isset($map['Cidr'])) {
             if (!empty($map['Cidr'])) {
-                $model->cidr = $map['Cidr'];
+                $model->cidr = [];
+                $n1 = 0;
+                foreach ($map['Cidr'] as $item1) {
+                    $model->cidr[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

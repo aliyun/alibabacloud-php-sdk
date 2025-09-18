@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesResponseBody\data\clusterInfo\milvusResourceInfoList;
-use AlibabaCloud\Tea\Model;
 
 class clusterInfo extends Model
 {
     /**
-     * @example 3000
-     *
      * @var int
      */
     public $attuPort;
 
     /**
-     * @example c-123xxx.milvus.aliyuncs.com
-     *
      * @var string
      */
     public $internetUrl;
 
     /**
-     * @example c-123xxx-internal.milvus.aliyuncs.com
-     *
      * @var string
      */
     public $intranetUrl;
@@ -36,22 +30,16 @@ class clusterInfo extends Model
     public $milvusResourceInfoList;
 
     /**
-     * @example 19530
-     *
      * @var int
      */
     public $proxyPort;
 
     /**
-     * @example 24
-     *
      * @var int
      */
     public $totalCuNum;
 
     /**
-     * @example 500
-     *
      * @var int
      */
     public $totalDiskSize;
@@ -65,35 +53,48 @@ class clusterInfo extends Model
         'totalDiskSize' => 'TotalDiskSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->milvusResourceInfoList)) {
+            Model::validateArray($this->milvusResourceInfoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attuPort) {
             $res['AttuPort'] = $this->attuPort;
         }
+
         if (null !== $this->internetUrl) {
             $res['InternetUrl'] = $this->internetUrl;
         }
+
         if (null !== $this->intranetUrl) {
             $res['IntranetUrl'] = $this->intranetUrl;
         }
+
         if (null !== $this->milvusResourceInfoList) {
-            $res['MilvusResourceInfoList'] = [];
-            if (null !== $this->milvusResourceInfoList && \is_array($this->milvusResourceInfoList)) {
-                $n = 0;
-                foreach ($this->milvusResourceInfoList as $item) {
-                    $res['MilvusResourceInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->milvusResourceInfoList)) {
+                $res['MilvusResourceInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->milvusResourceInfoList as $item1) {
+                    $res['MilvusResourceInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->proxyPort) {
             $res['ProxyPort'] = $this->proxyPort;
         }
+
         if (null !== $this->totalCuNum) {
             $res['TotalCuNum'] = $this->totalCuNum;
         }
+
         if (null !== $this->totalDiskSize) {
             $res['TotalDiskSize'] = $this->totalDiskSize;
         }
@@ -101,38 +102,45 @@ class clusterInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttuPort'])) {
             $model->attuPort = $map['AttuPort'];
         }
+
         if (isset($map['InternetUrl'])) {
             $model->internetUrl = $map['InternetUrl'];
         }
+
         if (isset($map['IntranetUrl'])) {
             $model->intranetUrl = $map['IntranetUrl'];
         }
+
         if (isset($map['MilvusResourceInfoList'])) {
             if (!empty($map['MilvusResourceInfoList'])) {
                 $model->milvusResourceInfoList = [];
-                $n = 0;
-                foreach ($map['MilvusResourceInfoList'] as $item) {
-                    $model->milvusResourceInfoList[$n++] = null !== $item ? milvusResourceInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MilvusResourceInfoList'] as $item1) {
+                    $model->milvusResourceInfoList[$n1] = milvusResourceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ProxyPort'])) {
             $model->proxyPort = $map['ProxyPort'];
         }
+
         if (isset($map['TotalCuNum'])) {
             $model->totalCuNum = $map['TotalCuNum'];
         }
+
         if (isset($map['TotalDiskSize'])) {
             $model->totalDiskSize = $map['TotalDiskSize'];
         }

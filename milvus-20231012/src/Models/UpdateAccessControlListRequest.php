@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAccessControlListRequest extends Model
 {
     /**
-     * @example acl-123xxx
-     *
      * @var string
      */
     public $aclId;
 
     /**
-     * @example 192.168.1.0/24,172.16.0.0/16
-     *
      * @var string
      */
     public $cidr;
 
     /**
-     * @example c-123xxx
-     *
      * @var string
      */
     public $instanceId;
@@ -34,17 +28,22 @@ class UpdateAccessControlListRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
         if (null !== $this->cidr) {
             $res['Cidr'] = $this->cidr;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -52,20 +51,22 @@ class UpdateAccessControlListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAccessControlListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
         if (isset($map['Cidr'])) {
             $model->cidr = $map['Cidr'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

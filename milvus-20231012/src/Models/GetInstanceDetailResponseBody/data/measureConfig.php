@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class measureConfig extends Model
 {
@@ -70,38 +70,50 @@ class measureConfig extends Model
         'queryNodeReplica' => 'QueryNodeReplica',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataNodeCuNum) {
             $res['DataNodeCuNum'] = $this->dataNodeCuNum;
         }
+
         if (null !== $this->dataNodeReplica) {
             $res['DataNodeReplica'] = $this->dataNodeReplica;
         }
+
         if (null !== $this->indexNodeCuNum) {
             $res['IndexNodeCuNum'] = $this->indexNodeCuNum;
         }
+
         if (null !== $this->indexNodeReplica) {
             $res['IndexNodeReplica'] = $this->indexNodeReplica;
         }
+
         if (null !== $this->mixCoodinatorNodeCuNum) {
             $res['MixCoodinatorNodeCuNum'] = $this->mixCoodinatorNodeCuNum;
         }
+
         if (null !== $this->mixCoodinatorNodeReplica) {
             $res['MixCoodinatorNodeReplica'] = $this->mixCoodinatorNodeReplica;
         }
+
         if (null !== $this->proxyNodeCuNum) {
             $res['ProxyNodeCuNum'] = $this->proxyNodeCuNum;
         }
+
         if (null !== $this->proxyNodeReplica) {
             $res['ProxyNodeReplica'] = $this->proxyNodeReplica;
         }
+
         if (null !== $this->queryNodeCuNum) {
             $res['QueryNodeCuNum'] = $this->queryNodeCuNum;
         }
+
         if (null !== $this->queryNodeReplica) {
             $res['QueryNodeReplica'] = $this->queryNodeReplica;
         }
@@ -109,41 +121,50 @@ class measureConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return measureConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataNodeCuNum'])) {
             $model->dataNodeCuNum = $map['DataNodeCuNum'];
         }
+
         if (isset($map['DataNodeReplica'])) {
             $model->dataNodeReplica = $map['DataNodeReplica'];
         }
+
         if (isset($map['IndexNodeCuNum'])) {
             $model->indexNodeCuNum = $map['IndexNodeCuNum'];
         }
+
         if (isset($map['IndexNodeReplica'])) {
             $model->indexNodeReplica = $map['IndexNodeReplica'];
         }
+
         if (isset($map['MixCoodinatorNodeCuNum'])) {
             $model->mixCoodinatorNodeCuNum = $map['MixCoodinatorNodeCuNum'];
         }
+
         if (isset($map['MixCoodinatorNodeReplica'])) {
             $model->mixCoodinatorNodeReplica = $map['MixCoodinatorNodeReplica'];
         }
+
         if (isset($map['ProxyNodeCuNum'])) {
             $model->proxyNodeCuNum = $map['ProxyNodeCuNum'];
         }
+
         if (isset($map['ProxyNodeReplica'])) {
             $model->proxyNodeReplica = $map['ProxyNodeReplica'];
         }
+
         if (isset($map['QueryNodeCuNum'])) {
             $model->queryNodeCuNum = $map['QueryNodeCuNum'];
         }
+
         if (isset($map['QueryNodeReplica'])) {
             $model->queryNodeReplica = $map['QueryNodeReplica'];
         }

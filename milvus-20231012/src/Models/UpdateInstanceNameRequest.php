@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceNameRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example milvus-test
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example c-123xxx
-     *
      * @var string
      */
     public $instanceId;
@@ -30,14 +22,18 @@ class UpdateInstanceNameRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -45,17 +41,18 @@ class UpdateInstanceNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
