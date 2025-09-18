@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\commodity;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\complianceMetadata;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\serviceInfo;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\serviceLocaleConfigs;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\updateOption;
 
 class UpdateServiceRequest extends Model
@@ -108,6 +109,11 @@ class UpdateServiceRequest extends Model
     public $serviceInfo;
 
     /**
+     * @var serviceLocaleConfigs[]
+     */
+    public $serviceLocaleConfigs;
+
+    /**
      * @var string
      */
     public $serviceType;
@@ -166,6 +172,7 @@ class UpdateServiceRequest extends Model
         'resellable' => 'Resellable',
         'serviceId' => 'ServiceId',
         'serviceInfo' => 'ServiceInfo',
+        'serviceLocaleConfigs' => 'ServiceLocaleConfigs',
         'serviceType' => 'ServiceType',
         'serviceVersion' => 'ServiceVersion',
         'shareType' => 'ShareType',
@@ -186,6 +193,9 @@ class UpdateServiceRequest extends Model
         }
         if (\is_array($this->serviceInfo)) {
             Model::validateArray($this->serviceInfo);
+        }
+        if (\is_array($this->serviceLocaleConfigs)) {
+            Model::validateArray($this->serviceLocaleConfigs);
         }
         if (null !== $this->updateOption) {
             $this->updateOption->validate();
@@ -274,6 +284,17 @@ class UpdateServiceRequest extends Model
                 $n1 = 0;
                 foreach ($this->serviceInfo as $item1) {
                     $res['ServiceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->serviceLocaleConfigs) {
+            if (\is_array($this->serviceLocaleConfigs)) {
+                $res['ServiceLocaleConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->serviceLocaleConfigs as $item1) {
+                    $res['ServiceLocaleConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -400,6 +421,17 @@ class UpdateServiceRequest extends Model
                 $n1 = 0;
                 foreach ($map['ServiceInfo'] as $item1) {
                     $model->serviceInfo[$n1] = serviceInfo::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ServiceLocaleConfigs'])) {
+            if (!empty($map['ServiceLocaleConfigs'])) {
+                $model->serviceLocaleConfigs = [];
+                $n1 = 0;
+                foreach ($map['ServiceLocaleConfigs'] as $item1) {
+                    $model->serviceLocaleConfigs[$n1] = serviceLocaleConfigs::fromMap($item1);
                     ++$n1;
                 }
             }

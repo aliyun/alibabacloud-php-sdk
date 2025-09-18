@@ -16,6 +16,9 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ContinueDeployServiceI
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateOpsNoticeRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateOpsNoticeResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateOpsNoticeShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceInstanceShrinkRequest;
@@ -54,6 +57,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetNetworkAvailableZonesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetNetworkAvailableZonesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetOpsNoticeRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetOpsNoticeResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostShrinkRequest;
@@ -91,6 +96,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListOpsNoticesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListOpsNoticesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceBuildLogsRequest;
@@ -620,6 +627,105 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createArtifactWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建运维公告.
+     *
+     * @param tmpReq - CreateOpsNoticeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOpsNoticeResponse
+     *
+     * @param CreateOpsNoticeRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateOpsNoticeResponse
+     */
+    public function createOpsNoticeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateOpsNoticeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributes) {
+            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->attributesShrink) {
+            @$query['Attributes'] = $request->attributesShrink;
+        }
+
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        if (null !== $request->severity) {
+            @$query['Severity'] = $request->severity;
+        }
+
+        if (null !== $request->solutions) {
+            @$query['Solutions'] = $request->solutions;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOpsNotice',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOpsNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建运维公告.
+     *
+     * @param request - CreateOpsNoticeRequest
+     *
+     * @returns CreateOpsNoticeResponse
+     *
+     * @param CreateOpsNoticeRequest $request
+     *
+     * @return CreateOpsNoticeResponse
+     */
+    public function createOpsNotice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOpsNoticeWithOptions($request, $runtime);
     }
 
     /**
@@ -2061,6 +2167,67 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * 查看运维公告详情.
+     *
+     * @param request - GetOpsNoticeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOpsNoticeResponse
+     *
+     * @param GetOpsNoticeRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetOpsNoticeResponse
+     */
+    public function getOpsNoticeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->noticeId) {
+            @$query['NoticeId'] = $request->noticeId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetOpsNotice',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOpsNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看运维公告详情.
+     *
+     * @param request - GetOpsNoticeRequest
+     *
+     * @returns GetOpsNoticeResponse
+     *
+     * @param GetOpsNoticeRequest $request
+     *
+     * @return GetOpsNoticeResponse
+     */
+    public function getOpsNotice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOpsNoticeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a service.
      *
      * @param request - GetServiceRequest
@@ -3287,6 +3454,75 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listArtifactsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询运维公告.
+     *
+     * @param request - ListOpsNoticesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOpsNoticesResponse
+     *
+     * @param ListOpsNoticesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListOpsNoticesResponse
+     */
+    public function listOpsNoticesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOpsNotices',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOpsNoticesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询运维公告.
+     *
+     * @param request - ListOpsNoticesRequest
+     *
+     * @returns ListOpsNoticesResponse
+     *
+     * @param ListOpsNoticesRequest $request
+     *
+     * @return ListOpsNoticesResponse
+     */
+    public function listOpsNotices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOpsNoticesWithOptions($request, $runtime);
     }
 
     /**
@@ -5769,6 +6005,10 @@ class ComputeNestSupplier extends OpenApiClient
 
         if (null !== $request->serviceInfo) {
             @$query['ServiceInfo'] = $request->serviceInfo;
+        }
+
+        if (null !== $request->serviceLocaleConfigs) {
+            @$query['ServiceLocaleConfigs'] = $request->serviceLocaleConfigs;
         }
 
         if (null !== $request->serviceType) {
