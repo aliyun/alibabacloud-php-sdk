@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigRespons
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig\configMapMountDesc;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig\emptyDirDesc;
 
 class initContainersConfig extends Model
 {
@@ -25,6 +26,11 @@ class initContainersConfig extends Model
     public $configMapMountDesc;
 
     /**
+     * @var emptyDirDesc[]
+     */
+    public $emptyDirDesc;
+
+    /**
      * @var string
      */
     public $envs;
@@ -42,6 +48,7 @@ class initContainersConfig extends Model
         'command' => 'Command',
         'commandArgs' => 'CommandArgs',
         'configMapMountDesc' => 'ConfigMapMountDesc',
+        'emptyDirDesc' => 'EmptyDirDesc',
         'envs' => 'Envs',
         'imageUrl' => 'ImageUrl',
         'name' => 'Name',
@@ -51,6 +58,9 @@ class initContainersConfig extends Model
     {
         if (\is_array($this->configMapMountDesc)) {
             Model::validateArray($this->configMapMountDesc);
+        }
+        if (\is_array($this->emptyDirDesc)) {
+            Model::validateArray($this->emptyDirDesc);
         }
         parent::validate();
     }
@@ -72,6 +82,17 @@ class initContainersConfig extends Model
                 $n1 = 0;
                 foreach ($this->configMapMountDesc as $item1) {
                     $res['ConfigMapMountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->emptyDirDesc) {
+            if (\is_array($this->emptyDirDesc)) {
+                $res['EmptyDirDesc'] = [];
+                $n1 = 0;
+                foreach ($this->emptyDirDesc as $item1) {
+                    $res['EmptyDirDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -114,6 +135,17 @@ class initContainersConfig extends Model
                 $n1 = 0;
                 foreach ($map['ConfigMapMountDesc'] as $item1) {
                     $model->configMapMountDesc[$n1] = configMapMountDesc::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['EmptyDirDesc'])) {
+            if (!empty($map['EmptyDirDesc'])) {
+                $model->emptyDirDesc = [];
+                $n1 = 0;
+                foreach ($map['EmptyDirDesc'] as $item1) {
+                    $model->emptyDirDesc[$n1] = emptyDirDesc::fromMap($item1);
                     ++$n1;
                 }
             }

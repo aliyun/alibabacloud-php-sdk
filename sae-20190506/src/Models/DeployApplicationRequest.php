@@ -91,6 +91,11 @@ class DeployApplicationRequest extends Model
     /**
      * @var string
      */
+    public $emptyDirDesc;
+
+    /**
+     * @var string
+     */
     public $enableAhas;
 
     /**
@@ -404,6 +409,7 @@ class DeployApplicationRequest extends Model
         'deploy' => 'Deploy',
         'dotnet' => 'Dotnet',
         'edasContainerVersion' => 'EdasContainerVersion',
+        'emptyDirDesc' => 'EmptyDirDesc',
         'enableAhas' => 'EnableAhas',
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableGreyTagRoute' => 'EnableGreyTagRoute',
@@ -542,6 +548,10 @@ class DeployApplicationRequest extends Model
 
         if (null !== $this->edasContainerVersion) {
             $res['EdasContainerVersion'] = $this->edasContainerVersion;
+        }
+
+        if (null !== $this->emptyDirDesc) {
+            $res['EmptyDirDesc'] = $this->emptyDirDesc;
         }
 
         if (null !== $this->enableAhas) {
@@ -871,6 +881,10 @@ class DeployApplicationRequest extends Model
 
         if (isset($map['EdasContainerVersion'])) {
             $model->edasContainerVersion = $map['EdasContainerVersion'];
+        }
+
+        if (isset($map['EmptyDirDesc'])) {
+            $model->emptyDirDesc = $map['EmptyDirDesc'];
         }
 
         if (isset($map['EnableAhas'])) {

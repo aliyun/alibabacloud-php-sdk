@@ -99,6 +99,11 @@ class CreateApplicationShrinkRequest extends Model
     public $edasContainerVersion;
 
     /**
+     * @var string
+     */
+    public $emptyDirDesc;
+
+    /**
      * @var bool
      */
     public $enableCpuBurst;
@@ -426,6 +431,7 @@ class CreateApplicationShrinkRequest extends Model
         'diskSize' => 'DiskSize',
         'dotnet' => 'Dotnet',
         'edasContainerVersion' => 'EdasContainerVersion',
+        'emptyDirDesc' => 'EmptyDirDesc',
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableEbpf' => 'EnableEbpf',
         'enableNewArms' => 'EnableNewArms',
@@ -568,6 +574,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->edasContainerVersion) {
             $res['EdasContainerVersion'] = $this->edasContainerVersion;
+        }
+
+        if (null !== $this->emptyDirDesc) {
+            $res['EmptyDirDesc'] = $this->emptyDirDesc;
         }
 
         if (null !== $this->enableCpuBurst) {
@@ -899,6 +909,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['EdasContainerVersion'])) {
             $model->edasContainerVersion = $map['EdasContainerVersion'];
+        }
+
+        if (isset($map['EmptyDirDesc'])) {
+            $model->emptyDirDesc = $map['EmptyDirDesc'];
         }
 
         if (isset($map['EnableCpuBurst'])) {

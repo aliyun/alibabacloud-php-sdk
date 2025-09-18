@@ -228,6 +228,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\ListWebCustomDomainsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\OpenSaeServiceResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\PublishWebApplicationRevisionRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\PublishWebApplicationRevisionResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\QueryArmsEnableRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\QueryArmsEnableResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\QueryResourceStaticsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\QueryResourceStaticsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ReduceApplicationCapacityByInstanceIdsRequest;
@@ -1131,6 +1133,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->configMapMountDesc) {
             @$body['ConfigMapMountDesc'] = $request->configMapMountDesc;
+        }
+
+        if (null !== $request->emptyDirDesc) {
+            @$body['EmptyDirDesc'] = $request->emptyDirDesc;
         }
 
         if (null !== $request->enableSidecarResourceIsolated) {
@@ -3589,6 +3595,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->configMapMountDesc) {
             @$body['ConfigMapMountDesc'] = $request->configMapMountDesc;
+        }
+
+        if (null !== $request->emptyDirDesc) {
+            @$body['EmptyDirDesc'] = $request->emptyDirDesc;
         }
 
         if (null !== $request->enableSidecarResourceIsolated) {
@@ -8995,6 +9005,63 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->publishWebApplicationRevisionWithOptions($ApplicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param request - QueryArmsEnableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryArmsEnableResponse
+     *
+     * @param QueryArmsEnableRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryArmsEnableResponse
+     */
+    public function queryArmsEnableWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryArmsEnable',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/arms/queryArms',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryArmsEnableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - QueryArmsEnableRequest
+     *
+     * @returns QueryArmsEnableResponse
+     *
+     * @param QueryArmsEnableRequest $request
+     *
+     * @return QueryArmsEnableResponse
+     */
+    public function queryArmsEnable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryArmsEnableWithOptions($request, $headers, $runtime);
     }
 
     /**

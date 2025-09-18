@@ -26,6 +26,11 @@ class InitContainerConfig extends Model
     /**
      * @var string
      */
+    public $emptyDirDesc;
+
+    /**
+     * @var string
+     */
     public $envs;
 
     /**
@@ -41,6 +46,7 @@ class InitContainerConfig extends Model
         'command' => 'Command',
         'commandArgs' => 'CommandArgs',
         'configMapMountDesc' => 'ConfigMapMountDesc',
+        'emptyDirDesc' => 'EmptyDirDesc',
         'envs' => 'Envs',
         'imageUrl' => 'ImageUrl',
         'name' => 'Name',
@@ -64,6 +70,10 @@ class InitContainerConfig extends Model
 
         if (null !== $this->configMapMountDesc) {
             $res['ConfigMapMountDesc'] = $this->configMapMountDesc;
+        }
+
+        if (null !== $this->emptyDirDesc) {
+            $res['EmptyDirDesc'] = $this->emptyDirDesc;
         }
 
         if (null !== $this->envs) {
@@ -99,6 +109,10 @@ class InitContainerConfig extends Model
 
         if (isset($map['ConfigMapMountDesc'])) {
             $model->configMapMountDesc = $map['ConfigMapMountDesc'];
+        }
+
+        if (isset($map['EmptyDirDesc'])) {
+            $model->emptyDirDesc = $map['EmptyDirDesc'];
         }
 
         if (isset($map['Envs'])) {

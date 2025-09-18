@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigRespons
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\configMapMountDesc;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\emptyDirDesc;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\mountDesc;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\ossMountDescs;
@@ -114,6 +115,11 @@ class data extends Model
      * @var string
      */
     public $edasContainerVersion;
+
+    /**
+     * @var emptyDirDesc[]
+     */
+    public $emptyDirDesc;
 
     /**
      * @var string
@@ -490,6 +496,7 @@ class data extends Model
         'diskSize' => 'DiskSize',
         'dotnet' => 'Dotnet',
         'edasContainerVersion' => 'EdasContainerVersion',
+        'emptyDirDesc' => 'EmptyDirDesc',
         'enableAhas' => 'EnableAhas',
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableGreyTagRoute' => 'EnableGreyTagRoute',
@@ -567,6 +574,9 @@ class data extends Model
     {
         if (\is_array($this->configMapMountDesc)) {
             Model::validateArray($this->configMapMountDesc);
+        }
+        if (\is_array($this->emptyDirDesc)) {
+            Model::validateArray($this->emptyDirDesc);
         }
         if (\is_array($this->initContainersConfig)) {
             Model::validateArray($this->initContainersConfig);
@@ -680,6 +690,17 @@ class data extends Model
 
         if (null !== $this->edasContainerVersion) {
             $res['EdasContainerVersion'] = $this->edasContainerVersion;
+        }
+
+        if (null !== $this->emptyDirDesc) {
+            if (\is_array($this->emptyDirDesc)) {
+                $res['EmptyDirDesc'] = [];
+                $n1 = 0;
+                foreach ($this->emptyDirDesc as $item1) {
+                    $res['EmptyDirDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->enableAhas) {
@@ -1109,6 +1130,17 @@ class data extends Model
 
         if (isset($map['EdasContainerVersion'])) {
             $model->edasContainerVersion = $map['EdasContainerVersion'];
+        }
+
+        if (isset($map['EmptyDirDesc'])) {
+            if (!empty($map['EmptyDirDesc'])) {
+                $model->emptyDirDesc = [];
+                $n1 = 0;
+                foreach ($map['EmptyDirDesc'] as $item1) {
+                    $model->emptyDirDesc[$n1] = emptyDirDesc::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['EnableAhas'])) {
