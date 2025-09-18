@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $groupCode;
+
+    /**
      * @var int
      */
     public $id;
@@ -28,6 +33,7 @@ class data extends Model
      */
     public $unReadCount;
     protected $_name = [
+        'groupCode' => 'GroupCode',
         'id' => 'Id',
         'readCount' => 'ReadCount',
         'totalCount' => 'TotalCount',
@@ -42,6 +48,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->groupCode) {
+            $res['GroupCode'] = $this->groupCode;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -69,6 +79,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupCode'])) {
+            $model->groupCode = $map['GroupCode'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

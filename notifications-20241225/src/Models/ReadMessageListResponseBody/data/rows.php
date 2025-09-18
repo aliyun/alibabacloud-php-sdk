@@ -11,6 +11,11 @@ class rows extends Model
     /**
      * @var string
      */
+    public $categoryCode;
+
+    /**
+     * @var string
+     */
     public $categoryName;
 
     /**
@@ -73,6 +78,7 @@ class rows extends Model
      */
     public $titleh;
     protected $_name = [
+        'categoryCode' => 'CategoryCode',
         'categoryName' => 'CategoryName',
         'class' => 'Class',
         'classId' => 'ClassId',
@@ -96,6 +102,10 @@ class rows extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryCode) {
+            $res['CategoryCode'] = $this->categoryCode;
+        }
+
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
@@ -159,6 +169,10 @@ class rows extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryCode'])) {
+            $model->categoryCode = $map['CategoryCode'];
+        }
+
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }

@@ -46,6 +46,11 @@ class DeleteAllMessageRequest extends Model
     /**
      * @var string
      */
+    public $groupCode;
+
+    /**
+     * @var string
+     */
     public $srcUrl;
 
     /**
@@ -65,6 +70,7 @@ class DeleteAllMessageRequest extends Model
         'classId' => 'ClassId',
         'clientSource' => 'ClientSource',
         'cookies' => 'Cookies',
+        'groupCode' => 'GroupCode',
         'srcUrl' => 'SrcUrl',
         'tenantCode' => 'TenantCode',
         'uidType' => 'UidType',
@@ -104,6 +110,10 @@ class DeleteAllMessageRequest extends Model
 
         if (null !== $this->cookies) {
             $res['Cookies'] = $this->cookies;
+        }
+
+        if (null !== $this->groupCode) {
+            $res['GroupCode'] = $this->groupCode;
         }
 
         if (null !== $this->srcUrl) {
@@ -155,6 +165,10 @@ class DeleteAllMessageRequest extends Model
 
         if (isset($map['Cookies'])) {
             $model->cookies = $map['Cookies'];
+        }
+
+        if (isset($map['GroupCode'])) {
+            $model->groupCode = $map['GroupCode'];
         }
 
         if (isset($map['SrcUrl'])) {

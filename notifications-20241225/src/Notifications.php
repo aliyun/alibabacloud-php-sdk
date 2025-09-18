@@ -202,6 +202,10 @@ class Notifications extends OpenApiClient
             @$body['Cookies'] = $request->cookies;
         }
 
+        if (null !== $request->groupCode) {
+            @$body['GroupCode'] = $request->groupCode;
+        }
+
         if (null !== $request->srcUrl) {
             @$body['SrcUrl'] = $request->srcUrl;
         }
@@ -293,6 +297,10 @@ class Notifications extends OpenApiClient
 
         if (null !== $request->cookies) {
             @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->groupCode) {
+            @$body['GroupCode'] = $request->groupCode;
         }
 
         if (null !== $request->srcUrl) {
@@ -570,6 +578,14 @@ class Notifications extends OpenApiClient
             @$body['Cookies'] = $request->cookies;
         }
 
+        if (null !== $request->groupCode) {
+            @$body['GroupCode'] = $request->groupCode;
+        }
+
+        if (null !== $request->history) {
+            @$body['History'] = $request->history;
+        }
+
         if (null !== $request->msgId) {
             @$body['MsgId'] = $request->msgId;
         }
@@ -673,6 +689,14 @@ class Notifications extends OpenApiClient
 
         if (null !== $request->cookies) {
             @$body['Cookies'] = $request->cookies;
+        }
+
+        if (null !== $request->groupCode) {
+            @$body['GroupCode'] = $request->groupCode;
+        }
+
+        if (null !== $request->history) {
+            @$body['History'] = $request->history;
         }
 
         if (null !== $request->loc) {

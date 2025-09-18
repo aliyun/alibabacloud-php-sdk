@@ -51,6 +51,16 @@ class ReadMessageListRequest extends Model
     /**
      * @var string
      */
+    public $groupCode;
+
+    /**
+     * @var string
+     */
+    public $history;
+
+    /**
+     * @var string
+     */
     public $loc;
 
     /**
@@ -106,6 +116,8 @@ class ReadMessageListRequest extends Model
         'clientSource' => 'ClientSource',
         'content' => 'Content',
         'cookies' => 'Cookies',
+        'groupCode' => 'GroupCode',
+        'history' => 'History',
         'loc' => 'Loc',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -156,6 +168,14 @@ class ReadMessageListRequest extends Model
 
         if (null !== $this->cookies) {
             $res['Cookies'] = $this->cookies;
+        }
+
+        if (null !== $this->groupCode) {
+            $res['GroupCode'] = $this->groupCode;
+        }
+
+        if (null !== $this->history) {
+            $res['History'] = $this->history;
         }
 
         if (null !== $this->loc) {
@@ -239,6 +259,14 @@ class ReadMessageListRequest extends Model
 
         if (isset($map['Cookies'])) {
             $model->cookies = $map['Cookies'];
+        }
+
+        if (isset($map['GroupCode'])) {
+            $model->groupCode = $map['GroupCode'];
+        }
+
+        if (isset($map['History'])) {
+            $model->history = $map['History'];
         }
 
         if (isset($map['Loc'])) {
