@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\complia
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\instanceRoleInfos;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\serviceDocumentInfos;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\serviceInfos;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\serviceLocaleConfigs;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\supportContacts;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\tags;
 
@@ -116,6 +117,11 @@ class GetServiceResponseBody extends Model
     public $serviceInfos;
 
     /**
+     * @var serviceLocaleConfigs[]
+     */
+    public $serviceLocaleConfigs;
+
+    /**
      * @var string
      */
     public $serviceProductUrl;
@@ -215,6 +221,7 @@ class GetServiceResponseBody extends Model
         'serviceDocumentInfos' => 'ServiceDocumentInfos',
         'serviceId' => 'ServiceId',
         'serviceInfos' => 'ServiceInfos',
+        'serviceLocaleConfigs' => 'ServiceLocaleConfigs',
         'serviceProductUrl' => 'ServiceProductUrl',
         'serviceType' => 'ServiceType',
         'shareType' => 'ShareType',
@@ -249,6 +256,9 @@ class GetServiceResponseBody extends Model
         }
         if (\is_array($this->serviceInfos)) {
             Model::validateArray($this->serviceInfos);
+        }
+        if (\is_array($this->serviceLocaleConfigs)) {
+            Model::validateArray($this->serviceLocaleConfigs);
         }
         if (\is_array($this->supportContacts)) {
             Model::validateArray($this->supportContacts);
@@ -358,6 +368,17 @@ class GetServiceResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->serviceInfos as $item1) {
                     $res['ServiceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->serviceLocaleConfigs) {
+            if (\is_array($this->serviceLocaleConfigs)) {
+                $res['ServiceLocaleConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->serviceLocaleConfigs as $item1) {
+                    $res['ServiceLocaleConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -548,6 +569,17 @@ class GetServiceResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['ServiceInfos'] as $item1) {
                     $model->serviceInfos[$n1] = serviceInfos::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ServiceLocaleConfigs'])) {
+            if (!empty($map['ServiceLocaleConfigs'])) {
+                $model->serviceLocaleConfigs = [];
+                $n1 = 0;
+                foreach ($map['ServiceLocaleConfigs'] as $item1) {
+                    $model->serviceLocaleConfigs[$n1] = serviceLocaleConfigs::fromMap($item1);
                     ++$n1;
                 }
             }

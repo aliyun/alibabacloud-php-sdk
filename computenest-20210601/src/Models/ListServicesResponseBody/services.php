@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesResponseBody
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesResponseBody\services\commodity;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesResponseBody\services\serviceInfos;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesResponseBody\services\serviceLocaleConfigs;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesResponseBody\services\tags;
 
 class services extends Model
@@ -55,6 +56,11 @@ class services extends Model
      * @var serviceInfos[]
      */
     public $serviceInfos;
+
+    /**
+     * @var serviceLocaleConfigs[]
+     */
+    public $serviceLocaleConfigs;
 
     /**
      * @var string
@@ -135,6 +141,7 @@ class services extends Model
         'score' => 'Score',
         'serviceId' => 'ServiceId',
         'serviceInfos' => 'ServiceInfos',
+        'serviceLocaleConfigs' => 'ServiceLocaleConfigs',
         'serviceProductUrl' => 'ServiceProductUrl',
         'serviceType' => 'ServiceType',
         'status' => 'Status',
@@ -158,6 +165,9 @@ class services extends Model
         }
         if (\is_array($this->serviceInfos)) {
             Model::validateArray($this->serviceInfos);
+        }
+        if (\is_array($this->serviceLocaleConfigs)) {
+            Model::validateArray($this->serviceLocaleConfigs);
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -206,6 +216,17 @@ class services extends Model
                 $n1 = 0;
                 foreach ($this->serviceInfos as $item1) {
                     $res['ServiceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->serviceLocaleConfigs) {
+            if (\is_array($this->serviceLocaleConfigs)) {
+                $res['ServiceLocaleConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->serviceLocaleConfigs as $item1) {
+                    $res['ServiceLocaleConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -323,6 +344,17 @@ class services extends Model
                 $n1 = 0;
                 foreach ($map['ServiceInfos'] as $item1) {
                     $model->serviceInfos[$n1] = serviceInfos::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ServiceLocaleConfigs'])) {
+            if (!empty($map['ServiceLocaleConfigs'])) {
+                $model->serviceLocaleConfigs = [];
+                $n1 = 0;
+                foreach ($map['ServiceLocaleConfigs'] as $item1) {
+                    $model->serviceLocaleConfigs[$n1] = serviceLocaleConfigs::fromMap($item1);
                     ++$n1;
                 }
             }
