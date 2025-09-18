@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateServiceIdentityRoleResponseBody extends Model
 {
     /**
-     * @example ServiceLinkedRoleAlreadyExistsErrorProblem
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example C03B2680-AC9C-59CD-93C5-8142B92537FA
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example AliyunServiceRoleForFeatureStore
-     *
      * @var string
      */
     public $roleName;
@@ -34,17 +28,22 @@ class CreateServiceIdentityRoleResponseBody extends Model
         'roleName' => 'RoleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
@@ -52,20 +51,22 @@ class CreateServiceIdentityRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateServiceIdentityRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }

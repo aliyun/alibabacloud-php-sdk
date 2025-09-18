@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureViewResponseBody\fields;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureViewResponseBody\fields\transform\input;
-use AlibabaCloud\Tea\Model;
 
 class transform extends Model
 {
@@ -29,23 +29,32 @@ class transform extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->input)) {
+            Model::validateArray($this->input);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->input) {
-            $res['Input'] = [];
-            if (null !== $this->input && \is_array($this->input)) {
-                $n = 0;
-                foreach ($this->input as $item) {
-                    $res['Input'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->input)) {
+                $res['Input'] = [];
+                $n1 = 0;
+                foreach ($this->input as $item1) {
+                    $res['Input'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->LLMConfigId) {
             $res['LLMConfigId'] = $this->LLMConfigId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -53,26 +62,29 @@ class transform extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transform
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Input'])) {
             if (!empty($map['Input'])) {
                 $model->input = [];
-                $n = 0;
-                foreach ($map['Input'] as $item) {
-                    $model->input[$n++] = null !== $item ? input::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Input'] as $item1) {
+                    $model->input[$n1] = input::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['LLMConfigId'])) {
             $model->LLMConfigId = $map['LLMConfigId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

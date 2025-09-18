@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListInstancesResponseBody\instances;
-use AlibabaCloud\Tea\Model;
 
 class ListInstancesResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class ListInstancesResponseBody extends Model
     public $instances;
 
     /**
-     * @example 2CA11923-2A3D-5E5A-8314-E699D2DD15DE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -33,23 +29,32 @@ class ListInstancesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -57,26 +62,29 @@ class ListInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

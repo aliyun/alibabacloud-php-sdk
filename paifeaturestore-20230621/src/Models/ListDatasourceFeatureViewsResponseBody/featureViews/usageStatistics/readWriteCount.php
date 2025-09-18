@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListDatasourceFeatureViewsResponseBody\featureViews\usageStatistics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class readWriteCount extends Model
 {
     /**
-     * @example 2025-03-18T00:00:00+08:00
-     *
      * @var string
      */
     public $date;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $readCount;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $writeCount;
@@ -34,17 +28,22 @@ class readWriteCount extends Model
         'writeCount' => 'WriteCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->readCount) {
             $res['ReadCount'] = $this->readCount;
         }
+
         if (null !== $this->writeCount) {
             $res['WriteCount'] = $this->writeCount;
         }
@@ -52,20 +51,22 @@ class readWriteCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return readWriteCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['ReadCount'])) {
             $model->readCount = $map['ReadCount'];
         }
+
         if (isset($map['WriteCount'])) {
             $model->writeCount = $map['WriteCount'];
         }

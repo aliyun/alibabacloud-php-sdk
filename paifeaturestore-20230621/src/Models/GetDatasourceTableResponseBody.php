@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetDatasourceTableResponseBody\fields;
-use AlibabaCloud\Tea\Model;
 
 class GetDatasourceTableResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class GetDatasourceTableResponseBody extends Model
     public $fields;
 
     /**
-     * @example D7B2F8C4-49C7-5CFA-8075-9D715A114873
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example table1
-     *
      * @var string
      */
     public $tableName;
@@ -33,23 +29,32 @@ class GetDatasourceTableResponseBody extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fields) {
-            $res['Fields'] = [];
-            if (null !== $this->fields && \is_array($this->fields)) {
-                $n = 0;
-                foreach ($this->fields as $item) {
-                    $res['Fields'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fields)) {
+                $res['Fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['Fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -57,26 +62,29 @@ class GetDatasourceTableResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDatasourceTableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
-                $n = 0;
-                foreach ($map['Fields'] as $item) {
-                    $model->fields[$n++] = null !== $item ? fields::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Fields'] as $item1) {
+                    $model->fields[$n1] = fields::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

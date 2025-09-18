@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDatasourceResponseBody extends Model
 {
     /**
-     * @example 3
-     *
      * @var string
      */
     public $datasourceId;
 
     /**
-     * @example 1C5B1511-8A5B-59C3-90AF-513F9210E882
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CreateDatasourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasourceId) {
             $res['DatasourceId'] = $this->datasourceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateDatasourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDatasourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasourceId'])) {
             $model->datasourceId = $map['DatasourceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

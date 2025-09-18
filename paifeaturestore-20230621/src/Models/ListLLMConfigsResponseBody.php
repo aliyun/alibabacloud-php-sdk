@@ -4,44 +4,32 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListLLMConfigsResponseBody\LLMConfigs;
-use AlibabaCloud\Tea\Model;
 
 class ListLLMConfigsResponseBody extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var LLMConfigs[]
      */
     public $LLMConfigs;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6mbU5D/SFHCHMApYkMcWlp5
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
-     * @example 898DB17C-09E9-5C41-909D-269BA183EB92
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -53,29 +41,40 @@ class ListLLMConfigsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->LLMConfigs)) {
+            Model::validateArray($this->LLMConfigs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->LLMConfigs) {
-            $res['LLMConfigs'] = [];
-            if (null !== $this->LLMConfigs && \is_array($this->LLMConfigs)) {
-                $n = 0;
-                foreach ($this->LLMConfigs as $item) {
-                    $res['LLMConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->LLMConfigs)) {
+                $res['LLMConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->LLMConfigs as $item1) {
+                    $res['LLMConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -83,32 +82,37 @@ class ListLLMConfigsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLLMConfigsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LLMConfigs'])) {
             if (!empty($map['LLMConfigs'])) {
                 $model->LLMConfigs = [];
-                $n = 0;
-                foreach ($map['LLMConfigs'] as $item) {
-                    $model->LLMConfigs[$n++] = null !== $item ? LLMConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LLMConfigs'] as $item1) {
+                    $model->LLMConfigs[$n1] = LLMConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

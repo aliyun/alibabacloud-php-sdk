@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListProjectFeatureViewsResponseBody\featureViews;
-use AlibabaCloud\Tea\Model;
 
 class ListProjectFeatureViewsResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class ListProjectFeatureViewsResponseBody extends Model
     public $featureViews;
 
     /**
-     * @example AE2AF33E-0C0D-51A8-B89B-C5F1DF261D92
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -33,23 +29,32 @@ class ListProjectFeatureViewsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->featureViews)) {
+            Model::validateArray($this->featureViews);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureViews) {
-            $res['FeatureViews'] = [];
-            if (null !== $this->featureViews && \is_array($this->featureViews)) {
-                $n = 0;
-                foreach ($this->featureViews as $item) {
-                    $res['FeatureViews'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->featureViews)) {
+                $res['FeatureViews'] = [];
+                $n1 = 0;
+                foreach ($this->featureViews as $item1) {
+                    $res['FeatureViews'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -57,26 +62,29 @@ class ListProjectFeatureViewsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectFeatureViewsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureViews'])) {
             if (!empty($map['FeatureViews'])) {
                 $model->featureViews = [];
-                $n = 0;
-                foreach ($map['FeatureViews'] as $item) {
-                    $model->featureViews[$n++] = null !== $item ? featureViews::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FeatureViews'] as $item1) {
+                    $model->featureViews[$n1] = featureViews::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

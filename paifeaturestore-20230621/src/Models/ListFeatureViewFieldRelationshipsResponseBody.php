@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewFieldRelationshipsResponseBody\relationships;
-use AlibabaCloud\Tea\Model;
 
 class ListFeatureViewFieldRelationshipsResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class ListFeatureViewFieldRelationshipsResponseBody extends Model
     public $relationships;
 
     /**
-     * @example BF349686-C932-55B5-9B31-DAFA395C0E06
-     *
      * @var string
      */
     public $requestId;
@@ -25,20 +23,28 @@ class ListFeatureViewFieldRelationshipsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->relationships)) {
+            Model::validateArray($this->relationships);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->relationships) {
-            $res['Relationships'] = [];
-            if (null !== $this->relationships && \is_array($this->relationships)) {
-                $n = 0;
-                foreach ($this->relationships as $item) {
-                    $res['Relationships'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->relationships)) {
+                $res['Relationships'] = [];
+                $n1 = 0;
+                foreach ($this->relationships as $item1) {
+                    $res['Relationships'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class ListFeatureViewFieldRelationshipsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFeatureViewFieldRelationshipsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Relationships'])) {
             if (!empty($map['Relationships'])) {
                 $model->relationships = [];
-                $n = 0;
-                foreach ($map['Relationships'] as $item) {
-                    $model->relationships[$n++] = null !== $item ? relationships::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Relationships'] as $item1) {
+                    $model->relationships[$n1] = relationships::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

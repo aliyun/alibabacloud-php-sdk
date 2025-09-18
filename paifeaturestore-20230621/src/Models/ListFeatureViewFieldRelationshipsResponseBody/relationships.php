@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewFieldRelationshipsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListFeatureViewFieldRelationshipsResponseBody\relationships\models;
-use AlibabaCloud\Tea\Model;
 
 class relationships extends Model
 {
     /**
-     * @example featureView1
-     *
      * @var string
      */
     public $featureName;
@@ -22,15 +20,11 @@ class relationships extends Model
     public $models;
 
     /**
-     * @example table2
-     *
      * @var string
      */
     public $offlineTableName;
 
     /**
-     * @example table1
-     *
      * @var string
      */
     public $onlineTableName;
@@ -41,26 +35,36 @@ class relationships extends Model
         'onlineTableName' => 'OnlineTableName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->models)) {
+            Model::validateArray($this->models);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureName) {
             $res['FeatureName'] = $this->featureName;
         }
+
         if (null !== $this->models) {
-            $res['Models'] = [];
-            if (null !== $this->models && \is_array($this->models)) {
-                $n = 0;
-                foreach ($this->models as $item) {
-                    $res['Models'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->models)) {
+                $res['Models'] = [];
+                $n1 = 0;
+                foreach ($this->models as $item1) {
+                    $res['Models'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->offlineTableName) {
             $res['OfflineTableName'] = $this->offlineTableName;
         }
+
         if (null !== $this->onlineTableName) {
             $res['OnlineTableName'] = $this->onlineTableName;
         }
@@ -68,29 +72,33 @@ class relationships extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relationships
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureName'])) {
             $model->featureName = $map['FeatureName'];
         }
+
         if (isset($map['Models'])) {
             if (!empty($map['Models'])) {
                 $model->models = [];
-                $n = 0;
-                foreach ($map['Models'] as $item) {
-                    $model->models[$n++] = null !== $item ? models::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Models'] as $item1) {
+                    $model->models[$n1] = models::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OfflineTableName'])) {
             $model->offlineTableName = $map['OfflineTableName'];
         }
+
         if (isset($map['OnlineTableName'])) {
             $model->onlineTableName = $map['OnlineTableName'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ListModelFeaturesResponseBody\modelFeatures;
-use AlibabaCloud\Tea\Model;
 
 class ListModelFeaturesResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class ListModelFeaturesResponseBody extends Model
     public $modelFeatures;
 
     /**
-     * @example 2CA11923-2A3D-5E5A-8314-E699D2DD15DE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 4
-     *
      * @var int
      */
     public $totalCount;
@@ -33,23 +29,32 @@ class ListModelFeaturesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->modelFeatures)) {
+            Model::validateArray($this->modelFeatures);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modelFeatures) {
-            $res['ModelFeatures'] = [];
-            if (null !== $this->modelFeatures && \is_array($this->modelFeatures)) {
-                $n = 0;
-                foreach ($this->modelFeatures as $item) {
-                    $res['ModelFeatures'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->modelFeatures)) {
+                $res['ModelFeatures'] = [];
+                $n1 = 0;
+                foreach ($this->modelFeatures as $item1) {
+                    $res['ModelFeatures'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -57,26 +62,29 @@ class ListModelFeaturesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListModelFeaturesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelFeatures'])) {
             if (!empty($map['ModelFeatures'])) {
                 $model->modelFeatures = [];
-                $n = 0;
-                foreach ($map['ModelFeatures'] as $item) {
-                    $model->modelFeatures[$n++] = null !== $item ? modelFeatures::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ModelFeatures'] as $item1) {
+                    $model->modelFeatures[$n1] = modelFeatures::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
