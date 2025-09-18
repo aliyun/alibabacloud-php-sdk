@@ -10,7 +10,10 @@ use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\CreatePlayingListResponse;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\CreatePlayingListShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\ExecuteSceneRequest;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\ExecuteSceneResponse;
+use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\ExecuteSmartHomeSceneRequest;
+use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\ExecuteSmartHomeSceneResponse;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\GetSceneListResponse;
+use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\GetSmartHomeSceneListResponse;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\GetUserBasicInfoResponse;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\GetUserPhoneResponse;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\OAuth2RevocationEndpointHeaders;
@@ -201,6 +204,71 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 执行场景（全屋）.
+     *
+     * @param request - ExecuteSmartHomeSceneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteSmartHomeSceneResponse
+     *
+     * @param ExecuteSmartHomeSceneRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ExecuteSmartHomeSceneResponse
+     */
+    public function executeSmartHomeSceneWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->familyId) {
+            @$body['FamilyId'] = $request->familyId;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteSmartHomeScene',
+            'version' => 'oauth2_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/oauth2/iot/smart_home/scene/execute',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteSmartHomeSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 执行场景（全屋）.
+     *
+     * @param request - ExecuteSmartHomeSceneRequest
+     *
+     * @returns ExecuteSmartHomeSceneResponse
+     *
+     * @param ExecuteSmartHomeSceneRequest $request
+     *
+     * @return ExecuteSmartHomeSceneResponse
+     */
+    public function executeSmartHomeScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeSmartHomeSceneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取场景列表.
      *
      * @param headers - map
@@ -246,6 +314,54 @@ class AliGenie extends OpenApiClient
         $headers = [];
 
         return $this->getSceneListWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 获取场景列表（全屋）.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSmartHomeSceneListResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSmartHomeSceneListResponse
+     */
+    public function getSmartHomeSceneListWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetSmartHomeSceneList',
+            'version' => 'oauth2_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/oauth2/iot/smart_home/scene/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSmartHomeSceneListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取场景列表（全屋）.
+     *
+     * @returns GetSmartHomeSceneListResponse
+     *
+     * @return GetSmartHomeSceneListResponse
+     */
+    public function getSmartHomeSceneList()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSmartHomeSceneListWithOptions($headers, $runtime);
     }
 
     /**

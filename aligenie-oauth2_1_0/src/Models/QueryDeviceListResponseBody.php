@@ -51,7 +51,8 @@ class QueryDeviceListResponseBody extends Model
                 $res['DeviceList'] = [];
                 $n1 = 0;
                 foreach ($this->deviceList as $item1) {
-                    $res['DeviceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeviceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class QueryDeviceListResponseBody extends Model
                 $model->deviceList = [];
                 $n1 = 0;
                 foreach ($map['DeviceList'] as $item1) {
-                    $model->deviceList[$n1++] = deviceList::fromMap($item1);
+                    $model->deviceList[$n1] = deviceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

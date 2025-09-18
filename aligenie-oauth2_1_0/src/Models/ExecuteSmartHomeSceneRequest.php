@@ -6,14 +6,20 @@ namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreatePlayingListResponseBody extends Model
+class ExecuteSmartHomeSceneRequest extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $familyId;
+
+    /**
+     * @var string
+     */
+    public $sceneId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'familyId' => 'FamilyId',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
@@ -24,8 +30,12 @@ class CreatePlayingListResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->familyId) {
+            $res['FamilyId'] = $this->familyId;
+        }
+
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -39,8 +49,12 @@ class CreatePlayingListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FamilyId'])) {
+            $model->familyId = $map['FamilyId'];
+        }
+
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

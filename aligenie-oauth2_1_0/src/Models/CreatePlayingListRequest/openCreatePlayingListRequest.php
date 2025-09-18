@@ -72,7 +72,8 @@ class openCreatePlayingListRequest extends Model
                 $res['ContentList'] = [];
                 $n1 = 0;
                 foreach ($this->contentList as $item1) {
-                    $res['ContentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ContentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class openCreatePlayingListRequest extends Model
                 $model->contentList = [];
                 $n1 = 0;
                 foreach ($map['ContentList'] as $item1) {
-                    $model->contentList[$n1++] = contentList::fromMap($item1);
+                    $model->contentList[$n1] = contentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

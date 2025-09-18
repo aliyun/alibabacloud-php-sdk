@@ -73,7 +73,8 @@ class GetUserBasicInfoResponseBody extends Model
                 $res['UnionIds'] = [];
                 $n1 = 0;
                 foreach ($this->unionIds as $item1) {
-                    $res['UnionIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UnionIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class GetUserBasicInfoResponseBody extends Model
                 $model->unionIds = [];
                 $n1 = 0;
                 foreach ($map['UnionIds'] as $item1) {
-                    $model->unionIds[$n1++] = unionIds::fromMap($item1);
+                    $model->unionIds[$n1] = unionIds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

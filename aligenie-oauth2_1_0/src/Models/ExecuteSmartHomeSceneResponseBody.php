@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreatePlayingListResponseBody extends Model
+class ExecuteSmartHomeSceneResponseBody extends Model
 {
     /**
      * @var string
