@@ -8,30 +8,17 @@ use AlibabaCloud\Dara\Model;
 
 class GetScalingConfigStatusOutput extends Model
 {
-    /**
-     * @var ScalingConfigStatus
-     */
-    public $scalingConfigStatus;
     protected $_name = [
-        'scalingConfigStatus' => 'scalingConfigStatus',
     ];
 
     public function validate()
     {
-        if (null !== $this->scalingConfigStatus) {
-            $this->scalingConfigStatus->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
-        $res = [];
-        if (null !== $this->scalingConfigStatus) {
-            $res['scalingConfigStatus'] = null !== $this->scalingConfigStatus ? $this->scalingConfigStatus->toArray($noStream) : $this->scalingConfigStatus;
-        }
-
-        return $res;
+        return [];
     }
 
     public function toMap($noStream = false)
@@ -41,11 +28,6 @@ class GetScalingConfigStatusOutput extends Model
 
     public static function fromMap($map = [])
     {
-        $model = new self();
-        if (isset($map['scalingConfigStatus'])) {
-            $model->scalingConfigStatus = ScalingConfigStatus::fromMap($map['scalingConfigStatus']);
-        }
-
-        return $model;
+        return new self();
     }
 }

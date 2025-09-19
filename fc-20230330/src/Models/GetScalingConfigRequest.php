@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateResidentResourcePoolInput extends Model
+class GetScalingConfigRequest extends Model
 {
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var bool
-     */
-    public $useScaling;
+    public $qualifier;
     protected $_name = [
-        'name' => 'name',
-        'useScaling' => 'useScaling',
+        'qualifier' => 'qualifier',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class UpdateResidentResourcePoolInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-
-        if (null !== $this->useScaling) {
-            $res['useScaling'] = $this->useScaling;
+        if (null !== $this->qualifier) {
+            $res['qualifier'] = $this->qualifier;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class UpdateResidentResourcePoolInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-
-        if (isset($map['useScaling'])) {
-            $model->useScaling = $map['useScaling'];
+        if (isset($map['qualifier'])) {
+            $model->qualifier = $map['qualifier'];
         }
 
         return $model;

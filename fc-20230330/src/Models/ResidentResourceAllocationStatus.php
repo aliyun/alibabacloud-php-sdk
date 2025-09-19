@@ -14,7 +14,7 @@ class ResidentResourceAllocationStatus extends Model
     public $lastAllocatedTime;
 
     /**
-     * @var ResidentResourceAllocation
+     * @var ResidentResourceAllocation[]
      */
     public $lastAllocation;
     protected $_name = [
@@ -24,8 +24,8 @@ class ResidentResourceAllocationStatus extends Model
 
     public function validate()
     {
-        if (null !== $this->lastAllocation) {
-            $this->lastAllocation->validate();
+        if (\is_array($this->lastAllocation)) {
+            Model::validateArray($this->lastAllocation);
         }
         parent::validate();
     }
@@ -38,7 +38,14 @@ class ResidentResourceAllocationStatus extends Model
         }
 
         if (null !== $this->lastAllocation) {
-            $res['lastAllocation'] = null !== $this->lastAllocation ? $this->lastAllocation->toArray($noStream) : $this->lastAllocation;
+            if (\is_array($this->lastAllocation)) {
+                $res['lastAllocation'] = [];
+                $n1 = 0;
+                foreach ($this->lastAllocation as $item1) {
+                    $res['lastAllocation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -57,7 +64,14 @@ class ResidentResourceAllocationStatus extends Model
         }
 
         if (isset($map['lastAllocation'])) {
-            $model->lastAllocation = ResidentResourceAllocation::fromMap($map['lastAllocation']);
+            if (!empty($map['lastAllocation'])) {
+                $model->lastAllocation = [];
+                $n1 = 0;
+                foreach ($map['lastAllocation'] as $item1) {
+                    $model->lastAllocation[$n1] = ResidentResourceAllocation::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

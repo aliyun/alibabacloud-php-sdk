@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\DeleteFunctionVersionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteLayerVersionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteScalingConfigRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteScalingConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteVpcBindingResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsRequest;
@@ -53,6 +55,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\GetLayerVersionByArnResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetLayerVersionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetProvisionConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetScalingConfigRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetScalingConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionHeaders;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionRequest;
@@ -81,6 +85,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListLayerVersionsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListLayerVersionsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListProvisionConfigsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListProvisionConfigsResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListScalingConfigsRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListScalingConfigsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesShrinkRequest;
@@ -97,6 +103,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\PutLayerACLRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutLayerACLResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\PutScalingConfigRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\PutScalingConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\StopAsyncTaskRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\StopAsyncTaskResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\TagResourcesRequest;
@@ -1002,6 +1010,69 @@ class FC extends OpenApiClient
     }
 
     /**
+     * 删除弹性配置.
+     *
+     * @param request - DeleteScalingConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScalingConfigResponse
+     *
+     * @param string                     $functionName
+     * @param DeleteScalingConfigRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteScalingConfigResponse
+     */
+    public function deleteScalingConfigWithOptions($functionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteScalingConfig',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/scaling-config',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteScalingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除弹性配置.
+     *
+     * @param request - DeleteScalingConfigRequest
+     *
+     * @returns DeleteScalingConfigResponse
+     *
+     * @param string                     $functionName
+     * @param DeleteScalingConfigRequest $request
+     *
+     * @return DeleteScalingConfigResponse
+     */
+    public function deleteScalingConfig($functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteScalingConfigWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a trigger.
      *
      * @param headers - map
@@ -1866,6 +1937,69 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->getProvisionConfigWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取弹性配置.
+     *
+     * @param request - GetScalingConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScalingConfigResponse
+     *
+     * @param string                  $functionName
+     * @param GetScalingConfigRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetScalingConfigResponse
+     */
+    public function getScalingConfigWithOptions($functionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetScalingConfig',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/scaling-config',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScalingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取弹性配置.
+     *
+     * @param request - GetScalingConfigRequest
+     *
+     * @returns GetScalingConfigResponse
+     *
+     * @param string                  $functionName
+     * @param GetScalingConfigRequest $request
+     *
+     * @return GetScalingConfigResponse
+     */
+    public function getScalingConfig($functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getScalingConfigWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -2887,6 +3021,75 @@ class FC extends OpenApiClient
     }
 
     /**
+     * 获取弹性配置列表.
+     *
+     * @param request - ListScalingConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScalingConfigsResponse
+     *
+     * @param ListScalingConfigsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListScalingConfigsResponse
+     */
+    public function listScalingConfigsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->functionName) {
+            @$query['functionName'] = $request->functionName;
+        }
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListScalingConfigs',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/scaling-configs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListScalingConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取弹性配置列表.
+     *
+     * @param request - ListScalingConfigsRequest
+     *
+     * @returns ListScalingConfigsResponse
+     *
+     * @param ListScalingConfigsRequest $request
+     *
+     * @return ListScalingConfigsResponse
+     */
+    public function listScalingConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listScalingConfigsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Lists all tagged resources.
      *
      * @param tmpReq - ListTagResourcesRequest
@@ -3404,6 +3607,70 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->putProvisionConfigWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 设置弹性配置.
+     *
+     * @param request - PutScalingConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutScalingConfigResponse
+     *
+     * @param string                  $functionName
+     * @param PutScalingConfigRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PutScalingConfigResponse
+     */
+    public function putScalingConfigWithOptions($functionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'PutScalingConfig',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/scaling-config',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PutScalingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置弹性配置.
+     *
+     * @param request - PutScalingConfigRequest
+     *
+     * @returns PutScalingConfigResponse
+     *
+     * @param string                  $functionName
+     * @param PutScalingConfigRequest $request
+     *
+     * @return PutScalingConfigResponse
+     */
+    public function putScalingConfig($functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putScalingConfigWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**

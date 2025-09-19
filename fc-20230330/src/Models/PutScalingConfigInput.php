@@ -9,23 +9,38 @@ use AlibabaCloud\Dara\Model;
 class PutScalingConfigInput extends Model
 {
     /**
-     * @var ResidentConfig
+     * @var ScalingPolicy[]
      */
-    public $residentConfig;
+    public $horizontalScalingPolicies;
+
+    /**
+     * @var int
+     */
+    public $minInstances;
 
     /**
      * @var string
      */
-    public $resourceType;
+    public $residentPoolId;
+
+    /**
+     * @var ScheduledPolicy[]
+     */
+    public $scheduledPolicies;
     protected $_name = [
-        'residentConfig' => 'residentConfig',
-        'resourceType' => 'resourceType',
+        'horizontalScalingPolicies' => 'horizontalScalingPolicies',
+        'minInstances' => 'minInstances',
+        'residentPoolId' => 'residentPoolId',
+        'scheduledPolicies' => 'scheduledPolicies',
     ];
 
     public function validate()
     {
-        if (null !== $this->residentConfig) {
-            $this->residentConfig->validate();
+        if (\is_array($this->horizontalScalingPolicies)) {
+            Model::validateArray($this->horizontalScalingPolicies);
+        }
+        if (\is_array($this->scheduledPolicies)) {
+            Model::validateArray($this->scheduledPolicies);
         }
         parent::validate();
     }
@@ -33,12 +48,34 @@ class PutScalingConfigInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->residentConfig) {
-            $res['residentConfig'] = null !== $this->residentConfig ? $this->residentConfig->toArray($noStream) : $this->residentConfig;
+        if (null !== $this->horizontalScalingPolicies) {
+            if (\is_array($this->horizontalScalingPolicies)) {
+                $res['horizontalScalingPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->horizontalScalingPolicies as $item1) {
+                    $res['horizontalScalingPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
-        if (null !== $this->resourceType) {
-            $res['resourceType'] = $this->resourceType;
+        if (null !== $this->minInstances) {
+            $res['minInstances'] = $this->minInstances;
+        }
+
+        if (null !== $this->residentPoolId) {
+            $res['residentPoolId'] = $this->residentPoolId;
+        }
+
+        if (null !== $this->scheduledPolicies) {
+            if (\is_array($this->scheduledPolicies)) {
+                $res['scheduledPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->scheduledPolicies as $item1) {
+                    $res['scheduledPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -52,12 +89,34 @@ class PutScalingConfigInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['residentConfig'])) {
-            $model->residentConfig = ResidentConfig::fromMap($map['residentConfig']);
+        if (isset($map['horizontalScalingPolicies'])) {
+            if (!empty($map['horizontalScalingPolicies'])) {
+                $model->horizontalScalingPolicies = [];
+                $n1 = 0;
+                foreach ($map['horizontalScalingPolicies'] as $item1) {
+                    $model->horizontalScalingPolicies[$n1] = ScalingPolicy::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
-        if (isset($map['resourceType'])) {
-            $model->resourceType = $map['resourceType'];
+        if (isset($map['minInstances'])) {
+            $model->minInstances = $map['minInstances'];
+        }
+
+        if (isset($map['residentPoolId'])) {
+            $model->residentPoolId = $map['residentPoolId'];
+        }
+
+        if (isset($map['scheduledPolicies'])) {
+            if (!empty($map['scheduledPolicies'])) {
+                $model->scheduledPolicies = [];
+                $n1 = 0;
+                foreach ($map['scheduledPolicies'] as $item1) {
+                    $model->scheduledPolicies[$n1] = ScheduledPolicy::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

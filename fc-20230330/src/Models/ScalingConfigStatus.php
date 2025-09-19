@@ -11,42 +11,60 @@ class ScalingConfigStatus extends Model
     /**
      * @var string
      */
-    public $functionName;
+    public $currentError;
+
+    /**
+     * @var int
+     */
+    public $currentInstances;
 
     /**
      * @var string
      */
-    public $qualifier;
+    public $functionArn;
 
     /**
-     * @var ResidentConfig
+     * @var ScalingPolicy[]
      */
-    public $residentConfig;
+    public $horizontalScalingPolicies;
+
+    /**
+     * @var int
+     */
+    public $minInstances;
 
     /**
      * @var string
      */
-    public $resourceType;
+    public $residentPoolId;
 
     /**
-     * @var ScalingStatus
+     * @var ScheduledPolicy[]
      */
-    public $scalingStatus;
+    public $scheduledPolicies;
+
+    /**
+     * @var int
+     */
+    public $targetInstances;
     protected $_name = [
-        'functionName' => 'functionName',
-        'qualifier' => 'qualifier',
-        'residentConfig' => 'residentConfig',
-        'resourceType' => 'resourceType',
-        'scalingStatus' => 'scalingStatus',
+        'currentError' => 'currentError',
+        'currentInstances' => 'currentInstances',
+        'functionArn' => 'functionArn',
+        'horizontalScalingPolicies' => 'horizontalScalingPolicies',
+        'minInstances' => 'minInstances',
+        'residentPoolId' => 'residentPoolId',
+        'scheduledPolicies' => 'scheduledPolicies',
+        'targetInstances' => 'targetInstances',
     ];
 
     public function validate()
     {
-        if (null !== $this->residentConfig) {
-            $this->residentConfig->validate();
+        if (\is_array($this->horizontalScalingPolicies)) {
+            Model::validateArray($this->horizontalScalingPolicies);
         }
-        if (null !== $this->scalingStatus) {
-            $this->scalingStatus->validate();
+        if (\is_array($this->scheduledPolicies)) {
+            Model::validateArray($this->scheduledPolicies);
         }
         parent::validate();
     }
@@ -54,24 +72,50 @@ class ScalingConfigStatus extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->functionName) {
-            $res['functionName'] = $this->functionName;
+        if (null !== $this->currentError) {
+            $res['currentError'] = $this->currentError;
         }
 
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
+        if (null !== $this->currentInstances) {
+            $res['currentInstances'] = $this->currentInstances;
         }
 
-        if (null !== $this->residentConfig) {
-            $res['residentConfig'] = null !== $this->residentConfig ? $this->residentConfig->toArray($noStream) : $this->residentConfig;
+        if (null !== $this->functionArn) {
+            $res['functionArn'] = $this->functionArn;
         }
 
-        if (null !== $this->resourceType) {
-            $res['resourceType'] = $this->resourceType;
+        if (null !== $this->horizontalScalingPolicies) {
+            if (\is_array($this->horizontalScalingPolicies)) {
+                $res['horizontalScalingPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->horizontalScalingPolicies as $item1) {
+                    $res['horizontalScalingPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
-        if (null !== $this->scalingStatus) {
-            $res['scalingStatus'] = null !== $this->scalingStatus ? $this->scalingStatus->toArray($noStream) : $this->scalingStatus;
+        if (null !== $this->minInstances) {
+            $res['minInstances'] = $this->minInstances;
+        }
+
+        if (null !== $this->residentPoolId) {
+            $res['residentPoolId'] = $this->residentPoolId;
+        }
+
+        if (null !== $this->scheduledPolicies) {
+            if (\is_array($this->scheduledPolicies)) {
+                $res['scheduledPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->scheduledPolicies as $item1) {
+                    $res['scheduledPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->targetInstances) {
+            $res['targetInstances'] = $this->targetInstances;
         }
 
         return $res;
@@ -85,24 +129,50 @@ class ScalingConfigStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['functionName'])) {
-            $model->functionName = $map['functionName'];
+        if (isset($map['currentError'])) {
+            $model->currentError = $map['currentError'];
         }
 
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
+        if (isset($map['currentInstances'])) {
+            $model->currentInstances = $map['currentInstances'];
         }
 
-        if (isset($map['residentConfig'])) {
-            $model->residentConfig = ResidentConfig::fromMap($map['residentConfig']);
+        if (isset($map['functionArn'])) {
+            $model->functionArn = $map['functionArn'];
         }
 
-        if (isset($map['resourceType'])) {
-            $model->resourceType = $map['resourceType'];
+        if (isset($map['horizontalScalingPolicies'])) {
+            if (!empty($map['horizontalScalingPolicies'])) {
+                $model->horizontalScalingPolicies = [];
+                $n1 = 0;
+                foreach ($map['horizontalScalingPolicies'] as $item1) {
+                    $model->horizontalScalingPolicies[$n1] = ScalingPolicy::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
-        if (isset($map['scalingStatus'])) {
-            $model->scalingStatus = ScalingStatus::fromMap($map['scalingStatus']);
+        if (isset($map['minInstances'])) {
+            $model->minInstances = $map['minInstances'];
+        }
+
+        if (isset($map['residentPoolId'])) {
+            $model->residentPoolId = $map['residentPoolId'];
+        }
+
+        if (isset($map['scheduledPolicies'])) {
+            if (!empty($map['scheduledPolicies'])) {
+                $model->scheduledPolicies = [];
+                $n1 = 0;
+                foreach ($map['scheduledPolicies'] as $item1) {
+                    $model->scheduledPolicies[$n1] = ScheduledPolicy::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['targetInstances'])) {
+            $model->targetInstances = $map['targetInstances'];
         }
 
         return $model;

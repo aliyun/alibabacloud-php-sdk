@@ -42,6 +42,11 @@ class ElasticConfigStatus extends Model
      * @var ScheduledPolicy[]
      */
     public $scheduledPolicies;
+
+    /**
+     * @var int
+     */
+    public $targetInstances;
     protected $_name = [
         'currentError' => 'currentError',
         'currentInstances' => 'currentInstances',
@@ -50,6 +55,7 @@ class ElasticConfigStatus extends Model
         'residentPoolId' => 'residentPoolId',
         'scalingPolicies' => 'scalingPolicies',
         'scheduledPolicies' => 'scheduledPolicies',
+        'targetInstances' => 'targetInstances',
     ];
 
     public function validate()
@@ -108,6 +114,10 @@ class ElasticConfigStatus extends Model
             }
         }
 
+        if (null !== $this->targetInstances) {
+            $res['targetInstances'] = $this->targetInstances;
+        }
+
         return $res;
     }
 
@@ -159,6 +169,10 @@ class ElasticConfigStatus extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['targetInstances'])) {
+            $model->targetInstances = $map['targetInstances'];
         }
 
         return $model;
