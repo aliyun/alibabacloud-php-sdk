@@ -174,6 +174,21 @@ class PushRequest extends Model
     public $androidOpenUrl;
 
     /**
+     * @var string[]
+     */
+    public $androidOppoPrivateContentParameters;
+
+    /**
+     * @var string
+     */
+    public $androidOppoPrivateMsgTemplateId;
+
+    /**
+     * @var string[]
+     */
+    public $androidOppoPrivateTitleParameters;
+
+    /**
      * @var string
      */
     public $androidPopupActivity;
@@ -434,21 +449,6 @@ class PushRequest extends Model
     public $trim;
 
     /**
-     * @var string[]
-     */
-    public $androidOppoPrivateContentParameters;
-
-    /**
-     * @var string
-     */
-    public $androidOppoPrivateMsgTemplateId;
-
-    /**
-     * @var string[]
-     */
-    public $androidOppoPrivateTitleParameters;
-
-    /**
      * @var string
      */
     public $iOSApnsEnv;
@@ -591,6 +591,9 @@ class PushRequest extends Model
         'androidNotifyType' => 'AndroidNotifyType',
         'androidOpenType' => 'AndroidOpenType',
         'androidOpenUrl' => 'AndroidOpenUrl',
+        'androidOppoPrivateContentParameters' => 'AndroidOppoPrivateContentParameters',
+        'androidOppoPrivateMsgTemplateId' => 'AndroidOppoPrivateMsgTemplateId',
+        'androidOppoPrivateTitleParameters' => 'AndroidOppoPrivateTitleParameters',
         'androidPopupActivity' => 'AndroidPopupActivity',
         'androidPopupBody' => 'AndroidPopupBody',
         'androidPopupTitle' => 'AndroidPopupTitle',
@@ -643,9 +646,6 @@ class PushRequest extends Model
         'targetValue' => 'TargetValue',
         'title' => 'Title',
         'trim' => 'Trim',
-        'androidOppoPrivateContentParameters' => 'androidOppoPrivateContentParameters',
-        'androidOppoPrivateMsgTemplateId' => 'androidOppoPrivateMsgTemplateId',
-        'androidOppoPrivateTitleParameters' => 'androidOppoPrivateTitleParameters',
         'iOSApnsEnv' => 'iOSApnsEnv',
         'iOSBadge' => 'iOSBadge',
         'iOSBadgeAutoIncrement' => 'iOSBadgeAutoIncrement',
@@ -814,6 +814,28 @@ class PushRequest extends Model
 
         if (null !== $this->androidOpenUrl) {
             $res['AndroidOpenUrl'] = $this->androidOpenUrl;
+        }
+
+        if (null !== $this->androidOppoPrivateContentParameters) {
+            if (\is_array($this->androidOppoPrivateContentParameters)) {
+                $res['AndroidOppoPrivateContentParameters'] = [];
+                foreach ($this->androidOppoPrivateContentParameters as $key1 => $value1) {
+                    $res['AndroidOppoPrivateContentParameters'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->androidOppoPrivateMsgTemplateId) {
+            $res['AndroidOppoPrivateMsgTemplateId'] = $this->androidOppoPrivateMsgTemplateId;
+        }
+
+        if (null !== $this->androidOppoPrivateTitleParameters) {
+            if (\is_array($this->androidOppoPrivateTitleParameters)) {
+                $res['AndroidOppoPrivateTitleParameters'] = [];
+                foreach ($this->androidOppoPrivateTitleParameters as $key1 => $value1) {
+                    $res['AndroidOppoPrivateTitleParameters'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->androidPopupActivity) {
@@ -1022,28 +1044,6 @@ class PushRequest extends Model
 
         if (null !== $this->trim) {
             $res['Trim'] = $this->trim;
-        }
-
-        if (null !== $this->androidOppoPrivateContentParameters) {
-            if (\is_array($this->androidOppoPrivateContentParameters)) {
-                $res['androidOppoPrivateContentParameters'] = [];
-                foreach ($this->androidOppoPrivateContentParameters as $key1 => $value1) {
-                    $res['androidOppoPrivateContentParameters'][$key1] = $value1;
-                }
-            }
-        }
-
-        if (null !== $this->androidOppoPrivateMsgTemplateId) {
-            $res['androidOppoPrivateMsgTemplateId'] = $this->androidOppoPrivateMsgTemplateId;
-        }
-
-        if (null !== $this->androidOppoPrivateTitleParameters) {
-            if (\is_array($this->androidOppoPrivateTitleParameters)) {
-                $res['androidOppoPrivateTitleParameters'] = [];
-                foreach ($this->androidOppoPrivateTitleParameters as $key1 => $value1) {
-                    $res['androidOppoPrivateTitleParameters'][$key1] = $value1;
-                }
-            }
         }
 
         if (null !== $this->iOSApnsEnv) {
@@ -1277,6 +1277,28 @@ class PushRequest extends Model
             $model->androidOpenUrl = $map['AndroidOpenUrl'];
         }
 
+        if (isset($map['AndroidOppoPrivateContentParameters'])) {
+            if (!empty($map['AndroidOppoPrivateContentParameters'])) {
+                $model->androidOppoPrivateContentParameters = [];
+                foreach ($map['AndroidOppoPrivateContentParameters'] as $key1 => $value1) {
+                    $model->androidOppoPrivateContentParameters[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['AndroidOppoPrivateMsgTemplateId'])) {
+            $model->androidOppoPrivateMsgTemplateId = $map['AndroidOppoPrivateMsgTemplateId'];
+        }
+
+        if (isset($map['AndroidOppoPrivateTitleParameters'])) {
+            if (!empty($map['AndroidOppoPrivateTitleParameters'])) {
+                $model->androidOppoPrivateTitleParameters = [];
+                foreach ($map['AndroidOppoPrivateTitleParameters'] as $key1 => $value1) {
+                    $model->androidOppoPrivateTitleParameters[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['AndroidPopupActivity'])) {
             $model->androidPopupActivity = $map['AndroidPopupActivity'];
         }
@@ -1483,28 +1505,6 @@ class PushRequest extends Model
 
         if (isset($map['Trim'])) {
             $model->trim = $map['Trim'];
-        }
-
-        if (isset($map['androidOppoPrivateContentParameters'])) {
-            if (!empty($map['androidOppoPrivateContentParameters'])) {
-                $model->androidOppoPrivateContentParameters = [];
-                foreach ($map['androidOppoPrivateContentParameters'] as $key1 => $value1) {
-                    $model->androidOppoPrivateContentParameters[$key1] = $value1;
-                }
-            }
-        }
-
-        if (isset($map['androidOppoPrivateMsgTemplateId'])) {
-            $model->androidOppoPrivateMsgTemplateId = $map['androidOppoPrivateMsgTemplateId'];
-        }
-
-        if (isset($map['androidOppoPrivateTitleParameters'])) {
-            if (!empty($map['androidOppoPrivateTitleParameters'])) {
-                $model->androidOppoPrivateTitleParameters = [];
-                foreach ($map['androidOppoPrivateTitleParameters'] as $key1 => $value1) {
-                    $model->androidOppoPrivateTitleParameters[$key1] = $value1;
-                }
-            }
         }
 
         if (isset($map['iOSApnsEnv'])) {

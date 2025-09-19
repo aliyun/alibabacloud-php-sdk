@@ -176,6 +176,21 @@ class PushShrinkRequest extends Model
     /**
      * @var string
      */
+    public $androidOppoPrivateContentParametersShrink;
+
+    /**
+     * @var string
+     */
+    public $androidOppoPrivateMsgTemplateId;
+
+    /**
+     * @var string
+     */
+    public $androidOppoPrivateTitleParametersShrink;
+
+    /**
+     * @var string
+     */
     public $androidPopupActivity;
 
     /**
@@ -436,21 +451,6 @@ class PushShrinkRequest extends Model
     /**
      * @var string
      */
-    public $androidOppoPrivateContentParametersShrink;
-
-    /**
-     * @var string
-     */
-    public $androidOppoPrivateMsgTemplateId;
-
-    /**
-     * @var string
-     */
-    public $androidOppoPrivateTitleParametersShrink;
-
-    /**
-     * @var string
-     */
     public $iOSApnsEnv;
 
     /**
@@ -591,6 +591,9 @@ class PushShrinkRequest extends Model
         'androidNotifyType' => 'AndroidNotifyType',
         'androidOpenType' => 'AndroidOpenType',
         'androidOpenUrl' => 'AndroidOpenUrl',
+        'androidOppoPrivateContentParametersShrink' => 'AndroidOppoPrivateContentParameters',
+        'androidOppoPrivateMsgTemplateId' => 'AndroidOppoPrivateMsgTemplateId',
+        'androidOppoPrivateTitleParametersShrink' => 'AndroidOppoPrivateTitleParameters',
         'androidPopupActivity' => 'AndroidPopupActivity',
         'androidPopupBody' => 'AndroidPopupBody',
         'androidPopupTitle' => 'AndroidPopupTitle',
@@ -643,9 +646,6 @@ class PushShrinkRequest extends Model
         'targetValue' => 'TargetValue',
         'title' => 'Title',
         'trim' => 'Trim',
-        'androidOppoPrivateContentParametersShrink' => 'androidOppoPrivateContentParameters',
-        'androidOppoPrivateMsgTemplateId' => 'androidOppoPrivateMsgTemplateId',
-        'androidOppoPrivateTitleParametersShrink' => 'androidOppoPrivateTitleParameters',
         'iOSApnsEnv' => 'iOSApnsEnv',
         'iOSBadge' => 'iOSBadge',
         'iOSBadgeAutoIncrement' => 'iOSBadgeAutoIncrement',
@@ -808,6 +808,18 @@ class PushShrinkRequest extends Model
 
         if (null !== $this->androidOpenUrl) {
             $res['AndroidOpenUrl'] = $this->androidOpenUrl;
+        }
+
+        if (null !== $this->androidOppoPrivateContentParametersShrink) {
+            $res['AndroidOppoPrivateContentParameters'] = $this->androidOppoPrivateContentParametersShrink;
+        }
+
+        if (null !== $this->androidOppoPrivateMsgTemplateId) {
+            $res['AndroidOppoPrivateMsgTemplateId'] = $this->androidOppoPrivateMsgTemplateId;
+        }
+
+        if (null !== $this->androidOppoPrivateTitleParametersShrink) {
+            $res['AndroidOppoPrivateTitleParameters'] = $this->androidOppoPrivateTitleParametersShrink;
         }
 
         if (null !== $this->androidPopupActivity) {
@@ -1016,18 +1028,6 @@ class PushShrinkRequest extends Model
 
         if (null !== $this->trim) {
             $res['Trim'] = $this->trim;
-        }
-
-        if (null !== $this->androidOppoPrivateContentParametersShrink) {
-            $res['androidOppoPrivateContentParameters'] = $this->androidOppoPrivateContentParametersShrink;
-        }
-
-        if (null !== $this->androidOppoPrivateMsgTemplateId) {
-            $res['androidOppoPrivateMsgTemplateId'] = $this->androidOppoPrivateMsgTemplateId;
-        }
-
-        if (null !== $this->androidOppoPrivateTitleParametersShrink) {
-            $res['androidOppoPrivateTitleParameters'] = $this->androidOppoPrivateTitleParametersShrink;
         }
 
         if (null !== $this->iOSApnsEnv) {
@@ -1261,6 +1261,18 @@ class PushShrinkRequest extends Model
             $model->androidOpenUrl = $map['AndroidOpenUrl'];
         }
 
+        if (isset($map['AndroidOppoPrivateContentParameters'])) {
+            $model->androidOppoPrivateContentParametersShrink = $map['AndroidOppoPrivateContentParameters'];
+        }
+
+        if (isset($map['AndroidOppoPrivateMsgTemplateId'])) {
+            $model->androidOppoPrivateMsgTemplateId = $map['AndroidOppoPrivateMsgTemplateId'];
+        }
+
+        if (isset($map['AndroidOppoPrivateTitleParameters'])) {
+            $model->androidOppoPrivateTitleParametersShrink = $map['AndroidOppoPrivateTitleParameters'];
+        }
+
         if (isset($map['AndroidPopupActivity'])) {
             $model->androidPopupActivity = $map['AndroidPopupActivity'];
         }
@@ -1467,18 +1479,6 @@ class PushShrinkRequest extends Model
 
         if (isset($map['Trim'])) {
             $model->trim = $map['Trim'];
-        }
-
-        if (isset($map['androidOppoPrivateContentParameters'])) {
-            $model->androidOppoPrivateContentParametersShrink = $map['androidOppoPrivateContentParameters'];
-        }
-
-        if (isset($map['androidOppoPrivateMsgTemplateId'])) {
-            $model->androidOppoPrivateMsgTemplateId = $map['androidOppoPrivateMsgTemplateId'];
-        }
-
-        if (isset($map['androidOppoPrivateTitleParameters'])) {
-            $model->androidOppoPrivateTitleParametersShrink = $map['androidOppoPrivateTitleParameters'];
         }
 
         if (isset($map['iOSApnsEnv'])) {
