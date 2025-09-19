@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\CreateFunctionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateFunctionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateLayerVersionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateLayerVersionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\CreateSessionRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\CreateSessionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateVpcBindingRequest;
@@ -33,6 +35,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteScalingConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteScalingConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteSessionRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteSessionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteVpcBindingResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsRequest;
@@ -57,6 +61,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\GetProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetProvisionConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetScalingConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetScalingConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetSessionRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetSessionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionHeaders;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionRequest;
@@ -87,6 +93,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListProvisionConfigsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListProvisionConfigsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListScalingConfigsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListScalingConfigsResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListSessionsRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListSessionsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesShrinkRequest;
@@ -118,6 +126,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\UpdateCustomDomainRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateCustomDomainResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateFunctionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateFunctionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\UpdateSessionRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\UpdateSessionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateTriggerRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateTriggerResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -453,6 +463,70 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->createLayerVersionWithOptions($layerName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建会话资源.
+     *
+     * @param request - CreateSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSessionResponse
+     *
+     * @param string               $functionName
+     * @param CreateSessionRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSessionResponse
+     */
+    public function createSessionWithOptions($functionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSession',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/sessions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建会话资源.
+     *
+     * @param request - CreateSessionRequest
+     *
+     * @returns CreateSessionResponse
+     *
+     * @param string               $functionName
+     * @param CreateSessionRequest $request
+     *
+     * @return CreateSessionResponse
+     */
+    public function createSession($functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSessionWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
@@ -1070,6 +1144,71 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->deleteScalingConfigWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除会话资源.
+     *
+     * @param request - DeleteSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSessionResponse
+     *
+     * @param string               $functionName
+     * @param string               $sessionId
+     * @param DeleteSessionRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteSessionResponse
+     */
+    public function deleteSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSession',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/sessions/' . Url::percentEncode($sessionId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除会话资源.
+     *
+     * @param request - DeleteSessionRequest
+     *
+     * @returns DeleteSessionResponse
+     *
+     * @param string               $functionName
+     * @param string               $sessionId
+     * @param DeleteSessionRequest $request
+     *
+     * @return DeleteSessionResponse
+     */
+    public function deleteSession($functionName, $sessionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime);
     }
 
     /**
@@ -2000,6 +2139,71 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->getScalingConfigWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取函数会话信息。
+     *
+     * @param request - GetSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSessionResponse
+     *
+     * @param string            $functionName
+     * @param string            $sessionId
+     * @param GetSessionRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetSessionResponse
+     */
+    public function getSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSession',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/sessions/' . Url::percentEncode($sessionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取函数会话信息。
+     *
+     * @param request - GetSessionRequest
+     *
+     * @returns GetSessionResponse
+     *
+     * @param string            $functionName
+     * @param string            $sessionId
+     * @param GetSessionRequest $request
+     *
+     * @return GetSessionResponse
+     */
+    public function getSession($functionName, $sessionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime);
     }
 
     /**
@@ -3090,6 +3294,85 @@ class FC extends OpenApiClient
     }
 
     /**
+     * 列出函数会话信息.
+     *
+     * @param request - ListSessionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSessionsResponse
+     *
+     * @param string              $functionName
+     * @param ListSessionsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSessionsResponse
+     */
+    public function listSessionsWithOptions($functionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->sessionStatus) {
+            @$query['sessionStatus'] = $request->sessionStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSessions',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/sessions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出函数会话信息.
+     *
+     * @param request - ListSessionsRequest
+     *
+     * @returns ListSessionsResponse
+     *
+     * @param string              $functionName
+     * @param ListSessionsRequest $request
+     *
+     * @return ListSessionsResponse
+     */
+    public function listSessions($functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSessionsWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
      * Lists all tagged resources.
      *
      * @param tmpReq - ListTagResourcesRequest
@@ -4057,6 +4340,72 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->updateFunctionWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新会话配置.
+     *
+     * @param request - UpdateSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSessionResponse
+     *
+     * @param string               $functionName
+     * @param string               $sessionId
+     * @param UpdateSessionRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateSessionResponse
+     */
+    public function updateSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSession',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/sessions/' . Url::percentEncode($sessionId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新会话配置.
+     *
+     * @param request - UpdateSessionRequest
+     *
+     * @returns UpdateSessionResponse
+     *
+     * @param string               $functionName
+     * @param string               $sessionId
+     * @param UpdateSessionRequest $request
+     *
+     * @return UpdateSessionResponse
+     */
+    public function updateSession($functionName, $sessionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime);
     }
 
     /**
