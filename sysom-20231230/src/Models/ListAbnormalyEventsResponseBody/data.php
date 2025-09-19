@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBod
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data\opts;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data\rawMetrics;
 
 class data extends Model
 {
@@ -60,6 +61,11 @@ class data extends Model
     public $pod;
 
     /**
+     * @var rawMetrics
+     */
+    public $rawMetrics;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -84,6 +90,7 @@ class data extends Model
         'namespace' => 'namespace',
         'opts' => 'opts',
         'pod' => 'pod',
+        'rawMetrics' => 'raw_metrics',
         'regionId' => 'region_id',
         'type' => 'type',
         'uuid' => 'uuid',
@@ -93,6 +100,9 @@ class data extends Model
     {
         if (\is_array($this->opts)) {
             Model::validateArray($this->opts);
+        }
+        if (null !== $this->rawMetrics) {
+            $this->rawMetrics->validate();
         }
         parent::validate();
     }
@@ -145,6 +155,10 @@ class data extends Model
 
         if (null !== $this->pod) {
             $res['pod'] = $this->pod;
+        }
+
+        if (null !== $this->rawMetrics) {
+            $res['raw_metrics'] = null !== $this->rawMetrics ? $this->rawMetrics->toArray($noStream) : $this->rawMetrics;
         }
 
         if (null !== $this->regionId) {
@@ -215,6 +229,10 @@ class data extends Model
 
         if (isset($map['pod'])) {
             $model->pod = $map['pod'];
+        }
+
+        if (isset($map['raw_metrics'])) {
+            $model->rawMetrics = rawMetrics::fromMap($map['raw_metrics']);
         }
 
         if (isset($map['region_id'])) {

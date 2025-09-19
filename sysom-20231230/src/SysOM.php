@@ -9,6 +9,10 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotResponseResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotStreamResponseRequest;
@@ -21,6 +25,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentTaskRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentTaskResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAIQueryResultRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAIQueryResultResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAlertStrategyRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAlertStrategyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCopilotHistoryRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCopilotHistoryResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultRequest;
@@ -70,6 +76,11 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentInstallRecordsRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentInstallRecordsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentsRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentsResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertItemsResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertStrategiesRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertStrategiesResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAllInstancesRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAllInstancesResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListClusterAgentInstallRecordsRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListClusterAgentInstallRecordsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListClustersRequest;
@@ -100,6 +111,10 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertEnabledRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertEnabledResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertStrategyRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertStrategyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordRequest;
@@ -280,6 +295,136 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->checkInstanceSupportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 新增推送告警的策略.
+     *
+     * @param request - CreateAlertStrategyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlertStrategyResponse
+     *
+     * @param CreateAlertStrategyRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateAlertStrategyResponse
+     */
+    public function createAlertStrategyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAlertStrategy',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/createStrategy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAlertStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增推送告警的策略.
+     *
+     * @param request - CreateAlertStrategyRequest
+     *
+     * @returns CreateAlertStrategyResponse
+     *
+     * @param CreateAlertStrategyRequest $request
+     *
+     * @return CreateAlertStrategyResponse
+     */
+    public function createAlertStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAlertStrategyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 用户删除推送告警的策略.
+     *
+     * @param request - DeleteAlertStrategyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlertStrategyResponse
+     *
+     * @param DeleteAlertStrategyRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAlertStrategyResponse
+     */
+    public function deleteAlertStrategyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAlertStrategy',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/deleteStrategy',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAlertStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户删除推送告警的策略.
+     *
+     * @param request - DeleteAlertStrategyRequest
+     *
+     * @returns DeleteAlertStrategyResponse
+     *
+     * @param DeleteAlertStrategyRequest $request
+     *
+     * @return DeleteAlertStrategyResponse
+     */
+    public function deleteAlertStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertStrategyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -728,6 +873,67 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->getAgentTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 根据策略id，获取用户的一条告警.
+     *
+     * @param request - GetAlertStrategyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlertStrategyResponse
+     *
+     * @param GetAlertStrategyRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAlertStrategyResponse
+     */
+    public function getAlertStrategyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAlertStrategy',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/getStrategy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAlertStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据策略id，获取用户的一条告警.
+     *
+     * @param request - GetAlertStrategyRequest
+     *
+     * @returns GetAlertStrategyResponse
+     *
+     * @param GetAlertStrategyRequest $request
+     *
+     * @return GetAlertStrategyResponse
+     */
+    public function getAlertStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAlertStrategyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2509,6 +2715,224 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * 获取所有告警项.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertItemsResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAlertItemsResponse
+     */
+    public function listAlertItemsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertItems',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/listItems',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取所有告警项.
+     *
+     * @returns ListAlertItemsResponse
+     *
+     * @return ListAlertItemsResponse
+     */
+    public function listAlertItems()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertItemsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 用于获取用户所有推送告警的策略.
+     *
+     * @param request - ListAlertStrategiesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertStrategiesResponse
+     *
+     * @param ListAlertStrategiesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAlertStrategiesResponse
+     */
+    public function listAlertStrategiesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertStrategies',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/listStrategies',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于获取用户所有推送告警的策略.
+     *
+     * @param request - ListAlertStrategiesRequest
+     *
+     * @returns ListAlertStrategiesResponse
+     *
+     * @param ListAlertStrategiesRequest $request
+     *
+     * @return ListAlertStrategiesResponse
+     */
+    public function listAlertStrategies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertStrategiesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 此接口用于获取已纳管/未纳管实例列表并带有实例信息.
+     *
+     * @param request - ListAllInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAllInstancesResponse
+     *
+     * @param ListAllInstancesRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAllInstancesResponse
+     */
+    public function listAllInstancesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
+        }
+
+        if (null !== $request->filters) {
+            @$query['filters'] = $request->filters;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['instanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->managedType) {
+            @$query['managedType'] = $request->managedType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['pluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAllInstances',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/instance/listAllInstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAllInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 此接口用于获取已纳管/未纳管实例列表并带有实例信息.
+     *
+     * @param request - ListAllInstancesRequest
+     *
+     * @returns ListAllInstancesResponse
+     *
+     * @param ListAllInstancesRequest $request
+     *
+     * @return ListAllInstancesResponse
+     */
+    public function listAllInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAllInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取集群组件安装记录.
      *
      * @param request - ListClusterAgentInstallRecordsRequest
@@ -3710,6 +4134,144 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->uninstallAgentForClusterWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 用户更新推送告警策略的状态
+     *
+     * @param request - UpdateAlertEnabledRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertEnabledResponse
+     *
+     * @param UpdateAlertEnabledRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateAlertEnabledResponse
+     */
+    public function updateAlertEnabledWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlertEnabled',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/updateEnabled',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户更新推送告警策略的状态
+     *
+     * @param request - UpdateAlertEnabledRequest
+     *
+     * @returns UpdateAlertEnabledResponse
+     *
+     * @param UpdateAlertEnabledRequest $request
+     *
+     * @return UpdateAlertEnabledResponse
+     */
+    public function updateAlertEnabled($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertEnabledWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新推送告警策略.
+     *
+     * @param request - UpdateAlertStrategyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertStrategyResponse
+     *
+     * @param UpdateAlertStrategyRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateAlertStrategyResponse
+     */
+    public function updateAlertStrategyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlertStrategy',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/updateStrategy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新推送告警策略.
+     *
+     * @param request - UpdateAlertStrategyRequest
+     *
+     * @returns UpdateAlertStrategyResponse
+     *
+     * @param UpdateAlertStrategyRequest $request
+     *
+     * @return UpdateAlertStrategyResponse
+     */
+    public function updateAlertStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertStrategyWithOptions($request, $headers, $runtime);
     }
 
     /**
