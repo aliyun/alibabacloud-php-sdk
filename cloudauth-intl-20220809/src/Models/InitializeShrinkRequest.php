@@ -21,6 +21,11 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $autoRegistration;
+
+    /**
+     * @var string
+     */
     public $callbackToken;
 
     /**
@@ -96,12 +101,27 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $faceGroupCodes;
+
+    /**
+     * @var string
+     */
     public $facePictureBase64;
 
     /**
      * @var string
      */
     public $facePictureUrl;
+
+    /**
+     * @var string
+     */
+    public $faceRegisterGroupCode;
+
+    /**
+     * @var string
+     */
+    public $faceVerifyThreshold;
 
     /**
      * @var string
@@ -176,7 +196,17 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $returnFaces;
+
+    /**
+     * @var string
+     */
     public $returnUrl;
+
+    /**
+     * @var string
+     */
+    public $saveFacePicture;
 
     /**
      * @var string
@@ -211,10 +241,26 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $targetFacePicture;
+
+    /**
+     * @var string
+     */
+    public $targetFacePictureUrl;
+
+    /**
+     * @var string
+     */
     public $useNFC;
+
+    /**
+     * @var string
+     */
+    public $verifyModel;
     protected $_name = [
         'appQualityCheck' => 'AppQualityCheck',
         'authorize' => 'Authorize',
+        'autoRegistration' => 'AutoRegistration',
         'callbackToken' => 'CallbackToken',
         'callbackUrl' => 'CallbackUrl',
         'chameleonFrameEnable' => 'ChameleonFrameEnable',
@@ -230,8 +276,11 @@ class InitializeShrinkRequest extends Model
         'documentNumber' => 'DocumentNumber',
         'editOcrResult' => 'EditOcrResult',
         'experienceCode' => 'ExperienceCode',
+        'faceGroupCodes' => 'FaceGroupCodes',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl' => 'FacePictureUrl',
+        'faceRegisterGroupCode' => 'FaceRegisterGroupCode',
+        'faceVerifyThreshold' => 'FaceVerifyThreshold',
         'idFaceQuality' => 'IdFaceQuality',
         'idSpoof' => 'IdSpoof',
         'idThreshold' => 'IdThreshold',
@@ -246,14 +295,19 @@ class InitializeShrinkRequest extends Model
         'procedurePriority' => 'ProcedurePriority',
         'productCode' => 'ProductCode',
         'productFlow' => 'ProductFlow',
+        'returnFaces' => 'ReturnFaces',
         'returnUrl' => 'ReturnUrl',
+        'saveFacePicture' => 'SaveFacePicture',
         'sceneCode' => 'SceneCode',
         'securityLevel' => 'SecurityLevel',
         'showAlbumIcon' => 'ShowAlbumIcon',
         'showGuidePage' => 'ShowGuidePage',
         'showOcrResult' => 'ShowOcrResult',
         'styleConfig' => 'StyleConfig',
+        'targetFacePicture' => 'TargetFacePicture',
+        'targetFacePictureUrl' => 'TargetFacePictureUrl',
         'useNFC' => 'UseNFC',
+        'verifyModel' => 'VerifyModel',
     ];
 
     public function validate()
@@ -270,6 +324,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->authorize) {
             $res['Authorize'] = $this->authorize;
+        }
+
+        if (null !== $this->autoRegistration) {
+            $res['AutoRegistration'] = $this->autoRegistration;
         }
 
         if (null !== $this->callbackToken) {
@@ -332,12 +390,24 @@ class InitializeShrinkRequest extends Model
             $res['ExperienceCode'] = $this->experienceCode;
         }
 
+        if (null !== $this->faceGroupCodes) {
+            $res['FaceGroupCodes'] = $this->faceGroupCodes;
+        }
+
         if (null !== $this->facePictureBase64) {
             $res['FacePictureBase64'] = $this->facePictureBase64;
         }
 
         if (null !== $this->facePictureUrl) {
             $res['FacePictureUrl'] = $this->facePictureUrl;
+        }
+
+        if (null !== $this->faceRegisterGroupCode) {
+            $res['FaceRegisterGroupCode'] = $this->faceRegisterGroupCode;
+        }
+
+        if (null !== $this->faceVerifyThreshold) {
+            $res['FaceVerifyThreshold'] = $this->faceVerifyThreshold;
         }
 
         if (null !== $this->idFaceQuality) {
@@ -396,8 +466,16 @@ class InitializeShrinkRequest extends Model
             $res['ProductFlow'] = $this->productFlow;
         }
 
+        if (null !== $this->returnFaces) {
+            $res['ReturnFaces'] = $this->returnFaces;
+        }
+
         if (null !== $this->returnUrl) {
             $res['ReturnUrl'] = $this->returnUrl;
+        }
+
+        if (null !== $this->saveFacePicture) {
+            $res['SaveFacePicture'] = $this->saveFacePicture;
         }
 
         if (null !== $this->sceneCode) {
@@ -424,8 +502,20 @@ class InitializeShrinkRequest extends Model
             $res['StyleConfig'] = $this->styleConfig;
         }
 
+        if (null !== $this->targetFacePicture) {
+            $res['TargetFacePicture'] = $this->targetFacePicture;
+        }
+
+        if (null !== $this->targetFacePictureUrl) {
+            $res['TargetFacePictureUrl'] = $this->targetFacePictureUrl;
+        }
+
         if (null !== $this->useNFC) {
             $res['UseNFC'] = $this->useNFC;
+        }
+
+        if (null !== $this->verifyModel) {
+            $res['VerifyModel'] = $this->verifyModel;
         }
 
         return $res;
@@ -445,6 +535,10 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['Authorize'])) {
             $model->authorize = $map['Authorize'];
+        }
+
+        if (isset($map['AutoRegistration'])) {
+            $model->autoRegistration = $map['AutoRegistration'];
         }
 
         if (isset($map['CallbackToken'])) {
@@ -507,12 +601,24 @@ class InitializeShrinkRequest extends Model
             $model->experienceCode = $map['ExperienceCode'];
         }
 
+        if (isset($map['FaceGroupCodes'])) {
+            $model->faceGroupCodes = $map['FaceGroupCodes'];
+        }
+
         if (isset($map['FacePictureBase64'])) {
             $model->facePictureBase64 = $map['FacePictureBase64'];
         }
 
         if (isset($map['FacePictureUrl'])) {
             $model->facePictureUrl = $map['FacePictureUrl'];
+        }
+
+        if (isset($map['FaceRegisterGroupCode'])) {
+            $model->faceRegisterGroupCode = $map['FaceRegisterGroupCode'];
+        }
+
+        if (isset($map['FaceVerifyThreshold'])) {
+            $model->faceVerifyThreshold = $map['FaceVerifyThreshold'];
         }
 
         if (isset($map['IdFaceQuality'])) {
@@ -571,8 +677,16 @@ class InitializeShrinkRequest extends Model
             $model->productFlow = $map['ProductFlow'];
         }
 
+        if (isset($map['ReturnFaces'])) {
+            $model->returnFaces = $map['ReturnFaces'];
+        }
+
         if (isset($map['ReturnUrl'])) {
             $model->returnUrl = $map['ReturnUrl'];
+        }
+
+        if (isset($map['SaveFacePicture'])) {
+            $model->saveFacePicture = $map['SaveFacePicture'];
         }
 
         if (isset($map['SceneCode'])) {
@@ -599,8 +713,20 @@ class InitializeShrinkRequest extends Model
             $model->styleConfig = $map['StyleConfig'];
         }
 
+        if (isset($map['TargetFacePicture'])) {
+            $model->targetFacePicture = $map['TargetFacePicture'];
+        }
+
+        if (isset($map['TargetFacePictureUrl'])) {
+            $model->targetFacePictureUrl = $map['TargetFacePictureUrl'];
+        }
+
         if (isset($map['UseNFC'])) {
             $model->useNFC = $map['UseNFC'];
+        }
+
+        if (isset($map['VerifyModel'])) {
+            $model->verifyModel = $map['VerifyModel'];
         }
 
         return $model;

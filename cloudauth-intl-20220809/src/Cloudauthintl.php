@@ -147,7 +147,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 地址相似比对.
+     * Address Similarity Comparison.
+     *
+     * @remarks
+     * API for comparing two addresses, standardizing and checking address consistency.
      *
      * @param Request - AddressCompareIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -198,7 +201,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 地址相似比对.
+     * Address Similarity Comparison.
+     *
+     * @remarks
+     * API for comparing two addresses, standardizing and checking address consistency.
      *
      * @param Request - AddressCompareIntlRequest
      *
@@ -319,7 +325,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 地址核验.
+     * This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
      *
      * @param Request - AddressVerifyV2IntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -378,7 +384,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 地址核验.
+     * This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
      *
      * @param Request - AddressVerifyV2IntlRequest
      *
@@ -973,7 +979,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸凭证核验.
+     * Face Credential Verification.
+     *
+     * @remarks
+     * Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
      *
      * @param Request - DeepfakeDetectIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1034,7 +1043,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸凭证核验.
+     * Face Credential Verification.
+     *
+     * @remarks
+     * Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
      *
      * @param Request - DeepfakeDetectIntlRequest
      *
@@ -1216,7 +1228,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 全球证件ocr识别接口.
+     * Global Document OCR Recognition Interface.
      *
      * @param Request - DocOcrMaxRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1303,7 +1315,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 全球证件ocr识别接口.
+     * Global Document OCR Recognition Interface.
      *
      * @param Request - DocOcrMaxRequest
      *
@@ -1321,7 +1333,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * ekyc纯服务端接口.
+     * This topic describes how to integrate with ID Verification using only the server-side API.
      *
      * @param Request - EkycVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1410,7 +1422,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * ekyc纯服务端接口.
+     * This topic describes how to integrate with ID Verification using only the server-side API.
      *
      * @param Request - EkycVerifyRequest
      *
@@ -1428,7 +1440,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸比对.
+     * This topic describes how to integrate FaceCompare using only the server-side API.
      *
      * @param Request - FaceCompareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1489,7 +1501,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸比对.
+     * This topic describes how to integrate FaceCompare using only the server-side API.
      *
      * @param Request - FaceCompareRequest
      *
@@ -1507,7 +1519,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 国际人脸保镖纯服务端接口.
+     * This topic describes how to set up the server for FACE_GUARD.
      *
      * @param Request - FaceGuardRiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1558,7 +1570,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 国际人脸保镖纯服务端接口.
+     * This topic describes how to set up the server for FACE_GUARD.
      *
      * @param Request - FaceGuardRiskRequest
      *
@@ -1576,7 +1588,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 静默活体API 纯服务端.
+     * Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen.
      *
      * @param Request - FaceLivenessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1645,7 +1657,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 静默活体API 纯服务端.
+     * Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen.
      *
      * @param Request - FaceLivenessRequest
      *
@@ -1732,7 +1744,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 身份二要素有效期核验.
+     * This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
      *
      * @param Request - Id2MetaPeriodVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1803,7 +1815,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 身份二要素有效期核验.
+     * This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
      *
      * @param Request - Id2MetaPeriodVerifyIntlRequest
      *
@@ -1821,7 +1833,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 身份二要素国际版接口.
+     * Verifies that a name and an ID card number are consistent.
      *
      * @param Request - Id2MetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1872,7 +1884,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 身份二要素国际版接口.
+     * Verifies that a name and an ID card number are consistent.
      *
      * @param Request - Id2MetaVerifyIntlRequest
      *
@@ -1918,6 +1930,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->authorize) {
             @$query['Authorize'] = $request->authorize;
+        }
+
+        if (null !== $request->autoRegistration) {
+            @$query['AutoRegistration'] = $request->autoRegistration;
         }
 
         if (null !== $request->callbackToken) {
@@ -1980,8 +1996,20 @@ class Cloudauthintl extends OpenApiClient
             @$query['ExperienceCode'] = $request->experienceCode;
         }
 
+        if (null !== $request->faceGroupCodes) {
+            @$query['FaceGroupCodes'] = $request->faceGroupCodes;
+        }
+
         if (null !== $request->facePictureUrl) {
             @$query['FacePictureUrl'] = $request->facePictureUrl;
+        }
+
+        if (null !== $request->faceRegisterGroupCode) {
+            @$query['FaceRegisterGroupCode'] = $request->faceRegisterGroupCode;
+        }
+
+        if (null !== $request->faceVerifyThreshold) {
+            @$query['FaceVerifyThreshold'] = $request->faceVerifyThreshold;
         }
 
         if (null !== $request->idFaceQuality) {
@@ -2040,8 +2068,16 @@ class Cloudauthintl extends OpenApiClient
             @$query['ProductFlow'] = $request->productFlow;
         }
 
+        if (null !== $request->returnFaces) {
+            @$query['ReturnFaces'] = $request->returnFaces;
+        }
+
         if (null !== $request->returnUrl) {
             @$query['ReturnUrl'] = $request->returnUrl;
+        }
+
+        if (null !== $request->saveFacePicture) {
+            @$query['SaveFacePicture'] = $request->saveFacePicture;
         }
 
         if (null !== $request->sceneCode) {
@@ -2068,8 +2104,20 @@ class Cloudauthintl extends OpenApiClient
             @$query['StyleConfig'] = $request->styleConfig;
         }
 
+        if (null !== $request->targetFacePicture) {
+            @$query['TargetFacePicture'] = $request->targetFacePicture;
+        }
+
+        if (null !== $request->targetFacePictureUrl) {
+            @$query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
+        }
+
         if (null !== $request->useNFC) {
             @$query['UseNFC'] = $request->useNFC;
+        }
+
+        if (null !== $request->verifyModel) {
+            @$query['VerifyModel'] = $request->verifyModel;
         }
 
         $body = [];
@@ -2115,7 +2163,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 客户端连接保持
+     * If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
      *
      * @param Request - KeepaliveIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2145,7 +2193,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 客户端连接保持
+     * If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
      *
      * @returns KeepaliveIntlResponse
      *
@@ -2159,7 +2207,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 手机号二要素核验API.
+     * Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
      *
      * @param Request - Mobile2MetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2210,7 +2258,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 手机号二要素核验API.
+     * Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
      *
      * @param Request - Mobile2MetaVerifyIntlRequest
      *
