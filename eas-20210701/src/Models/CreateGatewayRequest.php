@@ -36,6 +36,11 @@ class CreateGatewayRequest extends Model
     /**
      * @var string
      */
+    public $gatewayType;
+
+    /**
+     * @var string
+     */
     public $instanceType;
 
     /**
@@ -53,6 +58,7 @@ class CreateGatewayRequest extends Model
         'chargeType' => 'ChargeType',
         'enableInternet' => 'EnableInternet',
         'enableIntranet' => 'EnableIntranet',
+        'gatewayType' => 'GatewayType',
         'instanceType' => 'InstanceType',
         'name' => 'Name',
         'replicas' => 'Replicas',
@@ -84,6 +90,10 @@ class CreateGatewayRequest extends Model
 
         if (null !== $this->enableIntranet) {
             $res['EnableIntranet'] = $this->enableIntranet;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['GatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->instanceType) {
@@ -127,6 +137,10 @@ class CreateGatewayRequest extends Model
 
         if (isset($map['EnableIntranet'])) {
             $model->enableIntranet = $map['EnableIntranet'];
+        }
+
+        if (isset($map['GatewayType'])) {
+            $model->gatewayType = $map['GatewayType'];
         }
 
         if (isset($map['InstanceType'])) {

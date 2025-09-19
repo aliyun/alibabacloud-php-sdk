@@ -696,6 +696,10 @@ class Eas extends OpenApiClient
             @$body['EnableIntranet'] = $request->enableIntranet;
         }
 
+        if (null !== $request->gatewayType) {
+            @$body['GatewayType'] = $request->gatewayType;
+        }
+
         if (null !== $request->instanceType) {
             @$body['InstanceType'] = $request->instanceType;
         }
@@ -4165,12 +4169,28 @@ class Eas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
+        }
+
         if (null !== $request->gatewayId) {
             @$query['GatewayId'] = $request->gatewayId;
         }
 
         if (null !== $request->gatewayName) {
             @$query['GatewayName'] = $request->gatewayName;
+        }
+
+        if (null !== $request->gatewayType) {
+            @$query['GatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->internetEnabled) {
+            @$query['InternetEnabled'] = $request->internetEnabled;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
 
         if (null !== $request->pageNumber) {
@@ -4183,6 +4203,14 @@ class Eas extends OpenApiClient
 
         if (null !== $request->resourceName) {
             @$query['ResourceName'] = $request->resourceName;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
 
         $req = new OpenApiRequest([
@@ -6007,6 +6035,14 @@ class Eas extends OpenApiClient
 
         if (null !== $request->replicas) {
             @$body['Replicas'] = $request->replicas;
+        }
+
+        if (null !== $request->vSwitchIds) {
+            @$body['VSwitchIds'] = $request->vSwitchIds;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
 
         $req = new OpenApiRequest([

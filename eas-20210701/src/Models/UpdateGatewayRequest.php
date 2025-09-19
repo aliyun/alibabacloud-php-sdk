@@ -42,6 +42,16 @@ class UpdateGatewayRequest extends Model
      * @var int
      */
     public $replicas;
+
+    /**
+     * @var string[]
+     */
+    public $vSwitchIds;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'enableInternet' => 'EnableInternet',
         'enableIntranet' => 'EnableIntranet',
@@ -50,10 +60,15 @@ class UpdateGatewayRequest extends Model
         'isDefault' => 'IsDefault',
         'name' => 'Name',
         'replicas' => 'Replicas',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->vSwitchIds)) {
+            Model::validateArray($this->vSwitchIds);
+        }
         parent::validate();
     }
 
@@ -86,6 +101,21 @@ class UpdateGatewayRequest extends Model
 
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
+        }
+
+        if (null !== $this->vSwitchIds) {
+            if (\is_array($this->vSwitchIds)) {
+                $res['VSwitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitchIds as $item1) {
+                    $res['VSwitchIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -125,6 +155,21 @@ class UpdateGatewayRequest extends Model
 
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
+        }
+
+        if (isset($map['VSwitchIds'])) {
+            if (!empty($map['VSwitchIds'])) {
+                $model->vSwitchIds = [];
+                $n1 = 0;
+                foreach ($map['VSwitchIds'] as $item1) {
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

@@ -61,6 +61,11 @@ class DescribeGatewayResponseBody extends Model
     /**
      * @var bool
      */
+    public $intranetEnabled;
+
+    /**
+     * @var bool
+     */
     public $isDefault;
 
     /**
@@ -98,6 +103,7 @@ class DescribeGatewayResponseBody extends Model
         'internetEnabled' => 'InternetEnabled',
         'internetStatus' => 'InternetStatus',
         'intranetDomain' => 'IntranetDomain',
+        'intranetEnabled' => 'IntranetEnabled',
         'isDefault' => 'IsDefault',
         'replicas' => 'Replicas',
         'requestId' => 'RequestId',
@@ -152,6 +158,10 @@ class DescribeGatewayResponseBody extends Model
 
         if (null !== $this->intranetDomain) {
             $res['IntranetDomain'] = $this->intranetDomain;
+        }
+
+        if (null !== $this->intranetEnabled) {
+            $res['IntranetEnabled'] = $this->intranetEnabled;
         }
 
         if (null !== $this->isDefault) {
@@ -227,6 +237,10 @@ class DescribeGatewayResponseBody extends Model
 
         if (isset($map['IntranetDomain'])) {
             $model->intranetDomain = $map['IntranetDomain'];
+        }
+
+        if (isset($map['IntranetEnabled'])) {
+            $model->intranetEnabled = $map['IntranetEnabled'];
         }
 
         if (isset($map['IsDefault'])) {

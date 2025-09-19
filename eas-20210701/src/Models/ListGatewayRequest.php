@@ -11,12 +11,32 @@ class ListGatewayRequest extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $gatewayId;
 
     /**
      * @var string
      */
     public $gatewayName;
+
+    /**
+     * @var string
+     */
+    public $gatewayType;
+
+    /**
+     * @var bool
+     */
+    public $internetEnabled;
+
+    /**
+     * @var string
+     */
+    public $order;
 
     /**
      * @var int
@@ -32,12 +52,28 @@ class ListGatewayRequest extends Model
      * @var string
      */
     public $resourceName;
+
+    /**
+     * @var string
+     */
+    public $sort;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'gatewayId' => 'GatewayId',
         'gatewayName' => 'GatewayName',
+        'gatewayType' => 'GatewayType',
+        'internetEnabled' => 'InternetEnabled',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'resourceName' => 'ResourceName',
+        'sort' => 'Sort',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -48,12 +84,28 @@ class ListGatewayRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
 
         if (null !== $this->gatewayName) {
             $res['GatewayName'] = $this->gatewayName;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['GatewayType'] = $this->gatewayType;
+        }
+
+        if (null !== $this->internetEnabled) {
+            $res['InternetEnabled'] = $this->internetEnabled;
+        }
+
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
         }
 
         if (null !== $this->pageNumber) {
@@ -68,6 +120,14 @@ class ListGatewayRequest extends Model
             $res['ResourceName'] = $this->resourceName;
         }
 
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         return $res;
     }
 
@@ -79,12 +139,28 @@ class ListGatewayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
 
         if (isset($map['GatewayName'])) {
             $model->gatewayName = $map['GatewayName'];
+        }
+
+        if (isset($map['GatewayType'])) {
+            $model->gatewayType = $map['GatewayType'];
+        }
+
+        if (isset($map['InternetEnabled'])) {
+            $model->internetEnabled = $map['InternetEnabled'];
+        }
+
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -97,6 +173,14 @@ class ListGatewayRequest extends Model
 
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

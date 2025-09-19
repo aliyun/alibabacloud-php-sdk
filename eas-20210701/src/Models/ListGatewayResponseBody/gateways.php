@@ -51,6 +51,11 @@ class gateways extends Model
     /**
      * @var bool
      */
+    public $intranetEnabled;
+
+    /**
+     * @var bool
+     */
     public $isDefault;
 
     /**
@@ -81,6 +86,7 @@ class gateways extends Model
         'internetDomain' => 'InternetDomain',
         'internetEnabled' => 'InternetEnabled',
         'intranetDomain' => 'IntranetDomain',
+        'intranetEnabled' => 'IntranetEnabled',
         'isDefault' => 'IsDefault',
         'replicas' => 'Replicas',
         'SSLRedirectionEnabled' => 'SSLRedirectionEnabled',
@@ -126,6 +132,10 @@ class gateways extends Model
 
         if (null !== $this->intranetDomain) {
             $res['IntranetDomain'] = $this->intranetDomain;
+        }
+
+        if (null !== $this->intranetEnabled) {
+            $res['IntranetEnabled'] = $this->intranetEnabled;
         }
 
         if (null !== $this->isDefault) {
@@ -189,6 +199,10 @@ class gateways extends Model
 
         if (isset($map['IntranetDomain'])) {
             $model->intranetDomain = $map['IntranetDomain'];
+        }
+
+        if (isset($map['IntranetEnabled'])) {
+            $model->intranetEnabled = $map['IntranetEnabled'];
         }
 
         if (isset($map['IsDefault'])) {
