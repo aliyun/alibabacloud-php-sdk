@@ -19,6 +19,11 @@ class resultObject extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $eventName;
+
+    /**
      * @var int
      */
     public $gmtModified;
@@ -34,6 +39,11 @@ class resultObject extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $ruleList;
+
+    /**
      * @var string
      */
     public $status;
@@ -45,15 +55,20 @@ class resultObject extends Model
     protected $_name = [
         'dataVersion' => 'dataVersion',
         'description' => 'description',
+        'eventName' => 'eventName',
         'gmtModified' => 'gmtModified',
         'id' => 'id',
         'name' => 'name',
+        'ruleList' => 'ruleList',
         'status' => 'status',
         'title' => 'title',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ruleList)) {
+            Model::validateArray($this->ruleList);
+        }
         parent::validate();
     }
 
@@ -68,6 +83,10 @@ class resultObject extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->eventName) {
+            $res['eventName'] = $this->eventName;
+        }
+
         if (null !== $this->gmtModified) {
             $res['gmtModified'] = $this->gmtModified;
         }
@@ -78,6 +97,17 @@ class resultObject extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->ruleList) {
+            if (\is_array($this->ruleList)) {
+                $res['ruleList'] = [];
+                $n1 = 0;
+                foreach ($this->ruleList as $item1) {
+                    $res['ruleList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->status) {
@@ -107,6 +137,10 @@ class resultObject extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['eventName'])) {
+            $model->eventName = $map['eventName'];
+        }
+
         if (isset($map['gmtModified'])) {
             $model->gmtModified = $map['gmtModified'];
         }
@@ -117,6 +151,17 @@ class resultObject extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['ruleList'])) {
+            if (!empty($map['ruleList'])) {
+                $model->ruleList = [];
+                $n1 = 0;
+                foreach ($map['ruleList'] as $item1) {
+                    $model->ruleList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['status'])) {

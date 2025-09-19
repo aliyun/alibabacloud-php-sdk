@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeCustVariablePageRequest extends Model
+class DescribeVersionPageListRequest extends Model
 {
     /**
      * @var string
@@ -14,9 +14,14 @@ class DescribeCustVariablePageRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
-    public $createType;
+    public $nextToken;
 
     /**
      * @var int
@@ -26,17 +31,22 @@ class DescribeCustVariablePageRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $objectCode;
 
     /**
-     * @var string
+     * @var int
      */
-    public $eventCode;
+    public $objectId;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var bool
+     */
+    public $paging;
 
     /**
      * @var string
@@ -46,16 +56,18 @@ class DescribeCustVariablePageRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $type;
     protected $_name = [
         'lang' => 'Lang',
-        'createType' => 'createType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'currentPage' => 'currentPage',
-        'description' => 'description',
-        'eventCode' => 'eventCode',
+        'objectCode' => 'objectCode',
+        'objectId' => 'objectId',
         'pageSize' => 'pageSize',
+        'paging' => 'paging',
         'regId' => 'regId',
-        'status' => 'status',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -70,32 +82,40 @@ class DescribeCustVariablePageRequest extends Model
             $res['Lang'] = $this->lang;
         }
 
-        if (null !== $this->createType) {
-            $res['createType'] = $this->createType;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
 
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
+        if (null !== $this->objectCode) {
+            $res['objectCode'] = $this->objectCode;
         }
 
-        if (null !== $this->eventCode) {
-            $res['eventCode'] = $this->eventCode;
+        if (null !== $this->objectId) {
+            $res['objectId'] = $this->objectId;
         }
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->paging) {
+            $res['paging'] = $this->paging;
+        }
+
         if (null !== $this->regId) {
             $res['regId'] = $this->regId;
         }
 
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -113,32 +133,40 @@ class DescribeCustVariablePageRequest extends Model
             $model->lang = $map['Lang'];
         }
 
-        if (isset($map['createType'])) {
-            $model->createType = $map['createType'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
 
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
+        if (isset($map['objectCode'])) {
+            $model->objectCode = $map['objectCode'];
         }
 
-        if (isset($map['eventCode'])) {
-            $model->eventCode = $map['eventCode'];
+        if (isset($map['objectId'])) {
+            $model->objectId = $map['objectId'];
         }
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
 
+        if (isset($map['paging'])) {
+            $model->paging = $map['paging'];
+        }
+
         if (isset($map['regId'])) {
             $model->regId = $map['regId'];
         }
 
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

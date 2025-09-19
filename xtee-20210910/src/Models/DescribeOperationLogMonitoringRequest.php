@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Xtee\V20210910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeOperationLogPageListRequest extends Model
+class DescribeOperationLogMonitoringRequest extends Model
 {
     /**
      * @var string
@@ -14,24 +14,9 @@ class DescribeOperationLogPageListRequest extends Model
     public $lang;
 
     /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
-    public $endDate;
-
-    /**
      * @var string
      */
-    public $operationSummary;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $endDate;
 
     /**
      * @var string
@@ -39,7 +24,7 @@ class DescribeOperationLogPageListRequest extends Model
     public $regId;
 
     /**
-     * @var int
+     * @var string
      */
     public $startDate;
 
@@ -49,10 +34,7 @@ class DescribeOperationLogPageListRequest extends Model
     public $userNameSearch;
     protected $_name = [
         'lang' => 'Lang',
-        'currentPage' => 'currentPage',
         'endDate' => 'endDate',
-        'operationSummary' => 'operationSummary',
-        'pageSize' => 'pageSize',
         'regId' => 'regId',
         'startDate' => 'startDate',
         'userNameSearch' => 'userNameSearch',
@@ -70,20 +52,8 @@ class DescribeOperationLogPageListRequest extends Model
             $res['Lang'] = $this->lang;
         }
 
-        if (null !== $this->currentPage) {
-            $res['currentPage'] = $this->currentPage;
-        }
-
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
-        }
-
-        if (null !== $this->operationSummary) {
-            $res['operationSummary'] = $this->operationSummary;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
         }
 
         if (null !== $this->regId) {
@@ -113,20 +83,8 @@ class DescribeOperationLogPageListRequest extends Model
             $model->lang = $map['Lang'];
         }
 
-        if (isset($map['currentPage'])) {
-            $model->currentPage = $map['currentPage'];
-        }
-
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
-        }
-
-        if (isset($map['operationSummary'])) {
-            $model->operationSummary = $map['operationSummary'];
-        }
-
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
         }
 
         if (isset($map['regId'])) {

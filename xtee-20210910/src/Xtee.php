@@ -273,6 +273,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeNameListTypeListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeNameListTypeListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeNameListVariablePageListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeNameListVariablePageListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperationLogMonitoringRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperationLogMonitoringResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperationLogPageListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperationLogPageListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeOperatorListBySceneRequest;
@@ -447,6 +449,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableMarketListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableMarketListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableSceneListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableSceneListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVersionPageListRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVersionPageListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSmapleBatchRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSmapleBatchResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ExpressionTestRequest;
@@ -6225,6 +6229,10 @@ class Xtee extends OpenApiClient
             @$query['regId'] = $request->regId;
         }
 
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -7032,7 +7040,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 查询事件历史列表.
+     * Query Event History List.
      *
      * @param request - DescribeEventLogPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7187,7 +7195,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 查询事件历史列表.
+     * Query Event History List.
      *
      * @param request - DescribeEventLogPageRequest
      *
@@ -7623,7 +7631,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 查询事件变量.
+     * Query event variables.
+     *
+     * @remarks
+     * Cumulative Variable List Query
      *
      * @param request - DescribeEventVariableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7686,7 +7697,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 查询事件变量.
+     * Query event variables.
+     *
+     * @remarks
+     * Cumulative Variable List Query
      *
      * @param request - DescribeEventVariableListRequest
      *
@@ -7927,6 +7941,8 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * Self-service call list.
+     *
      * @param request - DescribeExcuteNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7984,6 +8000,8 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * Self-service call list.
+     *
      * @param request - DescribeExcuteNumRequest
      *
      * @returns DescribeExcuteNumResponse
@@ -10517,6 +10535,79 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * Query Operation Log Monitoring Statistics.
+     *
+     * @param request - DescribeOperationLogMonitoringRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOperationLogMonitoringResponse
+     *
+     * @param DescribeOperationLogMonitoringRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeOperationLogMonitoringResponse
+     */
+    public function describeOperationLogMonitoringWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->userNameSearch) {
+            @$query['userNameSearch'] = $request->userNameSearch;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOperationLogMonitoring',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOperationLogMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Operation Log Monitoring Statistics.
+     *
+     * @param request - DescribeOperationLogMonitoringRequest
+     *
+     * @returns DescribeOperationLogMonitoringResponse
+     *
+     * @param DescribeOperationLogMonitoringRequest $request
+     *
+     * @return DescribeOperationLogMonitoringResponse
+     */
+    public function describeOperationLogMonitoring($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOperationLogMonitoringWithOptions($request, $runtime);
+    }
+
+    /**
      * Query event list by event name.
      *
      * @param request - DescribeOperationLogPageListRequest
@@ -10545,6 +10636,10 @@ class Xtee extends OpenApiClient
             @$query['endDate'] = $request->endDate;
         }
 
+        if (null !== $request->operationSummary) {
+            @$query['operationSummary'] = $request->operationSummary;
+        }
+
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
         }
@@ -10555,6 +10650,10 @@ class Xtee extends OpenApiClient
 
         if (null !== $request->startDate) {
             @$query['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->userNameSearch) {
+            @$query['userNameSearch'] = $request->userNameSearch;
         }
 
         $req = new OpenApiRequest([
@@ -12786,6 +12885,8 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * Query SAF permissions.
+     *
      * @param request - DescribeSafConsoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12831,6 +12932,8 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * Query SAF permissions.
+     *
      * @param request - DescribeSafConsoleRequest
      *
      * @returns DescribeSafConsoleResponse
@@ -16673,6 +16776,99 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVariableSceneListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Variable Version List Query.
+     *
+     * @param request - DescribeVersionPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVersionPageListResponse
+     *
+     * @param DescribeVersionPageListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeVersionPageListResponse
+     */
+    public function describeVersionPageListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->objectCode) {
+            @$query['objectCode'] = $request->objectCode;
+        }
+
+        if (null !== $request->objectId) {
+            @$query['objectId'] = $request->objectId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->paging) {
+            @$query['paging'] = $request->paging;
+        }
+
+        if (null !== $request->regId) {
+            @$query['regId'] = $request->regId;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVersionPageList',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVersionPageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Variable Version List Query.
+     *
+     * @param request - DescribeVersionPageListRequest
+     *
+     * @returns DescribeVersionPageListResponse
+     *
+     * @param DescribeVersionPageListRequest $request
+     *
+     * @return DescribeVersionPageListResponse
+     */
+    public function describeVersionPageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVersionPageListWithOptions($request, $runtime);
     }
 
     /**

@@ -51,6 +51,11 @@ class resultObject extends Model
     /**
      * @var string
      */
+    public $ruleBody;
+
+    /**
+     * @var string
+     */
     public $ruleExpressions;
 
     /**
@@ -67,6 +72,11 @@ class resultObject extends Model
      * @var string
      */
     public $ruleStatus;
+
+    /**
+     * @var string
+     */
+    public $ruleType;
     protected $_name = [
         'bizVersion' => 'bizVersion',
         'eventCode' => 'eventCode',
@@ -76,10 +86,12 @@ class resultObject extends Model
         'logicExpression' => 'logicExpression',
         'memo' => 'memo',
         'ruleActions' => 'ruleActions',
+        'ruleBody' => 'ruleBody',
         'ruleExpressions' => 'ruleExpressions',
         'ruleId' => 'ruleId',
         'ruleName' => 'ruleName',
         'ruleStatus' => 'ruleStatus',
+        'ruleType' => 'ruleType',
     ];
 
     public function validate()
@@ -122,6 +134,10 @@ class resultObject extends Model
             $res['ruleActions'] = $this->ruleActions;
         }
 
+        if (null !== $this->ruleBody) {
+            $res['ruleBody'] = $this->ruleBody;
+        }
+
         if (null !== $this->ruleExpressions) {
             $res['ruleExpressions'] = $this->ruleExpressions;
         }
@@ -136,6 +152,10 @@ class resultObject extends Model
 
         if (null !== $this->ruleStatus) {
             $res['ruleStatus'] = $this->ruleStatus;
+        }
+
+        if (null !== $this->ruleType) {
+            $res['ruleType'] = $this->ruleType;
         }
 
         return $res;
@@ -181,6 +201,10 @@ class resultObject extends Model
             $model->ruleActions = $map['ruleActions'];
         }
 
+        if (isset($map['ruleBody'])) {
+            $model->ruleBody = $map['ruleBody'];
+        }
+
         if (isset($map['ruleExpressions'])) {
             $model->ruleExpressions = $map['ruleExpressions'];
         }
@@ -195,6 +219,10 @@ class resultObject extends Model
 
         if (isset($map['ruleStatus'])) {
             $model->ruleStatus = $map['ruleStatus'];
+        }
+
+        if (isset($map['ruleType'])) {
+            $model->ruleType = $map['ruleType'];
         }
 
         return $model;

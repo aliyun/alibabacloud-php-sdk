@@ -31,7 +31,17 @@ class resultObject extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $outputs;
+
+    /**
+     * @var string[]
+     */
+    public $ruleList;
 
     /**
      * @var string
@@ -52,7 +62,9 @@ class resultObject extends Model
         'eventName' => 'eventName',
         'gmtModified' => 'gmtModified',
         'id' => 'id',
+        'name' => 'name',
         'outputs' => 'outputs',
+        'ruleList' => 'ruleList',
         'status' => 'status',
         'title' => 'title',
         'version' => 'version',
@@ -60,6 +72,9 @@ class resultObject extends Model
 
     public function validate()
     {
+        if (\is_array($this->ruleList)) {
+            Model::validateArray($this->ruleList);
+        }
         parent::validate();
     }
 
@@ -82,8 +97,23 @@ class resultObject extends Model
             $res['id'] = $this->id;
         }
 
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+
         if (null !== $this->outputs) {
             $res['outputs'] = $this->outputs;
+        }
+
+        if (null !== $this->ruleList) {
+            if (\is_array($this->ruleList)) {
+                $res['ruleList'] = [];
+                $n1 = 0;
+                foreach ($this->ruleList as $item1) {
+                    $res['ruleList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->status) {
@@ -125,8 +155,23 @@ class resultObject extends Model
             $model->id = $map['id'];
         }
 
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+
         if (isset($map['outputs'])) {
             $model->outputs = $map['outputs'];
+        }
+
+        if (isset($map['ruleList'])) {
+            if (!empty($map['ruleList'])) {
+                $model->ruleList = [];
+                $n1 = 0;
+                foreach ($map['ruleList'] as $item1) {
+                    $model->ruleList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['status'])) {
