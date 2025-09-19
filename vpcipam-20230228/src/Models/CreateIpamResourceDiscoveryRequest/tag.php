@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamResourceDiscoveryRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag keys. You can specify at most 20 tag keys. It cannot be an empty string.
-     *
-     * The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
-     *
-     * @example FinanceDept
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value of the resource. You can specify up to 20 tag values. You can specify empty strings as tag values.
-     *
-     * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
-     *
-     * @example FinanceJoshua
-     *
      * @var string
      */
     public $value;
@@ -34,14 +22,18 @@ class tag extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +41,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

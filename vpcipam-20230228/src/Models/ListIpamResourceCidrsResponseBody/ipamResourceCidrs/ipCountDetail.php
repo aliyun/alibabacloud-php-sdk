@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsResponseBody\ipamResourceCidrs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipCountDetail extends Model
 {
@@ -28,17 +28,22 @@ class ipCountDetail extends Model
         'usedIpCount' => 'UsedIpCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->freeIpCount) {
             $res['FreeIpCount'] = $this->freeIpCount;
         }
+
         if (null !== $this->totalIpCount) {
             $res['TotalIpCount'] = $this->totalIpCount;
         }
+
         if (null !== $this->usedIpCount) {
             $res['UsedIpCount'] = $this->usedIpCount;
         }
@@ -46,20 +51,22 @@ class ipCountDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipCountDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FreeIpCount'])) {
             $model->freeIpCount = $map['FreeIpCount'];
         }
+
         if (isset($map['TotalIpCount'])) {
             $model->totalIpCount = $map['TotalIpCount'];
         }
+
         if (isset($map['UsedIpCount'])) {
             $model->usedIpCount = $map['UsedIpCount'];
         }

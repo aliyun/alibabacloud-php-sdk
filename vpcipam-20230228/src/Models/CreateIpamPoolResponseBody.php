@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateIpamPoolResponseBody extends Model
 {
     /**
-     * @description The ID of the IPAM pool.
-     *
-     * @example ipam-pool-6rcq3tobayc20t****
-     *
      * @var string
      */
     public $ipamPoolId;
 
     /**
-     * @description The request ID.
-     *
-     * @example BB2C39DE-CEB8-595A-981A-F2EFCBE7324E
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateIpamPoolResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipamPoolId) {
             $res['IpamPoolId'] = $this->ipamPoolId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateIpamPoolResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIpamPoolResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpamPoolId'])) {
             $model->ipamPoolId = $map['IpamPoolId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
