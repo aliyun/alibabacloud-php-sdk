@@ -56,6 +56,11 @@ class pushTask extends Model
     /**
      * @var string
      */
+    public $androidHuaweiLiveNotificationPayload;
+
+    /**
+     * @var string
+     */
     public $androidHuaweiReceiptId;
 
     /**
@@ -321,6 +326,11 @@ class pushTask extends Model
     /**
      * @var string
      */
+    public $harmonyLiveViewPayload;
+
+    /**
+     * @var string
+     */
     public $harmonyNotificationSlotType;
 
     /**
@@ -532,6 +542,7 @@ class pushTask extends Model
         'androidBigTitle' => 'AndroidBigTitle',
         'androidExtParameters' => 'AndroidExtParameters',
         'androidHonorTargetUserType' => 'AndroidHonorTargetUserType',
+        'androidHuaweiLiveNotificationPayload' => 'AndroidHuaweiLiveNotificationPayload',
         'androidHuaweiReceiptId' => 'AndroidHuaweiReceiptId',
         'androidHuaweiTargetUserType' => 'AndroidHuaweiTargetUserType',
         'androidImageUrl' => 'AndroidImageUrl',
@@ -585,6 +596,7 @@ class pushTask extends Model
         'harmonyExtensionPush' => 'HarmonyExtensionPush',
         'harmonyImageUrl' => 'HarmonyImageUrl',
         'harmonyInboxContent' => 'HarmonyInboxContent',
+        'harmonyLiveViewPayload' => 'HarmonyLiveViewPayload',
         'harmonyNotificationSlotType' => 'HarmonyNotificationSlotType',
         'harmonyNotifyId' => 'HarmonyNotifyId',
         'harmonyReceiptId' => 'HarmonyReceiptId',
@@ -676,6 +688,10 @@ class pushTask extends Model
 
         if (null !== $this->androidHonorTargetUserType) {
             $res['AndroidHonorTargetUserType'] = $this->androidHonorTargetUserType;
+        }
+
+        if (null !== $this->androidHuaweiLiveNotificationPayload) {
+            $res['AndroidHuaweiLiveNotificationPayload'] = $this->androidHuaweiLiveNotificationPayload;
         }
 
         if (null !== $this->androidHuaweiReceiptId) {
@@ -900,6 +916,10 @@ class pushTask extends Model
             $res['HarmonyInboxContent'] = $this->harmonyInboxContent;
         }
 
+        if (null !== $this->harmonyLiveViewPayload) {
+            $res['HarmonyLiveViewPayload'] = $this->harmonyLiveViewPayload;
+        }
+
         if (null !== $this->harmonyNotificationSlotType) {
             $res['HarmonyNotificationSlotType'] = $this->harmonyNotificationSlotType;
         }
@@ -1109,6 +1129,10 @@ class pushTask extends Model
 
         if (isset($map['AndroidHonorTargetUserType'])) {
             $model->androidHonorTargetUserType = $map['AndroidHonorTargetUserType'];
+        }
+
+        if (isset($map['AndroidHuaweiLiveNotificationPayload'])) {
+            $model->androidHuaweiLiveNotificationPayload = $map['AndroidHuaweiLiveNotificationPayload'];
         }
 
         if (isset($map['AndroidHuaweiReceiptId'])) {
@@ -1331,6 +1355,10 @@ class pushTask extends Model
 
         if (isset($map['HarmonyInboxContent'])) {
             $model->harmonyInboxContent = $map['HarmonyInboxContent'];
+        }
+
+        if (isset($map['HarmonyLiveViewPayload'])) {
+            $model->harmonyLiveViewPayload = $map['HarmonyLiveViewPayload'];
         }
 
         if (isset($map['HarmonyNotificationSlotType'])) {

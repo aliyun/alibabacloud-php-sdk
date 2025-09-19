@@ -969,6 +969,10 @@ class Push extends OpenApiClient
             @$query['AndroidHonorTargetUserType'] = $request->androidHonorTargetUserType;
         }
 
+        if (null !== $request->androidHuaweiLiveNotificationPayload) {
+            @$query['AndroidHuaweiLiveNotificationPayload'] = $request->androidHuaweiLiveNotificationPayload;
+        }
+
         if (null !== $request->androidHuaweiReceiptId) {
             @$query['AndroidHuaweiReceiptId'] = $request->androidHuaweiReceiptId;
         }
@@ -1183,6 +1187,10 @@ class Push extends OpenApiClient
 
         if (null !== $request->harmonyInboxContent) {
             @$query['HarmonyInboxContent'] = $request->harmonyInboxContent;
+        }
+
+        if (null !== $request->harmonyLiveViewPayload) {
+            @$query['HarmonyLiveViewPayload'] = $request->harmonyLiveViewPayload;
         }
 
         if (null !== $request->harmonyNotificationSlotType) {
