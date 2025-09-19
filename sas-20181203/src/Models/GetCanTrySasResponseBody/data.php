@@ -4,38 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCanTrySasResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description Indicates whether the user is qualified for the trial use. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var int
      */
     public $canTry;
 
     /**
-     * @description The editions that are allowed for the trial use.
-     *
      * @var int[]
      */
     public $canTryVersions;
 
     /**
-     * @description The trial type. Valid values:
-     *
-     *   **0**: trial prohibited
-     *   **1**: first trial
-     *   **2**: second trial
-     *
-     * @example 1
-     *
      * @var int
      */
     public $tryType;
@@ -45,17 +28,32 @@ class data extends Model
         'tryType' => 'TryType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->canTryVersions)) {
+            Model::validateArray($this->canTryVersions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canTry) {
             $res['CanTry'] = $this->canTry;
         }
+
         if (null !== $this->canTryVersions) {
-            $res['CanTryVersions'] = $this->canTryVersions;
+            if (\is_array($this->canTryVersions)) {
+                $res['CanTryVersions'] = [];
+                $n1 = 0;
+                foreach ($this->canTryVersions as $item1) {
+                    $res['CanTryVersions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->tryType) {
             $res['TryType'] = $this->tryType;
         }
@@ -63,22 +61,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanTry'])) {
             $model->canTry = $map['CanTry'];
         }
+
         if (isset($map['CanTryVersions'])) {
             if (!empty($map['CanTryVersions'])) {
-                $model->canTryVersions = $map['CanTryVersions'];
+                $model->canTryVersions = [];
+                $n1 = 0;
+                foreach ($map['CanTryVersions'] as $item1) {
+                    $model->canTryVersions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TryType'])) {
             $model->tryType = $map['TryType'];
         }

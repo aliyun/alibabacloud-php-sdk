@@ -4,55 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotProbeBindRequest\bindPortList;
-use AlibabaCloud\Tea\Model;
 
 class CreateHoneypotProbeBindRequest extends Model
 {
     /**
-     * @description The ports that are bound to the probe.
-     *
      * @var bindPortList[]
      */
     public $bindPortList;
 
     /**
-     * @description The honeypot ID.
-     *
-     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
-     *
-     * @example dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
-     *
      * @var string
      */
     public $honeypotId;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The probe ID.
-     *
-     * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
-     *
-     * @example 36bad711-d1ac-4419-ac68-c1aa280f****
-     *
      * @var string
      */
     public $probeId;
 
     /**
-     * @description The IP addresses that are monitored.
-     *
      * @var string[]
      */
     public $serviceIpList;
@@ -64,65 +41,96 @@ class CreateHoneypotProbeBindRequest extends Model
         'serviceIpList' => 'ServiceIpList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bindPortList)) {
+            Model::validateArray($this->bindPortList);
+        }
+        if (\is_array($this->serviceIpList)) {
+            Model::validateArray($this->serviceIpList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindPortList) {
-            $res['BindPortList'] = [];
-            if (null !== $this->bindPortList && \is_array($this->bindPortList)) {
-                $n = 0;
-                foreach ($this->bindPortList as $item) {
-                    $res['BindPortList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bindPortList)) {
+                $res['BindPortList'] = [];
+                $n1 = 0;
+                foreach ($this->bindPortList as $item1) {
+                    $res['BindPortList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->honeypotId) {
             $res['HoneypotId'] = $this->honeypotId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->probeId) {
             $res['ProbeId'] = $this->probeId;
         }
+
         if (null !== $this->serviceIpList) {
-            $res['ServiceIpList'] = $this->serviceIpList;
+            if (\is_array($this->serviceIpList)) {
+                $res['ServiceIpList'] = [];
+                $n1 = 0;
+                foreach ($this->serviceIpList as $item1) {
+                    $res['ServiceIpList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateHoneypotProbeBindRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindPortList'])) {
             if (!empty($map['BindPortList'])) {
                 $model->bindPortList = [];
-                $n = 0;
-                foreach ($map['BindPortList'] as $item) {
-                    $model->bindPortList[$n++] = null !== $item ? bindPortList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BindPortList'] as $item1) {
+                    $model->bindPortList[$n1] = bindPortList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['HoneypotId'])) {
             $model->honeypotId = $map['HoneypotId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['ProbeId'])) {
             $model->probeId = $map['ProbeId'];
         }
+
         if (isset($map['ServiceIpList'])) {
             if (!empty($map['ServiceIpList'])) {
-                $model->serviceIpList = $map['ServiceIpList'];
+                $model->serviceIpList = [];
+                $n1 = 0;
+                foreach ($map['ServiceIpList'] as $item1) {
+                    $model->serviceIpList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

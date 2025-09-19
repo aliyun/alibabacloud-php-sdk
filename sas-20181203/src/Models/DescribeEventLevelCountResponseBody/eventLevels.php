@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEventLevelCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eventLevels extends Model
 {
     /**
-     * @description The number of alerts whose Emergency level is Reminder.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $remind;
 
     /**
-     * @description The number of alerts whose Emergency level is Urgent.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $serious;
 
     /**
-     * @description The number of alerts whose Emergency level is Suspicious.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $suspicious;
@@ -40,17 +28,22 @@ class eventLevels extends Model
         'suspicious' => 'Suspicious',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remind) {
             $res['Remind'] = $this->remind;
         }
+
         if (null !== $this->serious) {
             $res['Serious'] = $this->serious;
         }
+
         if (null !== $this->suspicious) {
             $res['Suspicious'] = $this->suspicious;
         }
@@ -58,20 +51,22 @@ class eventLevels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventLevels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Remind'])) {
             $model->remind = $map['Remind'];
         }
+
         if (isset($map['Serious'])) {
             $model->serious = $map['Serious'];
         }
+
         if (isset($map['Suspicious'])) {
             $model->suspicious = $map['Suspicious'];
         }

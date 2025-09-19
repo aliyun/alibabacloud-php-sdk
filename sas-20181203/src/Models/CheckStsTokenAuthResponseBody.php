@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckStsTokenAuthResponseBody extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account.
-     *
-     * @example 185685871307****
-     *
      * @var int
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example 898F7AA7-CECD-5EC7-AF4D-664C601B****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CheckStsTokenAuthResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CheckStsTokenAuthResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckStsTokenAuthResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

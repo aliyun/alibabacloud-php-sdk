@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterInterceptionConfigResponseBody\clusterConfigList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterInterceptionConfigResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListClusterInterceptionConfigResponseBody extends Model
 {
     /**
-     * @description An array that consists of the configurations of the cluster.
-     *
      * @var clusterConfigList[]
      */
     public $clusterConfigList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 49FDE92F-A0B8-56CC-B7A8-23B17646****
-     *
      * @var string
      */
     public $requestId;
@@ -38,23 +30,35 @@ class ListClusterInterceptionConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusterConfigList)) {
+            Model::validateArray($this->clusterConfigList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterConfigList) {
-            $res['ClusterConfigList'] = [];
-            if (null !== $this->clusterConfigList && \is_array($this->clusterConfigList)) {
-                $n = 0;
-                foreach ($this->clusterConfigList as $item) {
-                    $res['ClusterConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusterConfigList)) {
+                $res['ClusterConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->clusterConfigList as $item1) {
+                    $res['ClusterConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +66,29 @@ class ListClusterInterceptionConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClusterInterceptionConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterConfigList'])) {
             if (!empty($map['ClusterConfigList'])) {
                 $model->clusterConfigList = [];
-                $n = 0;
-                foreach ($map['ClusterConfigList'] as $item) {
-                    $model->clusterConfigList[$n++] = null !== $item ? clusterConfigList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ClusterConfigList'] as $item1) {
+                    $model->clusterConfigList[$n1] = clusterConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

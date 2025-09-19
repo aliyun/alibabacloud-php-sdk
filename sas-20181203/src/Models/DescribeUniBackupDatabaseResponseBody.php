@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupDatabaseResponseBody\databaseList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupDatabaseResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUniBackupDatabaseResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about the databases.
-     *
      * @var databaseList[]
      */
     public $databaseList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
-     *
      * @var string
      */
     public $requestId;
@@ -38,23 +30,35 @@ class DescribeUniBackupDatabaseResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databaseList)) {
+            Model::validateArray($this->databaseList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseList) {
-            $res['DatabaseList'] = [];
-            if (null !== $this->databaseList && \is_array($this->databaseList)) {
-                $n = 0;
-                foreach ($this->databaseList as $item) {
-                    $res['DatabaseList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->databaseList)) {
+                $res['DatabaseList'] = [];
+                $n1 = 0;
+                foreach ($this->databaseList as $item1) {
+                    $res['DatabaseList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +66,29 @@ class DescribeUniBackupDatabaseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUniBackupDatabaseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseList'])) {
             if (!empty($map['DatabaseList'])) {
                 $model->databaseList = [];
-                $n = 0;
-                foreach ($map['DatabaseList'] as $item) {
-                    $model->databaseList[$n++] = null !== $item ? databaseList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DatabaseList'] as $item1) {
+                    $model->databaseList[$n1] = databaseList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListResponseBody\frontPatchList\patchList;
-use AlibabaCloud\Tea\Model;
 
 class frontPatchList extends Model
 {
     /**
-     * @description An array consisting of the pre-patches that are required to fix the specified Windows system vulnerability on the server.
-     *
      * @var patchList[]
      */
     public $patchList;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 1587bedb-fdb4-48c4-9330-4545****
-     *
      * @var string
      */
     public $uuid;
@@ -29,20 +23,28 @@ class frontPatchList extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->patchList)) {
+            Model::validateArray($this->patchList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->patchList) {
-            $res['PatchList'] = [];
-            if (null !== $this->patchList && \is_array($this->patchList)) {
-                $n = 0;
-                foreach ($this->patchList as $item) {
-                    $res['PatchList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->patchList)) {
+                $res['PatchList'] = [];
+                $n1 = 0;
+                foreach ($this->patchList as $item1) {
+                    $res['PatchList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -50,23 +52,25 @@ class frontPatchList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return frontPatchList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PatchList'])) {
             if (!empty($map['PatchList'])) {
                 $model->patchList = [];
-                $n = 0;
-                foreach ($map['PatchList'] as $item) {
-                    $model->patchList[$n++] = null !== $item ? patchList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PatchList'] as $item1) {
+                    $model->patchList[$n1] = patchList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

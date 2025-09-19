@@ -4,27 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateTargetListByBatchRequest\operationList;
-use AlibabaCloud\Tea\Model;
 
 class UpdateTargetListByBatchRequest extends Model
 {
     /**
-     * @description The ID of the release batch.
-     *
-     * This parameter is required.
-     *
-     * @example 52370
-     *
      * @var int
      */
     public $batchId;
 
     /**
-     * @description The operations on assets.
-     *
-     * This parameter is required.
-     *
      * @var operationList[]
      */
     public $operationList;
@@ -33,20 +23,28 @@ class UpdateTargetListByBatchRequest extends Model
         'operationList' => 'OperationList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->operationList)) {
+            Model::validateArray($this->operationList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchId) {
             $res['BatchId'] = $this->batchId;
         }
+
         if (null !== $this->operationList) {
-            $res['OperationList'] = [];
-            if (null !== $this->operationList && \is_array($this->operationList)) {
-                $n = 0;
-                foreach ($this->operationList as $item) {
-                    $res['OperationList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operationList)) {
+                $res['OperationList'] = [];
+                $n1 = 0;
+                foreach ($this->operationList as $item1) {
+                    $res['OperationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,23 +52,25 @@ class UpdateTargetListByBatchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTargetListByBatchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchId'])) {
             $model->batchId = $map['BatchId'];
         }
+
         if (isset($map['OperationList'])) {
             if (!empty($map['OperationList'])) {
                 $model->operationList = [];
-                $n = 0;
-                foreach ($map['OperationList'] as $item) {
-                    $model->operationList[$n++] = null !== $item ? operationList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OperationList'] as $item1) {
+                    $model->operationList[$n1] = operationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

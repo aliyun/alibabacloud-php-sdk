@@ -4,88 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeImageBaselineCheckResultRequest extends Model
 {
     /**
-     * @description The search condition for the image baseline.
-     *
-     * @example ak_leak
-     *
      * @var string
      */
     public $criteria;
 
     /**
-     * @description The type of the search condition. Valid values:
-     *
-     *   **BaselineNameAlias**: baseline name
-     *   **BaselineClassAlias**: baseline category
-     *
-     * @example BaselineNameAlias
-     *
      * @var string
      */
     public $criteriaType;
 
     /**
-     * @description The number of the page to return. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The UUID of the image.
-     *
-     * This parameter is required.
-     *
-     * @example a910053dd4710173ecc9e9d8931f****
-     *
      * @var string
      */
     public $imageUuid;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The severity of the image baseline that you want to query. Separate multiple severities with commas (,). By default, all valid values are used. Valid values:
-     *
-     *   **high**
-     *   **medium**
-     *   **low**
-     *
-     * @example high,medium,low
-     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @description The types of the assets that you want to scan.
-     *
      * @var string[]
      */
     public $scanRange;
@@ -100,71 +58,103 @@ class DescribeImageBaselineCheckResultRequest extends Model
         'scanRange' => 'ScanRange',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->scanRange)) {
+            Model::validateArray($this->scanRange);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
         }
+
         if (null !== $this->criteriaType) {
             $res['CriteriaType'] = $this->criteriaType;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->imageUuid) {
             $res['ImageUuid'] = $this->imageUuid;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
+
         if (null !== $this->scanRange) {
-            $res['ScanRange'] = $this->scanRange;
+            if (\is_array($this->scanRange)) {
+                $res['ScanRange'] = [];
+                $n1 = 0;
+                foreach ($this->scanRange as $item1) {
+                    $res['ScanRange'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageBaselineCheckResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
         }
+
         if (isset($map['CriteriaType'])) {
             $model->criteriaType = $map['CriteriaType'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['ImageUuid'])) {
             $model->imageUuid = $map['ImageUuid'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
+
         if (isset($map['ScanRange'])) {
             if (!empty($map['ScanRange'])) {
-                $model->scanRange = $map['ScanRange'];
+                $model->scanRange = [];
+                $n1 = 0;
+                foreach ($map['ScanRange'] as $item1) {
+                    $model->scanRange[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

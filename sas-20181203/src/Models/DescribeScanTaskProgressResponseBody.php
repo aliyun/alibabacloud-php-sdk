@@ -4,50 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeScanTaskProgressResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example EA15BA8A-D631-4375-8D40-CB7C769B0279
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The progress of the virus scan task. Valid values:
-     *
-     *   **init**: The task is being initialized.
-     *   **Processing**: The task is running.
-     *   **Success**: The task is complete.
-     *   **Failed**: The task fails.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $scanTaskProgress;
 
     /**
-     * @description The information about the asset on which the virus scan task runs. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
-     *
-     *   **type**: the type of the asset on which you want to perform a virus scan task. Valid values:
-     *
-     *   **groupId**: server group.
-     *   **uuid**: server.
-     *
-     *   **name**: the name of the server group or server.
-     *
-     *   **target**: the asset on which the virus scan task runs. The value of this field varies based on the value of the type field.
-     *
-     *   If the **type** field is set to **groupId**, the value of this field is the ID of the server group.
-     *   If the **type** field is set to **uuid**, the value of this field is the universally unique identifier (UUID) of the server.
-     *
-     * @example [{"type":"uuid","name":"host001","target":"503201a7-14c6-4280-801b-1169ed42****"}]
-     *
      * @var string
      */
     public $targetInfo;
@@ -57,17 +28,22 @@ class DescribeScanTaskProgressResponseBody extends Model
         'targetInfo' => 'TargetInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scanTaskProgress) {
             $res['ScanTaskProgress'] = $this->scanTaskProgress;
         }
+
         if (null !== $this->targetInfo) {
             $res['TargetInfo'] = $this->targetInfo;
         }
@@ -75,20 +51,22 @@ class DescribeScanTaskProgressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScanTaskProgressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ScanTaskProgress'])) {
             $model->scanTaskProgress = $map['ScanTaskProgress'];
         }
+
         if (isset($map['TargetInfo'])) {
             $model->targetInfo = $map['TargetInfo'];
         }

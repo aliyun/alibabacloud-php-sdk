@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAutoTagRulesRequest extends Model
 {
     /**
-     * @description The ID of the asset auto-tagging rule. Separate multiple IDs with commas (,).
-     *
-     * >  You can call the [ListAutoTagRules](~~ListAutoTagRules~~) operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 2331,56,5644
-     *
      * @var string
      */
     public $ruleIdList;
@@ -24,9 +16,12 @@ class DeleteAutoTagRulesRequest extends Model
         'ruleIdList' => 'RuleIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleIdList) {
@@ -36,11 +31,11 @@ class DeleteAutoTagRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAutoTagRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

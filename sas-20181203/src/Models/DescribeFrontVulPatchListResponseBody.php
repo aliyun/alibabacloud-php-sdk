@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListResponseBody\frontPatchList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeFrontVulPatchListResponseBody extends Model
 {
     /**
-     * @description An array consisting of the information about the pre-patches that are required to fix the specified Windows system vulnerability.
-     *
      * @var frontPatchList[]
      */
     public $frontPatchList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example F929E952-EBFC-56C3-BD35-BF8B59024C68
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeFrontVulPatchListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->frontPatchList)) {
+            Model::validateArray($this->frontPatchList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frontPatchList) {
-            $res['FrontPatchList'] = [];
-            if (null !== $this->frontPatchList && \is_array($this->frontPatchList)) {
-                $n = 0;
-                foreach ($this->frontPatchList as $item) {
-                    $res['FrontPatchList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->frontPatchList)) {
+                $res['FrontPatchList'] = [];
+                $n1 = 0;
+                foreach ($this->frontPatchList as $item1) {
+                    $res['FrontPatchList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeFrontVulPatchListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeFrontVulPatchListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FrontPatchList'])) {
             if (!empty($map['FrontPatchList'])) {
                 $model->frontPatchList = [];
-                $n = 0;
-                foreach ($map['FrontPatchList'] as $item) {
-                    $model->frontPatchList[$n++] = null !== $item ? frontPatchList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FrontPatchList'] as $item1) {
+                    $model->frontPatchList[$n1] = frontPatchList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

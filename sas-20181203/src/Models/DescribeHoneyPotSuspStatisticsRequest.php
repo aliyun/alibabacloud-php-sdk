@@ -4,54 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHoneyPotSuspStatisticsRequest extends Model
 {
     /**
-     * @description The source of the request. Set the value to **honeypot**.
-     *
-     * This parameter is required.
-     *
-     * @example honeypot
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese.
-     *   **en**: English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The time range of the data to query. Unit: days.
-     *
-     * This parameter is required.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $statisticsDays;
 
     /**
-     * @description The type of the asset to query. Valid values:
-     *
-     *   **vpcInstanceId**: VPC
-     *   **uuid**: server
-     *
-     * This parameter is required.
-     *
-     * @example vpcInstanceId
-     *
      * @var string
      */
     public $statisticsKeyType;
@@ -62,20 +34,26 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
         'statisticsKeyType' => 'StatisticsKeyType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->statisticsDays) {
             $res['StatisticsDays'] = $this->statisticsDays;
         }
+
         if (null !== $this->statisticsKeyType) {
             $res['StatisticsKeyType'] = $this->statisticsKeyType;
         }
@@ -83,23 +61,26 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHoneyPotSuspStatisticsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['StatisticsDays'])) {
             $model->statisticsDays = $map['StatisticsDays'];
         }
+
         if (isset($map['StatisticsKeyType'])) {
             $model->statisticsKeyType = $map['StatisticsKeyType'];
         }

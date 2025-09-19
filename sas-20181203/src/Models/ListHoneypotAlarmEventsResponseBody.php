@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotAlarmEventsResponseBody\honeypotAlarmEvents;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotAlarmEventsResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListHoneypotAlarmEventsResponseBody extends Model
 {
     /**
-     * @description The alert events.
-     *
      * @var honeypotAlarmEvents[]
      */
     public $honeypotAlarmEvents;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example 513C9554-55A4-5504-B7C4-6E17EB4FC7A3
-     *
      * @var string
      */
     public $requestId;
@@ -38,23 +30,35 @@ class ListHoneypotAlarmEventsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->honeypotAlarmEvents)) {
+            Model::validateArray($this->honeypotAlarmEvents);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->honeypotAlarmEvents) {
-            $res['HoneypotAlarmEvents'] = [];
-            if (null !== $this->honeypotAlarmEvents && \is_array($this->honeypotAlarmEvents)) {
-                $n = 0;
-                foreach ($this->honeypotAlarmEvents as $item) {
-                    $res['HoneypotAlarmEvents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->honeypotAlarmEvents)) {
+                $res['HoneypotAlarmEvents'] = [];
+                $n1 = 0;
+                foreach ($this->honeypotAlarmEvents as $item1) {
+                    $res['HoneypotAlarmEvents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +66,29 @@ class ListHoneypotAlarmEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHoneypotAlarmEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HoneypotAlarmEvents'])) {
             if (!empty($map['HoneypotAlarmEvents'])) {
                 $model->honeypotAlarmEvents = [];
-                $n = 0;
-                foreach ($map['HoneypotAlarmEvents'] as $item) {
-                    $model->honeypotAlarmEvents[$n++] = null !== $item ? honeypotAlarmEvents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HoneypotAlarmEvents'] as $item1) {
+                    $model->honeypotAlarmEvents[$n1] = honeypotAlarmEvents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

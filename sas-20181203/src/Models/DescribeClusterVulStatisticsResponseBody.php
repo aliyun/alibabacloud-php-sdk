@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterVulStatisticsResponseBody\vulStat;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterVulStatisticsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The statistics of the vulnerabilities.
-     *
      * @var vulStat
      */
     public $vulStat;
@@ -29,32 +23,40 @@ class DescribeClusterVulStatisticsResponseBody extends Model
         'vulStat' => 'VulStat',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->vulStat) {
+            $this->vulStat->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vulStat) {
-            $res['VulStat'] = null !== $this->vulStat ? $this->vulStat->toMap() : null;
+            $res['VulStat'] = null !== $this->vulStat ? $this->vulStat->toArray($noStream) : $this->vulStat;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterVulStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VulStat'])) {
             $model->vulStat = vulStat::fromMap($map['VulStat']);
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckRuleInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceList extends Model
 {
     /**
-     * @description Asset instance ID.
-     * > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) interface to get this parameter.
-     *
-     * @example i-wz9fdluqx20mp2x7****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The region where the asset is located.
-     * > Call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) interface to get this parameter.
-     *
-     * @example cn-hongkong
-     *
      * @var string
      */
     public $regionId;
@@ -32,14 +22,18 @@ class instanceList extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,17 +41,18 @@ class instanceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

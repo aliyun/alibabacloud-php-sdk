@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class strategyTargets extends Model
 {
     /**
-     * @description The number of the assets that belong to the asset group.
-     *
-     * @example 85
-     *
      * @var int
      */
     public $bindUuidCount;
 
     /**
-     * @description Indicates whether the baseline check policy is applied to the asset group. Valid values:
-     *
-     *   **add**: The baseline check policy is applied to the asset group.
-     *   **del**: the baseline check policy is not applied to the asset group.
-     *
-     * @example add
-     *
      * @var string
      */
     public $flag;
 
     /**
-     * @description The ID of the asset group to which the assets belong or the UUID of the asset.
-     *
-     * @example 9165712
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @description The method that is used to add the assets to the baseline check policy. Valid values:
-     *
-     *   **groupId**: the ID of the asset group
-     *   **uuid**: the UUID of the asset
-     *
-     * @example groupId
-     *
      * @var string
      */
     public $targetType;
@@ -56,20 +34,26 @@ class strategyTargets extends Model
         'targetType' => 'TargetType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindUuidCount) {
             $res['BindUuidCount'] = $this->bindUuidCount;
         }
+
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -77,23 +61,26 @@ class strategyTargets extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return strategyTargets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindUuidCount'])) {
             $model->bindUuidCount = $map['BindUuidCount'];
         }
+
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

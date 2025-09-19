@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallResponseBody\aegisCelintInstallResposeList;
-use AlibabaCloud\Tea\Model;
 
 class OperateAgentClientInstallResponseBody extends Model
 {
     /**
-     * @description An array that consists of the returned results.
-     *
      * @var aegisCelintInstallResposeList[]
      */
     public $aegisCelintInstallResposeList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example AE79B457-877C-51C6-AD72-0D34A025D***
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class OperateAgentClientInstallResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->aegisCelintInstallResposeList)) {
+            Model::validateArray($this->aegisCelintInstallResposeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aegisCelintInstallResposeList) {
-            $res['AegisCelintInstallResposeList'] = [];
-            if (null !== $this->aegisCelintInstallResposeList && \is_array($this->aegisCelintInstallResposeList)) {
-                $n = 0;
-                foreach ($this->aegisCelintInstallResposeList as $item) {
-                    $res['AegisCelintInstallResposeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aegisCelintInstallResposeList)) {
+                $res['AegisCelintInstallResposeList'] = [];
+                $n1 = 0;
+                foreach ($this->aegisCelintInstallResposeList as $item1) {
+                    $res['AegisCelintInstallResposeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class OperateAgentClientInstallResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateAgentClientInstallResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AegisCelintInstallResposeList'])) {
             if (!empty($map['AegisCelintInstallResposeList'])) {
                 $model->aegisCelintInstallResposeList = [];
-                $n = 0;
-                foreach ($map['AegisCelintInstallResposeList'] as $item) {
-                    $model->aegisCelintInstallResposeList[$n++] = null !== $item ? aegisCelintInstallResposeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AegisCelintInstallResposeList'] as $item1) {
+                    $model->aegisCelintInstallResposeList[$n1] = aegisCelintInstallResposeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

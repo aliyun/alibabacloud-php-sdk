@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckSummaryResponseBody\riskCheckSummary;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class riskLevelCount extends Model
 {
     /**
-     * @description The number of check items at the specified risk level.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The risk level of the check items. Valid values:
-     *
-     *   **high**
-     *   **medium**
-     *   **low**
-     *
-     * @example medium
-     *
      * @var string
      */
     public $key;
@@ -34,14 +22,18 @@ class riskLevelCount extends Model
         'key' => 'Key',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -49,17 +41,18 @@ class riskLevelCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return riskLevelCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

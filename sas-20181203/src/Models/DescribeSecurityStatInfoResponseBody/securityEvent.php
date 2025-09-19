@@ -4,91 +4,61 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityStatInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityEvent extends Model
 {
     /**
-     * @description The points in time when data of unhandled alerts is collected in the trend chart.
-     *
      * @var string[]
      */
     public $dateArray;
 
     /**
-     * @description The risk levels of unhandled alerts.
-     *
      * @var string[]
      */
     public $levelsOn;
 
     /**
-     * @description The number of **remind** alerts on the current day.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $remindCount;
 
     /**
-     * @description The numbers of remind alerts at all points in time.
-     *
      * @var string[]
      */
     public $remindList;
 
     /**
-     * @description The number of **serious** alerts on the current day.
-     *
-     * @example 404
-     *
      * @var int
      */
     public $seriousCount;
 
     /**
-     * @description The numbers of serious alerts at all points in time.
-     *
      * @var string[]
      */
     public $seriousList;
 
     /**
-     * @description The number of **suspicious** alerts on the current day.
-     *
-     * @example 148
-     *
      * @var int
      */
     public $suspiciousCount;
 
     /**
-     * @description The numbers of suspicious alerts at all points in time.
-     *
      * @var string[]
      */
     public $suspiciousList;
 
     /**
-     * @description The time periods during which data of the same alert is collected.
-     *
      * @var string[]
      */
     public $timeArray;
 
     /**
-     * @description The total number of unhandled alerts on the current day.
-     *
-     * @example 552
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The numbers of unhandled alerts at all points in time.
-     *
      * @var string[]
      */
     public $valueArray;
@@ -106,101 +76,229 @@ class securityEvent extends Model
         'valueArray' => 'ValueArray',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dateArray)) {
+            Model::validateArray($this->dateArray);
+        }
+        if (\is_array($this->levelsOn)) {
+            Model::validateArray($this->levelsOn);
+        }
+        if (\is_array($this->remindList)) {
+            Model::validateArray($this->remindList);
+        }
+        if (\is_array($this->seriousList)) {
+            Model::validateArray($this->seriousList);
+        }
+        if (\is_array($this->suspiciousList)) {
+            Model::validateArray($this->suspiciousList);
+        }
+        if (\is_array($this->timeArray)) {
+            Model::validateArray($this->timeArray);
+        }
+        if (\is_array($this->valueArray)) {
+            Model::validateArray($this->valueArray);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dateArray) {
-            $res['DateArray'] = $this->dateArray;
+            if (\is_array($this->dateArray)) {
+                $res['DateArray'] = [];
+                $n1 = 0;
+                foreach ($this->dateArray as $item1) {
+                    $res['DateArray'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->levelsOn) {
-            $res['LevelsOn'] = $this->levelsOn;
+            if (\is_array($this->levelsOn)) {
+                $res['LevelsOn'] = [];
+                $n1 = 0;
+                foreach ($this->levelsOn as $item1) {
+                    $res['LevelsOn'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->remindCount) {
             $res['RemindCount'] = $this->remindCount;
         }
+
         if (null !== $this->remindList) {
-            $res['RemindList'] = $this->remindList;
+            if (\is_array($this->remindList)) {
+                $res['RemindList'] = [];
+                $n1 = 0;
+                foreach ($this->remindList as $item1) {
+                    $res['RemindList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->seriousCount) {
             $res['SeriousCount'] = $this->seriousCount;
         }
+
         if (null !== $this->seriousList) {
-            $res['SeriousList'] = $this->seriousList;
+            if (\is_array($this->seriousList)) {
+                $res['SeriousList'] = [];
+                $n1 = 0;
+                foreach ($this->seriousList as $item1) {
+                    $res['SeriousList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->suspiciousCount) {
             $res['SuspiciousCount'] = $this->suspiciousCount;
         }
+
         if (null !== $this->suspiciousList) {
-            $res['SuspiciousList'] = $this->suspiciousList;
+            if (\is_array($this->suspiciousList)) {
+                $res['SuspiciousList'] = [];
+                $n1 = 0;
+                foreach ($this->suspiciousList as $item1) {
+                    $res['SuspiciousList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->timeArray) {
-            $res['TimeArray'] = $this->timeArray;
+            if (\is_array($this->timeArray)) {
+                $res['TimeArray'] = [];
+                $n1 = 0;
+                foreach ($this->timeArray as $item1) {
+                    $res['TimeArray'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->valueArray) {
-            $res['ValueArray'] = $this->valueArray;
+            if (\is_array($this->valueArray)) {
+                $res['ValueArray'] = [];
+                $n1 = 0;
+                foreach ($this->valueArray as $item1) {
+                    $res['ValueArray'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityEvent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DateArray'])) {
             if (!empty($map['DateArray'])) {
-                $model->dateArray = $map['DateArray'];
+                $model->dateArray = [];
+                $n1 = 0;
+                foreach ($map['DateArray'] as $item1) {
+                    $model->dateArray[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['LevelsOn'])) {
             if (!empty($map['LevelsOn'])) {
-                $model->levelsOn = $map['LevelsOn'];
+                $model->levelsOn = [];
+                $n1 = 0;
+                foreach ($map['LevelsOn'] as $item1) {
+                    $model->levelsOn[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RemindCount'])) {
             $model->remindCount = $map['RemindCount'];
         }
+
         if (isset($map['RemindList'])) {
             if (!empty($map['RemindList'])) {
-                $model->remindList = $map['RemindList'];
+                $model->remindList = [];
+                $n1 = 0;
+                foreach ($map['RemindList'] as $item1) {
+                    $model->remindList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SeriousCount'])) {
             $model->seriousCount = $map['SeriousCount'];
         }
+
         if (isset($map['SeriousList'])) {
             if (!empty($map['SeriousList'])) {
-                $model->seriousList = $map['SeriousList'];
+                $model->seriousList = [];
+                $n1 = 0;
+                foreach ($map['SeriousList'] as $item1) {
+                    $model->seriousList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SuspiciousCount'])) {
             $model->suspiciousCount = $map['SuspiciousCount'];
         }
+
         if (isset($map['SuspiciousList'])) {
             if (!empty($map['SuspiciousList'])) {
-                $model->suspiciousList = $map['SuspiciousList'];
+                $model->suspiciousList = [];
+                $n1 = 0;
+                foreach ($map['SuspiciousList'] as $item1) {
+                    $model->suspiciousList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TimeArray'])) {
             if (!empty($map['TimeArray'])) {
-                $model->timeArray = $map['TimeArray'];
+                $model->timeArray = [];
+                $n1 = 0;
+                foreach ($map['TimeArray'] as $item1) {
+                    $model->timeArray[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['ValueArray'])) {
             if (!empty($map['ValueArray'])) {
-                $model->valueArray = $map['ValueArray'];
+                $model->valueArray = [];
+                $n1 = 0;
+                foreach ($map['ValueArray'] as $item1) {
+                    $model->valueArray[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

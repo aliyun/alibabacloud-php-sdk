@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyPolicyResponseBody\policyList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class info extends Model
 {
     /**
-     * @description The value of the policy configurations.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description The name of the file. After you configure a blocking policy, the blocked data is written to the file.
-     *
-     * @example test
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The type of the policy that you configured. Valid values:
-     *
-     *   **file**
-     *   **net**
-     *   **process**
-     *
-     * @example file
-     *
      * @var string
      */
     public $type;
@@ -44,17 +28,22 @@ class info extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -62,20 +51,22 @@ class info extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return info
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

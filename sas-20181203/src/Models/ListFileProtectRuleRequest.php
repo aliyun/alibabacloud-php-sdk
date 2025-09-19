@@ -4,71 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFileProtectRuleRequest extends Model
 {
     /**
-     * @description The severity of alerts. Valid values:
-     *
-     *   0: does not generate alerts
-     *   1: sends notifications
-     *   2: suspicious
-     *   3: high-risk
-     *
-     * @example 0
-     *
      * @var int
      */
     public $alertLevel;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The type of the operating system. Valid values:
-     *
-     *   **windows**: Windows
-     *   **linux**: Linux
-     *
-     * @example linux
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description The handling method of the rule. Valid values:
-     *
-     *   pass: allow
-     *   alert
-     *
-     * @example pass
-     *
      * @var string
      */
     public $ruleAction;
 
     /**
-     * @description The name of the rule.
-     *
-     * @example test-rule-1
-     *
      * @var string
      */
     public $ruleName;
@@ -81,26 +46,34 @@ class ListFileProtectRuleRequest extends Model
         'ruleName' => 'RuleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertLevel) {
             $res['AlertLevel'] = $this->alertLevel;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
+
         if (null !== $this->ruleAction) {
             $res['RuleAction'] = $this->ruleAction;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -108,29 +81,34 @@ class ListFileProtectRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFileProtectRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertLevel'])) {
             $model->alertLevel = $map['AlertLevel'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
+
         if (isset($map['RuleAction'])) {
             $model->ruleAction = $map['RuleAction'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

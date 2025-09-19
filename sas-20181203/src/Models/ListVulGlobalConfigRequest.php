@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVulGlobalConfigRequest extends Model
 {
     /**
-     * @description The key of the configuration item. Valid values:
-     *
-     *   **vul_scan_ip_list**: The IP addresses that are detected.
-     *
-     * @example vul_scan_ip_list
-     *
      * @var string
      */
     public $configKey;
@@ -22,9 +16,12 @@ class ListVulGlobalConfigRequest extends Model
         'configKey' => 'ConfigKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configKey) {
@@ -34,11 +31,11 @@ class ListVulGlobalConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVulGlobalConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

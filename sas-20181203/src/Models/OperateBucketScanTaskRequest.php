@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OperateBucketScanTaskRequest extends Model
 {
     /**
-     * @description The name of the bucket.
-     *
-     * @example iboxpublic****
-     *
      * @var string
      */
     public $bucketName;
 
     /**
-     * @description The operation that you want to perform on the bucket. Valid value:
-     *
-     *   **1**: cancels the bucket check.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $operateCode;
@@ -32,14 +22,18 @@ class OperateBucketScanTaskRequest extends Model
         'operateCode' => 'OperateCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
+
         if (null !== $this->operateCode) {
             $res['OperateCode'] = $this->operateCode;
         }
@@ -47,17 +41,18 @@ class OperateBucketScanTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateBucketScanTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
+
         if (isset($map['OperateCode'])) {
             $model->operateCode = $map['OperateCode'];
         }

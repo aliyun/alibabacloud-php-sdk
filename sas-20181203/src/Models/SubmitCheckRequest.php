@@ -4,47 +4,57 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitCheckRequest extends Model
 {
     /**
-     * @description The check items that are scanned. Valid values:
-     *
-     *   **FULL**: All check items are scanned.
-     *   **FULL**: Only the check items that are configured are scanned.
-     *
-     * @example POLICY
-     *
      * @var string
      */
     public $scanRange;
+
+    /**
+     * @var string
+     */
+    public $taskSource;
     protected $_name = [
         'scanRange' => 'ScanRange',
+        'taskSource' => 'TaskSource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scanRange) {
             $res['ScanRange'] = $this->scanRange;
         }
 
+        if (null !== $this->taskSource) {
+            $res['TaskSource'] = $this->taskSource;
+        }
+
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitCheckRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScanRange'])) {
             $model->scanRange = $map['ScanRange'];
+        }
+
+        if (isset($map['TaskSource'])) {
+            $model->taskSource = $map['TaskSource'];
         }
 
         return $model;

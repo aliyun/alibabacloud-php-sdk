@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InstallBackupClientRequest extends Model
 {
     /**
-     * @description The version of the anti-ransomware policy. Valid values:
-     *
-     *   **1.0.0**
-     *   **2.0.0**
-     *
-     * This parameter is required.
-     *
-     * @example 2.0.0
-     *
      * @var string
      */
     public $policyVersion;
 
     /**
-     * @description The UUID of the server on which you want to install the anti-ransomware agent.
-     *
-     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers. You must specify at least one of the UuidList and Uuid parameters.
-     *
-     * @example inet-617eddab-7df4-4a51-b217-a3f59194****
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @description The UUIDs of servers on which you want to install the anti-ransomware agent.
-     *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-     *
-     * @example ["3bb30859-b3b5-4f28-868f-b0892c98****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
-     *
      * @var string[]
      */
     public $uuidList;
@@ -49,41 +28,63 @@ class InstallBackupClientRequest extends Model
         'uuidList' => 'UuidList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->uuidList)) {
+            Model::validateArray($this->uuidList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
+
         if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
+            if (\is_array($this->uuidList)) {
+                $res['UuidList'] = [];
+                $n1 = 0;
+                foreach ($this->uuidList as $item1) {
+                    $res['UuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InstallBackupClientRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
+
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
-                $model->uuidList = $map['UuidList'];
+                $model->uuidList = [];
+                $n1 = 0;
+                foreach ($map['UuidList'] as $item1) {
+                    $model->uuidList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

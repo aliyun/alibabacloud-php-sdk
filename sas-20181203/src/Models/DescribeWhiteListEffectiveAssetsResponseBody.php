@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWhiteListEffectiveAssetsResponseBody\assets;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWhiteListEffectiveAssetsResponseBody extends Model
 {
     /**
-     * @description The servers on which the policy takes effect.
-     *
      * @var assets[]
      */
     public $assets;
 
     /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
-     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB39****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of the servers on which the policy takes effect.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -69,32 +47,44 @@ class DescribeWhiteListEffectiveAssetsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->assets)) {
+            Model::validateArray($this->assets);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assets) {
-            $res['Assets'] = [];
-            if (null !== $this->assets && \is_array($this->assets)) {
-                $n = 0;
-                foreach ($this->assets as $item) {
-                    $res['Assets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assets)) {
+                $res['Assets'] = [];
+                $n1 = 0;
+                foreach ($this->assets as $item1) {
+                    $res['Assets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -102,35 +92,41 @@ class DescribeWhiteListEffectiveAssetsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWhiteListEffectiveAssetsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n = 0;
-                foreach ($map['Assets'] as $item) {
-                    $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Assets'] as $item1) {
+                    $model->assets[$n1] = assets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

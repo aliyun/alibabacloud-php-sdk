@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnbindAegisRequest extends Model
 {
     /**
-     * @description The UUID of the server that you want to unbind. Separate multiple UUIDs with commas (,).
-     *
-     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-     *
-     * This parameter is required.
-     *
-     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
-     *
      * @var string
      */
     public $uuids;
@@ -24,9 +16,12 @@ class UnbindAegisRequest extends Model
         'uuids' => 'Uuids',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->uuids) {
@@ -36,11 +31,11 @@ class UnbindAegisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnbindAegisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

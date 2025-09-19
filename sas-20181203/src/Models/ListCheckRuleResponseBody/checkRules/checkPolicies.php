@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckRuleResponseBody\checkRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class checkPolicies extends Model
 {
     /**
-     * @description Display name of the item\\"s chapter.
-     *
-     * @example Access Control
-     *
      * @var string
      */
     public $sectionShowName;
@@ -20,9 +16,12 @@ class checkPolicies extends Model
         'sectionShowName' => 'sectionShowName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sectionShowName) {
@@ -32,11 +31,11 @@ class checkPolicies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

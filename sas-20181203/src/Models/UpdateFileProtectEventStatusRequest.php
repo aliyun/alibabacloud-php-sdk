@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFileProtectEventStatusRequest extends Model
 {
     /**
-     * @description The IDs of the events.
-     *
      * @var int[]
      */
     public $id;
 
     /**
-     * @description The handling status of the event. Valid values:
-     *
-     *   **0**: unhandled
-     *   **1**: handled
-     *   **2**: added to the whitelist
-     *
-     * @example 0
-     *
      * @var int
      */
     public $status;
@@ -32,14 +22,28 @@ class UpdateFileProtectEventStatusRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->id)) {
+            Model::validateArray($this->id);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
-            $res['Id'] = $this->id;
+            if (\is_array($this->id)) {
+                $res['Id'] = [];
+                $n1 = 0;
+                foreach ($this->id as $item1) {
+                    $res['Id'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -47,19 +51,25 @@ class UpdateFileProtectEventStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFileProtectEventStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             if (!empty($map['Id'])) {
-                $model->id = $map['Id'];
+                $model->id = [];
+                $n1 = 0;
+                foreach ($map['Id'] as $item1) {
+                    $model->id[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

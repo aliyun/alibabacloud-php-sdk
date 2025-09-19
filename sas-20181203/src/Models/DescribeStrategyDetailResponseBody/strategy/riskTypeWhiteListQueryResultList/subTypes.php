@@ -4,55 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyDetailResponseBody\strategy\riskTypeWhiteListQueryResultList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyDetailResponseBody\strategy\riskTypeWhiteListQueryResultList\subTypes\checkDetails;
-use AlibabaCloud\Tea\Model;
 
 class subTypes extends Model
 {
     /**
-     * @description The alias of the check item.
-     *
-     * @example Redis unauthorized access high exploit vulnerability risk
-     *
      * @var string
      */
     public $alias;
 
     /**
-     * @description The details of custom check items.
-     *
      * @var checkDetails[]
      */
     public $checkDetails;
 
     /**
-     * @description Indicates whether the sub-check item is selected. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $on;
 
     /**
-     * @description The operating system type of the server. Valid values:
-     *   **windows**
-     *   **linux**
-     *
-     * @example windows
-     *
      * @var string
      */
     public $supportedOs;
 
     /**
-     * @description The type of the sub-check item.
-     *
-     * @example hc_exploit_redis
-     *
      * @var string
      */
     public $typeName;
@@ -64,29 +41,40 @@ class subTypes extends Model
         'typeName' => 'TypeName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->checkDetails)) {
+            Model::validateArray($this->checkDetails);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
+
         if (null !== $this->checkDetails) {
-            $res['CheckDetails'] = [];
-            if (null !== $this->checkDetails && \is_array($this->checkDetails)) {
-                $n = 0;
-                foreach ($this->checkDetails as $item) {
-                    $res['CheckDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->checkDetails)) {
+                $res['CheckDetails'] = [];
+                $n1 = 0;
+                foreach ($this->checkDetails as $item1) {
+                    $res['CheckDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->on) {
             $res['On'] = $this->on;
         }
+
         if (null !== $this->supportedOs) {
             $res['SupportedOs'] = $this->supportedOs;
         }
+
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
@@ -94,32 +82,37 @@ class subTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
+
         if (isset($map['CheckDetails'])) {
             if (!empty($map['CheckDetails'])) {
                 $model->checkDetails = [];
-                $n = 0;
-                foreach ($map['CheckDetails'] as $item) {
-                    $model->checkDetails[$n++] = null !== $item ? checkDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CheckDetails'] as $item1) {
+                    $model->checkDetails[$n1] = checkDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['On'])) {
             $model->on = $map['On'];
         }
+
         if (isset($map['SupportedOs'])) {
             $model->supportedOs = $map['SupportedOs'];
         }
+
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }

@@ -4,64 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody\exposedChains;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class realVulList extends Model
 {
     /**
-     * @description The alias of the vulnerability.
-     *
-     * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability(CVE-2021-4034)
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description The name of the vulnerability.
-     *
-     * @example SCA:ACSV-2020-052801
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The priority to fix the vulnerability. Valid values:
-     *
-     *   **asap**: high
-     *   **later**: medium
-     *   **nntf**: low
-     *
-     * >  We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
-     *
-     * @example asap
-     *
      * @var string
      */
     public $necessity;
 
     /**
-     * @description The type of the vulnerability. Valid values:
-     *
-     *   **cve**: Linux software vulnerabilities
-     *   **sys**: Windows system vulnerabilities
-     *   **cms**: Web-CMS vulnerabilities
-     *   **app**: application vulnerabilities
-     *   **emg**: urgent vulnerabilities
-     *   **sca**: middleware vulnerabilities
-     *
-     * @example sca
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 4f9ce097-4a7d-48fe-baef-6960e5b6****
-     *
      * @var string
      */
     public $uuid;
@@ -73,23 +40,30 @@ class realVulList extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->necessity) {
             $res['Necessity'] = $this->necessity;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -97,26 +71,30 @@ class realVulList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return realVulList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Necessity'])) {
             $model->necessity = $map['Necessity'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

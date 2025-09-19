@@ -4,32 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClusterNetworkRequest extends Model
 {
     /**
-     * @description The end timestamp of the query. Unit: milliseconds.
-     *
-     * > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
-     *
-     * This parameter is required.
-     *
-     * @example 1656038940435
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The start timestamp of the query. Unit: milliseconds.
-     *
-     * > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
-     *
-     * This parameter is required.
-     *
-     * @example 1656038740435
-     *
      * @var int
      */
     public $startTime;
@@ -38,14 +22,18 @@ class DescribeClusterNetworkRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -53,17 +41,18 @@ class DescribeClusterNetworkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterNetworkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

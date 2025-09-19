@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategyTaskDetailResponseBody\taskDetail;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSoarStrategyTaskDetailResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example FBBEB173-1F43-505F-A876-C03ECDF6CE4C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the task.
-     *
      * @var taskDetail
      */
     public $taskDetail;
@@ -29,32 +23,40 @@ class DescribeSoarStrategyTaskDetailResponseBody extends Model
         'taskDetail' => 'TaskDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->taskDetail) {
+            $this->taskDetail->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskDetail) {
-            $res['TaskDetail'] = null !== $this->taskDetail ? $this->taskDetail->toMap() : null;
+            $res['TaskDetail'] = null !== $this->taskDetail ? $this->taskDetail->toArray($noStream) : $this->taskDetail;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSoarStrategyTaskDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskDetail'])) {
             $model->taskDetail = taskDetail::fromMap($map['TaskDetail']);
         }

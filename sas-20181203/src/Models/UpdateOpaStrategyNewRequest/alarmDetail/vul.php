@@ -4,29 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\vul\item;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\vul\riskClass;
-use AlibabaCloud\Tea\Model;
 
 class vul extends Model
 {
     /**
-     * @description The vulnerabilities.
-     *
      * @var item[]
      */
     public $item;
 
     /**
-     * @description Risk type of vulnerability.
-     *
      * @var riskClass[]
      */
     public $riskClass;
 
     /**
-     * @description The risk levels.
-     *
      * @var string[]
      */
     public $riskLevel;
@@ -36,65 +30,97 @@ class vul extends Model
         'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->item)) {
+            Model::validateArray($this->item);
+        }
+        if (\is_array($this->riskClass)) {
+            Model::validateArray($this->riskClass);
+        }
+        if (\is_array($this->riskLevel)) {
+            Model::validateArray($this->riskLevel);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->item) {
-            $res['Item'] = [];
-            if (null !== $this->item && \is_array($this->item)) {
-                $n = 0;
-                foreach ($this->item as $item) {
-                    $res['Item'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->item)) {
+                $res['Item'] = [];
+                $n1 = 0;
+                foreach ($this->item as $item1) {
+                    $res['Item'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->riskClass) {
-            $res['RiskClass'] = [];
-            if (null !== $this->riskClass && \is_array($this->riskClass)) {
-                $n = 0;
-                foreach ($this->riskClass as $item) {
-                    $res['RiskClass'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->riskClass)) {
+                $res['RiskClass'] = [];
+                $n1 = 0;
+                foreach ($this->riskClass as $item1) {
+                    $res['RiskClass'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
+            if (\is_array($this->riskLevel)) {
+                $res['RiskLevel'] = [];
+                $n1 = 0;
+                foreach ($this->riskLevel as $item1) {
+                    $res['RiskLevel'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vul
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Item'])) {
             if (!empty($map['Item'])) {
                 $model->item = [];
-                $n = 0;
-                foreach ($map['Item'] as $item) {
-                    $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Item'] as $item1) {
+                    $model->item[$n1] = item::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RiskClass'])) {
             if (!empty($map['RiskClass'])) {
                 $model->riskClass = [];
-                $n = 0;
-                foreach ($map['RiskClass'] as $item) {
-                    $model->riskClass[$n++] = null !== $item ? riskClass::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RiskClass'] as $item1) {
+                    $model->riskClass[$n1] = riskClass::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RiskLevel'])) {
             if (!empty($map['RiskLevel'])) {
-                $model->riskLevel = $map['RiskLevel'];
+                $model->riskLevel = [];
+                $n1 = 0;
+                foreach ($map['RiskLevel'] as $item1) {
+                    $model->riskLevel[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

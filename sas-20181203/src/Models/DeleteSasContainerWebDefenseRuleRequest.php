@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSasContainerWebDefenseRuleRequest extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * >  You can call the ListContainerWebDefenseRule operation to query the rule ID.
-     *
-     * This parameter is required.
-     *
-     * @example 400597
-     *
      * @var int
      */
     public $ruleId;
@@ -24,9 +16,12 @@ class DeleteSasContainerWebDefenseRuleRequest extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleId) {
@@ -36,11 +31,11 @@ class DeleteSasContainerWebDefenseRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSasContainerWebDefenseRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

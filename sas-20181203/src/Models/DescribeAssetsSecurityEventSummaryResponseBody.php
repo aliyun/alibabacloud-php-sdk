@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsSecurityEventSummaryResponseBody\assets;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAssetsSecurityEventSummaryResponseBody extends Model
 {
     /**
-     * @description An array that consists of risk information about containers.
-     *
      * @var assets[]
      */
     public $assets;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D03DD0FD-6041-5107-AC00-383E28F1****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeAssetsSecurityEventSummaryResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->assets)) {
+            Model::validateArray($this->assets);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assets) {
-            $res['Assets'] = [];
-            if (null !== $this->assets && \is_array($this->assets)) {
-                $n = 0;
-                foreach ($this->assets as $item) {
-                    $res['Assets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assets)) {
+                $res['Assets'] = [];
+                $n1 = 0;
+                foreach ($this->assets as $item1) {
+                    $res['Assets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeAssetsSecurityEventSummaryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAssetsSecurityEventSummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n = 0;
-                foreach ($map['Assets'] as $item) {
-                    $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Assets'] as $item1) {
+                    $model->assets[$n1] = assets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

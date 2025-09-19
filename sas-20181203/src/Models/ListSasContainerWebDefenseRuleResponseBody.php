@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListSasContainerWebDefenseRuleResponseBody\containerWebDefenseRuleList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListSasContainerWebDefenseRuleResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListSasContainerWebDefenseRuleResponseBody extends Model
 {
     /**
-     * @description The rules for container tamper-proofing.
-     *
      * @var containerWebDefenseRuleList[]
      */
     public $containerWebDefenseRuleList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The request ID, which is used to query logs and troubleshoot issues.
-     *
-     * @example 8C376***AE74FB4
-     *
      * @var string
      */
     public $requestId;
@@ -38,23 +30,35 @@ class ListSasContainerWebDefenseRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->containerWebDefenseRuleList)) {
+            Model::validateArray($this->containerWebDefenseRuleList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerWebDefenseRuleList) {
-            $res['ContainerWebDefenseRuleList'] = [];
-            if (null !== $this->containerWebDefenseRuleList && \is_array($this->containerWebDefenseRuleList)) {
-                $n = 0;
-                foreach ($this->containerWebDefenseRuleList as $item) {
-                    $res['ContainerWebDefenseRuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->containerWebDefenseRuleList)) {
+                $res['ContainerWebDefenseRuleList'] = [];
+                $n1 = 0;
+                foreach ($this->containerWebDefenseRuleList as $item1) {
+                    $res['ContainerWebDefenseRuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +66,29 @@ class ListSasContainerWebDefenseRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSasContainerWebDefenseRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerWebDefenseRuleList'])) {
             if (!empty($map['ContainerWebDefenseRuleList'])) {
                 $model->containerWebDefenseRuleList = [];
-                $n = 0;
-                foreach ($map['ContainerWebDefenseRuleList'] as $item) {
-                    $model->containerWebDefenseRuleList[$n++] = null !== $item ? containerWebDefenseRuleList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContainerWebDefenseRuleList'] as $item1) {
+                    $model->containerWebDefenseRuleList[$n1] = containerWebDefenseRuleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

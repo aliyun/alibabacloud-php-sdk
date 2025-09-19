@@ -4,41 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyVulConfigRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the vulnerability scan feature. Valid values:
-     *
-     *   **on**: enables the feature
-     *   **off**: disables the feature
-     *
-     * > Valid values when you set the Type parameter to scanMode:
-     *
-     *   **real**: displays only easily exploitable vulnerabilities.
-     *
-     *   **all**: displays all vulnerabilities.
-     *
-     * @example on
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description The type of the vulnerability. Valid values:
-     *
-     *   **cve**: Linux software vulnerability
-     *   **sys**: Windows system vulnerability
-     *   **cms**: Web-CMS vulnerability
-     *   **emg**: urgent vulnerability
-     *   **app**: application vulnerability
-     *   **yum**: YUM and APT source configuration
-     *   **scanMode**: easily exploitable vulnerability
-     *
-     * @example cve
-     *
      * @var string
      */
     public $type;
@@ -47,14 +22,18 @@ class ModifyVulConfigRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -62,17 +41,18 @@ class ModifyVulConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyVulConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

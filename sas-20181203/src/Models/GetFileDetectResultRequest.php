@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFileDetectResultRequest extends Model
 {
     /**
-     * @description The identifiers of files. Only MD5 hash values are supported.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $hashKeyList;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 183.46.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The type of the file. Valid values:
-     *
-     *   **0**: unknown file
-     *   **1**: binary file
-     *   **2**: webshell file
-     *   **4**: script file
-     *
-     * > If you do not know the type of the file, set this parameter to 0.
-     *
-     * This parameter is required.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $type;
@@ -49,17 +28,32 @@ class GetFileDetectResultRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hashKeyList)) {
+            Model::validateArray($this->hashKeyList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hashKeyList) {
-            $res['HashKeyList'] = $this->hashKeyList;
+            if (\is_array($this->hashKeyList)) {
+                $res['HashKeyList'] = [];
+                $n1 = 0;
+                foreach ($this->hashKeyList as $item1) {
+                    $res['HashKeyList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -67,22 +61,29 @@ class GetFileDetectResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileDetectResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HashKeyList'])) {
             if (!empty($map['HashKeyList'])) {
-                $model->hashKeyList = $map['HashKeyList'];
+                $model->hashKeyList = [];
+                $n1 = 0;
+                foreach ($map['HashKeyList'] as $item1) {
+                    $model->hashKeyList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

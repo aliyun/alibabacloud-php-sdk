@@ -4,69 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListOperationProcessRequest extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The end of the time range to query. Unit: milliseconds.
-     *
-     * @example 1635575219000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The beginning of the time range to query. Unit: milliseconds.
-     *
-     * @example 1680919232000
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description The task status codes.
-     *
      * @var int[]
      */
     public $statusCodes;
 
     /**
-     * @description The task IDs.
-     *
      * @var string[]
      */
     public $taskIds;
 
     /**
-     * @description The task types. Valid values:
-     *
-     *   CHECK_ALL: full check.
-     *   CHECK_POLICY: policy-based check for which check items are configured.
-     *   CHECK_SCHEDULE: scheduled check.
-     *   CHECK_ITEM: specific check item-based check.
-     *   CHECK_INSTANCE: specific check item-based check on specific instances.
-     *
+     * @var string[]
+     */
+    public $taskSources;
+
+    /**
      * @var string[]
      */
     public $taskTypes;
@@ -77,72 +54,158 @@ class ListOperationProcessRequest extends Model
         'startTime' => 'StartTime',
         'statusCodes' => 'StatusCodes',
         'taskIds' => 'TaskIds',
+        'taskSources' => 'TaskSources',
         'taskTypes' => 'TaskTypes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->statusCodes)) {
+            Model::validateArray($this->statusCodes);
+        }
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
+        }
+        if (\is_array($this->taskSources)) {
+            Model::validateArray($this->taskSources);
+        }
+        if (\is_array($this->taskTypes)) {
+            Model::validateArray($this->taskTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->statusCodes) {
-            $res['StatusCodes'] = $this->statusCodes;
+            if (\is_array($this->statusCodes)) {
+                $res['StatusCodes'] = [];
+                $n1 = 0;
+                foreach ($this->statusCodes as $item1) {
+                    $res['StatusCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
+            if (\is_array($this->taskIds)) {
+                $res['TaskIds'] = [];
+                $n1 = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['TaskIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (null !== $this->taskSources) {
+            if (\is_array($this->taskSources)) {
+                $res['TaskSources'] = [];
+                $n1 = 0;
+                foreach ($this->taskSources as $item1) {
+                    $res['TaskSources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->taskTypes) {
-            $res['TaskTypes'] = $this->taskTypes;
+            if (\is_array($this->taskTypes)) {
+                $res['TaskTypes'] = [];
+                $n1 = 0;
+                foreach ($this->taskTypes as $item1) {
+                    $res['TaskTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOperationProcessRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StatusCodes'])) {
             if (!empty($map['StatusCodes'])) {
-                $model->statusCodes = $map['StatusCodes'];
+                $model->statusCodes = [];
+                $n1 = 0;
+                foreach ($map['StatusCodes'] as $item1) {
+                    $model->statusCodes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TaskIds'])) {
             if (!empty($map['TaskIds'])) {
-                $model->taskIds = $map['TaskIds'];
+                $model->taskIds = [];
+                $n1 = 0;
+                foreach ($map['TaskIds'] as $item1) {
+                    $model->taskIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
+        if (isset($map['TaskSources'])) {
+            if (!empty($map['TaskSources'])) {
+                $model->taskSources = [];
+                $n1 = 0;
+                foreach ($map['TaskSources'] as $item1) {
+                    $model->taskSources[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['TaskTypes'])) {
             if (!empty($map['TaskTypes'])) {
-                $model->taskTypes = $map['TaskTypes'];
+                $model->taskTypes = [];
+                $n1 = 0;
+                foreach ($map['TaskTypes'] as $item1) {
+                    $model->taskTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

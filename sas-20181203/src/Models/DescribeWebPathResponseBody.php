@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebPathResponseBody\configList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebPathResponseBody extends Model
 {
     /**
-     * @description An array that consists of the paths to the web directories.
-     *
      * @var configList[]
      */
     public $configList;
 
     /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example B37C9052-A73E-4707-A024-92477028****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -69,32 +47,44 @@ class DescribeWebPathResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->configList)) {
+            Model::validateArray($this->configList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configList) {
-            $res['ConfigList'] = [];
-            if (null !== $this->configList && \is_array($this->configList)) {
-                $n = 0;
-                foreach ($this->configList as $item) {
-                    $res['ConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configList)) {
+                $res['ConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->configList as $item1) {
+                    $res['ConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -102,35 +92,41 @@ class DescribeWebPathResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebPathResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
-                $n = 0;
-                foreach ($map['ConfigList'] as $item) {
-                    $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfigList'] as $item1) {
+                    $model->configList[$n1] = configList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

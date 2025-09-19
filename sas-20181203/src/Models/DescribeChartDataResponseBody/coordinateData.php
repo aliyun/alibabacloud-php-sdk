@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeChartDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeChartDataResponseBody\coordinateData\YAxisList;
-use AlibabaCloud\Tea\Model;
 
 class coordinateData extends Model
 {
     /**
-     * @description The x-axis values.
-     *
      * @var string[]
      */
     public $XAxis;
 
     /**
-     * @description The y-axis values.
-     *
      * @var YAxisList[]
      */
     public $YAxisList;
@@ -27,20 +23,38 @@ class coordinateData extends Model
         'YAxisList' => 'YAxisList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->XAxis)) {
+            Model::validateArray($this->XAxis);
+        }
+        if (\is_array($this->YAxisList)) {
+            Model::validateArray($this->YAxisList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->XAxis) {
-            $res['XAxis'] = $this->XAxis;
+            if (\is_array($this->XAxis)) {
+                $res['XAxis'] = [];
+                $n1 = 0;
+                foreach ($this->XAxis as $item1) {
+                    $res['XAxis'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->YAxisList) {
-            $res['YAxisList'] = [];
-            if (null !== $this->YAxisList && \is_array($this->YAxisList)) {
-                $n = 0;
-                foreach ($this->YAxisList as $item) {
-                    $res['YAxisList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->YAxisList)) {
+                $res['YAxisList'] = [];
+                $n1 = 0;
+                foreach ($this->YAxisList as $item1) {
+                    $res['YAxisList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,25 +62,32 @@ class coordinateData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return coordinateData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['XAxis'])) {
             if (!empty($map['XAxis'])) {
-                $model->XAxis = $map['XAxis'];
+                $model->XAxis = [];
+                $n1 = 0;
+                foreach ($map['XAxis'] as $item1) {
+                    $model->XAxis[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['YAxisList'])) {
             if (!empty($map['YAxisList'])) {
                 $model->YAxisList = [];
-                $n = 0;
-                foreach ($map['YAxisList'] as $item) {
-                    $model->YAxisList[$n++] = null !== $item ? YAxisList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['YAxisList'] as $item1) {
+                    $model->YAxisList[$n1] = YAxisList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

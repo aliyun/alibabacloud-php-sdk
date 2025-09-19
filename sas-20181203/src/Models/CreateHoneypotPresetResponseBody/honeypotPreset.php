@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotPresetResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class honeypotPreset extends Model
 {
     /**
-     * @description The ID of the honeypot template.
-     *
-     * @example d6ece172-34d9-4942-99a4-b309cb55xxxx
-     *
      * @var string
      */
     public $honeypotPresetId;
@@ -20,9 +16,12 @@ class honeypotPreset extends Model
         'honeypotPresetId' => 'HoneypotPresetId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->honeypotPresetId) {
@@ -32,11 +31,11 @@ class honeypotPreset extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return honeypotPreset
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

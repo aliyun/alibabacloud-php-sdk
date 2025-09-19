@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterInfoListResponseBody\clusterList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterInfoListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about clusters.
-     *
      * @var clusterList[]
      */
     public $clusterList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeClusterInfoListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusterList)) {
+            Model::validateArray($this->clusterList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterList) {
-            $res['ClusterList'] = [];
-            if (null !== $this->clusterList && \is_array($this->clusterList)) {
-                $n = 0;
-                foreach ($this->clusterList as $item) {
-                    $res['ClusterList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusterList)) {
+                $res['ClusterList'] = [];
+                $n1 = 0;
+                foreach ($this->clusterList as $item1) {
+                    $res['ClusterList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeClusterInfoListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterInfoListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterList'])) {
             if (!empty($map['ClusterList'])) {
                 $model->clusterList = [];
-                $n = 0;
-                foreach ($map['ClusterList'] as $item) {
-                    $model->clusterList[$n++] = null !== $item ? clusterList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ClusterList'] as $item1) {
+                    $model->clusterList[$n1] = clusterList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

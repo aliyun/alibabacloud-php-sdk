@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class HandleMaliciousFilesRequest extends Model
 {
     /**
-     * @description List of file IDs to be processed.
-     * > You can call [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) to get the IDs.
-     * > -
-     *
      * @var int[]
      */
     public $fileIdList;
 
     /**
-     * @description Type of operation:
-     * - addWhitelist: Add to whitelist
-     * - offWhitelist: Remove from whitelist
-     *
-     * @example addWhitelist
-     *
      * @var string
      */
     public $operation;
@@ -32,14 +22,28 @@ class HandleMaliciousFilesRequest extends Model
         'operation' => 'Operation',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileIdList)) {
+            Model::validateArray($this->fileIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileIdList) {
-            $res['FileIdList'] = $this->fileIdList;
+            if (\is_array($this->fileIdList)) {
+                $res['FileIdList'] = [];
+                $n1 = 0;
+                foreach ($this->fileIdList as $item1) {
+                    $res['FileIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
@@ -47,19 +51,25 @@ class HandleMaliciousFilesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HandleMaliciousFilesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileIdList'])) {
             if (!empty($map['FileIdList'])) {
-                $model->fileIdList = $map['FileIdList'];
+                $model->fileIdList = [];
+                $n1 = 0;
+                foreach ($map['FileIdList'] as $item1) {
+                    $model->fileIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }

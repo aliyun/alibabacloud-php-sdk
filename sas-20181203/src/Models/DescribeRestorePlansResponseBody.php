@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestorePlansResponseBody\pageInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestorePlansResponseBody\restorePlans;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRestorePlansResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example BE120DAB-F4E7-4C53-ADC3-A97578AB****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the restoration tasks.
-     *
      * @var restorePlans[]
      */
     public $restorePlans;
@@ -38,23 +30,35 @@ class DescribeRestorePlansResponseBody extends Model
         'restorePlans' => 'RestorePlans',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        if (\is_array($this->restorePlans)) {
+            Model::validateArray($this->restorePlans);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->restorePlans) {
-            $res['RestorePlans'] = [];
-            if (null !== $this->restorePlans && \is_array($this->restorePlans)) {
-                $n = 0;
-                foreach ($this->restorePlans as $item) {
-                    $res['RestorePlans'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->restorePlans)) {
+                $res['RestorePlans'] = [];
+                $n1 = 0;
+                foreach ($this->restorePlans as $item1) {
+                    $res['RestorePlans'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,26 +66,29 @@ class DescribeRestorePlansResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRestorePlansResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RestorePlans'])) {
             if (!empty($map['RestorePlans'])) {
                 $model->restorePlans = [];
-                $n = 0;
-                foreach ($map['RestorePlans'] as $item) {
-                    $model->restorePlans[$n++] = null !== $item ? restorePlans::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RestorePlans'] as $item1) {
+                    $model->restorePlans[$n1] = restorePlans::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

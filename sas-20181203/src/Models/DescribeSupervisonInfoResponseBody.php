@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSupervisonInfoResponseBody extends Model
 {
     /**
-     * @description The time of the last system vulnerability scan. The value is a UNIX timestamp. Unit: milliseconds.
-     *
-     * @example 1721134553000
-     *
      * @var int
      */
     public $latestScanTime;
 
     /**
-     * @description The request ID.
-     *
-     * @example E10BAF1C-A6C5-51E2-866C-76D5922E****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class DescribeSupervisonInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->latestScanTime) {
             $res['LatestScanTime'] = $this->latestScanTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class DescribeSupervisonInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSupervisonInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LatestScanTime'])) {
             $model->latestScanTime = $map['LatestScanTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

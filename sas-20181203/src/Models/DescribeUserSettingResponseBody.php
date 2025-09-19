@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUserSettingResponseBody extends Model
 {
     /**
-     * @description The severities of alerts. If this parameter is empty, no custom alerts are generated.
-     *
      * @var string[]
      */
     public $alertLevels;
 
     /**
-     * @description The number of days during which you want to retain invalid alerts.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $invalidWarningKeepDays;
 
     /**
-     * @description The request ID.
-     *
-     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +28,32 @@ class DescribeUserSettingResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->alertLevels)) {
+            Model::validateArray($this->alertLevels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertLevels) {
-            $res['AlertLevels'] = $this->alertLevels;
+            if (\is_array($this->alertLevels)) {
+                $res['AlertLevels'] = [];
+                $n1 = 0;
+                foreach ($this->alertLevels as $item1) {
+                    $res['AlertLevels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->invalidWarningKeepDays) {
             $res['InvalidWarningKeepDays'] = $this->invalidWarningKeepDays;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,22 +61,29 @@ class DescribeUserSettingResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserSettingResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertLevels'])) {
             if (!empty($map['AlertLevels'])) {
-                $model->alertLevels = $map['AlertLevels'];
+                $model->alertLevels = [];
+                $n1 = 0;
+                foreach ($map['AlertLevels'] as $item1) {
+                    $model->alertLevels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InvalidWarningKeepDays'])) {
             $model->invalidWarningKeepDays = $map['InvalidWarningKeepDays'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

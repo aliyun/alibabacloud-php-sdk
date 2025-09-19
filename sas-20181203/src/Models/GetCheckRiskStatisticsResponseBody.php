@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsResponseBody\data;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsResponseBody\summary;
-use AlibabaCloud\Tea\Model;
 
 class GetCheckRiskStatisticsResponseBody extends Model
 {
     /**
-     * @description The number of risk scenarios.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description An array consisting of the statistics on check items that are used in risk scenarios.
-     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 2C455672-2490-5211-84EC-420C7818****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Historical check item statistics.
-     *
      * @var summary
      */
     public $summary;
@@ -48,56 +36,73 @@ class GetCheckRiskStatisticsResponseBody extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        if (null !== $this->summary) {
+            $this->summary->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->summary) {
-            $res['Summary'] = null !== $this->summary ? $this->summary->toMap() : null;
+            $res['Summary'] = null !== $this->summary ? $this->summary->toArray($noStream) : $this->summary;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCheckRiskStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Data'] as $item1) {
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = summary::fromMap($map['Summary']);
         }

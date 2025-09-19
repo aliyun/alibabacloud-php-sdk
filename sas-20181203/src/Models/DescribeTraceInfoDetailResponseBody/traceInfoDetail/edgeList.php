@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoDetailResponseBody\traceInfoDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class edgeList extends Model
 {
     /**
-     * @description The number of times.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The ending vertex ID of the edge of the tracing diagram.
-     *
-     * @example a1d1fa39e5345dcef3f9712172cxxxxx
-     *
      * @var string
      */
     public $endId;
 
     /**
-     * @description The starting vertex ID of the edge of the tracing diagram.
-     *
-     * @example 02b4bf933c8e3bb8b9465eee502xxxxx
-     *
      * @var string
      */
     public $startId;
 
     /**
-     * @description The point in time.
-     *
-     * @example 2022-12-21 10:24:42
-     *
      * @var string
      */
     public $time;
 
     /**
-     * @description The type of the edge of the tracing diagram.
-     *
-     * @example trigger_file_alert
-     *
      * @var string
      */
     public $type;
@@ -60,23 +40,30 @@ class edgeList extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->endId) {
             $res['EndId'] = $this->endId;
         }
+
         if (null !== $this->startId) {
             $res['StartId'] = $this->startId;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -84,26 +71,30 @@ class edgeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return edgeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['EndId'])) {
             $model->endId = $map['EndId'];
         }
+
         if (isset($map['StartId'])) {
             $model->startId = $map['StartId'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockConfigListResponseBody\configList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebLockConfigListResponseBody extends Model
 {
     /**
-     * @description The configurations of web tamper proofing.
-     *
      * @var configList[]
      */
     public $configList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D9354C1A-D709-4873-9AAE-41513327B247
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of directories that have web tamper proofing enabled on the server.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class DescribeWebLockConfigListResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->configList)) {
+            Model::validateArray($this->configList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configList) {
-            $res['ConfigList'] = [];
-            if (null !== $this->configList && \is_array($this->configList)) {
-                $n = 0;
-                foreach ($this->configList as $item) {
-                    $res['ConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configList)) {
+                $res['ConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->configList as $item1) {
+                    $res['ConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class DescribeWebLockConfigListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebLockConfigListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
-                $n = 0;
-                foreach ($map['ConfigList'] as $item) {
-                    $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfigList'] as $item1) {
+                    $model->configList[$n1] = configList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

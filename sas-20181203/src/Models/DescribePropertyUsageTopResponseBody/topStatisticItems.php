@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUsageTopResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class topStatisticItems extends Model
 {
     /**
-     * @description The quantity.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The statistical item.
-     *
-     * @example openssl
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class topStatisticItems extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class topStatisticItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topStatisticItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

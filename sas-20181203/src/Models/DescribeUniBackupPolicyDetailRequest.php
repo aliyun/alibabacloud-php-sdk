@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUniBackupPolicyDetailRequest extends Model
 {
     /**
-     * @description The ID of the anti-ransomware policy.
-     *
-     * > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
-     *
-     * This parameter is required.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $policyId;
@@ -24,9 +16,12 @@ class DescribeUniBackupPolicyDetailRequest extends Model
         'policyId' => 'PolicyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
@@ -36,11 +31,11 @@ class DescribeUniBackupPolicyDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUniBackupPolicyDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

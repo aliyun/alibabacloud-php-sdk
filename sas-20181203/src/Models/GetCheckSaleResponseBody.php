@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSaleResponseBody\checkSale;
-use AlibabaCloud\Tea\Model;
 
 class GetCheckSaleResponseBody extends Model
 {
     /**
-     * @description The sales information about the configuration assessment quota.
-     *
      * @var checkSale
      */
     public $checkSale;
 
     /**
-     * @description The request ID.
-     *
-     * @example F5CF78A7-30AA-59DB-847F-13EE3AE7****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetCheckSaleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->checkSale) {
+            $this->checkSale->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkSale) {
-            $res['CheckSale'] = null !== $this->checkSale ? $this->checkSale->toMap() : null;
+            $res['CheckSale'] = null !== $this->checkSale ? $this->checkSale->toArray($noStream) : $this->checkSale;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetCheckSaleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCheckSaleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckSale'])) {
             $model->checkSale = checkSale::fromMap($map['CheckSale']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

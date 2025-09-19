@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody\exposedChains;
-use AlibabaCloud\Tea\Model;
 
 class DescribeExposedInstanceDetailResponseBody extends Model
 {
     /**
-     * @description The list of exposure details of the server or database.
-     *
      * @var exposedChains[]
      */
     public $exposedChains;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example C590482B-54A7-4273-8115-9DBE2DE46B26
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeExposedInstanceDetailResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->exposedChains)) {
+            Model::validateArray($this->exposedChains);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exposedChains) {
-            $res['ExposedChains'] = [];
-            if (null !== $this->exposedChains && \is_array($this->exposedChains)) {
-                $n = 0;
-                foreach ($this->exposedChains as $item) {
-                    $res['ExposedChains'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->exposedChains)) {
+                $res['ExposedChains'] = [];
+                $n1 = 0;
+                foreach ($this->exposedChains as $item1) {
+                    $res['ExposedChains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeExposedInstanceDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExposedInstanceDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExposedChains'])) {
             if (!empty($map['ExposedChains'])) {
                 $model->exposedChains = [];
-                $n = 0;
-                foreach ($map['ExposedChains'] as $item) {
-                    $model->exposedChains[$n++] = null !== $item ? exposedChains::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ExposedChains'] as $item1) {
+                    $model->exposedChains[$n1] = exposedChains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AdvanceSecurityEventOperationsResponseBody\securityEventOperationsResponse;
-use AlibabaCloud\Tea\Model;
 
 class AdvanceSecurityEventOperationsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example A4EB8B1C-1DEC-5E18-BCD0-XXXXXXXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The operation performed on the alert event.
-     *
      * @var securityEventOperationsResponse[]
      */
     public $securityEventOperationsResponse;
@@ -29,20 +23,28 @@ class AdvanceSecurityEventOperationsResponseBody extends Model
         'securityEventOperationsResponse' => 'SecurityEventOperationsResponse',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->securityEventOperationsResponse)) {
+            Model::validateArray($this->securityEventOperationsResponse);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityEventOperationsResponse) {
-            $res['SecurityEventOperationsResponse'] = [];
-            if (null !== $this->securityEventOperationsResponse && \is_array($this->securityEventOperationsResponse)) {
-                $n = 0;
-                foreach ($this->securityEventOperationsResponse as $item) {
-                    $res['SecurityEventOperationsResponse'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->securityEventOperationsResponse)) {
+                $res['SecurityEventOperationsResponse'] = [];
+                $n1 = 0;
+                foreach ($this->securityEventOperationsResponse as $item1) {
+                    $res['SecurityEventOperationsResponse'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class AdvanceSecurityEventOperationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AdvanceSecurityEventOperationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityEventOperationsResponse'])) {
             if (!empty($map['SecurityEventOperationsResponse'])) {
                 $model->securityEventOperationsResponse = [];
-                $n = 0;
-                foreach ($map['SecurityEventOperationsResponse'] as $item) {
-                    $model->securityEventOperationsResponse[$n++] = null !== $item ? securityEventOperationsResponse::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SecurityEventOperationsResponse'] as $item1) {
+                    $model->securityEventOperationsResponse[$n1] = securityEventOperationsResponse::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

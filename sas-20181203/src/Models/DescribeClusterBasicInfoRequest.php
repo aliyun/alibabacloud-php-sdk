@@ -4,46 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClusterBasicInfoRequest extends Model
 {
     /**
-     * @description The ID of the cluster that you want to query.
-     *
-     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
-     *
-     * This parameter is required.
-     *
-     * @example c870ec78ecbcb41d2a35c679823ef****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The dimension from which you want to configure the feature. Valid values:
-     *
-     *   **Cluster**: the ID of the cluster
-     *
-     * This parameter is required.
-     *
-     * @example Cluster
-     *
      * @var string
      */
     public $targetType;
 
     /**
-     * @description The type of the feature. Valid values:
-     *
-     *   **containerNetwork**: container network topology
-     *   **interceptionSwitch**: cluster microsegmentation
-     *
-     * This parameter is required.
-     *
-     * @example containerNetwork
-     *
      * @var string
      */
     public $type;
@@ -53,17 +28,22 @@ class DescribeClusterBasicInfoRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -71,20 +51,22 @@ class DescribeClusterBasicInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterBasicInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebPathResponseBody\configList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetList extends Model
 {
     /**
-     * @description The object.
-     *
-     * @example 82048187-bb9b-4e19-8320-7b4ddb97****
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @description The object type. Valid values:
-     *
-     *   **uuid**
-     *
-     * @example uuid
-     *
      * @var string
      */
     public $targetType;
@@ -32,14 +22,18 @@ class targetList extends Model
         'targetType' => 'TargetType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -47,17 +41,18 @@ class targetList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

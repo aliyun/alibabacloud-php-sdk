@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSasContainerWebDefenseRuleApplicationResponseBody\containerWebDefenseAppList;
-use AlibabaCloud\Tea\Model;
 
 class GetSasContainerWebDefenseRuleApplicationResponseBody extends Model
 {
     /**
-     * @description The applications.
-     *
      * @var containerWebDefenseAppList[]
      */
     public $containerWebDefenseAppList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class GetSasContainerWebDefenseRuleApplicationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->containerWebDefenseAppList)) {
+            Model::validateArray($this->containerWebDefenseAppList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerWebDefenseAppList) {
-            $res['ContainerWebDefenseAppList'] = [];
-            if (null !== $this->containerWebDefenseAppList && \is_array($this->containerWebDefenseAppList)) {
-                $n = 0;
-                foreach ($this->containerWebDefenseAppList as $item) {
-                    $res['ContainerWebDefenseAppList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->containerWebDefenseAppList)) {
+                $res['ContainerWebDefenseAppList'] = [];
+                $n1 = 0;
+                foreach ($this->containerWebDefenseAppList as $item1) {
+                    $res['ContainerWebDefenseAppList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class GetSasContainerWebDefenseRuleApplicationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSasContainerWebDefenseRuleApplicationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerWebDefenseAppList'])) {
             if (!empty($map['ContainerWebDefenseAppList'])) {
                 $model->containerWebDefenseAppList = [];
-                $n = 0;
-                foreach ($map['ContainerWebDefenseAppList'] as $item) {
-                    $model->containerWebDefenseAppList[$n++] = null !== $item ? containerWebDefenseAppList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContainerWebDefenseAppList'] as $item1) {
+                    $model->containerWebDefenseAppList[$n1] = containerWebDefenseAppList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

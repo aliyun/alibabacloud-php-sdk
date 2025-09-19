@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllImageBaselineResponseBody\imageBaselines;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllImageBaselineResponseBody\imageBaselines\baselineClassList\baselineNameList;
-use AlibabaCloud\Tea\Model;
 
 class baselineClassList extends Model
 {
     /**
-     * @description The alias of the baseline type.
-     *
-     * @example Identity authentication
-     *
      * @var string
      */
     public $alias;
 
     /**
-     * @description The information about the baseline.
-     *
      * @var baselineNameList[]
      */
     public $baselineNameList;
 
     /**
-     * @description The key of the baseline type.
-     *
-     * @example identification
-     *
      * @var string
      */
     public $classKey;
@@ -39,23 +29,32 @@ class baselineClassList extends Model
         'classKey' => 'ClassKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->baselineNameList)) {
+            Model::validateArray($this->baselineNameList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
+
         if (null !== $this->baselineNameList) {
-            $res['BaselineNameList'] = [];
-            if (null !== $this->baselineNameList && \is_array($this->baselineNameList)) {
-                $n = 0;
-                foreach ($this->baselineNameList as $item) {
-                    $res['BaselineNameList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->baselineNameList)) {
+                $res['BaselineNameList'] = [];
+                $n1 = 0;
+                foreach ($this->baselineNameList as $item1) {
+                    $res['BaselineNameList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->classKey) {
             $res['ClassKey'] = $this->classKey;
         }
@@ -63,26 +62,29 @@ class baselineClassList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return baselineClassList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
+
         if (isset($map['BaselineNameList'])) {
             if (!empty($map['BaselineNameList'])) {
                 $model->baselineNameList = [];
-                $n = 0;
-                foreach ($map['BaselineNameList'] as $item) {
-                    $model->baselineNameList[$n++] = null !== $item ? baselineNameList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BaselineNameList'] as $item1) {
+                    $model->baselineNameList[$n1] = baselineNameList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ClassKey'])) {
             $model->classKey = $map['ClassKey'];
         }

@@ -4,44 +4,74 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyCheckResultRequest extends Model
 {
     /**
-     * @description The IDs of the check items.
-     *
      * @var int[]
      */
     public $checkIds;
+
+    /**
+     * @var string
+     */
+    public $taskSource;
     protected $_name = [
         'checkIds' => 'CheckIds',
+        'taskSource' => 'TaskSource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->checkIds)) {
+            Model::validateArray($this->checkIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkIds) {
-            $res['CheckIds'] = $this->checkIds;
+            if (\is_array($this->checkIds)) {
+                $res['CheckIds'] = [];
+                $n1 = 0;
+                foreach ($this->checkIds as $item1) {
+                    $res['CheckIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->taskSource) {
+            $res['TaskSource'] = $this->taskSource;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyCheckResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckIds'])) {
             if (!empty($map['CheckIds'])) {
-                $model->checkIds = $map['CheckIds'];
+                $model->checkIds = [];
+                $n1 = 0;
+                foreach ($map['CheckIds'] as $item1) {
+                    $model->checkIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
+        }
+
+        if (isset($map['TaskSource'])) {
+            $model->taskSource = $map['TaskSource'];
         }
 
         return $model;

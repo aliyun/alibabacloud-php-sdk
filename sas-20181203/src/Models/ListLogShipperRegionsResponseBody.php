@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListLogShipperRegionsResponseBody\logShipperRegionList;
-use AlibabaCloud\Tea\Model;
 
 class ListLogShipperRegionsResponseBody extends Model
 {
     /**
-     * @description The regions supported by the log delivery feature.
-     *
      * @var logShipperRegionList[]
      */
     public $logShipperRegionList;
 
     /**
-     * @description The request ID.
-     *
-     * @example F9C4DE22-D242-5ABA-87EC-325ECBDC****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListLogShipperRegionsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logShipperRegionList)) {
+            Model::validateArray($this->logShipperRegionList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logShipperRegionList) {
-            $res['LogShipperRegionList'] = [];
-            if (null !== $this->logShipperRegionList && \is_array($this->logShipperRegionList)) {
-                $n = 0;
-                foreach ($this->logShipperRegionList as $item) {
-                    $res['LogShipperRegionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logShipperRegionList)) {
+                $res['LogShipperRegionList'] = [];
+                $n1 = 0;
+                foreach ($this->logShipperRegionList as $item1) {
+                    $res['LogShipperRegionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListLogShipperRegionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLogShipperRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogShipperRegionList'])) {
             if (!empty($map['LogShipperRegionList'])) {
                 $model->logShipperRegionList = [];
-                $n = 0;
-                foreach ($map['LogShipperRegionList'] as $item) {
-                    $model->logShipperRegionList[$n++] = null !== $item ? logShipperRegionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogShipperRegionList'] as $item1) {
+                    $model->logShipperRegionList[$n1] = logShipperRegionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The operation code of the cloud service configuration task. Valid values:
-     *
-     *   **Throttling**: frequency limit
-     *   **ActionTrialUnauthorized**: an error that is related to unauthorized operations
-     *
-     * @example Throttling
-     *
      * @var string
      */
     public $operateCode;
 
     /**
-     * @description The task ID.
-     *
-     * @example 8eded533-5348-468c-aa1d-0aa2934a7***
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The throttling duration. Unit: seconds
-     *
-     * @example 1800
-     *
      * @var int
      */
     public $throttlingTimeSecond;
@@ -43,17 +28,22 @@ class data extends Model
         'throttlingTimeSecond' => 'ThrottlingTimeSecond',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operateCode) {
             $res['OperateCode'] = $this->operateCode;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->throttlingTimeSecond) {
             $res['ThrottlingTimeSecond'] = $this->throttlingTimeSecond;
         }
@@ -61,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperateCode'])) {
             $model->operateCode = $map['OperateCode'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['ThrottlingTimeSecond'])) {
             $model->throttlingTimeSecond = $map['ThrottlingTimeSecond'];
         }

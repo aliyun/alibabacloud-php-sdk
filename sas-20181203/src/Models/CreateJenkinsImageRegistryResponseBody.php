@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class CreateJenkinsImageRegistryResponseBody extends Model
 {
     /**
-     * @description The result of creating the image repository.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1AF1E723-53F1-55BF-A4B2-15CB7A32****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The time consumed. Unit: seconds.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $timeCost;
@@ -49,20 +35,29 @@ class CreateJenkinsImageRegistryResponseBody extends Model
         'timeCost' => 'TimeCost',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->timeCost) {
             $res['TimeCost'] = $this->timeCost;
         }
@@ -70,23 +65,26 @@ class CreateJenkinsImageRegistryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateJenkinsImageRegistryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TimeCost'])) {
             $model->timeCost = $map['TimeCost'];
         }

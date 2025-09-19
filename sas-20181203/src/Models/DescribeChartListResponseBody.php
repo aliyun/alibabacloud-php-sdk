@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeChartListResponseBody\chartList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeChartListResponseBody extends Model
 {
     /**
-     * @description The charts.
-     *
      * @var chartList[]
      */
     public $chartList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 35B434CC-1615-5937-A04E-A9BC2868DB45
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeChartListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->chartList)) {
+            Model::validateArray($this->chartList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chartList) {
-            $res['ChartList'] = [];
-            if (null !== $this->chartList && \is_array($this->chartList)) {
-                $n = 0;
-                foreach ($this->chartList as $item) {
-                    $res['ChartList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->chartList)) {
+                $res['ChartList'] = [];
+                $n1 = 0;
+                foreach ($this->chartList as $item1) {
+                    $res['ChartList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeChartListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeChartListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChartList'])) {
             if (!empty($map['ChartList'])) {
                 $model->chartList = [];
-                $n = 0;
-                foreach ($map['ChartList'] as $item) {
-                    $model->chartList[$n++] = null !== $item ? chartList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ChartList'] as $item1) {
+                    $model->chartList[$n1] = chartList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

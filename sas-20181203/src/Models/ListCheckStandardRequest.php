@@ -4,52 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCheckStandardRequest extends Model
 {
     /**
-     * @description The instance IDs of the cloud services to which the check items belong.
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The subtypes of cloud services.
-     *
      * @var string[]
      */
     public $instanceSubTypes;
 
     /**
-     * @description The asset types of cloud services.
-     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The cloud service providers. Valid values:
-     *
-     *   **ALIYUN**: Alibaba Cloud.
-     *   **TENCENT**: Tencent Cloud.
-     *   **HUAWEICLOUD**: Huawei Cloud.
-     *   **MICROSOFT**: Microsoft Azure.
-     *   **AWS**: Amazon Web Services (AWS).
-     *
+     * @var string[]
+     */
+    public $taskSources;
+
+    /**
      * @var string[]
      */
     public $vendors;
@@ -58,62 +42,159 @@ class ListCheckStandardRequest extends Model
         'instanceSubTypes' => 'InstanceSubTypes',
         'instanceTypes' => 'InstanceTypes',
         'lang' => 'Lang',
+        'taskSources' => 'TaskSources',
         'vendors' => 'Vendors',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->instanceSubTypes)) {
+            Model::validateArray($this->instanceSubTypes);
+        }
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
+        }
+        if (\is_array($this->taskSources)) {
+            Model::validateArray($this->taskSources);
+        }
+        if (\is_array($this->vendors)) {
+            Model::validateArray($this->vendors);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceSubTypes) {
-            $res['InstanceSubTypes'] = $this->instanceSubTypes;
+            if (\is_array($this->instanceSubTypes)) {
+                $res['InstanceSubTypes'] = [];
+                $n1 = 0;
+                foreach ($this->instanceSubTypes as $item1) {
+                    $res['InstanceSubTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = $this->instanceTypes;
+            if (\is_array($this->instanceTypes)) {
+                $res['InstanceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['InstanceTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
+        if (null !== $this->taskSources) {
+            if (\is_array($this->taskSources)) {
+                $res['TaskSources'] = [];
+                $n1 = 0;
+                foreach ($this->taskSources as $item1) {
+                    $res['TaskSources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->vendors) {
-            $res['Vendors'] = $this->vendors;
+            if (\is_array($this->vendors)) {
+                $res['Vendors'] = [];
+                $n1 = 0;
+                foreach ($this->vendors as $item1) {
+                    $res['Vendors'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCheckStandardRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceSubTypes'])) {
             if (!empty($map['InstanceSubTypes'])) {
-                $model->instanceSubTypes = $map['InstanceSubTypes'];
+                $model->instanceSubTypes = [];
+                $n1 = 0;
+                foreach ($map['InstanceSubTypes'] as $item1) {
+                    $model->instanceSubTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = $map['InstanceTypes'];
+                $model->instanceTypes = [];
+                $n1 = 0;
+                foreach ($map['InstanceTypes'] as $item1) {
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
+        if (isset($map['TaskSources'])) {
+            if (!empty($map['TaskSources'])) {
+                $model->taskSources = [];
+                $n1 = 0;
+                foreach ($map['TaskSources'] as $item1) {
+                    $model->taskSources[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Vendors'])) {
             if (!empty($map['Vendors'])) {
-                $model->vendors = $map['Vendors'];
+                $model->vendors = [];
+                $n1 = 0;
+                foreach ($map['Vendors'] as $item1) {
+                    $model->vendors[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

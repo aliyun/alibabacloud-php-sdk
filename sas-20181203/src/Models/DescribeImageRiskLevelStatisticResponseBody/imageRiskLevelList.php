@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageRiskLevelStatisticResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageRiskLevelList extends Model
 {
     /**
-     * @description The count of images for this risk level.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $cnt;
 
     /**
-     * @description The image risk level. Valid values：
-     * - **3**：High
-     * - **2**：Medium
-     * - **1**：Low
-     * - **0**：None
-     *
-     * @example 0
-     *
      * @var string
      */
     public $imageRiskLevel;
@@ -34,14 +22,18 @@ class imageRiskLevelList extends Model
         'imageRiskLevel' => 'ImageRiskLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cnt) {
             $res['Cnt'] = $this->cnt;
         }
+
         if (null !== $this->imageRiskLevel) {
             $res['ImageRiskLevel'] = $this->imageRiskLevel;
         }
@@ -49,17 +41,18 @@ class imageRiskLevelList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageRiskLevelList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cnt'])) {
             $model->cnt = $map['Cnt'];
         }
+
         if (isset($map['ImageRiskLevel'])) {
             $model->imageRiskLevel = $map['ImageRiskLevel'];
         }

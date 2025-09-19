@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClusterInfoListRequest extends Model
 {
     /**
-     * @description The operation value. The value specifies the ID of the cluster.
-     *
-     * @example c23551de6149343e8a54e69fbefe6****
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @description The dimension based on which you want to configure the feature. Valid values:
-     *
-     *   **Cluster**: the ID of the cluster
-     *
-     * This parameter is required.
-     *
-     * @example Cluster
-     *
      * @var string
      */
     public $targetType;
 
     /**
-     * @description The type of the feature. Valid values:
-     *
-     *   **containerNetwork**: container network
-     *   **interceptionSwitch**: cluster microsegmentation
-     *
-     * This parameter is required.
-     *
-     * @example containerNetwork
-     *
      * @var string
      */
     public $type;
@@ -49,17 +28,22 @@ class DescribeClusterInfoListRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -67,20 +51,22 @@ class DescribeClusterInfoListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterInfoListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

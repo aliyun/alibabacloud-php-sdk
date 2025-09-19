@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyDetailNewResponseBody\data\alarmDetail\vul;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class riskClass extends Model
 {
     /**
-     * @description The ID of the vulnerability types. Valid values:
-     *
-     *   **cve**: system vulnerability
-     *   **app**: application vulnerability
-     *
-     * @example cve
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The name of the vulnerability. Valid values:
-     *
-     *   **system vulnerability**
-     *   **application vulnerability**
-     *
-     * @example system vulnerability
-     *
      * @var string
      */
     public $name;
@@ -36,14 +22,18 @@ class riskClass extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -51,17 +41,18 @@ class riskClass extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return riskClass
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

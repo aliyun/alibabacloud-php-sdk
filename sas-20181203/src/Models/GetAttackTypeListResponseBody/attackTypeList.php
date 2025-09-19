@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackTypeListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class attackTypeList extends Model
 {
     /**
-     * @description The description of the attack type.
-     *
-     * @example sas.attack.type.type12
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description The attack source. Valid values:
-     *
-     *   **cfw**: Cloud Firewall
-     *   **alinet**: network defense plug-in
-     *   **waf**: Web Application Firewall (WAF)
-     *
-     * @example alinet
-     *
      * @var string
      */
     public $statusType;
 
     /**
-     * @description The value of the attack type.
-     *
-     * @example upload
-     *
      * @var string
      */
     public $value;
@@ -44,17 +28,22 @@ class attackTypeList extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->statusType) {
             $res['Status_Type'] = $this->statusType;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -62,20 +51,22 @@ class attackTypeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return attackTypeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Status_Type'])) {
             $model->statusType = $map['Status_Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

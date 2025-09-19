@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JoinWebLockProcessWhiteListRequest extends Model
 {
     /**
-     * @description The paths of the processes.
-     *
      * @var string[]
      */
     public $processPaths;
 
     /**
-     * @description The UUIDs of the servers on which the processes run. Separate multiple UUIDs with commas (,).
-     *
-     * @example 0c1714dc-f7a3-4265-8364-7aa3fce8****,1cc45e7d-7698-4b2c-89d8-e8cba407****
-     *
      * @var string
      */
     public $uuids;
@@ -28,14 +22,28 @@ class JoinWebLockProcessWhiteListRequest extends Model
         'uuids' => 'Uuids',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->processPaths)) {
+            Model::validateArray($this->processPaths);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->processPaths) {
-            $res['ProcessPaths'] = $this->processPaths;
+            if (\is_array($this->processPaths)) {
+                $res['ProcessPaths'] = [];
+                $n1 = 0;
+                foreach ($this->processPaths as $item1) {
+                    $res['ProcessPaths'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
         }
@@ -43,19 +51,25 @@ class JoinWebLockProcessWhiteListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JoinWebLockProcessWhiteListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProcessPaths'])) {
             if (!empty($map['ProcessPaths'])) {
-                $model->processPaths = $map['ProcessPaths'];
+                $model->processPaths = [];
+                $n1 = 0;
+                foreach ($map['ProcessPaths'] as $item1) {
+                    $model->processPaths[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\QueryAttackCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of times that the alert is triggered.
-     *
-     * @example 28
-     *
      * @var int
      */
     public $eventCount;
 
     /**
-     * @description The stage ID of the ATT\\&CK attack.
-     *
-     * @example TA0043
-     *
      * @var string
      */
     public $tacticId;
 
     /**
-     * @description The type of stage of the ATT\\&CK attack.
-     *
-     * @example Data collection
-     *
      * @var string
      */
     public $tacticType;
@@ -40,17 +28,22 @@ class data extends Model
         'tacticType' => 'TacticType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventCount) {
             $res['EventCount'] = $this->eventCount;
         }
+
         if (null !== $this->tacticId) {
             $res['TacticId'] = $this->tacticId;
         }
+
         if (null !== $this->tacticType) {
             $res['TacticType'] = $this->tacticType;
         }
@@ -58,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventCount'])) {
             $model->eventCount = $map['EventCount'];
         }
+
         if (isset($map['TacticId'])) {
             $model->tacticId = $map['TacticId'];
         }
+
         if (isset($map['TacticType'])) {
             $model->tacticType = $map['TacticType'];
         }

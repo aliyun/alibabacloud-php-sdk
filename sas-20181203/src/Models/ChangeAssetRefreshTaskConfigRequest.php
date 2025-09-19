@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeAssetRefreshTaskConfigRequest\assetRefreshConfigs;
-use AlibabaCloud\Tea\Model;
 
 class ChangeAssetRefreshTaskConfigRequest extends Model
 {
     /**
-     * @description The asset synchronization configuration.
-     *
      * @var assetRefreshConfigs[]
      */
     public $assetRefreshConfigs;
 
     /**
-     * @description The region in which your Security Center service resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -29,20 +23,28 @@ class ChangeAssetRefreshTaskConfigRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->assetRefreshConfigs)) {
+            Model::validateArray($this->assetRefreshConfigs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetRefreshConfigs) {
-            $res['AssetRefreshConfigs'] = [];
-            if (null !== $this->assetRefreshConfigs && \is_array($this->assetRefreshConfigs)) {
-                $n = 0;
-                foreach ($this->assetRefreshConfigs as $item) {
-                    $res['AssetRefreshConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assetRefreshConfigs)) {
+                $res['AssetRefreshConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->assetRefreshConfigs as $item1) {
+                    $res['AssetRefreshConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -50,23 +52,25 @@ class ChangeAssetRefreshTaskConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeAssetRefreshTaskConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetRefreshConfigs'])) {
             if (!empty($map['AssetRefreshConfigs'])) {
                 $model->assetRefreshConfigs = [];
-                $n = 0;
-                foreach ($map['AssetRefreshConfigs'] as $item) {
-                    $model->assetRefreshConfigs[$n++] = null !== $item ? assetRefreshConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AssetRefreshConfigs'] as $item1) {
+                    $model->assetRefreshConfigs[$n1] = assetRefreshConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

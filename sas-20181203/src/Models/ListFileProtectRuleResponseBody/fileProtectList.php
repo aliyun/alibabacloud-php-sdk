@@ -4,131 +4,71 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectRuleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fileProtectList extends Model
 {
     /**
-     * @description The handling method of the rule. Valid values:
-     *
-     *   pass: allow
-     *   alert
-     *
-     * @example pass
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description The severity of alerts. Valid values:
-     *
-     *   0: does not generate alerts
-     *   1: sends notifications
-     *   2: suspicious
-     *   3: high-risk
-     *
-     * @example 0
-     *
      * @var string
      */
     public $alertLevel;
 
     /**
-     * @description The total number of affected assets.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $effectInstanceCount;
 
     /**
-     * @description The operations performed on the files.
-     *
      * @var string[]
      */
     public $fileOps;
 
     /**
-     * @description The paths to the monitored files. Wildcard characters are supported.
-     *
      * @var string[]
      */
     public $filePaths;
 
     /**
-     * @description The time when the rule was created.
-     *
-     * @example 1682304179000
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description The time when the rule was last modified.
-     *
-     * @example 1682304179000
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description The ID of the rule.
-     *
-     * @example 1412511
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The type of the operating system. Valid values:
-     *
-     *   **windows**: Windows
-     *   **linux**: Linux
-     *
-     * @example linux
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description The paths to the monitored processes. Wildcard characters are supported.
-     *
      * @var string[]
      */
     public $procPaths;
 
     /**
-     * @description The name of the rule.
-     *
-     * @example test11
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The status of the rule. Valid values:
-     *
-     *   0: disabled
-     *   1: enabled
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The switch ID of the rule.
-     *
-     * @example FILE_PROTECT_RULE_SWITCH_TYPE_1693474122927
-     *
      * @var string
      */
     public $switchId;
@@ -148,47 +88,92 @@ class fileProtectList extends Model
         'switchId' => 'SwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileOps)) {
+            Model::validateArray($this->fileOps);
+        }
+        if (\is_array($this->filePaths)) {
+            Model::validateArray($this->filePaths);
+        }
+        if (\is_array($this->procPaths)) {
+            Model::validateArray($this->procPaths);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->alertLevel) {
             $res['AlertLevel'] = $this->alertLevel;
         }
+
         if (null !== $this->effectInstanceCount) {
             $res['EffectInstanceCount'] = $this->effectInstanceCount;
         }
+
         if (null !== $this->fileOps) {
-            $res['FileOps'] = $this->fileOps;
+            if (\is_array($this->fileOps)) {
+                $res['FileOps'] = [];
+                $n1 = 0;
+                foreach ($this->fileOps as $item1) {
+                    $res['FileOps'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->filePaths) {
-            $res['FilePaths'] = $this->filePaths;
+            if (\is_array($this->filePaths)) {
+                $res['FilePaths'] = [];
+                $n1 = 0;
+                foreach ($this->filePaths as $item1) {
+                    $res['FilePaths'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
+
         if (null !== $this->procPaths) {
-            $res['ProcPaths'] = $this->procPaths;
+            if (\is_array($this->procPaths)) {
+                $res['ProcPaths'] = [];
+                $n1 = 0;
+                foreach ($this->procPaths as $item1) {
+                    $res['ProcPaths'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->switchId) {
             $res['SwitchId'] = $this->switchId;
         }
@@ -196,56 +181,83 @@ class fileProtectList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileProtectList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['AlertLevel'])) {
             $model->alertLevel = $map['AlertLevel'];
         }
+
         if (isset($map['EffectInstanceCount'])) {
             $model->effectInstanceCount = $map['EffectInstanceCount'];
         }
+
         if (isset($map['FileOps'])) {
             if (!empty($map['FileOps'])) {
-                $model->fileOps = $map['FileOps'];
+                $model->fileOps = [];
+                $n1 = 0;
+                foreach ($map['FileOps'] as $item1) {
+                    $model->fileOps[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['FilePaths'])) {
             if (!empty($map['FilePaths'])) {
-                $model->filePaths = $map['FilePaths'];
+                $model->filePaths = [];
+                $n1 = 0;
+                foreach ($map['FilePaths'] as $item1) {
+                    $model->filePaths[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
+
         if (isset($map['ProcPaths'])) {
             if (!empty($map['ProcPaths'])) {
-                $model->procPaths = $map['ProcPaths'];
+                $model->procPaths = [];
+                $n1 = 0;
+                foreach ($map['ProcPaths'] as $item1) {
+                    $model->procPaths[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SwitchId'])) {
             $model->switchId = $map['SwitchId'];
         }

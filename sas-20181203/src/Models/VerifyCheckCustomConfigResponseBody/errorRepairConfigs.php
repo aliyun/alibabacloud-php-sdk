@@ -4,60 +4,37 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckCustomConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckCustomConfigResponseBody\errorRepairConfigs\linkErrorConfigs;
-use AlibabaCloud\Tea\Model;
 
 class errorRepairConfigs extends Model
 {
     /**
-     * @description Error code.
-     *
-     * @example ConfigEqualIllegal
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description Error message.
-     *
-     * @example Repair parameter is not equal to corresponding check parameter
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description Related configurations causing this error.
-     *
      * @var linkErrorConfigs[]
      */
     public $linkErrorConfigs;
 
     /**
-     * @description Name of the check item\\"s repair configuration, unique within the same check item.
-     *
-     * @example IpLists
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The type of the parameter that caused the error:
-     * - repair: Repair parameter
-     *
-     * @example repair
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description Name of the check item\\"s repair parameter, unique within the same check item.
-     *
-     * @example 172.26.49.XX
-     *
      * @var string
      */
     public $value;
@@ -70,32 +47,44 @@ class errorRepairConfigs extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->linkErrorConfigs)) {
+            Model::validateArray($this->linkErrorConfigs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->linkErrorConfigs) {
-            $res['LinkErrorConfigs'] = [];
-            if (null !== $this->linkErrorConfigs && \is_array($this->linkErrorConfigs)) {
-                $n = 0;
-                foreach ($this->linkErrorConfigs as $item) {
-                    $res['LinkErrorConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->linkErrorConfigs)) {
+                $res['LinkErrorConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->linkErrorConfigs as $item1) {
+                    $res['LinkErrorConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -103,35 +92,41 @@ class errorRepairConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return errorRepairConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['LinkErrorConfigs'])) {
             if (!empty($map['LinkErrorConfigs'])) {
                 $model->linkErrorConfigs = [];
-                $n = 0;
-                foreach ($map['LinkErrorConfigs'] as $item) {
-                    $model->linkErrorConfigs[$n++] = null !== $item ? linkErrorConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LinkErrorConfigs'] as $item1) {
+                    $model->linkErrorConfigs[$n1] = linkErrorConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

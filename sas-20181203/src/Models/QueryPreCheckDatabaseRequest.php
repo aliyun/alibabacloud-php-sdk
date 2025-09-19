@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryPreCheckDatabaseRequest extends Model
 {
     /**
-     * @description The UUID of the agent that is used to back up the data of the database.
-     *
-     * > You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the UUID.
-     *
-     * @example ebc895506c6911ed800000163e0e****
-     *
      * @var string
      */
     public $instanceUuid;
 
     /**
-     * @description The ID of the database precheck task.
-     *
-     * > You can call the [StartPreCheckDatabase](~~StartPreCheckDatabase~~) operation to query the ID of the database precheck task.
-     *
-     * @example t-000bc9nqwxsbyvod****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The region ID of the server that hosts the database.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $uniRegionId;
@@ -46,17 +28,22 @@ class QueryPreCheckDatabaseRequest extends Model
         'uniRegionId' => 'UniRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceUuid) {
             $res['InstanceUuid'] = $this->instanceUuid;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->uniRegionId) {
             $res['UniRegionId'] = $this->uniRegionId;
         }
@@ -64,20 +51,22 @@ class QueryPreCheckDatabaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryPreCheckDatabaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceUuid'])) {
             $model->instanceUuid = $map['InstanceUuid'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['UniRegionId'])) {
             $model->uniRegionId = $map['UniRegionId'];
         }

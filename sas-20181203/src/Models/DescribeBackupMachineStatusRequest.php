@@ -4,44 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBackupMachineStatusRequest extends Model
 {
     /**
-     * @description The ID of the anti-ransomware policy.
-     *
-     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
-     *
-     * This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $policyId;
 
     /**
-     * @description The version of the anti-ransomware policy. Valid values:
-     *
-     *   **1.0.0**
-     *   **2.0.0**
-     *
-     * @example 2.0.0
-     *
      * @var string
      */
     public $policyVersion;
 
     /**
-     * @description The UUID of the server.
-     *
-     * >  You can call the [DescribeBackupPolicy](~~DescribeBackupPolicy~~) operation to query the UUIDs of servers.
-     *
-     * This parameter is required.
-     *
-     * @example eb2c782e-64f2-4590-a86c-d90164df****
-     *
      * @var string
      */
     public $uuid;
@@ -51,17 +28,22 @@ class DescribeBackupMachineStatusRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -69,20 +51,22 @@ class DescribeBackupMachineStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupMachineStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

@@ -4,100 +4,56 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListOpaClusterStrategyNewResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
     /**
-     * @description The action of the rule. Valid values:
-     *
-     *   **1**: trigger alerts
-     *   **2**: block
-     *   **3**: allow
-     *
-     * @example 1
-     *
      * @var int
      */
     public $action;
 
     /**
-     * @description The number of clusters on which the rule takes effect.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $clusterCount;
 
     /**
-     * @description The clusters on which the rule takes effect.
-     *
      * @var string[]
      */
     public $clusterIdList;
 
     /**
-     * @description The description.
-     *
-     * @example Config the Event Audit policys
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The image names.
-     *
      * @var string[]
      */
     public $imageName;
 
     /**
-     * @description The tags that are added to the container.
-     *
      * @var string[]
      */
     public $label;
 
     /**
-     * @description Indicates whether the rule supports malicious Internet images. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $maliciousImage;
 
     /**
-     * @description The rule ID.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $strategyId;
 
     /**
-     * @description The rule name.
-     *
-     * @example auto-strategy-vohuiq
-     *
      * @var string
      */
     public $strategyName;
 
     /**
-     * @description Indicates whether the rule supports unscanned images. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $unScanedImage;
@@ -114,38 +70,80 @@ class list_ extends Model
         'unScanedImage' => 'UnScanedImage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusterIdList)) {
+            Model::validateArray($this->clusterIdList);
+        }
+        if (\is_array($this->imageName)) {
+            Model::validateArray($this->imageName);
+        }
+        if (\is_array($this->label)) {
+            Model::validateArray($this->label);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->clusterCount) {
             $res['ClusterCount'] = $this->clusterCount;
         }
+
         if (null !== $this->clusterIdList) {
-            $res['ClusterIdList'] = $this->clusterIdList;
+            if (\is_array($this->clusterIdList)) {
+                $res['ClusterIdList'] = [];
+                $n1 = 0;
+                foreach ($this->clusterIdList as $item1) {
+                    $res['ClusterIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->imageName) {
-            $res['ImageName'] = $this->imageName;
+            if (\is_array($this->imageName)) {
+                $res['ImageName'] = [];
+                $n1 = 0;
+                foreach ($this->imageName as $item1) {
+                    $res['ImageName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->label) {
-            $res['Label'] = $this->label;
+            if (\is_array($this->label)) {
+                $res['Label'] = [];
+                $n1 = 0;
+                foreach ($this->label as $item1) {
+                    $res['Label'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->maliciousImage) {
             $res['MaliciousImage'] = $this->maliciousImage;
         }
+
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
+
         if (null !== $this->strategyName) {
             $res['StrategyName'] = $this->strategyName;
         }
+
         if (null !== $this->unScanedImage) {
             $res['UnScanedImage'] = $this->unScanedImage;
         }
@@ -153,47 +151,71 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['ClusterCount'])) {
             $model->clusterCount = $map['ClusterCount'];
         }
+
         if (isset($map['ClusterIdList'])) {
             if (!empty($map['ClusterIdList'])) {
-                $model->clusterIdList = $map['ClusterIdList'];
+                $model->clusterIdList = [];
+                $n1 = 0;
+                foreach ($map['ClusterIdList'] as $item1) {
+                    $model->clusterIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ImageName'])) {
             if (!empty($map['ImageName'])) {
-                $model->imageName = $map['ImageName'];
+                $model->imageName = [];
+                $n1 = 0;
+                foreach ($map['ImageName'] as $item1) {
+                    $model->imageName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Label'])) {
             if (!empty($map['Label'])) {
-                $model->label = $map['Label'];
+                $model->label = [];
+                $n1 = 0;
+                foreach ($map['Label'] as $item1) {
+                    $model->label[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MaliciousImage'])) {
             $model->maliciousImage = $map['MaliciousImage'];
         }
+
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }
+
         if (isset($map['StrategyName'])) {
             $model->strategyName = $map['StrategyName'];
         }
+
         if (isset($map['UnScanedImage'])) {
             $model->unScanedImage = $map['UnScanedImage'];
         }

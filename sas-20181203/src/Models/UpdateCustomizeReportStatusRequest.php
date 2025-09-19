@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateCustomizeReportStatusRequest extends Model
 {
     /**
-     * @description The time when the report is pinned. Unit: milliseconds.
-     *
-     * @example 1717430400000
-     *
      * @var int
      */
     public $pinnedTime;
 
     /**
-     * @description The ID of the report.
-     *
-     * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $reportId;
 
     /**
-     * @description The status of the report. Valid values:
-     *
-     *   **0**: disabled.
-     *   **1**: enabled.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $reportStatus;
@@ -49,17 +28,22 @@ class UpdateCustomizeReportStatusRequest extends Model
         'reportStatus' => 'ReportStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pinnedTime) {
             $res['PinnedTime'] = $this->pinnedTime;
         }
+
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
+
         if (null !== $this->reportStatus) {
             $res['ReportStatus'] = $this->reportStatus;
         }
@@ -67,20 +51,22 @@ class UpdateCustomizeReportStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCustomizeReportStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PinnedTime'])) {
             $model->pinnedTime = $map['PinnedTime'];
         }
+
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }
+
         if (isset($map['ReportStatus'])) {
             $model->reportStatus = $map['ReportStatus'];
         }

@@ -4,56 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBinarySecurityPoliciesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBinarySecurityPoliciesResponseBody\binarySecurityPolicies\clusters;
-use AlibabaCloud\Tea\Model;
 
 class binarySecurityPolicies extends Model
 {
     /**
-     * @description The information about clusters.
-     *
      * @var clusters[]
      */
     public $clusters;
 
     /**
-     * @description The name of the policy.
-     *
-     * @example logtail
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The content of the policy. The value is in the JSON format. A key supports the following values:
-     *
-     *   **policyMode**: the type of the policy. Default value: requireAttestor.
-     *   **requiredAttestors**: the required witnesses.
-     *
-     * @example {\\"PolicyMode\\":\\"requireAttestor\\",\\"RequiredAttestors\\":[\\"test-xcs-04-11-hhht\\"]}
-     *
      * @var mixed[]
      */
     public $policy;
 
     /**
-     * @description The description.
-     *
-     * @example test
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The status of the policy. Valid values:
-     *
-     *   **enabled**
-     *   **disabled**
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $status;
@@ -65,29 +41,48 @@ class binarySecurityPolicies extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusters)) {
+            Model::validateArray($this->clusters);
+        }
+        if (\is_array($this->policy)) {
+            Model::validateArray($this->policy);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusters) {
-            $res['Clusters'] = [];
-            if (null !== $this->clusters && \is_array($this->clusters)) {
-                $n = 0;
-                foreach ($this->clusters as $item) {
-                    $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusters)) {
+                $res['Clusters'] = [];
+                $n1 = 0;
+                foreach ($this->clusters as $item1) {
+                    $res['Clusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
+            if (\is_array($this->policy)) {
+                $res['Policy'] = [];
+                foreach ($this->policy as $key1 => $value1) {
+                    $res['Policy'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -95,32 +90,42 @@ class binarySecurityPolicies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return binarySecurityPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
-                $n = 0;
-                foreach ($map['Clusters'] as $item) {
-                    $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Clusters'] as $item1) {
+                    $model->clusters[$n1] = clusters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
+            if (!empty($map['Policy'])) {
+                $model->policy = [];
+                foreach ($map['Policy'] as $key1 => $value1) {
+                    $model->policy[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

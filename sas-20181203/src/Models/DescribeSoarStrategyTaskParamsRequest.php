@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSoarStrategyTaskParamsRequest extends Model
 {
     /**
-     * @description Strategy task ID.
-     * > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $strategyTaskId;
@@ -21,9 +16,12 @@ class DescribeSoarStrategyTaskParamsRequest extends Model
         'strategyTaskId' => 'StrategyTaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->strategyTaskId) {
@@ -33,11 +31,11 @@ class DescribeSoarStrategyTaskParamsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSoarStrategyTaskParamsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

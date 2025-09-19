@@ -4,38 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTotalStatisticsRequest extends Model
 {
     /**
-     * @description The source of data. Default value: **aqs**. Valid values:
-     *
-     *   **sas**: Security Center
-     *   **aqs**: Server Guard
-     *
-     * @example sas
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description The ID of the asset group.
-     *
-     * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the IDs of asset groups.
-     *
-     * @example 8076980
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description The name or public IP address of the asset.
-     *
-     * @example 222.185.XX.XX
-     *
      * @var string
      */
     public $remark;
@@ -45,17 +28,22 @@ class DescribeTotalStatisticsRequest extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -63,20 +51,22 @@ class DescribeTotalStatisticsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTotalStatisticsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

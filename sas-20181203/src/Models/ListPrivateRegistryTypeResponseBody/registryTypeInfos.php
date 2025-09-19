@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryTypeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class registryTypeInfos extends Model
 {
     /**
-     * @description The number of image repositories.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The name of the image repository type. Valid values:
-     *
-     *   **acr**: Container Registry
-     *   **harbor**: Harbor
-     *   **quay**: Quay
-     *   **CI/CD**: Jenkins
-     *
-     * @example harbor
-     *
      * @var string
      */
     public $registryType;
@@ -35,14 +22,18 @@ class registryTypeInfos extends Model
         'registryType' => 'RegistryType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->registryType) {
             $res['RegistryType'] = $this->registryType;
         }
@@ -50,17 +41,18 @@ class registryTypeInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return registryTypeInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['RegistryType'])) {
             $model->registryType = $map['RegistryType'];
         }

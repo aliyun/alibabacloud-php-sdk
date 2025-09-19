@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistResponseBody\vulWhitelistList;
-use AlibabaCloud\Tea\Model;
 
 class ModifyCreateVulWhitelistResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6B23A612-D997-5176-8C3B-D640DFD65772
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the information about the whitelist.
-     *
      * @var vulWhitelistList[]
      */
     public $vulWhitelistList;
@@ -29,20 +23,28 @@ class ModifyCreateVulWhitelistResponseBody extends Model
         'vulWhitelistList' => 'VulWhitelistList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vulWhitelistList)) {
+            Model::validateArray($this->vulWhitelistList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vulWhitelistList) {
-            $res['VulWhitelistList'] = [];
-            if (null !== $this->vulWhitelistList && \is_array($this->vulWhitelistList)) {
-                $n = 0;
-                foreach ($this->vulWhitelistList as $item) {
-                    $res['VulWhitelistList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vulWhitelistList)) {
+                $res['VulWhitelistList'] = [];
+                $n1 = 0;
+                foreach ($this->vulWhitelistList as $item1) {
+                    $res['VulWhitelistList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class ModifyCreateVulWhitelistResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCreateVulWhitelistResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VulWhitelistList'])) {
             if (!empty($map['VulWhitelistList'])) {
                 $model->vulWhitelistList = [];
-                $n = 0;
-                foreach ($map['VulWhitelistList'] as $item) {
-                    $model->vulWhitelistList[$n++] = null !== $item ? vulWhitelistList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VulWhitelistList'] as $item1) {
+                    $model->vulWhitelistList[$n1] = vulWhitelistList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

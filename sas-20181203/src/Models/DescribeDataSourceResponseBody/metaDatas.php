@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDataSourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDataSourceResponseBody\metaDatas\metaDataFields;
-use AlibabaCloud\Tea\Model;
 
 class metaDatas extends Model
 {
     /**
-     * @description The ID of the data source.
-     *
-     * @example 1753
-     *
      * @var int
      */
     public $dataSourceId;
 
     /**
-     * @description The name of the data source.
-     *
-     * @example sas_analysis_pre-sas-operation-log-sas-event-suspicious
-     *
      * @var string
      */
     public $dataSourceName;
 
     /**
-     * @description The description of the data source.
-     *
-     * @example dingtalk_suspicious
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The metadata files.
-     *
      * @var metaDataFields[]
      */
     public $metaDataFields;
@@ -49,26 +35,36 @@ class metaDatas extends Model
         'metaDataFields' => 'MetaDataFields',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metaDataFields)) {
+            Model::validateArray($this->metaDataFields);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->dataSourceName) {
             $res['DataSourceName'] = $this->dataSourceName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->metaDataFields) {
-            $res['MetaDataFields'] = [];
-            if (null !== $this->metaDataFields && \is_array($this->metaDataFields)) {
-                $n = 0;
-                foreach ($this->metaDataFields as $item) {
-                    $res['MetaDataFields'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metaDataFields)) {
+                $res['MetaDataFields'] = [];
+                $n1 = 0;
+                foreach ($this->metaDataFields as $item1) {
+                    $res['MetaDataFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -76,29 +72,33 @@ class metaDatas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metaDatas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+
         if (isset($map['DataSourceName'])) {
             $model->dataSourceName = $map['DataSourceName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['MetaDataFields'])) {
             if (!empty($map['MetaDataFields'])) {
                 $model->metaDataFields = [];
-                $n = 0;
-                foreach ($map['MetaDataFields'] as $item) {
-                    $model->metaDataFields[$n++] = null !== $item ? metaDataFields::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetaDataFields'] as $item1) {
+                    $model->metaDataFields[$n1] = metaDataFields::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

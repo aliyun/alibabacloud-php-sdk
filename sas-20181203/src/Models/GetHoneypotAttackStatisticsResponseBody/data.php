@@ -4,37 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotAttackStatisticsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotAttackStatisticsResponseBody\data\honeypotAttackStatistics;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of entries on the current page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The statistics details.
-     *
      * @var honeypotAttackStatistics[]
      */
     public $honeypotAttackStatistics;
 
     /**
-     * @description The type of the attack source statistics. Valid values:
-     *
-     *   **TOP_ATTACKED_AGENT**: the top five probes that are attacked the most frequently.
-     *   **TOP_ATTACKED_IP**: the top five IP addresses that are attacked the most frequently.
-     *   **ATTACK_EVENT_TYPE**: the type of the intrusion event.
-     *   **ATTACK_HONEYPOT_TYPE**: the type of the attacked honeypot.
-     *
-     * @example TOP_ATTACKED_IP
-     *
      * @var string
      */
     public $statisticsType;
@@ -44,23 +29,32 @@ class data extends Model
         'statisticsType' => 'StatisticsType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->honeypotAttackStatistics)) {
+            Model::validateArray($this->honeypotAttackStatistics);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->honeypotAttackStatistics) {
-            $res['HoneypotAttackStatistics'] = [];
-            if (null !== $this->honeypotAttackStatistics && \is_array($this->honeypotAttackStatistics)) {
-                $n = 0;
-                foreach ($this->honeypotAttackStatistics as $item) {
-                    $res['HoneypotAttackStatistics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->honeypotAttackStatistics)) {
+                $res['HoneypotAttackStatistics'] = [];
+                $n1 = 0;
+                foreach ($this->honeypotAttackStatistics as $item1) {
+                    $res['HoneypotAttackStatistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->statisticsType) {
             $res['StatisticsType'] = $this->statisticsType;
         }
@@ -68,26 +62,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['HoneypotAttackStatistics'])) {
             if (!empty($map['HoneypotAttackStatistics'])) {
                 $model->honeypotAttackStatistics = [];
-                $n = 0;
-                foreach ($map['HoneypotAttackStatistics'] as $item) {
-                    $model->honeypotAttackStatistics[$n++] = null !== $item ? honeypotAttackStatistics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HoneypotAttackStatistics'] as $item1) {
+                    $model->honeypotAttackStatistics[$n1] = honeypotAttackStatistics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['StatisticsType'])) {
             $model->statisticsType = $map['StatisticsType'];
         }

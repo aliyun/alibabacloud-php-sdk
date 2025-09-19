@@ -4,70 +4,41 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListHoneypotAttackerSourceRequest extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The end of the time range to query. This value is a timestamp.
-     *
-     * @example 1676945366221
-     *
      * @var int
      */
     public $endTimeStamp;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description An array that consists of risk levels.
-     *
      * @var string[]
      */
     public $riskLevelList;
 
     /**
-     * @description The source IP address of the attack.
-     *
-     * @example 175.136.230.***
-     *
      * @var string
      */
     public $srcIp;
 
     /**
-     * @description The beginning of the time range to query. This value is a timestamp.
-     *
-     * @example 1674007632124
-     *
      * @var int
      */
     public $startTimeStamp;
@@ -81,29 +52,48 @@ class ListHoneypotAttackerSourceRequest extends Model
         'startTimeStamp' => 'StartTimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->riskLevelList)) {
+            Model::validateArray($this->riskLevelList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endTimeStamp) {
             $res['EndTimeStamp'] = $this->endTimeStamp;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->riskLevelList) {
-            $res['RiskLevelList'] = $this->riskLevelList;
+            if (\is_array($this->riskLevelList)) {
+                $res['RiskLevelList'] = [];
+                $n1 = 0;
+                foreach ($this->riskLevelList as $item1) {
+                    $res['RiskLevelList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->srcIp) {
             $res['SrcIp'] = $this->srcIp;
         }
+
         if (null !== $this->startTimeStamp) {
             $res['StartTimeStamp'] = $this->startTimeStamp;
         }
@@ -111,34 +101,45 @@ class ListHoneypotAttackerSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListHoneypotAttackerSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndTimeStamp'])) {
             $model->endTimeStamp = $map['EndTimeStamp'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RiskLevelList'])) {
             if (!empty($map['RiskLevelList'])) {
-                $model->riskLevelList = $map['RiskLevelList'];
+                $model->riskLevelList = [];
+                $n1 = 0;
+                foreach ($map['RiskLevelList'] as $item1) {
+                    $model->riskLevelList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SrcIp'])) {
             $model->srcIp = $map['SrcIp'];
         }
+
         if (isset($map['StartTimeStamp'])) {
             $model->startTimeStamp = $map['StartTimeStamp'];
         }

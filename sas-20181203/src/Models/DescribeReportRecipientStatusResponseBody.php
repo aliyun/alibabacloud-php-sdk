@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeReportRecipientStatusResponseBody\reportRecipientList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeReportRecipientStatusResponseBody extends Model
 {
     /**
-     * @description The report recipients.
-     *
      * @var reportRecipientList[]
      */
     public $reportRecipientList;
 
     /**
-     * @description The request ID.
-     *
-     * @example D65AADFC-1D20-5A6A-8F6A-9FA53C0DC1F8
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeReportRecipientStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->reportRecipientList)) {
+            Model::validateArray($this->reportRecipientList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reportRecipientList) {
-            $res['ReportRecipientList'] = [];
-            if (null !== $this->reportRecipientList && \is_array($this->reportRecipientList)) {
-                $n = 0;
-                foreach ($this->reportRecipientList as $item) {
-                    $res['ReportRecipientList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reportRecipientList)) {
+                $res['ReportRecipientList'] = [];
+                $n1 = 0;
+                foreach ($this->reportRecipientList as $item1) {
+                    $res['ReportRecipientList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeReportRecipientStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeReportRecipientStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReportRecipientList'])) {
             if (!empty($map['ReportRecipientList'])) {
                 $model->reportRecipientList = [];
-                $n = 0;
-                foreach ($map['ReportRecipientList'] as $item) {
-                    $model->reportRecipientList[$n++] = null !== $item ? reportRecipientList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReportRecipientList'] as $item1) {
+                    $model->reportRecipientList[$n1] = reportRecipientList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAssetsScaProcessNumRequest extends Model
 {
     /**
-     * @description The type of the application process. Default value: java. Valid values:
-     *
-     *   **java**
-     *   **php**
-     *
-     * @example java
-     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @description The UUIDs of the servers.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $uuidList;
@@ -33,35 +22,55 @@ class DescribeAssetsScaProcessNumRequest extends Model
         'uuidList' => 'UuidList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->uuidList)) {
+            Model::validateArray($this->uuidList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
+            if (\is_array($this->uuidList)) {
+                $res['UuidList'] = [];
+                $n1 = 0;
+                foreach ($this->uuidList as $item1) {
+                    $res['UuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAssetsScaProcessNumRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
-                $model->uuidList = $map['UuidList'];
+                $model->uuidList = [];
+                $n1 = 0;
+                foreach ($map['UuidList'] as $item1) {
+                    $model->uuidList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

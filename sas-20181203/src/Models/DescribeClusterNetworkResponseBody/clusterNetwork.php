@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterNetworkResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterNetworkResponseBody\clusterNetwork\edge;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterNetworkResponseBody\clusterNetwork\node;
-use AlibabaCloud\Tea\Model;
 
 class clusterNetwork extends Model
 {
     /**
-     * @description An array that consists of information about the topology edge.
-     *
      * @var edge[]
      */
     public $edge;
 
     /**
-     * @description An array that consists of information about the node.
-     *
      * @var node[]
      */
     public $node;
@@ -28,26 +24,38 @@ class clusterNetwork extends Model
         'node' => 'Node',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->edge)) {
+            Model::validateArray($this->edge);
+        }
+        if (\is_array($this->node)) {
+            Model::validateArray($this->node);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->edge) {
-            $res['Edge'] = [];
-            if (null !== $this->edge && \is_array($this->edge)) {
-                $n = 0;
-                foreach ($this->edge as $item) {
-                    $res['Edge'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->edge)) {
+                $res['Edge'] = [];
+                $n1 = 0;
+                foreach ($this->edge as $item1) {
+                    $res['Edge'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->node) {
-            $res['Node'] = [];
-            if (null !== $this->node && \is_array($this->node)) {
-                $n = 0;
-                foreach ($this->node as $item) {
-                    $res['Node'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->node)) {
+                $res['Node'] = [];
+                $n1 = 0;
+                foreach ($this->node as $item1) {
+                    $res['Node'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,29 +63,32 @@ class clusterNetwork extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterNetwork
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Edge'])) {
             if (!empty($map['Edge'])) {
                 $model->edge = [];
-                $n = 0;
-                foreach ($map['Edge'] as $item) {
-                    $model->edge[$n++] = null !== $item ? edge::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Edge'] as $item1) {
+                    $model->edge[$n1] = edge::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Node'])) {
             if (!empty($map['Node'])) {
                 $model->node = [];
-                $n = 0;
-                foreach ($map['Node'] as $item) {
-                    $model->node[$n++] = null !== $item ? node::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Node'] as $item1) {
+                    $model->node[$n1] = node::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

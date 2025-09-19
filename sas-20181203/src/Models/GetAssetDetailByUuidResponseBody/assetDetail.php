@@ -4,349 +4,182 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetDetailByUuidResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetDetailByUuidResponseBody\assetDetail\diskInfoList;
-use AlibabaCloud\Tea\Model;
 
 class assetDetail extends Model
 {
     /**
-     * @description The type of the server. Valid values:
-     *
-     *   **0**: ECS instance
-     *   **1**: Server Load Balancer (SLB) instance
-     *   **2**: NAT gateway
-     *   **3**: ApsaraDB RDS instance
-     *   **4**: ApsaraDB for MongoDB instance
-     *   **5**: ApsaraDB for Redis instance
-     *   **6**: image
-     *   **7**: container
-     *
-     * @example 0
-     *
      * @var string
      */
     public $assetType;
 
     /**
-     * @description The timestamp when Security Center is authorized to protect the asset. Unit: milliseconds.
-     *
-     * @example 1627974044000
-     *
      * @var int
      */
     public $authModifyTime;
 
     /**
-     * @description The edition of Security Center that is authorized to protect the server. Valid values:
-     *
-     *   **1**: Basic (Unauthorized).
-     *   **6**: Anti-virus.
-     *   **5**: Advanced.
-     *   **3**: Enterprise.
-     *   **7**: Ultimate.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $authVersion;
 
     /**
-     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
-     *
-     *   **true**: Security Center is authorized to protect the asset.
-     *   **false**: Security Center is not authorized to protect the asset.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $bind;
 
     /**
-     * @description The status of the Security Center agent. Valid values:
-     *
-     *   **pause**: The Security Center agent stops protecting your server.
-     *   **online**: The Security Center agent is protecting your server.
-     *   **offline**: The Security Center agent does not protect your server.
-     *
-     * @example online
-     *
      * @var string
      */
     public $clientStatus;
 
     /**
-     * @description The sub-status of the Security Center agent on the server. Valid values:
-     *
-     *   **online**: The Security Center agent on the asset is **enabled**.
-     *   **offline**: The Security Center agent on the asset is **disabled**.
-     *   **pause**: The Security Center agent is **suspended**.
-     *   **uninstalled**: The Security Center agent is **not installed**.
-     *   **stopped**: The asset is **shut down**.
-     *
-     * @example online
-     *
      * @var string
      */
     public $clientSubStatus;
 
     /**
-     * @description The version of the Security Center agent.
-     *
-     * @example 2.0.0
-     *
      * @var string
      */
     public $clientVersion;
 
     /**
-     * @description The number of CPU cores.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description The details of the CPU.
-     *
-     * @example Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz
-     *
      * @var string
      */
     public $cpuInfo;
 
     /**
-     * @description The timestamp when Security Center records the details of the server. Unit: milliseconds.
-     *
-     * @example 1603863599000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description The list of information about the disk.
-     *
      * @var diskInfoList[]
      */
     public $diskInfoList;
 
     /**
-     * @description Indicates whether the asset is provided by Alibaba Cloud. Valid values:
-     *
-     *   **0**: The server is provided by Alibaba Cloud.
-     *   **1**: The server is not provided by Alibaba Cloud.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $flag;
 
     /**
-     * @description The group to which the server belongs. By default, the servers that are not grouped belong to the **Default** group.
-     *
-     * @example default
-     *
      * @var string
      */
     public $groupTrace;
 
     /**
-     * @description The name of the host.
-     *
-     * @example qewrqwerqs****
-     *
      * @var string
      */
     public $hostName;
 
     /**
-     * @description The ID of the server.
-     *
-     * @example i-uf6h7p2fgk6rkk0g****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the server.
-     *
-     * @example i-fasdfasdfadfafa****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 120.47.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The IP address that is assigned to the Elastic Compute Service (ECS) instance.
-     *
-     * @example 120.47.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description An array that consists of the IP addresses of the server.
-     *
      * @var string[]
      */
     public $ipList;
 
     /**
-     * @description The kernel version of the operating system.
-     *
-     * @example 4.18.0-80.11.2.el8_0.x86_64
-     *
      * @var string
      */
     public $kernel;
 
     /**
-     * @description An array that consists of the media access control (MAC) addresses of the server.
-     *
      * @var string[]
      */
     public $macList;
 
     /**
-     * @description The memory size of the server. Unit: GB.
-     *
-     * @example 16
-     *
      * @var int
      */
     public $mem;
 
     /**
-     * @description The memory size of the server. Unit: MB.
-     *
-     * @example 16384
-     *
      * @var int
      */
     public $memory;
 
     /**
-     * @description The operating system type of the server.
-     *
-     * @example linux
-     *
      * @var string
      */
     public $os;
 
     /**
-     * @description The operating system version of the server.
-     *
-     * @example Linux 64bit
-     *
      * @var string
      */
     public $osDetail;
 
     /**
-     * @description The name of the operating system that the server runs.
-     *
-     * @example CentOS  7.4 64bit
-     *
      * @var string
      */
     public $osName;
 
     /**
-     * @description The region in which the server resides.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The ID of the region in which the asset resides.
-     *
-     * @example cn-hanghzou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the region in which the server resides.
-     *
-     * @example China (Hohhot)
-     *
      * @var string
      */
     public $regionName;
 
     /**
-     * @description The operating system information about the server.
-     *
-     * @example CentOS Linux 8.0.1905
-     *
      * @var string
      */
     public $sysInfo;
 
     /**
-     * @description The tag that is added to the server.
-     *
-     * @example InternetIp
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The UUID of the server.
-     *
-     * @example 9e6cad93-a379-46fd-a701-9bbf02f4****
-     *
      * @var string
      */
     public $uuid;
 
     /**
-     * @description The account to which the AccessKey pair belongs.
-     *
-     * >  This parameter is returned only by third-party cloud servers. If the parameter value is empty, it will not be returned.
-     *
-     * @example test
-     *
      * @var string
      */
     public $vendorAuthAlias;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) in which the server resides.
-     *
-     * @example vpc-bp1fs3bwonlfq503w****
-     *
      * @var string
      */
     public $vpcInstanceId;
@@ -388,119 +221,180 @@ class assetDetail extends Model
         'vpcInstanceId' => 'VpcInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->diskInfoList)) {
+            Model::validateArray($this->diskInfoList);
+        }
+        if (\is_array($this->ipList)) {
+            Model::validateArray($this->ipList);
+        }
+        if (\is_array($this->macList)) {
+            Model::validateArray($this->macList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
         }
+
         if (null !== $this->authModifyTime) {
             $res['AuthModifyTime'] = $this->authModifyTime;
         }
+
         if (null !== $this->authVersion) {
             $res['AuthVersion'] = $this->authVersion;
         }
+
         if (null !== $this->bind) {
             $res['Bind'] = $this->bind;
         }
+
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
         }
+
         if (null !== $this->clientSubStatus) {
             $res['ClientSubStatus'] = $this->clientSubStatus;
         }
+
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
         }
+
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->cpuInfo) {
             $res['CpuInfo'] = $this->cpuInfo;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->diskInfoList) {
-            $res['DiskInfoList'] = [];
-            if (null !== $this->diskInfoList && \is_array($this->diskInfoList)) {
-                $n = 0;
-                foreach ($this->diskInfoList as $item) {
-                    $res['DiskInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->diskInfoList)) {
+                $res['DiskInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->diskInfoList as $item1) {
+                    $res['DiskInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
         }
+
         if (null !== $this->groupTrace) {
             $res['GroupTrace'] = $this->groupTrace;
         }
+
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
+
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->ipList) {
-            $res['IpList'] = $this->ipList;
+            if (\is_array($this->ipList)) {
+                $res['IpList'] = [];
+                $n1 = 0;
+                foreach ($this->ipList as $item1) {
+                    $res['IpList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->kernel) {
             $res['Kernel'] = $this->kernel;
         }
+
         if (null !== $this->macList) {
-            $res['MacList'] = $this->macList;
+            if (\is_array($this->macList)) {
+                $res['MacList'] = [];
+                $n1 = 0;
+                foreach ($this->macList as $item1) {
+                    $res['MacList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->os) {
             $res['Os'] = $this->os;
         }
+
         if (null !== $this->osDetail) {
             $res['OsDetail'] = $this->osDetail;
         }
+
         if (null !== $this->osName) {
             $res['OsName'] = $this->osName;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
+
         if (null !== $this->sysInfo) {
             $res['SysInfo'] = $this->sysInfo;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
+
         if (null !== $this->vendorAuthAlias) {
             $res['VendorAuthAlias'] = $this->vendorAuthAlias;
         }
+
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
@@ -508,126 +402,171 @@ class assetDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assetDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
         }
+
         if (isset($map['AuthModifyTime'])) {
             $model->authModifyTime = $map['AuthModifyTime'];
         }
+
         if (isset($map['AuthVersion'])) {
             $model->authVersion = $map['AuthVersion'];
         }
+
         if (isset($map['Bind'])) {
             $model->bind = $map['Bind'];
         }
+
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
         }
+
         if (isset($map['ClientSubStatus'])) {
             $model->clientSubStatus = $map['ClientSubStatus'];
         }
+
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
         }
+
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['CpuInfo'])) {
             $model->cpuInfo = $map['CpuInfo'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['DiskInfoList'])) {
             if (!empty($map['DiskInfoList'])) {
                 $model->diskInfoList = [];
-                $n = 0;
-                foreach ($map['DiskInfoList'] as $item) {
-                    $model->diskInfoList[$n++] = null !== $item ? diskInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DiskInfoList'] as $item1) {
+                    $model->diskInfoList[$n1] = diskInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
         }
+
         if (isset($map['GroupTrace'])) {
             $model->groupTrace = $map['GroupTrace'];
         }
+
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
+
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['IpList'])) {
             if (!empty($map['IpList'])) {
-                $model->ipList = $map['IpList'];
+                $model->ipList = [];
+                $n1 = 0;
+                foreach ($map['IpList'] as $item1) {
+                    $model->ipList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Kernel'])) {
             $model->kernel = $map['Kernel'];
         }
+
         if (isset($map['MacList'])) {
             if (!empty($map['MacList'])) {
-                $model->macList = $map['MacList'];
+                $model->macList = [];
+                $n1 = 0;
+                foreach ($map['MacList'] as $item1) {
+                    $model->macList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
         }
+
         if (isset($map['OsDetail'])) {
             $model->osDetail = $map['OsDetail'];
         }
+
         if (isset($map['OsName'])) {
             $model->osName = $map['OsName'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }
+
         if (isset($map['SysInfo'])) {
             $model->sysInfo = $map['SysInfo'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
+
         if (isset($map['VendorAuthAlias'])) {
             $model->vendorAuthAlias = $map['VendorAuthAlias'];
         }
+
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];
         }

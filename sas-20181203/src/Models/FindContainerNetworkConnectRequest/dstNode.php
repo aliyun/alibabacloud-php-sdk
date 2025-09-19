@@ -4,62 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\FindContainerNetworkConnectRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dstNode extends Model
 {
     /**
-     * @description The name of the container application.
-     *
-     * @example nginx-ingress-controller
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The ID of the container cluster.
-     *
-     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
-     *
-     * @example f5x833820xx
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The namespace of the cluster.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The node IDs.
-     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
-     * @description The type of the node. Valid values:
-     *
-     *   **app**: application, which indicates that the node type is application.
-     *
-     * @example app
-     *
      * @var string
      */
     public $nodeType;
 
     /**
-     * @description The name of the pod.
-     *
-     * @example abc-deployment-yacs-31144-39265-1384966-7f8c8cd578-h6mhb
-     *
      * @var string
      */
     public $podName;
@@ -72,26 +46,44 @@ class dstNode extends Model
         'podName' => 'PodName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nodeIds)) {
+            Model::validateArray($this->nodeIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
+            if (\is_array($this->nodeIds)) {
+                $res['NodeIds'] = [];
+                $n1 = 0;
+                foreach ($this->nodeIds as $item1) {
+                    $res['NodeIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
+
         if (null !== $this->podName) {
             $res['PodName'] = $this->podName;
         }
@@ -99,31 +91,41 @@ class dstNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dstNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
-                $model->nodeIds = $map['NodeIds'];
+                $model->nodeIds = [];
+                $n1 = 0;
+                foreach ($map['NodeIds'] as $item1) {
+                    $model->nodeIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
+
         if (isset($map['PodName'])) {
             $model->podName = $map['PodName'];
         }

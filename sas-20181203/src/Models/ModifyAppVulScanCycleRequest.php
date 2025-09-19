@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAppVulScanCycleRequest extends Model
 {
     /**
-     * @description The scan cycle for application vulnerabilities.
-     *
-     *   1week
-     *   2weeks
-     *   3days
-     *
-     * @example 1week
-     *
      * @var string
      */
     public $cycle;
@@ -24,9 +16,12 @@ class ModifyAppVulScanCycleRequest extends Model
         'cycle' => 'Cycle',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cycle) {
@@ -36,11 +31,11 @@ class ModifyAppVulScanCycleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAppVulScanCycleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFileProtectRemarkRequest extends Model
 {
     /**
-     * @description The ID of the event.
-     *
-     * @example 1764
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The remarks.
-     *
      * @var string[]
      */
     public $remark;
@@ -28,35 +22,55 @@ class UpdateFileProtectRemarkRequest extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->remark)) {
+            Model::validateArray($this->remark);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+            if (\is_array($this->remark)) {
+                $res['Remark'] = [];
+                $n1 = 0;
+                foreach ($this->remark as $item1) {
+                    $res['Remark'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFileProtectRemarkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Remark'])) {
             if (!empty($map['Remark'])) {
-                $model->remark = $map['Remark'];
+                $model->remark = [];
+                $n1 = 0;
+                foreach ($map['Remark'] as $item1) {
+                    $model->remark[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

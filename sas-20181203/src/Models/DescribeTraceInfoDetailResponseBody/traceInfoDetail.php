@@ -4,38 +4,30 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoDetailResponseBody\traceInfoDetail\edgeList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoDetailResponseBody\traceInfoDetail\entityTypeList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoDetailResponseBody\traceInfoDetail\relationTypeList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoDetailResponseBody\traceInfoDetail\vertexList;
-use AlibabaCloud\Tea\Model;
 
 class traceInfoDetail extends Model
 {
     /**
-     * @description An array that consists of the edges of the tracing diagram.
-     *
      * @var edgeList[]
      */
     public $edgeList;
 
     /**
-     * @description An array that consists of the metadata configurations of the vertex type.
-     *
      * @var entityTypeList[]
      */
     public $entityTypeList;
 
     /**
-     * @description An array that consists of the metadata configurations of the edge type.
-     *
      * @var relationTypeList[]
      */
     public $relationTypeList;
 
     /**
-     * @description An array that consists of all vertexes of the tracing diagram.
-     *
      * @var vertexList[]
      */
     public $vertexList;
@@ -46,44 +38,66 @@ class traceInfoDetail extends Model
         'vertexList' => 'VertexList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->edgeList)) {
+            Model::validateArray($this->edgeList);
+        }
+        if (\is_array($this->entityTypeList)) {
+            Model::validateArray($this->entityTypeList);
+        }
+        if (\is_array($this->relationTypeList)) {
+            Model::validateArray($this->relationTypeList);
+        }
+        if (\is_array($this->vertexList)) {
+            Model::validateArray($this->vertexList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->edgeList) {
-            $res['EdgeList'] = [];
-            if (null !== $this->edgeList && \is_array($this->edgeList)) {
-                $n = 0;
-                foreach ($this->edgeList as $item) {
-                    $res['EdgeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->edgeList)) {
+                $res['EdgeList'] = [];
+                $n1 = 0;
+                foreach ($this->edgeList as $item1) {
+                    $res['EdgeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->entityTypeList) {
-            $res['EntityTypeList'] = [];
-            if (null !== $this->entityTypeList && \is_array($this->entityTypeList)) {
-                $n = 0;
-                foreach ($this->entityTypeList as $item) {
-                    $res['EntityTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entityTypeList)) {
+                $res['EntityTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->entityTypeList as $item1) {
+                    $res['EntityTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->relationTypeList) {
-            $res['RelationTypeList'] = [];
-            if (null !== $this->relationTypeList && \is_array($this->relationTypeList)) {
-                $n = 0;
-                foreach ($this->relationTypeList as $item) {
-                    $res['RelationTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->relationTypeList)) {
+                $res['RelationTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->relationTypeList as $item1) {
+                    $res['RelationTypeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vertexList) {
-            $res['VertexList'] = [];
-            if (null !== $this->vertexList && \is_array($this->vertexList)) {
-                $n = 0;
-                foreach ($this->vertexList as $item) {
-                    $res['VertexList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vertexList)) {
+                $res['VertexList'] = [];
+                $n1 = 0;
+                foreach ($this->vertexList as $item1) {
+                    $res['VertexList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,47 +105,54 @@ class traceInfoDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return traceInfoDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EdgeList'])) {
             if (!empty($map['EdgeList'])) {
                 $model->edgeList = [];
-                $n = 0;
-                foreach ($map['EdgeList'] as $item) {
-                    $model->edgeList[$n++] = null !== $item ? edgeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EdgeList'] as $item1) {
+                    $model->edgeList[$n1] = edgeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['EntityTypeList'])) {
             if (!empty($map['EntityTypeList'])) {
                 $model->entityTypeList = [];
-                $n = 0;
-                foreach ($map['EntityTypeList'] as $item) {
-                    $model->entityTypeList[$n++] = null !== $item ? entityTypeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EntityTypeList'] as $item1) {
+                    $model->entityTypeList[$n1] = entityTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RelationTypeList'])) {
             if (!empty($map['RelationTypeList'])) {
                 $model->relationTypeList = [];
-                $n = 0;
-                foreach ($map['RelationTypeList'] as $item) {
-                    $model->relationTypeList[$n++] = null !== $item ? relationTypeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RelationTypeList'] as $item1) {
+                    $model->relationTypeList[$n1] = relationTypeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VertexList'])) {
             if (!empty($map['VertexList'])) {
                 $model->vertexList = [];
-                $n = 0;
-                foreach ($map['VertexList'] as $item) {
-                    $model->vertexList[$n++] = null !== $item ? vertexList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VertexList'] as $item1) {
+                    $model->vertexList[$n1] = vertexList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

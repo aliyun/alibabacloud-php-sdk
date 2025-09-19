@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulCheckTaskStatusDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulCheckTaskStatusDetailResponseBody\taskStatuses\taskStatusList;
-use AlibabaCloud\Tea\Model;
 
 class taskStatuses extends Model
 {
     /**
-     * @description The ID of the main task.
-     *
-     * @example 16190385
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description An array that consists of status information about the vulnerability scan subtask.
-     *
      * @var taskStatusList[]
      */
     public $taskStatusList;
@@ -29,20 +23,28 @@ class taskStatuses extends Model
         'taskStatusList' => 'TaskStatusList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->taskStatusList)) {
+            Model::validateArray($this->taskStatusList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskStatusList) {
-            $res['TaskStatusList'] = [];
-            if (null !== $this->taskStatusList && \is_array($this->taskStatusList)) {
-                $n = 0;
-                foreach ($this->taskStatusList as $item) {
-                    $res['TaskStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskStatusList)) {
+                $res['TaskStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->taskStatusList as $item1) {
+                    $res['TaskStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class taskStatuses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskStatuses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskStatusList'])) {
             if (!empty($map['TaskStatusList'])) {
                 $model->taskStatusList = [];
-                $n = 0;
-                foreach ($map['TaskStatusList'] as $item) {
-                    $model->taskStatusList[$n++] = null !== $item ? taskStatusList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskStatusList'] as $item1) {
+                    $model->taskStatusList[$n1] = taskStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

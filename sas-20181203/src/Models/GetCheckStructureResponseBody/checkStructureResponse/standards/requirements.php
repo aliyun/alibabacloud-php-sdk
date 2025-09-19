@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureResponseBody\checkStructureResponse\standards;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureResponseBody\checkStructureResponse\standards\requirements\sections;
-use AlibabaCloud\Tea\Model;
 
 class requirements extends Model
 {
     /**
-     * @description The ID of the requirement item for the check item.
-     *
-     * @example 46
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The information about the sections of check items.
-     *
      * @var sections[]
      */
     public $sections;
 
     /**
-     * @description The display name of the requirement item for the check item.
-     *
-     * @example Networking
-     *
      * @var string
      */
     public $showName;
 
     /**
-     * @description The total number of check items for the requirement.
-     *
-     * @example 36
-     *
      * @var int
      */
     public $totalCheckCount;
@@ -49,26 +35,36 @@ class requirements extends Model
         'totalCheckCount' => 'TotalCheckCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sections)) {
+            Model::validateArray($this->sections);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->sections) {
-            $res['Sections'] = [];
-            if (null !== $this->sections && \is_array($this->sections)) {
-                $n = 0;
-                foreach ($this->sections as $item) {
-                    $res['Sections'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sections)) {
+                $res['Sections'] = [];
+                $n1 = 0;
+                foreach ($this->sections as $item1) {
+                    $res['Sections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
         }
+
         if (null !== $this->totalCheckCount) {
             $res['TotalCheckCount'] = $this->totalCheckCount;
         }
@@ -76,29 +72,33 @@ class requirements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requirements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Sections'])) {
             if (!empty($map['Sections'])) {
                 $model->sections = [];
-                $n = 0;
-                foreach ($map['Sections'] as $item) {
-                    $model->sections[$n++] = null !== $item ? sections::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Sections'] as $item1) {
+                    $model->sections[$n1] = sections::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
         }
+
         if (isset($map['TotalCheckCount'])) {
             $model->totalCheckCount = $map['TotalCheckCount'];
         }

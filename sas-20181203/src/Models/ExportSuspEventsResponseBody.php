@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportSuspEventsResponseBody extends Model
 {
     /**
-     * @description The name of the exported file.
-     *
-     * @example suspicious_event_20221209
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The ID of the export record of the anomalous event.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EF145C20-6A19-529A-8BDD-0671DXXXXXX
-     *
      * @var string
      */
     public $requestId;
@@ -40,17 +28,22 @@ class ExportSuspEventsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,20 +51,22 @@ class ExportSuspEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportSuspEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

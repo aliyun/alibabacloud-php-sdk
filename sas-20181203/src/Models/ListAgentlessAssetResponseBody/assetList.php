@@ -4,68 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessAssetResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class assetList extends Model
 {
     /**
-     * @description The type of the cloud disk. Values:
-     *
-     * - system: System disk.
-     *
-     * - data: Data disk.
-     *
-     * @example system
-     *
      * @var string
      */
     public $diskType;
 
     /**
-     * @description The instance ID.
-     *
-     * @example s-rj9gda4wolo0zixi****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The instance name.
-     *
-     * @example TestInstanceName
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description Operating system type.
-     *
-     * @example CentOS
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The type of the asset. Values:
-     *
-     * - **3**: User snapshot
-     *
-     * - **4**: User-defined image
-     *
-     * @example 3
-     *
      * @var int
      */
     public $targetType;
@@ -78,26 +46,34 @@ class assetList extends Model
         'targetType' => 'TargetType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -105,29 +81,34 @@ class assetList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assetList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

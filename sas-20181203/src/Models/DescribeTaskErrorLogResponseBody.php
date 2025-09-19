@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTaskErrorLogResponseBody\logs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTaskErrorLogResponseBody extends Model
 {
     /**
-     * @description An array that consists of the error logs.
-     *
      * @var logs[]
      */
     public $logs;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example F929E952-EBFC-56C3-BD35-BF8B59024C69
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeTaskErrorLogResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logs)) {
+            Model::validateArray($this->logs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logs) {
-            $res['Logs'] = [];
-            if (null !== $this->logs && \is_array($this->logs)) {
-                $n = 0;
-                foreach ($this->logs as $item) {
-                    $res['Logs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logs)) {
+                $res['Logs'] = [];
+                $n1 = 0;
+                foreach ($this->logs as $item1) {
+                    $res['Logs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeTaskErrorLogResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTaskErrorLogResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n = 0;
-                foreach ($map['Logs'] as $item) {
-                    $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Logs'] as $item1) {
+                    $model->logs[$n1] = logs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

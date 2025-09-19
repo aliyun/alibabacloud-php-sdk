@@ -4,116 +4,76 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateOssScanConfigRequest extends Model
 {
     /**
-     * @description Specifies whether to match the prefixes of all objects.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $allKeyPrefix;
 
     /**
-     * @description The names of buckets.
-     *
      * @var string[]
      */
     public $bucketNameList;
 
     /**
-     * @description The maximum number of objects that can be extracted during decompression. Valid values: 1 to 1000. If the maximum number of objects that can be extracted is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $decompressMaxFileCount;
 
     /**
-     * @description The maximum number of decompression levels when multi-level packages are decompressed. Valid values: 1 to 5. If the maximum number of decompression levels is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $decompressMaxLayer;
 
     /**
-     * @description The decryption methods.
-     *
      * @var string[]
      */
     public $decryptionList;
 
     /**
-     * @description Specifies whether to enable the policy. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
-     *
-     * @example 1
-     *
      * @var int
      */
     public $enable;
 
     /**
-     * @description The time when the scan ends. The time must be in the HH:mm:ss format.
-     *
-     * @example 01:01:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The prefixes of the objects.
-     *
      * @var string[]
      */
     public $keyPrefixList;
 
     /**
-     * @description The suffixes of the files to scan.
-     *
      * @var string[]
      */
     public $keySuffixList;
 
     /**
-     * @description The timestamp when the object was last modified. The time must be later than the timestamp that you specify. Unit: milliseconds.
-     *
-     * @example 1724301769834
-     *
      * @var int
      */
     public $lastModifiedStartTime;
 
     /**
-     * @description The policy name.
-     *
-     * @example runtime
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The days on which the scan is executed in a week.
-     *
+     * @var bool
+     */
+    public $realTimeIncr;
+
+    /**
      * @var int[]
      */
     public $scanDayList;
 
     /**
-     * @description The time when the scan starts. The time must be in the HH:mm:ss format.
-     *
-     * @example 00:00:00
-     *
      * @var string
      */
     public $startTime;
@@ -129,51 +89,121 @@ class CreateOssScanConfigRequest extends Model
         'keySuffixList' => 'KeySuffixList',
         'lastModifiedStartTime' => 'LastModifiedStartTime',
         'name' => 'Name',
+        'realTimeIncr' => 'RealTimeIncr',
         'scanDayList' => 'ScanDayList',
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bucketNameList)) {
+            Model::validateArray($this->bucketNameList);
+        }
+        if (\is_array($this->decryptionList)) {
+            Model::validateArray($this->decryptionList);
+        }
+        if (\is_array($this->keyPrefixList)) {
+            Model::validateArray($this->keyPrefixList);
+        }
+        if (\is_array($this->keySuffixList)) {
+            Model::validateArray($this->keySuffixList);
+        }
+        if (\is_array($this->scanDayList)) {
+            Model::validateArray($this->scanDayList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allKeyPrefix) {
             $res['AllKeyPrefix'] = $this->allKeyPrefix;
         }
+
         if (null !== $this->bucketNameList) {
-            $res['BucketNameList'] = $this->bucketNameList;
+            if (\is_array($this->bucketNameList)) {
+                $res['BucketNameList'] = [];
+                $n1 = 0;
+                foreach ($this->bucketNameList as $item1) {
+                    $res['BucketNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->decompressMaxFileCount) {
             $res['DecompressMaxFileCount'] = $this->decompressMaxFileCount;
         }
+
         if (null !== $this->decompressMaxLayer) {
             $res['DecompressMaxLayer'] = $this->decompressMaxLayer;
         }
+
         if (null !== $this->decryptionList) {
-            $res['DecryptionList'] = $this->decryptionList;
+            if (\is_array($this->decryptionList)) {
+                $res['DecryptionList'] = [];
+                $n1 = 0;
+                foreach ($this->decryptionList as $item1) {
+                    $res['DecryptionList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->keyPrefixList) {
-            $res['KeyPrefixList'] = $this->keyPrefixList;
+            if (\is_array($this->keyPrefixList)) {
+                $res['KeyPrefixList'] = [];
+                $n1 = 0;
+                foreach ($this->keyPrefixList as $item1) {
+                    $res['KeyPrefixList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->keySuffixList) {
-            $res['KeySuffixList'] = $this->keySuffixList;
+            if (\is_array($this->keySuffixList)) {
+                $res['KeySuffixList'] = [];
+                $n1 = 0;
+                foreach ($this->keySuffixList as $item1) {
+                    $res['KeySuffixList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lastModifiedStartTime) {
             $res['LastModifiedStartTime'] = $this->lastModifiedStartTime;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->scanDayList) {
-            $res['ScanDayList'] = $this->scanDayList;
+
+        if (null !== $this->realTimeIncr) {
+            $res['RealTimeIncr'] = $this->realTimeIncr;
         }
+
+        if (null !== $this->scanDayList) {
+            if (\is_array($this->scanDayList)) {
+                $res['ScanDayList'] = [];
+                $n1 = 0;
+                foreach ($this->scanDayList as $item1) {
+                    $res['ScanDayList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -181,60 +211,101 @@ class CreateOssScanConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOssScanConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllKeyPrefix'])) {
             $model->allKeyPrefix = $map['AllKeyPrefix'];
         }
+
         if (isset($map['BucketNameList'])) {
             if (!empty($map['BucketNameList'])) {
-                $model->bucketNameList = $map['BucketNameList'];
+                $model->bucketNameList = [];
+                $n1 = 0;
+                foreach ($map['BucketNameList'] as $item1) {
+                    $model->bucketNameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DecompressMaxFileCount'])) {
             $model->decompressMaxFileCount = $map['DecompressMaxFileCount'];
         }
+
         if (isset($map['DecompressMaxLayer'])) {
             $model->decompressMaxLayer = $map['DecompressMaxLayer'];
         }
+
         if (isset($map['DecryptionList'])) {
             if (!empty($map['DecryptionList'])) {
-                $model->decryptionList = $map['DecryptionList'];
+                $model->decryptionList = [];
+                $n1 = 0;
+                foreach ($map['DecryptionList'] as $item1) {
+                    $model->decryptionList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['KeyPrefixList'])) {
             if (!empty($map['KeyPrefixList'])) {
-                $model->keyPrefixList = $map['KeyPrefixList'];
+                $model->keyPrefixList = [];
+                $n1 = 0;
+                foreach ($map['KeyPrefixList'] as $item1) {
+                    $model->keyPrefixList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['KeySuffixList'])) {
             if (!empty($map['KeySuffixList'])) {
-                $model->keySuffixList = $map['KeySuffixList'];
+                $model->keySuffixList = [];
+                $n1 = 0;
+                foreach ($map['KeySuffixList'] as $item1) {
+                    $model->keySuffixList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['LastModifiedStartTime'])) {
             $model->lastModifiedStartTime = $map['LastModifiedStartTime'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
+        if (isset($map['RealTimeIncr'])) {
+            $model->realTimeIncr = $map['RealTimeIncr'];
+        }
+
         if (isset($map['ScanDayList'])) {
             if (!empty($map['ScanDayList'])) {
-                $model->scanDayList = $map['ScanDayList'];
+                $model->scanDayList = [];
+                $n1 = 0;
+                foreach ($map['ScanDayList'] as $item1) {
+                    $model->scanDayList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

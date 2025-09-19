@@ -4,45 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLastOnceTaskInfoRequest extends Model
 {
     /**
-     * @description The source of the task.
-     *
-     * @example console_batch
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description The name of the task. Valid values:
-     *
-     *   **CLIENT_PROBLEM_CHECK**: client diagnosis task
-     *   **CLIENT_DEV_OPS**: O\\&M task of Cloud Assistant
-     *   **ASSETS_COLLECTION**: asset collection task
-     *
-     * This parameter is required.
-     *
-     * @example ASSETS_COLLECTION
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description The type of the task. Valid values:
-     *
-     *   **CLIENT_PROBLEM_CHECK**: client diagnosis task
-     *   **CLIENT_DEV_OPS**: O\\&M task of Cloud Assistant
-     *   **ASSETS_COLLECTION**: asset collection task
-     *
-     * This parameter is required.
-     *
-     * @example ASSETS_COLLECTION
-     *
      * @var string
      */
     public $taskType;
@@ -52,17 +28,22 @@ class GetLastOnceTaskInfoRequest extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -70,20 +51,22 @@ class GetLastOnceTaskInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLastOnceTaskInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

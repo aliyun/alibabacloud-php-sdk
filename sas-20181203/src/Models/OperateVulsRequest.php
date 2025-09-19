@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OperateVulsRequest extends Model
 {
     /**
-     * @description The operation on the vulnerabilities. Set the value to **vul_fix**, which indicates vulnerability fixing.
-     *
-     * This parameter is required.
-     *
-     * @example vul_fix
-     *
      * @var string
      */
     public $operateType;
 
     /**
-     * @description The type of the vulnerabilities that you want to fix. Set the value to **cve**, which indicates Linux software vulnerabilities.
-     *
-     * This parameter is required.
-     *
-     * @example cve
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The UUIDs of servers for which you want to fix vulnerabilities.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $uuids;
 
     /**
-     * @description The names of the vulnerabilities that you want to fix.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $vulNames;
@@ -54,49 +34,88 @@ class OperateVulsRequest extends Model
         'vulNames' => 'VulNames',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->uuids)) {
+            Model::validateArray($this->uuids);
+        }
+        if (\is_array($this->vulNames)) {
+            Model::validateArray($this->vulNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uuids) {
-            $res['Uuids'] = $this->uuids;
+            if (\is_array($this->uuids)) {
+                $res['Uuids'] = [];
+                $n1 = 0;
+                foreach ($this->uuids as $item1) {
+                    $res['Uuids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->vulNames) {
-            $res['VulNames'] = $this->vulNames;
+            if (\is_array($this->vulNames)) {
+                $res['VulNames'] = [];
+                $n1 = 0;
+                foreach ($this->vulNames as $item1) {
+                    $res['VulNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateVulsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Uuids'])) {
             if (!empty($map['Uuids'])) {
-                $model->uuids = $map['Uuids'];
+                $model->uuids = [];
+                $n1 = 0;
+                foreach ($map['Uuids'] as $item1) {
+                    $model->uuids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['VulNames'])) {
             if (!empty($map['VulNames'])) {
-                $model->vulNames = $map['VulNames'];
+                $model->vulNames = [];
+                $n1 = 0;
+                foreach ($map['VulNames'] as $item1) {
+                    $model->vulNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

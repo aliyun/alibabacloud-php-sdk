@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDockerhubImageRequest extends Model
 {
     /**
-     * @description Image query condition, supports the format of `[namespace/]repoName[:version]`, where the conditions within `[]` are optional.
-     *
-     * This parameter is required.
-     *
-     * @example python:3.9
-     *
      * @var string
      */
     public $query;
@@ -22,9 +16,12 @@ class ListDockerhubImageRequest extends Model
         'query' => 'Query',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->query) {
@@ -34,11 +31,11 @@ class ListDockerhubImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDockerhubImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,52 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationCheckResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationCheckResponseBody\operationTaskInstanceDetails\repair;
-use AlibabaCloud\Tea\Model;
 
 class operationTaskInstanceDetails extends Model
 {
     /**
-     * @description Check item ID.
-     *
-     * @example 58
-     *
      * @var int
      */
     public $checkId;
 
     /**
-     * @description Instance ID.
-     *
-     * @example lb-2zefdwrre8ey8ewr0****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Region ID.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description Information about the repair task.
-     *
      * @var repair[]
      */
     public $repair;
 
     /**
-     * @description The operation type of the corresponding task:
-     * - **REPAIR**: Repair task
-     * - **ROLLBACK**: Rollback task
-     *
-     * @example REPAIR
-     *
      * @var string
      */
     public $type;
@@ -61,29 +41,40 @@ class operationTaskInstanceDetails extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->repair)) {
+            Model::validateArray($this->repair);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->repair) {
-            $res['Repair'] = [];
-            if (null !== $this->repair && \is_array($this->repair)) {
-                $n = 0;
-                foreach ($this->repair as $item) {
-                    $res['Repair'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->repair)) {
+                $res['Repair'] = [];
+                $n1 = 0;
+                foreach ($this->repair as $item1) {
+                    $res['Repair'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -91,32 +82,37 @@ class operationTaskInstanceDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operationTaskInstanceDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Repair'])) {
             if (!empty($map['Repair'])) {
                 $model->repair = [];
-                $n = 0;
-                foreach ($map['Repair'] as $item) {
-                    $model->repair[$n++] = null !== $item ? repair::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Repair'] as $item1) {
+                    $model->repair[$n1] = repair::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

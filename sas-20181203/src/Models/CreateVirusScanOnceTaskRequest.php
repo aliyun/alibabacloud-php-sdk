@@ -4,56 +4,66 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVirusScanOnceTaskRequest extends Model
 {
     /**
-     * @description The information about the scan path that is required for a custom scan.
-     *
+     * @var string
+     */
+    public $param;
+
+    /**
      * @var string[]
      */
     public $scanPath;
 
     /**
-     * @description The type of the virus scan. Valid values:
-     *
-     *   **system**: system scan.
-     *   **user**: custom scan.
-     *
-     * @example system
-     *
      * @var string
      */
     public $scanType;
 
     /**
-     * @description The key that stores the asset information.
-     *
-     * > You can call the [GetAssetSelectionConfig](~~GetAssetSelectionConfig~~) operation to obtain the key value.
-     *
-     * @example 845de1ec-4b08-42e1-b564-31321e48xxxx
-     *
      * @var string
      */
     public $selectionKey;
     protected $_name = [
+        'param' => 'Param',
         'scanPath' => 'ScanPath',
         'scanType' => 'ScanType',
         'selectionKey' => 'SelectionKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->scanPath)) {
+            Model::validateArray($this->scanPath);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->scanPath) {
-            $res['ScanPath'] = $this->scanPath;
+        if (null !== $this->param) {
+            $res['Param'] = $this->param;
         }
+
+        if (null !== $this->scanPath) {
+            if (\is_array($this->scanPath)) {
+                $res['ScanPath'] = [];
+                $n1 = 0;
+                foreach ($this->scanPath as $item1) {
+                    $res['ScanPath'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->scanType) {
             $res['ScanType'] = $this->scanType;
         }
+
         if (null !== $this->selectionKey) {
             $res['SelectionKey'] = $this->selectionKey;
         }
@@ -61,22 +71,33 @@ class CreateVirusScanOnceTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVirusScanOnceTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Param'])) {
+            $model->param = $map['Param'];
+        }
+
         if (isset($map['ScanPath'])) {
             if (!empty($map['ScanPath'])) {
-                $model->scanPath = $map['ScanPath'];
+                $model->scanPath = [];
+                $n1 = 0;
+                foreach ($map['ScanPath'] as $item1) {
+                    $model->scanPath[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ScanType'])) {
             $model->scanType = $map['ScanType'];
         }
+
         if (isset($map['SelectionKey'])) {
             $model->selectionKey = $map['SelectionKey'];
         }

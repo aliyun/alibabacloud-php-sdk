@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainCountResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example C286491D-4A2F-589A-B63B-D2AD3DA9BD71
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of root domains.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $rootDomainsCount;
 
     /**
-     * @description The number of subdomains.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $subDomainsCount;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalDomainsCount;
@@ -50,20 +34,26 @@ class DescribeDomainCountResponseBody extends Model
         'totalDomainsCount' => 'TotalDomainsCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->rootDomainsCount) {
             $res['RootDomainsCount'] = $this->rootDomainsCount;
         }
+
         if (null !== $this->subDomainsCount) {
             $res['SubDomainsCount'] = $this->subDomainsCount;
         }
+
         if (null !== $this->totalDomainsCount) {
             $res['TotalDomainsCount'] = $this->totalDomainsCount;
         }
@@ -71,23 +61,26 @@ class DescribeDomainCountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainCountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RootDomainsCount'])) {
             $model->rootDomainsCount = $map['RootDomainsCount'];
         }
+
         if (isset($map['SubDomainsCount'])) {
             $model->subDomainsCount = $map['SubDomainsCount'];
         }
+
         if (isset($map['TotalDomainsCount'])) {
             $model->totalDomainsCount = $map['TotalDomainsCount'];
         }

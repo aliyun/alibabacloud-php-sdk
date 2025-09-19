@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOpaPluginStatusRequest extends Model
 {
     /**
-     * @description The cluster IDs.
-     *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $clusterIds;
@@ -22,29 +16,47 @@ class GetOpaPluginStatusRequest extends Model
         'clusterIds' => 'ClusterIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusterIds)) {
+            Model::validateArray($this->clusterIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterIds) {
-            $res['ClusterIds'] = $this->clusterIds;
+            if (\is_array($this->clusterIds)) {
+                $res['ClusterIds'] = [];
+                $n1 = 0;
+                foreach ($this->clusterIds as $item1) {
+                    $res['ClusterIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOpaPluginStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
-                $model->clusterIds = $map['ClusterIds'];
+                $model->clusterIds = [];
+                $n1 = 0;
+                foreach ($map['ClusterIds'] as $item1) {
+                    $model->clusterIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

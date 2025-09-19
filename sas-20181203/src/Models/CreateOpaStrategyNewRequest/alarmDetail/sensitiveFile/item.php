@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateOpaStrategyNewRequest\alarmDetail\sensitiveFile;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class item extends Model
 {
     /**
-     * @description The ID of the sensitive files.
-     *
-     * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
-     *
-     * @example key
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The name of the sensitive files.
-     *
-     * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
-     *
-     * @example name
-     *
      * @var string
      */
     public $name;
@@ -34,14 +22,18 @@ class item extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,17 +41,18 @@ class item extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return item
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

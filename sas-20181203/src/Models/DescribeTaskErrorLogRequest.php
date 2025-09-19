@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTaskErrorLogRequest extends Model
 {
     /**
-     * @description The ID of the task.
-     *
-     * >  You can call the DescribeImageFixTask operation to query the IDs of tasks.
-     *
-     * This parameter is required.
-     *
-     * @example ivf-6e520160-205d-4801-b8e9-9e7e****
-     *
      * @var string
      */
     public $buildTaskId;
@@ -24,9 +16,12 @@ class DescribeTaskErrorLogRequest extends Model
         'buildTaskId' => 'BuildTaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildTaskId) {
@@ -36,11 +31,11 @@ class DescribeTaskErrorLogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTaskErrorLogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,95 +4,103 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePostPaidBindRelRequest\bindAction;
-use AlibabaCloud\Tea\Model;
 
 class UpdatePostPaidBindRelRequest extends Model
 {
     /**
-     * @description Enable automatic binding for new assets. Values:
-     *
-     * - **0**: Off
-     * - **1**: On
-     *
-     * @example 1
-     *
      * @var int
      */
     public $autoBind;
 
     /**
-     * @description Version to automatically bind when adding new assets. Values:
-     * - **1**: Basic Edition
-     * - **3**: Enterprise Edition
-     * - **5**: Advanced Edition
-     * - **6**: Antivirus Edition
-     * - **7**: Container Edition
-     *
-     * @example 3
-     *
      * @var int
      */
     public $autoBindVersion;
 
     /**
-     * @description Parameters for the binding action.
-     *
      * @var bindAction[]
      */
     public $bindAction;
+
+    /**
+     * @var bool
+     */
+    public $updateIfNecessary;
     protected $_name = [
         'autoBind' => 'AutoBind',
         'autoBindVersion' => 'AutoBindVersion',
         'bindAction' => 'BindAction',
+        'updateIfNecessary' => 'UpdateIfNecessary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bindAction)) {
+            Model::validateArray($this->bindAction);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoBind) {
             $res['AutoBind'] = $this->autoBind;
         }
+
         if (null !== $this->autoBindVersion) {
             $res['AutoBindVersion'] = $this->autoBindVersion;
         }
+
         if (null !== $this->bindAction) {
-            $res['BindAction'] = [];
-            if (null !== $this->bindAction && \is_array($this->bindAction)) {
-                $n = 0;
-                foreach ($this->bindAction as $item) {
-                    $res['BindAction'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bindAction)) {
+                $res['BindAction'] = [];
+                $n1 = 0;
+                foreach ($this->bindAction as $item1) {
+                    $res['BindAction'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->updateIfNecessary) {
+            $res['UpdateIfNecessary'] = $this->updateIfNecessary;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePostPaidBindRelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoBind'])) {
             $model->autoBind = $map['AutoBind'];
         }
+
         if (isset($map['AutoBindVersion'])) {
             $model->autoBindVersion = $map['AutoBindVersion'];
         }
+
         if (isset($map['BindAction'])) {
             if (!empty($map['BindAction'])) {
                 $model->bindAction = [];
-                $n = 0;
-                foreach ($map['BindAction'] as $item) {
-                    $model->bindAction[$n++] = null !== $item ? bindAction::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BindAction'] as $item1) {
+                    $model->bindAction[$n1] = bindAction::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UpdateIfNecessary'])) {
+            $model->updateIfNecessary = $map['UpdateIfNecessary'];
         }
 
         return $model;

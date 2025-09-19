@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCloudVendorTrialConfigRequest extends Model
 {
     /**
-     * @description Unique ID of the AK.
-     *
-     * > You can call [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) to get the AuthId.
-     * > -
-     *
-     * This parameter is required.
-     *
-     * @example 23**
-     *
      * @var int
      */
     public $authId;
 
     /**
-     * @description Cloud asset vendor. Values:
-     * - **Tencent**: Tencent Cloud
-     * - **AWS**: Amazon Web Services
-     *
-     * This parameter is required.
-     *
-     * @example AWS
-     *
      * @var string
      */
     public $vendor;
@@ -39,14 +22,18 @@ class DescribeCloudVendorTrialConfigRequest extends Model
         'vendor' => 'Vendor',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authId) {
             $res['AuthId'] = $this->authId;
         }
+
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -54,17 +41,18 @@ class DescribeCloudVendorTrialConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudVendorTrialConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthId'])) {
             $model->authId = $map['AuthId'];
         }
+
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }

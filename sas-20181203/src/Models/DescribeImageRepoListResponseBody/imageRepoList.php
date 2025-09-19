@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageRepoListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageRepoList extends Model
 {
     /**
-     * @description Indicates whether the feature takes effect on the image repository. Valid values:
-     *
-     *   **add**: yes
-     *   **del**: no
-     *
-     * @example add
-     *
      * @var string
      */
     public $flag;
 
     /**
-     * @description The name of the image repository.
-     *
-     * @example zeus
-     *
      * @var string
      */
     public $repoName;
 
     /**
-     * @description The namespace to which the image repository belongs.
-     *
-     * @example sas-script
-     *
      * @var string
      */
     public $repoNamespace;
@@ -43,17 +28,22 @@ class imageRepoList extends Model
         'repoNamespace' => 'RepoNamespace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
         }
+
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
         }
+
         if (null !== $this->repoNamespace) {
             $res['RepoNamespace'] = $this->repoNamespace;
         }
@@ -61,20 +51,22 @@ class imageRepoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageRepoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
         }
+
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
         }
+
         if (isset($map['RepoNamespace'])) {
             $model->repoNamespace = $map['RepoNamespace'];
         }

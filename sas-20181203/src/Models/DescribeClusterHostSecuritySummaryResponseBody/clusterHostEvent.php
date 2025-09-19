@@ -4,30 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterHostSecuritySummaryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterHostSecuritySummaryResponseBody\clusterHostEvent\alarmEvent;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterHostSecuritySummaryResponseBody\clusterHostEvent\baselineEvent;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterHostSecuritySummaryResponseBody\clusterHostEvent\vulEvent;
-use AlibabaCloud\Tea\Model;
 
 class clusterHostEvent extends Model
 {
     /**
-     * @description The alert details of the host.
-     *
      * @var alarmEvent[]
      */
     public $alarmEvent;
 
     /**
-     * @description The baseline details of the host.
-     *
      * @var baselineEvent[]
      */
     public $baselineEvent;
 
     /**
-     * @description The vulnerability details of the host.
-     *
      * @var vulEvent[]
      */
     public $vulEvent;
@@ -37,35 +31,52 @@ class clusterHostEvent extends Model
         'vulEvent' => 'VulEvent',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->alarmEvent)) {
+            Model::validateArray($this->alarmEvent);
+        }
+        if (\is_array($this->baselineEvent)) {
+            Model::validateArray($this->baselineEvent);
+        }
+        if (\is_array($this->vulEvent)) {
+            Model::validateArray($this->vulEvent);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmEvent) {
-            $res['AlarmEvent'] = [];
-            if (null !== $this->alarmEvent && \is_array($this->alarmEvent)) {
-                $n = 0;
-                foreach ($this->alarmEvent as $item) {
-                    $res['AlarmEvent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alarmEvent)) {
+                $res['AlarmEvent'] = [];
+                $n1 = 0;
+                foreach ($this->alarmEvent as $item1) {
+                    $res['AlarmEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->baselineEvent) {
-            $res['BaselineEvent'] = [];
-            if (null !== $this->baselineEvent && \is_array($this->baselineEvent)) {
-                $n = 0;
-                foreach ($this->baselineEvent as $item) {
-                    $res['BaselineEvent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->baselineEvent)) {
+                $res['BaselineEvent'] = [];
+                $n1 = 0;
+                foreach ($this->baselineEvent as $item1) {
+                    $res['BaselineEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vulEvent) {
-            $res['VulEvent'] = [];
-            if (null !== $this->vulEvent && \is_array($this->vulEvent)) {
-                $n = 0;
-                foreach ($this->vulEvent as $item) {
-                    $res['VulEvent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vulEvent)) {
+                $res['VulEvent'] = [];
+                $n1 = 0;
+                foreach ($this->vulEvent as $item1) {
+                    $res['VulEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,38 +84,43 @@ class clusterHostEvent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterHostEvent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmEvent'])) {
             if (!empty($map['AlarmEvent'])) {
                 $model->alarmEvent = [];
-                $n = 0;
-                foreach ($map['AlarmEvent'] as $item) {
-                    $model->alarmEvent[$n++] = null !== $item ? alarmEvent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlarmEvent'] as $item1) {
+                    $model->alarmEvent[$n1] = alarmEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['BaselineEvent'])) {
             if (!empty($map['BaselineEvent'])) {
                 $model->baselineEvent = [];
-                $n = 0;
-                foreach ($map['BaselineEvent'] as $item) {
-                    $model->baselineEvent[$n++] = null !== $item ? baselineEvent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BaselineEvent'] as $item1) {
+                    $model->baselineEvent[$n1] = baselineEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VulEvent'])) {
             if (!empty($map['VulEvent'])) {
                 $model->vulEvent = [];
-                $n = 0;
-                foreach ($map['VulEvent'] as $item) {
-                    $model->vulEvent[$n++] = null !== $item ? vulEvent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VulEvent'] as $item1) {
+                    $model->vulEvent[$n1] = vulEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

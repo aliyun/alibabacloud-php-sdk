@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSasContainerWebDefenseRuleCriteriaResponseBody\criteriaList;
-use AlibabaCloud\Tea\Model;
 
 class GetSasContainerWebDefenseRuleCriteriaResponseBody extends Model
 {
     /**
-     * @description The search conditions.
-     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
-     * @description The request ID.
-     *
-     * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class GetSasContainerWebDefenseRuleCriteriaResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->criteriaList)) {
+            Model::validateArray($this->criteriaList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->criteriaList) {
-            $res['CriteriaList'] = [];
-            if (null !== $this->criteriaList && \is_array($this->criteriaList)) {
-                $n = 0;
-                foreach ($this->criteriaList as $item) {
-                    $res['CriteriaList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->criteriaList)) {
+                $res['CriteriaList'] = [];
+                $n1 = 0;
+                foreach ($this->criteriaList as $item1) {
+                    $res['CriteriaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class GetSasContainerWebDefenseRuleCriteriaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSasContainerWebDefenseRuleCriteriaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CriteriaList'])) {
             if (!empty($map['CriteriaList'])) {
                 $model->criteriaList = [];
-                $n = 0;
-                foreach ($map['CriteriaList'] as $item) {
-                    $model->criteriaList[$n++] = null !== $item ? criteriaList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CriteriaList'] as $item1) {
+                    $model->criteriaList[$n1] = criteriaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

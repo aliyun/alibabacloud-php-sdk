@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVirusScanConfigRequest extends Model
 {
     /**
-     * @description The type of the task. Valid values:
-     *
-     *   **VIRUS_VUL_SCHEDULE_SCAN**: a virus scan task.
-     *
-     * @example VIRUS_VUL_SCHEDULE_SCAN
-     *
      * @var string
      */
     public $taskType;
@@ -22,9 +16,12 @@ class GetVirusScanConfigRequest extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskType) {
@@ -34,11 +31,11 @@ class GetVirusScanConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVirusScanConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

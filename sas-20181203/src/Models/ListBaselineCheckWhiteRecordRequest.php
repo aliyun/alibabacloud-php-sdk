@@ -4,71 +4,41 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListBaselineCheckWhiteRecordRequest extends Model
 {
     /**
-     * @description The IDs of check items.
-     *
      * @var int[]
      */
     public $checkIds;
 
     /**
-     * @description The name of the check item. Fuzzy match is supported.
-     *
-     * @example redis
-     *
      * @var string
      */
     public $checkItemFuzzy;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The IDs of the whitelist rules.
-     *
      * @var int[]
      */
     public $recordIds;
 
     /**
-     * @description The data source. If you leave this parameter empty, the default value is used. Valid values:
-     *
-     *   **default**: server
-     *   **agentless**: agentless detection
-     *
-     * @example agentless
-     *
      * @var string
      */
     public $source;
@@ -82,29 +52,58 @@ class ListBaselineCheckWhiteRecordRequest extends Model
         'source' => 'Source',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->checkIds)) {
+            Model::validateArray($this->checkIds);
+        }
+        if (\is_array($this->recordIds)) {
+            Model::validateArray($this->recordIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkIds) {
-            $res['CheckIds'] = $this->checkIds;
+            if (\is_array($this->checkIds)) {
+                $res['CheckIds'] = [];
+                $n1 = 0;
+                foreach ($this->checkIds as $item1) {
+                    $res['CheckIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->checkItemFuzzy) {
             $res['CheckItemFuzzy'] = $this->checkItemFuzzy;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->recordIds) {
-            $res['RecordIds'] = $this->recordIds;
+            if (\is_array($this->recordIds)) {
+                $res['RecordIds'] = [];
+                $n1 = 0;
+                foreach ($this->recordIds as $item1) {
+                    $res['RecordIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -112,36 +111,52 @@ class ListBaselineCheckWhiteRecordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListBaselineCheckWhiteRecordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckIds'])) {
             if (!empty($map['CheckIds'])) {
-                $model->checkIds = $map['CheckIds'];
+                $model->checkIds = [];
+                $n1 = 0;
+                foreach ($map['CheckIds'] as $item1) {
+                    $model->checkIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['CheckItemFuzzy'])) {
             $model->checkItemFuzzy = $map['CheckItemFuzzy'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RecordIds'])) {
             if (!empty($map['RecordIds'])) {
-                $model->recordIds = $map['RecordIds'];
+                $model->recordIds = [];
+                $n1 = 0;
+                foreach ($map['RecordIds'] as $item1) {
+                    $model->recordIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

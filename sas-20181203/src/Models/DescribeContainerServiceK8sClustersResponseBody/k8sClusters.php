@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClustersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class k8sClusters extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * @example cdbbe7aa56cbf4b8f830f83718d26****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
-     *
-     * @example cluster-test
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class k8sClusters extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class k8sClusters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return k8sClusters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

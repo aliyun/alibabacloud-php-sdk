@@ -4,33 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupSnapshotRequest\backupSnapshotList;
-use AlibabaCloud\Tea\Model;
 
 class DeleteBackupSnapshotRequest extends Model
 {
     /**
-     * @description The regions for backup.
-     *
      * @var string[]
      */
     public $backupRegionIdList;
 
     /**
-     * @description The backup snapshots.
-     *
      * @var backupSnapshotList[]
      */
     public $backupSnapshotList;
 
     /**
-     * @description Specifies whether to retain the latest snapshot. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $retainLatestSnapshot;
@@ -40,23 +29,42 @@ class DeleteBackupSnapshotRequest extends Model
         'retainLatestSnapshot' => 'RetainLatestSnapshot',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->backupRegionIdList)) {
+            Model::validateArray($this->backupRegionIdList);
+        }
+        if (\is_array($this->backupSnapshotList)) {
+            Model::validateArray($this->backupSnapshotList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupRegionIdList) {
-            $res['BackupRegionIdList'] = $this->backupRegionIdList;
-        }
-        if (null !== $this->backupSnapshotList) {
-            $res['BackupSnapshotList'] = [];
-            if (null !== $this->backupSnapshotList && \is_array($this->backupSnapshotList)) {
-                $n = 0;
-                foreach ($this->backupSnapshotList as $item) {
-                    $res['BackupSnapshotList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backupRegionIdList)) {
+                $res['BackupRegionIdList'] = [];
+                $n1 = 0;
+                foreach ($this->backupRegionIdList as $item1) {
+                    $res['BackupRegionIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->backupSnapshotList) {
+            if (\is_array($this->backupSnapshotList)) {
+                $res['BackupSnapshotList'] = [];
+                $n1 = 0;
+                foreach ($this->backupSnapshotList as $item1) {
+                    $res['BackupSnapshotList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->retainLatestSnapshot) {
             $res['RetainLatestSnapshot'] = $this->retainLatestSnapshot;
         }
@@ -64,28 +72,36 @@ class DeleteBackupSnapshotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBackupSnapshotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupRegionIdList'])) {
             if (!empty($map['BackupRegionIdList'])) {
-                $model->backupRegionIdList = $map['BackupRegionIdList'];
-            }
-        }
-        if (isset($map['BackupSnapshotList'])) {
-            if (!empty($map['BackupSnapshotList'])) {
-                $model->backupSnapshotList = [];
-                $n = 0;
-                foreach ($map['BackupSnapshotList'] as $item) {
-                    $model->backupSnapshotList[$n++] = null !== $item ? backupSnapshotList::fromMap($item) : $item;
+                $model->backupRegionIdList = [];
+                $n1 = 0;
+                foreach ($map['BackupRegionIdList'] as $item1) {
+                    $model->backupRegionIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['BackupSnapshotList'])) {
+            if (!empty($map['BackupSnapshotList'])) {
+                $model->backupSnapshotList = [];
+                $n1 = 0;
+                foreach ($map['BackupSnapshotList'] as $item1) {
+                    $model->backupSnapshotList[$n1] = backupSnapshotList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RetainLatestSnapshot'])) {
             $model->retainLatestSnapshot = $map['RetainLatestSnapshot'];
         }

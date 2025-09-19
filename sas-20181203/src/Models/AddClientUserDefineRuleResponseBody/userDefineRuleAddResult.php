@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\AddClientUserDefineRuleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userDefineRuleAddResult extends Model
 {
     /**
-     * @description The ID of the rule.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The type of the operating system. Valid values:
-     *
-     *   **windows**: Windows
-     *   **linux**: Linux
-     *   **all**: all types
-     *
-     * @example linux
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description The switch ID of the custom defense rule.
-     *
-     * @example USER-DEFINE-RULE-SWITCH-TYPE_200****
-     *
      * @var string
      */
     public $switchId;
@@ -44,17 +28,22 @@ class userDefineRuleAddResult extends Model
         'switchId' => 'SwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
+
         if (null !== $this->switchId) {
             $res['SwitchId'] = $this->switchId;
         }
@@ -62,20 +51,22 @@ class userDefineRuleAddResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userDefineRuleAddResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
+
         if (isset($map['SwitchId'])) {
             $model->switchId = $map['SwitchId'];
         }

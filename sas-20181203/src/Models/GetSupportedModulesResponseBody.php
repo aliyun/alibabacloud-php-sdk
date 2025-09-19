@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSupportedModulesResponseBody\supportedModuleResponse;
-use AlibabaCloud\Tea\Model;
 
 class GetSupportedModulesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example C699E4E4-F2F4-58FC-A949-457FFE59****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The supported modules. The module information is classified by cloud service provider.
-     *
      * @var supportedModuleResponse[]
      */
     public $supportedModuleResponse;
@@ -29,20 +23,28 @@ class GetSupportedModulesResponseBody extends Model
         'supportedModuleResponse' => 'SupportedModuleResponse',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->supportedModuleResponse)) {
+            Model::validateArray($this->supportedModuleResponse);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->supportedModuleResponse) {
-            $res['SupportedModuleResponse'] = [];
-            if (null !== $this->supportedModuleResponse && \is_array($this->supportedModuleResponse)) {
-                $n = 0;
-                foreach ($this->supportedModuleResponse as $item) {
-                    $res['SupportedModuleResponse'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedModuleResponse)) {
+                $res['SupportedModuleResponse'] = [];
+                $n1 = 0;
+                foreach ($this->supportedModuleResponse as $item1) {
+                    $res['SupportedModuleResponse'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class GetSupportedModulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSupportedModulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SupportedModuleResponse'])) {
             if (!empty($map['SupportedModuleResponse'])) {
                 $model->supportedModuleResponse = [];
-                $n = 0;
-                foreach ($map['SupportedModuleResponse'] as $item) {
-                    $model->supportedModuleResponse[$n++] = null !== $item ? supportedModuleResponse::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportedModuleResponse'] as $item1) {
+                    $model->supportedModuleResponse[$n1] = supportedModuleResponse::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

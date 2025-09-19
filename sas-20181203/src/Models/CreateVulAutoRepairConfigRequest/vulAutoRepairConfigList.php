@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vulAutoRepairConfigList extends Model
 {
     /**
-     * @description The alias of the vulnerability.
-     *
-     * This parameter is required.
-     *
-     * @example CVE-2018-25032:zlib 1.2.11 memory corruption
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description The name of the vulnerability.
-     *
-     * This parameter is required.
-     *
-     * @example anolisos:8.4:ANSA-2022:0001
-     *
      * @var string
      */
     public $name;
@@ -34,14 +22,18 @@ class vulAutoRepairConfigList extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,17 +41,18 @@ class vulAutoRepairConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vulAutoRepairConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

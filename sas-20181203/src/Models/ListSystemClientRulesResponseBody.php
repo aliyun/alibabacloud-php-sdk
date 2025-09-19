@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListSystemClientRulesResponseBody\pageInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListSystemClientRulesResponseBody\ruleList;
-use AlibabaCloud\Tea\Model;
 
 class ListSystemClientRulesResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example C43CA30F-EF67-51BB-8C95-F31B8303****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the system defense rules.
-     *
      * @var ruleList[]
      */
     public $ruleList;
@@ -38,23 +30,35 @@ class ListSystemClientRulesResponseBody extends Model
         'ruleList' => 'RuleList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        if (\is_array($this->ruleList)) {
+            Model::validateArray($this->ruleList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->ruleList) {
-            $res['RuleList'] = [];
-            if (null !== $this->ruleList && \is_array($this->ruleList)) {
-                $n = 0;
-                foreach ($this->ruleList as $item) {
-                    $res['RuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleList)) {
+                $res['RuleList'] = [];
+                $n1 = 0;
+                foreach ($this->ruleList as $item1) {
+                    $res['RuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,26 +66,29 @@ class ListSystemClientRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSystemClientRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n = 0;
-                foreach ($map['RuleList'] as $item) {
-                    $model->ruleList[$n++] = null !== $item ? ruleList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RuleList'] as $item1) {
+                    $model->ruleList[$n1] = ruleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

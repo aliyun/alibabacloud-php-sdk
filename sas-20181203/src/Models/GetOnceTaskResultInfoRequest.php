@@ -4,47 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOnceTaskResultInfoRequest extends Model
 {
     /**
-     * @description The ID of the scan task.
-     *
-     * This parameter is required.
-     *
-     * @example 9dfa3a7eb9547781632785b49003****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The name of the task. Valid values:
-     *
-     *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center agent
-     *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
-     *   **ASSET_SECURITY_CHECK**: a task of asset information collection
-     *
-     * This parameter is required.
-     *
-     * @example ASSETS_COLLECTION
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description The type of the task. Valid values:
-     *
-     *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center agent
-     *   **CLIENT_DEV_OPS**: an O\\&M task of Cloud Assistant
-     *   **ASSET_SECURITY_CHECK**: a task of asset information collection
-     *
-     * This parameter is required.
-     *
-     * @example ASSETS_COLLECTION
-     *
      * @var string
      */
     public $taskType;
@@ -54,17 +28,22 @@ class GetOnceTaskResultInfoRequest extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -72,20 +51,22 @@ class GetOnceTaskResultInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOnceTaskResultInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

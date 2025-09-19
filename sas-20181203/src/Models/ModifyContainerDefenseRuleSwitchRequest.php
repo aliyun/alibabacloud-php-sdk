@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyContainerDefenseRuleSwitchRequest extends Model
 {
     /**
-     * @description The IDs of the rules.
-     *
      * @var int[]
      */
     public $ruleIds;
 
     /**
-     * @description The status of the rule. Valid values:
-     *
-     *   **1**: enabled
-     *   **0**: disabled
-     *
-     * @example 0
-     *
      * @var int
      */
     public $ruleSwitch;
@@ -31,14 +22,28 @@ class ModifyContainerDefenseRuleSwitchRequest extends Model
         'ruleSwitch' => 'RuleSwitch',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ruleIds)) {
+            Model::validateArray($this->ruleIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = $this->ruleIds;
+            if (\is_array($this->ruleIds)) {
+                $res['RuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->ruleIds as $item1) {
+                    $res['RuleIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ruleSwitch) {
             $res['RuleSwitch'] = $this->ruleSwitch;
         }
@@ -46,19 +51,25 @@ class ModifyContainerDefenseRuleSwitchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyContainerDefenseRuleSwitchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleIds'])) {
             if (!empty($map['RuleIds'])) {
-                $model->ruleIds = $map['RuleIds'];
+                $model->ruleIds = [];
+                $n1 = 0;
+                foreach ($map['RuleIds'] as $item1) {
+                    $model->ruleIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RuleSwitch'])) {
             $model->ruleSwitch = $map['RuleSwitch'];
         }

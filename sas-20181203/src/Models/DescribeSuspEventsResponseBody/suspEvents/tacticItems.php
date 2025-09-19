@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponseBody\suspEvents;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tacticItems extends Model
 {
     /**
-     * @description The tactic name of ATT\\&CK.
-     *
-     * @example Malicious scripts-Malicious script code execution
-     *
      * @var string
      */
     public $tacticDisplayName;
 
     /**
-     * @description The stage information about ATT\\&CK.
-     *
-     * @example TA0001
-     *
      * @var string
      */
     public $tacticId;
@@ -30,14 +22,18 @@ class tacticItems extends Model
         'tacticId' => 'TacticId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tacticDisplayName) {
             $res['TacticDisplayName'] = $this->tacticDisplayName;
         }
+
         if (null !== $this->tacticId) {
             $res['TacticId'] = $this->tacticId;
         }
@@ -45,17 +41,18 @@ class tacticItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tacticItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TacticDisplayName'])) {
             $model->tacticDisplayName = $map['TacticDisplayName'];
         }
+
         if (isset($map['TacticId'])) {
             $model->tacticId = $map['TacticId'];
         }

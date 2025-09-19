@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskItemTypeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * @example 37625
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The name of the check type.
-     *
-     * @example Identity authentication and permissions
-     *
      * @var string
      */
     public $title;
@@ -30,14 +22,18 @@ class list_ extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -45,17 +41,18 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

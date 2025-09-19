@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDiscoverDatabaseRequest extends Model
 {
     /**
-     * @description The ID of the scan task.
-     *
-     * > You can call the [StartDiscoverDatabaseTask](~~StartDiscoverDatabaseTask~~) operation to query the ID of the task.
-     *
-     * @example 7f7b051f-7d1c-46da-b253-a03f3a27****
-     *
      * @var string
      */
     public $createMark;
@@ -22,9 +16,12 @@ class QueryDiscoverDatabaseRequest extends Model
         'createMark' => 'CreateMark',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createMark) {
@@ -34,11 +31,11 @@ class QueryDiscoverDatabaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDiscoverDatabaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

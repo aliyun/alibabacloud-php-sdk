@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWhiteListRequest extends Model
 {
     /**
-     * @description Image repository ID.
-     * > You can obtain this parameter by calling the [PageImageRegistry](~~PageImageRegistry~~) interface.
-     *
-     * This parameter is required.
-     *
-     * @example 19882
-     *
      * @var int
      */
     public $registryId;
 
     /**
-     * @description Whitelist list. If there are multiple whitelisted addresses, separate them with a comma (,).
-     *
-     * This parameter is required.
-     *
-     * @example 192.168.XXX.XXX,192.180.XXX.XXX
-     *
      * @var string
      */
     public $whiteList;
@@ -35,14 +22,18 @@ class UpdateWhiteListRequest extends Model
         'whiteList' => 'WhiteList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->registryId) {
             $res['RegistryId'] = $this->registryId;
         }
+
         if (null !== $this->whiteList) {
             $res['WhiteList'] = $this->whiteList;
         }
@@ -50,17 +41,18 @@ class UpdateWhiteListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWhiteListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegistryId'])) {
             $model->registryId = $map['RegistryId'];
         }
+
         if (isset($map['WhiteList'])) {
             $model->whiteList = $map['WhiteList'];
         }

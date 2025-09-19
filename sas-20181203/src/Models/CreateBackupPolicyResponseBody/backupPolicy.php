@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backupPolicy extends Model
 {
     /**
-     * @description The ID of the anti-ransomware policy.
-     *
-     * @example 1301575
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The status of the anti-ransomware policy. Valid values:
-     *
-     *   **enabled**
-     *   **disabled**
-     *
-     * >  After you create an anti-ransomware policy, the policy is enabled by default.
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $status;
@@ -35,14 +22,18 @@ class backupPolicy extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -50,17 +41,18 @@ class backupPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backupPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBruteForceRecordsRequest extends Model
 {
     /**
-     * @description The IP address that is blocked.
-     *
-     * @example 175.106.XX.XX
-     *
      * @var string
      */
     public $blockIp;
 
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The ID of the server.
-     *
-     * @example i-bp1g6wxdwps7s9dz****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page. We recommend that you do not leave this parameter empty.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The name or IP address of the server to query.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $remark;
@@ -59,14 +39,6 @@ class DescribeBruteForceRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The status of the defense rule. Valid values:
-     *
-     *   **0**: invalid
-     *   **1**: enabled
-     *   **2**: failed
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -80,29 +52,38 @@ class DescribeBruteForceRecordsRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockIp) {
             $res['BlockIp'] = $this->blockIp;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -110,32 +91,38 @@ class DescribeBruteForceRecordsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBruteForceRecordsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockIp'])) {
             $model->blockIp = $map['BlockIp'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

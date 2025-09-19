@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllImageBaselineResponseBody\imageBaselines;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAllImageBaselineResponseBody extends Model
 {
     /**
-     * @description The baselines that are used in image baseline checks.
-     *
      * @var imageBaselines
      */
     public $imageBaselines;
 
     /**
-     * @description The ID of the request, which is used to query logs and troubleshoot issues.
-     *
-     * @example 1A975D03-5F49-5354-B2CB-3918D5DA****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeAllImageBaselineResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->imageBaselines) {
+            $this->imageBaselines->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageBaselines) {
-            $res['ImageBaselines'] = null !== $this->imageBaselines ? $this->imageBaselines->toMap() : null;
+            $res['ImageBaselines'] = null !== $this->imageBaselines ? $this->imageBaselines->toArray($noStream) : $this->imageBaselines;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeAllImageBaselineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAllImageBaselineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageBaselines'])) {
             $model->imageBaselines = imageBaselines::fromMap($map['ImageBaselines']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

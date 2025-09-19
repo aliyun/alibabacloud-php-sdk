@@ -4,156 +4,81 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCheckItemWarningSummaryRequest extends Model
 {
     /**
-     * @description The name of the check item. Fuzzy match is supported.
-     *
-     * @example password
-     *
      * @var string
      */
     public $checkItemFuzzy;
 
     /**
-     * @description The risk level. Default value: null, which indicates that check items at all risk levels are queried.Valid values:
-     *   **high**
-     *   **medium**
-     *   **low**
-     *
-     * @example medium
-     *
      * @var string
      */
     public $checkLevel;
 
     /**
-     * @description The type of the check item.
-     *
-     * @example hc.check.type.attack_defense
-     *
      * @var string
      */
     public $checkType;
 
     /**
-     * @description The risk status. Default value is null, meaning check items in all states are queried. Valid values:
-     *
-     *   **1**: failed
-     *   **3**: passed
-     *   **6**: whitelisted
-     *
-     * @example 3
-     *
      * @var int
      */
     public $checkWarningStatus;
 
     /**
-     * @description The list of risk levels. If the CheckWarningStatus parameter is specified, only it takes effect.
-     *
      * @var int[]
      */
     public $checkWarningStatusList;
 
     /**
-     * @description The name of the field that is used to query containers.
-     *
-     * @example clusterId
-     *
      * @var string
      */
     public $containerFieldName;
 
     /**
-     * @description The value of the field that is used to query containers.
-     *
-     * @example c471f0f61b9c04f8380556e922cf1****
-     *
      * @var string
      */
     public $containerFieldValue;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The ID of the asset group.
-     *
-     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
-     *
-     * @example 1161****
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-     *
-     * > We recommend that you do not leave this parameter empty.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The type of the baseline.
-     *
-     * @example weak_password
-     *
      * @var string
      */
     public $riskType;
 
     /**
-     * @description The data source. Default value: **default**. Valid value:
-     *
-     *   **agentless**: The check items of baselines for agentless detection.
-     *   **default**: The check items of baselines for hosts.
-     *
-     * @example agentless
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description Start of time range for filtering alerts, effective only for querying historically handled alerts.
-     *
-     * @example 1732793158366
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description The UUIDs of the servers.
-     *
-     * >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of the servers.
-     *
      * @var string[]
      */
     public $uuidList;
@@ -175,115 +100,176 @@ class ListCheckItemWarningSummaryRequest extends Model
         'uuidList' => 'UuidList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->checkWarningStatusList)) {
+            Model::validateArray($this->checkWarningStatusList);
+        }
+        if (\is_array($this->uuidList)) {
+            Model::validateArray($this->uuidList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkItemFuzzy) {
             $res['CheckItemFuzzy'] = $this->checkItemFuzzy;
         }
+
         if (null !== $this->checkLevel) {
             $res['CheckLevel'] = $this->checkLevel;
         }
+
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
+
         if (null !== $this->checkWarningStatus) {
             $res['CheckWarningStatus'] = $this->checkWarningStatus;
         }
+
         if (null !== $this->checkWarningStatusList) {
-            $res['CheckWarningStatusList'] = $this->checkWarningStatusList;
+            if (\is_array($this->checkWarningStatusList)) {
+                $res['CheckWarningStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->checkWarningStatusList as $item1) {
+                    $res['CheckWarningStatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->containerFieldName) {
             $res['ContainerFieldName'] = $this->containerFieldName;
         }
+
         if (null !== $this->containerFieldValue) {
             $res['ContainerFieldValue'] = $this->containerFieldValue;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
+            if (\is_array($this->uuidList)) {
+                $res['UuidList'] = [];
+                $n1 = 0;
+                foreach ($this->uuidList as $item1) {
+                    $res['UuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCheckItemWarningSummaryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckItemFuzzy'])) {
             $model->checkItemFuzzy = $map['CheckItemFuzzy'];
         }
+
         if (isset($map['CheckLevel'])) {
             $model->checkLevel = $map['CheckLevel'];
         }
+
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }
+
         if (isset($map['CheckWarningStatus'])) {
             $model->checkWarningStatus = $map['CheckWarningStatus'];
         }
+
         if (isset($map['CheckWarningStatusList'])) {
             if (!empty($map['CheckWarningStatusList'])) {
-                $model->checkWarningStatusList = $map['CheckWarningStatusList'];
+                $model->checkWarningStatusList = [];
+                $n1 = 0;
+                foreach ($map['CheckWarningStatusList'] as $item1) {
+                    $model->checkWarningStatusList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ContainerFieldName'])) {
             $model->containerFieldName = $map['ContainerFieldName'];
         }
+
         if (isset($map['ContainerFieldValue'])) {
             $model->containerFieldValue = $map['ContainerFieldValue'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
-                $model->uuidList = $map['UuidList'];
+                $model->uuidList = [];
+                $n1 = 0;
+                foreach ($map['UuidList'] as $item1) {
+                    $model->uuidList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

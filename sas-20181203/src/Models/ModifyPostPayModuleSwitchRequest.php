@@ -4,37 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPostPayModuleSwitchRequest extends Model
 {
     /**
-     * @description The ID of the pay-as-you-go instance. This parameter is required.
-     *
-     * >  You can call the [DescribeVersionConfig](https://help.aliyun.com/document_detail/421770.html) operation to obtain the ID.
-     *
-     * @example postpay-sas-**
-     *
      * @var string
      */
     public $postPayInstanceId;
 
     /**
-     * @description The switch status of the pay-as-you-go module. The value is a JSON string. Valid values:
-     *
-     *   Key:
-     *
-     *   **VUL**: vulnerability fixing module
-     *   **CSPM**: cloud service configuration check module
-     *   **AGENTLESS**: agentless detection module
-     *   **SERVERLESS**: serverless asset module
-     *
-     *   Value: A value of 0 specifies disabled. A value of 1 specifies enabled.
-     *
-     * >  If you do not specify a value for a module, the original value of the module is retained.
-     *
-     * @example {"VUL":1,"CSPM":0}
-     *
      * @var string
      */
     public $postPayModuleSwitch;
@@ -43,14 +22,18 @@ class ModifyPostPayModuleSwitchRequest extends Model
         'postPayModuleSwitch' => 'PostPayModuleSwitch',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->postPayInstanceId) {
             $res['PostPayInstanceId'] = $this->postPayInstanceId;
         }
+
         if (null !== $this->postPayModuleSwitch) {
             $res['PostPayModuleSwitch'] = $this->postPayModuleSwitch;
         }
@@ -58,17 +41,18 @@ class ModifyPostPayModuleSwitchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPostPayModuleSwitchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PostPayInstanceId'])) {
             $model->postPayInstanceId = $map['PostPayInstanceId'];
         }
+
         if (isset($map['PostPayModuleSwitch'])) {
             $model->postPayModuleSwitch = $map['PostPayModuleSwitch'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetCleanConfigRequest\assetCleanConfigs;
-use AlibabaCloud\Tea\Model;
 
 class ModifyAssetCleanConfigRequest extends Model
 {
     /**
-     * @description The asset cleanup configurations.
-     *
      * @var assetCleanConfigs[]
      */
     public $assetCleanConfigs;
@@ -19,17 +17,24 @@ class ModifyAssetCleanConfigRequest extends Model
         'assetCleanConfigs' => 'AssetCleanConfigs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->assetCleanConfigs)) {
+            Model::validateArray($this->assetCleanConfigs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetCleanConfigs) {
-            $res['AssetCleanConfigs'] = [];
-            if (null !== $this->assetCleanConfigs && \is_array($this->assetCleanConfigs)) {
-                $n = 0;
-                foreach ($this->assetCleanConfigs as $item) {
-                    $res['AssetCleanConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assetCleanConfigs)) {
+                $res['AssetCleanConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->assetCleanConfigs as $item1) {
+                    $res['AssetCleanConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class ModifyAssetCleanConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAssetCleanConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetCleanConfigs'])) {
             if (!empty($map['AssetCleanConfigs'])) {
                 $model->assetCleanConfigs = [];
-                $n = 0;
-                foreach ($map['AssetCleanConfigs'] as $item) {
-                    $model->assetCleanConfigs[$n++] = null !== $item ? assetCleanConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AssetCleanConfigs'] as $item1) {
+                    $model->assetCleanConfigs[$n1] = assetCleanConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceRecordsResponseBody\machineList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceRecordsResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBruteForceRecordsResponseBody extends Model
 {
     /**
-     * @description The IP addresses.
-     *
      * @var machineList[]
      */
     public $machineList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
-     *
      * @var string
      */
     public $requestId;
@@ -38,23 +30,35 @@ class DescribeBruteForceRecordsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->machineList)) {
+            Model::validateArray($this->machineList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->machineList) {
-            $res['MachineList'] = [];
-            if (null !== $this->machineList && \is_array($this->machineList)) {
-                $n = 0;
-                foreach ($this->machineList as $item) {
-                    $res['MachineList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->machineList)) {
+                $res['MachineList'] = [];
+                $n1 = 0;
+                foreach ($this->machineList as $item1) {
+                    $res['MachineList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +66,29 @@ class DescribeBruteForceRecordsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBruteForceRecordsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MachineList'])) {
             if (!empty($map['MachineList'])) {
                 $model->machineList = [];
-                $n = 0;
-                foreach ($map['MachineList'] as $item) {
-                    $model->machineList[$n++] = null !== $item ? machineList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MachineList'] as $item1) {
+                    $model->machineList[$n1] = machineList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

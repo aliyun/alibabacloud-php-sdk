@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeContainerTagsResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 028CF634-5268-5660-9575-48C9ED6BF880
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the attributes of container assets.
-     *
      * @var string[]
      */
     public $tagValues;
@@ -28,35 +22,55 @@ class DescribeContainerTagsResponseBody extends Model
         'tagValues' => 'TagValues',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tagValues)) {
+            Model::validateArray($this->tagValues);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tagValues) {
-            $res['TagValues'] = $this->tagValues;
+            if (\is_array($this->tagValues)) {
+                $res['TagValues'] = [];
+                $n1 = 0;
+                foreach ($this->tagValues as $item1) {
+                    $res['TagValues'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeContainerTagsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TagValues'])) {
             if (!empty($map['TagValues'])) {
-                $model->tagValues = $map['TagValues'];
+                $model->tagValues = [];
+                $n1 = 0;
+                foreach ($map['TagValues'] as $item1) {
+                    $model->tagValues[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

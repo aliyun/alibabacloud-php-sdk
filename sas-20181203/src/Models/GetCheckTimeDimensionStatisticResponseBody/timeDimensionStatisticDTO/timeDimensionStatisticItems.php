@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckTimeDimensionStatisticResponseBody\timeDimensionStatisticDTO;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckTimeDimensionStatisticResponseBody\timeDimensionStatisticDTO\timeDimensionStatisticItems\statisticDatas;
-use AlibabaCloud\Tea\Model;
 
 class timeDimensionStatisticItems extends Model
 {
     /**
-     * @description Data time, in timestamp format.
-     *
-     * @example 1712592000000
-     *
      * @var int
      */
     public $dataTime;
 
     /**
-     * @description List of statistical data.
-     *
      * @var statisticDatas[]
      */
     public $statisticDatas;
@@ -29,20 +23,28 @@ class timeDimensionStatisticItems extends Model
         'statisticDatas' => 'StatisticDatas',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->statisticDatas)) {
+            Model::validateArray($this->statisticDatas);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataTime) {
             $res['DataTime'] = $this->dataTime;
         }
+
         if (null !== $this->statisticDatas) {
-            $res['StatisticDatas'] = [];
-            if (null !== $this->statisticDatas && \is_array($this->statisticDatas)) {
-                $n = 0;
-                foreach ($this->statisticDatas as $item) {
-                    $res['StatisticDatas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statisticDatas)) {
+                $res['StatisticDatas'] = [];
+                $n1 = 0;
+                foreach ($this->statisticDatas as $item1) {
+                    $res['StatisticDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class timeDimensionStatisticItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeDimensionStatisticItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataTime'])) {
             $model->dataTime = $map['DataTime'];
         }
+
         if (isset($map['StatisticDatas'])) {
             if (!empty($map['StatisticDatas'])) {
                 $model->statisticDatas = [];
-                $n = 0;
-                foreach ($map['StatisticDatas'] as $item) {
-                    $model->statisticDatas[$n++] = null !== $item ? statisticDatas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StatisticDatas'] as $item1) {
+                    $model->statisticDatas[$n1] = statisticDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

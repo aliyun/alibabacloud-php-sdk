@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\UpdatePostPaidBindRelRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bindAction extends Model
 {
     /**
-     * @description Whether to bind all. Default is **false**. Values:
-     *
-     * - **true**: Yes
-     * - **false**: No
-     *
-     * @example true
-     *
      * @var bool
      */
     public $bindAll;
 
     /**
-     * @description List of specified server UUIDs.
-     *
      * @var string[]
      */
     public $uuidList;
 
     /**
-     * @description The Cloud Security Center protection version that needs to be bound. Values:
-     * - **1**: Basic Edition
-     * - **3**: Enterprise Edition
-     * - **5**: Advanced Edition
-     * - **6**: Antivirus Edition
-     * - **7**: Container Edition
-     *
-     * @example 3
-     *
      * @var string
      */
     public $version;
@@ -46,17 +28,32 @@ class bindAction extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->uuidList)) {
+            Model::validateArray($this->uuidList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindAll) {
             $res['BindAll'] = $this->bindAll;
         }
+
         if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
+            if (\is_array($this->uuidList)) {
+                $res['UuidList'] = [];
+                $n1 = 0;
+                foreach ($this->uuidList as $item1) {
+                    $res['UuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -64,22 +61,29 @@ class bindAction extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bindAction
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindAll'])) {
             $model->bindAll = $map['BindAll'];
         }
+
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
-                $model->uuidList = $map['UuidList'];
+                $model->uuidList = [];
+                $n1 = 0;
+                foreach ($map['UuidList'] as $item1) {
+                    $model->uuidList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

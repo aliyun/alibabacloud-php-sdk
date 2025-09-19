@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetDataTrendResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetDataTrendResponseBody\data\itemList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The statistical timestamps of the trend data.
-     *
      * @var int[]
      */
     public $dateList;
 
     /**
-     * @description The statistical dates and time for the trend data.
-     *
      * @var string[]
      */
     public $dateStrList;
 
     /**
-     * @description The returned data.
-     *
      * @var itemList[]
      */
     public $itemList;
@@ -35,23 +29,52 @@ class data extends Model
         'itemList' => 'ItemList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dateList)) {
+            Model::validateArray($this->dateList);
+        }
+        if (\is_array($this->dateStrList)) {
+            Model::validateArray($this->dateStrList);
+        }
+        if (\is_array($this->itemList)) {
+            Model::validateArray($this->itemList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dateList) {
-            $res['DateList'] = $this->dateList;
+            if (\is_array($this->dateList)) {
+                $res['DateList'] = [];
+                $n1 = 0;
+                foreach ($this->dateList as $item1) {
+                    $res['DateList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->dateStrList) {
-            $res['DateStrList'] = $this->dateStrList;
+            if (\is_array($this->dateStrList)) {
+                $res['DateStrList'] = [];
+                $n1 = 0;
+                foreach ($this->dateStrList as $item1) {
+                    $res['DateStrList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->itemList) {
-            $res['ItemList'] = [];
-            if (null !== $this->itemList && \is_array($this->itemList)) {
-                $n = 0;
-                foreach ($this->itemList as $item) {
-                    $res['ItemList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->itemList)) {
+                $res['ItemList'] = [];
+                $n1 = 0;
+                foreach ($this->itemList as $item1) {
+                    $res['ItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,30 +82,43 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DateList'])) {
             if (!empty($map['DateList'])) {
-                $model->dateList = $map['DateList'];
+                $model->dateList = [];
+                $n1 = 0;
+                foreach ($map['DateList'] as $item1) {
+                    $model->dateList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DateStrList'])) {
             if (!empty($map['DateStrList'])) {
-                $model->dateStrList = $map['DateStrList'];
+                $model->dateStrList = [];
+                $n1 = 0;
+                foreach ($map['DateStrList'] as $item1) {
+                    $model->dateStrList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {
                 $model->itemList = [];
-                $n = 0;
-                foreach ($map['ItemList'] as $item) {
-                    $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ItemList'] as $item1) {
+                    $model->itemList[$n1] = itemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

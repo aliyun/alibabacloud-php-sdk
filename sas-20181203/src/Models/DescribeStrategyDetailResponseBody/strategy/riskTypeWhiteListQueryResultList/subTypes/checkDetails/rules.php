@@ -4,53 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyDetailResponseBody\strategy\riskTypeWhiteListQueryResultList\subTypes\checkDetails;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyDetailResponseBody\strategy\riskTypeWhiteListQueryResultList\subTypes\checkDetails\rules\paramList;
-use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
-     * @description The default value of the rule.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $defaultValue;
 
     /**
-     * @description Indicates whether the rule can be selected. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
-     *
-     * @example 1
-     *
      * @var int
      */
     public $optional;
 
     /**
-     * @description The rule parameters.
-     *
      * @var paramList[]
      */
     public $paramList;
 
     /**
-     * @description The description of the rule.
-     *
-     * @example Please customize the password expiration time detection standard as
-     *
      * @var string
      */
     public $ruleDesc;
 
     /**
-     * @description The rule ID.
-     *
-     * @example login_unlock_deny_pam_faillock.must.cus
-     *
      * @var string
      */
     public $ruleId;
@@ -62,29 +41,40 @@ class rules extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->paramList)) {
+            Model::validateArray($this->paramList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
+
         if (null !== $this->optional) {
             $res['Optional'] = $this->optional;
         }
+
         if (null !== $this->paramList) {
-            $res['ParamList'] = [];
-            if (null !== $this->paramList && \is_array($this->paramList)) {
-                $n = 0;
-                foreach ($this->paramList as $item) {
-                    $res['ParamList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->paramList)) {
+                $res['ParamList'] = [];
+                $n1 = 0;
+                foreach ($this->paramList as $item1) {
+                    $res['ParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ruleDesc) {
             $res['RuleDesc'] = $this->ruleDesc;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -92,32 +82,37 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
+
         if (isset($map['Optional'])) {
             $model->optional = $map['Optional'];
         }
+
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n = 0;
-                foreach ($map['ParamList'] as $item) {
-                    $model->paramList[$n++] = null !== $item ? paramList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ParamList'] as $item1) {
+                    $model->paramList[$n1] = paramList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RuleDesc'])) {
             $model->ruleDesc = $map['RuleDesc'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

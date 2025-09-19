@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindHybridProxyRequest extends Model
 {
     /**
-     * @description The name of the proxy cluster.
-     *
-     * This parameter is required.
-     *
-     * @example sas-proxy
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description The UUIDs of servers that you want to add to Security Center over the proxy server.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $yundunUuids;
@@ -32,35 +22,55 @@ class BindHybridProxyRequest extends Model
         'yundunUuids' => 'YundunUuids',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->yundunUuids)) {
+            Model::validateArray($this->yundunUuids);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->yundunUuids) {
-            $res['YundunUuids'] = $this->yundunUuids;
+            if (\is_array($this->yundunUuids)) {
+                $res['YundunUuids'] = [];
+                $n1 = 0;
+                foreach ($this->yundunUuids as $item1) {
+                    $res['YundunUuids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindHybridProxyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['YundunUuids'])) {
             if (!empty($map['YundunUuids'])) {
-                $model->yundunUuids = $map['YundunUuids'];
+                $model->yundunUuids = [];
+                $n1 = 0;
+                foreach ($map['YundunUuids'] as $item1) {
+                    $model->yundunUuids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

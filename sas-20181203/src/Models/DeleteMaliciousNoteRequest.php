@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMaliciousNoteRequest extends Model
 {
     /**
-     * @description The ID of the remarks.
-     *
-     * >  You can call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain the ID from the NoteId parameter.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $noteId;
@@ -22,9 +16,12 @@ class DeleteMaliciousNoteRequest extends Model
         'noteId' => 'NoteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->noteId) {
@@ -34,11 +31,11 @@ class DeleteMaliciousNoteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMaliciousNoteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

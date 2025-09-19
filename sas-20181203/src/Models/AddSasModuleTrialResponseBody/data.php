@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\AddSasModuleTrialResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddSasModuleTrialResponseBody\data\trialRecordList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the trial use.
-     *
      * @var trialRecordList[]
      */
     public $trialRecordList;
@@ -19,17 +17,24 @@ class data extends Model
         'trialRecordList' => 'TrialRecordList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->trialRecordList)) {
+            Model::validateArray($this->trialRecordList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->trialRecordList) {
-            $res['TrialRecordList'] = [];
-            if (null !== $this->trialRecordList && \is_array($this->trialRecordList)) {
-                $n = 0;
-                foreach ($this->trialRecordList as $item) {
-                    $res['TrialRecordList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->trialRecordList)) {
+                $res['TrialRecordList'] = [];
+                $n1 = 0;
+                foreach ($this->trialRecordList as $item1) {
+                    $res['TrialRecordList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TrialRecordList'])) {
             if (!empty($map['TrialRecordList'])) {
                 $model->trialRecordList = [];
-                $n = 0;
-                foreach ($map['TrialRecordList'] as $item) {
-                    $model->trialRecordList[$n++] = null !== $item ? trialRecordList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TrialRecordList'] as $item1) {
+                    $model->trialRecordList[$n1] = trialRecordList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

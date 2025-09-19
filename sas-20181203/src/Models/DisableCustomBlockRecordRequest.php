@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableCustomBlockRecordRequest extends Model
 {
     /**
-     * @description The IP address that is specified in the policy.
-     *
-     * > You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to query the IP address.
-     *
-     * This parameter is required.
-     *
-     * @example 62.233.XX.XX
-     *
      * @var string
      */
     public $blockIp;
 
     /**
-     * @description The traffic direction that is specified in the policy. Valid values:
-     *
-     *   **in**: inbound
-     *   **out**: outbound
-     *
-     * This parameter is required.
-     *
-     * @example in
-     *
      * @var string
      */
     public $bound;
@@ -45,17 +28,22 @@ class DisableCustomBlockRecordRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockIp) {
             $res['BlockIp'] = $this->blockIp;
         }
+
         if (null !== $this->bound) {
             $res['Bound'] = $this->bound;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -63,20 +51,22 @@ class DisableCustomBlockRecordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableCustomBlockRecordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockIp'])) {
             $model->blockIp = $map['BlockIp'];
         }
+
         if (isset($map['Bound'])) {
             $model->bound = $map['Bound'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

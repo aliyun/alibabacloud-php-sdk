@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsResponseBody\baseConfigs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLoginBaseConfigsResponseBody extends Model
 {
     /**
-     * @description The description of the configuration.
-     *
      * @var baseConfigs[]
      */
     public $baseConfigs;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 2C2D4B3C-0524-17B1-93D2-DA50119F4E1E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $totalCount;
@@ -59,29 +41,40 @@ class DescribeLoginBaseConfigsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->baseConfigs)) {
+            Model::validateArray($this->baseConfigs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseConfigs) {
-            $res['BaseConfigs'] = [];
-            if (null !== $this->baseConfigs && \is_array($this->baseConfigs)) {
-                $n = 0;
-                foreach ($this->baseConfigs as $item) {
-                    $res['BaseConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->baseConfigs)) {
+                $res['BaseConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->baseConfigs as $item1) {
+                    $res['BaseConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -89,32 +82,37 @@ class DescribeLoginBaseConfigsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLoginBaseConfigsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseConfigs'])) {
             if (!empty($map['BaseConfigs'])) {
                 $model->baseConfigs = [];
-                $n = 0;
-                foreach ($map['BaseConfigs'] as $item) {
-                    $model->baseConfigs[$n++] = null !== $item ? baseConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BaseConfigs'] as $item1) {
+                    $model->baseConfigs[$n1] = baseConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

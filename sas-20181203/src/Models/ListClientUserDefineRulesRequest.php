@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClientUserDefineRulesRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The name of the rule.
-     *
-     * @example Rule\\*\\*\\*\\*
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The types of rules.
-     *
      * @var int[]
      */
     public $type;
@@ -52,47 +34,71 @@ class ListClientUserDefineRulesRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->type)) {
+            Model::validateArray($this->type);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->type) {
-            $res['Type'] = $this->type;
+            if (\is_array($this->type)) {
+                $res['Type'] = [];
+                $n1 = 0;
+                foreach ($this->type as $item1) {
+                    $res['Type'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClientUserDefineRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Type'])) {
             if (!empty($map['Type'])) {
-                $model->type = $map['Type'];
+                $model->type = [];
+                $n1 = 0;
+                foreach ($map['Type'] as $item1) {
+                    $model->type[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

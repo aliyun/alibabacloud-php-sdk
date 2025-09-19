@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyHybridProxyClusterRequest extends Model
 {
     /**
-     * @description The name of the proxy cluster.
-     *
-     * This parameter is required.
-     *
-     * @example sas-test-cnnf
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description The remarks.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $remark;
@@ -34,14 +22,18 @@ class ModifyHybridProxyClusterRequest extends Model
         'remark' => 'Remark',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -49,17 +41,18 @@ class ModifyHybridProxyClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyHybridProxyClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

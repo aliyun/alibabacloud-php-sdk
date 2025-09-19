@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartDiscoverDatabaseTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the scan task.
-     *
-     * @example 48bced6d-2aee-4fa2-9aba-b846b77b****
-     *
      * @var string
      */
     public $createMark;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example F46921AF-CC55-5971-92C9-7E09E160****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class StartDiscoverDatabaseTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createMark) {
             $res['CreateMark'] = $this->createMark;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class StartDiscoverDatabaseTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartDiscoverDatabaseTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateMark'])) {
             $model->createMark = $map['CreateMark'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

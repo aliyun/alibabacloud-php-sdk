@@ -4,71 +4,89 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceCatalogResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceCatalogResponseBody\vendors\instanceTypes;
-use AlibabaCloud\Tea\Model;
 
 class vendors extends Model
 {
     /**
-     * @description An array that consists of asset types.
-     *
      * @var instanceTypes[]
      */
     public $instanceTypes;
 
     /**
-     * @description The name of the service provider.
-     *
-     * @example ALIYUN
-     *
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $value;
     protected $_name = [
         'instanceTypes' => 'InstanceTypes',
         'name' => 'Name',
+        'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = [];
-            if (null !== $this->instanceTypes && \is_array($this->instanceTypes)) {
-                $n = 0;
-                foreach ($this->instanceTypes as $item) {
-                    $res['InstanceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceTypes)) {
+                $res['InstanceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['InstanceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vendors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = [];
-                $n = 0;
-                foreach ($map['InstanceTypes'] as $item) {
-                    $model->instanceTypes[$n++] = null !== $item ? instanceTypes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceTypes'] as $item1) {
+                    $model->instanceTypes[$n1] = instanceTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDingTalkStatusRequest extends Model
 {
     /**
-     * @description The notification IDs of DingTalk chatbots. Separate multiple IDs with commas (,).
-     *
-     * >  You can call the [DescribeDingTalk](~~DescribeDingTalk~~) operation to query the notification IDs.
-     *
-     * This parameter is required.
-     *
-     * @example 2259
-     *
      * @var string
      */
     public $ids;
 
     /**
-     * @description The notification status of a DingTalk chatbot. Valid values:
-     *
-     *   **0**: disabled
-     *   **1**: enabled
-     *
-     * This parameter is required.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $status;
@@ -39,14 +22,18 @@ class ModifyDingTalkStatusRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -54,17 +41,18 @@ class ModifyDingTalkStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDingTalkStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCheckTimeDimensionStatisticRequest extends Model
 {
     /**
-     * @description End time, in timestamp format.
-     *
-     * @example 1672285044000
-     *
      * @var int
      */
     public $endTimeStamp;
 
     /**
-     * @description Start time, in timestamp format.
-     *
-     * @example 1672385044000
-     *
      * @var int
      */
     public $startTimeStamp;
 
     /**
-     * @description Type of statistical data. Values:
-     * - **CheckPassRate**: Check item pass rate.
-     * - **AssetPassRate**: Asset pass rate.
-     *
-     * @example AssetPassRate
-     *
      * @var string
      */
     public $statisticType;
 
     /**
-     * @description List of cloud vendors.
-     *
      * @var string[]
      */
     public $vendors;
@@ -50,47 +34,71 @@ class GetCheckTimeDimensionStatisticRequest extends Model
         'vendors' => 'Vendors',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vendors)) {
+            Model::validateArray($this->vendors);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTimeStamp) {
             $res['EndTimeStamp'] = $this->endTimeStamp;
         }
+
         if (null !== $this->startTimeStamp) {
             $res['StartTimeStamp'] = $this->startTimeStamp;
         }
+
         if (null !== $this->statisticType) {
             $res['StatisticType'] = $this->statisticType;
         }
+
         if (null !== $this->vendors) {
-            $res['Vendors'] = $this->vendors;
+            if (\is_array($this->vendors)) {
+                $res['Vendors'] = [];
+                $n1 = 0;
+                foreach ($this->vendors as $item1) {
+                    $res['Vendors'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCheckTimeDimensionStatisticRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTimeStamp'])) {
             $model->endTimeStamp = $map['EndTimeStamp'];
         }
+
         if (isset($map['StartTimeStamp'])) {
             $model->startTimeStamp = $map['StartTimeStamp'];
         }
+
         if (isset($map['StatisticType'])) {
             $model->statisticType = $map['StatisticType'];
         }
+
         if (isset($map['Vendors'])) {
             if (!empty($map['Vendors'])) {
-                $model->vendors = $map['Vendors'];
+                $model->vendors = [];
+                $n1 = 0;
+                foreach ($map['Vendors'] as $item1) {
+                    $model->vendors[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

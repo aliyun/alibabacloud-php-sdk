@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarEventScenariosResponseBody\scenarios;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSimilarEventScenariosResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example FDF7B8D9-8493-4B90-8D13-E0C1FFCE5F97
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The scenarios in which alerts triggered by the same rule or rules of the same type are handled.
-     *
      * @var scenarios[]
      */
     public $scenarios;
@@ -29,20 +23,28 @@ class DescribeSimilarEventScenariosResponseBody extends Model
         'scenarios' => 'Scenarios',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->scenarios)) {
+            Model::validateArray($this->scenarios);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scenarios) {
-            $res['Scenarios'] = [];
-            if (null !== $this->scenarios && \is_array($this->scenarios)) {
-                $n = 0;
-                foreach ($this->scenarios as $item) {
-                    $res['Scenarios'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->scenarios)) {
+                $res['Scenarios'] = [];
+                $n1 = 0;
+                foreach ($this->scenarios as $item1) {
+                    $res['Scenarios'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class DescribeSimilarEventScenariosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSimilarEventScenariosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Scenarios'])) {
             if (!empty($map['Scenarios'])) {
                 $model->scenarios = [];
-                $n = 0;
-                foreach ($map['Scenarios'] as $item) {
-                    $model->scenarios[$n++] = null !== $item ? scenarios::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Scenarios'] as $item1) {
+                    $model->scenarios[$n1] = scenarios::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

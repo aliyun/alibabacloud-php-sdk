@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetOnceTaskResultInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taskInfo extends Model
 {
     /**
-     * @description The status of the task. Valid values:
-     *
-     *   **INIT**: The task is not started.
-     *   **START**: The task is started.
-     *   **SUCCESS**: The task is complete.
-     *   **TIMEOUT**: The task times out.
-     *
-     * @example START
-     *
      * @var string
      */
     public $status;
@@ -25,9 +16,12 @@ class taskInfo extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
@@ -37,11 +31,11 @@ class taskInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

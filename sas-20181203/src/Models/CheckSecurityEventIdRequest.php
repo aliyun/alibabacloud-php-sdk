@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckSecurityEventIdRequest extends Model
 {
     /**
-     * @description The IDs of alert events. You can specify up to 100 IDs. If you do not specify this parameter, the value of the response parameter **Data** is **false**. The value false indicates that no alert events are generated on the server.
-     *
-     * > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the IDs of alert events.
-     *
-     * @example ["1234567","98765432"]
-     *
      * @var string[]
      */
     public $securityEventIds;
 
     /**
-     * @description The UUID of the server.
-     *
-     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-     *
-     * This parameter is required.
-     *
-     * @example 96ad2473-bc60-45ba-ad1c-932e2866****
-     *
      * @var string
      */
     public $uuid;
@@ -36,14 +22,28 @@ class CheckSecurityEventIdRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->securityEventIds)) {
+            Model::validateArray($this->securityEventIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityEventIds) {
-            $res['SecurityEventIds'] = $this->securityEventIds;
+            if (\is_array($this->securityEventIds)) {
+                $res['SecurityEventIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityEventIds as $item1) {
+                    $res['SecurityEventIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -51,19 +51,25 @@ class CheckSecurityEventIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckSecurityEventIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {
-                $model->securityEventIds = $map['SecurityEventIds'];
+                $model->securityEventIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityEventIds'] as $item1) {
+                    $model->securityEventIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

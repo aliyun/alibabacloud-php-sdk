@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClusterNamespacesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class k8sClusterNamespaces extends Model
 {
     /**
-     * @description The namespace.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
@@ -20,9 +16,12 @@ class k8sClusterNamespaces extends Model
         'namespace' => 'Namespace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespace) {
@@ -32,11 +31,11 @@ class k8sClusterNamespaces extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return k8sClusterNamespaces
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

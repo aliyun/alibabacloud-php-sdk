@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of high-risk items.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $highWarningCount;
 
     /**
-     * @description The number of low-risk items.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $lowWarningCount;
 
     /**
-     * @description The number of medium-risk items.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $mediumWarningCount;
@@ -40,17 +28,22 @@ class data extends Model
         'mediumWarningCount' => 'MediumWarningCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->highWarningCount) {
             $res['HighWarningCount'] = $this->highWarningCount;
         }
+
         if (null !== $this->lowWarningCount) {
             $res['LowWarningCount'] = $this->lowWarningCount;
         }
+
         if (null !== $this->mediumWarningCount) {
             $res['MediumWarningCount'] = $this->mediumWarningCount;
         }
@@ -58,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HighWarningCount'])) {
             $model->highWarningCount = $map['HighWarningCount'];
         }
+
         if (isset($map['LowWarningCount'])) {
             $model->lowWarningCount = $map['LowWarningCount'];
         }
+
         if (isset($map['MediumWarningCount'])) {
             $model->mediumWarningCount = $map['MediumWarningCount'];
         }

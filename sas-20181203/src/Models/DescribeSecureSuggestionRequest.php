@@ -4,43 +4,56 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSecureSuggestionRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
+     * @var string
+     */
+    public $calType;
+
+    /**
      * @var string
      */
     public $lang;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.168.XX.XX
-     *
+     * @var int
+     */
+    public $source;
+
+    /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
+        'calType' => 'CalType',
         'lang' => 'Lang',
+        'source' => 'Source',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->calType) {
+            $res['CalType'] = $this->calType;
+        }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -48,17 +61,26 @@ class DescribeSecureSuggestionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecureSuggestionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CalType'])) {
+            $model->calType = $map['CalType'];
+        }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

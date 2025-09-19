@@ -4,160 +4,80 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddCloudVendorAccountAKRequest extends Model
 {
     /**
-     * @description The type of the account to which the AccessKey pair belongs. Valid values:
-     *
-     *   **primary**: a primary account
-     *   **sub**: a sub-account
-     *
-     * This parameter is required.
-     *
-     * @example primary
-     *
      * @var string
      */
     public $akType;
 
     /**
-     * @description The modules that are associated with the AccessKey pair.
-     *
      * @var string[]
      */
     public $authModules;
 
     /**
-     * @description The Active Directory (AD) domain. This parameter takes effect only when Vendor is set to Azure. Valid values:
-     *
-     *   **china**
-     *   **global**
-     *
-     * @example global
-     *
+     * @var string
+     */
+    public $ctdrCloudUserId;
+
+    /**
      * @var string
      */
     public $domain;
 
     /**
-     * @description The language of the content in the request and response messages. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
+     * @var string
+     */
+    public $extendInfo;
+
+    /**
      * @var string
      */
     public $lang;
 
     /**
-     * @description The regions that are examined during AccessKey pair authentication. This parameter takes effect only when Vendor is set to AWS.
-     *
-     * >  You can call the [ListCloudVendorRegions](~~ListCloudVendorRegions~~) operation to query regions.
-     *
      * @var string[]
      */
     public $regions;
 
     /**
-     * @description The AccessKey ID. Valid values:
-     *
-     * 1\\. If AkType is set to primary, specify this parameter based on the following description:
-     *
-     *   **Tencent**: Enter the AccessKey ID of a primary account on Tencent Cloud.
-     *   **HUAWEICLOUD**: Enter the AccessKey ID of a primary account on Huawei Cloud.
-     *   **Azure**: Enter the AccessKey ID of a primary account on Microsoft Azure.
-     *   **AWS**: Enter the AccessKey ID of a primary account on AWS.
-     *
-     * 2\\. If AkType is set to sub, specify this parameter based on the following description:
-     *
-     *   **Tencent**: Enter the AccessKey ID of a sub-account on Tencent Cloud.
-     *   **HUAWEICLOUD**: Enter the AccessKey ID of a sub-account on Huawei Cloud.
-     *   **Azure**: Enter the AccessKey ID of a sub-account on Microsoft Azure.
-     *   **AWS**: Enter the AccessKey ID of a sub-account on AWS.
-     *
-     * This parameter is required.
-     *
-     * @example 45GLRV4SOT0YFB****
-     *
      * @var string
      */
     public $secretId;
 
     /**
-     * @description The AccessKey secret. Valid values:
-     *
-     * 1\\. If AkType is set to primary, specify this parameter based on the following description:
-     *
-     *   **Tencent**: Enter the AccessKey secret of a primary account on Tencent Cloud.
-     *   **HUAWEICLOUD**: Enter the AccessKey secret of a primary account on Huawei Cloud.
-     *   **Azure**: Enter the AccessKey secret of a primary account on Microsoft Azure.
-     *   **AWS**: Enter the AccessKey secret of a primary account on AWS.
-     *
-     * 2\\. If AkType is set to sub, specify this parameter based on the following description:
-     *
-     *   **Tencent**: Enter the AccessKey secret of a sub-account on Tencent Cloud.
-     *   **HUAWEICLOUD**: Enter the AccessKey secret of a sub-account on Huawei Cloud.
-     *   **Azure**: Enter the AccessKey secret of a sub-account on Microsoft Azure.
-     *   **AWS**: Enter the AccessKey secret of a sub-account on AWS.
-     *
-     * This parameter is required.
-     *
-     * @example AE6SLd****
-     *
      * @var string
      */
     public $secretKey;
 
     /**
-     * @description The subscription IDs. This parameter takes effect only when Vendor is set to Azure.
-     *
      * @var string[]
      */
     public $subscriptionIds;
 
     /**
-     * @description The tenant ID. This parameter takes effect only when Vendor is set to Azure.
-     *
-     * @example 95304a97-339b-4de5-9a7d-cdbffaf****
-     *
      * @var string
      */
     public $tenantId;
 
     /**
-     * @description The cloud service provider. Valid values:
-     *
-     *   **Tencent**: Tencent Cloud
-     *   **HUAWEICLOUD**: Huawei Cloud
-     *   **Azure**: Microsoft Azure
-     *   **AWS**: Amazon Web Services (AWS)
-     *
-     * This parameter is required.
-     *
-     * @example AWS
-     *
      * @var string
      */
     public $vendor;
 
     /**
-     * @description The name of the AccessKey pair.
-     *
-     * >  The account information of the third-party cloud servers.
-     *
-     * @example test
-     *
      * @var string
      */
     public $vendorAuthAlias;
     protected $_name = [
         'akType' => 'AkType',
         'authModules' => 'AuthModules',
+        'ctdrCloudUserId' => 'CtdrCloudUserId',
         'domain' => 'Domain',
+        'extendInfo' => 'ExtendInfo',
         'lang' => 'Lang',
         'regions' => 'Regions',
         'secretId' => 'SecretId',
@@ -168,41 +88,92 @@ class AddCloudVendorAccountAKRequest extends Model
         'vendorAuthAlias' => 'VendorAuthAlias',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->authModules)) {
+            Model::validateArray($this->authModules);
+        }
+        if (\is_array($this->regions)) {
+            Model::validateArray($this->regions);
+        }
+        if (\is_array($this->subscriptionIds)) {
+            Model::validateArray($this->subscriptionIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->akType) {
             $res['AkType'] = $this->akType;
         }
+
         if (null !== $this->authModules) {
-            $res['AuthModules'] = $this->authModules;
+            if (\is_array($this->authModules)) {
+                $res['AuthModules'] = [];
+                $n1 = 0;
+                foreach ($this->authModules as $item1) {
+                    $res['AuthModules'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (null !== $this->ctdrCloudUserId) {
+            $res['CtdrCloudUserId'] = $this->ctdrCloudUserId;
+        }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
+        if (null !== $this->extendInfo) {
+            $res['ExtendInfo'] = $this->extendInfo;
+        }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->regions) {
-            $res['Regions'] = $this->regions;
+            if (\is_array($this->regions)) {
+                $res['Regions'] = [];
+                $n1 = 0;
+                foreach ($this->regions as $item1) {
+                    $res['Regions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->secretId) {
             $res['SecretId'] = $this->secretId;
         }
+
         if (null !== $this->secretKey) {
             $res['SecretKey'] = $this->secretKey;
         }
+
         if (null !== $this->subscriptionIds) {
-            $res['SubscriptionIds'] = $this->subscriptionIds;
+            if (\is_array($this->subscriptionIds)) {
+                $res['SubscriptionIds'] = [];
+                $n1 = 0;
+                foreach ($this->subscriptionIds as $item1) {
+                    $res['SubscriptionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
+
         if (null !== $this->vendorAuthAlias) {
             $res['VendorAuthAlias'] = $this->vendorAuthAlias;
         }
@@ -210,50 +181,83 @@ class AddCloudVendorAccountAKRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddCloudVendorAccountAKRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AkType'])) {
             $model->akType = $map['AkType'];
         }
+
         if (isset($map['AuthModules'])) {
             if (!empty($map['AuthModules'])) {
-                $model->authModules = $map['AuthModules'];
+                $model->authModules = [];
+                $n1 = 0;
+                foreach ($map['AuthModules'] as $item1) {
+                    $model->authModules[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
+        if (isset($map['CtdrCloudUserId'])) {
+            $model->ctdrCloudUserId = $map['CtdrCloudUserId'];
+        }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
+        if (isset($map['ExtendInfo'])) {
+            $model->extendInfo = $map['ExtendInfo'];
+        }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
-                $model->regions = $map['Regions'];
+                $model->regions = [];
+                $n1 = 0;
+                foreach ($map['Regions'] as $item1) {
+                    $model->regions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SecretId'])) {
             $model->secretId = $map['SecretId'];
         }
+
         if (isset($map['SecretKey'])) {
             $model->secretKey = $map['SecretKey'];
         }
+
         if (isset($map['SubscriptionIds'])) {
             if (!empty($map['SubscriptionIds'])) {
-                $model->subscriptionIds = $map['SubscriptionIds'];
+                $model->subscriptionIds = [];
+                $n1 = 0;
+                foreach ($map['SubscriptionIds'] as $item1) {
+                    $model->subscriptionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }
+
         if (isset($map['VendorAuthAlias'])) {
             $model->vendorAuthAlias = $map['VendorAuthAlias'];
         }

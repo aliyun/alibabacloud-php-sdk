@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskListCheckResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
     /**
-     * @description The instance ID of the cloud service.
-     *
-     * @example rm-bp1e8t4q15sr3****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The total number of risk items detected in the current cloud service.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $riskCount;
@@ -30,14 +22,18 @@ class list_ extends Model
         'riskCount' => 'riskCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->riskCount) {
             $res['riskCount'] = $this->riskCount;
         }
@@ -45,17 +41,18 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['riskCount'])) {
             $model->riskCount = $map['riskCount'];
         }

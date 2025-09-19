@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateRegistryTypeResponseBody\registryTypeInfos;
-use AlibabaCloud\Tea\Model;
 
 class ListPrivateRegistryTypeResponseBody extends Model
 {
     /**
-     * @description An array that consists of image repository types.
-     *
      * @var registryTypeInfos[]
      */
     public $registryTypeInfos;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 24A20733-10A0-4AF6-BE6B-E3322413****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListPrivateRegistryTypeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->registryTypeInfos)) {
+            Model::validateArray($this->registryTypeInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->registryTypeInfos) {
-            $res['RegistryTypeInfos'] = [];
-            if (null !== $this->registryTypeInfos && \is_array($this->registryTypeInfos)) {
-                $n = 0;
-                foreach ($this->registryTypeInfos as $item) {
-                    $res['RegistryTypeInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->registryTypeInfos)) {
+                $res['RegistryTypeInfos'] = [];
+                $n1 = 0;
+                foreach ($this->registryTypeInfos as $item1) {
+                    $res['RegistryTypeInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListPrivateRegistryTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPrivateRegistryTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegistryTypeInfos'])) {
             if (!empty($map['RegistryTypeInfos'])) {
                 $model->registryTypeInfos = [];
-                $n = 0;
-                foreach ($map['RegistryTypeInfos'] as $item) {
-                    $model->registryTypeInfos[$n++] = null !== $item ? registryTypeInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RegistryTypeInfos'] as $item1) {
+                    $model->registryTypeInfos[$n1] = registryTypeInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCycleTaskRequest extends Model
 {
     /**
-     * @description The ID of the task configuration.
-     *
-     * >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
-     *
-     * This parameter is required.
-     *
-     * @example 435f626256ebf564cf5ba966a539****
-     *
      * @var string
      */
     public $configId;
@@ -24,9 +16,12 @@ class DeleteCycleTaskRequest extends Model
         'configId' => 'ConfigId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
@@ -36,11 +31,11 @@ class DeleteCycleTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCycleTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

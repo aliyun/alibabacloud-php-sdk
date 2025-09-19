@@ -4,58 +4,67 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecureSuggestionResponseBody\suggestions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSecureSuggestionResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 676F80E3-4B3F-43DA-9CBB-5FF79F202AA2
-     *
+     * @var int
+     */
+    public $calTime;
+
+    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The suggestions on how to handle the risks.
-     *
      * @var suggestions[]
      */
     public $suggestions;
 
     /**
-     * @description The total number of unhandled security risks.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
+        'calTime' => 'CalTime',
         'requestId' => 'RequestId',
         'suggestions' => 'Suggestions',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->suggestions)) {
+            Model::validateArray($this->suggestions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->calTime) {
+            $res['CalTime'] = $this->calTime;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->suggestions) {
-            $res['Suggestions'] = [];
-            if (null !== $this->suggestions && \is_array($this->suggestions)) {
-                $n = 0;
-                foreach ($this->suggestions as $item) {
-                    $res['Suggestions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->suggestions)) {
+                $res['Suggestions'] = [];
+                $n1 = 0;
+                foreach ($this->suggestions as $item1) {
+                    $res['Suggestions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +72,33 @@ class DescribeSecureSuggestionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecureSuggestionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CalTime'])) {
+            $model->calTime = $map['CalTime'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Suggestions'])) {
             if (!empty($map['Suggestions'])) {
                 $model->suggestions = [];
-                $n = 0;
-                foreach ($map['Suggestions'] as $item) {
-                    $model->suggestions[$n++] = null !== $item ? suggestions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Suggestions'] as $item1) {
+                    $model->suggestions[$n1] = suggestions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

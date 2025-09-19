@@ -4,68 +4,42 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListResponseBody\recoverableInfoList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUniRecoverableListResponseBody extends Model
 {
     /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The name of the database.
-     *
-     * @example msdb
-     *
      * @var string
      */
     public $database;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description An array that consists of the backup snapshots.
-     *
      * @var recoverableInfoList[]
      */
     public $recoverableInfoList;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example F35F45B0-5D6B-4238-BE02-A62D0760****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 23
-     *
      * @var int
      */
     public $totalCount;
@@ -79,35 +53,48 @@ class DescribeUniRecoverableListResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recoverableInfoList)) {
+            Model::validateArray($this->recoverableInfoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->recoverableInfoList) {
-            $res['RecoverableInfoList'] = [];
-            if (null !== $this->recoverableInfoList && \is_array($this->recoverableInfoList)) {
-                $n = 0;
-                foreach ($this->recoverableInfoList as $item) {
-                    $res['RecoverableInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recoverableInfoList)) {
+                $res['RecoverableInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->recoverableInfoList as $item1) {
+                    $res['RecoverableInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -115,38 +102,45 @@ class DescribeUniRecoverableListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUniRecoverableListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RecoverableInfoList'])) {
             if (!empty($map['RecoverableInfoList'])) {
                 $model->recoverableInfoList = [];
-                $n = 0;
-                foreach ($map['RecoverableInfoList'] as $item) {
-                    $model->recoverableInfoList[$n++] = null !== $item ? recoverableInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RecoverableInfoList'] as $item1) {
+                    $model->recoverableInfoList[$n1] = recoverableInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

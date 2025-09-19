@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSoarStrategyTaskParamsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taskDetail extends Model
 {
     /**
-     * @description Task parameters.
-     *
-     * @example {"summary":[{"name":"email","type":"String","isRequired":false,"fromProperty":"notifyConfig.email"}]}
-     *
      * @var string
      */
     public $params;
 
     /**
-     * @description 任务名称。
-     *
-     * @example task1
-     *
      * @var string
      */
     public $taskName;
@@ -30,14 +22,18 @@ class taskDetail extends Model
         'taskName' => 'TaskName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->params) {
             $res['Params'] = $this->params;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -45,17 +41,18 @@ class taskDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

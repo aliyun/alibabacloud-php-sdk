@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOssBucketScanStatisticRequest extends Model
 {
     /**
-     * @description The names of the buckets.
-     *
      * @var string[]
      */
     public $bucketNameList;
 
     /**
-     * @description The data source. Valid values:
-     *
-     *   **API**: API operations.
-     *   **OSS**: Object Storage Service (OSS) file check.
-     *
-     * @example API
-     *
      * @var string
      */
     public $source;
@@ -31,14 +22,28 @@ class GetOssBucketScanStatisticRequest extends Model
         'source' => 'Source',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bucketNameList)) {
+            Model::validateArray($this->bucketNameList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketNameList) {
-            $res['BucketNameList'] = $this->bucketNameList;
+            if (\is_array($this->bucketNameList)) {
+                $res['BucketNameList'] = [];
+                $n1 = 0;
+                foreach ($this->bucketNameList as $item1) {
+                    $res['BucketNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -46,19 +51,25 @@ class GetOssBucketScanStatisticRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssBucketScanStatisticRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketNameList'])) {
             if (!empty($map['BucketNameList'])) {
-                $model->bucketNameList = $map['BucketNameList'];
+                $model->bucketNameList = [];
+                $n1 = 0;
+                foreach ($map['BucketNameList'] as $item1) {
+                    $model->bucketNameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

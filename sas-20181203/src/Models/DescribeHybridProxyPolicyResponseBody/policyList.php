@@ -4,26 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyPolicyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyPolicyResponseBody\policyList\info;
-use AlibabaCloud\Tea\Model;
 
 class policyList extends Model
 {
     /**
-     * @description The information about the policy.
-     *
      * @var info[]
      */
     public $info;
 
     /**
-     * @description The type of the policy. Valid values:
-     *
-     *   **limitFrequency**
-     *   **limitBandWidth**
-     *
-     * @example limitBandWidth
-     *
      * @var string
      */
     public $policyType;
@@ -32,20 +23,28 @@ class policyList extends Model
         'policyType' => 'PolicyType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->info)) {
+            Model::validateArray($this->info);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->info) {
-            $res['Info'] = [];
-            if (null !== $this->info && \is_array($this->info)) {
-                $n = 0;
-                foreach ($this->info as $item) {
-                    $res['Info'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->info)) {
+                $res['Info'] = [];
+                $n1 = 0;
+                foreach ($this->info as $item1) {
+                    $res['Info'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
@@ -53,23 +52,25 @@ class policyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Info'])) {
             if (!empty($map['Info'])) {
                 $model->info = [];
-                $n = 0;
-                foreach ($map['Info'] as $item) {
-                    $model->info[$n++] = null !== $item ? info::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Info'] as $item1) {
+                    $model->info[$n1] = info::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }

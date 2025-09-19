@@ -4,59 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotProbeRequest\honeypotBindList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bindPortList extends Model
 {
     /**
-     * @description Specifies whether to bind a port. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $bindPort;
 
     /**
-     * @description The end of the port range.
-     *
-     * @example 90
-     *
      * @var int
      */
     public $endPort;
 
     /**
-     * @description Specifies whether the port is a fixed port. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
-     *
-     * @example 0
-     *
      * @var bool
      */
     public $fixed;
 
     /**
-     * @description The start of the port range.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $startPort;
 
     /**
-     * @description The destination port.
-     *
-     * > If **HoneypotId** is specified, this parameter is required.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $targetPort;
@@ -68,23 +40,30 @@ class bindPortList extends Model
         'targetPort' => 'TargetPort',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindPort) {
             $res['BindPort'] = $this->bindPort;
         }
+
         if (null !== $this->endPort) {
             $res['EndPort'] = $this->endPort;
         }
+
         if (null !== $this->fixed) {
             $res['Fixed'] = $this->fixed;
         }
+
         if (null !== $this->startPort) {
             $res['StartPort'] = $this->startPort;
         }
+
         if (null !== $this->targetPort) {
             $res['TargetPort'] = $this->targetPort;
         }
@@ -92,26 +71,30 @@ class bindPortList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bindPortList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindPort'])) {
             $model->bindPort = $map['BindPort'];
         }
+
         if (isset($map['EndPort'])) {
             $model->endPort = $map['EndPort'];
         }
+
         if (isset($map['Fixed'])) {
             $model->fixed = $map['Fixed'];
         }
+
         if (isset($map['StartPort'])) {
             $model->startPort = $map['StartPort'];
         }
+
         if (isset($map['TargetPort'])) {
             $model->targetPort = $map['TargetPort'];
         }

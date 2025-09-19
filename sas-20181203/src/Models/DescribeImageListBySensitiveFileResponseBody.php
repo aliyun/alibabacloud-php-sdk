@@ -4,69 +4,43 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListBySensitiveFileResponseBody\imageInfos;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListBySensitiveFileResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeImageListBySensitiveFileResponseBody extends Model
 {
     /**
-     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The information about the images.
-     *
      * @var imageInfos[]
      */
     public $imageInfos;
 
     /**
-     * @description The error message returned.
-     *
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example E0C5C07F-1576-509A-AE44-1C36B8445B37
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     * - **true**: The request was successful.
-     * - **false**: The request failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -80,35 +54,51 @@ class DescribeImageListBySensitiveFileResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->imageInfos)) {
+            Model::validateArray($this->imageInfos);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->imageInfos) {
-            $res['ImageInfos'] = [];
-            if (null !== $this->imageInfos && \is_array($this->imageInfos)) {
-                $n = 0;
-                foreach ($this->imageInfos as $item) {
-                    $res['ImageInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageInfos)) {
+                $res['ImageInfos'] = [];
+                $n1 = 0;
+                foreach ($this->imageInfos as $item1) {
+                    $res['ImageInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -116,38 +106,45 @@ class DescribeImageListBySensitiveFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageListBySensitiveFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['ImageInfos'])) {
             if (!empty($map['ImageInfos'])) {
                 $model->imageInfos = [];
-                $n = 0;
-                foreach ($map['ImageInfos'] as $item) {
-                    $model->imageInfos[$n++] = null !== $item ? imageInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageInfos'] as $item1) {
+                    $model->imageInfos[$n1] = imageInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

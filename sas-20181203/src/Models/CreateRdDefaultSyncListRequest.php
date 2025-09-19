@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRdDefaultSyncListRequest extends Model
 {
     /**
-     * @description The IDs of the folders in the resource directory.
-     *
-     * >  You can call the [GetRdTree](~~GetRdTree~~) operation to obtain the IDs of the folders. Separate multiple folder IDs with commas (,). If you do not specify a value for this parameter, the existing member list is cleared.
-     *
-     * @example fd-BwoXuf****,fd-CFamY7****
-     *
      * @var string
      */
     public $folderIds;
@@ -22,9 +16,12 @@ class CreateRdDefaultSyncListRequest extends Model
         'folderIds' => 'FolderIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folderIds) {
@@ -34,11 +31,11 @@ class CreateRdDefaultSyncListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRdDefaultSyncListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

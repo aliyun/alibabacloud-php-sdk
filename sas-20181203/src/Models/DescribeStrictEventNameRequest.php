@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeStrictEventNameRequest extends Model
 {
     /**
-     * @description Sets the language type for requests and received messages, default is **zh**. Values:
-     *
-     * - **zh**: Chinese
-     * - **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -23,9 +16,12 @@ class DescribeStrictEventNameRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
@@ -35,11 +31,11 @@ class DescribeStrictEventNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeStrictEventNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

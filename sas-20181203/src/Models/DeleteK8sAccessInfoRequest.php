@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteK8sAccessInfoRequest extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example None
-     *
      * @var string
      */
     public $aliyunYundunGatewayApiName;
 
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example None
-     *
      * @var string
      */
     public $aliyunYundunGatewayPopName;
 
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example None
-     *
      * @var string
      */
     public $aliyunYundunGatewayProjectName;
 
     /**
-     * @description The ID generated when Kubernetes is connected. You can call the GenerateK8sAccessInfo operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $id;
@@ -52,20 +34,26 @@ class DeleteK8sAccessInfoRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunYundunGatewayApiName) {
             $res['AliyunYundunGatewayApiName'] = $this->aliyunYundunGatewayApiName;
         }
+
         if (null !== $this->aliyunYundunGatewayPopName) {
             $res['AliyunYundunGatewayPopName'] = $this->aliyunYundunGatewayPopName;
         }
+
         if (null !== $this->aliyunYundunGatewayProjectName) {
             $res['AliyunYundunGatewayProjectName'] = $this->aliyunYundunGatewayProjectName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -73,23 +61,26 @@ class DeleteK8sAccessInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteK8sAccessInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunYundunGatewayApiName'])) {
             $model->aliyunYundunGatewayApiName = $map['AliyunYundunGatewayApiName'];
         }
+
         if (isset($map['AliyunYundunGatewayPopName'])) {
             $model->aliyunYundunGatewayPopName = $map['AliyunYundunGatewayPopName'];
         }
+
         if (isset($map['AliyunYundunGatewayProjectName'])) {
             $model->aliyunYundunGatewayProjectName = $map['AliyunYundunGatewayProjectName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

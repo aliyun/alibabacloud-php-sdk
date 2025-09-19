@@ -4,86 +4,41 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadedHoneyPotFileRequest extends Model
 {
     /**
-     * @description The file key that you use to upload the file.
-     *
-     * >  The key is in the format of HONEYPOT_FILE/{Timestamp}_{Custom file name}.
-     *
-     * This parameter is required.
-     *
-     * @example HONEYPOT_FILE/1601097845544644_********
-     *
      * @var string
      */
     public $fileKey;
 
     /**
-     * @description The name of the file that you want to upload.
-     *
-     * This parameter is required.
-     *
-     * @example trojan.zip
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The file type.
-     *
-     * This parameter is required.
-     *
-     * @example application/zip
-     *
      * @var string
      */
     public $fileType;
 
     /**
-     * @description The name of the honeypot image.
-     *
-     * This parameter is required.
-     *
-     * @example ruoyi
-     *
      * @var string
      */
     public $honeypotImageName;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the management node to which the honeypot belongs.
-     *
-     * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the IDs of management nodes. operation to query the management node ID.
-     *
-     * @example cc427e14-f257-4670-9d2b-d83bbbe*****
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description The prompt template that corresponds to the file.
-     *
-     * This parameter is required.
-     *
-     * @example {\\"help\\":\\".zip\\",\\"label\\":\\"file\\",\\"type\\":\\"file\\",\\"key\\":\\"ftpfiles.zip\\"}
-     *
      * @var string
      */
     public $templateExtra;
@@ -97,29 +52,38 @@ class UploadedHoneyPotFileRequest extends Model
         'templateExtra' => 'TemplateExtra',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
+
         if (null !== $this->honeypotImageName) {
             $res['HoneypotImageName'] = $this->honeypotImageName;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->templateExtra) {
             $res['TemplateExtra'] = $this->templateExtra;
         }
@@ -127,32 +91,38 @@ class UploadedHoneyPotFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadedHoneyPotFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }
+
         if (isset($map['HoneypotImageName'])) {
             $model->honeypotImageName = $map['HoneypotImageName'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['TemplateExtra'])) {
             $model->templateExtra = $map['TemplateExtra'];
         }

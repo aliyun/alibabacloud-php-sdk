@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultResponseBody\resultList;
-use AlibabaCloud\Tea\Model;
 
 class GetFileDetectResultResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of file detection results.
-     *
      * @var resultList[]
      */
     public $resultList;
@@ -29,20 +23,28 @@ class GetFileDetectResultResponseBody extends Model
         'resultList' => 'ResultList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resultList)) {
+            Model::validateArray($this->resultList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultList) {
-            $res['ResultList'] = [];
-            if (null !== $this->resultList && \is_array($this->resultList)) {
-                $n = 0;
-                foreach ($this->resultList as $item) {
-                    $res['ResultList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resultList)) {
+                $res['ResultList'] = [];
+                $n1 = 0;
+                foreach ($this->resultList as $item1) {
+                    $res['ResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class GetFileDetectResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileDetectResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultList'])) {
             if (!empty($map['ResultList'])) {
                 $model->resultList = [];
-                $n = 0;
-                foreach ($map['ResultList'] as $item) {
-                    $model->resultList[$n++] = null !== $item ? resultList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResultList'] as $item1) {
+                    $model->resultList[$n1] = resultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

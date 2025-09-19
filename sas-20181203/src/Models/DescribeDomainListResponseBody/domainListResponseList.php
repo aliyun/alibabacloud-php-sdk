@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainListResponseList extends Model
 {
     /**
-     * @description The name of the domain or website.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The IP addresses of the domain name.
-     *
-     * @example 1.2.XX.XX,1.0.XX.XX
-     *
      * @var string
      */
     public $ipList;
@@ -30,14 +22,18 @@ class domainListResponseList extends Model
         'ipList' => 'IpList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->ipList) {
             $res['IpList'] = $this->ipList;
         }
@@ -45,17 +41,18 @@ class domainListResponseList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainListResponseList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['IpList'])) {
             $model->ipList = $map['IpList'];
         }

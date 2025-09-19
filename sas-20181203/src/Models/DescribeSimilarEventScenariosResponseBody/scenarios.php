@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarEventScenariosResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scenarios extends Model
 {
     /**
-     * @description The code of the scenario. Valid values:
-     *
-     *   **default**: the same alert type
-     *   **same_file_content**: the same file content rule.
-     *   **same_ip**: the same IP address rule.
-     *   **same_url**: the same URL rule.
-     *
-     * @example same_url
-     *
      * @var string
      */
     public $code;
@@ -25,9 +16,12 @@ class scenarios extends Model
         'code' => 'Code',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
@@ -37,11 +31,11 @@ class scenarios extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scenarios
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

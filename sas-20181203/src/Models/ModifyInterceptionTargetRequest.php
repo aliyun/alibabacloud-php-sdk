@@ -4,85 +4,41 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInterceptionTargetRequest extends Model
 {
     /**
-     * @description The name of the application.
-     *
-     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
-     *
-     * @example yasintt-daemonst
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description An array that consists of images.
-     *
-     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
-     *
      * @var string[]
      */
     public $imageList;
 
     /**
-     * @description The namespace.
-     *
-     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
-     *
-     * This parameter is required.
-     *
-     * @example demo4
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description An array that consists of tags.
-     *
-     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
-     *
      * @var string[]
      */
     public $tagList;
 
     /**
-     * @description The ID of the network object.
-     *
-     * > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain the value of this parameter.
-     *
-     * This parameter is required.
-     *
-     * @example 400913
-     *
      * @var int
      */
     public $targetId;
 
     /**
-     * @description The name.
-     *
-     * This parameter is required.
-     *
-     * @example test001
-     *
      * @var string
      */
     public $targetName;
 
     /**
-     * @description The object type. Valid values:
-     *
-     *   **IMAGE**
-     *
-     * This parameter is required.
-     *
-     * @example IMAGE
-     *
      * @var string
      */
     public $targetType;
@@ -96,29 +52,58 @@ class ModifyInterceptionTargetRequest extends Model
         'targetType' => 'TargetType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->imageList)) {
+            Model::validateArray($this->imageList);
+        }
+        if (\is_array($this->tagList)) {
+            Model::validateArray($this->tagList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->imageList) {
-            $res['ImageList'] = $this->imageList;
+            if (\is_array($this->imageList)) {
+                $res['ImageList'] = [];
+                $n1 = 0;
+                foreach ($this->imageList as $item1) {
+                    $res['ImageList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->tagList) {
-            $res['TagList'] = $this->tagList;
+            if (\is_array($this->tagList)) {
+                $res['TagList'] = [];
+                $n1 = 0;
+                foreach ($this->tagList as $item1) {
+                    $res['TagList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
+
         if (null !== $this->targetName) {
             $res['TargetName'] = $this->targetName;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -126,36 +111,52 @@ class ModifyInterceptionTargetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInterceptionTargetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ImageList'])) {
             if (!empty($map['ImageList'])) {
-                $model->imageList = $map['ImageList'];
+                $model->imageList = [];
+                $n1 = 0;
+                foreach ($map['ImageList'] as $item1) {
+                    $model->imageList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
-                $model->tagList = $map['TagList'];
+                $model->tagList = [];
+                $n1 = 0;
+                foreach ($map['TagList'] as $item1) {
+                    $model->tagList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
+
         if (isset($map['TargetName'])) {
             $model->targetName = $map['TargetName'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

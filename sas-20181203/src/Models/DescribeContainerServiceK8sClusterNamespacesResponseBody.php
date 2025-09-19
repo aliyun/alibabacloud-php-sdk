@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClusterNamespacesResponseBody\k8sClusterNamespaces;
-use AlibabaCloud\Tea\Model;
 
 class DescribeContainerServiceK8sClusterNamespacesResponseBody extends Model
 {
     /**
-     * @description The namespaces.
-     *
      * @var k8sClusterNamespaces[]
      */
     public $k8sClusterNamespaces;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0C8487EF-50C2-54BB-8634-10F8C35D****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeContainerServiceK8sClusterNamespacesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->k8sClusterNamespaces)) {
+            Model::validateArray($this->k8sClusterNamespaces);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->k8sClusterNamespaces) {
-            $res['K8sClusterNamespaces'] = [];
-            if (null !== $this->k8sClusterNamespaces && \is_array($this->k8sClusterNamespaces)) {
-                $n = 0;
-                foreach ($this->k8sClusterNamespaces as $item) {
-                    $res['K8sClusterNamespaces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->k8sClusterNamespaces)) {
+                $res['K8sClusterNamespaces'] = [];
+                $n1 = 0;
+                foreach ($this->k8sClusterNamespaces as $item1) {
+                    $res['K8sClusterNamespaces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeContainerServiceK8sClusterNamespacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeContainerServiceK8sClusterNamespacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['K8sClusterNamespaces'])) {
             if (!empty($map['K8sClusterNamespaces'])) {
                 $model->k8sClusterNamespaces = [];
-                $n = 0;
-                foreach ($map['K8sClusterNamespaces'] as $item) {
-                    $model->k8sClusterNamespaces[$n++] = null !== $item ? k8sClusterNamespaces::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['K8sClusterNamespaces'] as $item1) {
+                    $model->k8sClusterNamespaces[$n1] = k8sClusterNamespaces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

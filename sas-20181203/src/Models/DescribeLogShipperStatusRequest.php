@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLogShipperStatusRequest extends Model
 {
     /**
-     * @description The ID of the request source. Set the value to **sas**.
-     *
-     * @example sas
-     *
      * @var string
      */
     public $from;
@@ -20,9 +16,12 @@ class DescribeLogShipperStatusRequest extends Model
         'from' => 'From',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
@@ -32,11 +31,11 @@ class DescribeLogShipperStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLogShipperStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

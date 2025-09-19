@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetConsoleFuncGrayStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetConsoleFuncGrayStatusResponseBody\data\excludeApiList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description List of APIs not hit.
-     *
      * @var excludeApiList[]
      */
     public $excludeApiList;
 
     /**
-     * @description Whether it hits the gray status.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $hit;
@@ -29,20 +23,28 @@ class data extends Model
         'hit' => 'Hit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->excludeApiList)) {
+            Model::validateArray($this->excludeApiList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->excludeApiList) {
-            $res['ExcludeApiList'] = [];
-            if (null !== $this->excludeApiList && \is_array($this->excludeApiList)) {
-                $n = 0;
-                foreach ($this->excludeApiList as $item) {
-                    $res['ExcludeApiList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->excludeApiList)) {
+                $res['ExcludeApiList'] = [];
+                $n1 = 0;
+                foreach ($this->excludeApiList as $item1) {
+                    $res['ExcludeApiList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hit) {
             $res['Hit'] = $this->hit;
         }
@@ -50,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExcludeApiList'])) {
             if (!empty($map['ExcludeApiList'])) {
                 $model->excludeApiList = [];
-                $n = 0;
-                foreach ($map['ExcludeApiList'] as $item) {
-                    $model->excludeApiList[$n++] = null !== $item ? excludeApiList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ExcludeApiList'] as $item1) {
+                    $model->excludeApiList[$n1] = excludeApiList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Hit'])) {
             $model->hit = $map['Hit'];
         }

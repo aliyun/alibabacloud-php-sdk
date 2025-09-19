@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DingTalkOnlineTestRequest extends Model
 {
     /**
-     * @description The ID of the DingTalk notification configuration.
-     * > You can call the [DescribeDingTalk](~~DescribeDingTalk~~) operation to obtain the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 2373
-     *
      * @var int
      */
     public $id;
@@ -23,9 +16,12 @@ class DingTalkOnlineTestRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -35,11 +31,11 @@ class DingTalkOnlineTestRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DingTalkOnlineTestRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRiskResponseBody\imageRiskList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRiskResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListImageRiskResponseBody extends Model
 {
     /**
-     * @description An array that consists of security information about the image.
-     *
      * @var imageRiskList[]
      */
     public $imageRiskList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 050ACC7A-D4FD-55C6-B861-BA9569C1****
-     *
      * @var string
      */
     public $requestId;
@@ -38,23 +30,35 @@ class ListImageRiskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->imageRiskList)) {
+            Model::validateArray($this->imageRiskList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageRiskList) {
-            $res['ImageRiskList'] = [];
-            if (null !== $this->imageRiskList && \is_array($this->imageRiskList)) {
-                $n = 0;
-                foreach ($this->imageRiskList as $item) {
-                    $res['ImageRiskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageRiskList)) {
+                $res['ImageRiskList'] = [];
+                $n1 = 0;
+                foreach ($this->imageRiskList as $item1) {
+                    $res['ImageRiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +66,29 @@ class ListImageRiskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListImageRiskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageRiskList'])) {
             if (!empty($map['ImageRiskList'])) {
                 $model->imageRiskList = [];
-                $n = 0;
-                foreach ($map['ImageRiskList'] as $item) {
-                    $model->imageRiskList[$n++] = null !== $item ? imageRiskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageRiskList'] as $item1) {
+                    $model->imageRiskList[$n1] = imageRiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

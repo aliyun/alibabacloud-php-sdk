@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListMachineAppsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appList extends Model
 {
     /**
-     * @description SAE application ID.
-     *
-     * @example 5b41f4bf-349f-4263-89b1-9234c034****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description SAE application name.
-     *
-     * @example app-ubuntu
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description Region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $appRegionId;
@@ -40,17 +28,22 @@ class appList extends Model
         'appRegionId' => 'AppRegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->appRegionId) {
             $res['AppRegionId'] = $this->appRegionId;
         }
@@ -58,20 +51,22 @@ class appList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['AppRegionId'])) {
             $model->appRegionId = $map['AppRegionId'];
         }

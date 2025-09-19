@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteInterceptionTargetRequest extends Model
 {
     /**
-     * @description The IDs of the network objects that you want to remove. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the IDs of the network objects.
-     *
-     * This parameter is required.
-     *
-     * @example 1,11,111
-     *
      * @var string
      */
     public $targetIds;
@@ -22,9 +16,12 @@ class DeleteInterceptionTargetRequest extends Model
         'targetIds' => 'TargetIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetIds) {
@@ -34,11 +31,11 @@ class DeleteInterceptionTargetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteInterceptionTargetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

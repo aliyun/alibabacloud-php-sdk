@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckCustomConfigResponseBody\errorCheckConfigs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class linkErrorConfigs extends Model
 {
     /**
-     * @description Name of the check item configuration, unique within the same check item.
-     *
-     * @example IpLists
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Display name of the user\\"s check configuration.
-     *
-     * @example IP Lists
-     *
      * @var string
      */
     public $showName;
 
     /**
-     * @description The type of the parameter that caused the error:
-     * - repair: Repair parameter
-     * - custom: Custom configuration parameter
-     *
-     * @example repair
-     *
      * @var string
      */
     public $type;
@@ -42,17 +28,22 @@ class linkErrorConfigs extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -60,20 +51,22 @@ class linkErrorConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return linkErrorConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

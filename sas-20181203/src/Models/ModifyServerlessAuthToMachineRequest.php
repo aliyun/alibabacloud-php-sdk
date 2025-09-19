@@ -4,152 +4,81 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyServerlessAuthToMachineRequest extends Model
 {
     /**
-     * @description Application query condition.
-     *
-     * @example **7ad7e3a
-     *
      * @var string
      */
     public $appCriteria;
 
     /**
-     * @description Instance type. Values:
-     * - **SERVERLESS**: Serverless asset
-     *
-     * @example SERVERLESS
-     *
      * @var string
      */
     public $authItem;
 
     /**
-     * @description Enable auto-binding. Values:
-     *
-     * - **0**: Off
-     * - **1**: On
-     *
-     * @example 1
-     *
      * @var int
      */
     public $autoBind;
 
     /**
-     * @description Whether to bind all. Default is **false**. Values:
-     *
-     * - **true**: Yes
-     * - **false**: No
-     *
-     * @example false
-     *
      * @var bool
      */
     public $bindAll;
 
     /**
-     * @description List of application IDs to be bound.
-     *
-     * > Obtained through the [ListMachineApps](~~ListMachineApps~~) interface.
-     *
      * @var string[]
      */
     public $bindAppList;
 
     /**
-     * @description Type of asset to operate on. Values:
-     * - **INSTANCE**: Instance
-     * - **APP**: Application
-     *
-     * @example APP
-     *
      * @var string
      */
     public $bindAssetType;
 
     /**
-     * @description List of asset UUIDs to be bound.
-     *
      * @var string[]
      */
     public $bindUuidList;
 
     /**
-     * @description Set the conditions for searching assets. This parameter is in JSON format, and case sensitivity should be noted when entering parameters.
-     * > Supports searching assets using instance ID, instance name, VPC ID, region, public IP address, etc. You can call the [DescribeCriteria](~~DescribeCriteria~~) interface to query supported search conditions.
-     *
-     * @example [{"name":"vulStatus","value":"YES","logicalExp":"AND"}]
-     *
      * @var string
      */
     public $criteria;
 
     /**
-     * @description Set the logical relationship between multiple search conditions. Values:
-     * - **OR**: Indicates an **or** relationship between multiple conditions.
-     * - **AND**: Indicates an **and** relationship between multiple conditions.
-     *
-     * @example OR
-     *
      * @var string
      */
     public $logicalExp;
 
     /**
-     * @description NTM version code, used for pre-binding.
-     *
-     * @example level2
-     *
      * @var string
      */
     public $ntmVersion;
 
     /**
-     * @description Whether it is a pre-bind operation. Values:
-     *
-     * - **0**: No
-     * - **1**: Yes
-     * > After enabling pre-binding, the specified server will automatically bind the corresponding version\\"s authorization count after the purchase is completed.
-     * @example 1
-     *
      * @var int
      */
     public $preBind;
 
     /**
-     * @description Pre-bind order ID.
-     *
-     * @example 233016**0482
-     *
      * @var int
      */
     public $preBindOrderId;
 
     /**
-     * @description UID of the associated resource directory.
-     *
-     * @example 123456
-     *
      * @var int
      */
     public $resourceDirectoryUid;
 
     /**
-     * @description List of application IDs to be unbound.
-     *
-     * > Obtained through the [ListMachineApps](~~ListMachineApps~~) interface.
-     *
      * @var string[]
      */
     public $unBindAppList;
 
     /**
-     * @description List of asset UUIDs to be unbound.
-     *
      * @var string[]
      */
     public $unBindUuidList;
@@ -171,119 +100,210 @@ class ModifyServerlessAuthToMachineRequest extends Model
         'unBindUuidList' => 'UnBindUuidList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bindAppList)) {
+            Model::validateArray($this->bindAppList);
+        }
+        if (\is_array($this->bindUuidList)) {
+            Model::validateArray($this->bindUuidList);
+        }
+        if (\is_array($this->unBindAppList)) {
+            Model::validateArray($this->unBindAppList);
+        }
+        if (\is_array($this->unBindUuidList)) {
+            Model::validateArray($this->unBindUuidList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appCriteria) {
             $res['AppCriteria'] = $this->appCriteria;
         }
+
         if (null !== $this->authItem) {
             $res['AuthItem'] = $this->authItem;
         }
+
         if (null !== $this->autoBind) {
             $res['AutoBind'] = $this->autoBind;
         }
+
         if (null !== $this->bindAll) {
             $res['BindAll'] = $this->bindAll;
         }
+
         if (null !== $this->bindAppList) {
-            $res['BindAppList'] = $this->bindAppList;
+            if (\is_array($this->bindAppList)) {
+                $res['BindAppList'] = [];
+                $n1 = 0;
+                foreach ($this->bindAppList as $item1) {
+                    $res['BindAppList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->bindAssetType) {
             $res['BindAssetType'] = $this->bindAssetType;
         }
+
         if (null !== $this->bindUuidList) {
-            $res['BindUuidList'] = $this->bindUuidList;
+            if (\is_array($this->bindUuidList)) {
+                $res['BindUuidList'] = [];
+                $n1 = 0;
+                foreach ($this->bindUuidList as $item1) {
+                    $res['BindUuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
         }
+
         if (null !== $this->logicalExp) {
             $res['LogicalExp'] = $this->logicalExp;
         }
+
         if (null !== $this->ntmVersion) {
             $res['NtmVersion'] = $this->ntmVersion;
         }
+
         if (null !== $this->preBind) {
             $res['PreBind'] = $this->preBind;
         }
+
         if (null !== $this->preBindOrderId) {
             $res['PreBindOrderId'] = $this->preBindOrderId;
         }
+
         if (null !== $this->resourceDirectoryUid) {
             $res['ResourceDirectoryUid'] = $this->resourceDirectoryUid;
         }
+
         if (null !== $this->unBindAppList) {
-            $res['UnBindAppList'] = $this->unBindAppList;
+            if (\is_array($this->unBindAppList)) {
+                $res['UnBindAppList'] = [];
+                $n1 = 0;
+                foreach ($this->unBindAppList as $item1) {
+                    $res['UnBindAppList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->unBindUuidList) {
-            $res['UnBindUuidList'] = $this->unBindUuidList;
+            if (\is_array($this->unBindUuidList)) {
+                $res['UnBindUuidList'] = [];
+                $n1 = 0;
+                foreach ($this->unBindUuidList as $item1) {
+                    $res['UnBindUuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyServerlessAuthToMachineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppCriteria'])) {
             $model->appCriteria = $map['AppCriteria'];
         }
+
         if (isset($map['AuthItem'])) {
             $model->authItem = $map['AuthItem'];
         }
+
         if (isset($map['AutoBind'])) {
             $model->autoBind = $map['AutoBind'];
         }
+
         if (isset($map['BindAll'])) {
             $model->bindAll = $map['BindAll'];
         }
+
         if (isset($map['BindAppList'])) {
             if (!empty($map['BindAppList'])) {
-                $model->bindAppList = $map['BindAppList'];
+                $model->bindAppList = [];
+                $n1 = 0;
+                foreach ($map['BindAppList'] as $item1) {
+                    $model->bindAppList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['BindAssetType'])) {
             $model->bindAssetType = $map['BindAssetType'];
         }
+
         if (isset($map['BindUuidList'])) {
             if (!empty($map['BindUuidList'])) {
-                $model->bindUuidList = $map['BindUuidList'];
+                $model->bindUuidList = [];
+                $n1 = 0;
+                foreach ($map['BindUuidList'] as $item1) {
+                    $model->bindUuidList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
         }
+
         if (isset($map['LogicalExp'])) {
             $model->logicalExp = $map['LogicalExp'];
         }
+
         if (isset($map['NtmVersion'])) {
             $model->ntmVersion = $map['NtmVersion'];
         }
+
         if (isset($map['PreBind'])) {
             $model->preBind = $map['PreBind'];
         }
+
         if (isset($map['PreBindOrderId'])) {
             $model->preBindOrderId = $map['PreBindOrderId'];
         }
+
         if (isset($map['ResourceDirectoryUid'])) {
             $model->resourceDirectoryUid = $map['ResourceDirectoryUid'];
         }
+
         if (isset($map['UnBindAppList'])) {
             if (!empty($map['UnBindAppList'])) {
-                $model->unBindAppList = $map['UnBindAppList'];
+                $model->unBindAppList = [];
+                $n1 = 0;
+                foreach ($map['UnBindAppList'] as $item1) {
+                    $model->unBindAppList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['UnBindUuidList'])) {
             if (!empty($map['UnBindUuidList'])) {
-                $model->unBindUuidList = $map['UnBindUuidList'];
+                $model->unBindUuidList = [];
+                $n1 = 0;
+                foreach ($map['UnBindUuidList'] as $item1) {
+                    $model->unBindUuidList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

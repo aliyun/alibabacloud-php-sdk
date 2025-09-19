@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupMachineStatusResponseBody\backupMachineStatus;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBackupMachineStatusResponseBody extends Model
 {
     /**
-     * @description The backup status of the server.
-     *
      * @var backupMachineStatus
      */
     public $backupMachineStatus;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeBackupMachineStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->backupMachineStatus) {
+            $this->backupMachineStatus->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupMachineStatus) {
-            $res['BackupMachineStatus'] = null !== $this->backupMachineStatus ? $this->backupMachineStatus->toMap() : null;
+            $res['BackupMachineStatus'] = null !== $this->backupMachineStatus ? $this->backupMachineStatus->toArray($noStream) : $this->backupMachineStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeBackupMachineStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupMachineStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupMachineStatus'])) {
             $model->backupMachineStatus = backupMachineStatus::fromMap($map['BackupMachineStatus']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

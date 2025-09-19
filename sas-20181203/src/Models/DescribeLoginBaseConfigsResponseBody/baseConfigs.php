@@ -4,86 +4,52 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsResponseBody\baseConfigs\targetList;
-use AlibabaCloud\Tea\Model;
 
 class baseConfigs extends Model
 {
     /**
-     * @description The common logon account.
-     *
-     * @example 1582318****
-     *
      * @var string
      */
     public $account;
 
     /**
-     * @description The end time of the common logon time range.
-     *
-     * @example 07:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The common logon IP address.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The common logon location.
-     *
-     * @example Montenegro
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description Corresponding configuration remark information.
-     *
-     * @example test
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description The start time of the common logon time range.
-     *
-     * @example 08:00
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The details of the servers to which the configuration is applied.
-     *
      * @var targetList[]
      */
     public $targetList;
 
     /**
-     * @description The total number of servers.
-     *
-     * @example 172
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The number of servers to which the configuration is applied.
-     *
-     * @example 13
-     *
      * @var int
      */
     public $uuidCount;
@@ -99,41 +65,56 @@ class baseConfigs extends Model
         'uuidCount' => 'UuidCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->targetList)) {
+            Model::validateArray($this->targetList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->targetList) {
-            $res['TargetList'] = [];
-            if (null !== $this->targetList && \is_array($this->targetList)) {
-                $n = 0;
-                foreach ($this->targetList as $item) {
-                    $res['TargetList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->targetList)) {
+                $res['TargetList'] = [];
+                $n1 = 0;
+                foreach ($this->targetList as $item1) {
+                    $res['TargetList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->uuidCount) {
             $res['UuidCount'] = $this->uuidCount;
         }
@@ -141,44 +122,53 @@ class baseConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return baseConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TargetList'])) {
             if (!empty($map['TargetList'])) {
                 $model->targetList = [];
-                $n = 0;
-                foreach ($map['TargetList'] as $item) {
-                    $model->targetList[$n++] = null !== $item ? targetList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TargetList'] as $item1) {
+                    $model->targetList[$n1] = targetList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['UuidCount'])) {
             $model->uuidCount = $map['UuidCount'];
         }

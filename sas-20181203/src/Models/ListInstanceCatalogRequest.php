@@ -4,113 +4,194 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstanceCatalogRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the region in which the asset resides. Valid values:
-     *
-     *   **cn-hangzhou**: International
-     *   **ap-southeast-1**: Singapore
-     *
-     * @example cn-hangzhou
-     *
+     * @var bool
+     */
+    public $onlyCustom;
+
+    /**
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The IDs of requirement items.
-     *
      * @var int[]
      */
     public $requirementIds;
 
     /**
-     * @description The IDs of standards.
-     *
      * @var int[]
      */
     public $standardIds;
 
     /**
-     * @description The types of check standards.
-     *
+     * @var string[]
+     */
+    public $taskSources;
+
+    /**
      * @var string[]
      */
     public $types;
     protected $_name = [
         'lang' => 'Lang',
+        'onlyCustom' => 'OnlyCustom',
         'regionId' => 'RegionId',
         'requirementIds' => 'RequirementIds',
         'standardIds' => 'StandardIds',
+        'taskSources' => 'TaskSources',
         'types' => 'Types',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->requirementIds)) {
+            Model::validateArray($this->requirementIds);
+        }
+        if (\is_array($this->standardIds)) {
+            Model::validateArray($this->standardIds);
+        }
+        if (\is_array($this->taskSources)) {
+            Model::validateArray($this->taskSources);
+        }
+        if (\is_array($this->types)) {
+            Model::validateArray($this->types);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
+        if (null !== $this->onlyCustom) {
+            $res['OnlyCustom'] = $this->onlyCustom;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->requirementIds) {
-            $res['RequirementIds'] = $this->requirementIds;
+            if (\is_array($this->requirementIds)) {
+                $res['RequirementIds'] = [];
+                $n1 = 0;
+                foreach ($this->requirementIds as $item1) {
+                    $res['RequirementIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->standardIds) {
-            $res['StandardIds'] = $this->standardIds;
+            if (\is_array($this->standardIds)) {
+                $res['StandardIds'] = [];
+                $n1 = 0;
+                foreach ($this->standardIds as $item1) {
+                    $res['StandardIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (null !== $this->taskSources) {
+            if (\is_array($this->taskSources)) {
+                $res['TaskSources'] = [];
+                $n1 = 0;
+                foreach ($this->taskSources as $item1) {
+                    $res['TaskSources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->types) {
-            $res['Types'] = $this->types;
+            if (\is_array($this->types)) {
+                $res['Types'] = [];
+                $n1 = 0;
+                foreach ($this->types as $item1) {
+                    $res['Types'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceCatalogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
+        if (isset($map['OnlyCustom'])) {
+            $model->onlyCustom = $map['OnlyCustom'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RequirementIds'])) {
             if (!empty($map['RequirementIds'])) {
-                $model->requirementIds = $map['RequirementIds'];
+                $model->requirementIds = [];
+                $n1 = 0;
+                foreach ($map['RequirementIds'] as $item1) {
+                    $model->requirementIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['StandardIds'])) {
             if (!empty($map['StandardIds'])) {
-                $model->standardIds = $map['StandardIds'];
+                $model->standardIds = [];
+                $n1 = 0;
+                foreach ($map['StandardIds'] as $item1) {
+                    $model->standardIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
+        if (isset($map['TaskSources'])) {
+            if (!empty($map['TaskSources'])) {
+                $model->taskSources = [];
+                $n1 = 0;
+                foreach ($map['TaskSources'] as $item1) {
+                    $model->taskSources[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Types'])) {
             if (!empty($map['Types'])) {
-                $model->types = $map['Types'];
+                $model->types = [];
+                $n1 = 0;
+                foreach ($map['Types'] as $item1) {
+                    $model->types[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

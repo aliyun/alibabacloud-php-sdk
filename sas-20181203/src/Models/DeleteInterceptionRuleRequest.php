@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteInterceptionRuleRequest extends Model
 {
     /**
-     * @description The ID of the cluster that you want to query.
-     *
-     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
-     *
-     * This parameter is required.
-     *
-     * @example cdf629147cc3747d292a3f587xxxxxxxx
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The IDs of the rules that you want to delete.
-     *
      * @var int[]
      */
     public $ruleIds;
@@ -32,35 +22,55 @@ class DeleteInterceptionRuleRequest extends Model
         'ruleIds' => 'RuleIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ruleIds)) {
+            Model::validateArray($this->ruleIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = $this->ruleIds;
+            if (\is_array($this->ruleIds)) {
+                $res['RuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->ruleIds as $item1) {
+                    $res['RuleIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteInterceptionRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['RuleIds'])) {
             if (!empty($map['RuleIds'])) {
-                $model->ruleIds = $map['RuleIds'];
+                $model->ruleIds = [];
+                $n1 = 0;
+                foreach ($map['RuleIds'] as $item1) {
+                    $model->ruleIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,98 +4,56 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetSasContainerWebDefenseRuleResponseBody\containerWebDefenseRule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pathConfDTOList extends Model
 {
     /**
-     * @description Backup path.
-     *
-     * @example /usr/path/
-     *
      * @var string
      */
     public $backupPath;
 
     /**
-     * @description Action to be executed.
-     * - **block** : Block
-     * - **audit** : Alert
-     *
-     * @example audit
-     *
      * @var string
      */
     public $defenseMode;
 
     /**
-     * @description Defense path
-     *
-     * @example /test11*
-     *
      * @var string
      */
     public $defensePath;
 
     /**
-     * @description Excluded files.
-     *
-     * @example file1
-     *
      * @var string
      */
     public $excludeFile;
 
     /**
-     * @description Excluded file path.
-     *
-     * @example /test2/sub1,/test2/sub2
-     *
      * @var string
      */
     public $excludeFilePath;
 
     /**
-     * @description Exclude file types.
-     *
-     * @example doc
-     *
      * @var string
      */
     public $excludeFileType;
 
     /**
-     * @description Protection mode.
-     * - **0**: Basic mode (whitelist)
-     * - **1**: Advanced mode (blacklist)
-     *
-     * @example 0
-     *
      * @var int
      */
     public $guardType;
 
     /**
-     * @description Included files.
-     *
-     * @example webapp
-     *
      * @var string
      */
     public $includeFile;
 
     /**
-     * @description Type of included files.
-     *
-     * @example doc
-     *
      * @var string
      */
     public $includeFileType;
 
     /**
-     * @description Whitelist process list.
-     *
      * @var string[]
      */
     public $processPathList;
@@ -112,83 +70,119 @@ class pathConfDTOList extends Model
         'processPathList' => 'ProcessPathList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->processPathList)) {
+            Model::validateArray($this->processPathList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPath) {
             $res['BackupPath'] = $this->backupPath;
         }
+
         if (null !== $this->defenseMode) {
             $res['DefenseMode'] = $this->defenseMode;
         }
+
         if (null !== $this->defensePath) {
             $res['DefensePath'] = $this->defensePath;
         }
+
         if (null !== $this->excludeFile) {
             $res['ExcludeFile'] = $this->excludeFile;
         }
+
         if (null !== $this->excludeFilePath) {
             $res['ExcludeFilePath'] = $this->excludeFilePath;
         }
+
         if (null !== $this->excludeFileType) {
             $res['ExcludeFileType'] = $this->excludeFileType;
         }
+
         if (null !== $this->guardType) {
             $res['GuardType'] = $this->guardType;
         }
+
         if (null !== $this->includeFile) {
             $res['IncludeFile'] = $this->includeFile;
         }
+
         if (null !== $this->includeFileType) {
             $res['IncludeFileType'] = $this->includeFileType;
         }
+
         if (null !== $this->processPathList) {
-            $res['ProcessPathList'] = $this->processPathList;
+            if (\is_array($this->processPathList)) {
+                $res['ProcessPathList'] = [];
+                $n1 = 0;
+                foreach ($this->processPathList as $item1) {
+                    $res['ProcessPathList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pathConfDTOList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPath'])) {
             $model->backupPath = $map['BackupPath'];
         }
+
         if (isset($map['DefenseMode'])) {
             $model->defenseMode = $map['DefenseMode'];
         }
+
         if (isset($map['DefensePath'])) {
             $model->defensePath = $map['DefensePath'];
         }
+
         if (isset($map['ExcludeFile'])) {
             $model->excludeFile = $map['ExcludeFile'];
         }
+
         if (isset($map['ExcludeFilePath'])) {
             $model->excludeFilePath = $map['ExcludeFilePath'];
         }
+
         if (isset($map['ExcludeFileType'])) {
             $model->excludeFileType = $map['ExcludeFileType'];
         }
+
         if (isset($map['GuardType'])) {
             $model->guardType = $map['GuardType'];
         }
+
         if (isset($map['IncludeFile'])) {
             $model->includeFile = $map['IncludeFile'];
         }
+
         if (isset($map['IncludeFileType'])) {
             $model->includeFileType = $map['IncludeFileType'];
         }
+
         if (isset($map['ProcessPathList'])) {
             if (!empty($map['ProcessPathList'])) {
-                $model->processPathList = $map['ProcessPathList'];
+                $model->processPathList = [];
+                $n1 = 0;
+                foreach ($map['ProcessPathList'] as $item1) {
+                    $model->processPathList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

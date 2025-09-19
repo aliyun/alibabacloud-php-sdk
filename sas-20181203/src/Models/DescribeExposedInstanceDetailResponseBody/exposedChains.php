@@ -4,152 +4,84 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody\exposedChains\allVulList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody\exposedChains\cspmRiskList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponseBody\exposedChains\realVulList;
-use AlibabaCloud\Tea\Model;
 
 class exposedChains extends Model
 {
     /**
-     * @description The information about all vulnerabilities on the server.
-     *
      * @var allVulList[]
      */
     public $allVulList;
 
     /**
-     * @description The list of configuration risks.
-     *
      * @var cspmRiskList[]
      */
     public $cspmRiskList;
 
     /**
-     * @description The server component that is exposed on the Internet.
-     *
-     * @example openssl,openssh
-     *
      * @var string
      */
     public $exposureComponent;
 
     /**
-     * @description The IP address of the server or the public endpoint of the database.
-     *
-     * @example 47.99.XX.XX
-     *
      * @var string
      */
     public $exposureIp;
 
     /**
-     * @description The port that is exposed on the Internet.
-     *
-     * @example 22
-     *
      * @var string
      */
     public $exposurePort;
 
     /**
-     * @description The resource from which the server or database is exposed. Valid values:
-     *
-     *   **INTERNET_IP**: the public IP address of an Elastic Compute Service (ECS) instance.
-     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance.
-     *   **EIP**: an elastic IP address (EIP).
-     *   **DNAT**: the Network Address Translation (NAT) gateway that connects to the Internet by using the Destination Network Address Translation (DNAT) feature
-     *   **DB_CONNECTION**: the public endpoint of a database.
-     *
-     * @example INTERNET_IP
-     *
      * @var string
      */
     public $exposureType;
 
     /**
-     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
-     *
-     *   If the value of the ExposureType parameter is **INTERNET_IP**, this parameter is empty.
-     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the SLB instance.
-     *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
-     *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
-     *   If the value of the ExposureType parameter is **DB_CONNECTION**, the value of this parameter is the ID of the database.
-     *
-     * @example eip-bp1bkgowzam49rld3****
-     *
      * @var string
      */
     public $exposureTypeId;
 
     /**
-     * @description The server group to which the server belongs.
-     *
-     * @example sg-bp1iw5enua6gf5i2xr7z
-     *
      * @var string
      */
     public $groupNo;
 
     /**
-     * @description The instance ID.
-     *
-     * @example i-bp116qem8npvchqc****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The instance name.
-     *
-     * @example worker-k8s-for-cs-c929ee2a145214f89a8b248005be5****
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 47.99.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The information about the vulnerabilities that are exposed on the Internet and can be exploited by attackers.
-     *
      * @var realVulList[]
      */
     public $realVulList;
 
     /**
-     * @description The region ID.
-     *
-     * >  For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The UUID of the server or the instance ID of the database.
-     *
-     * @example 4f9ce097-4a7d-48fe-baef-6960e5b6****
-     *
      * @var string
      */
     public $uuid;
@@ -171,71 +103,100 @@ class exposedChains extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->allVulList)) {
+            Model::validateArray($this->allVulList);
+        }
+        if (\is_array($this->cspmRiskList)) {
+            Model::validateArray($this->cspmRiskList);
+        }
+        if (\is_array($this->realVulList)) {
+            Model::validateArray($this->realVulList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allVulList) {
-            $res['AllVulList'] = [];
-            if (null !== $this->allVulList && \is_array($this->allVulList)) {
-                $n = 0;
-                foreach ($this->allVulList as $item) {
-                    $res['AllVulList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->allVulList)) {
+                $res['AllVulList'] = [];
+                $n1 = 0;
+                foreach ($this->allVulList as $item1) {
+                    $res['AllVulList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->cspmRiskList) {
-            $res['CspmRiskList'] = [];
-            if (null !== $this->cspmRiskList && \is_array($this->cspmRiskList)) {
-                $n = 0;
-                foreach ($this->cspmRiskList as $item) {
-                    $res['CspmRiskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cspmRiskList)) {
+                $res['CspmRiskList'] = [];
+                $n1 = 0;
+                foreach ($this->cspmRiskList as $item1) {
+                    $res['CspmRiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->exposureComponent) {
             $res['ExposureComponent'] = $this->exposureComponent;
         }
+
         if (null !== $this->exposureIp) {
             $res['ExposureIp'] = $this->exposureIp;
         }
+
         if (null !== $this->exposurePort) {
             $res['ExposurePort'] = $this->exposurePort;
         }
+
         if (null !== $this->exposureType) {
             $res['ExposureType'] = $this->exposureType;
         }
+
         if (null !== $this->exposureTypeId) {
             $res['ExposureTypeId'] = $this->exposureTypeId;
         }
+
         if (null !== $this->groupNo) {
             $res['GroupNo'] = $this->groupNo;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
+
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
+
         if (null !== $this->realVulList) {
-            $res['RealVulList'] = [];
-            if (null !== $this->realVulList && \is_array($this->realVulList)) {
-                $n = 0;
-                foreach ($this->realVulList as $item) {
-                    $res['RealVulList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->realVulList)) {
+                $res['RealVulList'] = [];
+                $n1 = 0;
+                foreach ($this->realVulList as $item1) {
+                    $res['RealVulList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -243,74 +204,91 @@ class exposedChains extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return exposedChains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllVulList'])) {
             if (!empty($map['AllVulList'])) {
                 $model->allVulList = [];
-                $n = 0;
-                foreach ($map['AllVulList'] as $item) {
-                    $model->allVulList[$n++] = null !== $item ? allVulList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AllVulList'] as $item1) {
+                    $model->allVulList[$n1] = allVulList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CspmRiskList'])) {
             if (!empty($map['CspmRiskList'])) {
                 $model->cspmRiskList = [];
-                $n = 0;
-                foreach ($map['CspmRiskList'] as $item) {
-                    $model->cspmRiskList[$n++] = null !== $item ? cspmRiskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CspmRiskList'] as $item1) {
+                    $model->cspmRiskList[$n1] = cspmRiskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ExposureComponent'])) {
             $model->exposureComponent = $map['ExposureComponent'];
         }
+
         if (isset($map['ExposureIp'])) {
             $model->exposureIp = $map['ExposureIp'];
         }
+
         if (isset($map['ExposurePort'])) {
             $model->exposurePort = $map['ExposurePort'];
         }
+
         if (isset($map['ExposureType'])) {
             $model->exposureType = $map['ExposureType'];
         }
+
         if (isset($map['ExposureTypeId'])) {
             $model->exposureTypeId = $map['ExposureTypeId'];
         }
+
         if (isset($map['GroupNo'])) {
             $model->groupNo = $map['GroupNo'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
+
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
+
         if (isset($map['RealVulList'])) {
             if (!empty($map['RealVulList'])) {
                 $model->realVulList = [];
-                $n = 0;
-                foreach ($map['RealVulList'] as $item) {
-                    $model->realVulList[$n++] = null !== $item ? realVulList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RealVulList'] as $item1) {
+                    $model->realVulList[$n1] = realVulList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

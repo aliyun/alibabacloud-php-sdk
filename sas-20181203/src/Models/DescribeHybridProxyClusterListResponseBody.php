@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyClusterListResponseBody\clusterList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyClusterListResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeHybridProxyClusterListResponseBody extends Model
 {
     /**
-     * @description The proxy clusters.
-     *
      * @var clusterList[]
      */
     public $clusterList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example C1A36413-50B2-5B2F-843F-EB14C582713F
-     *
      * @var string
      */
     public $requestId;
@@ -38,23 +30,35 @@ class DescribeHybridProxyClusterListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusterList)) {
+            Model::validateArray($this->clusterList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterList) {
-            $res['ClusterList'] = [];
-            if (null !== $this->clusterList && \is_array($this->clusterList)) {
-                $n = 0;
-                foreach ($this->clusterList as $item) {
-                    $res['ClusterList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusterList)) {
+                $res['ClusterList'] = [];
+                $n1 = 0;
+                foreach ($this->clusterList as $item1) {
+                    $res['ClusterList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +66,29 @@ class DescribeHybridProxyClusterListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHybridProxyClusterListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterList'])) {
             if (!empty($map['ClusterList'])) {
                 $model->clusterList = [];
-                $n = 0;
-                foreach ($map['ClusterList'] as $item) {
-                    $model->clusterList[$n++] = null !== $item ? clusterList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ClusterList'] as $item1) {
+                    $model->clusterList[$n1] = clusterList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

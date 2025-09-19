@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAgentlessTaskCountRequest extends Model
 {
     /**
-     * @description The instance ID of the asset.
-     *
-     * @example s-m5edddcwq7d57d******
-     *
      * @var string
      */
     public $target;
 
     /**
-     * @description Specifies the type of the object being inspected. Valid values:
-     *
-     *   **3**: User Snapshot.
-     *   **4**: User Image.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $targetType;
@@ -33,14 +22,18 @@ class GetAgentlessTaskCountRequest extends Model
         'targetType' => 'TargetType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -48,17 +41,18 @@ class GetAgentlessTaskCountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAgentlessTaskCountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

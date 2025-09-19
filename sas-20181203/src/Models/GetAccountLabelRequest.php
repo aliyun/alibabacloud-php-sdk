@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccountLabelRequest extends Model
 {
     /**
-     * @description The tags.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $labelList;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -33,14 +22,28 @@ class GetAccountLabelRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labelList)) {
+            Model::validateArray($this->labelList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelList) {
-            $res['LabelList'] = $this->labelList;
+            if (\is_array($this->labelList)) {
+                $res['LabelList'] = [];
+                $n1 = 0;
+                foreach ($this->labelList as $item1) {
+                    $res['LabelList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -48,19 +51,25 @@ class GetAccountLabelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountLabelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelList'])) {
             if (!empty($map['LabelList'])) {
-                $model->labelList = $map['LabelList'];
+                $model->labelList = [];
+                $n1 = 0;
+                foreach ($map['LabelList'] as $item1) {
+                    $model->labelList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
