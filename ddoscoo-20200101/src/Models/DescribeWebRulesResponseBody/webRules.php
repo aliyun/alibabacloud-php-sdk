@@ -32,6 +32,11 @@ class webRules extends Model
     public $ccTemplate;
 
     /**
+     * @var int
+     */
+    public $certExpireTime;
+
+    /**
      * @var string
      */
     public $certName;
@@ -127,6 +132,11 @@ class webRules extends Model
     public $sslProtocols;
 
     /**
+     * @var string[]
+     */
+    public $tls13CustomCiphers;
+
+    /**
      * @var string
      */
     public $userCertName;
@@ -140,6 +150,7 @@ class webRules extends Model
         'ccEnabled' => 'CcEnabled',
         'ccRuleEnabled' => 'CcRuleEnabled',
         'ccTemplate' => 'CcTemplate',
+        'certExpireTime' => 'CertExpireTime',
         'certName' => 'CertName',
         'certRegion' => 'CertRegion',
         'cname' => 'Cname',
@@ -159,6 +170,7 @@ class webRules extends Model
         'ssl13Enabled' => 'Ssl13Enabled',
         'sslCiphers' => 'SslCiphers',
         'sslProtocols' => 'SslProtocols',
+        'tls13CustomCiphers' => 'Tls13CustomCiphers',
         'userCertName' => 'UserCertName',
         'whiteList' => 'WhiteList',
     ];
@@ -179,6 +191,9 @@ class webRules extends Model
         }
         if (\is_array($this->realServers)) {
             Model::validateArray($this->realServers);
+        }
+        if (\is_array($this->tls13CustomCiphers)) {
+            Model::validateArray($this->tls13CustomCiphers);
         }
         if (\is_array($this->whiteList)) {
             Model::validateArray($this->whiteList);
@@ -210,6 +225,10 @@ class webRules extends Model
 
         if (null !== $this->ccTemplate) {
             $res['CcTemplate'] = $this->ccTemplate;
+        }
+
+        if (null !== $this->certExpireTime) {
+            $res['CertExpireTime'] = $this->certExpireTime;
         }
 
         if (null !== $this->certName) {
@@ -309,6 +328,17 @@ class webRules extends Model
             $res['SslProtocols'] = $this->sslProtocols;
         }
 
+        if (null !== $this->tls13CustomCiphers) {
+            if (\is_array($this->tls13CustomCiphers)) {
+                $res['Tls13CustomCiphers'] = [];
+                $n1 = 0;
+                foreach ($this->tls13CustomCiphers as $item1) {
+                    $res['Tls13CustomCiphers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->userCertName) {
             $res['UserCertName'] = $this->userCertName;
         }
@@ -356,6 +386,10 @@ class webRules extends Model
 
         if (isset($map['CcTemplate'])) {
             $model->ccTemplate = $map['CcTemplate'];
+        }
+
+        if (isset($map['CertExpireTime'])) {
+            $model->certExpireTime = $map['CertExpireTime'];
         }
 
         if (isset($map['CertName'])) {
@@ -453,6 +487,17 @@ class webRules extends Model
 
         if (isset($map['SslProtocols'])) {
             $model->sslProtocols = $map['SslProtocols'];
+        }
+
+        if (isset($map['Tls13CustomCiphers'])) {
+            if (!empty($map['Tls13CustomCiphers'])) {
+                $model->tls13CustomCiphers = [];
+                $n1 = 0;
+                foreach ($map['Tls13CustomCiphers'] as $item1) {
+                    $model->tls13CustomCiphers[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UserCertName'])) {

@@ -1,3 +1,10 @@
+2025-09-19 Version: 2.6.5
+- Update API ConfigL7UsKeepalive: add request parameters DownstreamKeepalive.
+- Update API DescribeL7UsKeepalive: add response parameters Body.RsKeepalive.DsKeepaliveTimeout.
+- Update API DescribeWebRules: add response parameters Body.WebRules.$.CertExpireTime.
+- Update API DescribeWebRules: add response parameters Body.WebRules.$.Tls13CustomCiphers.
+
+
 2025-08-22 Version: 2.6.4
 - Generated php 2020-01-01 for ddoscoo.
 

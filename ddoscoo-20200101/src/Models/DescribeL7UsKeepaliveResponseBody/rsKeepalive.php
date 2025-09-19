@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class rsKeepalive extends Model
 {
     /**
+     * @var int
+     */
+    public $dsKeepaliveTimeout;
+
+    /**
      * @var bool
      */
     public $enabled;
@@ -23,6 +28,7 @@ class rsKeepalive extends Model
      */
     public $keepaliveTimeout;
     protected $_name = [
+        'dsKeepaliveTimeout' => 'DsKeepaliveTimeout',
         'enabled' => 'Enabled',
         'keepaliveRequests' => 'KeepaliveRequests',
         'keepaliveTimeout' => 'KeepaliveTimeout',
@@ -36,6 +42,10 @@ class rsKeepalive extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dsKeepaliveTimeout) {
+            $res['DsKeepaliveTimeout'] = $this->dsKeepaliveTimeout;
+        }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -59,6 +69,10 @@ class rsKeepalive extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DsKeepaliveTimeout'])) {
+            $model->dsKeepaliveTimeout = $map['DsKeepaliveTimeout'];
+        }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }

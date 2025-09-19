@@ -934,6 +934,10 @@ class Ddoscoo extends OpenApiClient
             @$query['Domain'] = $request->domain;
         }
 
+        if (null !== $request->downstreamKeepalive) {
+            @$query['DownstreamKeepalive'] = $request->downstreamKeepalive;
+        }
+
         if (null !== $request->upstreamKeepalive) {
             @$query['UpstreamKeepalive'] = $request->upstreamKeepalive;
         }

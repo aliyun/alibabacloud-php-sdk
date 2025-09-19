@@ -16,9 +16,15 @@ class ConfigL7UsKeepaliveRequest extends Model
     /**
      * @var string
      */
+    public $downstreamKeepalive;
+
+    /**
+     * @var string
+     */
     public $upstreamKeepalive;
     protected $_name = [
         'domain' => 'Domain',
+        'downstreamKeepalive' => 'DownstreamKeepalive',
         'upstreamKeepalive' => 'UpstreamKeepalive',
     ];
 
@@ -32,6 +38,10 @@ class ConfigL7UsKeepaliveRequest extends Model
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+
+        if (null !== $this->downstreamKeepalive) {
+            $res['DownstreamKeepalive'] = $this->downstreamKeepalive;
         }
 
         if (null !== $this->upstreamKeepalive) {
@@ -51,6 +61,10 @@ class ConfigL7UsKeepaliveRequest extends Model
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+
+        if (isset($map['DownstreamKeepalive'])) {
+            $model->downstreamKeepalive = $map['DownstreamKeepalive'];
         }
 
         if (isset($map['UpstreamKeepalive'])) {
