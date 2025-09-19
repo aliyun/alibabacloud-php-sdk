@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnswerSqlSyntaxByMetaAgentRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnswerSqlSyntaxByMetaAgentResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BackFillRequest;
@@ -207,6 +209,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteScriptRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteScriptResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteStructSyncRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteStructSyncResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\FixSqlByMetaAgentRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\FixSqlByMetaAgentResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenerateSqlFromNLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenerateSqlFromNLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenMetaKnowledgeAssetRequest;
@@ -516,6 +520,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MoveTaskFlowToScenarioReques
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MoveTaskFlowToScenarioResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OptimizeSqlByMetaAgentRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OptimizeSqlByMetaAgentResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataExportJobRequest;
@@ -1396,6 +1402,77 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->analyzeSQLLineageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据用户提供的数据库ID，回答对应引擎的语法问题.
+     *
+     * @remarks
+     * 根据用户提供的数据库ID，回答对应引擎的语法问题
+     *
+     * @param request - AnswerSqlSyntaxByMetaAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AnswerSqlSyntaxByMetaAgentResponse
+     *
+     * @param AnswerSqlSyntaxByMetaAgentRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AnswerSqlSyntaxByMetaAgentResponse
+     */
+    public function answerSqlSyntaxByMetaAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AnswerSqlSyntaxByMetaAgent',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AnswerSqlSyntaxByMetaAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据用户提供的数据库ID，回答对应引擎的语法问题.
+     *
+     * @remarks
+     * 根据用户提供的数据库ID，回答对应引擎的语法问题
+     *
+     * @param request - AnswerSqlSyntaxByMetaAgentRequest
+     *
+     * @returns AnswerSqlSyntaxByMetaAgentResponse
+     *
+     * @param AnswerSqlSyntaxByMetaAgentRequest $request
+     *
+     * @return AnswerSqlSyntaxByMetaAgentResponse
+     */
+    public function answerSqlSyntaxByMetaAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->answerSqlSyntaxByMetaAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -7694,6 +7771,85 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeStructSyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复.
+     *
+     * @remarks
+     * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+     *
+     * @param request - FixSqlByMetaAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FixSqlByMetaAgentResponse
+     *
+     * @param FixSqlByMetaAgentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FixSqlByMetaAgentResponse
+     */
+    public function fixSqlByMetaAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->error) {
+            @$query['Error'] = $request->error;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->sql) {
+            @$query['Sql'] = $request->sql;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FixSqlByMetaAgent',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FixSqlByMetaAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复.
+     *
+     * @remarks
+     * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+     *
+     * @param request - FixSqlByMetaAgentRequest
+     *
+     * @returns FixSqlByMetaAgentResponse
+     *
+     * @param FixSqlByMetaAgentRequest $request
+     *
+     * @return FixSqlByMetaAgentResponse
+     */
+    public function fixSqlByMetaAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fixSqlByMetaAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -18452,6 +18608,81 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->offlineTaskFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据用户提供的SQL数据库ID，分析SQL性能并优化.
+     *
+     * @remarks
+     * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+     *
+     * @param request - OptimizeSqlByMetaAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OptimizeSqlByMetaAgentResponse
+     *
+     * @param OptimizeSqlByMetaAgentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return OptimizeSqlByMetaAgentResponse
+     */
+    public function optimizeSqlByMetaAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->sql) {
+            @$query['Sql'] = $request->sql;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OptimizeSqlByMetaAgent',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OptimizeSqlByMetaAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据用户提供的SQL数据库ID，分析SQL性能并优化.
+     *
+     * @remarks
+     * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+     *
+     * @param request - OptimizeSqlByMetaAgentRequest
+     *
+     * @returns OptimizeSqlByMetaAgentResponse
+     *
+     * @param OptimizeSqlByMetaAgentRequest $request
+     *
+     * @return OptimizeSqlByMetaAgentResponse
+     */
+    public function optimizeSqlByMetaAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->optimizeSqlByMetaAgentWithOptions($request, $runtime);
     }
 
     /**

@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
     public $internetUrl;
 
     /**
@@ -84,6 +89,7 @@ class data extends Model
         'enterpriseInternetUrl' => 'EnterpriseInternetUrl',
         'enterpriseIntranetUrl' => 'EnterpriseIntranetUrl',
         'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'internetUrl' => 'InternetUrl',
         'intranetUrl' => 'IntranetUrl',
         'majorVersion' => 'MajorVersion',
@@ -124,6 +130,10 @@ class data extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->internetUrl) {
@@ -191,6 +201,10 @@ class data extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['InternetUrl'])) {

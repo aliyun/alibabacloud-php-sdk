@@ -17,9 +17,15 @@ class data extends Model
      * @var string[]
      */
     public $enterprise;
+
+    /**
+     * @var string[]
+     */
+    public $openCommunity;
     protected $_name = [
         'community' => 'Community',
         'enterprise' => 'Enterprise',
+        'openCommunity' => 'OpenCommunity',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class data extends Model
         }
         if (\is_array($this->enterprise)) {
             Model::validateArray($this->enterprise);
+        }
+        if (\is_array($this->openCommunity)) {
+            Model::validateArray($this->openCommunity);
         }
         parent::validate();
     }
@@ -53,6 +62,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->enterprise as $item1) {
                     $res['Enterprise'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->openCommunity) {
+            if (\is_array($this->openCommunity)) {
+                $res['OpenCommunity'] = [];
+                $n1 = 0;
+                foreach ($this->openCommunity as $item1) {
+                    $res['OpenCommunity'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -86,6 +106,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['Enterprise'] as $item1) {
                     $model->enterprise[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['OpenCommunity'])) {
+            if (!empty($map['OpenCommunity'])) {
+                $model->openCommunity = [];
+                $n1 = 0;
+                foreach ($map['OpenCommunity'] as $item1) {
+                    $model->openCommunity[$n1] = $item1;
                     ++$n1;
                 }
             }

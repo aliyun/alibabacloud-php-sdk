@@ -11,7 +11,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $appUuid;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @var int
@@ -53,7 +63,9 @@ class data extends Model
      */
     public $zoneId;
     protected $_name = [
+        'appUuid' => 'AppUuid',
         'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'replicas' => 'Replicas',
         'resourceQuota' => 'ResourceQuota',
         'securityGroupId' => 'SecurityGroupId',
@@ -72,8 +84,16 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appUuid) {
+            $res['AppUuid'] = $this->appUuid;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->replicas) {
@@ -119,8 +139,16 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppUuid'])) {
+            $model->appUuid = $map['AppUuid'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['Replicas'])) {
