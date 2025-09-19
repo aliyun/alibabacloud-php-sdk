@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecsworkbench\V20220220;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\GetInstanceRecordConfigRequest;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\GetInstanceRecordConfigResponse;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\ListInstanceRecordsRequest;
@@ -18,11 +17,10 @@ use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\SetInstanceRecordConfigReques
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\SetInstanceRecordConfigResponse;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\ViewInstanceRecordsRequest;
 use AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\ViewInstanceRecordsResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ecsworkbench extends OpenApiClient
 {
@@ -47,58 +45,70 @@ class Ecsworkbench extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 获取实例录屏配置
-     *  *
-     * @param GetInstanceRecordConfigRequest $request GetInstanceRecordConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取实例录屏配置.
      *
-     * @return GetInstanceRecordConfigResponse GetInstanceRecordConfigResponse
+     * @param request - GetInstanceRecordConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceRecordConfigResponse
+     *
+     * @param GetInstanceRecordConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetInstanceRecordConfigResponse
      */
     public function getInstanceRecordConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceRecordConfig',
-            'version'     => '2022-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceRecordConfig',
+            'version' => '2022-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetInstanceRecordConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实例录屏配置
-     *  *
-     * @param GetInstanceRecordConfigRequest $request GetInstanceRecordConfigRequest
+     * 获取实例录屏配置.
      *
-     * @return GetInstanceRecordConfigResponse GetInstanceRecordConfigResponse
+     * @param request - GetInstanceRecordConfigRequest
+     *
+     * @returns GetInstanceRecordConfigResponse
+     *
+     * @param GetInstanceRecordConfigRequest $request
+     *
+     * @return GetInstanceRecordConfigResponse
      */
     public function getInstanceRecordConfig($request)
     {
@@ -108,53 +118,66 @@ class Ecsworkbench extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例录屏记录列表
-     *  *
-     * @param ListInstanceRecordsRequest $request ListInstanceRecordsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取实例录屏记录列表.
      *
-     * @return ListInstanceRecordsResponse ListInstanceRecordsResponse
+     * @param request - ListInstanceRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceRecordsResponse
+     *
+     * @param ListInstanceRecordsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListInstanceRecordsResponse
      */
     public function listInstanceRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceRecords',
-            'version'     => '2022-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceRecords',
+            'version' => '2022-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInstanceRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实例录屏记录列表
-     *  *
-     * @param ListInstanceRecordsRequest $request ListInstanceRecordsRequest
+     * 获取实例录屏记录列表.
      *
-     * @return ListInstanceRecordsResponse ListInstanceRecordsResponse
+     * @param request - ListInstanceRecordsRequest
+     *
+     * @returns ListInstanceRecordsResponse
+     *
+     * @param ListInstanceRecordsRequest $request
+     *
+     * @return ListInstanceRecordsResponse
      */
     public function listInstanceRecords($request)
     {
@@ -164,53 +187,66 @@ class Ecsworkbench extends OpenApiClient
     }
 
     /**
-     * @summary 查看实例Workbench登录后执行命令的历史列表。
-     *  *
-     * @param ListTerminalCommandsRequest $request ListTerminalCommandsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查看实例Workbench登录后执行命令的历史列表。
      *
-     * @return ListTerminalCommandsResponse ListTerminalCommandsResponse
+     * @param request - ListTerminalCommandsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTerminalCommandsResponse
+     *
+     * @param ListTerminalCommandsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListTerminalCommandsResponse
      */
     public function listTerminalCommandsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->terminalSessionToken)) {
-            $body['TerminalSessionToken'] = $request->terminalSessionToken;
+
+        if (null !== $request->terminalSessionToken) {
+            @$body['TerminalSessionToken'] = $request->terminalSessionToken;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTerminalCommands',
-            'version'     => '2022-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTerminalCommands',
+            'version' => '2022-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTerminalCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看实例Workbench登录后执行命令的历史列表。
-     *  *
-     * @param ListTerminalCommandsRequest $request ListTerminalCommandsRequest
+     * 查看实例Workbench登录后执行命令的历史列表。
      *
-     * @return ListTerminalCommandsResponse ListTerminalCommandsResponse
+     * @param request - ListTerminalCommandsRequest
+     *
+     * @returns ListTerminalCommandsResponse
+     *
+     * @param ListTerminalCommandsRequest $request
+     *
+     * @return ListTerminalCommandsResponse
      */
     public function listTerminalCommands($request)
     {
@@ -220,50 +256,62 @@ class Ecsworkbench extends OpenApiClient
     }
 
     /**
-     * @summary 登录实例
-     *  *
-     * @param LoginInstanceRequest $request LoginInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 登录实例.
      *
-     * @return LoginInstanceResponse LoginInstanceResponse
+     * @param request - LoginInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LoginInstanceResponse
+     *
+     * @param LoginInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return LoginInstanceResponse
      */
     public function loginInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceLoginInfo)) {
-            $query['InstanceLoginInfo'] = $request->instanceLoginInfo;
+        if (null !== $request->instanceLoginInfo) {
+            @$query['InstanceLoginInfo'] = $request->instanceLoginInfo;
         }
-        if (!Utils::isUnset($request->partnerInfo)) {
-            $query['PartnerInfo'] = $request->partnerInfo;
+
+        if (null !== $request->partnerInfo) {
+            @$query['PartnerInfo'] = $request->partnerInfo;
         }
-        if (!Utils::isUnset($request->userAccount)) {
-            $query['UserAccount'] = $request->userAccount;
+
+        if (null !== $request->userAccount) {
+            @$query['UserAccount'] = $request->userAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LoginInstance',
-            'version'     => '2022-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LoginInstance',
+            'version' => '2022-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LoginInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 登录实例
-     *  *
-     * @param LoginInstanceRequest $request LoginInstanceRequest
+     * 登录实例.
      *
-     * @return LoginInstanceResponse LoginInstanceResponse
+     * @param request - LoginInstanceRequest
+     *
+     * @returns LoginInstanceResponse
+     *
+     * @param LoginInstanceRequest $request
+     *
+     * @return LoginInstanceResponse
      */
     public function loginInstance($request)
     {
@@ -273,56 +321,70 @@ class Ecsworkbench extends OpenApiClient
     }
 
     /**
-     * @summary 设置实例录屏配置
-     *  *
-     * @param SetInstanceRecordConfigRequest $request SetInstanceRecordConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 设置实例录屏配置.
      *
-     * @return SetInstanceRecordConfigResponse SetInstanceRecordConfigResponse
+     * @param request - SetInstanceRecordConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetInstanceRecordConfigResponse
+     *
+     * @param SetInstanceRecordConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetInstanceRecordConfigResponse
      */
     public function setInstanceRecordConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enabled)) {
-            $body['Enabled'] = $request->enabled;
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->expirationDays)) {
-            $body['ExpirationDays'] = $request->expirationDays;
+
+        if (null !== $request->expirationDays) {
+            @$body['ExpirationDays'] = $request->expirationDays;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->recordStorageTarget)) {
-            $body['RecordStorageTarget'] = $request->recordStorageTarget;
+
+        if (null !== $request->recordStorageTarget) {
+            @$body['RecordStorageTarget'] = $request->recordStorageTarget;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetInstanceRecordConfig',
-            'version'     => '2022-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetInstanceRecordConfig',
+            'version' => '2022-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetInstanceRecordConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置实例录屏配置
-     *  *
-     * @param SetInstanceRecordConfigRequest $request SetInstanceRecordConfigRequest
+     * 设置实例录屏配置.
      *
-     * @return SetInstanceRecordConfigResponse SetInstanceRecordConfigResponse
+     * @param request - SetInstanceRecordConfigRequest
+     *
+     * @returns SetInstanceRecordConfigResponse
+     *
+     * @param SetInstanceRecordConfigRequest $request
+     *
+     * @return SetInstanceRecordConfigResponse
      */
     public function setInstanceRecordConfig($request)
     {
@@ -332,50 +394,62 @@ class Ecsworkbench extends OpenApiClient
     }
 
     /**
-     * @summary 查看实例录屏内容
-     *  *
-     * @param ViewInstanceRecordsRequest $request ViewInstanceRecordsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查看实例录屏内容.
      *
-     * @return ViewInstanceRecordsResponse ViewInstanceRecordsResponse
+     * @param request - ViewInstanceRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ViewInstanceRecordsResponse
+     *
+     * @param ViewInstanceRecordsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ViewInstanceRecordsResponse
      */
     public function viewInstanceRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->terminalSessionToken)) {
-            $body['TerminalSessionToken'] = $request->terminalSessionToken;
+
+        if (null !== $request->terminalSessionToken) {
+            @$body['TerminalSessionToken'] = $request->terminalSessionToken;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ViewInstanceRecords',
-            'version'     => '2022-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ViewInstanceRecords',
+            'version' => '2022-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ViewInstanceRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看实例录屏内容
-     *  *
-     * @param ViewInstanceRecordsRequest $request ViewInstanceRecordsRequest
+     * 查看实例录屏内容.
      *
-     * @return ViewInstanceRecordsResponse ViewInstanceRecordsResponse
+     * @param request - ViewInstanceRecordsRequest
+     *
+     * @returns ViewInstanceRecordsResponse
+     *
+     * @param ViewInstanceRecordsRequest $request
+     *
+     * @return ViewInstanceRecordsResponse
      */
     public function viewInstanceRecords($request)
     {

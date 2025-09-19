@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\LoginInstanceRequest\userAccount;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class options extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $loginLimit;
@@ -20,9 +18,10 @@ class options extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loginLimit) {
@@ -32,11 +31,11 @@ class options extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return options
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

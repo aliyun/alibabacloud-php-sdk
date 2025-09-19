@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecsworkbench\V20220220\Models\LoginInstanceResponseBody\root\instanceLoginInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceLoginView extends Model
 {
     /**
-     * @example abc
-     *
      * @var string
      */
     public $defaultViewUrl;
@@ -20,9 +18,10 @@ class instanceLoginView extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultViewUrl) {
@@ -32,11 +31,11 @@ class instanceLoginView extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceLoginView
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
