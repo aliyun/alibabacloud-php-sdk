@@ -16,6 +16,9 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssShrinkReq
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ChangeParseSettingRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ChangeParseSettingResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ChangeParseSettingShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentShrinkRequest;
@@ -47,12 +50,18 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayTransferStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayTransferStatusResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayUrlRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayUrlResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAvailableParserTypesRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAvailableParserTypesResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetParseSettingsRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetParseSettingsResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPromptTemplateResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\HighCodeDeployRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\HighCodeDeployResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksRequest;
@@ -499,6 +508,87 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->applyFileUploadLeaseWithOptions($CategoryId, $WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改类目解析配置.
+     *
+     * @param tmpReq - ChangeParseSettingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeParseSettingResponse
+     *
+     * @param string                    $WorkspaceId
+     * @param ChangeParseSettingRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ChangeParseSettingResponse
+     */
+    public function changeParseSettingWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChangeParseSettingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parserConfig) {
+            $request->parserConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parserConfig, 'ParserConfig', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
+        }
+
+        if (null !== $request->fileType) {
+            @$body['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->parser) {
+            @$body['Parser'] = $request->parser;
+        }
+
+        if (null !== $request->parserConfigShrink) {
+            @$body['ParserConfig'] = $request->parserConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeParseSetting',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/parser/settings',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeParseSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改类目解析配置.
+     *
+     * @param request - ChangeParseSettingRequest
+     *
+     * @returns ChangeParseSettingResponse
+     *
+     * @param string                    $WorkspaceId
+     * @param ChangeParseSettingRequest $request
+     *
+     * @return ChangeParseSettingResponse
+     */
+    public function changeParseSetting($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->changeParseSettingWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1725,6 +1815,69 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * 获取文件支持的解析器类型.
+     *
+     * @param request - GetAvailableParserTypesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAvailableParserTypesResponse
+     *
+     * @param string                         $WorkspaceId
+     * @param GetAvailableParserTypesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAvailableParserTypesResponse
+     */
+    public function getAvailableParserTypesWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAvailableParserTypes',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/parser/parsertype',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAvailableParserTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件支持的解析器类型.
+     *
+     * @param request - GetAvailableParserTypesRequest
+     *
+     * @returns GetAvailableParserTypesResponse
+     *
+     * @param string                         $WorkspaceId
+     * @param GetAvailableParserTypesRequest $request
+     *
+     * @return GetAvailableParserTypesResponse
+     */
+    public function getAvailableParserTypes($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAvailableParserTypesWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the current status of a specified knowledge base creation or add document job.
      *
      * @remarks
@@ -1918,6 +2071,69 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * 获取类目解析配置.
+     *
+     * @param request - GetParseSettingsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetParseSettingsResponse
+     *
+     * @param string                  $WorkspaceId
+     * @param GetParseSettingsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetParseSettingsResponse
+     */
+    public function getParseSettingsWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetParseSettings',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/parser/settings',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetParseSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取类目解析配置.
+     *
+     * @param request - GetParseSettingsRequest
+     *
+     * @returns GetParseSettingsResponse
+     *
+     * @param string                  $WorkspaceId
+     * @param GetParseSettingsRequest $request
+     *
+     * @return GetParseSettingsResponse
+     */
+    public function getParseSettings($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getParseSettingsWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Obtains a prompt template based on the template ID.
      *
      * @param headers - map
@@ -2021,6 +2237,89 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->getPublishedAgentWithOptions($workspaceId, $appCode, $headers, $runtime);
+    }
+
+    /**
+     * 高代码部署服务
+     *
+     * @param request - HighCodeDeployRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HighCodeDeployResponse
+     *
+     * @param string                $workspaceId
+     * @param HighCodeDeployRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return HighCodeDeployResponse
+     */
+    public function highCodeDeployWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentDesc) {
+            @$body['agentDesc'] = $request->agentDesc;
+        }
+
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentName) {
+            @$body['agentName'] = $request->agentName;
+        }
+
+        if (null !== $request->sourceCodeName) {
+            @$body['sourceCodeName'] = $request->sourceCodeName;
+        }
+
+        if (null !== $request->sourceCodeOssUrl) {
+            @$body['sourceCodeOssUrl'] = $request->sourceCodeOssUrl;
+        }
+
+        if (null !== $request->telemetryEnabled) {
+            @$body['telemetryEnabled'] = $request->telemetryEnabled;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'HighCodeDeploy',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/' . Url::percentEncode($workspaceId) . '/highCode/publish',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return HighCodeDeployResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 高代码部署服务
+     *
+     * @param request - HighCodeDeployRequest
+     *
+     * @returns HighCodeDeployResponse
+     *
+     * @param string                $workspaceId
+     * @param HighCodeDeployRequest $request
+     *
+     * @return HighCodeDeployResponse
+     */
+    public function highCodeDeploy($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->highCodeDeployWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
