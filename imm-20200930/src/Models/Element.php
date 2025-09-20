@@ -59,7 +59,8 @@ class Element extends Model
                 $res['ElementContents'] = [];
                 $n1 = 0;
                 foreach ($this->elementContents as $item1) {
-                    $res['ElementContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ElementContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class Element extends Model
                 $res['ElementRelations'] = [];
                 $n1 = 0;
                 foreach ($this->elementRelations as $item1) {
-                    $res['ElementRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ElementRelations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class Element extends Model
                 $model->elementContents = [];
                 $n1 = 0;
                 foreach ($map['ElementContents'] as $item1) {
-                    $model->elementContents[$n1++] = ElementContent::fromMap($item1);
+                    $model->elementContents[$n1] = ElementContent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class Element extends Model
                 $model->elementRelations = [];
                 $n1 = 0;
                 foreach ($map['ElementRelations'] as $item1) {
-                    $model->elementRelations[$n1++] = ElementRelation::fromMap($item1);
+                    $model->elementRelations[$n1] = ElementRelation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

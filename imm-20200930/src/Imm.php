@@ -1085,6 +1085,77 @@ class Imm extends OpenApiClient
      *
      * @return ContextualAnswerResponse
      */
+    public function contextualAnswerWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ContextualAnswerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        $body = [];
+        if (null !== $request->filesShrink) {
+            @$body['Files'] = $request->filesShrink;
+        }
+
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ContextualAnswer',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield ContextualAnswerResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * AI 助手二期，问答API.
+     *
+     * @param tmpReq - ContextualAnswerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ContextualAnswerResponse
+     *
+     * @param ContextualAnswerRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ContextualAnswerResponse
+     */
     public function contextualAnswerWithOptions($tmpReq, $runtime)
     {
         $tmpReq->validate();
@@ -6320,7 +6391,6 @@ class Imm extends OpenApiClient
         return $this->getBindingWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * drmlicense获取.
      *

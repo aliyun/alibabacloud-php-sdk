@@ -79,7 +79,8 @@ class SemanticQueryRequest extends Model
                 $res['MediaTypes'] = [];
                 $n1 = 0;
                 foreach ($this->mediaTypes as $item1) {
-                    $res['MediaTypes'][$n1++] = $item1;
+                    $res['MediaTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class SemanticQueryRequest extends Model
                 $res['WithFields'] = [];
                 $n1 = 0;
                 foreach ($this->withFields as $item1) {
-                    $res['WithFields'][$n1++] = $item1;
+                    $res['WithFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +132,8 @@ class SemanticQueryRequest extends Model
                 $model->mediaTypes = [];
                 $n1 = 0;
                 foreach ($map['MediaTypes'] as $item1) {
-                    $model->mediaTypes[$n1++] = $item1;
+                    $model->mediaTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class SemanticQueryRequest extends Model
                 $model->withFields = [];
                 $n1 = 0;
                 foreach ($map['WithFields'] as $item1) {
-                    $model->withFields[$n1++] = $item1;
+                    $model->withFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -88,7 +88,8 @@ class CreateFigureClustersMergingTaskRequest extends Model
                 $res['Froms'] = [];
                 $n1 = 0;
                 foreach ($this->froms as $item1) {
-                    $res['Froms'][$n1++] = $item1;
+                    $res['Froms'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class CreateFigureClustersMergingTaskRequest extends Model
                 $model->froms = [];
                 $n1 = 0;
                 foreach ($map['Froms'] as $item1) {
-                    $model->froms[$n1++] = $item1;
+                    $model->froms[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

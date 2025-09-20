@@ -92,11 +92,12 @@ class AlgorithmDefinition extends Model
                 $n1 = 0;
                 foreach ($this->customLabels as $item1) {
                     if (\is_array($item1)) {
-                        $res['CustomLabels'][$n1++] = [];
+                        $res['CustomLabels'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['CustomLabels'][$n1++][$key2] = $value2;
+                            $res['CustomLabels'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -150,11 +151,12 @@ class AlgorithmDefinition extends Model
                 $n1 = 0;
                 foreach ($map['CustomLabels'] as $item1) {
                     if (!empty($item1)) {
-                        $model->customLabels[$n1++] = [];
+                        $model->customLabels[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->customLabels[$n1++][$key2] = $value2;
+                            $model->customLabels[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

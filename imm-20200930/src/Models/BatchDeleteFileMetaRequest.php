@@ -52,7 +52,8 @@ class BatchDeleteFileMetaRequest extends Model
                 $res['URIs'] = [];
                 $n1 = 0;
                 foreach ($this->URIs as $item1) {
-                    $res['URIs'][$n1++] = $item1;
+                    $res['URIs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class BatchDeleteFileMetaRequest extends Model
                 $model->URIs = [];
                 $n1 = 0;
                 foreach ($map['URIs'] as $item1) {
-                    $model->URIs[$n1++] = $item1;
+                    $model->URIs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -42,7 +42,8 @@ class actions extends Model
                 $res['Parameters'] = [];
                 $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['Parameters'][$n1++] = $item1;
+                    $res['Parameters'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class actions extends Model
                 $model->parameters = [];
                 $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
-                    $model->parameters[$n1++] = $item1;
+                    $model->parameters[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

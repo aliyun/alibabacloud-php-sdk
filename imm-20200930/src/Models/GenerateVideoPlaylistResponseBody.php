@@ -77,7 +77,8 @@ class GenerateVideoPlaylistResponseBody extends Model
                 $res['AudioPlaylist'] = [];
                 $n1 = 0;
                 foreach ($this->audioPlaylist as $item1) {
-                    $res['AudioPlaylist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioPlaylist'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +100,8 @@ class GenerateVideoPlaylistResponseBody extends Model
                 $res['SubtitlePlaylist'] = [];
                 $n1 = 0;
                 foreach ($this->subtitlePlaylist as $item1) {
-                    $res['SubtitlePlaylist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubtitlePlaylist'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +115,8 @@ class GenerateVideoPlaylistResponseBody extends Model
                 $res['VideoPlaylist'] = [];
                 $n1 = 0;
                 foreach ($this->videoPlaylist as $item1) {
-                    $res['VideoPlaylist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoPlaylist'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +137,8 @@ class GenerateVideoPlaylistResponseBody extends Model
                 $model->audioPlaylist = [];
                 $n1 = 0;
                 foreach ($map['AudioPlaylist'] as $item1) {
-                    $model->audioPlaylist[$n1++] = audioPlaylist::fromMap($item1);
+                    $model->audioPlaylist[$n1] = audioPlaylist::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +160,8 @@ class GenerateVideoPlaylistResponseBody extends Model
                 $model->subtitlePlaylist = [];
                 $n1 = 0;
                 foreach ($map['SubtitlePlaylist'] as $item1) {
-                    $model->subtitlePlaylist[$n1++] = subtitlePlaylist::fromMap($item1);
+                    $model->subtitlePlaylist[$n1] = subtitlePlaylist::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +175,8 @@ class GenerateVideoPlaylistResponseBody extends Model
                 $model->videoPlaylist = [];
                 $n1 = 0;
                 foreach ($map['VideoPlaylist'] as $item1) {
-                    $model->videoPlaylist[$n1++] = videoPlaylist::fromMap($item1);
+                    $model->videoPlaylist[$n1] = videoPlaylist::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

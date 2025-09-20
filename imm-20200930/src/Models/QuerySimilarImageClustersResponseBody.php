@@ -52,7 +52,8 @@ class QuerySimilarImageClustersResponseBody extends Model
                 $res['SimilarImageClusters'] = [];
                 $n1 = 0;
                 foreach ($this->similarImageClusters as $item1) {
-                    $res['SimilarImageClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SimilarImageClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class QuerySimilarImageClustersResponseBody extends Model
                 $model->similarImageClusters = [];
                 $n1 = 0;
                 foreach ($map['SimilarImageClusters'] as $item1) {
-                    $model->similarImageClusters[$n1++] = SimilarImageCluster::fromMap($item1);
+                    $model->similarImageClusters[$n1] = SimilarImageCluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

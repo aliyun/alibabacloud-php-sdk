@@ -33,7 +33,8 @@ class cover extends Model
                 $res['Figures'] = [];
                 $n1 = 0;
                 foreach ($this->figures as $item1) {
-                    $res['Figures'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Figures'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cover extends Model
                 $model->figures = [];
                 $n1 = 0;
                 foreach ($map['Figures'] as $item1) {
-                    $model->figures[$n1++] = figures::fromMap($item1);
+                    $model->figures[$n1] = figures::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

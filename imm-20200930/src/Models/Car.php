@@ -95,7 +95,8 @@ class Car extends Model
                 $res['LicensePlates'] = [];
                 $n1 = 0;
                 foreach ($this->licensePlates as $item1) {
-                    $res['LicensePlates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LicensePlates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +141,8 @@ class Car extends Model
                 $model->licensePlates = [];
                 $n1 = 0;
                 foreach ($map['LicensePlates'] as $item1) {
-                    $model->licensePlates[$n1++] = LicensePlate::fromMap($item1);
+                    $model->licensePlates[$n1] = LicensePlate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

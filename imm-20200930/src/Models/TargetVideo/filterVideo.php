@@ -59,7 +59,8 @@ class filterVideo extends Model
                 $res['Delogos'] = [];
                 $n1 = 0;
                 foreach ($this->delogos as $item1) {
-                    $res['Delogos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Delogos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class filterVideo extends Model
                 $res['Watermarks'] = [];
                 $n1 = 0;
                 foreach ($this->watermarks as $item1) {
-                    $res['Watermarks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Watermarks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +100,8 @@ class filterVideo extends Model
                 $model->delogos = [];
                 $n1 = 0;
                 foreach ($map['Delogos'] as $item1) {
-                    $model->delogos[$n1++] = delogos::fromMap($item1);
+                    $model->delogos[$n1] = delogos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +119,8 @@ class filterVideo extends Model
                 $model->watermarks = [];
                 $n1 = 0;
                 foreach ($map['Watermarks'] as $item1) {
-                    $model->watermarks[$n1++] = watermarks::fromMap($item1);
+                    $model->watermarks[$n1] = watermarks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

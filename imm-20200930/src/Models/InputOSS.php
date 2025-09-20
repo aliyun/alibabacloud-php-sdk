@@ -48,7 +48,8 @@ class InputOSS extends Model
                 $res['MatchExpressions'] = [];
                 $n1 = 0;
                 foreach ($this->matchExpressions as $item1) {
-                    $res['MatchExpressions'][$n1++] = $item1;
+                    $res['MatchExpressions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class InputOSS extends Model
                 $model->matchExpressions = [];
                 $n1 = 0;
                 foreach ($map['MatchExpressions'] as $item1) {
-                    $model->matchExpressions[$n1++] = $item1;
+                    $model->matchExpressions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

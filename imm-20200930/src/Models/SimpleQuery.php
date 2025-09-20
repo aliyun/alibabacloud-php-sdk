@@ -58,7 +58,8 @@ class SimpleQuery extends Model
                 $res['SubQueries'] = [];
                 $n1 = 0;
                 foreach ($this->subQueries as $item1) {
-                    $res['SubQueries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubQueries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class SimpleQuery extends Model
                 $model->subQueries = [];
                 $n1 = 0;
                 foreach ($map['SubQueries'] as $item1) {
-                    $model->subQueries[$n1++] = self::fromMap($item1);
+                    $model->subQueries[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

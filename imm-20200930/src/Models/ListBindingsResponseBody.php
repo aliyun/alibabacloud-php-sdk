@@ -44,7 +44,8 @@ class ListBindingsResponseBody extends Model
                 $res['Bindings'] = [];
                 $n1 = 0;
                 foreach ($this->bindings as $item1) {
-                    $res['Bindings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Bindings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListBindingsResponseBody extends Model
                 $model->bindings = [];
                 $n1 = 0;
                 foreach ($map['Bindings'] as $item1) {
-                    $model->bindings[$n1++] = Binding::fromMap($item1);
+                    $model->bindings[$n1] = Binding::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

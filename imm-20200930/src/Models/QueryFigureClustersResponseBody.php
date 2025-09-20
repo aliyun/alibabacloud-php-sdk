@@ -50,7 +50,8 @@ class QueryFigureClustersResponseBody extends Model
                 $res['FigureClusters'] = [];
                 $n1 = 0;
                 foreach ($this->figureClusters as $item1) {
-                    $res['FigureClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FigureClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class QueryFigureClustersResponseBody extends Model
                 $model->figureClusters = [];
                 $n1 = 0;
                 foreach ($map['FigureClusters'] as $item1) {
-                    $model->figureClusters[$n1++] = FigureCluster::fromMap($item1);
+                    $model->figureClusters[$n1] = FigureCluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

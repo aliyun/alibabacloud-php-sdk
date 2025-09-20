@@ -38,7 +38,8 @@ class GetFileMetaResponseBody extends Model
                 $res['Files'] = [];
                 $n1 = 0;
                 foreach ($this->files as $item1) {
-                    $res['Files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Files'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class GetFileMetaResponseBody extends Model
                 $model->files = [];
                 $n1 = 0;
                 foreach ($map['Files'] as $item1) {
-                    $model->files[$n1++] = File::fromMap($item1);
+                    $model->files[$n1] = File::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

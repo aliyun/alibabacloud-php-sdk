@@ -109,7 +109,8 @@ class CreateImageModerationTaskRequest extends Model
                 $res['Scenes'] = [];
                 $n1 = 0;
                 foreach ($this->scenes as $item1) {
-                    $res['Scenes'][$n1++] = $item1;
+                    $res['Scenes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -167,7 +168,8 @@ class CreateImageModerationTaskRequest extends Model
                 $model->scenes = [];
                 $n1 = 0;
                 foreach ($map['Scenes'] as $item1) {
-                    $model->scenes[$n1++] = $item1;
+                    $model->scenes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

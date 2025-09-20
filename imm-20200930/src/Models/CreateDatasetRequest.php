@@ -122,7 +122,8 @@ class CreateDatasetRequest extends Model
                 $res['WorkflowParameters'] = [];
                 $n1 = 0;
                 foreach ($this->workflowParameters as $item1) {
-                    $res['WorkflowParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WorkflowParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -179,7 +180,8 @@ class CreateDatasetRequest extends Model
                 $model->workflowParameters = [];
                 $n1 = 0;
                 foreach ($map['WorkflowParameters'] as $item1) {
-                    $model->workflowParameters[$n1++] = WorkflowParameter::fromMap($item1);
+                    $model->workflowParameters[$n1] = WorkflowParameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

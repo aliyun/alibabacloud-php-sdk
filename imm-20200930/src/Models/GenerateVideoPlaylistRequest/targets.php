@@ -103,7 +103,8 @@ class targets extends Model
                 $res['InitialSegments'] = [];
                 $n1 = 0;
                 foreach ($this->initialSegments as $item1) {
-                    $res['InitialSegments'][$n1++] = $item1;
+                    $res['InitialSegments'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +162,8 @@ class targets extends Model
                 $model->initialSegments = [];
                 $n1 = 0;
                 foreach ($map['InitialSegments'] as $item1) {
-                    $model->initialSegments[$n1++] = $item1;
+                    $model->initialSegments[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -143,7 +143,8 @@ class QueryStoriesRequest extends Model
                 $res['FigureClusterIds'] = [];
                 $n1 = 0;
                 foreach ($this->figureClusterIds as $item1) {
-                    $res['FigureClusterIds'][$n1++] = $item1;
+                    $res['FigureClusterIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -224,7 +225,8 @@ class QueryStoriesRequest extends Model
                 $model->figureClusterIds = [];
                 $n1 = 0;
                 foreach ($map['FigureClusterIds'] as $item1) {
-                    $model->figureClusterIds[$n1++] = $item1;
+                    $model->figureClusterIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

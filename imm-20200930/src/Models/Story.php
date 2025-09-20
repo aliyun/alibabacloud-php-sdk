@@ -146,7 +146,8 @@ class Story extends Model
                 $res['Addresses'] = [];
                 $n1 = 0;
                 foreach ($this->addresses as $item1) {
-                    $res['Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +182,8 @@ class Story extends Model
                 $res['FigureClusterIds'] = [];
                 $n1 = 0;
                 foreach ($this->figureClusterIds as $item1) {
-                    $res['FigureClusterIds'][$n1++] = $item1;
+                    $res['FigureClusterIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +193,8 @@ class Story extends Model
                 $res['Files'] = [];
                 $n1 = 0;
                 foreach ($this->files as $item1) {
-                    $res['Files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Files'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -252,7 +255,8 @@ class Story extends Model
                 $model->addresses = [];
                 $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
-                    $model->addresses[$n1++] = Address::fromMap($item1);
+                    $model->addresses[$n1] = Address::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -287,7 +291,8 @@ class Story extends Model
                 $model->figureClusterIds = [];
                 $n1 = 0;
                 foreach ($map['FigureClusterIds'] as $item1) {
-                    $model->figureClusterIds[$n1++] = $item1;
+                    $model->figureClusterIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -297,7 +302,8 @@ class Story extends Model
                 $model->files = [];
                 $n1 = 0;
                 foreach ($map['Files'] as $item1) {
-                    $model->files[$n1++] = File::fromMap($item1);
+                    $model->files[$n1] = File::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

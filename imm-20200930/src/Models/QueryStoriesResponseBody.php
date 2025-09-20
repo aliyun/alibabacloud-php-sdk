@@ -52,7 +52,8 @@ class QueryStoriesResponseBody extends Model
                 $res['Stories'] = [];
                 $n1 = 0;
                 foreach ($this->stories as $item1) {
-                    $res['Stories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Stories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class QueryStoriesResponseBody extends Model
                 $model->stories = [];
                 $n1 = 0;
                 foreach ($map['Stories'] as $item1) {
-                    $model->stories[$n1++] = Story::fromMap($item1);
+                    $model->stories[$n1] = Story::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

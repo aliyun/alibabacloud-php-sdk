@@ -42,7 +42,8 @@ class Answer extends Model
                 $res['References'] = [];
                 $n1 = 0;
                 foreach ($this->references as $item1) {
-                    $res['References'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['References'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class Answer extends Model
                 $model->references = [];
                 $n1 = 0;
                 foreach ($map['References'] as $item1) {
-                    $model->references[$n1++] = ReferenceFile::fromMap($item1);
+                    $model->references[$n1] = ReferenceFile::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

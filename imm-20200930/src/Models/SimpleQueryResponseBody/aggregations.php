@@ -55,7 +55,8 @@ class aggregations extends Model
                 $res['Groups'] = [];
                 $n1 = 0;
                 foreach ($this->groups as $item1) {
-                    $res['Groups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Groups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,7 +89,8 @@ class aggregations extends Model
                 $model->groups = [];
                 $n1 = 0;
                 foreach ($map['Groups'] as $item1) {
-                    $model->groups[$n1++] = groups::fromMap($item1);
+                    $model->groups[$n1] = groups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

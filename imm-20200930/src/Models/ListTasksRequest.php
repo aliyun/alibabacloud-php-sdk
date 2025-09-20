@@ -138,7 +138,8 @@ class ListTasksRequest extends Model
                 $res['TaskTypes'] = [];
                 $n1 = 0;
                 foreach ($this->taskTypes as $item1) {
-                    $res['TaskTypes'][$n1++] = $item1;
+                    $res['TaskTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +200,8 @@ class ListTasksRequest extends Model
                 $model->taskTypes = [];
                 $n1 = 0;
                 foreach ($map['TaskTypes'] as $item1) {
-                    $model->taskTypes[$n1++] = $item1;
+                    $model->taskTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

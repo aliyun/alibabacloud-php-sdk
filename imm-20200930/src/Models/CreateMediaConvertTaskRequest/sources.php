@@ -99,7 +99,8 @@ class sources extends Model
                 $res['Subtitles'] = [];
                 $n1 = 0;
                 foreach ($this->subtitles as $item1) {
-                    $res['Subtitles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Subtitles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class sources extends Model
                 $model->subtitles = [];
                 $n1 = 0;
                 foreach ($map['Subtitles'] as $item1) {
-                    $model->subtitles[$n1++] = subtitles::fromMap($item1);
+                    $model->subtitles[$n1] = subtitles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

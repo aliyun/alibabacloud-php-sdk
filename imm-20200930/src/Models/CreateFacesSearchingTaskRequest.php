@@ -82,7 +82,8 @@ class CreateFacesSearchingTaskRequest extends Model
                 $res['Sources'] = [];
                 $n1 = 0;
                 foreach ($this->sources as $item1) {
-                    $res['Sources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Sources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,7 +124,8 @@ class CreateFacesSearchingTaskRequest extends Model
                 $model->sources = [];
                 $n1 = 0;
                 foreach ($map['Sources'] as $item1) {
-                    $model->sources[$n1++] = sources::fromMap($item1);
+                    $model->sources[$n1] = sources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

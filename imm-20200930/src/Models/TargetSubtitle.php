@@ -56,7 +56,8 @@ class TargetSubtitle extends Model
                 $res['Stream'] = [];
                 $n1 = 0;
                 foreach ($this->stream as $item1) {
-                    $res['Stream'][$n1++] = $item1;
+                    $res['Stream'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,7 +86,8 @@ class TargetSubtitle extends Model
                 $model->stream = [];
                 $n1 = 0;
                 foreach ($map['Stream'] as $item1) {
-                    $model->stream[$n1++] = $item1;
+                    $model->stream[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -88,7 +88,8 @@ class ContextualFile extends Model
                 $res['Elements'] = [];
                 $n1 = 0;
                 foreach ($this->elements as $item1) {
-                    $res['Elements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Elements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +142,8 @@ class ContextualFile extends Model
                 $model->elements = [];
                 $n1 = 0;
                 foreach ($map['Elements'] as $item1) {
-                    $model->elements[$n1++] = Element::fromMap($item1);
+                    $model->elements[$n1] = Element::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

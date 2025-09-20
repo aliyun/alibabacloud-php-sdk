@@ -61,7 +61,8 @@ class BatchGetFileMetaRequest extends Model
                 $res['URIs'] = [];
                 $n1 = 0;
                 foreach ($this->URIs as $item1) {
-                    $res['URIs'][$n1++] = $item1;
+                    $res['URIs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class BatchGetFileMetaRequest extends Model
                 $res['WithFields'] = [];
                 $n1 = 0;
                 foreach ($this->withFields as $item1) {
-                    $res['WithFields'][$n1++] = $item1;
+                    $res['WithFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class BatchGetFileMetaRequest extends Model
                 $model->URIs = [];
                 $n1 = 0;
                 foreach ($map['URIs'] as $item1) {
-                    $model->URIs[$n1++] = $item1;
+                    $model->URIs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class BatchGetFileMetaRequest extends Model
                 $model->withFields = [];
                 $n1 = 0;
                 foreach ($map['WithFields'] as $item1) {
-                    $model->withFields[$n1++] = $item1;
+                    $model->withFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

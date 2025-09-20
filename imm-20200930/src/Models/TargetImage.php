@@ -53,7 +53,8 @@ class TargetImage extends Model
                 $res['Animations'] = [];
                 $n1 = 0;
                 foreach ($this->animations as $item1) {
-                    $res['Animations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Animations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class TargetImage extends Model
                 $res['Snapshots'] = [];
                 $n1 = 0;
                 foreach ($this->snapshots as $item1) {
-                    $res['Snapshots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Snapshots'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +75,8 @@ class TargetImage extends Model
                 $res['Sprites'] = [];
                 $n1 = 0;
                 foreach ($this->sprites as $item1) {
-                    $res['Sprites'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Sprites'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +97,8 @@ class TargetImage extends Model
                 $model->animations = [];
                 $n1 = 0;
                 foreach ($map['Animations'] as $item1) {
-                    $model->animations[$n1++] = animations::fromMap($item1);
+                    $model->animations[$n1] = animations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +108,8 @@ class TargetImage extends Model
                 $model->snapshots = [];
                 $n1 = 0;
                 foreach ($map['Snapshots'] as $item1) {
-                    $model->snapshots[$n1++] = snapshots::fromMap($item1);
+                    $model->snapshots[$n1] = snapshots::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +119,8 @@ class TargetImage extends Model
                 $model->sprites = [];
                 $n1 = 0;
                 foreach ($map['Sprites'] as $item1) {
-                    $model->sprites[$n1++] = sprites::fromMap($item1);
+                    $model->sprites[$n1] = sprites::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

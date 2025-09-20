@@ -54,7 +54,8 @@ class ElementContent extends Model
                 $res['TimeRange'] = [];
                 $n1 = 0;
                 foreach ($this->timeRange as $item1) {
-                    $res['TimeRange'][$n1++] = $item1;
+                    $res['TimeRange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class ElementContent extends Model
                 $model->timeRange = [];
                 $n1 = 0;
                 foreach ($map['TimeRange'] as $item1) {
-                    $model->timeRange[$n1++] = $item1;
+                    $model->timeRange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

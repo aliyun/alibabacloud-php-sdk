@@ -48,7 +48,8 @@ class BatchGetFigureClusterRequest extends Model
                 $res['ObjectIds'] = [];
                 $n1 = 0;
                 foreach ($this->objectIds as $item1) {
-                    $res['ObjectIds'][$n1++] = $item1;
+                    $res['ObjectIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class BatchGetFigureClusterRequest extends Model
                 $model->objectIds = [];
                 $n1 = 0;
                 foreach ($map['ObjectIds'] as $item1) {
-                    $model->objectIds[$n1++] = $item1;
+                    $model->objectIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

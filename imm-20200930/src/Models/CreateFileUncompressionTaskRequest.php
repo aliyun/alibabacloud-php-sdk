@@ -96,7 +96,8 @@ class CreateFileUncompressionTaskRequest extends Model
                 $res['SelectedFiles'] = [];
                 $n1 = 0;
                 foreach ($this->selectedFiles as $item1) {
-                    $res['SelectedFiles'][$n1++] = $item1;
+                    $res['SelectedFiles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +146,8 @@ class CreateFileUncompressionTaskRequest extends Model
                 $model->selectedFiles = [];
                 $n1 = 0;
                 foreach ($map['SelectedFiles'] as $item1) {
-                    $model->selectedFiles[$n1++] = $item1;
+                    $model->selectedFiles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

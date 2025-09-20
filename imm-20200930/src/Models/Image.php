@@ -68,7 +68,8 @@ class Image extends Model
                 $res['CroppingSuggestions'] = [];
                 $n1 = 0;
                 foreach ($this->croppingSuggestions as $item1) {
-                    $res['CroppingSuggestions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CroppingSuggestions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class Image extends Model
                 $res['OCRContents'] = [];
                 $n1 = 0;
                 foreach ($this->OCRContents as $item1) {
-                    $res['OCRContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OCRContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +117,8 @@ class Image extends Model
                 $model->croppingSuggestions = [];
                 $n1 = 0;
                 foreach ($map['CroppingSuggestions'] as $item1) {
-                    $model->croppingSuggestions[$n1++] = CroppingSuggestion::fromMap($item1);
+                    $model->croppingSuggestions[$n1] = CroppingSuggestion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +144,8 @@ class Image extends Model
                 $model->OCRContents = [];
                 $n1 = 0;
                 foreach ($map['OCRContents'] as $item1) {
-                    $model->OCRContents[$n1++] = OCRContents::fromMap($item1);
+                    $model->OCRContents[$n1] = OCRContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

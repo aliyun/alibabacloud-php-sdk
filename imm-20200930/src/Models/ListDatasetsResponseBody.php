@@ -44,7 +44,8 @@ class ListDatasetsResponseBody extends Model
                 $res['Datasets'] = [];
                 $n1 = 0;
                 foreach ($this->datasets as $item1) {
-                    $res['Datasets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Datasets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListDatasetsResponseBody extends Model
                 $model->datasets = [];
                 $n1 = 0;
                 foreach ($map['Datasets'] as $item1) {
-                    $model->datasets[$n1++] = Dataset::fromMap($item1);
+                    $model->datasets[$n1] = Dataset::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class Row extends Model
                 $res['CustomLabels'] = [];
                 $n1 = 0;
                 foreach ($this->customLabels as $item1) {
-                    $res['CustomLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class Row extends Model
                 $model->customLabels = [];
                 $n1 = 0;
                 foreach ($map['CustomLabels'] as $item1) {
-                    $model->customLabels[$n1++] = KeyValuePair::fromMap($item1);
+                    $model->customLabels[$n1] = KeyValuePair::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

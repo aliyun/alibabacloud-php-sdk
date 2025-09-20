@@ -102,7 +102,8 @@ class FuzzyQueryRequest extends Model
                 $res['WithFields'] = [];
                 $n1 = 0;
                 foreach ($this->withFields as $item1) {
-                    $res['WithFields'][$n1++] = $item1;
+                    $res['WithFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class FuzzyQueryRequest extends Model
                 $model->withFields = [];
                 $n1 = 0;
                 foreach ($map['WithFields'] as $item1) {
-                    $model->withFields[$n1++] = $item1;
+                    $model->withFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class DetectImageCroppingResponseBody extends Model
                 $res['Croppings'] = [];
                 $n1 = 0;
                 foreach ($this->croppings as $item1) {
-                    $res['Croppings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Croppings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DetectImageCroppingResponseBody extends Model
                 $model->croppings = [];
                 $n1 = 0;
                 foreach ($map['Croppings'] as $item1) {
-                    $model->croppings[$n1++] = CroppingSuggestion::fromMap($item1);
+                    $model->croppings[$n1] = CroppingSuggestion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

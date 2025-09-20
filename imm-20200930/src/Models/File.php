@@ -586,7 +586,8 @@ class File extends Model
                 $res['Addresses'] = [];
                 $n1 = 0;
                 foreach ($this->addresses as $item1) {
-                    $res['Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -608,7 +609,8 @@ class File extends Model
                 $res['AudioCovers'] = [];
                 $n1 = 0;
                 foreach ($this->audioCovers as $item1) {
-                    $res['AudioCovers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioCovers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -618,7 +620,8 @@ class File extends Model
                 $res['AudioStreams'] = [];
                 $n1 = 0;
                 foreach ($this->audioStreams as $item1) {
-                    $res['AudioStreams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioStreams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -664,7 +667,8 @@ class File extends Model
                 $res['CroppingSuggestions'] = [];
                 $n1 = 0;
                 foreach ($this->croppingSuggestions as $item1) {
-                    $res['CroppingSuggestions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CroppingSuggestions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -703,7 +707,8 @@ class File extends Model
                 $res['Elements'] = [];
                 $n1 = 0;
                 foreach ($this->elements as $item1) {
-                    $res['Elements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Elements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -717,7 +722,8 @@ class File extends Model
                 $res['Figures'] = [];
                 $n1 = 0;
                 foreach ($this->figures as $item1) {
-                    $res['Figures'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Figures'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -771,7 +777,8 @@ class File extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -793,7 +800,8 @@ class File extends Model
                 $res['OCRContents'] = [];
                 $n1 = 0;
                 foreach ($this->OCRContents as $item1) {
-                    $res['OCRContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OCRContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -905,7 +913,8 @@ class File extends Model
                 $res['SceneElements'] = [];
                 $n1 = 0;
                 foreach ($this->sceneElements as $item1) {
-                    $res['SceneElements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SceneElements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -915,7 +924,8 @@ class File extends Model
                 $res['SemanticTypes'] = [];
                 $n1 = 0;
                 foreach ($this->semanticTypes as $item1) {
-                    $res['SemanticTypes'][$n1++] = $item1;
+                    $res['SemanticTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -953,7 +963,8 @@ class File extends Model
                 $res['Subtitles'] = [];
                 $n1 = 0;
                 foreach ($this->subtitles as $item1) {
-                    $res['Subtitles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Subtitles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -987,7 +998,8 @@ class File extends Model
                 $res['VideoStreams'] = [];
                 $n1 = 0;
                 foreach ($this->videoStreams as $item1) {
-                    $res['VideoStreams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoStreams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1020,7 +1032,8 @@ class File extends Model
                 $model->addresses = [];
                 $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
-                    $model->addresses[$n1++] = Address::fromMap($item1);
+                    $model->addresses[$n1] = Address::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1042,7 +1055,8 @@ class File extends Model
                 $model->audioCovers = [];
                 $n1 = 0;
                 foreach ($map['AudioCovers'] as $item1) {
-                    $model->audioCovers[$n1++] = Image::fromMap($item1);
+                    $model->audioCovers[$n1] = Image::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1052,7 +1066,8 @@ class File extends Model
                 $model->audioStreams = [];
                 $n1 = 0;
                 foreach ($map['AudioStreams'] as $item1) {
-                    $model->audioStreams[$n1++] = AudioStream::fromMap($item1);
+                    $model->audioStreams[$n1] = AudioStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1098,7 +1113,8 @@ class File extends Model
                 $model->croppingSuggestions = [];
                 $n1 = 0;
                 foreach ($map['CroppingSuggestions'] as $item1) {
-                    $model->croppingSuggestions[$n1++] = CroppingSuggestion::fromMap($item1);
+                    $model->croppingSuggestions[$n1] = CroppingSuggestion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1137,7 +1153,8 @@ class File extends Model
                 $model->elements = [];
                 $n1 = 0;
                 foreach ($map['Elements'] as $item1) {
-                    $model->elements[$n1++] = Element::fromMap($item1);
+                    $model->elements[$n1] = Element::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1151,7 +1168,8 @@ class File extends Model
                 $model->figures = [];
                 $n1 = 0;
                 foreach ($map['Figures'] as $item1) {
-                    $model->figures[$n1++] = Figure::fromMap($item1);
+                    $model->figures[$n1] = Figure::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1205,7 +1223,8 @@ class File extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1227,7 +1246,8 @@ class File extends Model
                 $model->OCRContents = [];
                 $n1 = 0;
                 foreach ($map['OCRContents'] as $item1) {
-                    $model->OCRContents[$n1++] = OCRContents::fromMap($item1);
+                    $model->OCRContents[$n1] = OCRContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1339,7 +1359,8 @@ class File extends Model
                 $model->sceneElements = [];
                 $n1 = 0;
                 foreach ($map['SceneElements'] as $item1) {
-                    $model->sceneElements[$n1++] = SceneElement::fromMap($item1);
+                    $model->sceneElements[$n1] = SceneElement::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1349,7 +1370,8 @@ class File extends Model
                 $model->semanticTypes = [];
                 $n1 = 0;
                 foreach ($map['SemanticTypes'] as $item1) {
-                    $model->semanticTypes[$n1++] = $item1;
+                    $model->semanticTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -1387,7 +1409,8 @@ class File extends Model
                 $model->subtitles = [];
                 $n1 = 0;
                 foreach ($map['Subtitles'] as $item1) {
-                    $model->subtitles[$n1++] = SubtitleStream::fromMap($item1);
+                    $model->subtitles[$n1] = SubtitleStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -1421,7 +1444,8 @@ class File extends Model
                 $model->videoStreams = [];
                 $n1 = 0;
                 foreach ($map['VideoStreams'] as $item1) {
-                    $model->videoStreams[$n1++] = VideoStream::fromMap($item1);
+                    $model->videoStreams[$n1] = VideoStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

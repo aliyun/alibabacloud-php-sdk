@@ -144,7 +144,8 @@ class InputFile extends Model
                 $res['Addresses'] = [];
                 $n1 = 0;
                 foreach ($this->addresses as $item1) {
-                    $res['Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,7 +188,8 @@ class InputFile extends Model
                 $res['Figures'] = [];
                 $n1 = 0;
                 foreach ($this->figures as $item1) {
-                    $res['Figures'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Figures'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +203,8 @@ class InputFile extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -250,7 +253,8 @@ class InputFile extends Model
                 $model->addresses = [];
                 $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
-                    $model->addresses[$n1++] = Address::fromMap($item1);
+                    $model->addresses[$n1] = Address::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -293,7 +297,8 @@ class InputFile extends Model
                 $model->figures = [];
                 $n1 = 0;
                 foreach ($map['Figures'] as $item1) {
-                    $model->figures[$n1++] = figures::fromMap($item1);
+                    $model->figures[$n1] = figures::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -307,7 +312,8 @@ class InputFile extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

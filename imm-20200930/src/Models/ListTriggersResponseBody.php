@@ -52,7 +52,8 @@ class ListTriggersResponseBody extends Model
                 $res['Triggers'] = [];
                 $n1 = 0;
                 foreach ($this->triggers as $item1) {
-                    $res['Triggers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Triggers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class ListTriggersResponseBody extends Model
                 $model->triggers = [];
                 $n1 = 0;
                 foreach ($map['Triggers'] as $item1) {
-                    $model->triggers[$n1++] = DataIngestion::fromMap($item1);
+                    $model->triggers[$n1] = DataIngestion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -64,7 +64,8 @@ class Boundary extends Model
                 $res['Polygon'] = [];
                 $n1 = 0;
                 foreach ($this->polygon as $item1) {
-                    $res['Polygon'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Polygon'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class Boundary extends Model
                 $model->polygon = [];
                 $n1 = 0;
                 foreach ($map['Polygon'] as $item1) {
-                    $model->polygon[$n1++] = PointInt64::fromMap($item1);
+                    $model->polygon[$n1] = PointInt64::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

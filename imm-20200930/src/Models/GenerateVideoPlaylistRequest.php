@@ -140,7 +140,8 @@ class GenerateVideoPlaylistRequest extends Model
                 $res['SourceSubtitles'] = [];
                 $n1 = 0;
                 foreach ($this->sourceSubtitles as $item1) {
-                    $res['SourceSubtitles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceSubtitles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class GenerateVideoPlaylistRequest extends Model
                 $res['Targets'] = [];
                 $n1 = 0;
                 foreach ($this->targets as $item1) {
-                    $res['Targets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Targets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +218,8 @@ class GenerateVideoPlaylistRequest extends Model
                 $model->sourceSubtitles = [];
                 $n1 = 0;
                 foreach ($map['SourceSubtitles'] as $item1) {
-                    $model->sourceSubtitles[$n1++] = sourceSubtitles::fromMap($item1);
+                    $model->sourceSubtitles[$n1] = sourceSubtitles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -239,7 +242,8 @@ class GenerateVideoPlaylistRequest extends Model
                 $model->targets = [];
                 $n1 = 0;
                 foreach ($map['Targets'] as $item1) {
-                    $model->targets[$n1++] = targets::fromMap($item1);
+                    $model->targets[$n1] = targets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

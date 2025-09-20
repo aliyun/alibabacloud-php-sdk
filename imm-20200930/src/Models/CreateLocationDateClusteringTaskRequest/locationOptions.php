@@ -32,7 +32,8 @@ class locationOptions extends Model
                 $res['LocationDateClusterLevels'] = [];
                 $n1 = 0;
                 foreach ($this->locationDateClusterLevels as $item1) {
-                    $res['LocationDateClusterLevels'][$n1++] = $item1;
+                    $res['LocationDateClusterLevels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class locationOptions extends Model
                 $model->locationDateClusterLevels = [];
                 $n1 = 0;
                 foreach ($map['LocationDateClusterLevels'] as $item1) {
-                    $model->locationDateClusterLevels[$n1++] = $item1;
+                    $model->locationDateClusterLevels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

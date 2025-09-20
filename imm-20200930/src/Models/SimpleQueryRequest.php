@@ -93,7 +93,8 @@ class SimpleQueryRequest extends Model
                 $res['Aggregations'] = [];
                 $n1 = 0;
                 foreach ($this->aggregations as $item1) {
-                    $res['Aggregations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Aggregations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +132,8 @@ class SimpleQueryRequest extends Model
                 $res['WithFields'] = [];
                 $n1 = 0;
                 foreach ($this->withFields as $item1) {
-                    $res['WithFields'][$n1++] = $item1;
+                    $res['WithFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +158,8 @@ class SimpleQueryRequest extends Model
                 $model->aggregations = [];
                 $n1 = 0;
                 foreach ($map['Aggregations'] as $item1) {
-                    $model->aggregations[$n1++] = aggregations::fromMap($item1);
+                    $model->aggregations[$n1] = aggregations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -194,7 +197,8 @@ class SimpleQueryRequest extends Model
                 $model->withFields = [];
                 $n1 = 0;
                 foreach ($map['WithFields'] as $item1) {
-                    $model->withFields[$n1++] = $item1;
+                    $model->withFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

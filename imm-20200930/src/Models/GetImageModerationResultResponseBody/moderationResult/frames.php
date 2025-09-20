@@ -39,7 +39,8 @@ class frames extends Model
                 $res['BlockFrames'] = [];
                 $n1 = 0;
                 foreach ($this->blockFrames as $item1) {
-                    $res['BlockFrames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BlockFrames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class frames extends Model
                 $model->blockFrames = [];
                 $n1 = 0;
                 foreach ($map['BlockFrames'] as $item1) {
-                    $model->blockFrames[$n1++] = blockFrames::fromMap($item1);
+                    $model->blockFrames[$n1] = blockFrames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

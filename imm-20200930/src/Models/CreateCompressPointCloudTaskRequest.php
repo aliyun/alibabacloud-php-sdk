@@ -133,7 +133,8 @@ class CreateCompressPointCloudTaskRequest extends Model
                 $res['PointCloudFields'] = [];
                 $n1 = 0;
                 foreach ($this->pointCloudFields as $item1) {
-                    $res['PointCloudFields'][$n1++] = $item1;
+                    $res['PointCloudFields'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +204,8 @@ class CreateCompressPointCloudTaskRequest extends Model
                 $model->pointCloudFields = [];
                 $n1 = 0;
                 foreach ($map['PointCloudFields'] as $item1) {
-                    $model->pointCloudFields[$n1++] = $item1;
+                    $model->pointCloudFields[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -44,7 +44,8 @@ class DetectImageTextsResponseBody extends Model
                 $res['OCRContents'] = [];
                 $n1 = 0;
                 foreach ($this->OCRContents as $item1) {
-                    $res['OCRContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OCRContents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class DetectImageTextsResponseBody extends Model
                 $model->OCRContents = [];
                 $n1 = 0;
                 foreach ($map['OCRContents'] as $item1) {
-                    $model->OCRContents[$n1++] = OCRContents::fromMap($item1);
+                    $model->OCRContents[$n1] = OCRContents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

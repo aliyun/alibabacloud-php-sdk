@@ -38,7 +38,8 @@ class DetectImageCarsResponseBody extends Model
                 $res['Cars'] = [];
                 $n1 = 0;
                 foreach ($this->cars as $item1) {
-                    $res['Cars'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Cars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DetectImageCarsResponseBody extends Model
                 $model->cars = [];
                 $n1 = 0;
                 foreach ($map['Cars'] as $item1) {
-                    $model->cars[$n1++] = Car::fromMap($item1);
+                    $model->cars[$n1] = Car::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

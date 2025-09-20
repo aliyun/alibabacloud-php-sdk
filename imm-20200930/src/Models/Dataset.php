@@ -77,6 +77,11 @@ class Dataset extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var WorkflowParameter[]
+     */
+    public $workflowParameters;
     protected $_name = [
         'bindCount' => 'BindCount',
         'createTime' => 'CreateTime',
@@ -92,10 +97,14 @@ class Dataset extends Model
         'templateId' => 'TemplateId',
         'totalFileSize' => 'TotalFileSize',
         'updateTime' => 'UpdateTime',
+        'workflowParameters' => 'WorkflowParameters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->workflowParameters)) {
+            Model::validateArray($this->workflowParameters);
+        }
         parent::validate();
     }
 
@@ -156,6 +165,17 @@ class Dataset extends Model
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+
+        if (null !== $this->workflowParameters) {
+            if (\is_array($this->workflowParameters)) {
+                $res['WorkflowParameters'] = [];
+                $n1 = 0;
+                foreach ($this->workflowParameters as $item1) {
+                    $res['WorkflowParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -223,6 +243,17 @@ class Dataset extends Model
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['WorkflowParameters'])) {
+            if (!empty($map['WorkflowParameters'])) {
+                $model->workflowParameters = [];
+                $n1 = 0;
+                foreach ($map['WorkflowParameters'] as $item1) {
+                    $model->workflowParameters[$n1] = WorkflowParameter::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

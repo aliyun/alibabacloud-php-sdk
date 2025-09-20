@@ -179,7 +179,8 @@ class DetectMediaMetaResponseBody extends Model
                 $res['Addresses'] = [];
                 $n1 = 0;
                 foreach ($this->addresses as $item1) {
-                    $res['Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Addresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +202,8 @@ class DetectMediaMetaResponseBody extends Model
                 $res['AudioStreams'] = [];
                 $n1 = 0;
                 foreach ($this->audioStreams as $item1) {
-                    $res['AudioStreams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioStreams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +269,8 @@ class DetectMediaMetaResponseBody extends Model
                 $res['Subtitles'] = [];
                 $n1 = 0;
                 foreach ($this->subtitles as $item1) {
-                    $res['Subtitles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Subtitles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -285,7 +288,8 @@ class DetectMediaMetaResponseBody extends Model
                 $res['VideoStreams'] = [];
                 $n1 = 0;
                 foreach ($this->videoStreams as $item1) {
-                    $res['VideoStreams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoStreams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -310,7 +314,8 @@ class DetectMediaMetaResponseBody extends Model
                 $model->addresses = [];
                 $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
-                    $model->addresses[$n1++] = Address::fromMap($item1);
+                    $model->addresses[$n1] = Address::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -332,7 +337,8 @@ class DetectMediaMetaResponseBody extends Model
                 $model->audioStreams = [];
                 $n1 = 0;
                 foreach ($map['AudioStreams'] as $item1) {
-                    $model->audioStreams[$n1++] = AudioStream::fromMap($item1);
+                    $model->audioStreams[$n1] = AudioStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -398,7 +404,8 @@ class DetectMediaMetaResponseBody extends Model
                 $model->subtitles = [];
                 $n1 = 0;
                 foreach ($map['Subtitles'] as $item1) {
-                    $model->subtitles[$n1++] = SubtitleStream::fromMap($item1);
+                    $model->subtitles[$n1] = SubtitleStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -416,7 +423,8 @@ class DetectMediaMetaResponseBody extends Model
                 $model->videoStreams = [];
                 $n1 = 0;
                 foreach ($map['VideoStreams'] as $item1) {
-                    $model->videoStreams[$n1++] = VideoStream::fromMap($item1);
+                    $model->videoStreams[$n1] = VideoStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

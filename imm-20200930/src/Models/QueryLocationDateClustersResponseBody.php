@@ -44,7 +44,8 @@ class QueryLocationDateClustersResponseBody extends Model
                 $res['LocationDateClusters'] = [];
                 $n1 = 0;
                 foreach ($this->locationDateClusters as $item1) {
-                    $res['LocationDateClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LocationDateClusters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class QueryLocationDateClustersResponseBody extends Model
                 $model->locationDateClusters = [];
                 $n1 = 0;
                 foreach ($map['LocationDateClusters'] as $item1) {
-                    $model->locationDateClusters[$n1++] = LocationDateCluster::fromMap($item1);
+                    $model->locationDateClusters[$n1] = LocationDateCluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

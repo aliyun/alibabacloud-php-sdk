@@ -44,7 +44,8 @@ class ListBatchesResponseBody extends Model
                 $res['Batches'] = [];
                 $n1 = 0;
                 foreach ($this->batches as $item1) {
-                    $res['Batches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Batches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListBatchesResponseBody extends Model
                 $model->batches = [];
                 $n1 = 0;
                 foreach ($map['Batches'] as $item1) {
-                    $model->batches[$n1++] = DataIngestion::fromMap($item1);
+                    $model->batches[$n1] = DataIngestion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

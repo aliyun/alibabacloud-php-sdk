@@ -41,7 +41,8 @@ class SceneElement extends Model
                 $res['FrameTimes'] = [];
                 $n1 = 0;
                 foreach ($this->frameTimes as $item1) {
-                    $res['FrameTimes'][$n1++] = $item1;
+                    $res['FrameTimes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,7 +52,8 @@ class SceneElement extends Model
                 $res['TimeRange'] = [];
                 $n1 = 0;
                 foreach ($this->timeRange as $item1) {
-                    $res['TimeRange'][$n1++] = $item1;
+                    $res['TimeRange'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +74,8 @@ class SceneElement extends Model
                 $model->frameTimes = [];
                 $n1 = 0;
                 foreach ($map['FrameTimes'] as $item1) {
-                    $model->frameTimes[$n1++] = $item1;
+                    $model->frameTimes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +85,8 @@ class SceneElement extends Model
                 $model->timeRange = [];
                 $n1 = 0;
                 foreach ($map['TimeRange'] as $item1) {
-                    $model->timeRange[$n1++] = $item1;
+                    $model->timeRange[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

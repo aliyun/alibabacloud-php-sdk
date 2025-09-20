@@ -99,7 +99,8 @@ class Hyperparameters extends Model
                 $res['InputSize'] = [];
                 $n1 = 0;
                 foreach ($this->inputSize as $item1) {
-                    $res['InputSize'][$n1++] = $item1;
+                    $res['InputSize'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class Hyperparameters extends Model
                 $model->inputSize = [];
                 $n1 = 0;
                 foreach ($map['InputSize'] as $item1) {
-                    $model->inputSize[$n1++] = $item1;
+                    $model->inputSize[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

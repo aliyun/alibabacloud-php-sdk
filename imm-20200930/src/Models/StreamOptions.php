@@ -12,8 +12,14 @@ class StreamOptions extends Model
      * @var bool
      */
     public $incrementalOutput;
+
+    /**
+     * @var bool
+     */
+    public $needReturnFinalResult;
     protected $_name = [
         'incrementalOutput' => 'IncrementalOutput',
+        'needReturnFinalResult' => 'NeedReturnFinalResult',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class StreamOptions extends Model
         $res = [];
         if (null !== $this->incrementalOutput) {
             $res['IncrementalOutput'] = $this->incrementalOutput;
+        }
+
+        if (null !== $this->needReturnFinalResult) {
+            $res['NeedReturnFinalResult'] = $this->needReturnFinalResult;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class StreamOptions extends Model
         $model = new self();
         if (isset($map['IncrementalOutput'])) {
             $model->incrementalOutput = $map['IncrementalOutput'];
+        }
+
+        if (isset($map['NeedReturnFinalResult'])) {
+            $model->needReturnFinalResult = $map['NeedReturnFinalResult'];
         }
 
         return $model;
