@@ -8,12 +8,17 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateShrinkRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\GetDocTranslateTaskRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\GetDocTranslateTaskResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\GetHtmlTranslateTaskRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\GetHtmlTranslateTaskResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\GetImageTranslateTaskRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\GetImageTranslateTaskResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\GetLongTextTranslateTaskRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\GetLongTextTranslateTaskResponse;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitDocTranslateTaskRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitDocTranslateTaskResponse;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitDocTranslateTaskShrinkRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitHtmlTranslateTaskRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitHtmlTranslateTaskResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitHtmlTranslateTaskShrinkRequest;
@@ -158,6 +163,71 @@ class AnyTrans extends OpenApiClient
         $headers = [];
 
         return $this->batchTranslateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通义多模态翻译获文档翻译任务
+     *
+     * @param request - GetDocTranslateTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDocTranslateTaskResponse
+     *
+     * @param GetDocTranslateTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDocTranslateTaskResponse
+     */
+    public function getDocTranslateTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDocTranslateTask',
+            'version' => '2025-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/anytrans/translate/doc/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDocTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通义多模态翻译获文档翻译任务
+     *
+     * @param request - GetDocTranslateTaskRequest
+     *
+     * @returns GetDocTranslateTaskResponse
+     *
+     * @param GetDocTranslateTaskRequest $request
+     *
+     * @return GetDocTranslateTaskResponse
+     */
+    public function getDocTranslateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDocTranslateTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -353,6 +423,97 @@ class AnyTrans extends OpenApiClient
         $headers = [];
 
         return $this->getLongTextTranslateTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通义多模态翻译提交文档翻译任务
+     *
+     * @param tmpReq - SubmitDocTranslateTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitDocTranslateTaskResponse
+     *
+     * @param SubmitDocTranslateTaskRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitDocTranslateTaskResponse
+     */
+    public function submitDocTranslateTaskWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitDocTranslateTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'ext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->extShrink) {
+            @$body['ext'] = $request->extShrink;
+        }
+
+        if (null !== $request->format) {
+            @$body['format'] = $request->format;
+        }
+
+        if (null !== $request->scene) {
+            @$body['scene'] = $request->scene;
+        }
+
+        if (null !== $request->sourceLanguage) {
+            @$body['sourceLanguage'] = $request->sourceLanguage;
+        }
+
+        if (null !== $request->targetLanguage) {
+            @$body['targetLanguage'] = $request->targetLanguage;
+        }
+
+        if (null !== $request->text) {
+            @$body['text'] = $request->text;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitDocTranslateTask',
+            'version' => '2025-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/anytrans/translate/doc/submit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitDocTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通义多模态翻译提交文档翻译任务
+     *
+     * @param request - SubmitDocTranslateTaskRequest
+     *
+     * @returns SubmitDocTranslateTaskResponse
+     *
+     * @param SubmitDocTranslateTaskRequest $request
+     *
+     * @return SubmitDocTranslateTaskResponse
+     */
+    public function submitDocTranslateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitDocTranslateTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
