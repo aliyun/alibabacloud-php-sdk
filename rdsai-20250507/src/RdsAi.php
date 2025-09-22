@@ -20,8 +20,24 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceEndpointsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceEndpointsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceIpWhitelistResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceIpWhitelistResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -555,6 +571,138 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 查看实例存储配置.
+     *
+     * @param request - DescribeInstanceStorageConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceStorageConfigResponse
+     *
+     * @param DescribeInstanceStorageConfigRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeInstanceStorageConfigResponse
+     */
+    public function describeInstanceStorageConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceStorageConfig',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceStorageConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看实例存储配置.
+     *
+     * @param request - DescribeInstanceStorageConfigRequest
+     *
+     * @returns DescribeInstanceStorageConfigResponse
+     *
+     * @param DescribeInstanceStorageConfigRequest $request
+     *
+     * @return DescribeInstanceStorageConfigResponse
+     */
+    public function describeInstanceStorageConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceStorageConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改Supabase Auth相关配置.
+     *
+     * @param tmpReq - ModifyInstanceAuthConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceAuthConfigResponse
+     *
+     * @param ModifyInstanceAuthConfigRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyInstanceAuthConfigResponse
+     */
+    public function modifyInstanceAuthConfigWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyInstanceAuthConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configList) {
+            $request->configListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configList, 'ConfigList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configListShrink) {
+            @$query['ConfigList'] = $request->configListShrink;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceAuthConfig',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改Supabase Auth相关配置.
+     *
+     * @param request - ModifyInstanceAuthConfigRequest
+     *
+     * @returns ModifyInstanceAuthConfigResponse
+     *
+     * @param ModifyInstanceAuthConfigRequest $request
+     *
+     * @return ModifyInstanceAuthConfigResponse
+     */
+    public function modifyInstanceAuthConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceAuthConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * 修改服务白名单.
      *
      * @param request - ModifyInstanceIpWhitelistRequest
@@ -629,5 +777,328 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceIpWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改实例存储配置.
+     *
+     * @param tmpReq - ModifyInstanceStorageConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceStorageConfigResponse
+     *
+     * @param ModifyInstanceStorageConfigRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyInstanceStorageConfigResponse
+     */
+    public function modifyInstanceStorageConfigWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyInstanceStorageConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configList) {
+            $request->configListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configList, 'ConfigList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configListShrink) {
+            @$query['ConfigList'] = $request->configListShrink;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceStorageConfig',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceStorageConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例存储配置.
+     *
+     * @param request - ModifyInstanceStorageConfigRequest
+     *
+     * @returns ModifyInstanceStorageConfigResponse
+     *
+     * @param ModifyInstanceStorageConfigRequest $request
+     *
+     * @return ModifyInstanceStorageConfigResponse
+     */
+    public function modifyInstanceStorageConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceStorageConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重置实例密码
+     *
+     * @param request - ResetInstancePasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetInstancePasswordResponse
+     *
+     * @param ResetInstancePasswordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ResetInstancePasswordResponse
+     */
+    public function resetInstancePasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dashboardPassword) {
+            @$query['DashboardPassword'] = $request->dashboardPassword;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetInstancePassword',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetInstancePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置实例密码
+     *
+     * @param request - ResetInstancePasswordRequest
+     *
+     * @returns ResetInstancePasswordResponse
+     *
+     * @param ResetInstancePasswordRequest $request
+     *
+     * @return ResetInstancePasswordResponse
+     */
+    public function resetInstancePassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetInstancePasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重启实例.
+     *
+     * @param request - RestartInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartInstanceResponse
+     *
+     * @param RestartInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestartInstanceResponse
+     */
+    public function restartInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartInstance',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重启实例.
+     *
+     * @param request - RestartInstanceRequest
+     *
+     * @returns RestartInstanceResponse
+     *
+     * @param RestartInstanceRequest $request
+     *
+     * @return RestartInstanceResponse
+     */
+    public function restartInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启动实例.
+     *
+     * @param request - StartInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartInstanceResponse
+     *
+     * @param StartInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartInstanceResponse
+     */
+    public function startInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartInstance',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动实例.
+     *
+     * @param request - StartInstanceRequest
+     *
+     * @returns StartInstanceResponse
+     *
+     * @param StartInstanceRequest $request
+     *
+     * @return StartInstanceResponse
+     */
+    public function startInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 暂停实例.
+     *
+     * @param request - StopInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopInstanceResponse
+     *
+     * @param StopInstanceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopInstanceResponse
+     */
+    public function stopInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopInstance',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停实例.
+     *
+     * @param request - StopInstanceRequest
+     *
+     * @returns StopInstanceResponse
+     *
+     * @param StopInstanceRequest $request
+     *
+     * @return StopInstanceResponse
+     */
+    public function stopInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopInstanceWithOptions($request, $runtime);
     }
 }
