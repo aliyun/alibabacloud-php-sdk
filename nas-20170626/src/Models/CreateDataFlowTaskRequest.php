@@ -72,6 +72,11 @@ class CreateDataFlowTaskRequest extends Model
      * @var string
      */
     public $taskAction;
+
+    /**
+     * @var string
+     */
+    public $transferFileListPath;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'conflictPolicy' => 'ConflictPolicy',
@@ -86,6 +91,7 @@ class CreateDataFlowTaskRequest extends Model
         'includes' => 'Includes',
         'srcTaskId' => 'SrcTaskId',
         'taskAction' => 'TaskAction',
+        'transferFileListPath' => 'TransferFileListPath',
     ];
 
     public function validate()
@@ -146,6 +152,10 @@ class CreateDataFlowTaskRequest extends Model
 
         if (null !== $this->taskAction) {
             $res['TaskAction'] = $this->taskAction;
+        }
+
+        if (null !== $this->transferFileListPath) {
+            $res['TransferFileListPath'] = $this->transferFileListPath;
         }
 
         return $res;
@@ -209,6 +219,10 @@ class CreateDataFlowTaskRequest extends Model
 
         if (isset($map['TaskAction'])) {
             $model->taskAction = $map['TaskAction'];
+        }
+
+        if (isset($map['TransferFileListPath'])) {
+            $model->transferFileListPath = $map['TransferFileListPath'];
         }
 
         return $model;

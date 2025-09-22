@@ -119,6 +119,11 @@ class task extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $transferFileListPath;
     protected $_name = [
         'conflictPolicy' => 'ConflictPolicy',
         'createTime' => 'CreateTime',
@@ -142,6 +147,7 @@ class task extends Model
         'status' => 'Status',
         'taskAction' => 'TaskAction',
         'taskId' => 'TaskId',
+        'transferFileListPath' => 'TransferFileListPath',
     ];
 
     public function validate()
@@ -246,6 +252,10 @@ class task extends Model
             $res['TaskId'] = $this->taskId;
         }
 
+        if (null !== $this->transferFileListPath) {
+            $res['TransferFileListPath'] = $this->transferFileListPath;
+        }
+
         return $res;
     }
 
@@ -343,6 +353,10 @@ class task extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TransferFileListPath'])) {
+            $model->transferFileListPath = $map['TransferFileListPath'];
         }
 
         return $model;
