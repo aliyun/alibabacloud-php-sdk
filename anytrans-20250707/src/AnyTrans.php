@@ -28,6 +28,11 @@ use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitImageTranslateTaskShrinkReq
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitLongTextTranslateTaskRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitLongTextTranslateTaskResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitLongTextTranslateTaskShrinkRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermEditRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermEditResponse;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermEditShrinkRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermQueryRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermQueryResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateShrinkRequest;
@@ -791,6 +796,170 @@ class AnyTrans extends OpenApiClient
         $headers = [];
 
         return $this->submitLongTextTranslateTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通义多模态翻译术语编辑.
+     *
+     * @param tmpReq - TermEditRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TermEditResponse
+     *
+     * @param TermEditRequest $tmpReq
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return TermEditResponse
+     */
+    public function termEditWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TermEditShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'ext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
+        if (null !== $request->extShrink) {
+            @$body['ext'] = $request->extShrink;
+        }
+
+        if (null !== $request->scene) {
+            @$body['scene'] = $request->scene;
+        }
+
+        if (null !== $request->sourceLanguage) {
+            @$body['sourceLanguage'] = $request->sourceLanguage;
+        }
+
+        if (null !== $request->targetLanguage) {
+            @$body['targetLanguage'] = $request->targetLanguage;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TermEdit',
+            'version' => '2025-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/anytrans/translate/intervene/edit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TermEditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通义多模态翻译术语编辑.
+     *
+     * @param request - TermEditRequest
+     *
+     * @returns TermEditResponse
+     *
+     * @param TermEditRequest $request
+     *
+     * @return TermEditResponse
+     */
+    public function termEdit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->termEditWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通义多模态翻译术语查询.
+     *
+     * @param request - TermQueryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TermQueryResponse
+     *
+     * @param TermQueryRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return TermQueryResponse
+     */
+    public function termQueryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->scene) {
+            @$body['scene'] = $request->scene;
+        }
+
+        if (null !== $request->sourceLanguage) {
+            @$body['sourceLanguage'] = $request->sourceLanguage;
+        }
+
+        if (null !== $request->targetLanguage) {
+            @$body['targetLanguage'] = $request->targetLanguage;
+        }
+
+        if (null !== $request->text) {
+            @$body['text'] = $request->text;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TermQuery',
+            'version' => '2025-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/anytrans/translate/intervene/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TermQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通义多模态翻译术语查询.
+     *
+     * @param request - TermQueryRequest
+     *
+     * @returns TermQueryResponse
+     *
+     * @param TermQueryRequest $request
+     *
+     * @return TermQueryResponse
+     */
+    public function termQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->termQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
