@@ -95,6 +95,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\EndCoordinationRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\EndCoordinationResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ExpandDataVolumeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ExpandDataVolumeResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ExpandPhoneDataVolumeRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ExpandPhoneDataVolumeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeRequest;
@@ -3653,6 +3655,79 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->expandDataVolumeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 扩容实例的独立机身存储.
+     *
+     * @param request - ExpandPhoneDataVolumeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExpandPhoneDataVolumeResponse
+     *
+     * @param ExpandPhoneDataVolumeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ExpandPhoneDataVolumeResponse
+     */
+    public function expandPhoneDataVolumeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->phoneDataVolume) {
+            @$query['PhoneDataVolume'] = $request->phoneDataVolume;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExpandPhoneDataVolume',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExpandPhoneDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 扩容实例的独立机身存储.
+     *
+     * @param request - ExpandPhoneDataVolumeRequest
+     *
+     * @returns ExpandPhoneDataVolumeResponse
+     *
+     * @param ExpandPhoneDataVolumeRequest $request
+     *
+     * @return ExpandPhoneDataVolumeResponse
+     */
+    public function expandPhoneDataVolume($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->expandPhoneDataVolumeWithOptions($request, $runtime);
     }
 
     /**
