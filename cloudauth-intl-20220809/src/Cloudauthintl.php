@@ -727,7 +727,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 凭证识别.
+     * Credential Recognition.
+     *
+     * @remarks
+     * Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
      *
      * @param Request - CredentialRecognitionIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -788,7 +791,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 凭证识别.
+     * Credential Recognition.
+     *
+     * @remarks
+     * Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
      *
      * @param Request - CredentialRecognitionIntlRequest
      *
@@ -1675,7 +1681,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 防伪回调接口.
+     * Anti-Fraud Callback Interface.
      *
      * @param Request - FraudResultCallBackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1726,7 +1732,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 防伪回调接口.
+     * Anti-Fraud Callback Interface.
      *
      * @param Request - FraudResultCallBackRequest
      *
