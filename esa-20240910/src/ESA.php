@@ -396,6 +396,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetRedirectRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineCodeVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineCodeVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineRouteRequest;
@@ -703,6 +705,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRedirectRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRewriteUrlRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineConfigDescriptionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineConfigDescriptionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineRouteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateScheduledPreloadExecutionRequest;
@@ -13237,6 +13241,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询Routine某版本代码
+     *
+     * @param Request - GetRoutineCodeVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRoutineCodeVersionResponse
+     *
+     * @param GetRoutineCodeVersionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetRoutineCodeVersionResponse
+     */
+    public function getRoutineCodeVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->codeVersion) {
+            @$body['CodeVersion'] = $request->codeVersion;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRoutineCodeVersion',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRoutineCodeVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Routine某版本代码
+     *
+     * @param Request - GetRoutineCodeVersionRequest
+     *
+     * @returns GetRoutineCodeVersionResponse
+     *
+     * @param GetRoutineCodeVersionRequest $request
+     *
+     * @return GetRoutineCodeVersionResponse
+     */
+    public function getRoutineCodeVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineCodeVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询单条边缘函数路由配置.
      *
      * @param Request - GetRoutineRouteRequest
@@ -18964,6 +19029,10 @@ class ESA extends OpenApiClient
             @$query['AutoRenew'] = $request->autoRenew;
         }
 
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
         if (null !== $request->chargeType) {
             @$query['ChargeType'] = $request->chargeType;
         }
@@ -23009,6 +23078,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRewriteUrlRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改Routine描述信息.
+     *
+     * @param Request - UpdateRoutineConfigDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRoutineConfigDescriptionResponse
+     *
+     * @param UpdateRoutineConfigDescriptionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateRoutineConfigDescriptionResponse
+     */
+    public function updateRoutineConfigDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRoutineConfigDescription',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRoutineConfigDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改Routine描述信息.
+     *
+     * @param Request - UpdateRoutineConfigDescriptionRequest
+     *
+     * @returns UpdateRoutineConfigDescriptionResponse
+     *
+     * @param UpdateRoutineConfigDescriptionRequest $request
+     *
+     * @return UpdateRoutineConfigDescriptionResponse
+     */
+    public function updateRoutineConfigDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRoutineConfigDescriptionWithOptions($request, $runtime);
     }
 
     /**

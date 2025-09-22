@@ -26,6 +26,11 @@ class PurchaseRatePlanRequest extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -61,6 +66,7 @@ class PurchaseRatePlanRequest extends Model
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
+        'channel' => 'Channel',
         'chargeType' => 'ChargeType',
         'coverage' => 'Coverage',
         'period' => 'Period',
@@ -88,6 +94,10 @@ class PurchaseRatePlanRequest extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
 
         if (null !== $this->chargeType) {
@@ -139,6 +149,10 @@ class PurchaseRatePlanRequest extends Model
 
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
 
         if (isset($map['ChargeType'])) {
