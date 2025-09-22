@@ -11,6 +11,8 @@ use AlibabaCloud\Dara\Request;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AddFolderRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AddFolderResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeAdvanceRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeResponse;
@@ -24,6 +26,10 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ChatStreamRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ChatStreamResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\CreateChatSessionRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\CreateChatSessionResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DeleteDocumentRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DeleteDocumentResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DeleteFolderRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DeleteFolderResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditUnfavorableAreaDevicesRequest;
@@ -149,7 +155,7 @@ class EnergyExpertExternal extends OpenApiClient
         ];
         @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
         $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request);
+        $_response = Dara::send($_request, ['stream' => true]);
 
         $respMap = null;
         $bodyStr = StreamUtil::readAsString($_response->body);
@@ -196,6 +202,71 @@ class EnergyExpertExternal extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 创建文件夹.
+     *
+     * @param Request - AddFolderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddFolderResponse
+     *
+     * @param AddFolderRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddFolderResponse
+     */
+    public function addFolderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->folderName) {
+            @$body['folderName'] = $request->folderName;
+        }
+
+        if (null !== $request->parentFolderId) {
+            @$body['parentFolderId'] = $request->parentFolderId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddFolder',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aidoc/folder/add',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AddFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建文件夹.
+     *
+     * @param Request - AddFolderRequest
+     *
+     * @returns AddFolderResponse
+     *
+     * @param AddFolderRequest $request
+     *
+     * @return AddFolderResponse
+     */
+    public function addFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addFolderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -643,6 +714,69 @@ class EnergyExpertExternal extends OpenApiClient
      *
      * @return ChatStreamResponse
      */
+    public function chatStreamWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->question) {
+            @$body['question'] = $request->question;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChatStream',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/aidoc/document/chat/stream',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield ChatStreamResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * Knowledge Base Q&A.
+     *
+     * @remarks
+     * - The interface provides Q&A services within the scope of the selected directory in the session.
+     * - The sessionId information is obtained through GetChatSessionList.
+     * - You can also create a new session via the CreateChatSession interface.
+     *
+     * @param Request - ChatStreamRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatStreamResponse
+     *
+     * @param ChatStreamRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ChatStreamResponse
+     */
     public function chatStreamWithOptions($request, $headers, $runtime)
     {
         $request->validate();
@@ -765,6 +899,128 @@ class EnergyExpertExternal extends OpenApiClient
         $headers = [];
 
         return $this->createChatSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除解析过的文件.
+     *
+     * @param Request - DeleteDocumentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDocumentResponse
+     *
+     * @param DeleteDocumentRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDocumentResponse
+     */
+    public function deleteDocumentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDocument',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aidoc/document/delete',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除解析过的文件.
+     *
+     * @param Request - DeleteDocumentRequest
+     *
+     * @returns DeleteDocumentResponse
+     *
+     * @param DeleteDocumentRequest $request
+     *
+     * @return DeleteDocumentResponse
+     */
+    public function deleteDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDocumentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除文件夹.
+     *
+     * @param Request - DeleteFolderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFolderResponse
+     *
+     * @param DeleteFolderRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteFolderResponse
+     */
+    public function deleteFolderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->folderId) {
+            @$query['folderId'] = $request->folderId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFolder',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aidoc/folder/delete',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除文件夹.
+     *
+     * @param Request - DeleteFolderRequest
+     *
+     * @returns DeleteFolderResponse
+     *
+     * @param DeleteFolderRequest $request
+     *
+     * @return DeleteFolderResponse
+     */
+    public function deleteFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFolderWithOptions($request, $headers, $runtime);
     }
 
     /**
