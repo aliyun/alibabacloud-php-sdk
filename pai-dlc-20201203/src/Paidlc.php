@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetDashboardRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetDashboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobEventsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobEventsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobMetricsRequest;
@@ -533,6 +535,73 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->deleteTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取 Dashboard 链接.
+     *
+     * @param request - GetDashboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDashboardResponse
+     *
+     * @param string              $jobId
+     * @param GetDashboardRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetDashboardResponse
+     */
+    public function getDashboardWithOptions($jobId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->isShared) {
+            @$query['isShared'] = $request->isShared;
+        }
+
+        if (null !== $request->token) {
+            @$query['token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDashboard',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($jobId) . '/dashboard',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 Dashboard 链接.
+     *
+     * @param request - GetDashboardRequest
+     *
+     * @returns GetDashboardResponse
+     *
+     * @param string              $jobId
+     * @param GetDashboardRequest $request
+     *
+     * @return GetDashboardResponse
+     */
+    public function getDashboard($jobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDashboardWithOptions($jobId, $request, $headers, $runtime);
     }
 
     /**
