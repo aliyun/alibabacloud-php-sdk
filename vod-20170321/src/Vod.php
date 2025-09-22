@@ -171,6 +171,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTranscodeDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTranscodeDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserDomainsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserDomainsResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserVipsByDomainRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserVipsByDomainResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodVerifyContentRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodVerifyContentResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DetachAppPolicyFromIdentityRequest;
@@ -7168,6 +7170,71 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVodUserDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取域名Vip.
+     *
+     * @param request - DescribeVodUserVipsByDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodUserVipsByDomainResponse
+     *
+     * @param DescribeVodUserVipsByDomainRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeVodUserVipsByDomainResponse
+     */
+    public function describeVodUserVipsByDomainWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->available) {
+            @$query['Available'] = $request->available;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVodUserVipsByDomain',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVodUserVipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取域名Vip.
+     *
+     * @param request - DescribeVodUserVipsByDomainRequest
+     *
+     * @returns DescribeVodUserVipsByDomainResponse
+     *
+     * @param DescribeVodUserVipsByDomainRequest $request
+     *
+     * @return DescribeVodUserVipsByDomainResponse
+     */
+    public function describeVodUserVipsByDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodUserVipsByDomainWithOptions($request, $runtime);
     }
 
     /**
