@@ -26,6 +26,11 @@ class CreateNetworkPackageRequest extends Model
     /**
      * @var string
      */
+    public $channelCookie;
+
+    /**
+     * @var string
+     */
     public $internetChargeType;
 
     /**
@@ -66,6 +71,7 @@ class CreateNetworkPackageRequest extends Model
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'bandwidth' => 'Bandwidth',
+        'channelCookie' => 'ChannelCookie',
         'internetChargeType' => 'InternetChargeType',
         'officeSiteId' => 'OfficeSiteId',
         'payType' => 'PayType',
@@ -94,6 +100,10 @@ class CreateNetworkPackageRequest extends Model
 
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+
+        if (null !== $this->channelCookie) {
+            $res['ChannelCookie'] = $this->channelCookie;
         }
 
         if (null !== $this->internetChargeType) {
@@ -149,6 +159,10 @@ class CreateNetworkPackageRequest extends Model
 
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+
+        if (isset($map['ChannelCookie'])) {
+            $model->channelCookie = $map['ChannelCookie'];
         }
 
         if (isset($map['InternetChargeType'])) {

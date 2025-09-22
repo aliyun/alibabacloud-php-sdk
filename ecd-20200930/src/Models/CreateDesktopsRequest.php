@@ -47,6 +47,11 @@ class CreateDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $channelCookie;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -205,6 +210,7 @@ class CreateDesktopsRequest extends Model
         'autoRenew' => 'AutoRenew',
         'bundleId' => 'BundleId',
         'bundleModels' => 'BundleModels',
+        'channelCookie' => 'ChannelCookie',
         'chargeType' => 'ChargeType',
         'desktopAttachment' => 'DesktopAttachment',
         'desktopMemberIp' => 'DesktopMemberIp',
@@ -296,6 +302,10 @@ class CreateDesktopsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->channelCookie) {
+            $res['ChannelCookie'] = $this->channelCookie;
         }
 
         if (null !== $this->chargeType) {
@@ -490,6 +500,10 @@ class CreateDesktopsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ChannelCookie'])) {
+            $model->channelCookie = $map['ChannelCookie'];
         }
 
         if (isset($map['ChargeType'])) {

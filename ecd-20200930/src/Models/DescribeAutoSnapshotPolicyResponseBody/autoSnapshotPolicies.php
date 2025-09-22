@@ -26,6 +26,11 @@ class autoSnapshotPolicies extends Model
     /**
      * @var string
      */
+    public $diskType;
+
+    /**
+     * @var string
+     */
     public $policyId;
 
     /**
@@ -56,6 +61,7 @@ class autoSnapshotPolicies extends Model
         'creationTime' => 'CreationTime',
         'cronExpression' => 'CronExpression',
         'desktopNum' => 'DesktopNum',
+        'diskType' => 'DiskType',
         'policyId' => 'PolicyId',
         'policyName' => 'PolicyName',
         'regionId' => 'RegionId',
@@ -82,6 +88,10 @@ class autoSnapshotPolicies extends Model
 
         if (null !== $this->desktopNum) {
             $res['DesktopNum'] = $this->desktopNum;
+        }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
         }
 
         if (null !== $this->policyId) {
@@ -129,6 +139,10 @@ class autoSnapshotPolicies extends Model
 
         if (isset($map['DesktopNum'])) {
             $model->desktopNum = $map['DesktopNum'];
+        }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
         }
 
         if (isset($map['PolicyId'])) {

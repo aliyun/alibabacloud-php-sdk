@@ -16,6 +16,11 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     /**
      * @var string
      */
+    public $diskType;
+
+    /**
+     * @var string
+     */
     public $policyId;
 
     /**
@@ -34,6 +39,7 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public $retentionDays;
     protected $_name = [
         'cronExpression' => 'CronExpression',
+        'diskType' => 'DiskType',
         'policyId' => 'PolicyId',
         'policyName' => 'PolicyName',
         'regionId' => 'RegionId',
@@ -50,6 +56,10 @@ class ModifyAutoSnapshotPolicyRequest extends Model
         $res = [];
         if (null !== $this->cronExpression) {
             $res['CronExpression'] = $this->cronExpression;
+        }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
         }
 
         if (null !== $this->policyId) {
@@ -81,6 +91,10 @@ class ModifyAutoSnapshotPolicyRequest extends Model
         $model = new self();
         if (isset($map['CronExpression'])) {
             $model->cronExpression = $map['CronExpression'];
+        }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
         }
 
         if (isset($map['PolicyId'])) {

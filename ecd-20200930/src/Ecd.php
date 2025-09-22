@@ -2976,6 +2976,10 @@ class Ecd extends OpenApiClient
             @$query['CronExpression'] = $request->cronExpression;
         }
 
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
+        }
+
         if (null !== $request->policyName) {
             @$query['PolicyName'] = $request->policyName;
         }
@@ -4766,6 +4770,10 @@ class Ecd extends OpenApiClient
             @$query['BundleModels'] = $request->bundleModels;
         }
 
+        if (null !== $request->channelCookie) {
+            @$query['ChannelCookie'] = $request->channelCookie;
+        }
+
         if (null !== $request->chargeType) {
             @$query['ChargeType'] = $request->chargeType;
         }
@@ -5529,6 +5537,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->bandwidth) {
             @$query['Bandwidth'] = $request->bandwidth;
+        }
+
+        if (null !== $request->channelCookie) {
+            @$query['ChannelCookie'] = $request->channelCookie;
         }
 
         if (null !== $request->internetChargeType) {
@@ -16658,6 +16670,10 @@ class Ecd extends OpenApiClient
         $query = [];
         if (null !== $request->cronExpression) {
             @$query['CronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
 
         if (null !== $request->policyId) {
