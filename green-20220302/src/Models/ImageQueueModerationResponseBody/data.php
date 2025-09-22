@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageQueueModerationResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Green\V20220302\Models\ImageQueueModerationResponseBody\data\ext;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageQueueModerationResponseBody\data\result;
 
 class data extends Model
@@ -16,14 +15,14 @@ class data extends Model
     public $dataId;
 
     /**
-     * @var ext
-     */
-    public $ext;
-
-    /**
      * @var string
      */
-    public $manualTaskId;
+    public $frame;
+
+    /**
+     * @var int
+     */
+    public $frameNum;
 
     /**
      * @var result[]
@@ -36,17 +35,14 @@ class data extends Model
     public $riskLevel;
     protected $_name = [
         'dataId' => 'DataId',
-        'ext' => 'Ext',
-        'manualTaskId' => 'ManualTaskId',
+        'frame' => 'Frame',
+        'frameNum' => 'FrameNum',
         'result' => 'Result',
         'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()
     {
-        if (null !== $this->ext) {
-            $this->ext->validate();
-        }
         if (\is_array($this->result)) {
             Model::validateArray($this->result);
         }
@@ -60,12 +56,12 @@ class data extends Model
             $res['DataId'] = $this->dataId;
         }
 
-        if (null !== $this->ext) {
-            $res['Ext'] = null !== $this->ext ? $this->ext->toArray($noStream) : $this->ext;
+        if (null !== $this->frame) {
+            $res['Frame'] = $this->frame;
         }
 
-        if (null !== $this->manualTaskId) {
-            $res['ManualTaskId'] = $this->manualTaskId;
+        if (null !== $this->frameNum) {
+            $res['FrameNum'] = $this->frameNum;
         }
 
         if (null !== $this->result) {
@@ -98,12 +94,12 @@ class data extends Model
             $model->dataId = $map['DataId'];
         }
 
-        if (isset($map['Ext'])) {
-            $model->ext = ext::fromMap($map['Ext']);
+        if (isset($map['Frame'])) {
+            $model->frame = $map['Frame'];
         }
 
-        if (isset($map['ManualTaskId'])) {
-            $model->manualTaskId = $map['ManualTaskId'];
+        if (isset($map['FrameNum'])) {
+            $model->frameNum = $map['FrameNum'];
         }
 
         if (isset($map['Result'])) {
