@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageQueueModerationRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageQueueModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualCallbackResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationRequest;
@@ -714,6 +716,67 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->imageModerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 图片审核.
+     *
+     * @param request - ImageQueueModerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImageQueueModerationResponse
+     *
+     * @param ImageQueueModerationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ImageQueueModerationResponse
+     */
+    public function imageQueueModerationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
+        }
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImageQueueModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImageQueueModerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 图片审核.
+     *
+     * @param request - ImageQueueModerationRequest
+     *
+     * @returns ImageQueueModerationResponse
+     *
+     * @param ImageQueueModerationRequest $request
+     *
+     * @return ImageQueueModerationResponse
+     */
+    public function imageQueueModeration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imageQueueModerationWithOptions($request, $runtime);
     }
 
     /**
