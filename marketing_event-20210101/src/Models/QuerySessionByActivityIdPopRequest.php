@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Marketing_event\V20210101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySessionByActivityIdPopRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 4546
-     *
      * @var int
      */
     public $activityId;
@@ -22,9 +18,10 @@ class QuerySessionByActivityIdPopRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activityId) {
@@ -34,11 +31,11 @@ class QuerySessionByActivityIdPopRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySessionByActivityIdPopRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

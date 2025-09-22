@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Marketing_event\V20210101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\AddSumRecordFlowPopRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\AddSumRecordFlowPopResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\BindExhibitorRfidPopRequest;
@@ -38,11 +37,10 @@ use AlibabaCloud\SDK\Marketing_event\V20210101\Models\UpdateCredentialsStatusPop
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\UpdateCredentialsStatusPopResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\UpdateTicketRecordByticketCodePopRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\UpdateTicketRecordByticketCodePopResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Marketing_event extends OpenApiClient
 {
@@ -67,72 +65,90 @@ class Marketing_event extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AddSumRecordFlowPopRequest $request AddSumRecordFlowPopRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - AddSumRecordFlowPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddSumRecordFlowPopResponse AddSumRecordFlowPopResponse
+     * @returns AddSumRecordFlowPopResponse
+     *
+     * @param AddSumRecordFlowPopRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddSumRecordFlowPopResponse
      */
     public function addSumRecordFlowPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->conferenceName)) {
-            $query['ConferenceName'] = $request->conferenceName;
+
+        if (null !== $request->conferenceName) {
+            @$query['ConferenceName'] = $request->conferenceName;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->entryName)) {
-            $query['EntryName'] = $request->entryName;
+
+        if (null !== $request->entryName) {
+            @$query['EntryName'] = $request->entryName;
         }
-        if (!Utils::isUnset($request->idcard)) {
-            $query['Idcard'] = $request->idcard;
+
+        if (null !== $request->idcard) {
+            @$query['Idcard'] = $request->idcard;
         }
-        if (!Utils::isUnset($request->signTime)) {
-            $query['SignTime'] = $request->signTime;
+
+        if (null !== $request->signTime) {
+            @$query['SignTime'] = $request->signTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddSumRecordFlowPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddSumRecordFlowPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddSumRecordFlowPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddSumRecordFlowPopRequest $request AddSumRecordFlowPopRequest
+     * @param request - AddSumRecordFlowPopRequest
      *
-     * @return AddSumRecordFlowPopResponse AddSumRecordFlowPopResponse
+     * @returns AddSumRecordFlowPopResponse
+     *
+     * @param AddSumRecordFlowPopRequest $request
+     *
+     * @return AddSumRecordFlowPopResponse
      */
     public function addSumRecordFlowPop($request)
     {
@@ -142,61 +158,78 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param BindExhibitorRfidPopRequest $request BindExhibitorRfidPopRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - BindExhibitorRfidPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return BindExhibitorRfidPopResponse BindExhibitorRfidPopResponse
+     * @returns BindExhibitorRfidPopResponse
+     *
+     * @param BindExhibitorRfidPopRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return BindExhibitorRfidPopResponse
      */
     public function bindExhibitorRfidPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->gmtCreate)) {
-            $query['GmtCreate'] = $request->gmtCreate;
+
+        if (null !== $request->gmtCreate) {
+            @$query['GmtCreate'] = $request->gmtCreate;
         }
-        if (!Utils::isUnset($request->gmtModified)) {
-            $query['GmtModified'] = $request->gmtModified;
+
+        if (null !== $request->gmtModified) {
+            @$query['GmtModified'] = $request->gmtModified;
         }
-        if (!Utils::isUnset($request->guestTicketRecordId)) {
-            $query['GuestTicketRecordId'] = $request->guestTicketRecordId;
+
+        if (null !== $request->guestTicketRecordId) {
+            @$query['GuestTicketRecordId'] = $request->guestTicketRecordId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->rfid)) {
-            $query['Rfid'] = $request->rfid;
+
+        if (null !== $request->rfid) {
+            @$query['Rfid'] = $request->rfid;
         }
-        if (!Utils::isUnset($request->ticketCode)) {
-            $query['TicketCode'] = $request->ticketCode;
+
+        if (null !== $request->ticketCode) {
+            @$query['TicketCode'] = $request->ticketCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindExhibitorRfidPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindExhibitorRfidPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindExhibitorRfidPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param BindExhibitorRfidPopRequest $request BindExhibitorRfidPopRequest
+     * @param request - BindExhibitorRfidPopRequest
      *
-     * @return BindExhibitorRfidPopResponse BindExhibitorRfidPopResponse
+     * @returns BindExhibitorRfidPopResponse
+     *
+     * @param BindExhibitorRfidPopRequest $request
+     *
+     * @return BindExhibitorRfidPopResponse
      */
     public function bindExhibitorRfidPop($request)
     {
@@ -206,61 +239,78 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param BindGuestRfidPopRequest $request BindGuestRfidPopRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - BindGuestRfidPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return BindGuestRfidPopResponse BindGuestRfidPopResponse
+     * @returns BindGuestRfidPopResponse
+     *
+     * @param BindGuestRfidPopRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BindGuestRfidPopResponse
      */
     public function bindGuestRfidPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->gmtCreate)) {
-            $query['GmtCreate'] = $request->gmtCreate;
+
+        if (null !== $request->gmtCreate) {
+            @$query['GmtCreate'] = $request->gmtCreate;
         }
-        if (!Utils::isUnset($request->gmtModified)) {
-            $query['GmtModified'] = $request->gmtModified;
+
+        if (null !== $request->gmtModified) {
+            @$query['GmtModified'] = $request->gmtModified;
         }
-        if (!Utils::isUnset($request->guestTicketRecordId)) {
-            $query['GuestTicketRecordId'] = $request->guestTicketRecordId;
+
+        if (null !== $request->guestTicketRecordId) {
+            @$query['GuestTicketRecordId'] = $request->guestTicketRecordId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->rfid)) {
-            $query['Rfid'] = $request->rfid;
+
+        if (null !== $request->rfid) {
+            @$query['Rfid'] = $request->rfid;
         }
-        if (!Utils::isUnset($request->ticketCode)) {
-            $query['TicketCode'] = $request->ticketCode;
+
+        if (null !== $request->ticketCode) {
+            @$query['TicketCode'] = $request->ticketCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindGuestRfidPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindGuestRfidPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BindGuestRfidPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param BindGuestRfidPopRequest $request BindGuestRfidPopRequest
+     * @param request - BindGuestRfidPopRequest
      *
-     * @return BindGuestRfidPopResponse BindGuestRfidPopResponse
+     * @returns BindGuestRfidPopResponse
+     *
+     * @param BindGuestRfidPopRequest $request
+     *
+     * @return BindGuestRfidPopResponse
      */
     public function bindGuestRfidPop($request)
     {
@@ -270,43 +320,54 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param CheckNFCBindPopRequest $request CheckNFCBindPopRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckNFCBindPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckNFCBindPopResponse CheckNFCBindPopResponse
+     * @returns CheckNFCBindPopResponse
+     *
+     * @param CheckNFCBindPopRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CheckNFCBindPopResponse
      */
     public function checkNFCBindPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->nfcId)) {
-            $query['NfcId'] = $request->nfcId;
+
+        if (null !== $request->nfcId) {
+            @$query['NfcId'] = $request->nfcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckNFCBindPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckNFCBindPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckNFCBindPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckNFCBindPopRequest $request CheckNFCBindPopRequest
+     * @param request - CheckNFCBindPopRequest
      *
-     * @return CheckNFCBindPopResponse CheckNFCBindPopResponse
+     * @returns CheckNFCBindPopResponse
+     *
+     * @param CheckNFCBindPopRequest $request
+     *
+     * @return CheckNFCBindPopResponse
      */
     public function checkNFCBindPop($request)
     {
@@ -316,53 +377,66 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @summary 拉取领证人员记录
-     *  *
-     * @param FindGuestCredentialsRecordRequest $request FindGuestCredentialsRecordRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 拉取领证人员记录.
      *
-     * @return FindGuestCredentialsRecordResponse FindGuestCredentialsRecordResponse
+     * @param request - FindGuestCredentialsRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FindGuestCredentialsRecordResponse
+     *
+     * @param FindGuestCredentialsRecordRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return FindGuestCredentialsRecordResponse
      */
     public function findGuestCredentialsRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->dateTimeString)) {
-            $query['DateTimeString'] = $request->dateTimeString;
+
+        if (null !== $request->dateTimeString) {
+            @$query['DateTimeString'] = $request->dateTimeString;
         }
-        if (!Utils::isUnset($request->endDateTime)) {
-            $query['EndDateTime'] = $request->endDateTime;
+
+        if (null !== $request->endDateTime) {
+            @$query['EndDateTime'] = $request->endDateTime;
         }
-        if (!Utils::isUnset($request->startDateTime)) {
-            $query['StartDateTime'] = $request->startDateTime;
+
+        if (null !== $request->startDateTime) {
+            @$query['StartDateTime'] = $request->startDateTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FindGuestCredentialsRecord',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FindGuestCredentialsRecord',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FindGuestCredentialsRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 拉取领证人员记录
-     *  *
-     * @param FindGuestCredentialsRecordRequest $request FindGuestCredentialsRecordRequest
+     * 拉取领证人员记录.
      *
-     * @return FindGuestCredentialsRecordResponse FindGuestCredentialsRecordResponse
+     * @param request - FindGuestCredentialsRecordRequest
+     *
+     * @returns FindGuestCredentialsRecordResponse
+     *
+     * @param FindGuestCredentialsRecordRequest $request
+     *
+     * @return FindGuestCredentialsRecordResponse
      */
     public function findGuestCredentialsRecord($request)
     {
@@ -372,53 +446,66 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @summary 云栖大会获取取票人信息list接口
-     *  *
-     * @param FindGuestTicketRecordRequest $request FindGuestTicketRecordRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 云栖大会获取取票人信息list接口.
      *
-     * @return FindGuestTicketRecordResponse FindGuestTicketRecordResponse
+     * @param request - FindGuestTicketRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FindGuestTicketRecordResponse
+     *
+     * @param FindGuestTicketRecordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return FindGuestTicketRecordResponse
      */
     public function findGuestTicketRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->dateTimeString)) {
-            $query['DateTimeString'] = $request->dateTimeString;
+
+        if (null !== $request->dateTimeString) {
+            @$query['DateTimeString'] = $request->dateTimeString;
         }
-        if (!Utils::isUnset($request->endDateTime)) {
-            $query['EndDateTime'] = $request->endDateTime;
+
+        if (null !== $request->endDateTime) {
+            @$query['EndDateTime'] = $request->endDateTime;
         }
-        if (!Utils::isUnset($request->startDateTime)) {
-            $query['StartDateTime'] = $request->startDateTime;
+
+        if (null !== $request->startDateTime) {
+            @$query['StartDateTime'] = $request->startDateTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FindGuestTicketRecord',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FindGuestTicketRecord',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FindGuestTicketRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 云栖大会获取取票人信息list接口
-     *  *
-     * @param FindGuestTicketRecordRequest $request FindGuestTicketRecordRequest
+     * 云栖大会获取取票人信息list接口.
      *
-     * @return FindGuestTicketRecordResponse FindGuestTicketRecordResponse
+     * @param request - FindGuestTicketRecordRequest
+     *
+     * @returns FindGuestTicketRecordResponse
+     *
+     * @param FindGuestTicketRecordRequest $request
+     *
+     * @return FindGuestTicketRecordResponse
      */
     public function findGuestTicketRecord($request)
     {
@@ -428,37 +515,46 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param QueryAllActivityInfoRequest $request QueryAllActivityInfoRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryAllActivityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryAllActivityInfoResponse QueryAllActivityInfoResponse
+     * @returns QueryAllActivityInfoResponse
+     *
+     * @param QueryAllActivityInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryAllActivityInfoResponse
      */
     public function queryAllActivityInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAllActivityInfo',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAllActivityInfo',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAllActivityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryAllActivityInfoRequest $request QueryAllActivityInfoRequest
+     * @param request - QueryAllActivityInfoRequest
      *
-     * @return QueryAllActivityInfoResponse QueryAllActivityInfoResponse
+     * @returns QueryAllActivityInfoResponse
+     *
+     * @param QueryAllActivityInfoRequest $request
+     *
+     * @return QueryAllActivityInfoResponse
      */
     public function queryAllActivityInfo($request)
     {
@@ -468,43 +564,54 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param QueryOrderSessionListPopRequest $request QueryOrderSessionListPopRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryOrderSessionListPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryOrderSessionListPopResponse QueryOrderSessionListPopResponse
+     * @returns QueryOrderSessionListPopResponse
+     *
+     * @param QueryOrderSessionListPopRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryOrderSessionListPopResponse
      */
     public function queryOrderSessionListPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->nfcId)) {
-            $query['NfcId'] = $request->nfcId;
+
+        if (null !== $request->nfcId) {
+            @$query['NfcId'] = $request->nfcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryOrderSessionListPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryOrderSessionListPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryOrderSessionListPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryOrderSessionListPopRequest $request QueryOrderSessionListPopRequest
+     * @param request - QueryOrderSessionListPopRequest
      *
-     * @return QueryOrderSessionListPopResponse QueryOrderSessionListPopResponse
+     * @returns QueryOrderSessionListPopResponse
+     *
+     * @param QueryOrderSessionListPopRequest $request
+     *
+     * @return QueryOrderSessionListPopResponse
      */
     public function queryOrderSessionListPop($request)
     {
@@ -514,40 +621,50 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param QuerySessionByActivityIdPopRequest $request QuerySessionByActivityIdPopRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - QuerySessionByActivityIdPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QuerySessionByActivityIdPopResponse QuerySessionByActivityIdPopResponse
+     * @returns QuerySessionByActivityIdPopResponse
+     *
+     * @param QuerySessionByActivityIdPopRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QuerySessionByActivityIdPopResponse
      */
     public function querySessionByActivityIdPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySessionByActivityIdPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySessionByActivityIdPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySessionByActivityIdPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QuerySessionByActivityIdPopRequest $request QuerySessionByActivityIdPopRequest
+     * @param request - QuerySessionByActivityIdPopRequest
      *
-     * @return QuerySessionByActivityIdPopResponse QuerySessionByActivityIdPopResponse
+     * @returns QuerySessionByActivityIdPopResponse
+     *
+     * @param QuerySessionByActivityIdPopRequest $request
+     *
+     * @return QuerySessionByActivityIdPopResponse
      */
     public function querySessionByActivityIdPop($request)
     {
@@ -557,43 +674,54 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param QuerySessionListPopRequest $request QuerySessionListPopRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - QuerySessionListPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QuerySessionListPopResponse QuerySessionListPopResponse
+     * @returns QuerySessionListPopResponse
+     *
+     * @param QuerySessionListPopRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QuerySessionListPopResponse
      */
     public function querySessionListPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->nfcId)) {
-            $query['NfcId'] = $request->nfcId;
+
+        if (null !== $request->nfcId) {
+            @$query['NfcId'] = $request->nfcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySessionListPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySessionListPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySessionListPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QuerySessionListPopRequest $request QuerySessionListPopRequest
+     * @param request - QuerySessionListPopRequest
      *
-     * @return QuerySessionListPopResponse QuerySessionListPopResponse
+     * @returns QuerySessionListPopResponse
+     *
+     * @param QuerySessionListPopRequest $request
+     *
+     * @return QuerySessionListPopResponse
      */
     public function querySessionListPop($request)
     {
@@ -603,52 +731,66 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param QuerySignInRecordPopRequest $request QuerySignInRecordPopRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - QuerySignInRecordPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QuerySignInRecordPopResponse QuerySignInRecordPopResponse
+     * @returns QuerySignInRecordPopResponse
+     *
+     * @param QuerySignInRecordPopRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QuerySignInRecordPopResponse
      */
     public function querySignInRecordPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySignInRecordPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySignInRecordPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySignInRecordPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QuerySignInRecordPopRequest $request QuerySignInRecordPopRequest
+     * @param request - QuerySignInRecordPopRequest
      *
-     * @return QuerySignInRecordPopResponse QuerySignInRecordPopResponse
+     * @returns QuerySignInRecordPopResponse
+     *
+     * @param QuerySignInRecordPopRequest $request
+     *
+     * @return QuerySignInRecordPopResponse
      */
     public function querySignInRecordPop($request)
     {
@@ -658,37 +800,46 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param QuerySingleActivityInfoRequest $request QuerySingleActivityInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - QuerySingleActivityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QuerySingleActivityInfoResponse QuerySingleActivityInfoResponse
+     * @returns QuerySingleActivityInfoResponse
+     *
+     * @param QuerySingleActivityInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QuerySingleActivityInfoResponse
      */
     public function querySingleActivityInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySingleActivityInfo',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySingleActivityInfo',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySingleActivityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QuerySingleActivityInfoRequest $request QuerySingleActivityInfoRequest
+     * @param request - QuerySingleActivityInfoRequest
      *
-     * @return QuerySingleActivityInfoResponse QuerySingleActivityInfoResponse
+     * @returns QuerySingleActivityInfoResponse
+     *
+     * @param QuerySingleActivityInfoRequest $request
+     *
+     * @return QuerySingleActivityInfoResponse
      */
     public function querySingleActivityInfo($request)
     {
@@ -698,37 +849,46 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param SyncSignInInfoRequest $request SyncSignInInfoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - SyncSignInInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SyncSignInInfoResponse SyncSignInInfoResponse
+     * @returns SyncSignInInfoResponse
+     *
+     * @param SyncSignInInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SyncSignInInfoResponse
      */
     public function syncSignInInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SyncSignInInfo',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SyncSignInInfo',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SyncSignInInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SyncSignInInfoRequest $request SyncSignInInfoRequest
+     * @param request - SyncSignInInfoRequest
      *
-     * @return SyncSignInInfoResponse SyncSignInInfoResponse
+     * @returns SyncSignInInfoResponse
+     *
+     * @param SyncSignInInfoRequest $request
+     *
+     * @return SyncSignInInfoResponse
      */
     public function syncSignInInfo($request)
     {
@@ -738,61 +898,78 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param TicketOrCredentialsSignInPopRequest $request TicketOrCredentialsSignInPopRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - TicketOrCredentialsSignInPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TicketOrCredentialsSignInPopResponse TicketOrCredentialsSignInPopResponse
+     * @returns TicketOrCredentialsSignInPopResponse
+     *
+     * @param TicketOrCredentialsSignInPopRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return TicketOrCredentialsSignInPopResponse
      */
     public function ticketOrCredentialsSignInPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->activityId)) {
-            $query['ActivityId'] = $request->activityId;
+        if (null !== $request->activityId) {
+            @$query['ActivityId'] = $request->activityId;
         }
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->conferenceName)) {
-            $query['ConferenceName'] = $request->conferenceName;
+
+        if (null !== $request->conferenceName) {
+            @$query['ConferenceName'] = $request->conferenceName;
         }
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['DeviceId'] = $request->deviceId;
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->entryName)) {
-            $query['EntryName'] = $request->entryName;
+
+        if (null !== $request->entryName) {
+            @$query['EntryName'] = $request->entryName;
         }
-        if (!Utils::isUnset($request->idcard)) {
-            $query['Idcard'] = $request->idcard;
+
+        if (null !== $request->idcard) {
+            @$query['Idcard'] = $request->idcard;
         }
-        if (!Utils::isUnset($request->signTime)) {
-            $query['SignTime'] = $request->signTime;
+
+        if (null !== $request->signTime) {
+            @$query['SignTime'] = $request->signTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TicketOrCredentialsSignInPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TicketOrCredentialsSignInPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TicketOrCredentialsSignInPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TicketOrCredentialsSignInPopRequest $request TicketOrCredentialsSignInPopRequest
+     * @param request - TicketOrCredentialsSignInPopRequest
      *
-     * @return TicketOrCredentialsSignInPopResponse TicketOrCredentialsSignInPopResponse
+     * @returns TicketOrCredentialsSignInPopResponse
+     *
+     * @param TicketOrCredentialsSignInPopRequest $request
+     *
+     * @return TicketOrCredentialsSignInPopResponse
      */
     public function ticketOrCredentialsSignInPop($request)
     {
@@ -802,52 +979,66 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param UpdateCredentialsStatusPopRequest $request UpdateCredentialsStatusPopRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateCredentialsStatusPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateCredentialsStatusPopResponse UpdateCredentialsStatusPopResponse
+     * @returns UpdateCredentialsStatusPopResponse
+     *
+     * @param UpdateCredentialsStatusPopRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateCredentialsStatusPopResponse
      */
     public function updateCredentialsStatusPopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->proxyRecipientName)) {
-            $query['ProxyRecipientName'] = $request->proxyRecipientName;
+
+        if (null !== $request->proxyRecipientName) {
+            @$query['ProxyRecipientName'] = $request->proxyRecipientName;
         }
-        if (!Utils::isUnset($request->proxyRecipientPhoneNumber)) {
-            $query['ProxyRecipientPhoneNumber'] = $request->proxyRecipientPhoneNumber;
+
+        if (null !== $request->proxyRecipientPhoneNumber) {
+            @$query['ProxyRecipientPhoneNumber'] = $request->proxyRecipientPhoneNumber;
         }
-        if (!Utils::isUnset($request->receiptLocation)) {
-            $query['ReceiptLocation'] = $request->receiptLocation;
+
+        if (null !== $request->receiptLocation) {
+            @$query['ReceiptLocation'] = $request->receiptLocation;
         }
-        if (!Utils::isUnset($request->time)) {
-            $query['Time'] = $request->time;
+
+        if (null !== $request->time) {
+            @$query['Time'] = $request->time;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCredentialsStatusPop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCredentialsStatusPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateCredentialsStatusPopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateCredentialsStatusPopRequest $request UpdateCredentialsStatusPopRequest
+     * @param request - UpdateCredentialsStatusPopRequest
      *
-     * @return UpdateCredentialsStatusPopResponse UpdateCredentialsStatusPopResponse
+     * @returns UpdateCredentialsStatusPopResponse
+     *
+     * @param UpdateCredentialsStatusPopRequest $request
+     *
+     * @return UpdateCredentialsStatusPopResponse
      */
     public function updateCredentialsStatusPop($request)
     {
@@ -857,52 +1048,66 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
-     * @param UpdateTicketRecordByticketCodePopRequest $request UpdateTicketRecordByticketCodePopRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateTicketRecordByticketCodePopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateTicketRecordByticketCodePopResponse UpdateTicketRecordByticketCodePopResponse
+     * @returns UpdateTicketRecordByticketCodePopResponse
+     *
+     * @param UpdateTicketRecordByticketCodePopRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateTicketRecordByticketCodePopResponse
      */
     public function updateTicketRecordByticketCodePopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agendaId)) {
-            $query['AgendaId'] = $request->agendaId;
+        if (null !== $request->agendaId) {
+            @$query['AgendaId'] = $request->agendaId;
         }
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->event)) {
-            $query['Event'] = $request->event;
+
+        if (null !== $request->event) {
+            @$query['Event'] = $request->event;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $query['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
         }
-        if (!Utils::isUnset($request->time)) {
-            $query['Time'] = $request->time;
+
+        if (null !== $request->time) {
+            @$query['Time'] = $request->time;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTicketRecordByticketCodePop',
-            'version'     => '2021-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTicketRecordByticketCodePop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTicketRecordByticketCodePopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateTicketRecordByticketCodePopRequest $request UpdateTicketRecordByticketCodePopRequest
+     * @param request - UpdateTicketRecordByticketCodePopRequest
      *
-     * @return UpdateTicketRecordByticketCodePopResponse UpdateTicketRecordByticketCodePopResponse
+     * @returns UpdateTicketRecordByticketCodePopResponse
+     *
+     * @param UpdateTicketRecordByticketCodePopRequest $request
+     *
+     * @return UpdateTicketRecordByticketCodePopResponse
      */
     public function updateTicketRecordByticketCodePop($request)
     {

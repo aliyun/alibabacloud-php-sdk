@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Marketing_event\V20210101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryOrderSessionListPopRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 4546
-     *
      * @var int
      */
     public $activityId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example asdojzopf
-     *
      * @var string
      */
     public $nfcId;
     protected $_name = [
         'activityId' => 'ActivityId',
-        'nfcId'      => 'NfcId',
+        'nfcId' => 'NfcId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activityId) {
             $res['ActivityId'] = $this->activityId;
         }
+
         if (null !== $this->nfcId) {
             $res['NfcId'] = $this->nfcId;
         }
@@ -47,17 +41,18 @@ class QueryOrderSessionListPopRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryOrderSessionListPopRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivityId'])) {
             $model->activityId = $map['ActivityId'];
         }
+
         if (isset($map['NfcId'])) {
             $model->nfcId = $map['NfcId'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryOrderSessionListPopResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $sessionId;
 
     /**
-     * @example 2024-09-25 14:11
-     *
      * @var string
      */
     public $signInDate;
     protected $_name = [
-        'sessionId'  => 'SessionId',
+        'sessionId' => 'SessionId',
         'signInDate' => 'SignInDate',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->signInDate) {
             $res['SignInDate'] = $this->signInDate;
         }
@@ -43,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['SignInDate'])) {
             $model->signInDate = $map['SignInDate'];
         }

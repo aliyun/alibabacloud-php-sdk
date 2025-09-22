@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Marketing_event\V20210101\Models\FindGuestCredentialsRecordResponseBody\data\channelLevelInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class levelThreeOwner extends Model
 {
     /**
-     * @example hBCycGELqJd6LEqSWKiLCQ==
-     *
      * @var string
      */
     public $ownerEmpIdOrTelephone;
 
     /**
-     * @example buc_160953
-     *
      * @var string
      */
     public $ownerName;
 
     /**
-     * @example hBCycGELqJd6LEqSWKiLCQ==
-     *
      * @var string
      */
     public $ownerNickName;
     protected $_name = [
         'ownerEmpIdOrTelephone' => 'OwnerEmpIdOrTelephone',
-        'ownerName'             => 'OwnerName',
-        'ownerNickName'         => 'OwnerNickName',
+        'ownerName' => 'OwnerName',
+        'ownerNickName' => 'OwnerNickName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerEmpIdOrTelephone) {
             $res['OwnerEmpIdOrTelephone'] = $this->ownerEmpIdOrTelephone;
         }
+
         if (null !== $this->ownerName) {
             $res['OwnerName'] = $this->ownerName;
         }
+
         if (null !== $this->ownerNickName) {
             $res['OwnerNickName'] = $this->ownerNickName;
         }
@@ -54,20 +51,22 @@ class levelThreeOwner extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return levelThreeOwner
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerEmpIdOrTelephone'])) {
             $model->ownerEmpIdOrTelephone = $map['OwnerEmpIdOrTelephone'];
         }
+
         if (isset($map['OwnerName'])) {
             $model->ownerName = $map['OwnerName'];
         }
+
         if (isset($map['OwnerNickName'])) {
             $model->ownerNickName = $map['OwnerNickName'];
         }
