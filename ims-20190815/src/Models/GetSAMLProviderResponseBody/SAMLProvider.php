@@ -16,6 +16,11 @@ class SAMLProvider extends Model
     /**
      * @var string
      */
+    public $authnSignAlgo;
+
+    /**
+     * @var string
+     */
     public $createDate;
 
     /**
@@ -39,6 +44,7 @@ class SAMLProvider extends Model
     public $updateDate;
     protected $_name = [
         'arn' => 'Arn',
+        'authnSignAlgo' => 'AuthnSignAlgo',
         'createDate' => 'CreateDate',
         'description' => 'Description',
         'encodedSAMLMetadataDocument' => 'EncodedSAMLMetadataDocument',
@@ -56,6 +62,10 @@ class SAMLProvider extends Model
         $res = [];
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
+        }
+
+        if (null !== $this->authnSignAlgo) {
+            $res['AuthnSignAlgo'] = $this->authnSignAlgo;
         }
 
         if (null !== $this->createDate) {
@@ -91,6 +101,10 @@ class SAMLProvider extends Model
         $model = new self();
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
+        }
+
+        if (isset($map['AuthnSignAlgo'])) {
+            $model->authnSignAlgo = $map['AuthnSignAlgo'];
         }
 
         if (isset($map['CreateDate'])) {

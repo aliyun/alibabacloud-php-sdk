@@ -11,6 +11,11 @@ class userSsoSettings extends Model
     /**
      * @var string
      */
+    public $authnSignAlgo;
+
+    /**
+     * @var string
+     */
     public $auxiliaryDomain;
 
     /**
@@ -28,6 +33,7 @@ class userSsoSettings extends Model
      */
     public $ssoLoginWithDomain;
     protected $_name = [
+        'authnSignAlgo' => 'AuthnSignAlgo',
         'auxiliaryDomain' => 'AuxiliaryDomain',
         'metadataDocument' => 'MetadataDocument',
         'ssoEnabled' => 'SsoEnabled',
@@ -42,6 +48,10 @@ class userSsoSettings extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authnSignAlgo) {
+            $res['AuthnSignAlgo'] = $this->authnSignAlgo;
+        }
+
         if (null !== $this->auxiliaryDomain) {
             $res['AuxiliaryDomain'] = $this->auxiliaryDomain;
         }
@@ -69,6 +79,10 @@ class userSsoSettings extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthnSignAlgo'])) {
+            $model->authnSignAlgo = $map['AuthnSignAlgo'];
+        }
+
         if (isset($map['AuxiliaryDomain'])) {
             $model->auxiliaryDomain = $map['AuxiliaryDomain'];
         }

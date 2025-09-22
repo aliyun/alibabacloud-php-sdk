@@ -1018,6 +1018,10 @@ class Ims extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authnSignAlgo) {
+            @$query['AuthnSignAlgo'] = $request->authnSignAlgo;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }
@@ -5392,6 +5396,10 @@ class Ims extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authnSignAlgo) {
+            @$query['AuthnSignAlgo'] = $request->authnSignAlgo;
+        }
+
         if (null !== $request->auxiliaryDomain) {
             @$query['AuxiliaryDomain'] = $request->auxiliaryDomain;
         }
@@ -6239,6 +6247,10 @@ class Ims extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authnSignAlgo) {
+            @$query['AuthnSignAlgo'] = $request->authnSignAlgo;
+        }
+
         if (null !== $request->newDescription) {
             @$query['NewDescription'] = $request->newDescription;
         }

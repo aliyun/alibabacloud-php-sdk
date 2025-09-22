@@ -11,6 +11,11 @@ class UpdateSAMLProviderRequest extends Model
     /**
      * @var string
      */
+    public $authnSignAlgo;
+
+    /**
+     * @var string
+     */
     public $newDescription;
 
     /**
@@ -23,6 +28,7 @@ class UpdateSAMLProviderRequest extends Model
      */
     public $SAMLProviderName;
     protected $_name = [
+        'authnSignAlgo' => 'AuthnSignAlgo',
         'newDescription' => 'NewDescription',
         'newEncodedSAMLMetadataDocument' => 'NewEncodedSAMLMetadataDocument',
         'SAMLProviderName' => 'SAMLProviderName',
@@ -36,6 +42,10 @@ class UpdateSAMLProviderRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authnSignAlgo) {
+            $res['AuthnSignAlgo'] = $this->authnSignAlgo;
+        }
+
         if (null !== $this->newDescription) {
             $res['NewDescription'] = $this->newDescription;
         }
@@ -59,6 +69,10 @@ class UpdateSAMLProviderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthnSignAlgo'])) {
+            $model->authnSignAlgo = $map['AuthnSignAlgo'];
+        }
+
         if (isset($map['NewDescription'])) {
             $model->newDescription = $map['NewDescription'];
         }
