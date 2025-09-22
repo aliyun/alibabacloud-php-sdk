@@ -11,6 +11,11 @@ class DescribeTemplateResourcesRequest extends Model
     /**
      * @var string
      */
+    public $assetApi;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -48,6 +53,7 @@ class DescribeTemplateResourcesRequest extends Model
      */
     public $templateId;
     protected $_name = [
+        'assetApi' => 'AssetApi',
         'instanceId' => 'InstanceId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -66,6 +72,10 @@ class DescribeTemplateResourcesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->assetApi) {
+            $res['AssetApi'] = $this->assetApi;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -109,6 +119,10 @@ class DescribeTemplateResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetApi'])) {
+            $model->assetApi = $map['AssetApi'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

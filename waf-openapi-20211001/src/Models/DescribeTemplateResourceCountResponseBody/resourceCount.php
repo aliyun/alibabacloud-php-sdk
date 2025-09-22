@@ -11,6 +11,11 @@ class resourceCount extends Model
     /**
      * @var int
      */
+    public $assetCount;
+
+    /**
+     * @var int
+     */
     public $groupCount;
 
     /**
@@ -23,6 +28,7 @@ class resourceCount extends Model
      */
     public $templateId;
     protected $_name = [
+        'assetCount' => 'AssetCount',
         'groupCount' => 'GroupCount',
         'singleCount' => 'SingleCount',
         'templateId' => 'TemplateId',
@@ -36,6 +42,10 @@ class resourceCount extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->assetCount) {
+            $res['AssetCount'] = $this->assetCount;
+        }
+
         if (null !== $this->groupCount) {
             $res['GroupCount'] = $this->groupCount;
         }
@@ -59,6 +69,10 @@ class resourceCount extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetCount'])) {
+            $model->assetCount = $map['AssetCount'];
+        }
+
         if (isset($map['GroupCount'])) {
             $model->groupCount = $map['GroupCount'];
         }

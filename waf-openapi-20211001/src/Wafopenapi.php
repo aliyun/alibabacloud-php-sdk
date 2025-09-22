@@ -11816,6 +11816,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->assetApi) {
+            @$query['AssetApi'] = $request->assetApi;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -15493,6 +15497,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bindAssets) {
+            @$query['BindAssets'] = $request->bindAssets;
+        }
+
         if (null !== $request->bindResourceGroups) {
             @$query['BindResourceGroups'] = $request->bindResourceGroups;
         }
@@ -15515,6 +15523,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->templateId) {
             @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->unbindAssets) {
+            @$query['UnbindAssets'] = $request->unbindAssets;
         }
 
         if (null !== $request->unbindResourceGroups) {

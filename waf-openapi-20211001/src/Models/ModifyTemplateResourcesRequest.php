@@ -11,6 +11,11 @@ class ModifyTemplateResourcesRequest extends Model
     /**
      * @var string[]
      */
+    public $bindAssets;
+
+    /**
+     * @var string[]
+     */
     public $bindResourceGroups;
 
     /**
@@ -41,6 +46,11 @@ class ModifyTemplateResourcesRequest extends Model
     /**
      * @var string[]
      */
+    public $unbindAssets;
+
+    /**
+     * @var string[]
+     */
     public $unbindResourceGroups;
 
     /**
@@ -48,23 +58,31 @@ class ModifyTemplateResourcesRequest extends Model
      */
     public $unbindResources;
     protected $_name = [
+        'bindAssets' => 'BindAssets',
         'bindResourceGroups' => 'BindResourceGroups',
         'bindResources' => 'BindResources',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'templateId' => 'TemplateId',
+        'unbindAssets' => 'UnbindAssets',
         'unbindResourceGroups' => 'UnbindResourceGroups',
         'unbindResources' => 'UnbindResources',
     ];
 
     public function validate()
     {
+        if (\is_array($this->bindAssets)) {
+            Model::validateArray($this->bindAssets);
+        }
         if (\is_array($this->bindResourceGroups)) {
             Model::validateArray($this->bindResourceGroups);
         }
         if (\is_array($this->bindResources)) {
             Model::validateArray($this->bindResources);
+        }
+        if (\is_array($this->unbindAssets)) {
+            Model::validateArray($this->unbindAssets);
         }
         if (\is_array($this->unbindResourceGroups)) {
             Model::validateArray($this->unbindResourceGroups);
@@ -78,6 +96,17 @@ class ModifyTemplateResourcesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bindAssets) {
+            if (\is_array($this->bindAssets)) {
+                $res['BindAssets'] = [];
+                $n1 = 0;
+                foreach ($this->bindAssets as $item1) {
+                    $res['BindAssets'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->bindResourceGroups) {
             if (\is_array($this->bindResourceGroups)) {
                 $res['BindResourceGroups'] = [];
@@ -116,6 +145,17 @@ class ModifyTemplateResourcesRequest extends Model
             $res['TemplateId'] = $this->templateId;
         }
 
+        if (null !== $this->unbindAssets) {
+            if (\is_array($this->unbindAssets)) {
+                $res['UnbindAssets'] = [];
+                $n1 = 0;
+                foreach ($this->unbindAssets as $item1) {
+                    $res['UnbindAssets'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->unbindResourceGroups) {
             if (\is_array($this->unbindResourceGroups)) {
                 $res['UnbindResourceGroups'] = [];
@@ -149,6 +189,17 @@ class ModifyTemplateResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindAssets'])) {
+            if (!empty($map['BindAssets'])) {
+                $model->bindAssets = [];
+                $n1 = 0;
+                foreach ($map['BindAssets'] as $item1) {
+                    $model->bindAssets[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['BindResourceGroups'])) {
             if (!empty($map['BindResourceGroups'])) {
                 $model->bindResourceGroups = [];
@@ -185,6 +236,17 @@ class ModifyTemplateResourcesRequest extends Model
 
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['UnbindAssets'])) {
+            if (!empty($map['UnbindAssets'])) {
+                $model->unbindAssets = [];
+                $n1 = 0;
+                foreach ($map['UnbindAssets'] as $item1) {
+                    $model->unbindAssets[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UnbindResourceGroups'])) {
