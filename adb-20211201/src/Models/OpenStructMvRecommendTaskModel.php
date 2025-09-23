@@ -26,12 +26,27 @@ class OpenStructMvRecommendTaskModel extends Model
     /**
      * @var int
      */
+    public $minRewriteQueryCount;
+
+    /**
+     * @var int
+     */
+    public $minRewriteQueryPattern;
+
+    /**
+     * @var int
+     */
     public $scanQueriesRange;
 
     /**
      * @var string
      */
     public $schedulingSettings;
+
+    /**
+     * @var int
+     */
+    public $slowQueryThreshold;
 
     /**
      * @var string
@@ -41,8 +56,11 @@ class OpenStructMvRecommendTaskModel extends Model
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
         'lastRunAt' => 'LastRunAt',
+        'minRewriteQueryCount' => 'MinRewriteQueryCount',
+        'minRewriteQueryPattern' => 'MinRewriteQueryPattern',
         'scanQueriesRange' => 'ScanQueriesRange',
         'schedulingSettings' => 'SchedulingSettings',
+        'slowQueryThreshold' => 'SlowQueryThreshold',
         'taskName' => 'TaskName',
     ];
 
@@ -66,12 +84,24 @@ class OpenStructMvRecommendTaskModel extends Model
             $res['LastRunAt'] = $this->lastRunAt;
         }
 
+        if (null !== $this->minRewriteQueryCount) {
+            $res['MinRewriteQueryCount'] = $this->minRewriteQueryCount;
+        }
+
+        if (null !== $this->minRewriteQueryPattern) {
+            $res['MinRewriteQueryPattern'] = $this->minRewriteQueryPattern;
+        }
+
         if (null !== $this->scanQueriesRange) {
             $res['ScanQueriesRange'] = $this->scanQueriesRange;
         }
 
         if (null !== $this->schedulingSettings) {
             $res['SchedulingSettings'] = $this->schedulingSettings;
+        }
+
+        if (null !== $this->slowQueryThreshold) {
+            $res['SlowQueryThreshold'] = $this->slowQueryThreshold;
         }
 
         if (null !== $this->taskName) {
@@ -101,12 +131,24 @@ class OpenStructMvRecommendTaskModel extends Model
             $model->lastRunAt = $map['LastRunAt'];
         }
 
+        if (isset($map['MinRewriteQueryCount'])) {
+            $model->minRewriteQueryCount = $map['MinRewriteQueryCount'];
+        }
+
+        if (isset($map['MinRewriteQueryPattern'])) {
+            $model->minRewriteQueryPattern = $map['MinRewriteQueryPattern'];
+        }
+
         if (isset($map['ScanQueriesRange'])) {
             $model->scanQueriesRange = $map['ScanQueriesRange'];
         }
 
         if (isset($map['SchedulingSettings'])) {
             $model->schedulingSettings = $map['SchedulingSettings'];
+        }
+
+        if (isset($map['SlowQueryThreshold'])) {
+            $model->slowQueryThreshold = $map['SlowQueryThreshold'];
         }
 
         if (isset($map['TaskName'])) {

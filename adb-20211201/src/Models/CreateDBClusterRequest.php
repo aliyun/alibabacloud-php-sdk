@@ -50,6 +50,11 @@ class CreateDBClusterRequest extends Model
     public $enableDefaultResourcePool;
 
     /**
+     * @var bool
+     */
+    public $enableSSL;
+
+    /**
      * @var string
      */
     public $kmsId;
@@ -157,6 +162,7 @@ class CreateDBClusterRequest extends Model
         'DBClusterVersion' => 'DBClusterVersion',
         'diskEncryption' => 'DiskEncryption',
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
+        'enableSSL' => 'EnableSSL',
         'kmsId' => 'KmsId',
         'payType' => 'PayType',
         'period' => 'Period',
@@ -220,6 +226,10 @@ class CreateDBClusterRequest extends Model
 
         if (null !== $this->enableDefaultResourcePool) {
             $res['EnableDefaultResourcePool'] = $this->enableDefaultResourcePool;
+        }
+
+        if (null !== $this->enableSSL) {
+            $res['EnableSSL'] = $this->enableSSL;
         }
 
         if (null !== $this->kmsId) {
@@ -350,6 +360,10 @@ class CreateDBClusterRequest extends Model
 
         if (isset($map['EnableDefaultResourcePool'])) {
             $model->enableDefaultResourcePool = $map['EnableDefaultResourcePool'];
+        }
+
+        if (isset($map['EnableSSL'])) {
+            $model->enableSSL = $map['EnableSSL'];
         }
 
         if (isset($map['KmsId'])) {

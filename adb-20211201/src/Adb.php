@@ -25,6 +25,9 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CheckBindRamUserRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckBindRamUserResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ConfigureResultExportRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ConfigureResultExportResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ConfigureResultExportShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsCopyWorkloadRequest;
@@ -42,6 +45,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsKafkaHudiJobShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobShrinkRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateBackupRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest;
@@ -225,6 +230,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeResourceGroupSpecRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeResourceGroupSpecResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeResultExportConfigRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeResultExportConfigResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSchemasRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSchemasResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppDiagnosisInfoRequest;
@@ -1236,6 +1243,89 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则.
+     *
+     * @param tmpReq - ConfigureResultExportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigureResultExportResponse
+     *
+     * @param ConfigureResultExportRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConfigureResultExportResponse
+     */
+    public function configureResultExportWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ConfigureResultExportShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ossInfo) {
+            $request->ossInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ossInfo, 'OssInfo', 'json');
+        }
+
+        if (null !== $tmpReq->slsInfo) {
+            $request->slsInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->slsInfo, 'SlsInfo', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->DBClusterId) {
+            @$body['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->exportType) {
+            @$body['ExportType'] = $request->exportType;
+        }
+
+        if (null !== $request->ossInfoShrink) {
+            @$body['OssInfo'] = $request->ossInfoShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slsInfoShrink) {
+            @$body['SlsInfo'] = $request->slsInfoShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigureResultExport',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigureResultExportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则.
+     *
+     * @param request - ConfigureResultExportRequest
+     *
+     * @returns ConfigureResultExportResponse
+     *
+     * @param ConfigureResultExportRequest $request
+     *
+     * @return ConfigureResultExportResponse
+     */
+    public function configureResultExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configureResultExportWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an AnalyticDB Pipeline Service (APS) job.
      *
      * @remarks
@@ -2129,6 +2219,83 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 手动创建备份集.
+     *
+     * @param request - CreateBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBackupResponse
+     *
+     * @param CreateBackupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateBackupResponse
+     */
+    public function createBackupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBackup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 手动创建备份集.
+     *
+     * @param request - CreateBackupRequest
+     *
+     * @returns CreateBackupResponse
+     *
+     * @param CreateBackupRequest $request
+     *
+     * @return CreateBackupResponse
+     */
+    public function createBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBackupWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * @remarks
@@ -2178,6 +2345,10 @@ class Adb extends OpenApiClient
 
         if (null !== $request->enableDefaultResourcePool) {
             @$query['EnableDefaultResourcePool'] = $request->enableDefaultResourcePool;
+        }
+
+        if (null !== $request->enableSSL) {
+            @$query['EnableSSL'] = $request->enableSSL;
         }
 
         if (null !== $request->kmsId) {
@@ -9511,6 +9682,71 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeResourceGroupSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户配置的导出信息.
+     *
+     * @param request - DescribeResultExportConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResultExportConfigResponse
+     *
+     * @param DescribeResultExportConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeResultExportConfigResponse
+     */
+    public function describeResultExportConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->exportType) {
+            @$query['ExportType'] = $request->exportType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeResultExportConfig',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeResultExportConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户配置的导出信息.
+     *
+     * @param request - DescribeResultExportConfigRequest
+     *
+     * @returns DescribeResultExportConfigResponse
+     *
+     * @param DescribeResultExportConfigRequest $request
+     *
+     * @return DescribeResultExportConfigResponse
+     */
+    public function describeResultExportConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResultExportConfigWithOptions($request, $runtime);
     }
 
     /**

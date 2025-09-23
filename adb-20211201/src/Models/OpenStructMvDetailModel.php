@@ -22,6 +22,16 @@ class OpenStructMvDetailModel extends Model
     /**
      * @var int
      */
+    public $enableDelayAlert;
+
+    /**
+     * @var int
+     */
+    public $enableFailureAlert;
+
+    /**
+     * @var int
+     */
     public $explicitHit;
 
     /**
@@ -38,6 +48,11 @@ class OpenStructMvDetailModel extends Model
      * @var bool
      */
     public $isInactive;
+
+    /**
+     * @var int
+     */
+    public $latencyTolerance;
 
     /**
      * @var int
@@ -81,10 +96,13 @@ class OpenStructMvDetailModel extends Model
     protected $_name = [
         'baseTableInfos' => 'BaseTableInfos',
         'baseTableNames' => 'BaseTableNames',
+        'enableDelayAlert' => 'EnableDelayAlert',
+        'enableFailureAlert' => 'EnableFailureAlert',
         'explicitHit' => 'ExplicitHit',
         'firstRefreshTime' => 'FirstRefreshTime',
         'implicitHit' => 'ImplicitHit',
         'isInactive' => 'IsInactive',
+        'latencyTolerance' => 'LatencyTolerance',
         'localSize' => 'LocalSize',
         'queryRewriteEnabled' => 'QueryRewriteEnabled',
         'refreshInterval' => 'RefreshInterval',
@@ -138,6 +156,14 @@ class OpenStructMvDetailModel extends Model
             }
         }
 
+        if (null !== $this->enableDelayAlert) {
+            $res['EnableDelayAlert'] = $this->enableDelayAlert;
+        }
+
+        if (null !== $this->enableFailureAlert) {
+            $res['EnableFailureAlert'] = $this->enableFailureAlert;
+        }
+
         if (null !== $this->explicitHit) {
             $res['ExplicitHit'] = $this->explicitHit;
         }
@@ -152,6 +178,10 @@ class OpenStructMvDetailModel extends Model
 
         if (null !== $this->isInactive) {
             $res['IsInactive'] = $this->isInactive;
+        }
+
+        if (null !== $this->latencyTolerance) {
+            $res['LatencyTolerance'] = $this->latencyTolerance;
         }
 
         if (null !== $this->localSize) {
@@ -226,6 +256,14 @@ class OpenStructMvDetailModel extends Model
             }
         }
 
+        if (isset($map['EnableDelayAlert'])) {
+            $model->enableDelayAlert = $map['EnableDelayAlert'];
+        }
+
+        if (isset($map['EnableFailureAlert'])) {
+            $model->enableFailureAlert = $map['EnableFailureAlert'];
+        }
+
         if (isset($map['ExplicitHit'])) {
             $model->explicitHit = $map['ExplicitHit'];
         }
@@ -240,6 +278,10 @@ class OpenStructMvDetailModel extends Model
 
         if (isset($map['IsInactive'])) {
             $model->isInactive = $map['IsInactive'];
+        }
+
+        if (isset($map['LatencyTolerance'])) {
+            $model->latencyTolerance = $map['LatencyTolerance'];
         }
 
         if (isset($map['LocalSize'])) {

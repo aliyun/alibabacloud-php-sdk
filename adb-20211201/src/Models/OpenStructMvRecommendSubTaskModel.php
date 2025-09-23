@@ -16,7 +16,22 @@ class OpenStructMvRecommendSubTaskModel extends Model
     /**
      * @var int
      */
+    public $minRewriteQueryCount;
+
+    /**
+     * @var int
+     */
+    public $minRewriteQueryPattern;
+
+    /**
+     * @var int
+     */
     public $scanQueriesCount;
+
+    /**
+     * @var int
+     */
+    public $slowQueryThreshold;
 
     /**
      * @var string
@@ -39,7 +54,10 @@ class OpenStructMvRecommendSubTaskModel extends Model
     public $subtaskId;
     protected $_name = [
         'endTime' => 'EndTime',
+        'minRewriteQueryCount' => 'MinRewriteQueryCount',
+        'minRewriteQueryPattern' => 'MinRewriteQueryPattern',
         'scanQueriesCount' => 'ScanQueriesCount',
+        'slowQueryThreshold' => 'SlowQueryThreshold',
         'startTime' => 'StartTime',
         'status' => 'Status',
         'subQueriesCount' => 'SubQueriesCount',
@@ -58,8 +76,20 @@ class OpenStructMvRecommendSubTaskModel extends Model
             $res['EndTime'] = $this->endTime;
         }
 
+        if (null !== $this->minRewriteQueryCount) {
+            $res['MinRewriteQueryCount'] = $this->minRewriteQueryCount;
+        }
+
+        if (null !== $this->minRewriteQueryPattern) {
+            $res['MinRewriteQueryPattern'] = $this->minRewriteQueryPattern;
+        }
+
         if (null !== $this->scanQueriesCount) {
             $res['ScanQueriesCount'] = $this->scanQueriesCount;
+        }
+
+        if (null !== $this->slowQueryThreshold) {
+            $res['SlowQueryThreshold'] = $this->slowQueryThreshold;
         }
 
         if (null !== $this->startTime) {
@@ -93,8 +123,20 @@ class OpenStructMvRecommendSubTaskModel extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['MinRewriteQueryCount'])) {
+            $model->minRewriteQueryCount = $map['MinRewriteQueryCount'];
+        }
+
+        if (isset($map['MinRewriteQueryPattern'])) {
+            $model->minRewriteQueryPattern = $map['MinRewriteQueryPattern'];
+        }
+
         if (isset($map['ScanQueriesCount'])) {
             $model->scanQueriesCount = $map['ScanQueriesCount'];
+        }
+
+        if (isset($map['SlowQueryThreshold'])) {
+            $model->slowQueryThreshold = $map['SlowQueryThreshold'];
         }
 
         if (isset($map['StartTime'])) {
