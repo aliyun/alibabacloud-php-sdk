@@ -19,9 +19,13 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTimeLineResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadTenderDocRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadTenderDocResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncWritingBiddingDocRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncWritingBiddingDocResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskRequest;
@@ -73,9 +77,13 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DownloadAuditNoteRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DownloadAuditNoteResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DownloadBiddingDocRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DownloadBiddingDocResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\EditAuditTermsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\EditAuditTermsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\EditAuditTermsShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\EditBiddingDocRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\EditBiddingDocResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdShrinkRequest;
@@ -122,6 +130,10 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAvailableAuditNotesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAvailableAuditNotesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetBiddingDocInfoRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetBiddingDocInfoResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetBiddingRemainLimitNumRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetBiddingRemainLimitNumResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobRequest;
@@ -199,6 +211,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesRequest
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditTermsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditTermsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBiddingDocRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBiddingDocResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomTextRequest;
@@ -870,6 +884,71 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 上传招标书文件.
+     *
+     * @param request - AsyncUploadTenderDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AsyncUploadTenderDocResponse
+     *
+     * @param AsyncUploadTenderDocRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AsyncUploadTenderDocResponse
+     */
+    public function asyncUploadTenderDocWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
+        }
+
+        if (null !== $request->tenderDocName) {
+            @$body['TenderDocName'] = $request->tenderDocName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AsyncUploadTenderDoc',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AsyncUploadTenderDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传招标书文件.
+     *
+     * @param request - AsyncUploadTenderDocRequest
+     *
+     * @returns AsyncUploadTenderDocResponse
+     *
+     * @param AsyncUploadTenderDocRequest $request
+     *
+     * @return AsyncUploadTenderDocResponse
+     */
+    public function asyncUploadTenderDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asyncUploadTenderDocWithOptions($request, $runtime);
+    }
+
+    /**
      * 上传剪辑素材.
      *
      * @param tmpReq - AsyncUploadVideoRequest
@@ -950,6 +1029,75 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->asyncUploadVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标书写作接口.
+     *
+     * @param request - AsyncWritingBiddingDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AsyncWritingBiddingDocResponse
+     *
+     * @param AsyncWritingBiddingDocRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AsyncWritingBiddingDocResponse
+     */
+    public function asyncWritingBiddingDocWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->companyKeyword) {
+            @$body['CompanyKeyword'] = $request->companyKeyword;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AsyncWritingBiddingDoc',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AsyncWritingBiddingDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标书写作接口.
+     *
+     * @param request - AsyncWritingBiddingDocRequest
+     *
+     * @returns AsyncWritingBiddingDocResponse
+     *
+     * @param AsyncWritingBiddingDocRequest $request
+     *
+     * @return AsyncWritingBiddingDocResponse
+     */
+    public function asyncWritingBiddingDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->asyncWritingBiddingDocWithOptions($request, $runtime);
     }
 
     /**
@@ -2474,6 +2622,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 标书下载接口.
+     *
+     * @param request - DownloadBiddingDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadBiddingDocResponse
+     *
+     * @param DownloadBiddingDocRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DownloadBiddingDocResponse
+     */
+    public function downloadBiddingDocWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadBiddingDoc',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadBiddingDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标书下载接口.
+     *
+     * @param request - DownloadBiddingDocRequest
+     *
+     * @returns DownloadBiddingDocResponse
+     *
+     * @param DownloadBiddingDocRequest $request
+     *
+     * @return DownloadBiddingDocResponse
+     */
+    public function downloadBiddingDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadBiddingDocWithOptions($request, $runtime);
+    }
+
+    /**
      * 编辑审核自定义词库记录.
      *
      * @param tmpReq - EditAuditTermsRequest
@@ -2554,6 +2763,79 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->editAuditTermsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 编辑标书内容接口.
+     *
+     * @param request - EditBiddingDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EditBiddingDocResponse
+     *
+     * @param EditBiddingDocRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return EditBiddingDocResponse
+     */
+    public function editBiddingDocWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->contentFormat) {
+            @$body['ContentFormat'] = $request->contentFormat;
+        }
+
+        if (null !== $request->contentType) {
+            @$body['ContentType'] = $request->contentType;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EditBiddingDoc',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EditBiddingDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑标书内容接口.
+     *
+     * @param request - EditBiddingDocRequest
+     *
+     * @returns EditBiddingDocResponse
+     *
+     * @param EditBiddingDocRequest $request
+     *
+     * @return EditBiddingDocResponse
+     */
+    public function editBiddingDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->editBiddingDocWithOptions($request, $runtime);
     }
 
     /**
@@ -3898,6 +4180,128 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAvailableAuditNotesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获得标书写作结果接口.
+     *
+     * @param request - GetBiddingDocInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBiddingDocInfoResponse
+     *
+     * @param GetBiddingDocInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetBiddingDocInfoResponse
+     */
+    public function getBiddingDocInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetBiddingDocInfo',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBiddingDocInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获得标书写作结果接口.
+     *
+     * @param request - GetBiddingDocInfoRequest
+     *
+     * @returns GetBiddingDocInfoResponse
+     *
+     * @param GetBiddingDocInfoRequest $request
+     *
+     * @return GetBiddingDocInfoResponse
+     */
+    public function getBiddingDocInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBiddingDocInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获得标书功能剩余额度.
+     *
+     * @param request - GetBiddingRemainLimitNumRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBiddingRemainLimitNumResponse
+     *
+     * @param GetBiddingRemainLimitNumRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetBiddingRemainLimitNumResponse
+     */
+    public function getBiddingRemainLimitNumWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiName) {
+            @$body['ApiName'] = $request->apiName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetBiddingRemainLimitNum',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBiddingRemainLimitNumResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获得标书功能剩余额度.
+     *
+     * @param request - GetBiddingRemainLimitNumRequest
+     *
+     * @returns GetBiddingRemainLimitNumResponse
+     *
+     * @param GetBiddingRemainLimitNumRequest $request
+     *
+     * @return GetBiddingRemainLimitNumResponse
+     */
+    public function getBiddingRemainLimitNum($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBiddingRemainLimitNumWithOptions($request, $runtime);
     }
 
     /**
@@ -6308,6 +6712,99 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAuditTermsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获得标书写作任务列表.
+     *
+     * @param request - ListBiddingDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBiddingDocResponse
+     *
+     * @param ListBiddingDocRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListBiddingDocResponse
+     */
+    public function listBiddingDocWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->createTimeEnd) {
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+
+        if (null !== $request->createTimeStart) {
+            @$body['CreateTimeStart'] = $request->createTimeStart;
+        }
+
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
+        }
+
+        if (null !== $request->skip) {
+            @$body['Skip'] = $request->skip;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListBiddingDoc',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBiddingDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获得标书写作任务列表.
+     *
+     * @param request - ListBiddingDocRequest
+     *
+     * @returns ListBiddingDocResponse
+     *
+     * @param ListBiddingDocRequest $request
+     *
+     * @return ListBiddingDocResponse
+     */
+    public function listBiddingDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBiddingDocWithOptions($request, $runtime);
     }
 
     /**
