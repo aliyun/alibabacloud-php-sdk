@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class ReleaseApplicationResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

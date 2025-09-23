@@ -10,7 +10,7 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ListApplicationResponseBody\data;
 class ListApplicationResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

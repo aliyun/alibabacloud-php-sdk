@@ -10,7 +10,7 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\ExecuteTaskResponseBody\data;
 class ExecuteTaskResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

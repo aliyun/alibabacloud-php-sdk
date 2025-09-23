@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class DeleteApplicationResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

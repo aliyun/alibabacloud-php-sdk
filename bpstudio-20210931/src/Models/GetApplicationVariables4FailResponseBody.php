@@ -10,7 +10,7 @@ use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariables4FailRespo
 class GetApplicationVariables4FailResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 
