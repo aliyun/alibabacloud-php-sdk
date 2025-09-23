@@ -26,6 +26,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $DBNodeCXLRemoteMemory;
+
+    /**
+     * @var string
+     */
     public $DBNodeClass;
 
     /**
@@ -141,6 +146,7 @@ class DBNodes extends Model
         'addedCpuCores' => 'AddedCpuCores',
         'cpuCores' => 'CpuCores',
         'creationTime' => 'CreationTime',
+        'DBNodeCXLRemoteMemory' => 'DBNodeCXLRemoteMemory',
         'DBNodeClass' => 'DBNodeClass',
         'DBNodeDescription' => 'DBNodeDescription',
         'DBNodeId' => 'DBNodeId',
@@ -184,6 +190,10 @@ class DBNodes extends Model
 
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->DBNodeCXLRemoteMemory) {
+            $res['DBNodeCXLRemoteMemory'] = $this->DBNodeCXLRemoteMemory;
         }
 
         if (null !== $this->DBNodeClass) {
@@ -299,6 +309,10 @@ class DBNodes extends Model
 
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['DBNodeCXLRemoteMemory'])) {
+            $model->DBNodeCXLRemoteMemory = $map['DBNodeCXLRemoteMemory'];
         }
 
         if (isset($map['DBNodeClass'])) {
