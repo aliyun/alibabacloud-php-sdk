@@ -4,127 +4,96 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models\GetPermissionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class permission extends Model
 {
     /**
-     * @description The creation time.
-     *
-     * @example 2020-12-07T07:39:01.818Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description Indicates whether the permission is the default permission. Valid values:
-     *
-     *   false: The permission is not the default permission.
-     *   true: The permission is the default permission.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $defaultPermission;
 
     /**
-     * @description Indicates whether the version is the default version. Valid values:
-     *
-     *   false: The version is not the default version.
-     *   true: The version is the default version.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $defaultVersion;
 
     /**
-     * @description The document of the policy related to the permission.
-     *
-     * @example {"Effect":"Allow","Action":["vpc:DescribeVSwitches","vpc:DescribeVSwitchAttributes"]}
-     *
      * @var string
      */
     public $permission;
 
     /**
-     * @description The name of the permission.
-     *
-     * @example AliyunRSDefaultPermissionVSwitch
-     *
      * @var string
      */
     public $permissionName;
 
     /**
-     * @description The version of the permission.
-     *
-     * @example v1
-     *
      * @var string
      */
     public $permissionVersion;
 
     /**
-     * @description The type of the shared resources.
-     *
-     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
-     * @example VSwitch
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The update time.
-     *
-     * @example 2020-12-07T07:39:01.818Z
-     *
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'        => 'CreateTime',
+        'createTime' => 'CreateTime',
         'defaultPermission' => 'DefaultPermission',
-        'defaultVersion'    => 'DefaultVersion',
-        'permission'        => 'Permission',
-        'permissionName'    => 'PermissionName',
+        'defaultVersion' => 'DefaultVersion',
+        'permission' => 'Permission',
+        'permissionName' => 'PermissionName',
         'permissionVersion' => 'PermissionVersion',
-        'resourceType'      => 'ResourceType',
-        'updateTime'        => 'UpdateTime',
+        'resourceType' => 'ResourceType',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->defaultPermission) {
             $res['DefaultPermission'] = $this->defaultPermission;
         }
+
         if (null !== $this->defaultVersion) {
             $res['DefaultVersion'] = $this->defaultVersion;
         }
+
         if (null !== $this->permission) {
             $res['Permission'] = $this->permission;
         }
+
         if (null !== $this->permissionName) {
             $res['PermissionName'] = $this->permissionName;
         }
+
         if (null !== $this->permissionVersion) {
             $res['PermissionVersion'] = $this->permissionVersion;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -132,35 +101,42 @@ class permission extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return permission
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['DefaultPermission'])) {
             $model->defaultPermission = $map['DefaultPermission'];
         }
+
         if (isset($map['DefaultVersion'])) {
             $model->defaultVersion = $map['DefaultVersion'];
         }
+
         if (isset($map['Permission'])) {
             $model->permission = $map['Permission'];
         }
+
         if (isset($map['PermissionName'])) {
             $model->permissionName = $map['PermissionName'];
         }
+
         if (isset($map['PermissionVersion'])) {
             $model->permissionVersion = $map['PermissionVersion'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

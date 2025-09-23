@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\GetPermissionResponseBody\permission;
-use AlibabaCloud\Tea\Model;
 
 class GetPermissionResponseBody extends Model
 {
     /**
-     * @description The information about the permission.
-     *
      * @var permission
      */
     public $permission;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 2F23CFB6-A721-4E90-AC1E-0E30FA8B45DA
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'permission' => 'Permission',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->permission) {
+            $this->permission->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->permission) {
-            $res['Permission'] = null !== $this->permission ? $this->permission->toMap() : null;
+            $res['Permission'] = null !== $this->permission ? $this->permission->toArray($noStream) : $this->permission;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class GetPermissionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPermissionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Permission'])) {
             $model->permission = permission::fromMap($map['Permission']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

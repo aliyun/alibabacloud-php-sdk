@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resources extends Model
 {
     /**
-     * @description The ID of a shared resource.
-     *
-     * >  `Resources.N.ResourceId` and `Resources.N.ResourceType` must be used in pairs.
-     * @example vsw-bp183p93qs667muql****
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The type of a shared resource.
-     *
-     * >  `Resources.N.ResourceId` and `Resources.N.ResourceType` must be used in pairs.
-     * @example VSwitch
-     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'resourceId'   => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -49,17 +41,18 @@ class resources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

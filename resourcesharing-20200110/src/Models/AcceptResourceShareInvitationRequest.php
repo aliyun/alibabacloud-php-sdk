@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AcceptResourceShareInvitationRequest extends Model
 {
     /**
-     * @description The ID of the resource sharing invitation.
-     *
-     * This parameter is required.
-     * @example i-pMnItMX19fBJ****
-     *
      * @var string
      */
     public $resourceShareInvitationId;
@@ -23,9 +18,10 @@ class AcceptResourceShareInvitationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceShareInvitationId) {
@@ -35,11 +31,11 @@ class AcceptResourceShareInvitationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AcceptResourceShareInvitationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

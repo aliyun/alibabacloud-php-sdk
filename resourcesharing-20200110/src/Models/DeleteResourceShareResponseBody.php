@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteResourceShareResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A627EE2A-223D-4E1F-A954-394686AEA916
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteResourceShareResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteResourceShareResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteResourceShareResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

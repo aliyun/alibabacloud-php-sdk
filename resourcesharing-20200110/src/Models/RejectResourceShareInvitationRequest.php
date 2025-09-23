@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RejectResourceShareInvitationRequest extends Model
 {
     /**
-     * @description The ID of the resource sharing invitation.
-     *
-     * This parameter is required.
-     * @example i-yyTWbkjHArYh****
-     *
      * @var string
      */
     public $resourceShareInvitationId;
@@ -23,9 +18,10 @@ class RejectResourceShareInvitationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceShareInvitationId) {
@@ -35,11 +31,11 @@ class RejectResourceShareInvitationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RejectResourceShareInvitationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

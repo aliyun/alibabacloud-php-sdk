@@ -4,60 +4,46 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateResourceShareRequest extends Model
 {
     /**
-     * @description Specifies whether resources in the resource share can be shared with accounts outside the resource directory. Valid values:
-     *
-     *   false: Resources in the resource share can be shared only with accounts in the resource directory.
-     *   true: Resources in the resource share can be shared with both accounts in the resource directory and accounts outside the resource directory.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $allowExternalTargets;
 
     /**
-     * @description The ID of the resource share.
-     *
-     * This parameter is required.
-     * @example rs-qSkW1HBY****
-     *
      * @var string
      */
     public $resourceShareId;
 
     /**
-     * @description The new name of the resource share.
-     *
-     * This parameter is required.
-     * @example new
-     *
      * @var string
      */
     public $resourceShareName;
     protected $_name = [
         'allowExternalTargets' => 'AllowExternalTargets',
-        'resourceShareId'      => 'ResourceShareId',
-        'resourceShareName'    => 'ResourceShareName',
+        'resourceShareId' => 'ResourceShareId',
+        'resourceShareName' => 'ResourceShareName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowExternalTargets) {
             $res['AllowExternalTargets'] = $this->allowExternalTargets;
         }
+
         if (null !== $this->resourceShareId) {
             $res['ResourceShareId'] = $this->resourceShareId;
         }
+
         if (null !== $this->resourceShareName) {
             $res['ResourceShareName'] = $this->resourceShareName;
         }
@@ -65,20 +51,22 @@ class UpdateResourceShareRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResourceShareRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowExternalTargets'])) {
             $model->allowExternalTargets = $map['AllowExternalTargets'];
         }
+
         if (isset($map['ResourceShareId'])) {
             $model->resourceShareId = $map['ResourceShareId'];
         }
+
         if (isset($map['ResourceShareName'])) {
             $model->resourceShareName = $map['ResourceShareName'];
         }

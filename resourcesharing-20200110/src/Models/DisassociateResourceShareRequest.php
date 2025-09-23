@@ -4,110 +4,150 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DisassociateResourceShareRequest\resources;
-use AlibabaCloud\Tea\Model;
 
 class DisassociateResourceShareRequest extends Model
 {
     /**
-     * @description The owner of the resource share. Valid values:
-     *
-     *   Self: The resource share belongs to the current account. This is the default value. For resource sharing within a resource directory, if you are a resource owner and you want to disassociate resources or principals from a resource share, set this parameter to Self.
-     *   OtherAccounts: The resource share belongs to another account. For resource sharing outside a resource directory, if you are a principal and you want to exit a resource share, set this parameter to OtherAccounts.
-     *
-     * @example Self
-     *
+     * @var string[]
+     */
+    public $resourceArns;
+
+    /**
      * @var string
      */
     public $resourceOwner;
 
     /**
-     * @description The ID of the resource share.
-     *
-     * This parameter is required.
-     * @example rs-6GRmdD3X****
-     *
      * @var string
      */
     public $resourceShareId;
 
     /**
-     * @description The information about the resources.
-     *
      * @var resources[]
      */
     public $resources;
 
     /**
-     * @description The information about the principals.
-     *
-     * @example 172050525300****
-     *
      * @var string[]
      */
     public $targets;
     protected $_name = [
-        'resourceOwner'   => 'ResourceOwner',
+        'resourceArns' => 'ResourceArns',
+        'resourceOwner' => 'ResourceOwner',
         'resourceShareId' => 'ResourceShareId',
-        'resources'       => 'Resources',
-        'targets'         => 'Targets',
+        'resources' => 'Resources',
+        'targets' => 'Targets',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceArns)) {
+            Model::validateArray($this->resourceArns);
+        }
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        if (\is_array($this->targets)) {
+            Model::validateArray($this->targets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->resourceOwner) {
-            $res['ResourceOwner'] = $this->resourceOwner;
-        }
-        if (null !== $this->resourceShareId) {
-            $res['ResourceShareId'] = $this->resourceShareId;
-        }
-        if (null !== $this->resources) {
-            $res['Resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+        if (null !== $this->resourceArns) {
+            if (\is_array($this->resourceArns)) {
+                $res['ResourceArns'] = [];
+                $n1 = 0;
+                foreach ($this->resourceArns as $item1) {
+                    $res['ResourceArns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->resourceOwner) {
+            $res['ResourceOwner'] = $this->resourceOwner;
+        }
+
+        if (null !== $this->resourceShareId) {
+            $res['ResourceShareId'] = $this->resourceShareId;
+        }
+
+        if (null !== $this->resources) {
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1 = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->targets) {
-            $res['Targets'] = $this->targets;
+            if (\is_array($this->targets)) {
+                $res['Targets'] = [];
+                $n1 = 0;
+                foreach ($this->targets as $item1) {
+                    $res['Targets'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisassociateResourceShareRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwner'])) {
-            $model->resourceOwner = $map['ResourceOwner'];
-        }
-        if (isset($map['ResourceShareId'])) {
-            $model->resourceShareId = $map['ResourceShareId'];
-        }
-        if (isset($map['Resources'])) {
-            if (!empty($map['Resources'])) {
-                $model->resources = [];
-                $n                = 0;
-                foreach ($map['Resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+        if (isset($map['ResourceArns'])) {
+            if (!empty($map['ResourceArns'])) {
+                $model->resourceArns = [];
+                $n1 = 0;
+                foreach ($map['ResourceArns'] as $item1) {
+                    $model->resourceArns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['ResourceOwner'])) {
+            $model->resourceOwner = $map['ResourceOwner'];
+        }
+
+        if (isset($map['ResourceShareId'])) {
+            $model->resourceShareId = $map['ResourceShareId'];
+        }
+
+        if (isset($map['Resources'])) {
+            if (!empty($map['Resources'])) {
+                $model->resources = [];
+                $n1 = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1] = resources::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
-                $model->targets = $map['Targets'];
+                $model->targets = [];
+                $n1 = 0;
+                foreach ($map['Targets'] as $item1) {
+                    $model->targets[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisassociateResourceSharePermissionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 111FB84A-60A9-403E-9067-E55D7EE95BD1
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DisassociateResourceSharePermissionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DisassociateResourceSharePermissionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisassociateResourceSharePermissionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AcceptResourceShareInvitationRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AcceptResourceShareInvitationResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceSharePermissionRequest;
@@ -54,11 +53,10 @@ use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UpdateResourceShareRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UpdateResourceShareResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ResourceSharing extends OpenApiClient
 {
@@ -83,65 +81,78 @@ class ResourceSharing extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Accepts a resource sharing invitation.
-     *  *
-     * @description ### [](#)
+     * Accepts a resource sharing invitation.
+     *
+     * @remarks
+     * ### [](#)
      * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
      * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
      * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
-     *  *
-     * @param AcceptResourceShareInvitationRequest $request AcceptResourceShareInvitationRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcceptResourceShareInvitationResponse AcceptResourceShareInvitationResponse
+     * @param request - AcceptResourceShareInvitationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AcceptResourceShareInvitationResponse
+     *
+     * @param AcceptResourceShareInvitationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return AcceptResourceShareInvitationResponse
      */
     public function acceptResourceShareInvitationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceShareInvitationId)) {
-            $query['ResourceShareInvitationId'] = $request->resourceShareInvitationId;
+        if (null !== $request->resourceShareInvitationId) {
+            @$query['ResourceShareInvitationId'] = $request->resourceShareInvitationId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AcceptResourceShareInvitation',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcceptResourceShareInvitation',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AcceptResourceShareInvitationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Accepts a resource sharing invitation.
-     *  *
-     * @description ### [](#)
+     * Accepts a resource sharing invitation.
+     *
+     * @remarks
+     * ### [](#)
      * *   A principal needs to accept or reject a resource sharing invitation only if the principal is not the management account or a member of a resource directory. If you share resources with an object in a resource directory, the system automatically accepts the resource sharing invitation for the object.
      * *   A resource sharing invitation is valid for seven days. A principal must accept or reject the invitation within the validity period.
      * This topic provides an example on how to call the API operation to accept the resource sharing invitation whose ID is `i-pMnItMX19fBJ****` in the `cn-hangzhou` region.
-     *  *
-     * @param AcceptResourceShareInvitationRequest $request AcceptResourceShareInvitationRequest
      *
-     * @return AcceptResourceShareInvitationResponse AcceptResourceShareInvitationResponse
+     * @param request - AcceptResourceShareInvitationRequest
+     *
+     * @returns AcceptResourceShareInvitationResponse
+     *
+     * @param AcceptResourceShareInvitationRequest $request
+     *
+     * @return AcceptResourceShareInvitationResponse
      */
     public function acceptResourceShareInvitation($request)
     {
@@ -151,60 +162,80 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Associates resources or principals with a resource share.
-     *  *
-     * @description This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
-     *  *
-     * @param AssociateResourceShareRequest $request AssociateResourceShareRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Associates resources or principals with a resource share.
      *
-     * @return AssociateResourceShareResponse AssociateResourceShareResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
+     *
+     * @param request - AssociateResourceShareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateResourceShareResponse
+     *
+     * @param AssociateResourceShareRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AssociateResourceShareResponse
      */
     public function associateResourceShareWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->permissionNames)) {
-            $query['PermissionNames'] = $request->permissionNames;
+        if (null !== $request->permissionNames) {
+            @$query['PermissionNames'] = $request->permissionNames;
         }
-        if (!Utils::isUnset($request->resourceShareId)) {
-            $query['ResourceShareId'] = $request->resourceShareId;
+
+        if (null !== $request->resourceArns) {
+            @$query['ResourceArns'] = $request->resourceArns;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resourceShareId) {
+            @$query['ResourceShareId'] = $request->resourceShareId;
         }
-        if (!Utils::isUnset($request->targetProperties)) {
-            $query['TargetProperties'] = $request->targetProperties;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->targets)) {
-            $query['Targets'] = $request->targets;
+
+        if (null !== $request->targetProperties) {
+            @$query['TargetProperties'] = $request->targetProperties;
         }
+
+        if (null !== $request->targets) {
+            @$query['Targets'] = $request->targets;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateResourceShare',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateResourceShare',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AssociateResourceShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates resources or principals with a resource share.
-     *  *
-     * @description This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
-     *  *
-     * @param AssociateResourceShareRequest $request AssociateResourceShareRequest
+     * Associates resources or principals with a resource share.
      *
-     * @return AssociateResourceShareResponse AssociateResourceShareResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to associate the vSwitch `vsw-bp183p93qs667muql****` and the member `172050525300****` with the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the association, the vSwitch is shared with the member.
+     *
+     * @param request - AssociateResourceShareRequest
+     *
+     * @returns AssociateResourceShareResponse
+     *
+     * @param AssociateResourceShareRequest $request
+     *
+     * @return AssociateResourceShareResponse
      */
     public function associateResourceShare($request)
     {
@@ -214,54 +245,68 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Associates permissions with a resource share.
-     *  *
-     * @description This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-     *  *
-     * @param AssociateResourceSharePermissionRequest $request AssociateResourceSharePermissionRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Associates permissions with a resource share.
      *
-     * @return AssociateResourceSharePermissionResponse AssociateResourceSharePermissionResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *
+     * @param request - AssociateResourceSharePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateResourceSharePermissionResponse
+     *
+     * @param AssociateResourceSharePermissionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return AssociateResourceSharePermissionResponse
      */
     public function associateResourceSharePermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->permissionName)) {
-            $query['PermissionName'] = $request->permissionName;
+        if (null !== $request->permissionName) {
+            @$query['PermissionName'] = $request->permissionName;
         }
-        if (!Utils::isUnset($request->replace)) {
-            $query['Replace'] = $request->replace;
+
+        if (null !== $request->replace) {
+            @$query['Replace'] = $request->replace;
         }
-        if (!Utils::isUnset($request->resourceShareId)) {
-            $query['ResourceShareId'] = $request->resourceShareId;
+
+        if (null !== $request->resourceShareId) {
+            @$query['ResourceShareId'] = $request->resourceShareId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateResourceSharePermission',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateResourceSharePermission',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AssociateResourceSharePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates permissions with a resource share.
-     *  *
-     * @description This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-     *  *
-     * @param AssociateResourceSharePermissionRequest $request AssociateResourceSharePermissionRequest
+     * Associates permissions with a resource share.
      *
-     * @return AssociateResourceSharePermissionResponse AssociateResourceSharePermissionResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to associate the `AliyunRSDefaultPermissionVSwitch` permission with the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *
+     * @param request - AssociateResourceSharePermissionRequest
+     *
+     * @returns AssociateResourceSharePermissionResponse
+     *
+     * @param AssociateResourceSharePermissionRequest $request
+     *
+     * @return AssociateResourceSharePermissionResponse
      */
     public function associateResourceSharePermission($request)
     {
@@ -271,50 +316,62 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Transfers a resource share from one resource group to another.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Transfers a resource share from one resource group to another.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Transfers a resource share from one resource group to another.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Transfers a resource share from one resource group to another.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -324,34 +381,41 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Checks the status of resource sharing within a resource directory.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Checks the status of resource sharing within a resource directory.
      *
-     * @return CheckSharingWithResourceDirectoryStatusResponse CheckSharingWithResourceDirectoryStatusResponse
+     * @param request - CheckSharingWithResourceDirectoryStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSharingWithResourceDirectoryStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return CheckSharingWithResourceDirectoryStatusResponse
      */
     public function checkSharingWithResourceDirectoryStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'CheckSharingWithResourceDirectoryStatus',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckSharingWithResourceDirectoryStatus',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckSharingWithResourceDirectoryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks the status of resource sharing within a resource directory.
-     *  *
-     * @return CheckSharingWithResourceDirectoryStatusResponse CheckSharingWithResourceDirectoryStatusResponse
+     * Checks the status of resource sharing within a resource directory.
+     *
+     * @returns CheckSharingWithResourceDirectoryStatusResponse
+     *
+     * @return CheckSharingWithResourceDirectoryStatusResponse
      */
     public function checkSharingWithResourceDirectoryStatus()
     {
@@ -361,71 +425,94 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Creates a resource share.
-     *  *
-     * @description Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](https://help.aliyun.com/document_detail/160622.html).
-     * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****` in a resource directory. In this example, the management account of the resource directory is used to call this API operation.
-     *  *
-     * @param CreateResourceShareRequest $request CreateResourceShareRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a resource share.
      *
-     * @return CreateResourceShareResponse CreateResourceShareResponse
+     * @remarks
+     * Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](https://help.aliyun.com/document_detail/160622.html).
+     * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****` in a resource directory. In this example, the management account of the resource directory is used to call this API operation.
+     *
+     * @param request - CreateResourceShareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceShareResponse
+     *
+     * @param CreateResourceShareRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateResourceShareResponse
      */
     public function createResourceShareWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowExternalTargets)) {
-            $query['AllowExternalTargets'] = $request->allowExternalTargets;
+        if (null !== $request->allowExternalTargets) {
+            @$query['AllowExternalTargets'] = $request->allowExternalTargets;
         }
-        if (!Utils::isUnset($request->permissionNames)) {
-            $query['PermissionNames'] = $request->permissionNames;
+
+        if (null !== $request->permissionNames) {
+            @$query['PermissionNames'] = $request->permissionNames;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceArns) {
+            @$query['ResourceArns'] = $request->resourceArns;
         }
-        if (!Utils::isUnset($request->resourceShareName)) {
-            $query['ResourceShareName'] = $request->resourceShareName;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resourceShareName) {
+            @$query['ResourceShareName'] = $request->resourceShareName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->targetProperties)) {
-            $query['TargetProperties'] = $request->targetProperties;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->targets)) {
-            $query['Targets'] = $request->targets;
+
+        if (null !== $request->targetProperties) {
+            @$query['TargetProperties'] = $request->targetProperties;
         }
+
+        if (null !== $request->targets) {
+            @$query['Targets'] = $request->targets;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateResourceShare',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateResourceShare',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateResourceShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a resource share.
-     *  *
-     * @description Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](https://help.aliyun.com/document_detail/160622.html).
-     * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****` in a resource directory. In this example, the management account of the resource directory is used to call this API operation.
-     *  *
-     * @param CreateResourceShareRequest $request CreateResourceShareRequest
+     * Creates a resource share.
      *
-     * @return CreateResourceShareResponse CreateResourceShareResponse
+     * @remarks
+     * Resource Sharing allows you to share your resources with one or more accounts and access the resources shared by other accounts. For more information, see [Resource Sharing overview](https://help.aliyun.com/document_detail/160622.html).
+     * This topic provides an example on how to call the API operation to create a resource share named `test` in the `cn-hangzhou` region to share the vSwitch `vsw-bp183p93qs667muql****` with the member `172050525300****` in a resource directory. In this example, the management account of the resource directory is used to call this API operation.
+     *
+     * @param request - CreateResourceShareRequest
+     *
+     * @returns CreateResourceShareResponse
+     *
+     * @param CreateResourceShareRequest $request
+     *
+     * @return CreateResourceShareResponse
      */
     public function createResourceShare($request)
     {
@@ -435,52 +522,64 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary 调用DeleteResourceShare删除共享单元。
-     *  *
-     * @description After a resource share is deleted, all principals in the resource share can no longer access the resources in the resource share. However, the resources are not deleted with the resource share.
+     * Deletes a resource share.
+     *
+     * @remarks
+     * After a resource share is deleted, all principals in the resource share can no longer access the resources in the resource share. However, the resources are not deleted with the resource share.
      * A resource share that is deleted is in the `Deleted` state. The system deletes the record of the resource share within 48 hours to 96 hours.
      * This topic provides an example on how to call the API operation to delete the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region.
-     *  *
-     * @param DeleteResourceShareRequest $request DeleteResourceShareRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceShareResponse DeleteResourceShareResponse
+     * @param request - DeleteResourceShareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceShareResponse
+     *
+     * @param DeleteResourceShareRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteResourceShareResponse
      */
     public function deleteResourceShareWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceShareId)) {
-            $query['ResourceShareId'] = $request->resourceShareId;
+        if (null !== $request->resourceShareId) {
+            @$query['ResourceShareId'] = $request->resourceShareId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteResourceShare',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteResourceShare',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteResourceShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用DeleteResourceShare删除共享单元。
-     *  *
-     * @description After a resource share is deleted, all principals in the resource share can no longer access the resources in the resource share. However, the resources are not deleted with the resource share.
+     * Deletes a resource share.
+     *
+     * @remarks
+     * After a resource share is deleted, all principals in the resource share can no longer access the resources in the resource share. However, the resources are not deleted with the resource share.
      * A resource share that is deleted is in the `Deleted` state. The system deletes the record of the resource share within 48 hours to 96 hours.
      * This topic provides an example on how to call the API operation to delete the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region.
-     *  *
-     * @param DeleteResourceShareRequest $request DeleteResourceShareRequest
      *
-     * @return DeleteResourceShareResponse DeleteResourceShareResponse
+     * @param request - DeleteResourceShareRequest
+     *
+     * @returns DeleteResourceShareResponse
+     *
+     * @param DeleteResourceShareRequest $request
+     *
+     * @return DeleteResourceShareResponse
      */
     public function deleteResourceShare($request)
     {
@@ -490,44 +589,54 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions where the Resource Sharing service is available.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the regions where the Resource Sharing service is available.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the regions where the Resource Sharing service is available.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries the regions where the Resource Sharing service is available.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -537,61 +646,80 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates resources or principals from a resource share.
-     *  *
-     * @description *   A resource owner can call this API operation to disassociate shared resources or principals from a resource share.
+     * Disassociates resources or principals from a resource share.
+     *
+     * @remarks
+     *   A resource owner can call this API operation to disassociate shared resources or principals from a resource share.
      * *   If a principal does not belong to a resource directory, the principal can call this API operation to exit the resource share. For more information, see [Exit a resource share](https://help.aliyun.com/document_detail/440614.html).
      * This topic provides an example on how to use the management account of a resource directory to call the API operation to disassociate the member `172050525300****` from the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the member is disassociated from the resource share, the member cannot share the resources in the resource share.
-     *  *
-     * @param DisassociateResourceShareRequest $request DisassociateResourceShareRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisassociateResourceShareResponse DisassociateResourceShareResponse
+     * @param request - DisassociateResourceShareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisassociateResourceShareResponse
+     *
+     * @param DisassociateResourceShareRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisassociateResourceShareResponse
      */
     public function disassociateResourceShareWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceOwner)) {
-            $query['ResourceOwner'] = $request->resourceOwner;
+        if (null !== $request->resourceArns) {
+            @$query['ResourceArns'] = $request->resourceArns;
         }
-        if (!Utils::isUnset($request->resourceShareId)) {
-            $query['ResourceShareId'] = $request->resourceShareId;
+
+        if (null !== $request->resourceOwner) {
+            @$query['ResourceOwner'] = $request->resourceOwner;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resourceShareId) {
+            @$query['ResourceShareId'] = $request->resourceShareId;
         }
-        if (!Utils::isUnset($request->targets)) {
-            $query['Targets'] = $request->targets;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
+
+        if (null !== $request->targets) {
+            @$query['Targets'] = $request->targets;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisassociateResourceShare',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisassociateResourceShare',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisassociateResourceShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates resources or principals from a resource share.
-     *  *
-     * @description *   A resource owner can call this API operation to disassociate shared resources or principals from a resource share.
+     * Disassociates resources or principals from a resource share.
+     *
+     * @remarks
+     *   A resource owner can call this API operation to disassociate shared resources or principals from a resource share.
      * *   If a principal does not belong to a resource directory, the principal can call this API operation to exit the resource share. For more information, see [Exit a resource share](https://help.aliyun.com/document_detail/440614.html).
      * This topic provides an example on how to use the management account of a resource directory to call the API operation to disassociate the member `172050525300****` from the resource share `rs-6GRmdD3X****` in the `cn-hangzhou` region. After the member is disassociated from the resource share, the member cannot share the resources in the resource share.
-     *  *
-     * @param DisassociateResourceShareRequest $request DisassociateResourceShareRequest
      *
-     * @return DisassociateResourceShareResponse DisassociateResourceShareResponse
+     * @param request - DisassociateResourceShareRequest
+     *
+     * @returns DisassociateResourceShareResponse
+     *
+     * @param DisassociateResourceShareRequest $request
+     *
+     * @return DisassociateResourceShareResponse
      */
     public function disassociateResourceShare($request)
     {
@@ -601,51 +729,64 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates a permission from a resource share. You can disassociate a permission from a resource share only if the resource share does not contain resources of the type indicated by the permission.
-     *  *
-     * @description This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-     *  *
-     * @param DisassociateResourceSharePermissionRequest $request DisassociateResourceSharePermissionRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Disassociates a permission from a resource share. You can disassociate a permission from a resource share only if the resource share does not contain resources of the type indicated by the permission.
      *
-     * @return DisassociateResourceSharePermissionResponse DisassociateResourceSharePermissionResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *
+     * @param request - DisassociateResourceSharePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisassociateResourceSharePermissionResponse
+     *
+     * @param DisassociateResourceSharePermissionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DisassociateResourceSharePermissionResponse
      */
     public function disassociateResourceSharePermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->permissionName)) {
-            $query['PermissionName'] = $request->permissionName;
+        if (null !== $request->permissionName) {
+            @$query['PermissionName'] = $request->permissionName;
         }
-        if (!Utils::isUnset($request->resourceShareId)) {
-            $query['ResourceShareId'] = $request->resourceShareId;
+
+        if (null !== $request->resourceShareId) {
+            @$query['ResourceShareId'] = $request->resourceShareId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisassociateResourceSharePermission',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisassociateResourceSharePermission',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisassociateResourceSharePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates a permission from a resource share. You can disassociate a permission from a resource share only if the resource share does not contain resources of the type indicated by the permission.
-     *  *
-     * @description This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
-     *  *
-     * @param DisassociateResourceSharePermissionRequest $request DisassociateResourceSharePermissionRequest
+     * Disassociates a permission from a resource share. You can disassociate a permission from a resource share only if the resource share does not contain resources of the type indicated by the permission.
      *
-     * @return DisassociateResourceSharePermissionResponse DisassociateResourceSharePermissionResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *
+     * @param request - DisassociateResourceSharePermissionRequest
+     *
+     * @returns DisassociateResourceSharePermissionResponse
+     *
+     * @param DisassociateResourceSharePermissionRequest $request
+     *
+     * @return DisassociateResourceSharePermissionResponse
      */
     public function disassociateResourceSharePermission($request)
     {
@@ -655,40 +796,49 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Enables resource sharing for a resource directory.
-     *  *
-     * @description You can share your resources with all members in your resource directory, all members in a specific folder in your resource directory, or a specific member in your resource directory as a resource owner only after you enable resource sharing for your resource directory.
-     * You can call this API operation only by using the management account of your resource directory or a RAM user or RAM role to which the required permissions are granted within the management account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Enables resource sharing for a resource directory.
      *
-     * @return EnableSharingWithResourceDirectoryResponse EnableSharingWithResourceDirectoryResponse
+     * @remarks
+     * You can share your resources with all members in your resource directory, all members in a specific folder in your resource directory, or a specific member in your resource directory as a resource owner only after you enable resource sharing for your resource directory.
+     * You can call this API operation only by using the management account of your resource directory or a RAM user or RAM role to which the required permissions are granted within the management account.
+     *
+     * @param request - EnableSharingWithResourceDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSharingWithResourceDirectoryResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableSharingWithResourceDirectoryResponse
      */
     public function enableSharingWithResourceDirectoryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'EnableSharingWithResourceDirectory',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableSharingWithResourceDirectory',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableSharingWithResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables resource sharing for a resource directory.
-     *  *
-     * @description You can share your resources with all members in your resource directory, all members in a specific folder in your resource directory, or a specific member in your resource directory as a resource owner only after you enable resource sharing for your resource directory.
+     * Enables resource sharing for a resource directory.
+     *
+     * @remarks
+     * You can share your resources with all members in your resource directory, all members in a specific folder in your resource directory, or a specific member in your resource directory as a resource owner only after you enable resource sharing for your resource directory.
      * You can call this API operation only by using the management account of your resource directory or a RAM user or RAM role to which the required permissions are granted within the management account.
-     *  *
-     * @return EnableSharingWithResourceDirectoryResponse EnableSharingWithResourceDirectoryResponse
+     *
+     * @returns EnableSharingWithResourceDirectoryResponse
+     *
+     * @return EnableSharingWithResourceDirectoryResponse
      */
     public function enableSharingWithResourceDirectory()
     {
@@ -698,51 +848,64 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a permission.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
-     *  *
-     * @param GetPermissionRequest $request GetPermissionRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a permission.
      *
-     * @return GetPermissionResponse GetPermissionResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
+     *
+     * @param request - GetPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPermissionResponse
+     *
+     * @param GetPermissionRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPermissionResponse
      */
     public function getPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->permissionName)) {
-            $query['PermissionName'] = $request->permissionName;
+        if (null !== $request->permissionName) {
+            @$query['PermissionName'] = $request->permissionName;
         }
-        if (!Utils::isUnset($request->permissionVersion)) {
-            $query['PermissionVersion'] = $request->permissionVersion;
+
+        if (null !== $request->permissionVersion) {
+            @$query['PermissionVersion'] = $request->permissionVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPermission',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPermission',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a permission.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
-     *  *
-     * @param GetPermissionRequest $request GetPermissionRequest
+     * Queries the information about a permission.
      *
-     * @return GetPermissionResponse GetPermissionResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the information about the `AliyunRSDefaultPermissionVSwitch` permission whose version is `v1` in the `cn-hangzhou` region.
+     *
+     * @param request - GetPermissionRequest
+     *
+     * @returns GetPermissionResponse
+     *
+     * @param GetPermissionRequest $request
+     *
+     * @return GetPermissionResponse
      */
     public function getPermission($request)
     {
@@ -752,54 +915,68 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries the versions of a permission.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
-     *  *
-     * @param ListPermissionVersionsRequest $request ListPermissionVersionsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the versions of a permission.
      *
-     * @return ListPermissionVersionsResponse ListPermissionVersionsResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
+     *
+     * @param request - ListPermissionVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPermissionVersionsResponse
+     *
+     * @param ListPermissionVersionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListPermissionVersionsResponse
      */
     public function listPermissionVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->permissionName)) {
-            $query['PermissionName'] = $request->permissionName;
+
+        if (null !== $request->permissionName) {
+            @$query['PermissionName'] = $request->permissionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPermissionVersions',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPermissionVersions',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPermissionVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the versions of a permission.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
-     *  *
-     * @param ListPermissionVersionsRequest $request ListPermissionVersionsRequest
+     * Queries the versions of a permission.
      *
-     * @return ListPermissionVersionsResponse ListPermissionVersionsResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the versions of the `AliyunRSDefaultPermissionVSwitch` permission in the `cn-hangzhou` region.
+     *
+     * @param request - ListPermissionVersionsRequest
+     *
+     * @returns ListPermissionVersionsResponse
+     *
+     * @param ListPermissionVersionsRequest $request
+     *
+     * @return ListPermissionVersionsResponse
      */
     public function listPermissionVersions($request)
     {
@@ -809,54 +986,68 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the default permission.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
-     *  *
-     * @param ListPermissionsRequest $request ListPermissionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the default permission.
      *
-     * @return ListPermissionsResponse ListPermissionsResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
+     *
+     * @param request - ListPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPermissionsResponse
+     *
+     * @param ListPermissionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListPermissionsResponse
      */
     public function listPermissionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPermissions',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPermissions',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the default permission.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
-     *  *
-     * @param ListPermissionsRequest $request ListPermissionsRequest
+     * Queries the information about the default permission.
      *
-     * @return ListPermissionsResponse ListPermissionsResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the information about the default permission for the `VSwitch` resource type in the `cn-hangzhou` region.
+     *
+     * @param request - ListPermissionsRequest
+     *
+     * @returns ListPermissionsResponse
+     *
+     * @param ListPermissionsRequest $request
+     *
+     * @return ListPermissionsResponse
      */
     public function listPermissions($request)
     {
@@ -866,70 +1057,92 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries the association records of resource shares.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
+     * Queries the association records of resource shares.
+     *
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
      * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
      * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
-     *  *
-     * @param ListResourceShareAssociationsRequest $request ListResourceShareAssociationsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceShareAssociationsResponse ListResourceShareAssociationsResponse
+     * @param request - ListResourceShareAssociationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceShareAssociationsResponse
+     *
+     * @param ListResourceShareAssociationsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListResourceShareAssociationsResponse
      */
     public function listResourceShareAssociationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->associationStatus)) {
-            $query['AssociationStatus'] = $request->associationStatus;
+        if (null !== $request->associationStatus) {
+            @$query['AssociationStatus'] = $request->associationStatus;
         }
-        if (!Utils::isUnset($request->associationType)) {
-            $query['AssociationType'] = $request->associationType;
+
+        if (null !== $request->associationType) {
+            @$query['AssociationType'] = $request->associationType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceArn) {
+            @$query['ResourceArn'] = $request->resourceArn;
         }
-        if (!Utils::isUnset($request->resourceShareIds)) {
-            $query['ResourceShareIds'] = $request->resourceShareIds;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->resourceShareIds) {
+            @$query['ResourceShareIds'] = $request->resourceShareIds;
         }
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceShareAssociations',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceShareAssociations',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListResourceShareAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the association records of resource shares.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
+     * Queries the association records of resource shares.
+     *
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
      * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
      * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
-     *  *
-     * @param ListResourceShareAssociationsRequest $request ListResourceShareAssociationsRequest
      *
-     * @return ListResourceShareAssociationsResponse ListResourceShareAssociationsResponse
+     * @param request - ListResourceShareAssociationsRequest
+     *
+     * @returns ListResourceShareAssociationsResponse
+     *
+     * @param ListResourceShareAssociationsRequest $request
+     *
+     * @return ListResourceShareAssociationsResponse
      */
     public function listResourceShareAssociations($request)
     {
@@ -939,59 +1152,74 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource sharing invitations that are received.
-     *  *
-     * @description ### [](#)
-     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
-     *  *
-     * @param ListResourceShareInvitationsRequest $request ListResourceShareInvitationsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the resource sharing invitations that are received.
      *
-     * @return ListResourceShareInvitationsResponse ListResourceShareInvitationsResponse
+     * @remarks
+     * ### [](#)
+     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
+     *
+     * @param request - ListResourceShareInvitationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceShareInvitationsResponse
+     *
+     * @param ListResourceShareInvitationsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListResourceShareInvitationsResponse
      */
     public function listResourceShareInvitationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceShareIds)) {
-            $query['ResourceShareIds'] = $request->resourceShareIds;
+
+        if (null !== $request->resourceShareIds) {
+            @$query['ResourceShareIds'] = $request->resourceShareIds;
         }
-        if (!Utils::isUnset($request->resourceShareInvitationIds)) {
-            $query['ResourceShareInvitationIds'] = $request->resourceShareInvitationIds;
+
+        if (null !== $request->resourceShareInvitationIds) {
+            @$query['ResourceShareInvitationIds'] = $request->resourceShareInvitationIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceShareInvitations',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceShareInvitations',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListResourceShareInvitationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resource sharing invitations that are received.
-     *  *
-     * @description ### [](#)
-     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
-     *  *
-     * @param ListResourceShareInvitationsRequest $request ListResourceShareInvitationsRequest
+     * Queries the resource sharing invitations that are received.
      *
-     * @return ListResourceShareInvitationsResponse ListResourceShareInvitationsResponse
+     * @remarks
+     * ### [](#)
+     * This topic provides an example on how to call the API operation to query the resource sharing invitations that are received by the current account in the `cn-hangzhou` region. The response shows that one invitation is received by the current account and is waiting for confirmation.
+     *
+     * @param request - ListResourceShareInvitationsRequest
+     *
+     * @returns ListResourceShareInvitationsResponse
+     *
+     * @param ListResourceShareInvitationsRequest $request
+     *
+     * @return ListResourceShareInvitationsResponse
      */
     public function listResourceShareInvitations($request)
     {
@@ -1001,57 +1229,72 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries the permissions that are associated with a resource share.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
-     *  *
-     * @param ListResourceSharePermissionsRequest $request ListResourceSharePermissionsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the permissions that are associated with a resource share.
      *
-     * @return ListResourceSharePermissionsResponse ListResourceSharePermissionsResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
+     *
+     * @param request - ListResourceSharePermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceSharePermissionsResponse
+     *
+     * @param ListResourceSharePermissionsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListResourceSharePermissionsResponse
      */
     public function listResourceSharePermissionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceOwner)) {
-            $query['ResourceOwner'] = $request->resourceOwner;
+
+        if (null !== $request->resourceOwner) {
+            @$query['ResourceOwner'] = $request->resourceOwner;
         }
-        if (!Utils::isUnset($request->resourceShareId)) {
-            $query['ResourceShareId'] = $request->resourceShareId;
+
+        if (null !== $request->resourceShareId) {
+            @$query['ResourceShareId'] = $request->resourceShareId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceSharePermissions',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceSharePermissions',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListResourceSharePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the permissions that are associated with a resource share.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
-     *  *
-     * @param ListResourceSharePermissionsRequest $request ListResourceSharePermissionsRequest
+     * Queries the permissions that are associated with a resource share.
      *
-     * @return ListResourceSharePermissionsResponse ListResourceSharePermissionsResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the permissions that are associated with the resource share created by using the current Alibaba Cloud account in the `cn-hangzhou` region.
+     *
+     * @param request - ListResourceSharePermissionsRequest
+     *
+     * @returns ListResourceSharePermissionsResponse
+     *
+     * @param ListResourceSharePermissionsRequest $request
+     *
+     * @return ListResourceSharePermissionsResponse
      */
     public function listResourceSharePermissions($request)
     {
@@ -1061,76 +1304,96 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries resource shares.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created by using the account whose ID is `151266687691****`:
+     * Queries resource shares.
+     *
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created within the account `151266687691****`:
      * *   `rs-hX9wC5jO****`, which is in the `Deleted` state
      * *   `rs-PqysnzIj****`, which is in the `Active` state
-     *  *
-     * @param ListResourceSharesRequest $request ListResourceSharesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceSharesResponse ListResourceSharesResponse
+     * @param request - ListResourceSharesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceSharesResponse
+     *
+     * @param ListResourceSharesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListResourceSharesResponse
      */
     public function listResourceSharesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->permissionName)) {
-            $query['PermissionName'] = $request->permissionName;
+
+        if (null !== $request->permissionName) {
+            @$query['PermissionName'] = $request->permissionName;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwner)) {
-            $query['ResourceOwner'] = $request->resourceOwner;
+
+        if (null !== $request->resourceOwner) {
+            @$query['ResourceOwner'] = $request->resourceOwner;
         }
-        if (!Utils::isUnset($request->resourceShareIds)) {
-            $query['ResourceShareIds'] = $request->resourceShareIds;
+
+        if (null !== $request->resourceShareIds) {
+            @$query['ResourceShareIds'] = $request->resourceShareIds;
         }
-        if (!Utils::isUnset($request->resourceShareName)) {
-            $query['ResourceShareName'] = $request->resourceShareName;
+
+        if (null !== $request->resourceShareName) {
+            @$query['ResourceShareName'] = $request->resourceShareName;
         }
-        if (!Utils::isUnset($request->resourceShareStatus)) {
-            $query['ResourceShareStatus'] = $request->resourceShareStatus;
+
+        if (null !== $request->resourceShareStatus) {
+            @$query['ResourceShareStatus'] = $request->resourceShareStatus;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceShares',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceShares',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListResourceSharesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries resource shares.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created by using the account whose ID is `151266687691****`:
+     * Queries resource shares.
+     *
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows that the following resource shares are created within the account `151266687691****`:
      * *   `rs-hX9wC5jO****`, which is in the `Deleted` state
      * *   `rs-PqysnzIj****`, which is in the `Active` state
-     *  *
-     * @param ListResourceSharesRequest $request ListResourceSharesRequest
      *
-     * @return ListResourceSharesResponse ListResourceSharesResponse
+     * @param request - ListResourceSharesRequest
+     *
+     * @returns ListResourceSharesResponse
+     *
+     * @param ListResourceSharesRequest $request
+     *
+     * @return ListResourceSharesResponse
      */
     public function listResourceShares($request)
     {
@@ -1140,66 +1403,88 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resources you share with other accounts or the resources other accounts share with you.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
-     *  *
-     * @param ListSharedResourcesRequest $request ListSharedResourcesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the resources you share with other accounts or the resources other accounts share with you.
      *
-     * @return ListSharedResourcesResponse ListSharedResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
+     *
+     * @param request - ListSharedResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSharedResourcesResponse
+     *
+     * @param ListSharedResourcesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSharedResourcesResponse
      */
     public function listSharedResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceArns) {
+            @$query['ResourceArns'] = $request->resourceArns;
         }
-        if (!Utils::isUnset($request->resourceOwner)) {
-            $query['ResourceOwner'] = $request->resourceOwner;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->resourceShareIds)) {
-            $query['ResourceShareIds'] = $request->resourceShareIds;
+
+        if (null !== $request->resourceOwner) {
+            @$query['ResourceOwner'] = $request->resourceOwner;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceShareIds) {
+            @$query['ResourceShareIds'] = $request->resourceShareIds;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSharedResources',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSharedResources',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSharedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resources you share with other accounts or the resources other accounts share with you.
-     *  *
-     * @description This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
-     *  *
-     * @param ListSharedResourcesRequest $request ListSharedResourcesRequest
+     * Queries the resources you share with other accounts or the resources other accounts share with you.
      *
-     * @return ListSharedResourcesResponse ListSharedResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
+     *
+     * @param request - ListSharedResourcesRequest
+     *
+     * @returns ListSharedResourcesResponse
+     *
+     * @param ListSharedResourcesRequest $request
+     *
+     * @return ListSharedResourcesResponse
      */
     public function listSharedResources($request)
     {
@@ -1209,68 +1494,90 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary Queries principals.
-     *  *
-     * @description If you are a resource owner, you can query the principals with which you share your resources. If you are a principal, you can query the resources that are shared with you.
-     * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
-     *  *
-     * @param ListSharedTargetsRequest $request ListSharedTargetsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries principals.
      *
-     * @return ListSharedTargetsResponse ListSharedTargetsResponse
+     * @remarks
+     * If you are a resource owner, you can query the principals with which you share your resources. If you are a principal, you can query the resources that are shared with you.
+     * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
+     *
+     * @param request - ListSharedTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSharedTargetsResponse
+     *
+     * @param ListSharedTargetsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSharedTargetsResponse
      */
     public function listSharedTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceArn) {
+            @$query['ResourceArn'] = $request->resourceArn;
         }
-        if (!Utils::isUnset($request->resourceOwner)) {
-            $query['ResourceOwner'] = $request->resourceOwner;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceShareIds)) {
-            $query['ResourceShareIds'] = $request->resourceShareIds;
+
+        if (null !== $request->resourceOwner) {
+            @$query['ResourceOwner'] = $request->resourceOwner;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceShareIds) {
+            @$query['ResourceShareIds'] = $request->resourceShareIds;
         }
-        if (!Utils::isUnset($request->targets)) {
-            $query['Targets'] = $request->targets;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
+        if (null !== $request->targets) {
+            @$query['Targets'] = $request->targets;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSharedTargets',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSharedTargets',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSharedTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries principals.
-     *  *
-     * @description If you are a resource owner, you can query the principals with which you share your resources. If you are a principal, you can query the resources that are shared with you.
-     * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
-     *  *
-     * @param ListSharedTargetsRequest $request ListSharedTargetsRequest
+     * Queries principals.
      *
-     * @return ListSharedTargetsResponse ListSharedTargetsResponse
+     * @remarks
+     * If you are a resource owner, you can query the principals with which you share your resources. If you are a principal, you can query the resources that are shared with you.
+     * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
+     *
+     * @param request - ListSharedTargetsRequest
+     *
+     * @returns ListSharedTargetsResponse
+     *
+     * @param ListSharedTargetsRequest $request
+     *
+     * @return ListSharedTargetsResponse
      */
     public function listSharedTargets($request)
     {
@@ -1280,56 +1587,70 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary 查询资源标签
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags that are added to resource shares.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询资源标签
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags that are added to resource shares.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1339,48 +1660,60 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary 拒绝组织外共享邀请
-     *  *
-     * @description This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
-     *  *
-     * @param RejectResourceShareInvitationRequest $request RejectResourceShareInvitationRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 拒绝组织外共享邀请.
      *
-     * @return RejectResourceShareInvitationResponse RejectResourceShareInvitationResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
+     *
+     * @param request - RejectResourceShareInvitationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RejectResourceShareInvitationResponse
+     *
+     * @param RejectResourceShareInvitationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RejectResourceShareInvitationResponse
      */
     public function rejectResourceShareInvitationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceShareInvitationId)) {
-            $query['ResourceShareInvitationId'] = $request->resourceShareInvitationId;
+        if (null !== $request->resourceShareInvitationId) {
+            @$query['ResourceShareInvitationId'] = $request->resourceShareInvitationId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RejectResourceShareInvitation',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectResourceShareInvitation',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RejectResourceShareInvitationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 拒绝组织外共享邀请
-     *  *
-     * @description This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
-     *  *
-     * @param RejectResourceShareInvitationRequest $request RejectResourceShareInvitationRequest
+     * 拒绝组织外共享邀请.
      *
-     * @return RejectResourceShareInvitationResponse RejectResourceShareInvitationResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to reject the resource sharing invitation `i-yyTWbkjHArYh****` in the `cn-hangzhou` region.
+     *
+     * @param request - RejectResourceShareInvitationRequest
+     *
+     * @returns RejectResourceShareInvitationResponse
+     *
+     * @param RejectResourceShareInvitationRequest $request
+     *
+     * @return RejectResourceShareInvitationResponse
      */
     public function rejectResourceShareInvitation($request)
     {
@@ -1390,53 +1723,66 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary 资源打用户标签
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to a resource share.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 资源打用户标签
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to a resource share.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1446,56 +1792,70 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary 资源去除用户标签
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from resource shares.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 资源去除用户标签
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from resource shares.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -1505,56 +1865,70 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @summary 调用UpdateResourceShare修改共享单元基本信息。
-     *  *
-     * @description You can call this API operation to change the name or resource sharing scope of a resource share.
-     * This topic provides an example on how to call the API operation to change the name of the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region from `test` to `new`.
-     *  *
-     * @param UpdateResourceShareRequest $request UpdateResourceShareRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 调用UpdateResourceShare修改共享单元基本信息。
      *
-     * @return UpdateResourceShareResponse UpdateResourceShareResponse
+     * @remarks
+     * You can call this API operation to change the name or resource sharing scope of a resource share.
+     * This topic provides an example on how to call the API operation to change the name of the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region from `test` to `new`.
+     *
+     * @param request - UpdateResourceShareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceShareResponse
+     *
+     * @param UpdateResourceShareRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateResourceShareResponse
      */
     public function updateResourceShareWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowExternalTargets)) {
-            $query['AllowExternalTargets'] = $request->allowExternalTargets;
+        if (null !== $request->allowExternalTargets) {
+            @$query['AllowExternalTargets'] = $request->allowExternalTargets;
         }
-        if (!Utils::isUnset($request->resourceShareId)) {
-            $query['ResourceShareId'] = $request->resourceShareId;
+
+        if (null !== $request->resourceShareId) {
+            @$query['ResourceShareId'] = $request->resourceShareId;
         }
-        if (!Utils::isUnset($request->resourceShareName)) {
-            $query['ResourceShareName'] = $request->resourceShareName;
+
+        if (null !== $request->resourceShareName) {
+            @$query['ResourceShareName'] = $request->resourceShareName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResourceShare',
-            'version'     => '2020-01-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateResourceShare',
+            'version' => '2020-01-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateResourceShareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用UpdateResourceShare修改共享单元基本信息。
-     *  *
-     * @description You can call this API operation to change the name or resource sharing scope of a resource share.
-     * This topic provides an example on how to call the API operation to change the name of the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region from `test` to `new`.
-     *  *
-     * @param UpdateResourceShareRequest $request UpdateResourceShareRequest
+     * 调用UpdateResourceShare修改共享单元基本信息。
      *
-     * @return UpdateResourceShareResponse UpdateResourceShareResponse
+     * @remarks
+     * You can call this API operation to change the name or resource sharing scope of a resource share.
+     * This topic provides an example on how to call the API operation to change the name of the resource share `rs-qSkW1HBY****` in the `cn-hangzhou` region from `test` to `new`.
+     *
+     * @param request - UpdateResourceShareRequest
+     *
+     * @returns UpdateResourceShareResponse
+     *
+     * @param UpdateResourceShareRequest $request
+     *
+     * @return UpdateResourceShareResponse
      */
     public function updateResourceShare($request)
     {

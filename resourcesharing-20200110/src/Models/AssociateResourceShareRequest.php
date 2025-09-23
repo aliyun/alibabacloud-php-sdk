@@ -4,135 +4,199 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareRequest\resources;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareRequest\targetProperties;
-use AlibabaCloud\Tea\Model;
 
 class AssociateResourceShareRequest extends Model
 {
     /**
-     * @description The information about the permissions. If you do not configure this parameter, the system automatically associates the default permission for the specified resource type with the resource share. For more information, see [Permission library](https://help.aliyun.com/document_detail/465474.html).
-     *
      * @var string[]
      */
     public $permissionNames;
 
     /**
-     * @description The ID of the resource share.
-     *
-     * This parameter is required.
-     * @example rs-6GRmdD3X****
-     *
+     * @var string[]
+     */
+    public $resourceArns;
+
+    /**
      * @var string
      */
     public $resourceShareId;
 
     /**
-     * @description The information about the resources.
-     *
      * @var resources[]
      */
     public $resources;
 
     /**
-     * @description The properties of the principal.
-     *
-     * >  This parameter is available only when you specify an Alibaba Cloud service as a principal.
      * @var targetProperties[]
      */
     public $targetProperties;
 
     /**
-     * @description The information about the principals.
-     *
-     * @example 172050525300****
-     *
      * @var string[]
      */
     public $targets;
     protected $_name = [
-        'permissionNames'  => 'PermissionNames',
-        'resourceShareId'  => 'ResourceShareId',
-        'resources'        => 'Resources',
+        'permissionNames' => 'PermissionNames',
+        'resourceArns' => 'ResourceArns',
+        'resourceShareId' => 'ResourceShareId',
+        'resources' => 'Resources',
         'targetProperties' => 'TargetProperties',
-        'targets'          => 'Targets',
+        'targets' => 'Targets',
     ];
 
     public function validate()
     {
+        if (\is_array($this->permissionNames)) {
+            Model::validateArray($this->permissionNames);
+        }
+        if (\is_array($this->resourceArns)) {
+            Model::validateArray($this->resourceArns);
+        }
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        if (\is_array($this->targetProperties)) {
+            Model::validateArray($this->targetProperties);
+        }
+        if (\is_array($this->targets)) {
+            Model::validateArray($this->targets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->permissionNames) {
-            $res['PermissionNames'] = $this->permissionNames;
+            if (\is_array($this->permissionNames)) {
+                $res['PermissionNames'] = [];
+                $n1 = 0;
+                foreach ($this->permissionNames as $item1) {
+                    $res['PermissionNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (null !== $this->resourceArns) {
+            if (\is_array($this->resourceArns)) {
+                $res['ResourceArns'] = [];
+                $n1 = 0;
+                foreach ($this->resourceArns as $item1) {
+                    $res['ResourceArns'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->resourceShareId) {
             $res['ResourceShareId'] = $this->resourceShareId;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1 = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->targetProperties) {
-            $res['TargetProperties'] = [];
-            if (null !== $this->targetProperties && \is_array($this->targetProperties)) {
-                $n = 0;
-                foreach ($this->targetProperties as $item) {
-                    $res['TargetProperties'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->targetProperties)) {
+                $res['TargetProperties'] = [];
+                $n1 = 0;
+                foreach ($this->targetProperties as $item1) {
+                    $res['TargetProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->targets) {
-            $res['Targets'] = $this->targets;
+            if (\is_array($this->targets)) {
+                $res['Targets'] = [];
+                $n1 = 0;
+                foreach ($this->targets as $item1) {
+                    $res['Targets'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssociateResourceShareRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PermissionNames'])) {
             if (!empty($map['PermissionNames'])) {
-                $model->permissionNames = $map['PermissionNames'];
+                $model->permissionNames = [];
+                $n1 = 0;
+                foreach ($map['PermissionNames'] as $item1) {
+                    $model->permissionNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
+        if (isset($map['ResourceArns'])) {
+            if (!empty($map['ResourceArns'])) {
+                $model->resourceArns = [];
+                $n1 = 0;
+                foreach ($map['ResourceArns'] as $item1) {
+                    $model->resourceArns[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ResourceShareId'])) {
             $model->resourceShareId = $map['ResourceShareId'];
         }
+
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n                = 0;
-                foreach ($map['Resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1] = resources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TargetProperties'])) {
             if (!empty($map['TargetProperties'])) {
                 $model->targetProperties = [];
-                $n                       = 0;
-                foreach ($map['TargetProperties'] as $item) {
-                    $model->targetProperties[$n++] = null !== $item ? targetProperties::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TargetProperties'] as $item1) {
+                    $model->targetProperties[$n1] = targetProperties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
-                $model->targets = $map['Targets'];
+                $model->targets = [];
+                $n1 = 0;
+                foreach ($map['Targets'] as $item1) {
+                    $model->targets[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

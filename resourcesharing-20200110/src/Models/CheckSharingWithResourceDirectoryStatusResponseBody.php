@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckSharingWithResourceDirectoryStatusResponseBody extends Model
 {
     /**
-     * @description Indicates whether resource sharing within a resource directory is enabled. Valid values:
-     *
-     *   false
-     *   true
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableSharingWithRd;
 
     /**
-     * @description The request ID.
-     *
-     * @example 819545D0-C97A-5DB3-BD73-A1B17E9A4BC1
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'enableSharingWithRd' => 'EnableSharingWithRd',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableSharingWithRd) {
             $res['EnableSharingWithRd'] = $this->enableSharingWithRd;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +41,18 @@ class CheckSharingWithResourceDirectoryStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckSharingWithResourceDirectoryStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableSharingWithRd'])) {
             $model->enableSharingWithRd = $map['EnableSharingWithRd'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

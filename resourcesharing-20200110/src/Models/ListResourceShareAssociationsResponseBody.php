@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceShareAssociationsResponseBody\resourceShareAssociations;
-use AlibabaCloud\Tea\Model;
 
 class ListResourceShareAssociationsResponseBody extends Model
 {
     /**
-     * @description The `token` that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
-     *
-     * @example TGlzdFJlc291cm****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example 11BA57B5-7301-4E2F-BBA5-2AE4C2F4FCDB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information of the entities.
-     *
      * @var resourceShareAssociations[]
      */
     public $resourceShareAssociations;
     protected $_name = [
-        'nextToken'                 => 'NextToken',
-        'requestId'                 => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'resourceShareAssociations' => 'ResourceShareAssociations',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceShareAssociations)) {
+            Model::validateArray($this->resourceShareAssociations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceShareAssociations) {
-            $res['ResourceShareAssociations'] = [];
-            if (null !== $this->resourceShareAssociations && \is_array($this->resourceShareAssociations)) {
-                $n = 0;
-                foreach ($this->resourceShareAssociations as $item) {
-                    $res['ResourceShareAssociations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceShareAssociations)) {
+                $res['ResourceShareAssociations'] = [];
+                $n1 = 0;
+                foreach ($this->resourceShareAssociations as $item1) {
+                    $res['ResourceShareAssociations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -65,26 +62,29 @@ class ListResourceShareAssociationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceShareAssociationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceShareAssociations'])) {
             if (!empty($map['ResourceShareAssociations'])) {
                 $model->resourceShareAssociations = [];
-                $n                                = 0;
-                foreach ($map['ResourceShareAssociations'] as $item) {
-                    $model->resourceShareAssociations[$n++] = null !== $item ? resourceShareAssociations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceShareAssociations'] as $item1) {
+                    $model->resourceShareAssociations[$n1] = resourceShareAssociations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
