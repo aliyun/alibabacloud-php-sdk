@@ -37,6 +37,10 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceIpWhitelistResponse
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceIpWhitelistShrinkRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteTopicResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ExecuteMigrationOperationRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ExecuteMigrationOperationResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\FinishMigrationStageRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\FinishMigrationStageResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupLagRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupLagResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponse;
@@ -82,6 +86,8 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMessagesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMessagesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationOperationsRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationOperationsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTagResourcesResponse;
@@ -1429,6 +1435,144 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->deleteTopicWithOptions($instanceId, $topicName, $headers, $runtime);
+    }
+
+    /**
+     * 执行迁移操作.
+     *
+     * @param request - ExecuteMigrationOperationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteMigrationOperationResponse
+     *
+     * @param string                           $migrationId
+     * @param string                           $stageType
+     * @param string                           $operationId
+     * @param ExecuteMigrationOperationRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ExecuteMigrationOperationResponse
+     */
+    public function executeMigrationOperationWithOptions($migrationId, $stageType, $operationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->operationParam) {
+            @$body['operationParam'] = $request->operationParam;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteMigrationOperation',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/migrations/' . Url::percentEncode($migrationId) . '/stages/' . Url::percentEncode($stageType) . '/operations/' . Url::percentEncode($operationId) . '/execute',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteMigrationOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 执行迁移操作.
+     *
+     * @param request - ExecuteMigrationOperationRequest
+     *
+     * @returns ExecuteMigrationOperationResponse
+     *
+     * @param string                           $migrationId
+     * @param string                           $stageType
+     * @param string                           $operationId
+     * @param ExecuteMigrationOperationRequest $request
+     *
+     * @return ExecuteMigrationOperationResponse
+     */
+    public function executeMigrationOperation($migrationId, $stageType, $operationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeMigrationOperationWithOptions($migrationId, $stageType, $operationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 完成当前迁移阶段.
+     *
+     * @param request - FinishMigrationStageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FinishMigrationStageResponse
+     *
+     * @param string                      $migrationId
+     * @param string                      $stageType
+     * @param FinishMigrationStageRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FinishMigrationStageResponse
+     */
+    public function finishMigrationStageWithOptions($migrationId, $stageType, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FinishMigrationStage',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/migrations/' . Url::percentEncode($migrationId) . '/stages/' . Url::percentEncode($stageType) . '/finish',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return FinishMigrationStageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 完成当前迁移阶段.
+     *
+     * @param request - FinishMigrationStageRequest
+     *
+     * @returns FinishMigrationStageResponse
+     *
+     * @param string                      $migrationId
+     * @param string                      $stageType
+     * @param FinishMigrationStageRequest $request
+     *
+     * @return FinishMigrationStageResponse
+     */
+    public function finishMigrationStage($migrationId, $stageType, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->finishMigrationStageWithOptions($migrationId, $stageType, $request, $headers, $runtime);
     }
 
     /**
@@ -3154,6 +3298,87 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->listMetricMetaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询迁移操作列表.
+     *
+     * @param request - ListMigrationOperationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMigrationOperationsResponse
+     *
+     * @param string                         $migrationId
+     * @param string                         $stageType
+     * @param ListMigrationOperationsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListMigrationOperationsResponse
+     */
+    public function listMigrationOperationsWithOptions($migrationId, $stageType, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->operationType) {
+            @$query['operationType'] = $request->operationType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMigrationOperations',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/migrations/' . Url::percentEncode($migrationId) . '/stages/' . Url::percentEncode($stageType) . '/operations',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMigrationOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询迁移操作列表.
+     *
+     * @param request - ListMigrationOperationsRequest
+     *
+     * @returns ListMigrationOperationsResponse
+     *
+     * @param string                         $migrationId
+     * @param string                         $stageType
+     * @param ListMigrationOperationsRequest $request
+     *
+     * @return ListMigrationOperationsResponse
+     */
+    public function listMigrationOperations($migrationId, $stageType, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMigrationOperationsWithOptions($migrationId, $stageType, $request, $headers, $runtime);
     }
 
     /**
