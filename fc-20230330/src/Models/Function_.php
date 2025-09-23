@@ -96,6 +96,11 @@ class Function_ extends Model
     /**
      * @var int
      */
+    public $idleTimeout;
+
+    /**
+     * @var int
+     */
     public $instanceConcurrency;
 
     /**
@@ -240,6 +245,7 @@ class Function_ extends Model
         'functionName' => 'functionName',
         'gpuConfig' => 'gpuConfig',
         'handler' => 'handler',
+        'idleTimeout' => 'idleTimeout',
         'instanceConcurrency' => 'instanceConcurrency',
         'instanceIsolationMode' => 'instanceIsolationMode',
         'instanceLifecycleConfig' => 'instanceLifecycleConfig',
@@ -389,6 +395,10 @@ class Function_ extends Model
 
         if (null !== $this->handler) {
             $res['handler'] = $this->handler;
+        }
+
+        if (null !== $this->idleTimeout) {
+            $res['idleTimeout'] = $this->idleTimeout;
         }
 
         if (null !== $this->instanceConcurrency) {
@@ -591,6 +601,10 @@ class Function_ extends Model
 
         if (isset($map['handler'])) {
             $model->handler = $map['handler'];
+        }
+
+        if (isset($map['idleTimeout'])) {
+            $model->idleTimeout = $map['idleTimeout'];
         }
 
         if (isset($map['instanceConcurrency'])) {
