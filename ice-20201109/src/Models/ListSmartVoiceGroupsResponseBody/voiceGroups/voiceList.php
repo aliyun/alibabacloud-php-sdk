@@ -41,6 +41,11 @@ class voiceList extends Model
     /**
      * @var string
      */
+    public $voiceSource;
+
+    /**
+     * @var string
+     */
     public $voiceType;
 
     /**
@@ -54,6 +59,7 @@ class voiceList extends Model
         'supportSampleRate' => 'SupportSampleRate',
         'tag' => 'Tag',
         'voice' => 'Voice',
+        'voiceSource' => 'VoiceSource',
         'voiceType' => 'VoiceType',
         'voiceUrl' => 'VoiceUrl',
     ];
@@ -88,6 +94,10 @@ class voiceList extends Model
 
         if (null !== $this->voice) {
             $res['Voice'] = $this->voice;
+        }
+
+        if (null !== $this->voiceSource) {
+            $res['VoiceSource'] = $this->voiceSource;
         }
 
         if (null !== $this->voiceType) {
@@ -131,6 +141,10 @@ class voiceList extends Model
 
         if (isset($map['Voice'])) {
             $model->voice = $map['Voice'];
+        }
+
+        if (isset($map['VoiceSource'])) {
+            $model->voiceSource = $map['VoiceSource'];
         }
 
         if (isset($map['VoiceType'])) {
