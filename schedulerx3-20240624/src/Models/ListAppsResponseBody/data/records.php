@@ -77,6 +77,11 @@ class records extends Model
      * @var string
      */
     public $updater;
+
+    /**
+     * @var string
+     */
+    public $workerRegistry;
     protected $_name = [
         'accessToken' => 'AccessToken',
         'appName' => 'AppName',
@@ -92,6 +97,7 @@ class records extends Model
         'maxJobs' => 'MaxJobs',
         'title' => 'Title',
         'updater' => 'Updater',
+        'workerRegistry' => 'WorkerRegistry',
     ];
 
     public function validate()
@@ -156,6 +162,10 @@ class records extends Model
 
         if (null !== $this->updater) {
             $res['Updater'] = $this->updater;
+        }
+
+        if (null !== $this->workerRegistry) {
+            $res['WorkerRegistry'] = $this->workerRegistry;
         }
 
         return $res;
@@ -223,6 +233,10 @@ class records extends Model
 
         if (isset($map['Updater'])) {
             $model->updater = $map['Updater'];
+        }
+
+        if (isset($map['WorkerRegistry'])) {
+            $model->workerRegistry = $map['WorkerRegistry'];
         }
 
         return $model;

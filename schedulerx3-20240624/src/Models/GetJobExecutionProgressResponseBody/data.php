@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $jobDescription;
 
     /**
@@ -27,6 +32,11 @@ class data extends Model
      * @var shardingProgress[]
      */
     public $shardingProgress;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @var taskProgress[]
@@ -43,9 +53,11 @@ class data extends Model
      */
     public $workerProgress;
     protected $_name = [
+        'endTime' => 'EndTime',
         'jobDescription' => 'JobDescription',
         'rootProgress' => 'RootProgress',
         'shardingProgress' => 'ShardingProgress',
+        'startTime' => 'StartTime',
         'taskProgress' => 'TaskProgress',
         'totalProgress' => 'TotalProgress',
         'workerProgress' => 'WorkerProgress',
@@ -74,6 +86,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->jobDescription) {
             $res['JobDescription'] = $this->jobDescription;
         }
@@ -91,6 +107,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->taskProgress) {
@@ -130,6 +150,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['JobDescription'])) {
             $model->jobDescription = $map['JobDescription'];
         }
@@ -147,6 +171,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['TaskProgress'])) {

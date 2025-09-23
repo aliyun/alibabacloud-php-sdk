@@ -13,6 +13,11 @@ class CreateClusterRequest extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $clusterName;
 
     /**
@@ -21,9 +26,19 @@ class CreateClusterRequest extends Model
     public $clusterSpec;
 
     /**
+     * @var int
+     */
+    public $duration;
+
+    /**
      * @var string
      */
     public $engineType;
+
+    /**
+     * @var string
+     */
+    public $pricingCycle;
 
     /**
      * @var tag[]
@@ -40,9 +55,12 @@ class CreateClusterRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'clusterName' => 'ClusterName',
         'clusterSpec' => 'ClusterSpec',
+        'duration' => 'Duration',
         'engineType' => 'EngineType',
+        'pricingCycle' => 'PricingCycle',
         'tag' => 'Tag',
         'vSwitches' => 'VSwitches',
         'vpcId' => 'VpcId',
@@ -62,6 +80,10 @@ class CreateClusterRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -70,8 +92,16 @@ class CreateClusterRequest extends Model
             $res['ClusterSpec'] = $this->clusterSpec;
         }
 
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
+        }
+
+        if (null !== $this->pricingCycle) {
+            $res['PricingCycle'] = $this->pricingCycle;
         }
 
         if (null !== $this->tag) {
@@ -111,6 +141,10 @@ class CreateClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
@@ -119,8 +153,16 @@ class CreateClusterRequest extends Model
             $model->clusterSpec = $map['ClusterSpec'];
         }
 
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
+        }
+
+        if (isset($map['PricingCycle'])) {
+            $model->pricingCycle = $map['PricingCycle'];
         }
 
         if (isset($map['Tag'])) {

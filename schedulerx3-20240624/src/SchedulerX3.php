@@ -249,6 +249,10 @@ class SchedulerX3 extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
+        }
+
         if (null !== $request->clusterName) {
             @$body['ClusterName'] = $request->clusterName;
         }
@@ -257,8 +261,16 @@ class SchedulerX3 extends OpenApiClient
             @$body['ClusterSpec'] = $request->clusterSpec;
         }
 
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
+        }
+
         if (null !== $request->engineType) {
             @$body['EngineType'] = $request->engineType;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$body['PricingCycle'] = $request->pricingCycle;
         }
 
         if (null !== $request->vSwitchesShrink) {
