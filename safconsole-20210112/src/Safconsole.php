@@ -4,19 +4,17 @@
 
 namespace AlibabaCloud\SDK\Safconsole\V20210112;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Safconsole\V20210112\Models\RevokeFeedbackRequest;
 use AlibabaCloud\SDK\Safconsole\V20210112\Models\RevokeFeedbackResponse;
 use AlibabaCloud\SDK\Safconsole\V20210112\Models\SendFeedbackRequest;
 use AlibabaCloud\SDK\Safconsole\V20210112\Models\SendFeedbackResponse;
 use AlibabaCloud\SDK\Safconsole\V20210112\Models\UploadSampleApiRequest;
 use AlibabaCloud\SDK\Safconsole\V20210112\Models\UploadSampleApiResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Safconsole extends OpenApiClient
 {
@@ -41,17 +39,25 @@ class Safconsole extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * Used for external deletion of community samples in risk identification services.
+     *
+     * @param request - RevokeFeedbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeFeedbackResponse
+     *
      * @param RevokeFeedbackRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -59,33 +65,41 @@ class Safconsole extends OpenApiClient
      */
     public function revokeFeedbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->sampleType)) {
-            $body['SampleType'] = $request->sampleType;
+        if (null !== $request->sampleType) {
+            @$body['SampleType'] = $request->sampleType;
         }
-        if (!Utils::isUnset($request->value)) {
-            $body['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RevokeFeedback',
-            'version'     => '2021-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeFeedback',
+            'version' => '2021-01-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RevokeFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Used for external deletion of community samples in risk identification services.
+     *
+     * @param request - RevokeFeedbackRequest
+     *
+     * @returns RevokeFeedbackResponse
+     *
      * @param RevokeFeedbackRequest $request
      *
      * @return RevokeFeedbackResponse
@@ -98,6 +112,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
+     * Used for the external creation of community samples in risk identification services.
+     *
+     * @param request - SendFeedbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendFeedbackResponse
+     *
      * @param SendFeedbackRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -105,36 +126,49 @@ class Safconsole extends OpenApiClient
      */
     public function sendFeedbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->riskLabel)) {
-            $query['RiskLabel'] = $request->riskLabel;
+        if (null !== $request->reason) {
+            @$query['Reason'] = $request->reason;
         }
-        if (!Utils::isUnset($request->sampleType)) {
-            $query['SampleType'] = $request->sampleType;
+
+        if (null !== $request->riskLabel) {
+            @$query['RiskLabel'] = $request->riskLabel;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->sampleType) {
+            @$query['SampleType'] = $request->sampleType;
         }
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendFeedback',
-            'version'     => '2021-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendFeedback',
+            'version' => '2021-01-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Used for the external creation of community samples in risk identification services.
+     *
+     * @param request - SendFeedbackRequest
+     *
+     * @returns SendFeedbackResponse
+     *
      * @param SendFeedbackRequest $request
      *
      * @return SendFeedbackResponse
@@ -147,6 +181,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
+     * Single User API for Sample Creation.
+     *
+     * @param request - UploadSampleApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadSampleApiResponse
+     *
      * @param UploadSampleApiRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -154,39 +195,49 @@ class Safconsole extends OpenApiClient
      */
     public function uploadSampleApiWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->dataValue)) {
-            $query['DataValue'] = $request->dataValue;
+
+        if (null !== $request->dataValue) {
+            @$query['DataValue'] = $request->dataValue;
         }
-        if (!Utils::isUnset($request->sampleType)) {
-            $query['SampleType'] = $request->sampleType;
+
+        if (null !== $request->sampleType) {
+            @$query['SampleType'] = $request->sampleType;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UploadSampleApi',
-            'version'     => '2021-01-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadSampleApi',
+            'version' => '2021-01-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadSampleApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Single User API for Sample Creation.
+     *
+     * @param request - UploadSampleApiRequest
+     *
+     * @returns UploadSampleApiResponse
+     *
      * @param UploadSampleApiRequest $request
      *
      * @return UploadSampleApiResponse
