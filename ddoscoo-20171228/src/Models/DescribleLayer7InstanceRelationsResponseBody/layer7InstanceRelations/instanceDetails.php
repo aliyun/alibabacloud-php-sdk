@@ -56,7 +56,8 @@ class instanceDetails extends Model
                 $res['EipList'] = [];
                 $n1 = 0;
                 foreach ($this->eipList as $item1) {
-                    $res['EipList'][$n1++] = $item1;
+                    $res['EipList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class instanceDetails extends Model
                 $model->eipList = [];
                 $n1 = 0;
                 foreach ($map['EipList'] as $item1) {
-                    $model->eipList[$n1++] = $item1;
+                    $model->eipList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

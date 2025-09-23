@@ -39,7 +39,8 @@ class DescribeDomainAccessModeResponseBody extends Model
                 $res['DomainModeList'] = [];
                 $n1 = 0;
                 foreach ($this->domainModeList as $item1) {
-                    $res['DomainModeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainModeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeDomainAccessModeResponseBody extends Model
                 $model->domainModeList = [];
                 $n1 = 0;
                 foreach ($map['DomainModeList'] as $item1) {
-                    $model->domainModeList[$n1++] = domainModeList::fromMap($item1);
+                    $model->domainModeList[$n1] = domainModeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

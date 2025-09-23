@@ -39,7 +39,8 @@ class DescribeHealthCheckStatusListResponseBody extends Model
                 $res['HealthCheckStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->healthCheckStatusList as $item1) {
-                    $res['HealthCheckStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['HealthCheckStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribeHealthCheckStatusListResponseBody extends Model
                 $model->healthCheckStatusList = [];
                 $n1 = 0;
                 foreach ($map['HealthCheckStatusList'] as $item1) {
-                    $model->healthCheckStatusList[$n1++] = healthCheckStatusList::fromMap($item1);
+                    $model->healthCheckStatusList[$n1] = healthCheckStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

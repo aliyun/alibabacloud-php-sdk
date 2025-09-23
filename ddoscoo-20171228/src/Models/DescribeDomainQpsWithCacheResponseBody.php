@@ -122,7 +122,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['Blocks'] = [];
                 $n1 = 0;
                 foreach ($this->blocks as $item1) {
-                    $res['Blocks'][$n1++] = $item1;
+                    $res['Blocks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +133,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['CacheHits'] = [];
                 $n1 = 0;
                 foreach ($this->cacheHits as $item1) {
-                    $res['CacheHits'][$n1++] = $item1;
+                    $res['CacheHits'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +144,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['CcBlockQps'] = [];
                 $n1 = 0;
                 foreach ($this->ccBlockQps as $item1) {
-                    $res['CcBlockQps'][$n1++] = $item1;
+                    $res['CcBlockQps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['CcJsQps'] = [];
                 $n1 = 0;
                 foreach ($this->ccJsQps as $item1) {
-                    $res['CcJsQps'][$n1++] = $item1;
+                    $res['CcJsQps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +170,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['IpBlockQps'] = [];
                 $n1 = 0;
                 foreach ($this->ipBlockQps as $item1) {
-                    $res['IpBlockQps'][$n1++] = $item1;
+                    $res['IpBlockQps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +181,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['PreciseBlocks'] = [];
                 $n1 = 0;
                 foreach ($this->preciseBlocks as $item1) {
-                    $res['PreciseBlocks'][$n1++] = $item1;
+                    $res['PreciseBlocks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +192,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['PreciseJsQps'] = [];
                 $n1 = 0;
                 foreach ($this->preciseJsQps as $item1) {
-                    $res['PreciseJsQps'][$n1++] = $item1;
+                    $res['PreciseJsQps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +203,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['RegionBlocks'] = [];
                 $n1 = 0;
                 foreach ($this->regionBlocks as $item1) {
-                    $res['RegionBlocks'][$n1++] = $item1;
+                    $res['RegionBlocks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -214,7 +222,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $res['Totals'] = [];
                 $n1 = 0;
                 foreach ($this->totals as $item1) {
-                    $res['Totals'][$n1++] = $item1;
+                    $res['Totals'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -235,7 +244,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->blocks = [];
                 $n1 = 0;
                 foreach ($map['Blocks'] as $item1) {
-                    $model->blocks[$n1++] = $item1;
+                    $model->blocks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +255,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->cacheHits = [];
                 $n1 = 0;
                 foreach ($map['CacheHits'] as $item1) {
-                    $model->cacheHits[$n1++] = $item1;
+                    $model->cacheHits[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +266,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->ccBlockQps = [];
                 $n1 = 0;
                 foreach ($map['CcBlockQps'] as $item1) {
-                    $model->ccBlockQps[$n1++] = $item1;
+                    $model->ccBlockQps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +277,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->ccJsQps = [];
                 $n1 = 0;
                 foreach ($map['CcJsQps'] as $item1) {
-                    $model->ccJsQps[$n1++] = $item1;
+                    $model->ccJsQps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -279,7 +292,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->ipBlockQps = [];
                 $n1 = 0;
                 foreach ($map['IpBlockQps'] as $item1) {
-                    $model->ipBlockQps[$n1++] = $item1;
+                    $model->ipBlockQps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -289,7 +303,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->preciseBlocks = [];
                 $n1 = 0;
                 foreach ($map['PreciseBlocks'] as $item1) {
-                    $model->preciseBlocks[$n1++] = $item1;
+                    $model->preciseBlocks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -299,7 +314,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->preciseJsQps = [];
                 $n1 = 0;
                 foreach ($map['PreciseJsQps'] as $item1) {
-                    $model->preciseJsQps[$n1++] = $item1;
+                    $model->preciseJsQps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -309,7 +325,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->regionBlocks = [];
                 $n1 = 0;
                 foreach ($map['RegionBlocks'] as $item1) {
-                    $model->regionBlocks[$n1++] = $item1;
+                    $model->regionBlocks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -327,7 +344,8 @@ class DescribeDomainQpsWithCacheResponseBody extends Model
                 $model->totals = [];
                 $n1 = 0;
                 foreach ($map['Totals'] as $item1) {
-                    $model->totals[$n1++] = $item1;
+                    $model->totals[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

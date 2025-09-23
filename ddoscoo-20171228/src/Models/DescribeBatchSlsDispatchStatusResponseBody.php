@@ -49,7 +49,8 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
                 $res['SlsConfigStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->slsConfigStatusList as $item1) {
-                    $res['SlsConfigStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SlsConfigStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
                 $model->slsConfigStatusList = [];
                 $n1 = 0;
                 foreach ($map['SlsConfigStatusList'] as $item1) {
-                    $model->slsConfigStatusList[$n1++] = slsConfigStatusList::fromMap($item1);
+                    $model->slsConfigStatusList[$n1] = slsConfigStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class layer7InstanceRelations extends Model
                 $res['InstanceDetails'] = [];
                 $n1 = 0;
                 foreach ($this->instanceDetails as $item1) {
-                    $res['InstanceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class layer7InstanceRelations extends Model
                 $model->instanceDetails = [];
                 $n1 = 0;
                 foreach ($map['InstanceDetails'] as $item1) {
-                    $model->instanceDetails[$n1++] = instanceDetails::fromMap($item1);
+                    $model->instanceDetails[$n1] = instanceDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

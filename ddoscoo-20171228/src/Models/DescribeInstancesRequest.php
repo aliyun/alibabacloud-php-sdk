@@ -152,7 +152,8 @@ class DescribeInstancesRequest extends Model
                 $res['Status'] = [];
                 $n1 = 0;
                 foreach ($this->status as $item1) {
-                    $res['Status'][$n1++] = $item1;
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -162,7 +163,8 @@ class DescribeInstancesRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +229,8 @@ class DescribeInstancesRequest extends Model
                 $model->status = [];
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
-                    $model->status[$n1++] = $item1;
+                    $model->status[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +240,8 @@ class DescribeInstancesRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

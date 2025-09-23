@@ -48,7 +48,8 @@ class layer7CustomPorts extends Model
                 $res['ProxyPorts'] = [];
                 $n1 = 0;
                 foreach ($this->proxyPorts as $item1) {
-                    $res['ProxyPorts'][$n1++] = $item1;
+                    $res['ProxyPorts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class layer7CustomPorts extends Model
                 $model->proxyPorts = [];
                 $n1 = 0;
                 foreach ($map['ProxyPorts'] as $item1) {
-                    $model->proxyPorts[$n1++] = $item1;
+                    $model->proxyPorts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

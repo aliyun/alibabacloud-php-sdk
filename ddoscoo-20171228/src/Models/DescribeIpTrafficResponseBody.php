@@ -71,7 +71,8 @@ class DescribeIpTrafficResponseBody extends Model
                 $res['IpTrafficPoints'] = [];
                 $n1 = 0;
                 foreach ($this->ipTrafficPoints as $item1) {
-                    $res['IpTrafficPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['IpTrafficPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class DescribeIpTrafficResponseBody extends Model
                 $model->ipTrafficPoints = [];
                 $n1 = 0;
                 foreach ($map['IpTrafficPoints'] as $item1) {
-                    $model->ipTrafficPoints[$n1++] = ipTrafficPoints::fromMap($item1);
+                    $model->ipTrafficPoints[$n1] = ipTrafficPoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

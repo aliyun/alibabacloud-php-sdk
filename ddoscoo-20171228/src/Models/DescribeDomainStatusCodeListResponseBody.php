@@ -43,7 +43,8 @@ class DescribeDomainStatusCodeListResponseBody extends Model
                 $res['StatusCodeList'] = [];
                 $n1 = 0;
                 foreach ($this->statusCodeList as $item1) {
-                    $res['StatusCodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StatusCodeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeDomainStatusCodeListResponseBody extends Model
                 $model->statusCodeList = [];
                 $n1 = 0;
                 foreach ($map['StatusCodeList'] as $item1) {
-                    $model->statusCodeList[$n1++] = statusCodeList::fromMap($item1);
+                    $model->statusCodeList[$n1] = statusCodeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

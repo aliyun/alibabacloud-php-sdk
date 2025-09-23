@@ -39,7 +39,8 @@ class ListLayer7CustomPortsResponseBody extends Model
                 $res['Layer7CustomPorts'] = [];
                 $n1 = 0;
                 foreach ($this->layer7CustomPorts as $item1) {
-                    $res['Layer7CustomPorts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Layer7CustomPorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListLayer7CustomPortsResponseBody extends Model
                 $model->layer7CustomPorts = [];
                 $n1 = 0;
                 foreach ($map['Layer7CustomPorts'] as $item1) {
-                    $model->layer7CustomPorts[$n1++] = layer7CustomPorts::fromMap($item1);
+                    $model->layer7CustomPorts[$n1] = layer7CustomPorts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

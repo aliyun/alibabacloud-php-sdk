@@ -45,7 +45,8 @@ class DescribeLayer7CCRulesResponseBody extends Model
                 $res['Layer7CCRules'] = [];
                 $n1 = 0;
                 foreach ($this->layer7CCRules as $item1) {
-                    $res['Layer7CCRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Layer7CCRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeLayer7CCRulesResponseBody extends Model
                 $model->layer7CCRules = [];
                 $n1 = 0;
                 foreach ($map['Layer7CCRules'] as $item1) {
-                    $model->layer7CCRules[$n1++] = layer7CCRules::fromMap($item1);
+                    $model->layer7CCRules[$n1] = layer7CCRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

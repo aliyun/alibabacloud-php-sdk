@@ -39,7 +39,8 @@ class DescribleLayer7InstanceRelationsResponseBody extends Model
                 $res['Layer7InstanceRelations'] = [];
                 $n1 = 0;
                 foreach ($this->layer7InstanceRelations as $item1) {
-                    $res['Layer7InstanceRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Layer7InstanceRelations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class DescribleLayer7InstanceRelationsResponseBody extends Model
                 $model->layer7InstanceRelations = [];
                 $n1 = 0;
                 foreach ($map['Layer7InstanceRelations'] as $item1) {
-                    $model->layer7InstanceRelations[$n1++] = layer7InstanceRelations::fromMap($item1);
+                    $model->layer7InstanceRelations[$n1] = layer7InstanceRelations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

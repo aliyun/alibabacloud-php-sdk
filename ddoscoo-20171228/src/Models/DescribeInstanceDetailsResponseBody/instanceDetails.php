@@ -45,7 +45,8 @@ class instanceDetails extends Model
                 $res['EipInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->eipInfoList as $item1) {
-                    $res['EipInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EipInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class instanceDetails extends Model
                 $model->eipInfoList = [];
                 $n1 = 0;
                 foreach ($map['EipInfoList'] as $item1) {
-                    $model->eipInfoList[$n1++] = eipInfoList::fromMap($item1);
+                    $model->eipInfoList[$n1] = eipInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

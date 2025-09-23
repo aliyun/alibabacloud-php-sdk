@@ -33,7 +33,8 @@ class cc extends Model
                 $res['Sblack'] = [];
                 $n1 = 0;
                 foreach ($this->sblack as $item1) {
-                    $res['Sblack'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Sblack'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class cc extends Model
                 $model->sblack = [];
                 $n1 = 0;
                 foreach ($map['Sblack'] as $item1) {
-                    $model->sblack[$n1++] = sblack::fromMap($item1);
+                    $model->sblack[$n1] = sblack::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

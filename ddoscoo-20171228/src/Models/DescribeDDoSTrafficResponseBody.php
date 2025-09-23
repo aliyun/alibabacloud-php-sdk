@@ -51,7 +51,8 @@ class DescribeDDoSTrafficResponseBody extends Model
                 $res['DDoSTrafficPoints'] = [];
                 $n1 = 0;
                 foreach ($this->DDoSTrafficPoints as $item1) {
-                    $res['DDoSTrafficPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DDoSTrafficPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeDDoSTrafficResponseBody extends Model
                 $model->DDoSTrafficPoints = [];
                 $n1 = 0;
                 foreach ($map['DDoSTrafficPoints'] as $item1) {
-                    $model->DDoSTrafficPoints[$n1++] = DDoSTrafficPoints::fromMap($item1);
+                    $model->DDoSTrafficPoints[$n1] = DDoSTrafficPoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

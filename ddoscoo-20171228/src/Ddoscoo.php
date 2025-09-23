@@ -249,11 +249,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddLayer7CCRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -317,11 +314,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CloseDomainSlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CloseDomainSlsConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CloseDomainSlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -385,11 +379,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigHealthCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -455,11 +446,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigLayer4RuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -509,6 +497,10 @@ class Ddoscoo extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->module) {
+            @$query['Module'] = $request->module;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -523,11 +515,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigLayer4RuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigLayer4RuleAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigLayer4RuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -591,11 +580,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigLayer7BlackWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigLayer7BlackWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigLayer7BlackWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -679,11 +665,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigLayer7CCRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -743,11 +726,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigLayer7CCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigLayer7CCTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigLayer7CCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -827,11 +807,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigLayer7CertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigLayer7CertResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigLayer7CertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -907,11 +884,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigLayer7RuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -971,11 +945,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1041,11 +1012,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLayer4RuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1113,11 +1081,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLayer7RuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1173,11 +1138,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1229,11 +1191,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLayer4RuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1293,11 +1252,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLayer7CCRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1353,11 +1309,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLayer7RuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1421,11 +1374,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackSourceCidrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackSourceCidrResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackSourceCidrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1495,11 +1445,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBatchSlsDispatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBatchSlsDispatchStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBatchSlsDispatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1577,11 +1524,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDDoSEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDDoSEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDDoSEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1653,11 +1597,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDDoSTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDDoSTrafficResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDDoSTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1713,11 +1654,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDefenseCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDefenseCountStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDefenseCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1773,11 +1711,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainAccessModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1849,11 +1784,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainAttackEventListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainAttackEventListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainAttackEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1917,11 +1849,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainAttackMaxQpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainAttackMaxQpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainAttackMaxQpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1985,11 +1914,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainOverviewResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2057,11 +1983,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainQpsListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainQpsListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainQpsListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2129,11 +2052,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainQpsWithCacheResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainQpsWithCacheResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainQpsWithCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2197,11 +2117,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainSlsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainSlsStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainSlsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2275,11 +2192,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainStatusCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainStatusCodeListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainStatusCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2357,11 +2271,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2417,11 +2328,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeElasticBandwidthSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeElasticBandwidthSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeElasticBandwidthSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2477,11 +2385,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHealthCheckListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHealthCheckListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHealthCheckListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2537,11 +2442,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHealthCheckStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHealthCheckStatusListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHealthCheckStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2597,11 +2499,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2657,11 +2556,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceSpecsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2717,11 +2613,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2821,11 +2714,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2905,11 +2795,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIpTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIpTrafficResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIpTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2965,11 +2852,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeLayer4RuleAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLayer4RuleAttributesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLayer4RuleAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3043,11 +2927,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeLayer4RulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLayer4RulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLayer4RulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3117,11 +2998,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeLayer7CCRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLayer7CCRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLayer7CCRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3181,11 +3059,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeLogStoreExistStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLogStoreExistStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLogStoreExistStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3269,11 +3144,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOpEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOpEntitiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOpEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3337,11 +3209,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSimpleDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSimpleDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSimpleDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3401,11 +3270,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlsAuthStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3465,11 +3331,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlsEmptyCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlsEmptyCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlsEmptyCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3529,11 +3392,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlsLogstoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlsLogstoreInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlsLogstoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3593,11 +3453,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlsOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlsOpenStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlsOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3657,11 +3514,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribleCertListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribleCertListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribleCertListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3721,11 +3575,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribleLayer7InstanceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribleLayer7InstanceRelationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribleLayer7InstanceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3785,11 +3636,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableLayer7CCResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableLayer7CCResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableLayer7CCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3849,11 +3697,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableLayer7CCRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3913,11 +3758,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EmptySlsLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EmptySlsLogstoreResponse::fromMap($this->execute($params, $req, $runtime));
+        return EmptySlsLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3977,11 +3819,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableLayer7CCResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableLayer7CCResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableLayer7CCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4041,11 +3880,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableLayer7CCRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4113,11 +3949,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4177,11 +4010,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLayer7CustomPortsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLayer7CustomPortsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLayer7CustomPortsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4249,11 +4079,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4325,11 +4152,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4385,11 +4209,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListValueAddedResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListValueAddedResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListValueAddedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4449,11 +4270,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyElasticBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyElasticBandWidthResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyElasticBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4517,11 +4335,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyFullLogTtlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyFullLogTtlResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyFullLogTtlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4581,11 +4396,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4649,11 +4461,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenDomainSlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenDomainSlsConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenDomainSlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4709,11 +4518,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4769,11 +4575,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseValueAddedResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseValueAddedResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseValueAddedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4841,11 +4644,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4917,11 +4717,8 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

@@ -38,7 +38,8 @@ class DescribeDomainAccessModeRequest extends Model
                 $res['DomainList'] = [];
                 $n1 = 0;
                 foreach ($this->domainList as $item1) {
-                    $res['DomainList'][$n1++] = $item1;
+                    $res['DomainList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DescribeDomainAccessModeRequest extends Model
                 $model->domainList = [];
                 $n1 = 0;
                 foreach ($map['DomainList'] as $item1) {
-                    $model->domainList[$n1++] = $item1;
+                    $model->domainList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
