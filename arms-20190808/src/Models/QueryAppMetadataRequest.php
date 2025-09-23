@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class QueryAppMetadataRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endTimeMs;
+
+    /**
      * @var string
      */
     public $metaIds;
@@ -27,11 +32,18 @@ class QueryAppMetadataRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $startTimeMs;
     protected $_name = [
+        'endTimeMs' => 'EndTimeMs',
         'metaIds' => 'MetaIds',
         'metaType' => 'MetaType',
         'pid' => 'Pid',
         'regionId' => 'RegionId',
+        'startTimeMs' => 'StartTimeMs',
     ];
 
     public function validate()
@@ -42,6 +54,10 @@ class QueryAppMetadataRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endTimeMs) {
+            $res['EndTimeMs'] = $this->endTimeMs;
+        }
+
         if (null !== $this->metaIds) {
             $res['MetaIds'] = $this->metaIds;
         }
@@ -58,6 +74,10 @@ class QueryAppMetadataRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->startTimeMs) {
+            $res['StartTimeMs'] = $this->startTimeMs;
+        }
+
         return $res;
     }
 
@@ -69,6 +89,10 @@ class QueryAppMetadataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTimeMs'])) {
+            $model->endTimeMs = $map['EndTimeMs'];
+        }
+
         if (isset($map['MetaIds'])) {
             $model->metaIds = $map['MetaIds'];
         }
@@ -83,6 +107,10 @@ class QueryAppMetadataRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['StartTimeMs'])) {
+            $model->startTimeMs = $map['StartTimeMs'];
         }
 
         return $model;
