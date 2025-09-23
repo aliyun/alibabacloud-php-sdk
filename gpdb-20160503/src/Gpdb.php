@@ -11,6 +11,8 @@ use AlibabaCloud\Dara\Request;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\AddAINodeRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\AddAINodeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleRequest;
@@ -58,6 +60,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateRemoteADBDataSourceRequest;
@@ -81,6 +86,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAINodeRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAINodeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataRequest;
@@ -107,6 +114,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteRemoteADBDataSourceRequest;
@@ -214,6 +223,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeNamespaceRequest;
@@ -292,6 +303,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAINodePoolsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAINodePoolsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
@@ -310,6 +323,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelServicesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListRemoteADBDataSourcesRequest;
@@ -326,6 +341,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupportModelsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupportModelsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
@@ -556,6 +573,71 @@ class Gpdb extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 添加AI节点.
+     *
+     * @param Request - AddAINodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAINodeResponse
+     *
+     * @param AddAINodeRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddAINodeResponse
+     */
+    public function addAINodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->AINodePoolId) {
+            @$query['AINodePoolId'] = $request->AINodePoolId;
+        }
+
+        if (null !== $request->AINodeSpecInfos) {
+            @$query['AINodeSpecInfos'] = $request->AINodeSpecInfos;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddAINode',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddAINodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加AI节点.
+     *
+     * @param Request - AddAINodeRequest
+     *
+     * @returns AddAINodeResponse
+     *
+     * @param AddAINodeRequest $request
+     *
+     * @return AddAINodeResponse
+     */
+    public function addAINode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAINodeWithOptions($request, $runtime);
     }
 
     /**
@@ -2605,6 +2687,115 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 创建模型服务
+     *
+     * @param tmpReq - CreateModelServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelServiceResponse
+     *
+     * @param CreateModelServiceRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateModelServiceResponse
+     */
+    public function createModelServiceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateModelServiceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aiNodes) {
+            $request->aiNodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aiNodes, 'AiNodes', 'json');
+        }
+
+        if (null !== $tmpReq->modelParams) {
+            $request->modelParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelParams, 'ModelParams', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->aiNodesShrink) {
+            @$query['AiNodes'] = $request->aiNodesShrink;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enablePublicConnection) {
+            @$query['EnablePublicConnection'] = $request->enablePublicConnection;
+        }
+
+        if (null !== $request->inferenceEngine) {
+            @$query['InferenceEngine'] = $request->inferenceEngine;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelParamsShrink) {
+            @$query['ModelParams'] = $request->modelParamsShrink;
+        }
+
+        if (null !== $request->replicas) {
+            @$query['Replicas'] = $request->replicas;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型服务
+     *
+     * @param Request - CreateModelServiceRequest
+     *
+     * @returns CreateModelServiceResponse
+     *
+     * @param CreateModelServiceRequest $request
+     *
+     * @return CreateModelServiceResponse
+     */
+    public function createModelService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a vector namespace.
      *
      * @param Request - CreateNamespaceRequest
@@ -3520,6 +3711,75 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVectorIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除AI节点.
+     *
+     * @param Request - DeleteAINodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAINodeResponse
+     *
+     * @param DeleteAINodeRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteAINodeResponse
+     */
+    public function deleteAINodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->AINodeNum) {
+            @$query['AINodeNum'] = $request->AINodeNum;
+        }
+
+        if (null !== $request->AINodePoolId) {
+            @$query['AINodePoolId'] = $request->AINodePoolId;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->nodeNames) {
+            @$query['NodeNames'] = $request->nodeNames;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAINode',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAINodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除AI节点.
+     *
+     * @param Request - DeleteAINodeRequest
+     *
+     * @returns DeleteAINodeResponse
+     *
+     * @param DeleteAINodeRequest $request
+     *
+     * @return DeleteAINodeResponse
+     */
+    public function deleteAINode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAINodeWithOptions($request, $runtime);
     }
 
     /**
@@ -4540,6 +4800,67 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteJDBCDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除模型服务
+     *
+     * @param Request - DeleteModelServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelServiceResponse
+     *
+     * @param DeleteModelServiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteModelServiceResponse
+     */
+    public function deleteModelServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->modelServiceId) {
+            @$query['ModelServiceId'] = $request->modelServiceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模型服务
+     *
+     * @param Request - DeleteModelServiceRequest
+     *
+     * @returns DeleteModelServiceResponse
+     *
+     * @param DeleteModelServiceRequest $request
+     *
+     * @return DeleteModelServiceResponse
+     */
+    public function deleteModelService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteModelServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -8538,6 +8859,67 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 查询模型服务
+     *
+     * @param Request - DescribeModelServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelServiceResponse
+     *
+     * @param DescribeModelServiceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeModelServiceResponse
+     */
+    public function describeModelServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->modelServiceId) {
+            @$query['ModelServiceId'] = $request->modelServiceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型服务
+     *
+     * @param Request - DescribeModelServiceRequest
+     *
+     * @returns DescribeModelServiceResponse
+     *
+     * @param DescribeModelServiceRequest $request
+     *
+     * @return DescribeModelServiceResponse
+     */
+    public function describeModelService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeModifyParameterLogRequest
@@ -11648,6 +12030,67 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 列举AI节点池.
+     *
+     * @param Request - ListAINodePoolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAINodePoolsResponse
+     *
+     * @param ListAINodePoolsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAINodePoolsResponse
+     */
+    public function listAINodePoolsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAINodePools',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAINodePoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举AI节点池.
+     *
+     * @param Request - ListAINodePoolsRequest
+     *
+     * @returns ListAINodePoolsResponse
+     *
+     * @param ListAINodePoolsRequest $request
+     *
+     * @return ListAINodePoolsResponse
+     */
+    public function listAINodePools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAINodePoolsWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取备份任务列表.
      *
      * @param Request - ListBackupJobsRequest
@@ -12321,6 +12764,75 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 查询模型服务
+     *
+     * @param Request - ListModelServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelServicesResponse
+     *
+     * @param ListModelServicesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListModelServicesResponse
+     */
+    public function listModelServicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelServices',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型服务
+     *
+     * @param Request - ListModelServicesRequest
+     *
+     * @returns ListModelServicesResponse
+     *
+     * @param ListModelServicesRequest $request
+     *
+     * @return ListModelServicesResponse
+     */
+    public function listModelServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listModelServicesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of namespaces.
      *
      * @param Request - ListNamespacesRequest
@@ -12886,6 +13398,63 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSupabaseProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取支持的模型列表.
+     *
+     * @param Request - ListSupportModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSupportModelsResponse
+     *
+     * @param ListSupportModelsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSupportModelsResponse
+     */
+    public function listSupportModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSupportModels',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSupportModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取支持的模型列表.
+     *
+     * @param Request - ListSupportModelsRequest
+     *
+     * @returns ListSupportModelsResponse
+     *
+     * @param ListSupportModelsRequest $request
+     *
+     * @return ListSupportModelsResponse
+     */
+    public function listSupportModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSupportModelsWithOptions($request, $runtime);
     }
 
     /**
