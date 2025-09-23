@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateRequest\ext;
 class BatchTranslateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appName;
+
+    /**
      * @var ext
      */
     public $ext;
@@ -44,6 +49,7 @@ class BatchTranslateRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'appName' => 'appName',
         'ext' => 'ext',
         'format' => 'format',
         'scene' => 'scene',
@@ -67,6 +73,10 @@ class BatchTranslateRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appName) {
+            $res['appName'] = $this->appName;
+        }
+
         if (null !== $this->ext) {
             $res['ext'] = null !== $this->ext ? $this->ext->toArray($noStream) : $this->ext;
         }
@@ -111,6 +121,10 @@ class BatchTranslateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appName'])) {
+            $model->appName = $map['appName'];
+        }
+
         if (isset($map['ext'])) {
             $model->ext = ext::fromMap($map['ext']);
         }

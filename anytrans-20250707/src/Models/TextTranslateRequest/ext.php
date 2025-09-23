@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest\ext\config;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest\ext\examples;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest\ext\terminologies;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest\ext\textTransform;
 
 class ext extends Model
 {
+    /**
+     * @var config
+     */
+    public $config;
+
     /**
      * @var string
      */
@@ -36,6 +42,7 @@ class ext extends Model
      */
     public $textTransform;
     protected $_name = [
+        'config' => 'config',
         'domainHint' => 'domainHint',
         'examples' => 'examples',
         'sensitives' => 'sensitives',
@@ -45,6 +52,9 @@ class ext extends Model
 
     public function validate()
     {
+        if (null !== $this->config) {
+            $this->config->validate();
+        }
         if (\is_array($this->examples)) {
             Model::validateArray($this->examples);
         }
@@ -63,6 +73,10 @@ class ext extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
+        }
+
         if (null !== $this->domainHint) {
             $res['domainHint'] = $this->domainHint;
         }
@@ -115,6 +129,10 @@ class ext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['config'])) {
+            $model->config = config::fromMap($map['config']);
+        }
+
         if (isset($map['domainHint'])) {
             $model->domainHint = $map['domainHint'];
         }

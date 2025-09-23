@@ -11,6 +11,11 @@ class BatchTranslateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appName;
+
+    /**
+     * @var string
+     */
     public $extShrink;
 
     /**
@@ -43,6 +48,7 @@ class BatchTranslateShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'appName' => 'appName',
         'extShrink' => 'ext',
         'format' => 'format',
         'scene' => 'scene',
@@ -60,6 +66,10 @@ class BatchTranslateShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appName) {
+            $res['appName'] = $this->appName;
+        }
+
         if (null !== $this->extShrink) {
             $res['ext'] = $this->extShrink;
         }
@@ -99,6 +109,10 @@ class BatchTranslateShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appName'])) {
+            $model->appName = $map['appName'];
+        }
+
         if (isset($map['ext'])) {
             $model->extShrink = $map['ext'];
         }

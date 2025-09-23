@@ -104,6 +104,10 @@ class AnyTrans extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->appName) {
+            @$body['appName'] = $request->appName;
+        }
+
         if (null !== $request->extShrink) {
             @$body['ext'] = $request->extShrink;
         }
