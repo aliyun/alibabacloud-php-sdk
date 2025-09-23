@@ -84,6 +84,16 @@ class logs extends Model
     /**
      * @var float
      */
+    public $avgRequestSize;
+
+    /**
+     * @var float
+     */
+    public $avgResponseSize;
+
+    /**
+     * @var float
+     */
     public $avgReturnNum;
 
     /**
@@ -109,6 +119,11 @@ class logs extends Model
     /**
      * @var float
      */
+    public $avgRt;
+
+    /**
+     * @var float
+     */
     public $avgScnt;
 
     /**
@@ -120,6 +135,16 @@ class logs extends Model
      * @var float
      */
     public $CPUTimeSeconds;
+
+    /**
+     * @var string
+     */
+    public $clientIp;
+
+    /**
+     * @var string
+     */
+    public $cmd;
 
     /**
      * @var string
@@ -145,6 +170,11 @@ class logs extends Model
      * @var string
      */
     public $database;
+
+    /**
+     * @var string
+     */
+    public $dbId;
 
     /**
      * @var string
@@ -287,6 +317,16 @@ class logs extends Model
     public $maxQueryTimeSeconds;
 
     /**
+     * @var float
+     */
+    public $maxRequestSize;
+
+    /**
+     * @var float
+     */
+    public $maxResponseSize;
+
+    /**
      * @var int
      */
     public $maxReturnNum;
@@ -310,6 +350,11 @@ class logs extends Model
      * @var int
      */
     public $maxRowsSent;
+
+    /**
+     * @var float
+     */
+    public $maxRt;
 
     /**
      * @var int
@@ -457,6 +502,11 @@ class logs extends Model
     public $timestamp;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var trend[]
      */
     public $trend;
@@ -480,19 +530,25 @@ class logs extends Model
         'avgPhysicalIOReads' => 'AvgPhysicalIOReads',
         'avgQueryTime' => 'AvgQueryTime',
         'avgQueryTimeSeconds' => 'AvgQueryTimeSeconds',
+        'avgRequestSize' => 'AvgRequestSize',
+        'avgResponseSize' => 'AvgResponseSize',
         'avgReturnNum' => 'AvgReturnNum',
         'avgRows' => 'AvgRows',
         'avgRowsCountAffected' => 'AvgRowsCountAffected',
         'avgRowsExamined' => 'AvgRowsExamined',
         'avgRowsSent' => 'AvgRowsSent',
+        'avgRt' => 'AvgRt',
         'avgScnt' => 'AvgScnt',
         'CPUTime' => 'CPUTime',
         'CPUTimeSeconds' => 'CPUTimeSeconds',
+        'clientIp' => 'ClientIp',
+        'cmd' => 'Cmd',
         'command' => 'Command',
         'count' => 'Count',
         'countRate' => 'CountRate',
         'DBName' => 'DBName',
         'database' => 'Database',
+        'dbId' => 'DbId',
         'dbInstanceName' => 'DbInstanceName',
         'docExamined' => 'DocExamined',
         'docsExamined' => 'DocsExamined',
@@ -521,11 +577,14 @@ class logs extends Model
         'maxPhysicalIOReads' => 'MaxPhysicalIOReads',
         'maxQueryTime' => 'MaxQueryTime',
         'maxQueryTimeSeconds' => 'MaxQueryTimeSeconds',
+        'maxRequestSize' => 'MaxRequestSize',
+        'maxResponseSize' => 'MaxResponseSize',
         'maxReturnNum' => 'MaxReturnNum',
         'maxRows' => 'MaxRows',
         'maxRowsCountAffected' => 'MaxRowsCountAffected',
         'maxRowsExamined' => 'MaxRowsExamined',
         'maxRowsSent' => 'MaxRowsSent',
+        'maxRt' => 'MaxRt',
         'maxScnt' => 'MaxScnt',
         'namespace' => 'Namespace',
         'nodeType' => 'NodeType',
@@ -555,6 +614,7 @@ class logs extends Model
         'tableName' => 'TableName',
         'threadId' => 'ThreadId',
         'timestamp' => 'Timestamp',
+        'totalCount' => 'TotalCount',
         'trend' => 'Trend',
         'user' => 'User',
     ];
@@ -632,6 +692,14 @@ class logs extends Model
             $res['AvgQueryTimeSeconds'] = $this->avgQueryTimeSeconds;
         }
 
+        if (null !== $this->avgRequestSize) {
+            $res['AvgRequestSize'] = $this->avgRequestSize;
+        }
+
+        if (null !== $this->avgResponseSize) {
+            $res['AvgResponseSize'] = $this->avgResponseSize;
+        }
+
         if (null !== $this->avgReturnNum) {
             $res['AvgReturnNum'] = $this->avgReturnNum;
         }
@@ -652,6 +720,10 @@ class logs extends Model
             $res['AvgRowsSent'] = $this->avgRowsSent;
         }
 
+        if (null !== $this->avgRt) {
+            $res['AvgRt'] = $this->avgRt;
+        }
+
         if (null !== $this->avgScnt) {
             $res['AvgScnt'] = $this->avgScnt;
         }
@@ -662,6 +734,14 @@ class logs extends Model
 
         if (null !== $this->CPUTimeSeconds) {
             $res['CPUTimeSeconds'] = $this->CPUTimeSeconds;
+        }
+
+        if (null !== $this->clientIp) {
+            $res['ClientIp'] = $this->clientIp;
+        }
+
+        if (null !== $this->cmd) {
+            $res['Cmd'] = $this->cmd;
         }
 
         if (null !== $this->command) {
@@ -682,6 +762,10 @@ class logs extends Model
 
         if (null !== $this->database) {
             $res['Database'] = $this->database;
+        }
+
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
         }
 
         if (null !== $this->dbInstanceName) {
@@ -796,6 +880,14 @@ class logs extends Model
             $res['MaxQueryTimeSeconds'] = $this->maxQueryTimeSeconds;
         }
 
+        if (null !== $this->maxRequestSize) {
+            $res['MaxRequestSize'] = $this->maxRequestSize;
+        }
+
+        if (null !== $this->maxResponseSize) {
+            $res['MaxResponseSize'] = $this->maxResponseSize;
+        }
+
         if (null !== $this->maxReturnNum) {
             $res['MaxReturnNum'] = $this->maxReturnNum;
         }
@@ -814,6 +906,10 @@ class logs extends Model
 
         if (null !== $this->maxRowsSent) {
             $res['MaxRowsSent'] = $this->maxRowsSent;
+        }
+
+        if (null !== $this->maxRt) {
+            $res['MaxRt'] = $this->maxRt;
         }
 
         if (null !== $this->maxScnt) {
@@ -932,6 +1028,10 @@ class logs extends Model
             $res['Timestamp'] = $this->timestamp;
         }
 
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+
         if (null !== $this->trend) {
             if (\is_array($this->trend)) {
                 $res['Trend'] = [];
@@ -1014,6 +1114,14 @@ class logs extends Model
             $model->avgQueryTimeSeconds = $map['AvgQueryTimeSeconds'];
         }
 
+        if (isset($map['AvgRequestSize'])) {
+            $model->avgRequestSize = $map['AvgRequestSize'];
+        }
+
+        if (isset($map['AvgResponseSize'])) {
+            $model->avgResponseSize = $map['AvgResponseSize'];
+        }
+
         if (isset($map['AvgReturnNum'])) {
             $model->avgReturnNum = $map['AvgReturnNum'];
         }
@@ -1034,6 +1142,10 @@ class logs extends Model
             $model->avgRowsSent = $map['AvgRowsSent'];
         }
 
+        if (isset($map['AvgRt'])) {
+            $model->avgRt = $map['AvgRt'];
+        }
+
         if (isset($map['AvgScnt'])) {
             $model->avgScnt = $map['AvgScnt'];
         }
@@ -1044,6 +1156,14 @@ class logs extends Model
 
         if (isset($map['CPUTimeSeconds'])) {
             $model->CPUTimeSeconds = $map['CPUTimeSeconds'];
+        }
+
+        if (isset($map['ClientIp'])) {
+            $model->clientIp = $map['ClientIp'];
+        }
+
+        if (isset($map['Cmd'])) {
+            $model->cmd = $map['Cmd'];
         }
 
         if (isset($map['Command'])) {
@@ -1064,6 +1184,10 @@ class logs extends Model
 
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
+        }
+
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
         }
 
         if (isset($map['DbInstanceName'])) {
@@ -1178,6 +1302,14 @@ class logs extends Model
             $model->maxQueryTimeSeconds = $map['MaxQueryTimeSeconds'];
         }
 
+        if (isset($map['MaxRequestSize'])) {
+            $model->maxRequestSize = $map['MaxRequestSize'];
+        }
+
+        if (isset($map['MaxResponseSize'])) {
+            $model->maxResponseSize = $map['MaxResponseSize'];
+        }
+
         if (isset($map['MaxReturnNum'])) {
             $model->maxReturnNum = $map['MaxReturnNum'];
         }
@@ -1196,6 +1328,10 @@ class logs extends Model
 
         if (isset($map['MaxRowsSent'])) {
             $model->maxRowsSent = $map['MaxRowsSent'];
+        }
+
+        if (isset($map['MaxRt'])) {
+            $model->maxRt = $map['MaxRt'];
         }
 
         if (isset($map['MaxScnt'])) {
@@ -1312,6 +1448,10 @@ class logs extends Model
 
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         if (isset($map['Trend'])) {

@@ -32,12 +32,27 @@ class logs extends Model
     /**
      * @var string
      */
+    public $clientIp;
+
+    /**
+     * @var string
+     */
+    public $cmd;
+
+    /**
+     * @var string
+     */
     public $command;
 
     /**
      * @var string
      */
     public $DBName;
+
+    /**
+     * @var string
+     */
+    public $dbId;
 
     /**
      * @var string
@@ -100,6 +115,16 @@ class logs extends Model
     public $namespace;
 
     /**
+     * @var string
+     */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $originTime;
+
+    /**
      * @var int
      */
     public $physicalIOReads;
@@ -130,6 +155,16 @@ class logs extends Model
     public $queryTimeSeconds;
 
     /**
+     * @var int
+     */
+    public $requestSize;
+
+    /**
+     * @var int
+     */
+    public $responseSize;
+
+    /**
      * @var string
      */
     public $returnItemNumbers;
@@ -158,6 +193,11 @@ class logs extends Model
      * @var int
      */
     public $rowsSent;
+
+    /**
+     * @var int
+     */
+    public $rt;
 
     /**
      * @var string
@@ -223,8 +263,11 @@ class logs extends Model
         'applicationName' => 'ApplicationName',
         'CPUTime' => 'CPUTime',
         'CPUTimeSeconds' => 'CPUTimeSeconds',
+        'clientIp' => 'ClientIp',
+        'cmd' => 'Cmd',
         'command' => 'Command',
         'DBName' => 'DBName',
+        'dbId' => 'DbId',
         'dbInstanceName' => 'DbInstanceName',
         'docsExamined' => 'DocsExamined',
         'frows' => 'Frows',
@@ -237,18 +280,23 @@ class logs extends Model
         'lockTimeSeconds' => 'LockTimeSeconds',
         'logicalIOReads' => 'LogicalIOReads',
         'namespace' => 'Namespace',
+        'nodeId' => 'NodeId',
+        'originTime' => 'OriginTime',
         'physicalIOReads' => 'PhysicalIOReads',
         'psql' => 'Psql',
         'queryId' => 'QueryId',
         'queryStartTime' => 'QueryStartTime',
         'queryTime' => 'QueryTime',
         'queryTimeSeconds' => 'QueryTimeSeconds',
+        'requestSize' => 'RequestSize',
+        'responseSize' => 'ResponseSize',
         'returnItemNumbers' => 'ReturnItemNumbers',
         'returnNum' => 'ReturnNum',
         'rows' => 'Rows',
         'rowsCountAffected' => 'RowsCountAffected',
         'rowsExamined' => 'RowsExamined',
         'rowsSent' => 'RowsSent',
+        'rt' => 'Rt',
         'SQLText' => 'SQLText',
         'scheme' => 'Scheme',
         'scnt' => 'Scnt',
@@ -290,12 +338,24 @@ class logs extends Model
             $res['CPUTimeSeconds'] = $this->CPUTimeSeconds;
         }
 
+        if (null !== $this->clientIp) {
+            $res['ClientIp'] = $this->clientIp;
+        }
+
+        if (null !== $this->cmd) {
+            $res['Cmd'] = $this->cmd;
+        }
+
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
 
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
+        }
+
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
         }
 
         if (null !== $this->dbInstanceName) {
@@ -346,6 +406,14 @@ class logs extends Model
             $res['Namespace'] = $this->namespace;
         }
 
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->originTime) {
+            $res['OriginTime'] = $this->originTime;
+        }
+
         if (null !== $this->physicalIOReads) {
             $res['PhysicalIOReads'] = $this->physicalIOReads;
         }
@@ -370,6 +438,14 @@ class logs extends Model
             $res['QueryTimeSeconds'] = $this->queryTimeSeconds;
         }
 
+        if (null !== $this->requestSize) {
+            $res['RequestSize'] = $this->requestSize;
+        }
+
+        if (null !== $this->responseSize) {
+            $res['ResponseSize'] = $this->responseSize;
+        }
+
         if (null !== $this->returnItemNumbers) {
             $res['ReturnItemNumbers'] = $this->returnItemNumbers;
         }
@@ -392,6 +468,10 @@ class logs extends Model
 
         if (null !== $this->rowsSent) {
             $res['RowsSent'] = $this->rowsSent;
+        }
+
+        if (null !== $this->rt) {
+            $res['Rt'] = $this->rt;
         }
 
         if (null !== $this->SQLText) {
@@ -469,12 +549,24 @@ class logs extends Model
             $model->CPUTimeSeconds = $map['CPUTimeSeconds'];
         }
 
+        if (isset($map['ClientIp'])) {
+            $model->clientIp = $map['ClientIp'];
+        }
+
+        if (isset($map['Cmd'])) {
+            $model->cmd = $map['Cmd'];
+        }
+
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
 
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
+        }
+
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
         }
 
         if (isset($map['DbInstanceName'])) {
@@ -525,6 +617,14 @@ class logs extends Model
             $model->namespace = $map['Namespace'];
         }
 
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['OriginTime'])) {
+            $model->originTime = $map['OriginTime'];
+        }
+
         if (isset($map['PhysicalIOReads'])) {
             $model->physicalIOReads = $map['PhysicalIOReads'];
         }
@@ -549,6 +649,14 @@ class logs extends Model
             $model->queryTimeSeconds = $map['QueryTimeSeconds'];
         }
 
+        if (isset($map['RequestSize'])) {
+            $model->requestSize = $map['RequestSize'];
+        }
+
+        if (isset($map['ResponseSize'])) {
+            $model->responseSize = $map['ResponseSize'];
+        }
+
         if (isset($map['ReturnItemNumbers'])) {
             $model->returnItemNumbers = $map['ReturnItemNumbers'];
         }
@@ -571,6 +679,10 @@ class logs extends Model
 
         if (isset($map['RowsSent'])) {
             $model->rowsSent = $map['RowsSent'];
+        }
+
+        if (isset($map['Rt'])) {
+            $model->rt = $map['Rt'];
         }
 
         if (isset($map['SQLText'])) {
