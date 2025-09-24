@@ -32,6 +32,10 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceGroupRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceGroupResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceRecordRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceRecordResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxRequest;
@@ -42,6 +46,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceDuplicationCheckIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceDuplicationCheckIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceGuardRiskRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceGuardRiskResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessRequest;
@@ -60,6 +66,16 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile2MetaVerifyIntlRequest
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile2MetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\ModifyFaceGroupRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\ModifyFaceGroupResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\ModifyFaceRecordRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\ModifyFaceRecordResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\QueryFaceGroupRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\QueryFaceGroupResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\QueryFaceRecordRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\QueryFaceRecordResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\TempAccessTokenIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\TempAccessTokenIntlResponse;
 use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1070,6 +1086,120 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * Delete Face Group.
+     *
+     * @param Request - DeleteFaceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFaceGroupResponse
+     *
+     * @param DeleteFaceGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteFaceGroupResponse
+     */
+    public function deleteFaceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFaceGroup',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFaceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Face Group.
+     *
+     * @param Request - DeleteFaceGroupRequest
+     *
+     * @returns DeleteFaceGroupResponse
+     *
+     * @param DeleteFaceGroupRequest $request
+     *
+     * @return DeleteFaceGroupResponse
+     */
+    public function deleteFaceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFaceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Face.
+     *
+     * @param Request - DeleteFaceRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFaceRecordResponse
+     *
+     * @param DeleteFaceRecordRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteFaceRecordResponse
+     */
+    public function deleteFaceRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFaceRecord',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFaceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Face.
+     *
+     * @param Request - DeleteFaceRecordRequest
+     *
+     * @returns DeleteFaceRecordResponse
+     *
+     * @param DeleteFaceRecordRequest $request
+     *
+     * @return DeleteFaceRecordResponse
+     */
+    public function deleteFaceRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFaceRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete user authentication record results.
      *
      * @param Request - DeleteVerifyResultRequest
@@ -1525,6 +1655,125 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * Face Duplication Detection API.
+     *
+     * @param Request - FaceDuplicationCheckIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FaceDuplicationCheckIntlResponse
+     *
+     * @param FaceDuplicationCheckIntlRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FaceDuplicationCheckIntlResponse
+     */
+    public function faceDuplicationCheckIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        $body = [];
+        if (null !== $request->autoRegistration) {
+            @$body['AutoRegistration'] = $request->autoRegistration;
+        }
+
+        if (null !== $request->faceGroupCodes) {
+            @$body['FaceGroupCodes'] = $request->faceGroupCodes;
+        }
+
+        if (null !== $request->faceRegisterGroupCode) {
+            @$body['FaceRegisterGroupCode'] = $request->faceRegisterGroupCode;
+        }
+
+        if (null !== $request->faceVerifyThreshold) {
+            @$body['FaceVerifyThreshold'] = $request->faceVerifyThreshold;
+        }
+
+        if (null !== $request->liveness) {
+            @$body['Liveness'] = $request->liveness;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$body['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$body['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->returnFaces) {
+            @$body['ReturnFaces'] = $request->returnFaces;
+        }
+
+        if (null !== $request->saveFacePicture) {
+            @$body['SaveFacePicture'] = $request->saveFacePicture;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$body['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->sourceFacePicture) {
+            @$body['SourceFacePicture'] = $request->sourceFacePicture;
+        }
+
+        if (null !== $request->sourceFacePictureUrl) {
+            @$body['SourceFacePictureUrl'] = $request->sourceFacePictureUrl;
+        }
+
+        if (null !== $request->targetFacePicture) {
+            @$body['TargetFacePicture'] = $request->targetFacePicture;
+        }
+
+        if (null !== $request->targetFacePictureUrl) {
+            @$body['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
+        }
+
+        if (null !== $request->verifyModel) {
+            @$body['VerifyModel'] = $request->verifyModel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'FaceDuplicationCheckIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FaceDuplicationCheckIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Face Duplication Detection API.
+     *
+     * @param Request - FaceDuplicationCheckIntlRequest
+     *
+     * @returns FaceDuplicationCheckIntlResponse
+     *
+     * @param FaceDuplicationCheckIntlRequest $request
+     *
+     * @return FaceDuplicationCheckIntlResponse
+     */
+    public function faceDuplicationCheckIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceDuplicationCheckIntlWithOptions($request, $runtime);
+    }
+
+    /**
      * This topic describes how to set up the server for FACE_GUARD.
      *
      * @param Request - FaceGuardRiskRequest
@@ -1908,7 +2157,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 认证初始化.
+     * Authentication Initialization.
      *
      * @param tmpReq - InitializeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2151,7 +2400,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 认证初始化.
+     * Authentication Initialization.
      *
      * @param Request - InitializeRequest
      *
@@ -2352,5 +2601,350 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->mobile3MetaVerifyIntlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改人脸库.
+     *
+     * @param Request - ModifyFaceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyFaceGroupResponse
+     *
+     * @param ModifyFaceGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyFaceGroupResponse
+     */
+    public function modifyFaceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyFaceGroup',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyFaceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改人脸库.
+     *
+     * @param Request - ModifyFaceGroupRequest
+     *
+     * @returns ModifyFaceGroupResponse
+     *
+     * @param ModifyFaceGroupRequest $request
+     *
+     * @return ModifyFaceGroupResponse
+     */
+    public function modifyFaceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyFaceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增人脸.
+     *
+     * @param Request - ModifyFaceRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyFaceRecordResponse
+     *
+     * @param ModifyFaceRecordRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyFaceRecordResponse
+     */
+    public function modifyFaceRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->faceGroupCode) {
+            @$body['FaceGroupCode'] = $request->faceGroupCode;
+        }
+
+        if (null !== $request->imgOssInfos) {
+            @$body['ImgOssInfos'] = $request->imgOssInfos;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyFaceRecord',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyFaceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增人脸.
+     *
+     * @param Request - ModifyFaceRecordRequest
+     *
+     * @returns ModifyFaceRecordResponse
+     *
+     * @param ModifyFaceRecordRequest $request
+     *
+     * @return ModifyFaceRecordResponse
+     */
+    public function modifyFaceRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyFaceRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询人脸库.
+     *
+     * @param Request - QueryFaceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryFaceGroupResponse
+     *
+     * @param QueryFaceGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryFaceGroupResponse
+     */
+    public function queryFaceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->groupCode) {
+            @$query['GroupCode'] = $request->groupCode;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryFaceGroup',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryFaceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询人脸库.
+     *
+     * @param Request - QueryFaceGroupRequest
+     *
+     * @returns QueryFaceGroupResponse
+     *
+     * @param QueryFaceGroupRequest $request
+     *
+     * @return QueryFaceGroupResponse
+     */
+    public function queryFaceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryFaceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询人脸记录.
+     *
+     * @param Request - QueryFaceRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryFaceRecordResponse
+     *
+     * @param QueryFaceRecordRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryFaceRecordResponse
+     */
+    public function queryFaceRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->faceGroupCode) {
+            @$query['FaceGroupCode'] = $request->faceGroupCode;
+        }
+
+        if (null !== $request->faceId) {
+            @$query['FaceId'] = $request->faceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->registrationType) {
+            @$query['RegistrationType'] = $request->registrationType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryFaceRecord',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryFaceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询人脸记录.
+     *
+     * @param Request - QueryFaceRecordRequest
+     *
+     * @returns QueryFaceRecordResponse
+     *
+     * @param QueryFaceRecordRequest $request
+     *
+     * @return QueryFaceRecordResponse
+     */
+    public function queryFaceRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryFaceRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取临时token.
+     *
+     * @param Request - TempAccessTokenIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TempAccessTokenIntlResponse
+     *
+     * @param TempAccessTokenIntlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TempAccessTokenIntlResponse
+     */
+    public function tempAccessTokenIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TempAccessTokenIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TempAccessTokenIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取临时token.
+     *
+     * @param Request - TempAccessTokenIntlRequest
+     *
+     * @returns TempAccessTokenIntlResponse
+     *
+     * @param TempAccessTokenIntlRequest $request
+     *
+     * @return TempAccessTokenIntlResponse
+     */
+    public function tempAccessTokenIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tempAccessTokenIntlWithOptions($request, $runtime);
     }
 }
