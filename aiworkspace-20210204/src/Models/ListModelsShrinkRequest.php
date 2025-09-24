@@ -16,6 +16,11 @@ class ListModelsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $conditionsShrink;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
@@ -84,6 +89,7 @@ class ListModelsShrinkRequest extends Model
     public $workspaceId;
     protected $_name = [
         'collections' => 'Collections',
+        'conditionsShrink' => 'Conditions',
         'domain' => 'Domain',
         'label' => 'Label',
         'modelName' => 'ModelName',
@@ -110,6 +116,10 @@ class ListModelsShrinkRequest extends Model
         $res = [];
         if (null !== $this->collections) {
             $res['Collections'] = $this->collections;
+        }
+
+        if (null !== $this->conditionsShrink) {
+            $res['Conditions'] = $this->conditionsShrink;
         }
 
         if (null !== $this->domain) {
@@ -181,6 +191,10 @@ class ListModelsShrinkRequest extends Model
         $model = new self();
         if (isset($map['Collections'])) {
             $model->collections = $map['Collections'];
+        }
+
+        if (isset($map['Conditions'])) {
+            $model->conditionsShrink = $map['Conditions'];
         }
 
         if (isset($map['Domain'])) {

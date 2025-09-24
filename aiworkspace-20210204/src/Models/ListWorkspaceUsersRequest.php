@@ -11,8 +11,14 @@ class ListWorkspaceUsersRequest extends Model
     /**
      * @var string
      */
+    public $userId;
+
+    /**
+     * @var string
+     */
     public $userName;
     protected $_name = [
+        'userId' => 'UserId',
         'userName' => 'UserName',
     ];
 
@@ -24,6 +30,10 @@ class ListWorkspaceUsersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -39,6 +49,10 @@ class ListWorkspaceUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

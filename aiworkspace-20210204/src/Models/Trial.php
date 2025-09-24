@@ -115,11 +115,12 @@ class Trial extends Model
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
                     if (\is_array($item1)) {
-                        $res['Labels'][$n1++] = [];
+                        $res['Labels'][$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $res['Labels'][$n1++][$key2] = $value2;
+                            $res['Labels'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }
@@ -185,11 +186,12 @@ class Trial extends Model
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     if (!empty($item1)) {
-                        $model->labels[$n1++] = [];
+                        $model->labels[$n1] = [];
                         foreach ($item1 as $key2 => $value2) {
-                            $model->labels[$n1++][$key2] = $value2;
+                            $model->labels[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
                 }
             }
         }

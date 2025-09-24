@@ -16,6 +16,11 @@ class ListDatasetJobConfigsRequest extends Model
     /**
      * @var string
      */
+    public $datasetVersion;
+
+    /**
+     * @var string
+     */
     public $pageNumber;
 
     /**
@@ -29,6 +34,7 @@ class ListDatasetJobConfigsRequest extends Model
     public $workspaceId;
     protected $_name = [
         'configType' => 'ConfigType',
+        'datasetVersion' => 'DatasetVersion',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'workspaceId' => 'WorkspaceId',
@@ -44,6 +50,10 @@ class ListDatasetJobConfigsRequest extends Model
         $res = [];
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
+        }
+
+        if (null !== $this->datasetVersion) {
+            $res['DatasetVersion'] = $this->datasetVersion;
         }
 
         if (null !== $this->pageNumber) {
@@ -71,6 +81,10 @@ class ListDatasetJobConfigsRequest extends Model
         $model = new self();
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
+        }
+
+        if (isset($map['DatasetVersion'])) {
+            $model->datasetVersion = $map['DatasetVersion'];
         }
 
         if (isset($map['PageNumber'])) {

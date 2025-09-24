@@ -46,6 +46,16 @@ class ListDatasetFileMetasShrinkRequest extends Model
     /**
      * @var string
      */
+    public $queryContentTypeIncludeAnyShrink;
+
+    /**
+     * @var string
+     */
+    public $queryExpression;
+
+    /**
+     * @var string
+     */
     public $queryFileDir;
 
     /**
@@ -130,6 +140,8 @@ class ListDatasetFileMetasShrinkRequest extends Model
         'nextToken' => 'NextToken',
         'order' => 'Order',
         'pageSize' => 'PageSize',
+        'queryContentTypeIncludeAnyShrink' => 'QueryContentTypeIncludeAny',
+        'queryExpression' => 'QueryExpression',
         'queryFileDir' => 'QueryFileDir',
         'queryFileName' => 'QueryFileName',
         'queryFileTypeIncludeAnyShrink' => 'QueryFileTypeIncludeAny',
@@ -182,6 +194,14 @@ class ListDatasetFileMetasShrinkRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->queryContentTypeIncludeAnyShrink) {
+            $res['QueryContentTypeIncludeAny'] = $this->queryContentTypeIncludeAnyShrink;
+        }
+
+        if (null !== $this->queryExpression) {
+            $res['QueryExpression'] = $this->queryExpression;
         }
 
         if (null !== $this->queryFileDir) {
@@ -285,6 +305,14 @@ class ListDatasetFileMetasShrinkRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['QueryContentTypeIncludeAny'])) {
+            $model->queryContentTypeIncludeAnyShrink = $map['QueryContentTypeIncludeAny'];
+        }
+
+        if (isset($map['QueryExpression'])) {
+            $model->queryExpression = $map['QueryExpression'];
         }
 
         if (isset($map['QueryFileDir'])) {

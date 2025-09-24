@@ -21,6 +21,11 @@ class UpdateModelVersionRequest extends Model
     /**
      * @var mixed[]
      */
+    public $distillationSpec;
+
+    /**
+     * @var mixed[]
+     */
     public $evaluationSpec;
 
     /**
@@ -65,6 +70,7 @@ class UpdateModelVersionRequest extends Model
     protected $_name = [
         'approvalStatus' => 'ApprovalStatus',
         'compressionSpec' => 'CompressionSpec',
+        'distillationSpec' => 'DistillationSpec',
         'evaluationSpec' => 'EvaluationSpec',
         'extraInfo' => 'ExtraInfo',
         'inferenceSpec' => 'InferenceSpec',
@@ -80,6 +86,9 @@ class UpdateModelVersionRequest extends Model
     {
         if (\is_array($this->compressionSpec)) {
             Model::validateArray($this->compressionSpec);
+        }
+        if (\is_array($this->distillationSpec)) {
+            Model::validateArray($this->distillationSpec);
         }
         if (\is_array($this->evaluationSpec)) {
             Model::validateArray($this->evaluationSpec);
@@ -111,6 +120,15 @@ class UpdateModelVersionRequest extends Model
                 $res['CompressionSpec'] = [];
                 foreach ($this->compressionSpec as $key1 => $value1) {
                     $res['CompressionSpec'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->distillationSpec) {
+            if (\is_array($this->distillationSpec)) {
+                $res['DistillationSpec'] = [];
+                foreach ($this->distillationSpec as $key1 => $value1) {
+                    $res['DistillationSpec'][$key1] = $value1;
                 }
             }
         }
@@ -196,6 +214,15 @@ class UpdateModelVersionRequest extends Model
                 $model->compressionSpec = [];
                 foreach ($map['CompressionSpec'] as $key1 => $value1) {
                     $model->compressionSpec[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['DistillationSpec'])) {
+            if (!empty($map['DistillationSpec'])) {
+                $model->distillationSpec = [];
+                foreach ($map['DistillationSpec'] as $key1 => $value1) {
+                    $model->distillationSpec[$key1] = $value1;
                 }
             }
         }

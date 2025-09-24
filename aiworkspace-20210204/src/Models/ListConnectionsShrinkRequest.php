@@ -26,6 +26,11 @@ class ListConnectionsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $creator;
+
+    /**
+     * @var string
+     */
     public $encryptOption;
 
     /**
@@ -71,6 +76,7 @@ class ListConnectionsShrinkRequest extends Model
         'connectionIdsShrink' => 'ConnectionIds',
         'connectionName' => 'ConnectionName',
         'connectionTypesShrink' => 'ConnectionTypes',
+        'creator' => 'Creator',
         'encryptOption' => 'EncryptOption',
         'maxResults' => 'MaxResults',
         'model' => 'Model',
@@ -100,6 +106,10 @@ class ListConnectionsShrinkRequest extends Model
 
         if (null !== $this->connectionTypesShrink) {
             $res['ConnectionTypes'] = $this->connectionTypesShrink;
+        }
+
+        if (null !== $this->creator) {
+            $res['Creator'] = $this->creator;
         }
 
         if (null !== $this->encryptOption) {
@@ -159,6 +169,10 @@ class ListConnectionsShrinkRequest extends Model
 
         if (isset($map['ConnectionTypes'])) {
             $model->connectionTypesShrink = $map['ConnectionTypes'];
+        }
+
+        if (isset($map['Creator'])) {
+            $model->creator = $map['Creator'];
         }
 
         if (isset($map['EncryptOption'])) {

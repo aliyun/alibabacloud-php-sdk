@@ -44,7 +44,8 @@ class ListDatasetJobConfigsResponseBody extends Model
                 $res['DatasetJobConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->datasetJobConfigs as $item1) {
-                    $res['DatasetJobConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatasetJobConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListDatasetJobConfigsResponseBody extends Model
                 $model->datasetJobConfigs = [];
                 $n1 = 0;
                 foreach ($map['DatasetJobConfigs'] as $item1) {
-                    $model->datasetJobConfigs[$n1++] = DatasetJobConfig::fromMap($item1);
+                    $model->datasetJobConfigs[$n1] = DatasetJobConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

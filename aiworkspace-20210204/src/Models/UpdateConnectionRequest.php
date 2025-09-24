@@ -70,7 +70,8 @@ class UpdateConnectionRequest extends Model
                 $res['Models'] = [];
                 $n1 = 0;
                 foreach ($this->models as $item1) {
-                    $res['Models'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Models'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +114,8 @@ class UpdateConnectionRequest extends Model
                 $model->models = [];
                 $n1 = 0;
                 foreach ($map['Models'] as $item1) {
-                    $model->models[$n1++] = models::fromMap($item1);
+                    $model->models[$n1] = models::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

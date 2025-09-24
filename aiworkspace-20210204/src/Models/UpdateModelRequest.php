@@ -54,6 +54,11 @@ class UpdateModelRequest extends Model
     public $origin;
 
     /**
+     * @var int
+     */
+    public $parameterSize;
+
+    /**
      * @var string
      */
     public $task;
@@ -67,6 +72,7 @@ class UpdateModelRequest extends Model
         'modelType' => 'ModelType',
         'orderNumber' => 'OrderNumber',
         'origin' => 'Origin',
+        'parameterSize' => 'ParameterSize',
         'task' => 'Task',
     ];
 
@@ -120,6 +126,10 @@ class UpdateModelRequest extends Model
 
         if (null !== $this->origin) {
             $res['Origin'] = $this->origin;
+        }
+
+        if (null !== $this->parameterSize) {
+            $res['ParameterSize'] = $this->parameterSize;
         }
 
         if (null !== $this->task) {
@@ -176,6 +186,10 @@ class UpdateModelRequest extends Model
 
         if (isset($map['Origin'])) {
             $model->origin = $map['Origin'];
+        }
+
+        if (isset($map['ParameterSize'])) {
+            $model->parameterSize = $map['ParameterSize'];
         }
 
         if (isset($map['Task'])) {

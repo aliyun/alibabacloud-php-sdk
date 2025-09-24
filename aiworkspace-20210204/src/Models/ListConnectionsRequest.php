@@ -26,6 +26,11 @@ class ListConnectionsRequest extends Model
     /**
      * @var string
      */
+    public $creator;
+
+    /**
+     * @var string
+     */
     public $encryptOption;
 
     /**
@@ -71,6 +76,7 @@ class ListConnectionsRequest extends Model
         'connectionIds' => 'ConnectionIds',
         'connectionName' => 'ConnectionName',
         'connectionTypes' => 'ConnectionTypes',
+        'creator' => 'Creator',
         'encryptOption' => 'EncryptOption',
         'maxResults' => 'MaxResults',
         'model' => 'Model',
@@ -104,7 +110,8 @@ class ListConnectionsRequest extends Model
                 $res['ConnectionIds'] = [];
                 $n1 = 0;
                 foreach ($this->connectionIds as $item1) {
-                    $res['ConnectionIds'][$n1++] = $item1;
+                    $res['ConnectionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,9 +125,14 @@ class ListConnectionsRequest extends Model
                 $res['ConnectionTypes'] = [];
                 $n1 = 0;
                 foreach ($this->connectionTypes as $item1) {
-                    $res['ConnectionTypes'][$n1++] = $item1;
+                    $res['ConnectionTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->creator) {
+            $res['Creator'] = $this->creator;
         }
 
         if (null !== $this->encryptOption) {
@@ -140,7 +152,8 @@ class ListConnectionsRequest extends Model
                 $res['ModelTypes'] = [];
                 $n1 = 0;
                 foreach ($this->modelTypes as $item1) {
-                    $res['ModelTypes'][$n1++] = $item1;
+                    $res['ModelTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +194,8 @@ class ListConnectionsRequest extends Model
                 $model->connectionIds = [];
                 $n1 = 0;
                 foreach ($map['ConnectionIds'] as $item1) {
-                    $model->connectionIds[$n1++] = $item1;
+                    $model->connectionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -195,9 +209,14 @@ class ListConnectionsRequest extends Model
                 $model->connectionTypes = [];
                 $n1 = 0;
                 foreach ($map['ConnectionTypes'] as $item1) {
-                    $model->connectionTypes[$n1++] = $item1;
+                    $model->connectionTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Creator'])) {
+            $model->creator = $map['Creator'];
         }
 
         if (isset($map['EncryptOption'])) {
@@ -217,7 +236,8 @@ class ListConnectionsRequest extends Model
                 $model->modelTypes = [];
                 $n1 = 0;
                 foreach ($map['ModelTypes'] as $item1) {
-                    $model->modelTypes[$n1++] = $item1;
+                    $model->modelTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

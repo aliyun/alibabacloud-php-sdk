@@ -11,12 +11,22 @@ class ListDatasetsRequest extends Model
     /**
      * @var string
      */
+    public $accessibility;
+
+    /**
+     * @var string
+     */
     public $dataSourceTypes;
 
     /**
      * @var string
      */
     public $dataTypes;
+
+    /**
+     * @var string
+     */
+    public $edition;
 
     /**
      * @var string
@@ -56,6 +66,11 @@ class ListDatasetsRequest extends Model
     /**
      * @var string
      */
+    public $shareScope;
+
+    /**
+     * @var string
+     */
     public $sortBy;
 
     /**
@@ -78,8 +93,10 @@ class ListDatasetsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility' => 'Accessibility',
         'dataSourceTypes' => 'DataSourceTypes',
         'dataTypes' => 'DataTypes',
+        'edition' => 'Edition',
         'label' => 'Label',
         'name' => 'Name',
         'order' => 'Order',
@@ -87,6 +104,7 @@ class ListDatasetsRequest extends Model
         'pageSize' => 'PageSize',
         'properties' => 'Properties',
         'provider' => 'Provider',
+        'shareScope' => 'ShareScope',
         'sortBy' => 'SortBy',
         'sourceDatasetId' => 'SourceDatasetId',
         'sourceId' => 'SourceId',
@@ -102,12 +120,20 @@ class ListDatasetsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
         if (null !== $this->dataSourceTypes) {
             $res['DataSourceTypes'] = $this->dataSourceTypes;
         }
 
         if (null !== $this->dataTypes) {
             $res['DataTypes'] = $this->dataTypes;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->label) {
@@ -136,6 +162,10 @@ class ListDatasetsRequest extends Model
 
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
+        }
+
+        if (null !== $this->shareScope) {
+            $res['ShareScope'] = $this->shareScope;
         }
 
         if (null !== $this->sortBy) {
@@ -169,12 +199,20 @@ class ListDatasetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
         if (isset($map['DataSourceTypes'])) {
             $model->dataSourceTypes = $map['DataSourceTypes'];
         }
 
         if (isset($map['DataTypes'])) {
             $model->dataTypes = $map['DataTypes'];
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['Label'])) {
@@ -203,6 +241,10 @@ class ListDatasetsRequest extends Model
 
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
+        }
+
+        if (isset($map['ShareScope'])) {
+            $model->shareScope = $map['ShareScope'];
         }
 
         if (isset($map['SortBy'])) {

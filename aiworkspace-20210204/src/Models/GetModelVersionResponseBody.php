@@ -21,6 +21,11 @@ class GetModelVersionResponseBody extends Model
     /**
      * @var mixed[]
      */
+    public $distillationSpec;
+
+    /**
+     * @var mixed[]
+     */
     public $evaluationSpec;
 
     /**
@@ -115,6 +120,7 @@ class GetModelVersionResponseBody extends Model
     protected $_name = [
         'approvalStatus' => 'ApprovalStatus',
         'compressionSpec' => 'CompressionSpec',
+        'distillationSpec' => 'DistillationSpec',
         'evaluationSpec' => 'EvaluationSpec',
         'extraInfo' => 'ExtraInfo',
         'formatType' => 'FormatType',
@@ -140,6 +146,9 @@ class GetModelVersionResponseBody extends Model
     {
         if (\is_array($this->compressionSpec)) {
             Model::validateArray($this->compressionSpec);
+        }
+        if (\is_array($this->distillationSpec)) {
+            Model::validateArray($this->distillationSpec);
         }
         if (\is_array($this->evaluationSpec)) {
             Model::validateArray($this->evaluationSpec);
@@ -174,6 +183,15 @@ class GetModelVersionResponseBody extends Model
                 $res['CompressionSpec'] = [];
                 foreach ($this->compressionSpec as $key1 => $value1) {
                     $res['CompressionSpec'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->distillationSpec) {
+            if (\is_array($this->distillationSpec)) {
+                $res['DistillationSpec'] = [];
+                foreach ($this->distillationSpec as $key1 => $value1) {
+                    $res['DistillationSpec'][$key1] = $value1;
                 }
             }
         }
@@ -226,7 +244,8 @@ class GetModelVersionResponseBody extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -309,6 +328,15 @@ class GetModelVersionResponseBody extends Model
             }
         }
 
+        if (isset($map['DistillationSpec'])) {
+            if (!empty($map['DistillationSpec'])) {
+                $model->distillationSpec = [];
+                foreach ($map['DistillationSpec'] as $key1 => $value1) {
+                    $model->distillationSpec[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['EvaluationSpec'])) {
             if (!empty($map['EvaluationSpec'])) {
                 $model->evaluationSpec = [];
@@ -357,7 +385,8 @@ class GetModelVersionResponseBody extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

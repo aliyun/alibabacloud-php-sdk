@@ -24,6 +24,11 @@ class CreateProductOrdersResponseBody extends Model
     public $orderId;
 
     /**
+     * @var string[]
+     */
+    public $productIds;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -31,11 +36,15 @@ class CreateProductOrdersResponseBody extends Model
         'buyProductRequestId' => 'BuyProductRequestId',
         'message' => 'Message',
         'orderId' => 'OrderId',
+        'productIds' => 'ProductIds',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->productIds)) {
+            Model::validateArray($this->productIds);
+        }
         parent::validate();
     }
 
@@ -52,6 +61,17 @@ class CreateProductOrdersResponseBody extends Model
 
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+
+        if (null !== $this->productIds) {
+            if (\is_array($this->productIds)) {
+                $res['ProductIds'] = [];
+                $n1 = 0;
+                foreach ($this->productIds as $item1) {
+                    $res['ProductIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->requestId) {
@@ -79,6 +99,17 @@ class CreateProductOrdersResponseBody extends Model
 
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+
+        if (isset($map['ProductIds'])) {
+            if (!empty($map['ProductIds'])) {
+                $model->productIds = [];
+                $n1 = 0;
+                foreach ($map['ProductIds'] as $item1) {
+                    $model->productIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RequestId'])) {

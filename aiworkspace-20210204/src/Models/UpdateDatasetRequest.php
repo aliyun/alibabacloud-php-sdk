@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetRequest\sharingConfig;
 
 class UpdateDatasetRequest extends Model
 {
@@ -32,18 +33,27 @@ class UpdateDatasetRequest extends Model
      * @var string
      */
     public $options;
+
+    /**
+     * @var sharingConfig
+     */
+    public $sharingConfig;
     protected $_name = [
         'description' => 'Description',
         'edition' => 'Edition',
         'mountAccessReadWriteRoleIdList' => 'MountAccessReadWriteRoleIdList',
         'name' => 'Name',
         'options' => 'Options',
+        'sharingConfig' => 'SharingConfig',
     ];
 
     public function validate()
     {
         if (\is_array($this->mountAccessReadWriteRoleIdList)) {
             Model::validateArray($this->mountAccessReadWriteRoleIdList);
+        }
+        if (null !== $this->sharingConfig) {
+            $this->sharingConfig->validate();
         }
         parent::validate();
     }
@@ -64,7 +74,8 @@ class UpdateDatasetRequest extends Model
                 $res['MountAccessReadWriteRoleIdList'] = [];
                 $n1 = 0;
                 foreach ($this->mountAccessReadWriteRoleIdList as $item1) {
-                    $res['MountAccessReadWriteRoleIdList'][$n1++] = $item1;
+                    $res['MountAccessReadWriteRoleIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -75,6 +86,10 @@ class UpdateDatasetRequest extends Model
 
         if (null !== $this->options) {
             $res['Options'] = $this->options;
+        }
+
+        if (null !== $this->sharingConfig) {
+            $res['SharingConfig'] = null !== $this->sharingConfig ? $this->sharingConfig->toArray($noStream) : $this->sharingConfig;
         }
 
         return $res;
@@ -101,7 +116,8 @@ class UpdateDatasetRequest extends Model
                 $model->mountAccessReadWriteRoleIdList = [];
                 $n1 = 0;
                 foreach ($map['MountAccessReadWriteRoleIdList'] as $item1) {
-                    $model->mountAccessReadWriteRoleIdList[$n1++] = $item1;
+                    $model->mountAccessReadWriteRoleIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,6 +128,10 @@ class UpdateDatasetRequest extends Model
 
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
+        }
+
+        if (isset($map['SharingConfig'])) {
+            $model->sharingConfig = sharingConfig::fromMap($map['SharingConfig']);
         }
 
         return $model;

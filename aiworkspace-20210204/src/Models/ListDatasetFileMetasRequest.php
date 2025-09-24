@@ -44,6 +44,16 @@ class ListDatasetFileMetasRequest extends Model
     public $pageSize;
 
     /**
+     * @var string[]
+     */
+    public $queryContentTypeIncludeAny;
+
+    /**
+     * @var string
+     */
+    public $queryExpression;
+
+    /**
      * @var string
      */
     public $queryFileDir;
@@ -130,6 +140,8 @@ class ListDatasetFileMetasRequest extends Model
         'nextToken' => 'NextToken',
         'order' => 'Order',
         'pageSize' => 'PageSize',
+        'queryContentTypeIncludeAny' => 'QueryContentTypeIncludeAny',
+        'queryExpression' => 'QueryExpression',
         'queryFileDir' => 'QueryFileDir',
         'queryFileName' => 'QueryFileName',
         'queryFileTypeIncludeAny' => 'QueryFileTypeIncludeAny',
@@ -150,6 +162,9 @@ class ListDatasetFileMetasRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->queryContentTypeIncludeAny)) {
+            Model::validateArray($this->queryContentTypeIncludeAny);
+        }
         if (\is_array($this->queryFileTypeIncludeAny)) {
             Model::validateArray($this->queryFileTypeIncludeAny);
         }
@@ -196,6 +211,21 @@ class ListDatasetFileMetasRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->queryContentTypeIncludeAny) {
+            if (\is_array($this->queryContentTypeIncludeAny)) {
+                $res['QueryContentTypeIncludeAny'] = [];
+                $n1 = 0;
+                foreach ($this->queryContentTypeIncludeAny as $item1) {
+                    $res['QueryContentTypeIncludeAny'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->queryExpression) {
+            $res['QueryExpression'] = $this->queryExpression;
+        }
+
         if (null !== $this->queryFileDir) {
             $res['QueryFileDir'] = $this->queryFileDir;
         }
@@ -209,7 +239,8 @@ class ListDatasetFileMetasRequest extends Model
                 $res['QueryFileTypeIncludeAny'] = [];
                 $n1 = 0;
                 foreach ($this->queryFileTypeIncludeAny as $item1) {
-                    $res['QueryFileTypeIncludeAny'][$n1++] = $item1;
+                    $res['QueryFileTypeIncludeAny'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -223,7 +254,8 @@ class ListDatasetFileMetasRequest extends Model
                 $res['QueryTagsExclude'] = [];
                 $n1 = 0;
                 foreach ($this->queryTagsExclude as $item1) {
-                    $res['QueryTagsExclude'][$n1++] = $item1;
+                    $res['QueryTagsExclude'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +265,8 @@ class ListDatasetFileMetasRequest extends Model
                 $res['QueryTagsIncludeAll'] = [];
                 $n1 = 0;
                 foreach ($this->queryTagsIncludeAll as $item1) {
-                    $res['QueryTagsIncludeAll'][$n1++] = $item1;
+                    $res['QueryTagsIncludeAll'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +276,8 @@ class ListDatasetFileMetasRequest extends Model
                 $res['QueryTagsIncludeAny'] = [];
                 $n1 = 0;
                 foreach ($this->queryTagsIncludeAny as $item1) {
-                    $res['QueryTagsIncludeAny'][$n1++] = $item1;
+                    $res['QueryTagsIncludeAny'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -323,6 +357,21 @@ class ListDatasetFileMetasRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['QueryContentTypeIncludeAny'])) {
+            if (!empty($map['QueryContentTypeIncludeAny'])) {
+                $model->queryContentTypeIncludeAny = [];
+                $n1 = 0;
+                foreach ($map['QueryContentTypeIncludeAny'] as $item1) {
+                    $model->queryContentTypeIncludeAny[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['QueryExpression'])) {
+            $model->queryExpression = $map['QueryExpression'];
+        }
+
         if (isset($map['QueryFileDir'])) {
             $model->queryFileDir = $map['QueryFileDir'];
         }
@@ -336,7 +385,8 @@ class ListDatasetFileMetasRequest extends Model
                 $model->queryFileTypeIncludeAny = [];
                 $n1 = 0;
                 foreach ($map['QueryFileTypeIncludeAny'] as $item1) {
-                    $model->queryFileTypeIncludeAny[$n1++] = $item1;
+                    $model->queryFileTypeIncludeAny[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -350,7 +400,8 @@ class ListDatasetFileMetasRequest extends Model
                 $model->queryTagsExclude = [];
                 $n1 = 0;
                 foreach ($map['QueryTagsExclude'] as $item1) {
-                    $model->queryTagsExclude[$n1++] = $item1;
+                    $model->queryTagsExclude[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -360,7 +411,8 @@ class ListDatasetFileMetasRequest extends Model
                 $model->queryTagsIncludeAll = [];
                 $n1 = 0;
                 foreach ($map['QueryTagsIncludeAll'] as $item1) {
-                    $model->queryTagsIncludeAll[$n1++] = $item1;
+                    $model->queryTagsIncludeAll[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -370,7 +422,8 @@ class ListDatasetFileMetasRequest extends Model
                 $model->queryTagsIncludeAny = [];
                 $n1 = 0;
                 foreach ($map['QueryTagsIncludeAny'] as $item1) {
-                    $model->queryTagsIncludeAny[$n1++] = $item1;
+                    $model->queryTagsIncludeAny[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

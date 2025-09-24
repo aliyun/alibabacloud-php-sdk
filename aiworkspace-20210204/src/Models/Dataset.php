@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\Dataset\sharingConfig;
 
 class Dataset extends Model
 {
@@ -54,6 +55,11 @@ class Dataset extends Model
     public $importInfo;
 
     /**
+     * @var bool
+     */
+    public $isShared;
+
+    /**
      * @var Label[]
      */
     public $labels;
@@ -97,6 +103,16 @@ class Dataset extends Model
      * @var string
      */
     public $providerType;
+
+    /**
+     * @var DatasetShareRelationship
+     */
+    public $sharedFrom;
+
+    /**
+     * @var sharingConfig
+     */
+    public $sharingConfig;
 
     /**
      * @var string
@@ -147,6 +163,7 @@ class Dataset extends Model
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'importInfo' => 'ImportInfo',
+        'isShared' => 'IsShared',
         'labels' => 'Labels',
         'latestVersion' => 'LatestVersion',
         'mountAccess' => 'MountAccess',
@@ -156,6 +173,8 @@ class Dataset extends Model
         'ownerId' => 'OwnerId',
         'property' => 'Property',
         'providerType' => 'ProviderType',
+        'sharedFrom' => 'SharedFrom',
+        'sharingConfig' => 'SharingConfig',
         'sourceDatasetId' => 'SourceDatasetId',
         'sourceDatasetVersion' => 'SourceDatasetVersion',
         'sourceId' => 'SourceId',
@@ -176,6 +195,12 @@ class Dataset extends Model
         }
         if (\is_array($this->mountAccessReadWriteRoleIdList)) {
             Model::validateArray($this->mountAccessReadWriteRoleIdList);
+        }
+        if (null !== $this->sharedFrom) {
+            $this->sharedFrom->validate();
+        }
+        if (null !== $this->sharingConfig) {
+            $this->sharingConfig->validate();
         }
         parent::validate();
     }
@@ -219,12 +244,17 @@ class Dataset extends Model
             $res['ImportInfo'] = $this->importInfo;
         }
 
+        if (null !== $this->isShared) {
+            $res['IsShared'] = $this->isShared;
+        }
+
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -242,7 +272,8 @@ class Dataset extends Model
                 $res['MountAccessReadWriteRoleIdList'] = [];
                 $n1 = 0;
                 foreach ($this->mountAccessReadWriteRoleIdList as $item1) {
-                    $res['MountAccessReadWriteRoleIdList'][$n1++] = $item1;
+                    $res['MountAccessReadWriteRoleIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -265,6 +296,14 @@ class Dataset extends Model
 
         if (null !== $this->providerType) {
             $res['ProviderType'] = $this->providerType;
+        }
+
+        if (null !== $this->sharedFrom) {
+            $res['SharedFrom'] = null !== $this->sharedFrom ? $this->sharedFrom->toArray($noStream) : $this->sharedFrom;
+        }
+
+        if (null !== $this->sharingConfig) {
+            $res['SharingConfig'] = null !== $this->sharingConfig ? $this->sharingConfig->toArray($noStream) : $this->sharingConfig;
         }
 
         if (null !== $this->sourceDatasetId) {
@@ -346,12 +385,17 @@ class Dataset extends Model
             $model->importInfo = $map['ImportInfo'];
         }
 
+        if (isset($map['IsShared'])) {
+            $model->isShared = $map['IsShared'];
+        }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -369,7 +413,8 @@ class Dataset extends Model
                 $model->mountAccessReadWriteRoleIdList = [];
                 $n1 = 0;
                 foreach ($map['MountAccessReadWriteRoleIdList'] as $item1) {
-                    $model->mountAccessReadWriteRoleIdList[$n1++] = $item1;
+                    $model->mountAccessReadWriteRoleIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -392,6 +437,14 @@ class Dataset extends Model
 
         if (isset($map['ProviderType'])) {
             $model->providerType = $map['ProviderType'];
+        }
+
+        if (isset($map['SharedFrom'])) {
+            $model->sharedFrom = DatasetShareRelationship::fromMap($map['SharedFrom']);
+        }
+
+        if (isset($map['SharingConfig'])) {
+            $model->sharingConfig = sharingConfig::fromMap($map['SharingConfig']);
         }
 
         if (isset($map['SourceDatasetId'])) {

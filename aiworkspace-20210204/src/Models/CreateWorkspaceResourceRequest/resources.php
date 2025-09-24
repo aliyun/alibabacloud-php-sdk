@@ -106,7 +106,8 @@ class resources extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,7 +125,8 @@ class resources extends Model
                 $res['Quotas'] = [];
                 $n1 = 0;
                 foreach ($this->quotas as $item1) {
-                    $res['Quotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Quotas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +176,8 @@ class resources extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = labels::fromMap($item1);
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -192,7 +195,8 @@ class resources extends Model
                 $model->quotas = [];
                 $n1 = 0;
                 foreach ($map['Quotas'] as $item1) {
-                    $model->quotas[$n1++] = quotas::fromMap($item1);
+                    $model->quotas[$n1] = quotas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

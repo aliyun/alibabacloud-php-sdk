@@ -44,7 +44,8 @@ class GetDatasetFileMetasStatisticsResponseBody extends Model
                 $res['DatasetFileMetasStats'] = [];
                 $n1 = 0;
                 foreach ($this->datasetFileMetasStats as $item1) {
-                    $res['DatasetFileMetasStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatasetFileMetasStats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class GetDatasetFileMetasStatisticsResponseBody extends Model
                 $model->datasetFileMetasStats = [];
                 $n1 = 0;
                 foreach ($map['DatasetFileMetasStats'] as $item1) {
-                    $model->datasetFileMetasStats[$n1++] = DatasetFileMetasStat::fromMap($item1);
+                    $model->datasetFileMetasStats[$n1] = DatasetFileMetasStat::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -21,10 +21,16 @@ class CreateDatasetJobConfigRequest extends Model
     /**
      * @var string
      */
+    public $datasetVersion;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'config' => 'Config',
         'configType' => 'ConfigType',
+        'datasetVersion' => 'DatasetVersion',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -42,6 +48,10 @@ class CreateDatasetJobConfigRequest extends Model
 
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
+        }
+
+        if (null !== $this->datasetVersion) {
+            $res['DatasetVersion'] = $this->datasetVersion;
         }
 
         if (null !== $this->workspaceId) {
@@ -65,6 +75,10 @@ class CreateDatasetJobConfigRequest extends Model
 
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
+        }
+
+        if (isset($map['DatasetVersion'])) {
+            $model->datasetVersion = $map['DatasetVersion'];
         }
 
         if (isset($map['WorkspaceId'])) {

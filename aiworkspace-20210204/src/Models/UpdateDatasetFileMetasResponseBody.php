@@ -44,7 +44,8 @@ class UpdateDatasetFileMetasResponseBody extends Model
                 $res['FailedDetails'] = [];
                 $n1 = 0;
                 foreach ($this->failedDetails as $item1) {
-                    $res['FailedDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class UpdateDatasetFileMetasResponseBody extends Model
                 $model->failedDetails = [];
                 $n1 = 0;
                 foreach ($map['FailedDetails'] as $item1) {
-                    $model->failedDetails[$n1++] = DatasetFileMetaResponse::fromMap($item1);
+                    $model->failedDetails[$n1] = DatasetFileMetaResponse::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

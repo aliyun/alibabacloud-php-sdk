@@ -49,7 +49,8 @@ class ListProductsResponseBody extends Model
                 $res['Products'] = [];
                 $n1 = 0;
                 foreach ($this->products as $item1) {
-                    $res['Products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Products'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListProductsResponseBody extends Model
                 $res['Services'] = [];
                 $n1 = 0;
                 foreach ($this->services as $item1) {
-                    $res['Services'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Services'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +86,8 @@ class ListProductsResponseBody extends Model
                 $model->products = [];
                 $n1 = 0;
                 foreach ($map['Products'] as $item1) {
-                    $model->products[$n1++] = products::fromMap($item1);
+                    $model->products[$n1] = products::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +101,8 @@ class ListProductsResponseBody extends Model
                 $model->services = [];
                 $n1 = 0;
                 foreach ($map['Services'] as $item1) {
-                    $model->services[$n1++] = services::fromMap($item1);
+                    $model->services[$n1] = services::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

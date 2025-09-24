@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsRequest\conditions;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsRequest\tag;
 
 class ListModelsRequest extends Model
@@ -13,6 +14,11 @@ class ListModelsRequest extends Model
      * @var string
      */
     public $collections;
+
+    /**
+     * @var conditions[]
+     */
+    public $conditions;
 
     /**
      * @var string
@@ -85,6 +91,7 @@ class ListModelsRequest extends Model
     public $workspaceId;
     protected $_name = [
         'collections' => 'Collections',
+        'conditions' => 'Conditions',
         'domain' => 'Domain',
         'label' => 'Label',
         'modelName' => 'ModelName',
@@ -103,6 +110,9 @@ class ListModelsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -114,6 +124,17 @@ class ListModelsRequest extends Model
         $res = [];
         if (null !== $this->collections) {
             $res['Collections'] = $this->collections;
+        }
+
+        if (null !== $this->conditions) {
+            if (\is_array($this->conditions)) {
+                $res['Conditions'] = [];
+                $n1 = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->domain) {
@@ -165,7 +186,8 @@ class ListModelsRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,6 +213,17 @@ class ListModelsRequest extends Model
         $model = new self();
         if (isset($map['Collections'])) {
             $model->collections = $map['Collections'];
+        }
+
+        if (isset($map['Conditions'])) {
+            if (!empty($map['Conditions'])) {
+                $model->conditions = [];
+                $n1 = 0;
+                foreach ($map['Conditions'] as $item1) {
+                    $model->conditions[$n1] = conditions::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Domain'])) {
@@ -242,7 +275,8 @@ class ListModelsRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

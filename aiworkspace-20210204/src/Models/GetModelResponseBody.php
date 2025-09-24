@@ -31,6 +31,11 @@ class GetModelResponseBody extends Model
     /**
      * @var string
      */
+    public $gmtLatestVersionModifiedTime;
+
+    /**
+     * @var string
+     */
     public $gmtModifiedTime;
 
     /**
@@ -84,6 +89,11 @@ class GetModelResponseBody extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $parameterSize;
+
+    /**
      * @var string
      */
     public $provider;
@@ -112,6 +122,7 @@ class GetModelResponseBody extends Model
         'domain' => 'Domain',
         'extraInfo' => 'ExtraInfo',
         'gmtCreateTime' => 'GmtCreateTime',
+        'gmtLatestVersionModifiedTime' => 'GmtLatestVersionModifiedTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'labels' => 'Labels',
         'latestVersion' => 'LatestVersion',
@@ -123,6 +134,7 @@ class GetModelResponseBody extends Model
         'orderNumber' => 'OrderNumber',
         'origin' => 'Origin',
         'ownerId' => 'OwnerId',
+        'parameterSize' => 'ParameterSize',
         'provider' => 'Provider',
         'requestId' => 'RequestId',
         'task' => 'Task',
@@ -168,6 +180,10 @@ class GetModelResponseBody extends Model
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
 
+        if (null !== $this->gmtLatestVersionModifiedTime) {
+            $res['GmtLatestVersionModifiedTime'] = $this->gmtLatestVersionModifiedTime;
+        }
+
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
@@ -177,7 +193,8 @@ class GetModelResponseBody extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -216,6 +233,10 @@ class GetModelResponseBody extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->parameterSize) {
+            $res['ParameterSize'] = $this->parameterSize;
         }
 
         if (null !== $this->provider) {
@@ -270,6 +291,10 @@ class GetModelResponseBody extends Model
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
 
+        if (isset($map['GmtLatestVersionModifiedTime'])) {
+            $model->gmtLatestVersionModifiedTime = $map['GmtLatestVersionModifiedTime'];
+        }
+
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
@@ -279,7 +304,8 @@ class GetModelResponseBody extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -318,6 +344,10 @@ class GetModelResponseBody extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ParameterSize'])) {
+            $model->parameterSize = $map['ParameterSize'];
         }
 
         if (isset($map['Provider'])) {

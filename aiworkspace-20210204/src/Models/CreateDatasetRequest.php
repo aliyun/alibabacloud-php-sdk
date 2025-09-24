@@ -208,7 +208,8 @@ class CreateDatasetRequest extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +219,8 @@ class CreateDatasetRequest extends Model
                 $res['MountAccessReadWriteRoleIdList'] = [];
                 $n1 = 0;
                 foreach ($this->mountAccessReadWriteRoleIdList as $item1) {
-                    $res['MountAccessReadWriteRoleIdList'][$n1++] = $item1;
+                    $res['MountAccessReadWriteRoleIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -276,7 +278,8 @@ class CreateDatasetRequest extends Model
                 $res['VersionLabels'] = [];
                 $n1 = 0;
                 foreach ($this->versionLabels as $item1) {
-                    $res['VersionLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VersionLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -333,7 +336,8 @@ class CreateDatasetRequest extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -343,7 +347,8 @@ class CreateDatasetRequest extends Model
                 $model->mountAccessReadWriteRoleIdList = [];
                 $n1 = 0;
                 foreach ($map['MountAccessReadWriteRoleIdList'] as $item1) {
-                    $model->mountAccessReadWriteRoleIdList[$n1++] = $item1;
+                    $model->mountAccessReadWriteRoleIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -401,7 +406,8 @@ class CreateDatasetRequest extends Model
                 $model->versionLabels = [];
                 $n1 = 0;
                 foreach ($map['VersionLabels'] as $item1) {
-                    $model->versionLabels[$n1++] = Label::fromMap($item1);
+                    $model->versionLabels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -44,7 +44,8 @@ class ListCodeSourcesResponseBody extends Model
                 $res['CodeSources'] = [];
                 $n1 = 0;
                 foreach ($this->codeSources as $item1) {
-                    $res['CodeSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CodeSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class ListCodeSourcesResponseBody extends Model
                 $model->codeSources = [];
                 $n1 = 0;
                 foreach ($map['CodeSources'] as $item1) {
-                    $model->codeSources[$n1++] = CodeSourceItem::fromMap($item1);
+                    $model->codeSources[$n1] = CodeSourceItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

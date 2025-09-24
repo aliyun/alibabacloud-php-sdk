@@ -26,7 +26,7 @@ class products extends Model
     /**
      * @var string
      */
-    public $productInstanceId;
+    public $productId;
 
     /**
      * @var string
@@ -36,7 +36,7 @@ class products extends Model
         'hasPermissionToPurchase' => 'HasPermissionToPurchase',
         'isPurchased' => 'IsPurchased',
         'productCode' => 'ProductCode',
-        'productInstanceId' => 'ProductInstanceId',
+        'productId' => 'ProductId',
         'purchaseUrl' => 'PurchaseUrl',
     ];
 
@@ -60,8 +60,8 @@ class products extends Model
             $res['ProductCode'] = $this->productCode;
         }
 
-        if (null !== $this->productInstanceId) {
-            $res['ProductInstanceId'] = $this->productInstanceId;
+        if (null !== $this->productId) {
+            $res['ProductId'] = $this->productId;
         }
 
         if (null !== $this->purchaseUrl) {
@@ -91,8 +91,8 @@ class products extends Model
             $model->productCode = $map['ProductCode'];
         }
 
-        if (isset($map['ProductInstanceId'])) {
-            $model->productInstanceId = $map['ProductInstanceId'];
+        if (isset($map['ProductId'])) {
+            $model->productId = $map['ProductId'];
         }
 
         if (isset($map['PurchaseUrl'])) {

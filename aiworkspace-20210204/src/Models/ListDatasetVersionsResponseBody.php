@@ -56,7 +56,8 @@ class ListDatasetVersionsResponseBody extends Model
                 $res['DatasetVersions'] = [];
                 $n1 = 0;
                 foreach ($this->datasetVersions as $item1) {
-                    $res['DatasetVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatasetVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class ListDatasetVersionsResponseBody extends Model
                 $model->datasetVersions = [];
                 $n1 = 0;
                 foreach ($map['DatasetVersions'] as $item1) {
-                    $model->datasetVersions[$n1++] = DatasetVersion::fromMap($item1);
+                    $model->datasetVersions[$n1] = DatasetVersion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

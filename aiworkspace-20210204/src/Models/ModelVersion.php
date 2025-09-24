@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ModelVersion\labels;
 
 class ModelVersion extends Model
 {
@@ -17,6 +18,11 @@ class ModelVersion extends Model
      * @var mixed[]
      */
     public $compressionSpec;
+
+    /**
+     * @var mixed[]
+     */
+    public $distillationSpec;
 
     /**
      * @var mixed[]
@@ -54,7 +60,7 @@ class ModelVersion extends Model
     public $inferenceSpec;
 
     /**
-     * @var Label[]
+     * @var labels[]
      */
     public $labels;
 
@@ -110,6 +116,7 @@ class ModelVersion extends Model
     protected $_name = [
         'approvalStatus' => 'ApprovalStatus',
         'compressionSpec' => 'CompressionSpec',
+        'distillationSpec' => 'DistillationSpec',
         'evaluationSpec' => 'EvaluationSpec',
         'extraInfo' => 'ExtraInfo',
         'formatType' => 'FormatType',
@@ -134,6 +141,9 @@ class ModelVersion extends Model
     {
         if (\is_array($this->compressionSpec)) {
             Model::validateArray($this->compressionSpec);
+        }
+        if (\is_array($this->distillationSpec)) {
+            Model::validateArray($this->distillationSpec);
         }
         if (\is_array($this->evaluationSpec)) {
             Model::validateArray($this->evaluationSpec);
@@ -168,6 +178,15 @@ class ModelVersion extends Model
                 $res['CompressionSpec'] = [];
                 foreach ($this->compressionSpec as $key1 => $value1) {
                     $res['CompressionSpec'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->distillationSpec) {
+            if (\is_array($this->distillationSpec)) {
+                $res['DistillationSpec'] = [];
+                foreach ($this->distillationSpec as $key1 => $value1) {
+                    $res['DistillationSpec'][$key1] = $value1;
                 }
             }
         }
@@ -220,7 +239,8 @@ class ModelVersion extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -299,6 +319,15 @@ class ModelVersion extends Model
             }
         }
 
+        if (isset($map['DistillationSpec'])) {
+            if (!empty($map['DistillationSpec'])) {
+                $model->distillationSpec = [];
+                foreach ($map['DistillationSpec'] as $key1 => $value1) {
+                    $model->distillationSpec[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['EvaluationSpec'])) {
             if (!empty($map['EvaluationSpec'])) {
                 $model->evaluationSpec = [];
@@ -347,7 +376,8 @@ class ModelVersion extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

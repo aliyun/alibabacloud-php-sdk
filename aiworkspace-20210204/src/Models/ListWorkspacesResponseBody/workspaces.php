@@ -104,7 +104,8 @@ class workspaces extends Model
                 $res['AdminNames'] = [];
                 $n1 = 0;
                 foreach ($this->adminNames as $item1) {
-                    $res['AdminNames'][$n1++] = $item1;
+                    $res['AdminNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class workspaces extends Model
                 $res['EnvTypes'] = [];
                 $n1 = 0;
                 foreach ($this->envTypes as $item1) {
-                    $res['EnvTypes'][$n1++] = $item1;
+                    $res['EnvTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +182,8 @@ class workspaces extends Model
                 $model->adminNames = [];
                 $n1 = 0;
                 foreach ($map['AdminNames'] as $item1) {
-                    $model->adminNames[$n1++] = $item1;
+                    $model->adminNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -198,7 +201,8 @@ class workspaces extends Model
                 $model->envTypes = [];
                 $n1 = 0;
                 foreach ($map['EnvTypes'] as $item1) {
-                    $model->envTypes[$n1++] = $item1;
+                    $model->envTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

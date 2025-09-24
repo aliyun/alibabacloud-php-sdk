@@ -138,6 +138,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetVersionsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListExperimentShrinkRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListFeaturesRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListFeaturesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListImageLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListImageLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListImagesRequest;
@@ -1131,6 +1133,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['ConfigType'] = $request->configType;
         }
 
+        if (null !== $request->datasetVersion) {
+            @$body['DatasetVersion'] = $request->datasetVersion;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -1614,6 +1620,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['Origin'] = $request->origin;
         }
 
+        if (null !== $request->parameterSize) {
+            @$body['ParameterSize'] = $request->parameterSize;
+        }
+
         if (null !== $request->tag) {
             @$body['Tag'] = $request->tag;
         }
@@ -1753,6 +1763,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->compressionSpec) {
             @$body['CompressionSpec'] = $request->compressionSpec;
+        }
+
+        if (null !== $request->distillationSpec) {
+            @$body['DistillationSpec'] = $request->distillationSpec;
         }
 
         if (null !== $request->evaluationSpec) {
@@ -4840,6 +4854,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['ConnectionTypes'] = $request->connectionTypesShrink;
         }
 
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
+        }
+
         if (null !== $request->encryptOption) {
             @$query['EncryptOption'] = $request->encryptOption;
         }
@@ -4935,6 +4953,10 @@ class AIWorkSpace extends OpenApiClient
         $tmpReq->validate();
         $request = new ListDatasetFileMetasShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryContentTypeIncludeAny) {
+            $request->queryContentTypeIncludeAnyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryContentTypeIncludeAny, 'QueryContentTypeIncludeAny', 'simple');
+        }
+
         if (null !== $tmpReq->queryFileTypeIncludeAny) {
             $request->queryFileTypeIncludeAnyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryFileTypeIncludeAny, 'QueryFileTypeIncludeAny', 'simple');
         }
@@ -4978,6 +5000,14 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryContentTypeIncludeAnyShrink) {
+            @$query['QueryContentTypeIncludeAny'] = $request->queryContentTypeIncludeAnyShrink;
+        }
+
+        if (null !== $request->queryExpression) {
+            @$query['QueryExpression'] = $request->queryExpression;
         }
 
         if (null !== $request->queryFileDir) {
@@ -5107,6 +5137,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['ConfigType'] = $request->configType;
         }
 
+        if (null !== $request->datasetVersion) {
+            @$query['DatasetVersion'] = $request->datasetVersion;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -5186,12 +5220,24 @@ class AIWorkSpace extends OpenApiClient
             @$query['JobAction'] = $request->jobAction;
         }
 
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
 
         if (null !== $request->workspaceId) {
@@ -5351,12 +5397,20 @@ class AIWorkSpace extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
         if (null !== $request->dataSourceTypes) {
             @$query['DataSourceTypes'] = $request->dataSourceTypes;
         }
 
         if (null !== $request->dataTypes) {
             @$query['DataTypes'] = $request->dataTypes;
+        }
+
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
         }
 
         if (null !== $request->label) {
@@ -5385,6 +5439,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->provider) {
             @$query['Provider'] = $request->provider;
+        }
+
+        if (null !== $request->shareScope) {
+            @$query['ShareScope'] = $request->shareScope;
         }
 
         if (null !== $request->sortBy) {
@@ -5554,6 +5612,67 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->listExperimentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列举特性.
+     *
+     * @param request - ListFeaturesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFeaturesResponse
+     *
+     * @param ListFeaturesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListFeaturesResponse
+     */
+    public function listFeaturesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->names) {
+            @$query['Names'] = $request->names;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFeatures',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/features',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举特性.
+     *
+     * @param request - ListFeaturesRequest
+     *
+     * @returns ListFeaturesResponse
+     *
+     * @param ListFeaturesRequest $request
+     *
+     * @return ListFeaturesResponse
+     */
+    public function listFeatures($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listFeaturesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5932,6 +6051,10 @@ class AIWorkSpace extends OpenApiClient
         $tmpReq->validate();
         $request = new ListModelsShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->conditions) {
+            $request->conditionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->conditions, 'Conditions', 'json');
+        }
+
         if (null !== $tmpReq->tag) {
             $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
@@ -5939,6 +6062,10 @@ class AIWorkSpace extends OpenApiClient
         $query = [];
         if (null !== $request->collections) {
             @$query['Collections'] = $request->collections;
+        }
+
+        if (null !== $request->conditionsShrink) {
+            @$query['Conditions'] = $request->conditionsShrink;
         }
 
         if (null !== $request->domain) {
@@ -6594,6 +6721,10 @@ class AIWorkSpace extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         if (null !== $request->userName) {
             @$query['UserName'] = $request->userName;
         }
@@ -7660,6 +7791,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['Options'] = $request->options;
         }
 
+        if (null !== $request->sharingConfig) {
+            @$body['SharingConfig'] = $request->sharingConfig;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -8181,6 +8316,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['Origin'] = $request->origin;
         }
 
+        if (null !== $request->parameterSize) {
+            @$body['ParameterSize'] = $request->parameterSize;
+        }
+
         if (null !== $request->task) {
             @$body['Task'] = $request->task;
         }
@@ -8251,6 +8390,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->compressionSpec) {
             @$body['CompressionSpec'] = $request->compressionSpec;
+        }
+
+        if (null !== $request->distillationSpec) {
+            @$body['DistillationSpec'] = $request->distillationSpec;
         }
 
         if (null !== $request->evaluationSpec) {

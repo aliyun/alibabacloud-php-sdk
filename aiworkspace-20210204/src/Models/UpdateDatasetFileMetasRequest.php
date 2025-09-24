@@ -50,7 +50,8 @@ class UpdateDatasetFileMetasRequest extends Model
                 $res['DatasetFileMetas'] = [];
                 $n1 = 0;
                 foreach ($this->datasetFileMetas as $item1) {
-                    $res['DatasetFileMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DatasetFileMetas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class UpdateDatasetFileMetasRequest extends Model
                 $model->datasetFileMetas = [];
                 $n1 = 0;
                 foreach ($map['DatasetFileMetas'] as $item1) {
-                    $model->datasetFileMetas[$n1++] = DatasetFileMetaConentUpdate::fromMap($item1);
+                    $model->datasetFileMetas[$n1] = DatasetFileMetaConentUpdate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

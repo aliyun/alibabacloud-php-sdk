@@ -1,0 +1,76 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsRequest;
+
+use AlibabaCloud\Dara\Model;
+
+class conditions extends Model
+{
+    /**
+     * @var string
+     */
+    public $column;
+
+    /**
+     * @var string
+     */
+    public $operator;
+
+    /**
+     * @var string
+     */
+    public $value;
+    protected $_name = [
+        'column' => 'Column',
+        'operator' => 'Operator',
+        'value' => 'Value',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->column) {
+            $res['Column'] = $this->column;
+        }
+
+        if (null !== $this->operator) {
+            $res['Operator'] = $this->operator;
+        }
+
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Column'])) {
+            $model->column = $map['Column'];
+        }
+
+        if (isset($map['Operator'])) {
+            $model->operator = $map['Operator'];
+        }
+
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
+        }
+
+        return $model;
+    }
+}

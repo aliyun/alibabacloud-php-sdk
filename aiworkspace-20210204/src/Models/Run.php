@@ -138,7 +138,8 @@ class Run extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class Run extends Model
                 $res['Metrics'] = [];
                 $n1 = 0;
                 foreach ($this->metrics as $item1) {
-                    $res['Metrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Metrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class Run extends Model
                 $res['Params'] = [];
                 $n1 = 0;
                 foreach ($this->params as $item1) {
-                    $res['Params'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Params'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +230,8 @@ class Run extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = RunLabel::fromMap($item1);
+                    $model->labels[$n1] = RunLabel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +241,8 @@ class Run extends Model
                 $model->metrics = [];
                 $n1 = 0;
                 foreach ($map['Metrics'] as $item1) {
-                    $model->metrics[$n1++] = RunMetric::fromMap($item1);
+                    $model->metrics[$n1] = RunMetric::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -255,7 +260,8 @@ class Run extends Model
                 $model->params = [];
                 $n1 = 0;
                 foreach ($map['Params'] as $item1) {
-                    $model->params[$n1++] = RunParam::fromMap($item1);
+                    $model->params[$n1] = RunParam::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

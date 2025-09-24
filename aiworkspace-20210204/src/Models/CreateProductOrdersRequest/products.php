@@ -81,7 +81,8 @@ class products extends Model
                 $res['InstanceProperties'] = [];
                 $n1 = 0;
                 foreach ($this->instanceProperties as $item1) {
-                    $res['InstanceProperties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +127,8 @@ class products extends Model
                 $model->instanceProperties = [];
                 $n1 = 0;
                 foreach ($map['InstanceProperties'] as $item1) {
-                    $model->instanceProperties[$n1++] = instanceProperties::fromMap($item1);
+                    $model->instanceProperties[$n1] = instanceProperties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

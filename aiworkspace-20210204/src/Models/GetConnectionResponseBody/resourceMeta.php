@@ -11,6 +11,11 @@ class resourceMeta extends Model
     /**
      * @var string
      */
+    public $extra;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -18,6 +23,7 @@ class resourceMeta extends Model
      */
     public $instanceName;
     protected $_name = [
+        'extra' => 'Extra',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
     ];
@@ -30,6 +36,10 @@ class resourceMeta extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extra) {
+            $res['Extra'] = $this->extra;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,6 +59,10 @@ class resourceMeta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Extra'])) {
+            $model->extra = $map['Extra'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -19,6 +19,11 @@ class ListDatasetJobsRequest extends Model
     public $jobAction;
 
     /**
+     * @var string
+     */
+    public $order;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -31,12 +36,25 @@ class ListDatasetJobsRequest extends Model
     /**
      * @var string
      */
+    public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'datasetVersion' => 'DatasetVersion',
         'jobAction' => 'JobAction',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
+        'status' => 'Status',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -56,12 +74,24 @@ class ListDatasetJobsRequest extends Model
             $res['JobAction'] = $this->jobAction;
         }
 
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->workspaceId) {
@@ -87,12 +117,24 @@ class ListDatasetJobsRequest extends Model
             $model->jobAction = $map['JobAction'];
         }
 
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['WorkspaceId'])) {

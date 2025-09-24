@@ -64,7 +64,8 @@ class CreateWorkspaceRequest extends Model
                 $res['EnvTypes'] = [];
                 $n1 = 0;
                 foreach ($this->envTypes as $item1) {
-                    $res['EnvTypes'][$n1++] = $item1;
+                    $res['EnvTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class CreateWorkspaceRequest extends Model
                 $model->envTypes = [];
                 $n1 = 0;
                 foreach ($map['EnvTypes'] as $item1) {
-                    $model->envTypes[$n1++] = $item1;
+                    $model->envTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

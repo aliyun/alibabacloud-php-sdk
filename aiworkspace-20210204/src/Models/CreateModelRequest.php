@@ -59,6 +59,11 @@ class CreateModelRequest extends Model
     public $origin;
 
     /**
+     * @var int
+     */
+    public $parameterSize;
+
+    /**
      * @var Label[]
      */
     public $tag;
@@ -83,6 +88,7 @@ class CreateModelRequest extends Model
         'modelType' => 'ModelType',
         'orderNumber' => 'OrderNumber',
         'origin' => 'Origin',
+        'parameterSize' => 'ParameterSize',
         'tag' => 'Tag',
         'task' => 'Task',
         'workspaceId' => 'WorkspaceId',
@@ -127,7 +133,8 @@ class CreateModelRequest extends Model
                 $res['Labels'] = [];
                 $n1 = 0;
                 foreach ($this->labels as $item1) {
-                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,12 +163,17 @@ class CreateModelRequest extends Model
             $res['Origin'] = $this->origin;
         }
 
+        if (null !== $this->parameterSize) {
+            $res['ParameterSize'] = $this->parameterSize;
+        }
+
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -207,7 +219,8 @@ class CreateModelRequest extends Model
                 $model->labels = [];
                 $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
-                    $model->labels[$n1++] = Label::fromMap($item1);
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -236,12 +249,17 @@ class CreateModelRequest extends Model
             $model->origin = $map['Origin'];
         }
 
+        if (isset($map['ParameterSize'])) {
+            $model->parameterSize = $map['ParameterSize'];
+        }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = Label::fromMap($item1);
+                    $model->tag[$n1] = Label::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

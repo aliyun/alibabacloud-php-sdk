@@ -38,7 +38,8 @@ class members extends Model
                 $res['Roles'] = [];
                 $n1 = 0;
                 foreach ($this->roles as $item1) {
-                    $res['Roles'][$n1++] = $item1;
+                    $res['Roles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class members extends Model
                 $model->roles = [];
                 $n1 = 0;
                 foreach ($map['Roles'] as $item1) {
-                    $model->roles[$n1++] = $item1;
+                    $model->roles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

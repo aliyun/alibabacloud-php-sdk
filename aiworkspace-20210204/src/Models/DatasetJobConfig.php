@@ -31,6 +31,11 @@ class DatasetJobConfig extends Model
     /**
      * @var string
      */
+    public $datasetVersion;
+
+    /**
+     * @var string
+     */
     public $modifyTime;
 
     /**
@@ -42,6 +47,7 @@ class DatasetJobConfig extends Model
         'configType' => 'ConfigType',
         'createTime' => 'CreateTime',
         'datasetJobConfigId' => 'DatasetJobConfigId',
+        'datasetVersion' => 'DatasetVersion',
         'modifyTime' => 'ModifyTime',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -68,6 +74,10 @@ class DatasetJobConfig extends Model
 
         if (null !== $this->datasetJobConfigId) {
             $res['DatasetJobConfigId'] = $this->datasetJobConfigId;
+        }
+
+        if (null !== $this->datasetVersion) {
+            $res['DatasetVersion'] = $this->datasetVersion;
         }
 
         if (null !== $this->modifyTime) {
@@ -103,6 +113,10 @@ class DatasetJobConfig extends Model
 
         if (isset($map['DatasetJobConfigId'])) {
             $model->datasetJobConfigId = $map['DatasetJobConfigId'];
+        }
+
+        if (isset($map['DatasetVersion'])) {
+            $model->datasetVersion = $map['DatasetVersion'];
         }
 
         if (isset($map['ModifyTime'])) {
