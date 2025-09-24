@@ -4,75 +4,73 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryBillToOSSSubscriptionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryBillToOSSSubscriptionResponseBody\data\items;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the account used to perform the query.
-     *
-     * @example 185xxxxx03489
-     *
      * @var string
      */
     public $accountID;
 
     /**
-     * @description The name of the account used to perform the query.
-     *
-     * @example test@test.aliyunid.com
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description The details of the subscribed bill.
-     *
      * @var items
      */
     public $items;
     protected $_name = [
-        'accountID'   => 'AccountID',
+        'accountID' => 'AccountID',
         'accountName' => 'AccountName',
-        'items'       => 'Items',
+        'items' => 'Items',
     ];
 
     public function validate()
     {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountID) {
             $res['AccountID'] = $this->accountID;
         }
+
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountID'])) {
             $model->accountID = $map['AccountID'];
         }
+
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }

@@ -4,177 +4,144 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSavingsPlansInstanceRequest extends Model
 {
     /**
-     * @description The code of the service.
-     *
-     * This parameter is required.
-     * @example savingplan_common_public_cn
-     *
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description The service duration. This parameter is used together with the PricingCycle parameter.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description The time when the savings plan takes effect. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * @example 2021-12-31T00:00:00Z
-     *
      * @var string
      */
     public $effectiveDate;
 
     /**
-     * @description The extended parameters.
-     *
      * @var string[]
      */
     public $extendMap;
 
     /**
-     * @description The payment mode. Valid values:
-     *
-     *   total: all upfront
-     *   half: partial upfront
-     *   zero: no upfront
-     *
-     * This parameter is required.
-     * @example total
-     *
      * @var string
      */
     public $payMode;
 
     /**
-     * @description The contracted amount. unit: CNY
-     *
-     * This parameter is required.
-     * @example 0.1
-     *
      * @var string
      */
     public $poolValue;
 
     /**
-     * @description The unit of the subscription duration. This parameter is used together with Duration. Valid values:
-     *
-     *   Year
-     *   Month
-     *
-     * This parameter is required.
-     * @example Year
-     *
      * @var string
      */
     public $pricingCycle;
 
     /**
-     * @description The ID of the region in which you create the savings plan. You must specify this parameter if the Type parameter is not set to universal.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The specification type. This parameter is used together with the Specification parameter. You must specify this parameter if the Type parameter is not set to universal. Valid values:
-     *
-     *   group: specification group
-     *   family: specification family
-     *
-     * @example family
-     *
      * @var string
      */
     public $specType;
 
     /**
-     * @description The specifications of the savings plan. This parameter is used together with the SpecType parameter.
-     *
-     * @example ecs.g6
-     *
      * @var string
      */
     public $specification;
 
     /**
-     * @description The type of the savings plan. Valid values:
-     *
-     *   universal: general-purpose type
-     *   ecs: Elastic Compute Service (ECS) compute type
-     *   elasticy: elastic type
-     *
-     * This parameter is required.
-     * @example universal
-     *
      * @var string
      */
     public $type;
     protected $_name = [
+        'autoPay' => 'AutoPay',
         'commodityCode' => 'CommodityCode',
-        'duration'      => 'Duration',
+        'duration' => 'Duration',
         'effectiveDate' => 'EffectiveDate',
-        'extendMap'     => 'ExtendMap',
-        'payMode'       => 'PayMode',
-        'poolValue'     => 'PoolValue',
-        'pricingCycle'  => 'PricingCycle',
-        'region'        => 'Region',
-        'specType'      => 'SpecType',
+        'extendMap' => 'ExtendMap',
+        'payMode' => 'PayMode',
+        'poolValue' => 'PoolValue',
+        'pricingCycle' => 'PricingCycle',
+        'region' => 'Region',
+        'specType' => 'SpecType',
         'specification' => 'Specification',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extendMap)) {
+            Model::validateArray($this->extendMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->effectiveDate) {
             $res['EffectiveDate'] = $this->effectiveDate;
         }
+
         if (null !== $this->extendMap) {
-            $res['ExtendMap'] = $this->extendMap;
+            if (\is_array($this->extendMap)) {
+                $res['ExtendMap'] = [];
+                foreach ($this->extendMap as $key1 => $value1) {
+                    $res['ExtendMap'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->payMode) {
             $res['PayMode'] = $this->payMode;
         }
+
         if (null !== $this->poolValue) {
             $res['PoolValue'] = $this->poolValue;
         }
+
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->specType) {
             $res['SpecType'] = $this->specType;
         }
+
         if (null !== $this->specification) {
             $res['Specification'] = $this->specification;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -182,44 +149,63 @@ class CreateSavingsPlansInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSavingsPlansInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['EffectiveDate'])) {
             $model->effectiveDate = $map['EffectiveDate'];
         }
+
         if (isset($map['ExtendMap'])) {
-            $model->extendMap = $map['ExtendMap'];
+            if (!empty($map['ExtendMap'])) {
+                $model->extendMap = [];
+                foreach ($map['ExtendMap'] as $key1 => $value1) {
+                    $model->extendMap[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['PayMode'])) {
             $model->payMode = $map['PayMode'];
         }
+
         if (isset($map['PoolValue'])) {
             $model->poolValue = $map['PoolValue'];
         }
+
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['SpecType'])) {
             $model->specType = $map['SpecType'];
         }
+
         if (isset($map['Specification'])) {
             $model->specification = $map['Specification'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

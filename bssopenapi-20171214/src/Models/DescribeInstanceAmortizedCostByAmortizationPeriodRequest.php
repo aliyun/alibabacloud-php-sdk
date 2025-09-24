@@ -4,155 +4,166 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
 {
     /**
-     * @description The ID of the member to which the bill belongs. The member ID is used to filter bills. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account and all members of the current account are queried. You can specify a maximum of 10 IDs.
-     *
      * @var string[]
      */
     public $billOwnerIdList;
 
     /**
-     * @description The ID of the member that needs to settle the bill. The member ID is used to filter bills. If you specify a value for this parameter, you can query the bills of the specified member account. If you leave this parameter empty, the bills of the current account and all members of the current account are queried by default. You can specify a maximum of 10 IDs.
-     *
      * @var string[]
      */
     public $billUserIdList;
 
     /**
-     * @description The allocation month. Format: YYYY-MM.
-     *
-     * This parameter is required.
-     * @example 2022-10
-     *
      * @var string
      */
     public $billingCycle;
 
     /**
-     * @description The billing cycle that is used to filter bills. You can specify a maximum of 10 billing cycles.
-     *
      * @var string[]
      */
     public $consumePeriodFilter;
 
     /**
-     * @description The code of the cost center.
-     *
-     * @example 123#
-     *
      * @var string
      */
     public $costUnitCode;
 
     /**
-     * @description The instance ID that is used to filter bills. You can specify multiple instance IDs to query bills of multiple instances. If you leave this parameter empty, the bills of all instances are queried by default. You can specify a maximum of 10 instance IDs.
-     *
      * @var string[]
      */
     public $instanceIdList;
 
     /**
-     * @description The maximum number of entries to return. Default value: 20. Maximum value: 300.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The position from which the query starts. The parameter must be left empty or set to the value of the NextToken parameter returned from the last call. Otherwise, an error is returned. If this parameter is left empty, data is queried from the beginning.
-     *
-     * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The code of the service. You can obtain the value of this parameter by calling the QueryProductList operation or the DescribeResourcePackageProduct operation.
-     *
-     * @example rds
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description The specific service resource.
-     *
-     * @example rds
-     *
      * @var string
      */
     public $productDetail;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   Subscription: the subscription billing method
-     *   PayAsYouGo: the pay-as-you-go billing method
-     *
-     * @example Subscription
-     *
      * @var string
      */
     public $subscriptionType;
     protected $_name = [
-        'billOwnerIdList'     => 'BillOwnerIdList',
-        'billUserIdList'      => 'BillUserIdList',
-        'billingCycle'        => 'BillingCycle',
+        'billOwnerIdList' => 'BillOwnerIdList',
+        'billUserIdList' => 'BillUserIdList',
+        'billingCycle' => 'BillingCycle',
         'consumePeriodFilter' => 'ConsumePeriodFilter',
-        'costUnitCode'        => 'CostUnitCode',
-        'instanceIdList'      => 'InstanceIdList',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'productCode'         => 'ProductCode',
-        'productDetail'       => 'ProductDetail',
-        'subscriptionType'    => 'SubscriptionType',
+        'costUnitCode' => 'CostUnitCode',
+        'instanceIdList' => 'InstanceIdList',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'productCode' => 'ProductCode',
+        'productDetail' => 'ProductDetail',
+        'subscriptionType' => 'SubscriptionType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->billOwnerIdList)) {
+            Model::validateArray($this->billOwnerIdList);
+        }
+        if (\is_array($this->billUserIdList)) {
+            Model::validateArray($this->billUserIdList);
+        }
+        if (\is_array($this->consumePeriodFilter)) {
+            Model::validateArray($this->consumePeriodFilter);
+        }
+        if (\is_array($this->instanceIdList)) {
+            Model::validateArray($this->instanceIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billOwnerIdList) {
-            $res['BillOwnerIdList'] = $this->billOwnerIdList;
+            if (\is_array($this->billOwnerIdList)) {
+                $res['BillOwnerIdList'] = [];
+                $n1 = 0;
+                foreach ($this->billOwnerIdList as $item1) {
+                    $res['BillOwnerIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->billUserIdList) {
-            $res['BillUserIdList'] = $this->billUserIdList;
+            if (\is_array($this->billUserIdList)) {
+                $res['BillUserIdList'] = [];
+                $n1 = 0;
+                foreach ($this->billUserIdList as $item1) {
+                    $res['BillUserIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->billingCycle) {
             $res['BillingCycle'] = $this->billingCycle;
         }
+
         if (null !== $this->consumePeriodFilter) {
-            $res['ConsumePeriodFilter'] = $this->consumePeriodFilter;
+            if (\is_array($this->consumePeriodFilter)) {
+                $res['ConsumePeriodFilter'] = [];
+                $n1 = 0;
+                foreach ($this->consumePeriodFilter as $item1) {
+                    $res['ConsumePeriodFilter'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->costUnitCode) {
             $res['CostUnitCode'] = $this->costUnitCode;
         }
+
         if (null !== $this->instanceIdList) {
-            $res['InstanceIdList'] = $this->instanceIdList;
+            if (\is_array($this->instanceIdList)) {
+                $res['InstanceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIdList as $item1) {
+                    $res['InstanceIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->productDetail) {
             $res['ProductDetail'] = $this->productDetail;
         }
+
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
         }
@@ -160,52 +171,82 @@ class DescribeInstanceAmortizedCostByAmortizationPeriodRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceAmortizedCostByAmortizationPeriodRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillOwnerIdList'])) {
             if (!empty($map['BillOwnerIdList'])) {
-                $model->billOwnerIdList = $map['BillOwnerIdList'];
+                $model->billOwnerIdList = [];
+                $n1 = 0;
+                foreach ($map['BillOwnerIdList'] as $item1) {
+                    $model->billOwnerIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['BillUserIdList'])) {
             if (!empty($map['BillUserIdList'])) {
-                $model->billUserIdList = $map['BillUserIdList'];
+                $model->billUserIdList = [];
+                $n1 = 0;
+                foreach ($map['BillUserIdList'] as $item1) {
+                    $model->billUserIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['BillingCycle'])) {
             $model->billingCycle = $map['BillingCycle'];
         }
+
         if (isset($map['ConsumePeriodFilter'])) {
             if (!empty($map['ConsumePeriodFilter'])) {
-                $model->consumePeriodFilter = $map['ConsumePeriodFilter'];
+                $model->consumePeriodFilter = [];
+                $n1 = 0;
+                foreach ($map['ConsumePeriodFilter'] as $item1) {
+                    $model->consumePeriodFilter[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['CostUnitCode'])) {
             $model->costUnitCode = $map['CostUnitCode'];
         }
+
         if (isset($map['InstanceIdList'])) {
             if (!empty($map['InstanceIdList'])) {
-                $model->instanceIdList = $map['InstanceIdList'];
+                $model->instanceIdList = [];
+                $n1 = 0;
+                foreach ($map['InstanceIdList'] as $item1) {
+                    $model->instanceIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['ProductDetail'])) {
             $model->productDetail = $map['ProductDetail'];
         }
+
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
         }

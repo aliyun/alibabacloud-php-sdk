@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class periodCoverage extends Model
 {
     /**
-     * @description The period.
-     *
-     * @example 2021071500
-     *
      * @var string
      */
     public $period;
 
     /**
-     * @description The usage of resource plans.
-     *
-     * @example 0.1
-     *
      * @var float
      */
     public $usagePercentage;
     protected $_name = [
-        'period'          => 'Period',
+        'period' => 'Period',
         'usagePercentage' => 'UsagePercentage',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->usagePercentage) {
             $res['UsagePercentage'] = $this->usagePercentage;
         }
@@ -47,17 +41,18 @@ class periodCoverage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return periodCoverage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['UsagePercentage'])) {
             $model->usagePercentage = $map['UsagePercentage'];
         }

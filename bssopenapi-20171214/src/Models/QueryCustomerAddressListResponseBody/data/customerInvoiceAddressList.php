@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCustomerAddressListResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCustomerAddressListResponseBody\data\customerInvoiceAddressList\customerInvoiceAddress;
-use AlibabaCloud\Tea\Model;
 
 class customerInvoiceAddressList extends Model
 {
@@ -19,17 +19,22 @@ class customerInvoiceAddressList extends Model
 
     public function validate()
     {
+        if (\is_array($this->customerInvoiceAddress)) {
+            Model::validateArray($this->customerInvoiceAddress);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customerInvoiceAddress) {
-            $res['CustomerInvoiceAddress'] = [];
-            if (null !== $this->customerInvoiceAddress && \is_array($this->customerInvoiceAddress)) {
-                $n = 0;
-                foreach ($this->customerInvoiceAddress as $item) {
-                    $res['CustomerInvoiceAddress'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customerInvoiceAddress)) {
+                $res['CustomerInvoiceAddress'] = [];
+                $n1 = 0;
+                foreach ($this->customerInvoiceAddress as $item1) {
+                    $res['CustomerInvoiceAddress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class customerInvoiceAddressList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customerInvoiceAddressList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomerInvoiceAddress'])) {
             if (!empty($map['CustomerInvoiceAddress'])) {
                 $model->customerInvoiceAddress = [];
-                $n                             = 0;
-                foreach ($map['CustomerInvoiceAddress'] as $item) {
-                    $model->customerInvoiceAddress[$n++] = null !== $item ? customerInvoiceAddress::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomerInvoiceAddress'] as $item1) {
+                    $model->customerInvoiceAddress[$n1] = customerInvoiceAddress::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

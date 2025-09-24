@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPriceEntityListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPriceEntityListResponseBody\data\priceEntityInfoList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the billable items.
-     *
      * @var priceEntityInfoList[]
      */
     public $priceEntityInfoList;
@@ -21,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->priceEntityInfoList)) {
+            Model::validateArray($this->priceEntityInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->priceEntityInfoList) {
-            $res['PriceEntityInfoList'] = [];
-            if (null !== $this->priceEntityInfoList && \is_array($this->priceEntityInfoList)) {
-                $n = 0;
-                foreach ($this->priceEntityInfoList as $item) {
-                    $res['PriceEntityInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->priceEntityInfoList)) {
+                $res['PriceEntityInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->priceEntityInfoList as $item1) {
+                    $res['PriceEntityInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PriceEntityInfoList'])) {
             if (!empty($map['PriceEntityInfoList'])) {
                 $model->priceEntityInfoList = [];
-                $n                          = 0;
-                foreach ($map['PriceEntityInfoList'] as $item) {
-                    $model->priceEntityInfoList[$n++] = null !== $item ? priceEntityInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PriceEntityInfoList'] as $item1) {
+                    $model->priceEntityInfoList[$n1] = priceEntityInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

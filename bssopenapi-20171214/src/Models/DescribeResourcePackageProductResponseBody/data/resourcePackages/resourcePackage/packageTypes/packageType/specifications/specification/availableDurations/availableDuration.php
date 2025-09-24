@@ -4,59 +4,46 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody\data\resourcePackages\resourcePackage\packageTypes\packageType\specifications\specification\availableDurations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableDuration extends Model
 {
     /**
-     * @description The name of the validity period.
-     *
-     * @example 6 Month
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The unit of the validity period for the resource plan. Valid values:
-     *
-     *   Month
-     *   Year
-     *
-     * Default value: Month.
-     * @example Month
-     *
      * @var string
      */
     public $unit;
 
     /**
-     * @description The value of the validity period.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
-        'unit'  => 'Unit',
+        'name' => 'Name',
+        'unit' => 'Unit',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -64,20 +51,22 @@ class availableDuration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableDuration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

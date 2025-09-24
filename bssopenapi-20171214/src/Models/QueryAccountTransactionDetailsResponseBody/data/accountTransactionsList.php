@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryAccountTransactionDetailsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryAccountTransactionDetailsResponseBody\data\accountTransactionsList\accountTransactionsList;
 
 class accountTransactionsList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryAccountTransactionDetailsResponseBody\data\accountTransactionsList\accountTransactionsList[]
+     * @var accountTransactionsList[]
      */
     public $accountTransactionsList;
     protected $_name = [
@@ -18,17 +19,22 @@ class accountTransactionsList extends Model
 
     public function validate()
     {
+        if (\is_array($this->accountTransactionsList)) {
+            Model::validateArray($this->accountTransactionsList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountTransactionsList) {
-            $res['AccountTransactionsList'] = [];
-            if (null !== $this->accountTransactionsList && \is_array($this->accountTransactionsList)) {
-                $n = 0;
-                foreach ($this->accountTransactionsList as $item) {
-                    $res['AccountTransactionsList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accountTransactionsList)) {
+                $res['AccountTransactionsList'] = [];
+                $n1 = 0;
+                foreach ($this->accountTransactionsList as $item1) {
+                    $res['AccountTransactionsList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class accountTransactionsList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accountTransactionsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountTransactionsList'])) {
             if (!empty($map['AccountTransactionsList'])) {
                 $model->accountTransactionsList = [];
-                $n                              = 0;
-                foreach ($map['AccountTransactionsList'] as $item) {
-                    $model->accountTransactionsList[$n++] = null !== $item ? \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryAccountTransactionDetailsResponseBody\data\accountTransactionsList\accountTransactionsList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AccountTransactionsList'] as $item1) {
+                    $model->accountTransactionsList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parameter extends Model
 {
     /**
-     * @description The code property of the Nth module. Value of N: 1 to 100. If multiple module property parameters are involved, concatenate multiple parameters based on the value of N in sequence.
-     *
-     * This parameter is required.
-     * @example InstanceType
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The value property of the Nth module. Value of N: 1 to 100.
-     *
-     * This parameter is required.
-     * @example disk
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'code'  => 'Code',
+        'code' => 'Code',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +41,18 @@ class parameter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

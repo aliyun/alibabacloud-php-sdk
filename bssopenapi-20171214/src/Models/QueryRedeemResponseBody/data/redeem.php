@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRedeemResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class redeem extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRedeemResponseBody\data\redeem\redeem[]
+     * @var redeem\redeem[]
      */
     public $redeem;
     protected $_name = [
@@ -18,17 +18,22 @@ class redeem extends Model
 
     public function validate()
     {
+        if (\is_array($this->redeem)) {
+            Model::validateArray($this->redeem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->redeem) {
-            $res['Redeem'] = [];
-            if (null !== $this->redeem && \is_array($this->redeem)) {
-                $n = 0;
-                foreach ($this->redeem as $item) {
-                    $res['Redeem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->redeem)) {
+                $res['Redeem'] = [];
+                $n1 = 0;
+                foreach ($this->redeem as $item1) {
+                    $res['Redeem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class redeem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return redeem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Redeem'])) {
             if (!empty($map['Redeem'])) {
                 $model->redeem = [];
-                $n             = 0;
-                foreach ($map['Redeem'] as $item) {
-                    $model->redeem[$n++] = null !== $item ? \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRedeemResponseBody\data\redeem\redeem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Redeem'] as $item1) {
+                    $model->redeem[$n1] = redeem\redeem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

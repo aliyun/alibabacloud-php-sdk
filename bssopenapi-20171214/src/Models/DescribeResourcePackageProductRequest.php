@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeResourcePackageProductRequest extends Model
 {
     /**
-     * @description The code of the service.
-     *
-     * This parameter is required.
-     * @example ossbag
-     *
      * @var string
      */
     public $productCode;
@@ -23,9 +18,10 @@ class DescribeResourcePackageProductRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productCode) {
@@ -35,11 +31,11 @@ class DescribeResourcePackageProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeResourcePackageProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody\data\resourcePackages\resourcePackage\packageTypes\packageType\specifications\specification;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody\data\resourcePackages\resourcePackage\packageTypes\packageType\specifications\specification\availableDurations\availableDuration;
-use AlibabaCloud\Tea\Model;
 
 class availableDurations extends Model
 {
@@ -19,17 +19,22 @@ class availableDurations extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableDuration)) {
+            Model::validateArray($this->availableDuration);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableDuration) {
-            $res['AvailableDuration'] = [];
-            if (null !== $this->availableDuration && \is_array($this->availableDuration)) {
-                $n = 0;
-                foreach ($this->availableDuration as $item) {
-                    $res['AvailableDuration'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableDuration)) {
+                $res['AvailableDuration'] = [];
+                $n1 = 0;
+                foreach ($this->availableDuration as $item1) {
+                    $res['AvailableDuration'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class availableDurations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableDurations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableDuration'])) {
             if (!empty($map['AvailableDuration'])) {
                 $model->availableDuration = [];
-                $n                        = 0;
-                foreach ($map['AvailableDuration'] as $item) {
-                    $model->availableDuration[$n++] = null !== $item ? availableDuration::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AvailableDuration'] as $item1) {
+                    $model->availableDuration[$n1] = availableDuration::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

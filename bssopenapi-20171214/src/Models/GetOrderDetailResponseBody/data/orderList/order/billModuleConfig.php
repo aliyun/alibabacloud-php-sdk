@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig\billModuleConfig;
 
 class billModuleConfig extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig\billModuleConfig[]
+     * @var billModuleConfig[]
      */
     public $billModuleConfig;
     protected $_name = [
@@ -18,17 +19,22 @@ class billModuleConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->billModuleConfig)) {
+            Model::validateArray($this->billModuleConfig);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billModuleConfig) {
-            $res['billModuleConfig'] = [];
-            if (null !== $this->billModuleConfig && \is_array($this->billModuleConfig)) {
-                $n = 0;
-                foreach ($this->billModuleConfig as $item) {
-                    $res['billModuleConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->billModuleConfig)) {
+                $res['billModuleConfig'] = [];
+                $n1 = 0;
+                foreach ($this->billModuleConfig as $item1) {
+                    $res['billModuleConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class billModuleConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return billModuleConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['billModuleConfig'])) {
             if (!empty($map['billModuleConfig'])) {
                 $model->billModuleConfig = [];
-                $n                       = 0;
-                foreach ($map['billModuleConfig'] as $item) {
-                    $model->billModuleConfig[$n++] = null !== $item ? \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig\billModuleConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['billModuleConfig'] as $item1) {
+                    $model->billModuleConfig[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

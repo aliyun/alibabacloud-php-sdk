@@ -4,77 +4,87 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPriceEntityListResponseBody\data\priceEntityInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class priceFactorList extends Model
 {
     /**
-     * @description The code of the factor.
-     *
-     * @example vm_region_no
-     *
      * @var string
      */
     public $priceFactorCode;
 
     /**
-     * @description The name of the factor.
-     *
-     * @example Region
-     *
      * @var string
      */
     public $priceFactorName;
 
     /**
-     * @description The values of the factor.
-     *
      * @var string[]
      */
     public $priceFactorValueList;
     protected $_name = [
-        'priceFactorCode'      => 'PriceFactorCode',
-        'priceFactorName'      => 'PriceFactorName',
+        'priceFactorCode' => 'PriceFactorCode',
+        'priceFactorName' => 'PriceFactorName',
         'priceFactorValueList' => 'PriceFactorValueList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->priceFactorValueList)) {
+            Model::validateArray($this->priceFactorValueList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->priceFactorCode) {
             $res['PriceFactorCode'] = $this->priceFactorCode;
         }
+
         if (null !== $this->priceFactorName) {
             $res['PriceFactorName'] = $this->priceFactorName;
         }
+
         if (null !== $this->priceFactorValueList) {
-            $res['PriceFactorValueList'] = $this->priceFactorValueList;
+            if (\is_array($this->priceFactorValueList)) {
+                $res['PriceFactorValueList'] = [];
+                $n1 = 0;
+                foreach ($this->priceFactorValueList as $item1) {
+                    $res['PriceFactorValueList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return priceFactorList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PriceFactorCode'])) {
             $model->priceFactorCode = $map['PriceFactorCode'];
         }
+
         if (isset($map['PriceFactorName'])) {
             $model->priceFactorName = $map['PriceFactorName'];
         }
+
         if (isset($map['PriceFactorValueList'])) {
             if (!empty($map['PriceFactorValueList'])) {
-                $model->priceFactorValueList = $map['PriceFactorValueList'];
+                $model->priceFactorValueList = [];
+                $n1 = 0;
+                foreach ($map['PriceFactorValueList'] as $item1) {
+                    $model->priceFactorValueList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody\data\resourcePackages;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The details about the resource plans.
-     *
      * @var resourcePackages
      */
     public $resourcePackages;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->resourcePackages) {
+            $this->resourcePackages->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourcePackages) {
-            $res['ResourcePackages'] = null !== $this->resourcePackages ? $this->resourcePackages->toMap() : null;
+            $res['ResourcePackages'] = null !== $this->resourcePackages ? $this->resourcePackages->toArray($noStream) : $this->resourcePackages;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

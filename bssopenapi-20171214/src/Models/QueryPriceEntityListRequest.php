@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryPriceEntityListRequest extends Model
 {
     /**
-     * @description The code of the service.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $commodityCode;
@@ -24,19 +19,21 @@ class QueryPriceEntityListRequest extends Model
     public $lang;
     protected $_name = [
         'commodityCode' => 'CommodityCode',
-        'lang'          => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -44,17 +41,18 @@ class QueryPriceEntityListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryPriceEntityListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

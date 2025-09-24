@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody\data\resourcePackages\resourcePackage\packageTypes\packageType;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody\data\resourcePackages\resourcePackage\packageTypes\packageType\specifications\specification;
-use AlibabaCloud\Tea\Model;
 
 class specifications extends Model
 {
@@ -19,17 +19,22 @@ class specifications extends Model
 
     public function validate()
     {
+        if (\is_array($this->specification)) {
+            Model::validateArray($this->specification);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->specification) {
-            $res['Specification'] = [];
-            if (null !== $this->specification && \is_array($this->specification)) {
-                $n = 0;
-                foreach ($this->specification as $item) {
-                    $res['Specification'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->specification)) {
+                $res['Specification'] = [];
+                $n1 = 0;
+                foreach ($this->specification as $item1) {
+                    $res['Specification'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class specifications extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specifications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Specification'])) {
             if (!empty($map['Specification'])) {
                 $model->specification = [];
-                $n                    = 0;
-                foreach ($map['Specification'] as $item) {
-                    $model->specification[$n++] = null !== $item ? specification::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Specification'] as $item1) {
+                    $model->specification[$n1] = specification::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

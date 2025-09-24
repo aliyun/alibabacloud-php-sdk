@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetPayAsYouGoPriceRequest\moduleList;
-use AlibabaCloud\Tea\Model;
 
 class GetPayAsYouGoPriceRequest extends Model
 {
     /**
-     * @description The details of pricing modules.
-     *
-     * This parameter is required.
      * @var moduleList[]
      */
     public $moduleList;
@@ -23,79 +20,71 @@ class GetPayAsYouGoPriceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The code of the service.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description The type of the service.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $productType;
 
     /**
-     * @description The ID of the region in which the instance resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The billing method. Set the value to PayAsYouGo.
-     *
-     * This parameter is required.
-     * @example PayAsYouGo
-     *
      * @var string
      */
     public $subscriptionType;
     protected $_name = [
-        'moduleList'       => 'ModuleList',
-        'ownerId'          => 'OwnerId',
-        'productCode'      => 'ProductCode',
-        'productType'      => 'ProductType',
-        'region'           => 'Region',
+        'moduleList' => 'ModuleList',
+        'ownerId' => 'OwnerId',
+        'productCode' => 'ProductCode',
+        'productType' => 'ProductType',
+        'region' => 'Region',
         'subscriptionType' => 'SubscriptionType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->moduleList)) {
+            Model::validateArray($this->moduleList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moduleList) {
-            $res['ModuleList'] = [];
-            if (null !== $this->moduleList && \is_array($this->moduleList)) {
-                $n = 0;
-                foreach ($this->moduleList as $item) {
-                    $res['ModuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->moduleList)) {
+                $res['ModuleList'] = [];
+                $n1 = 0;
+                foreach ($this->moduleList as $item1) {
+                    $res['ModuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
         }
@@ -103,35 +92,41 @@ class GetPayAsYouGoPriceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPayAsYouGoPriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModuleList'])) {
             if (!empty($map['ModuleList'])) {
                 $model->moduleList = [];
-                $n                 = 0;
-                foreach ($map['ModuleList'] as $item) {
-                    $model->moduleList[$n++] = null !== $item ? moduleList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ModuleList'] as $item1) {
+                    $model->moduleList[$n1] = moduleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
         }

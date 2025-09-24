@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResourcePackageInstancesResponseBody\data\instances\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applicableProducts extends Model
 {
@@ -18,29 +18,45 @@ class applicableProducts extends Model
 
     public function validate()
     {
+        if (\is_array($this->product)) {
+            Model::validateArray($this->product);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->product) {
-            $res['Product'] = $this->product;
+            if (\is_array($this->product)) {
+                $res['Product'] = [];
+                $n1 = 0;
+                foreach ($this->product as $item1) {
+                    $res['Product'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicableProducts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Product'])) {
             if (!empty($map['Product'])) {
-                $model->product = $map['Product'];
+                $model->product = [];
+                $n1 = 0;
+                foreach ($map['Product'] as $item1) {
+                    $model->product[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

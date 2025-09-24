@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\billModuleConfig\billModuleConfig\billModuleProperties;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class billModuleProperties extends Model
 {
     /**
-     * @description The attribute code of the configured item.
-     *
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $attrApiCode;
 
     /**
-     * @description The API code of the configured item.
-     *
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $moduleApiCode;
 
     /**
-     * @description The attribute value of the configuration item.
-     *
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'attrApiCode'   => 'AttrApiCode',
+        'attrApiCode' => 'AttrApiCode',
         'moduleApiCode' => 'ModuleApiCode',
-        'value'         => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attrApiCode) {
             $res['AttrApiCode'] = $this->attrApiCode;
         }
+
         if (null !== $this->moduleApiCode) {
             $res['ModuleApiCode'] = $this->moduleApiCode;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -60,20 +51,22 @@ class billModuleProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return billModuleProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttrApiCode'])) {
             $model->attrApiCode = $map['AttrApiCode'];
         }
+
         if (isset($map['ModuleApiCode'])) {
             $model->moduleApiCode = $map['ModuleApiCode'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

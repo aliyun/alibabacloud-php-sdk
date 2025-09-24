@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody\data\resourcePackages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponseBody\data\resourcePackages\resourcePackage\packageTypes;
-use AlibabaCloud\Tea\Model;
 
 class resourcePackage extends Model
 {
     /**
-     * @description The name of the resource plan.
-     *
-     * @example Object Storage Service (OSS) resource plan (monthly)
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The types of the resource plans.
-     *
      * @var packageTypes
      */
     public $packageTypes;
 
     /**
-     * @description The code of the service.
-     *
-     * @example ossbag
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description The type of the service.
-     *
-     * @example ossbag
-     *
      * @var string
      */
     public $productType;
     protected $_name = [
-        'name'         => 'Name',
+        'name' => 'Name',
         'packageTypes' => 'PackageTypes',
-        'productCode'  => 'ProductCode',
-        'productType'  => 'ProductType',
+        'productCode' => 'ProductCode',
+        'productType' => 'ProductType',
     ];
 
     public function validate()
     {
+        if (null !== $this->packageTypes) {
+            $this->packageTypes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->packageTypes) {
-            $res['PackageTypes'] = null !== $this->packageTypes ? $this->packageTypes->toMap() : null;
+            $res['PackageTypes'] = null !== $this->packageTypes ? $this->packageTypes->toArray($noStream) : $this->packageTypes;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -72,23 +65,26 @@ class resourcePackage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourcePackage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PackageTypes'])) {
             $model->packageTypes = packageTypes::fromMap($map['PackageTypes']);
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

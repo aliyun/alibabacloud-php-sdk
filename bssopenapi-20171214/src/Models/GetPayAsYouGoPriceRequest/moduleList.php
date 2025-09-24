@@ -4,63 +4,46 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetPayAsYouGoPriceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class moduleList extends Model
 {
     /**
-     * @description The configuration of the Nth pricing module. Valid values of N: 1 to 50. Format: AA:aa,BB:bb. The values of AA and BB are the property IDs of the pricing module. The values of aa and bb are the property values of the pricing module.
-     *
-     * This parameter is required.
-     * @example InstanceType:ecs.g5.xlarge,IoOptimized:IoOptimized,ImageOs:linux
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description The code of the Nth pricing module.
-     *
-     * This parameter is required.
-     * @example InstanceType
-     *
      * @var string
      */
     public $moduleCode;
 
     /**
-     * @description The price type of the Nth pricing module. Valid values:
-     *
-     *   Hour: hourly price
-     *   Usage: usage price
-     *   Month: monthly price
-     *   Year: annual price
-     *
-     * This parameter is required.
-     * @example Hour
-     *
      * @var string
      */
     public $priceType;
     protected $_name = [
-        'config'     => 'Config',
+        'config' => 'Config',
         'moduleCode' => 'ModuleCode',
-        'priceType'  => 'PriceType',
+        'priceType' => 'PriceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
+
         if (null !== $this->priceType) {
             $res['PriceType'] = $this->priceType;
         }
@@ -68,20 +51,22 @@ class moduleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return moduleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
+
         if (isset($map['PriceType'])) {
             $model->priceType = $map['PriceType'];
         }

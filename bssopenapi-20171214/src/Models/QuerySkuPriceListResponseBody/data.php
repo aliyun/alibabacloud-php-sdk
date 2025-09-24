@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListResponseBody\data\skuPricePage;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The SKUs of the pricing object.
-     *
      * @var skuPricePage
      */
     public $skuPricePage;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->skuPricePage) {
+            $this->skuPricePage->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->skuPricePage) {
-            $res['SkuPricePage'] = null !== $this->skuPricePage ? $this->skuPricePage->toMap() : null;
+            $res['SkuPricePage'] = null !== $this->skuPricePage ? $this->skuPricePage->toArray($noStream) : $this->skuPricePage;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

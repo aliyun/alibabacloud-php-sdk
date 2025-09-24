@@ -4,95 +4,51 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySavingsPlansDiscountRequest extends Model
 {
     /**
-     * @description The code of the service.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description The cycle based on which queries are performed.
-     *
-     * This parameter is required.
-     * @example 1:Year
-     *
      * @var string
      */
     public $cycle;
 
     /**
-     * @description The identifier of the language.
-     *
-     * Valid values:
-     *
-     *   EN: English.
-     *   ZH: Chinese.
-     *
-     * @example ZH
-     *
      * @var string
      */
     public $locale;
 
     /**
-     * @description The code of the pricing module.
-     *
-     * @example instance_type
-     *
      * @var string
      */
     public $moduleCode;
 
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The payment mode. Valid values: total: all upfront. half: half upfront. zero: no upfront.
-     *
-     * This parameter is required.
-     * @example total
-     *
      * @var string
      */
     public $payMode;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The type of the resource.
-     *
-     * @example ecs.g6
-     *
      * @var string
      */
     public $spec;
@@ -103,65 +59,71 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $spnCommodityCode;
 
     /**
-     * @description The type of the savings plan. Valid values: ecs: Elastic Compute Service (ECS) compute type. universal: general-purpose type.
-     *
-     * This parameter is required.
-     * @example universal
-     *
      * @var string
      */
     public $spnType;
     protected $_name = [
-        'commodityCode'    => 'CommodityCode',
-        'cycle'            => 'Cycle',
-        'locale'           => 'Locale',
-        'moduleCode'       => 'ModuleCode',
-        'pageNum'          => 'PageNum',
-        'pageSize'         => 'PageSize',
-        'payMode'          => 'PayMode',
-        'region'           => 'Region',
-        'spec'             => 'Spec',
+        'commodityCode' => 'CommodityCode',
+        'cycle' => 'Cycle',
+        'locale' => 'Locale',
+        'moduleCode' => 'ModuleCode',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'payMode' => 'PayMode',
+        'region' => 'Region',
+        'spec' => 'Spec',
         'spnCommodityCode' => 'SpnCommodityCode',
-        'spnType'          => 'SpnType',
+        'spnType' => 'SpnType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->cycle) {
             $res['Cycle'] = $this->cycle;
         }
+
         if (null !== $this->locale) {
             $res['Locale'] = $this->locale;
         }
+
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->payMode) {
             $res['PayMode'] = $this->payMode;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
+
         if (null !== $this->spnCommodityCode) {
             $res['SpnCommodityCode'] = $this->spnCommodityCode;
         }
+
         if (null !== $this->spnType) {
             $res['SpnType'] = $this->spnType;
         }
@@ -169,44 +131,54 @@ class QuerySavingsPlansDiscountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySavingsPlansDiscountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['Cycle'])) {
             $model->cycle = $map['Cycle'];
         }
+
         if (isset($map['Locale'])) {
             $model->locale = $map['Locale'];
         }
+
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PayMode'])) {
             $model->payMode = $map['PayMode'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }
+
         if (isset($map['SpnCommodityCode'])) {
             $model->spnCommodityCode = $map['SpnCommodityCode'];
         }
+
         if (isset($map['SpnType'])) {
             $model->spnType = $map['SpnType'];
         }

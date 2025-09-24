@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryCommodityListRequest extends Model
 {
@@ -14,29 +14,26 @@ class QueryCommodityListRequest extends Model
     public $lang;
 
     /**
-     * @description The code of the service.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $productCode;
     protected $_name = [
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
         'productCode' => 'ProductCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -44,17 +41,18 @@ class QueryCommodityListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCommodityListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

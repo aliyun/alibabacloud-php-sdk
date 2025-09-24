@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCostUnitRequest extends Model
 {
     /**
-     * @description The user ID of the cost center owner.
-     *
-     * This parameter is required.
-     * @example 2135342
-     *
      * @var int
      */
     public $ownerUid;
 
     /**
-     * @description The ID of the cost center. A value of -1 indicates the root cost center.
-     *
-     * This parameter is required.
-     * @example 376348
-     *
      * @var int
      */
     public $unitId;
     protected $_name = [
         'ownerUid' => 'OwnerUid',
-        'unitId'   => 'UnitId',
+        'unitId' => 'UnitId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerUid) {
             $res['OwnerUid'] = $this->ownerUid;
         }
+
         if (null !== $this->unitId) {
             $res['UnitId'] = $this->unitId;
         }
@@ -49,17 +41,18 @@ class DeleteCostUnitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCostUnitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerUid'])) {
             $model->ownerUid = $map['OwnerUid'];
         }
+
         if (isset($map['UnitId'])) {
             $model->unitId = $map['UnitId'];
         }

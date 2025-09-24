@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\originalModuleConfig\originalModuleConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\originalModuleConfig\originalModuleConfig\moduleProperties\moduleProperties;
 
 class moduleProperties extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\originalModuleConfig\originalModuleConfig\moduleProperties\moduleProperties[]
+     * @var moduleProperties[]
      */
     public $moduleProperties;
     protected $_name = [
@@ -18,17 +19,22 @@ class moduleProperties extends Model
 
     public function validate()
     {
+        if (\is_array($this->moduleProperties)) {
+            Model::validateArray($this->moduleProperties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moduleProperties) {
-            $res['moduleProperties'] = [];
-            if (null !== $this->moduleProperties && \is_array($this->moduleProperties)) {
-                $n = 0;
-                foreach ($this->moduleProperties as $item) {
-                    $res['moduleProperties'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->moduleProperties)) {
+                $res['moduleProperties'] = [];
+                $n1 = 0;
+                foreach ($this->moduleProperties as $item1) {
+                    $res['moduleProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class moduleProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return moduleProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['moduleProperties'])) {
             if (!empty($map['moduleProperties'])) {
                 $model->moduleProperties = [];
-                $n                       = 0;
-                foreach ($map['moduleProperties'] as $item) {
-                    $model->moduleProperties[$n++] = null !== $item ? \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetOrderDetailResponseBody\data\orderList\order\originalModuleConfig\originalModuleConfig\moduleProperties\moduleProperties::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['moduleProperties'] as $item1) {
+                    $model->moduleProperties[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

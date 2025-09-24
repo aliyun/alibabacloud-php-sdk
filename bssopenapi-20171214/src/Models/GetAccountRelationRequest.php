@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccountRelationRequest extends Model
 {
     /**
-     * @description The ID of the financial relationship. Value returned by calling the AddAccountRelation operation.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $relationId;
 
     /**
-     * @description The unique ID of the request. The ID is used to mark a request and troubleshoot a problem.
-     *
-     * @example requestId
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'relationId' => 'RelationId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->relationId) {
             $res['RelationId'] = $this->relationId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class GetAccountRelationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountRelationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RelationId'])) {
             $model->relationId = $map['RelationId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

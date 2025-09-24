@@ -4,70 +4,56 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryCostUnitResourceRequest extends Model
 {
     /**
-     * @description The user ID of the cost center owner.
-     *
-     * This parameter is required.
-     * @example 23453245
-     *
      * @var int
      */
     public $ownerUid;
 
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the cost center.
-     *
-     * This parameter is required.
-     * @example 235325
-     *
      * @var int
      */
     public $unitId;
     protected $_name = [
         'ownerUid' => 'OwnerUid',
-        'pageNum'  => 'PageNum',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
-        'unitId'   => 'UnitId',
+        'unitId' => 'UnitId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerUid) {
             $res['OwnerUid'] = $this->ownerUid;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->unitId) {
             $res['UnitId'] = $this->unitId;
         }
@@ -75,23 +61,26 @@ class QueryCostUnitResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCostUnitResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerUid'])) {
             $model->ownerUid = $map['OwnerUid'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['UnitId'])) {
             $model->unitId = $map['UnitId'];
         }

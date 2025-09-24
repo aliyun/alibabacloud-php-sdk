@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\AddAccountRelationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The IP address of the request
-     *
-     * @example HostId
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description The ID of the financial relationship.
-     *
-     * @example RelationId
-     *
      * @var int
      */
     public $relationId;
     protected $_name = [
-        'hostId'     => 'HostId',
+        'hostId' => 'HostId',
         'relationId' => 'RelationId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
         }
+
         if (null !== $this->relationId) {
             $res['RelationId'] = $this->relationId;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
         }
+
         if (isset($map['RelationId'])) {
             $model->relationId = $map['RelationId'];
         }

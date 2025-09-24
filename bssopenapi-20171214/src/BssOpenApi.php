@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\AddAccountRelationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\AddAccountRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\AllocateCostUnitResourceRequest;
@@ -94,6 +93,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyCostUnitResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyInstanceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyInstanceResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\PayOrderRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\PayOrderResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryAccountBalanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryAccountBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryAccountBillResponse;
@@ -204,11 +205,10 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UpgradeResourcePackageRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UpgradeResourcePackageResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class BssOpenApi extends OpenApiClient
 {
@@ -216,65 +216,65 @@ class BssOpenApi extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-hangzhou'                 => 'business.aliyuncs.com',
-            'cn-shanghai'                 => 'business.aliyuncs.com',
-            'ap-southeast-1'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-1'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'                  => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'              => 'business.ap-southeast-1.aliyuncs.com',
-            'cn-beijing'                  => 'business.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'business.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'business.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'business.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'business.aliyuncs.com',
-            'cn-chengdu'                  => 'business.aliyuncs.com',
-            'cn-edge-1'                   => 'business.aliyuncs.com',
-            'cn-fujian'                   => 'business.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'business.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'business.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'business.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'business.aliyuncs.com',
+            'cn-shanghai' => 'business.aliyuncs.com',
+            'ap-southeast-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2-pop' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'business.ap-southeast-1.aliyuncs.com',
+            'cn-beijing' => 'business.aliyuncs.com',
+            'cn-beijing-finance-1' => 'business.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'business.aliyuncs.com',
+            'cn-beijing-gov-1' => 'business.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'business.aliyuncs.com',
+            'cn-chengdu' => 'business.aliyuncs.com',
+            'cn-edge-1' => 'business.aliyuncs.com',
+            'cn-fujian' => 'business.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'business.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'business.aliyuncs.com',
+            'cn-hangzhou-finance' => 'business.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'business.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'business.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'business.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'business.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'business.aliyuncs.com',
-            'cn-hongkong'                 => 'business.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'business.aliyuncs.com',
-            'cn-huhehaote'                => 'business.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'business.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'business.aliyuncs.com',
-            'cn-qingdao'                  => 'business.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'business.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'business.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'business.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'business.aliyuncs.com',
-            'cn-shanghai-inner'           => 'business.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'business.aliyuncs.com',
+            'cn-hongkong' => 'business.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'business.aliyuncs.com',
+            'cn-huhehaote' => 'business.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'business.aliyuncs.com',
+            'cn-north-2-gov-1' => 'business.aliyuncs.com',
+            'cn-qingdao' => 'business.aliyuncs.com',
+            'cn-qingdao-nebula' => 'business.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'business.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'business.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'business.aliyuncs.com',
+            'cn-shanghai-inner' => 'business.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'business.aliyuncs.com',
-            'cn-shenzhen'                 => 'business.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'business.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'business.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'business.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'business.aliyuncs.com',
-            'cn-wuhan'                    => 'business.aliyuncs.com',
-            'cn-wulanchabu'               => 'business.aliyuncs.com',
-            'cn-yushanfang'               => 'business.aliyuncs.com',
-            'cn-zhangbei'                 => 'business.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'business.aliyuncs.com',
-            'cn-zhangjiakou'              => 'business.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'business.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'business.aliyuncs.com',
-            'eu-central-1'                => 'business.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'                   => 'business.ap-southeast-1.aliyuncs.com',
-            'eu-west-1-oxs'               => 'business.ap-southeast-1.aliyuncs.com',
-            'me-east-1'                   => 'business.ap-southeast-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'business.ap-southeast-1.aliyuncs.com',
-            'us-east-1'                   => 'business.ap-southeast-1.aliyuncs.com',
-            'us-west-1'                   => 'business.ap-southeast-1.aliyuncs.com',
+            'cn-shenzhen' => 'business.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'business.aliyuncs.com',
+            'cn-shenzhen-inner' => 'business.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'business.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'business.aliyuncs.com',
+            'cn-wuhan' => 'business.aliyuncs.com',
+            'cn-wulanchabu' => 'business.aliyuncs.com',
+            'cn-yushanfang' => 'business.aliyuncs.com',
+            'cn-zhangbei' => 'business.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'business.aliyuncs.com',
+            'cn-zhangjiakou' => 'business.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'business.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'business.aliyuncs.com',
+            'eu-central-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'eu-west-1-oxs' => 'business.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'rus-west-1-pop' => 'business.ap-southeast-1.aliyuncs.com',
+            'us-east-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'us-west-1' => 'business.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('bssopenapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -293,79 +293,98 @@ class BssOpenApi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Creates a financial relationship.
-     *  *
-     * @description For more information about a financial relationship, see <props="intl">[Usage notes on the trusteeship]( https://www.alibabacloud.com/help/doc-detail/116383.html).
-     * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
-     *  *
-     * @param AddAccountRelationRequest $request AddAccountRelationRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a financial relationship.
      *
-     * @return AddAccountRelationResponse AddAccountRelationResponse
+     * @remarks
+     * For more information about a financial relationship, see <props="intl">[Usage notes on the trusteeship]( https://www.alibabacloud.com/help/doc-detail/116383.html).
+     * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
+     *
+     * @param request - AddAccountRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAccountRelationResponse
+     *
+     * @param AddAccountRelationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddAccountRelationResponse
      */
     public function addAccountRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->childNick)) {
-            $query['ChildNick'] = $request->childNick;
+        if (null !== $request->childNick) {
+            @$query['ChildNick'] = $request->childNick;
         }
-        if (!Utils::isUnset($request->childUserId)) {
-            $query['ChildUserId'] = $request->childUserId;
+
+        if (null !== $request->childUserId) {
+            @$query['ChildUserId'] = $request->childUserId;
         }
-        if (!Utils::isUnset($request->parentUserId)) {
-            $query['ParentUserId'] = $request->parentUserId;
+
+        if (null !== $request->parentUserId) {
+            @$query['ParentUserId'] = $request->parentUserId;
         }
-        if (!Utils::isUnset($request->permissionCodes)) {
-            $query['PermissionCodes'] = $request->permissionCodes;
+
+        if (null !== $request->permissionCodes) {
+            @$query['PermissionCodes'] = $request->permissionCodes;
         }
-        if (!Utils::isUnset($request->relationType)) {
-            $query['RelationType'] = $request->relationType;
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$query['RequestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->roleCodes)) {
-            $query['RoleCodes'] = $request->roleCodes;
+
+        if (null !== $request->roleCodes) {
+            @$query['RoleCodes'] = $request->roleCodes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddAccountRelation',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddAccountRelation',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddAccountRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a financial relationship.
-     *  *
-     * @description For more information about a financial relationship, see <props="intl">[Usage notes on the trusteeship]( https://www.alibabacloud.com/help/doc-detail/116383.html).
-     * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
-     *  *
-     * @param AddAccountRelationRequest $request AddAccountRelationRequest
+     * Creates a financial relationship.
      *
-     * @return AddAccountRelationResponse AddAccountRelationResponse
+     * @remarks
+     * For more information about a financial relationship, see <props="intl">[Usage notes on the trusteeship]( https://www.alibabacloud.com/help/doc-detail/116383.html).
+     * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
+     *
+     * @param request - AddAccountRelationRequest
+     *
+     * @returns AddAccountRelationResponse
+     *
+     * @param AddAccountRelationRequest $request
+     *
+     * @return AddAccountRelationResponse
      */
     public function addAccountRelation($request)
     {
@@ -375,56 +394,70 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Transfers resource instances from the source cost center to the destination cost center.
-     *  *
-     * @param AllocateCostUnitResourceRequest $request AllocateCostUnitResourceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Transfers resource instances from the source cost center to the destination cost center.
      *
-     * @return AllocateCostUnitResourceResponse AllocateCostUnitResourceResponse
+     * @param request - AllocateCostUnitResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllocateCostUnitResourceResponse
+     *
+     * @param AllocateCostUnitResourceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AllocateCostUnitResourceResponse
      */
     public function allocateCostUnitResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fromUnitId)) {
-            $query['FromUnitId'] = $request->fromUnitId;
+        if (null !== $request->fromUnitId) {
+            @$query['FromUnitId'] = $request->fromUnitId;
         }
-        if (!Utils::isUnset($request->fromUnitUserId)) {
-            $query['FromUnitUserId'] = $request->fromUnitUserId;
+
+        if (null !== $request->fromUnitUserId) {
+            @$query['FromUnitUserId'] = $request->fromUnitUserId;
         }
-        if (!Utils::isUnset($request->resourceInstanceList)) {
-            $query['ResourceInstanceList'] = $request->resourceInstanceList;
+
+        if (null !== $request->resourceInstanceList) {
+            @$query['ResourceInstanceList'] = $request->resourceInstanceList;
         }
-        if (!Utils::isUnset($request->toUnitId)) {
-            $query['ToUnitId'] = $request->toUnitId;
+
+        if (null !== $request->toUnitId) {
+            @$query['ToUnitId'] = $request->toUnitId;
         }
-        if (!Utils::isUnset($request->toUnitUserId)) {
-            $query['ToUnitUserId'] = $request->toUnitUserId;
+
+        if (null !== $request->toUnitUserId) {
+            @$query['ToUnitUserId'] = $request->toUnitUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateCostUnitResource',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateCostUnitResource',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AllocateCostUnitResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Transfers resource instances from the source cost center to the destination cost center.
-     *  *
-     * @param AllocateCostUnitResourceRequest $request AllocateCostUnitResourceRequest
+     * Transfers resource instances from the source cost center to the destination cost center.
      *
-     * @return AllocateCostUnitResourceResponse AllocateCostUnitResourceResponse
+     * @param request - AllocateCostUnitResourceRequest
+     *
+     * @returns AllocateCostUnitResourceResponse
+     *
+     * @param AllocateCostUnitResourceRequest $request
+     *
+     * @return AllocateCostUnitResourceResponse
      */
     public function allocateCostUnitResource($request)
     {
@@ -434,71 +467,94 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Submits an application for an invoice.
-     *  *
-     * @param ApplyInvoiceRequest $request ApplyInvoiceRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Submits an application for an invoice.
      *
-     * @return ApplyInvoiceResponse ApplyInvoiceResponse
+     * @param request - ApplyInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyInvoiceResponse
+     *
+     * @param ApplyInvoiceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ApplyInvoiceResponse
      */
     public function applyInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressId)) {
-            $query['AddressId'] = $request->addressId;
+        if (null !== $request->addressId) {
+            @$query['AddressId'] = $request->addressId;
         }
-        if (!Utils::isUnset($request->applyUserNick)) {
-            $query['ApplyUserNick'] = $request->applyUserNick;
+
+        if (null !== $request->applyUserNick) {
+            @$query['ApplyUserNick'] = $request->applyUserNick;
         }
-        if (!Utils::isUnset($request->customerId)) {
-            $query['CustomerId'] = $request->customerId;
+
+        if (null !== $request->customerId) {
+            @$query['CustomerId'] = $request->customerId;
         }
-        if (!Utils::isUnset($request->invoiceAmount)) {
-            $query['InvoiceAmount'] = $request->invoiceAmount;
+
+        if (null !== $request->invoiceAmount) {
+            @$query['InvoiceAmount'] = $request->invoiceAmount;
         }
-        if (!Utils::isUnset($request->invoiceByAmount)) {
-            $query['InvoiceByAmount'] = $request->invoiceByAmount;
+
+        if (null !== $request->invoiceByAmount) {
+            @$query['InvoiceByAmount'] = $request->invoiceByAmount;
         }
-        if (!Utils::isUnset($request->invoicingType)) {
-            $query['InvoicingType'] = $request->invoicingType;
+
+        if (null !== $request->invoicingType) {
+            @$query['InvoicingType'] = $request->invoicingType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->processWay)) {
-            $query['ProcessWay'] = $request->processWay;
+
+        if (null !== $request->processWay) {
+            @$query['ProcessWay'] = $request->processWay;
         }
-        if (!Utils::isUnset($request->selectedIds)) {
-            $query['SelectedIds'] = $request->selectedIds;
+
+        if (null !== $request->selectedIds) {
+            @$query['SelectedIds'] = $request->selectedIds;
         }
-        if (!Utils::isUnset($request->userRemark)) {
-            $query['UserRemark'] = $request->userRemark;
+
+        if (null !== $request->userRemark) {
+            @$query['UserRemark'] = $request->userRemark;
         }
+
+        if (null !== $request->emails) {
+            @$query['emails'] = $request->emails;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyInvoice',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyInvoice',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits an application for an invoice.
-     *  *
-     * @param ApplyInvoiceRequest $request ApplyInvoiceRequest
+     * Submits an application for an invoice.
      *
-     * @return ApplyInvoiceResponse ApplyInvoiceResponse
+     * @param request - ApplyInvoiceRequest
+     *
+     * @returns ApplyInvoiceResponse
+     *
+     * @param ApplyInvoiceRequest $request
+     *
+     * @return ApplyInvoiceResponse
      */
     public function applyInvoice($request)
     {
@@ -508,47 +564,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Cancels an unpaid order.
-     *  *
-     * @param CancelOrderRequest $request CancelOrderRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Cancels an unpaid order.
      *
-     * @return CancelOrderResponse CancelOrderResponse
+     * @param request - CancelOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelOrderResponse
+     *
+     * @param CancelOrderRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CancelOrderResponse
      */
     public function cancelOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelOrder',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelOrder',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels an unpaid order.
-     *  *
-     * @param CancelOrderRequest $request CancelOrderRequest
+     * Cancels an unpaid order.
      *
-     * @return CancelOrderResponse CancelOrderResponse
+     * @param request - CancelOrderRequest
+     *
+     * @returns CancelOrderResponse
+     *
+     * @param CancelOrderRequest $request
+     *
+     * @return CancelOrderResponse
      */
     public function cancelOrder($request)
     {
@@ -558,61 +625,78 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param ChangeResellerConsumeAmountRequest $request ChangeResellerConsumeAmountRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeResellerConsumeAmountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ChangeResellerConsumeAmountResponse ChangeResellerConsumeAmountResponse
+     * @returns ChangeResellerConsumeAmountResponse
+     *
+     * @param ChangeResellerConsumeAmountRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ChangeResellerConsumeAmountResponse
      */
     public function changeResellerConsumeAmountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->adjustType)) {
-            $query['AdjustType'] = $request->adjustType;
+        if (null !== $request->adjustType) {
+            @$query['AdjustType'] = $request->adjustType;
         }
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->currency)) {
-            $query['Currency'] = $request->currency;
+
+        if (null !== $request->currency) {
+            @$query['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->extendMap)) {
-            $query['ExtendMap'] = $request->extendMap;
+
+        if (null !== $request->extendMap) {
+            @$query['ExtendMap'] = $request->extendMap;
         }
-        if (!Utils::isUnset($request->outBizId)) {
-            $query['OutBizId'] = $request->outBizId;
+
+        if (null !== $request->outBizId) {
+            @$query['OutBizId'] = $request->outBizId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResellerConsumeAmount',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResellerConsumeAmount',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeResellerConsumeAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeResellerConsumeAmountRequest $request ChangeResellerConsumeAmountRequest
+     * @param request - ChangeResellerConsumeAmountRequest
      *
-     * @return ChangeResellerConsumeAmountResponse ChangeResellerConsumeAmountResponse
+     * @returns ChangeResellerConsumeAmountResponse
+     *
+     * @param ChangeResellerConsumeAmountRequest $request
+     *
+     * @return ChangeResellerConsumeAmountResponse
      */
     public function changeResellerConsumeAmount($request)
     {
@@ -622,66 +706,84 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Confirms the invitation initiated by the master account.
-     *  *
-     * @description 1\\. A member needs to confirm an invitation only if a financial management relationship is established between the management account and the member and enterprise names used by the management account and the member for real-name verification are different. 2. The permissions to be confirmed must be the same as those granted to the member when the management account initiates the invitation.
-     *  *
-     * @param ConfirmRelationRequest $request ConfirmRelationRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Confirms the invitation initiated by the master account.
      *
-     * @return ConfirmRelationResponse ConfirmRelationResponse
+     * @remarks
+     * 1\\. A member needs to confirm an invitation only if a financial management relationship is established between the management account and the member and enterprise names used by the management account and the member for real-name verification are different. 2. The permissions to be confirmed must be the same as those granted to the member when the management account initiates the invitation.
+     *
+     * @param request - ConfirmRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfirmRelationResponse
+     *
+     * @param ConfirmRelationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConfirmRelationResponse
      */
     public function confirmRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->childUserId)) {
-            $query['ChildUserId'] = $request->childUserId;
+        if (null !== $request->childUserId) {
+            @$query['ChildUserId'] = $request->childUserId;
         }
-        if (!Utils::isUnset($request->confirmCode)) {
-            $query['ConfirmCode'] = $request->confirmCode;
+
+        if (null !== $request->confirmCode) {
+            @$query['ConfirmCode'] = $request->confirmCode;
         }
-        if (!Utils::isUnset($request->parentUserId)) {
-            $query['ParentUserId'] = $request->parentUserId;
+
+        if (null !== $request->parentUserId) {
+            @$query['ParentUserId'] = $request->parentUserId;
         }
-        if (!Utils::isUnset($request->permissionCodes)) {
-            $query['PermissionCodes'] = $request->permissionCodes;
+
+        if (null !== $request->permissionCodes) {
+            @$query['PermissionCodes'] = $request->permissionCodes;
         }
-        if (!Utils::isUnset($request->relationId)) {
-            $query['RelationId'] = $request->relationId;
+
+        if (null !== $request->relationId) {
+            @$query['RelationId'] = $request->relationId;
         }
-        if (!Utils::isUnset($request->relationType)) {
-            $query['RelationType'] = $request->relationType;
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$query['RequestId'] = $request->requestId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfirmRelation',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfirmRelation',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfirmRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Confirms the invitation initiated by the master account.
-     *  *
-     * @description 1\\. A member needs to confirm an invitation only if a financial management relationship is established between the management account and the member and enterprise names used by the management account and the member for real-name verification are different. 2. The permissions to be confirmed must be the same as those granted to the member when the management account initiates the invitation.
-     *  *
-     * @param ConfirmRelationRequest $request ConfirmRelationRequest
+     * Confirms the invitation initiated by the master account.
      *
-     * @return ConfirmRelationResponse ConfirmRelationResponse
+     * @remarks
+     * 1\\. A member needs to confirm an invitation only if a financial management relationship is established between the management account and the member and enterprise names used by the management account and the member for real-name verification are different. 2. The permissions to be confirmed must be the same as those granted to the member when the management account initiates the invitation.
+     *
+     * @param request - ConfirmRelationRequest
+     *
+     * @returns ConfirmRelationResponse
+     *
+     * @param ConfirmRelationRequest $request
+     *
+     * @return ConfirmRelationResponse
      */
     public function confirmRelation($request)
     {
@@ -691,59 +793,74 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Changes the billing method of an instance. You can call this operation to switch the billing method from pay-as-you-go to subscription for Server Load Balancer (SLB) instances, elastic IP addresses (EIPs), and NAT gateways, and switch the billing method from subscription to pay-as-you-go for SLB instances and EIPs.
-     *  *
-     * @param ConvertChargeTypeRequest $request ConvertChargeTypeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Changes the billing method of an instance. You can call this operation to switch the billing method from pay-as-you-go to subscription for Server Load Balancer (SLB) instances, elastic IP addresses (EIPs), and NAT gateways, and switch the billing method from subscription to pay-as-you-go for SLB instances and EIPs.
      *
-     * @return ConvertChargeTypeResponse ConvertChargeTypeResponse
+     * @param request - ConvertChargeTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertChargeTypeResponse
+     *
+     * @param ConvertChargeTypeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ConvertChargeTypeResponse
      */
     public function convertChargeTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConvertChargeType',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConvertChargeType',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConvertChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the billing method of an instance. You can call this operation to switch the billing method from pay-as-you-go to subscription for Server Load Balancer (SLB) instances, elastic IP addresses (EIPs), and NAT gateways, and switch the billing method from subscription to pay-as-you-go for SLB instances and EIPs.
-     *  *
-     * @param ConvertChargeTypeRequest $request ConvertChargeTypeRequest
+     * Changes the billing method of an instance. You can call this operation to switch the billing method from pay-as-you-go to subscription for Server Load Balancer (SLB) instances, elastic IP addresses (EIPs), and NAT gateways, and switch the billing method from subscription to pay-as-you-go for SLB instances and EIPs.
      *
-     * @return ConvertChargeTypeResponse ConvertChargeTypeResponse
+     * @param request - ConvertChargeTypeRequest
+     *
+     * @returns ConvertChargeTypeResponse
+     *
+     * @param ConvertChargeTypeRequest $request
+     *
+     * @return ConvertChargeTypeResponse
      */
     public function convertChargeType($request)
     {
@@ -753,72 +870,92 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Creates an account to establish a financial relationship.
-     *  *
-     * @description You can call this operation to create an account so as to establish a master-member financial relationship.
-     *  *
-     * @param CreateAgAccountRequest $request CreateAgAccountRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates an account to establish a financial relationship.
      *
-     * @return CreateAgAccountResponse CreateAgAccountResponse
+     * @remarks
+     * You can call this operation to create an account so as to establish a master-member financial relationship.
+     *
+     * @param request - CreateAgAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgAccountResponse
+     *
+     * @param CreateAgAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAgAccountResponse
      */
     public function createAgAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountAttr)) {
-            $query['AccountAttr'] = $request->accountAttr;
+        if (null !== $request->accountAttr) {
+            @$query['AccountAttr'] = $request->accountAttr;
         }
-        if (!Utils::isUnset($request->cityName)) {
-            $query['CityName'] = $request->cityName;
+
+        if (null !== $request->cityName) {
+            @$query['CityName'] = $request->cityName;
         }
-        if (!Utils::isUnset($request->enterpriseName)) {
-            $query['EnterpriseName'] = $request->enterpriseName;
+
+        if (null !== $request->enterpriseName) {
+            @$query['EnterpriseName'] = $request->enterpriseName;
         }
-        if (!Utils::isUnset($request->firstName)) {
-            $query['FirstName'] = $request->firstName;
+
+        if (null !== $request->firstName) {
+            @$query['FirstName'] = $request->firstName;
         }
-        if (!Utils::isUnset($request->lastName)) {
-            $query['LastName'] = $request->lastName;
+
+        if (null !== $request->lastName) {
+            @$query['LastName'] = $request->lastName;
         }
-        if (!Utils::isUnset($request->loginEmail)) {
-            $query['LoginEmail'] = $request->loginEmail;
+
+        if (null !== $request->loginEmail) {
+            @$query['LoginEmail'] = $request->loginEmail;
         }
-        if (!Utils::isUnset($request->nationCode)) {
-            $query['NationCode'] = $request->nationCode;
+
+        if (null !== $request->nationCode) {
+            @$query['NationCode'] = $request->nationCode;
         }
-        if (!Utils::isUnset($request->postcode)) {
-            $query['Postcode'] = $request->postcode;
+
+        if (null !== $request->postcode) {
+            @$query['Postcode'] = $request->postcode;
         }
-        if (!Utils::isUnset($request->provinceName)) {
-            $query['ProvinceName'] = $request->provinceName;
+
+        if (null !== $request->provinceName) {
+            @$query['ProvinceName'] = $request->provinceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAgAccount',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAgAccount',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAgAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an account to establish a financial relationship.
-     *  *
-     * @description You can call this operation to create an account so as to establish a master-member financial relationship.
-     *  *
-     * @param CreateAgAccountRequest $request CreateAgAccountRequest
+     * Creates an account to establish a financial relationship.
      *
-     * @return CreateAgAccountResponse CreateAgAccountResponse
+     * @remarks
+     * You can call this operation to create an account so as to establish a master-member financial relationship.
+     *
+     * @param request - CreateAgAccountRequest
+     *
+     * @returns CreateAgAccountResponse
+     *
+     * @param CreateAgAccountRequest $request
+     *
+     * @return CreateAgAccountResponse
      */
     public function createAgAccount($request)
     {
@@ -828,44 +965,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cost center. You can create multiple cost centers at a time.
-     *  *
-     * @param CreateCostUnitRequest $request CreateCostUnitRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a cost center. You can create multiple cost centers at a time.
      *
-     * @return CreateCostUnitResponse CreateCostUnitResponse
+     * @param request - CreateCostUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCostUnitResponse
+     *
+     * @param CreateCostUnitRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCostUnitResponse
      */
     public function createCostUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->unitEntityList)) {
-            $query['UnitEntityList'] = $request->unitEntityList;
+        if (null !== $request->unitEntityList) {
+            @$query['UnitEntityList'] = $request->unitEntityList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCostUnit',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCostUnit',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateCostUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a cost center. You can create multiple cost centers at a time.
-     *  *
-     * @param CreateCostUnitRequest $request CreateCostUnitRequest
+     * Creates a cost center. You can create multiple cost centers at a time.
      *
-     * @return CreateCostUnitResponse CreateCostUnitResponse
+     * @param request - CreateCostUnitRequest
+     *
+     * @returns CreateCostUnitResponse
+     *
+     * @param CreateCostUnitRequest $request
+     *
+     * @return CreateCostUnitResponse
      */
     public function createCostUnit($request)
     {
@@ -875,74 +1022,94 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Creates an instance. If you call this operation, an order for a new instance is created and the order is automatically paid for. You cannot create Elastic Compute Service (ECS) instances or ApsaraDB RDS instances by calling the operation.
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates an instance. If you call this operation, an order for a new instance is created and the order is automatically paid for. You cannot create Elastic Compute Service (ECS) instances or ApsaraDB RDS instances by calling the operation.
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->logistics)) {
-            $query['Logistics'] = $request->logistics;
+
+        if (null !== $request->logistics) {
+            @$query['Logistics'] = $request->logistics;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->parameter)) {
-            $query['Parameter'] = $request->parameter;
+
+        if (null !== $request->parameter) {
+            @$query['Parameter'] = $request->parameter;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->renewPeriod)) {
-            $query['RenewPeriod'] = $request->renewPeriod;
+
+        if (null !== $request->renewPeriod) {
+            @$query['RenewPeriod'] = $request->renewPeriod;
         }
-        if (!Utils::isUnset($request->renewalStatus)) {
-            $query['RenewalStatus'] = $request->renewalStatus;
+
+        if (null !== $request->renewalStatus) {
+            @$query['RenewalStatus'] = $request->renewalStatus;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an instance. If you call this operation, an order for a new instance is created and the order is automatically paid for. You cannot create Elastic Compute Service (ECS) instances or ApsaraDB RDS instances by calling the operation.
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * Creates an instance. If you call this operation, an order for a new instance is created and the order is automatically paid for. You cannot create Elastic Compute Service (ECS) instances or ApsaraDB RDS instances by calling the operation.
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -952,53 +1119,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
-     *  *
-     * @param CreateResellerUserQuotaRequest $request CreateResellerUserQuotaRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
      *
-     * @return CreateResellerUserQuotaResponse CreateResellerUserQuotaResponse
+     * @param request - CreateResellerUserQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResellerUserQuotaResponse
+     *
+     * @param CreateResellerUserQuotaRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateResellerUserQuotaResponse
      */
     public function createResellerUserQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->currency)) {
-            $query['Currency'] = $request->currency;
+
+        if (null !== $request->currency) {
+            @$query['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->outBizId)) {
-            $query['OutBizId'] = $request->outBizId;
+
+        if (null !== $request->outBizId) {
+            @$query['OutBizId'] = $request->outBizId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateResellerUserQuota',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateResellerUserQuota',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateResellerUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
-     *  *
-     * @param CreateResellerUserQuotaRequest $request CreateResellerUserQuotaRequest
+     * Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
      *
-     * @return CreateResellerUserQuotaResponse CreateResellerUserQuotaResponse
+     * @param request - CreateResellerUserQuotaRequest
+     *
+     * @returns CreateResellerUserQuotaResponse
+     *
+     * @param CreateResellerUserQuotaRequest $request
+     *
+     * @return CreateResellerUserQuotaResponse
      */
     public function createResellerUserQuota($request)
     {
@@ -1008,62 +1188,78 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a resource plan.
-     *  *
-     * @param CreateResourcePackageRequest $request CreateResourcePackageRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a resource plan.
      *
-     * @return CreateResourcePackageResponse CreateResourcePackageResponse
+     * @param request - CreateResourcePackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourcePackageResponse
+     *
+     * @param CreateResourcePackageRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateResourcePackageResponse
      */
     public function createResourcePackageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->effectiveDate)) {
-            $query['EffectiveDate'] = $request->effectiveDate;
+
+        if (null !== $request->effectiveDate) {
+            @$query['EffectiveDate'] = $request->effectiveDate;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->packageType)) {
-            $query['PackageType'] = $request->packageType;
+
+        if (null !== $request->packageType) {
+            @$query['PackageType'] = $request->packageType;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
+
+        if (null !== $request->specification) {
+            @$query['Specification'] = $request->specification;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateResourcePackage',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateResourcePackage',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a resource plan.
-     *  *
-     * @param CreateResourcePackageRequest $request CreateResourcePackageRequest
+     * Creates a resource plan.
      *
-     * @return CreateResourcePackageResponse CreateResourcePackageResponse
+     * @param request - CreateResourcePackageRequest
+     *
+     * @returns CreateResourcePackageResponse
+     *
+     * @param CreateResourcePackageRequest $request
+     *
+     * @return CreateResourcePackageResponse
      */
     public function createResourcePackage($request)
     {
@@ -1073,79 +1269,104 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a savings plan. After you call this operation, a savings plan is purchased and paid for.
-     *  *
-     * @param CreateSavingsPlansInstanceRequest $tmpReq  CreateSavingsPlansInstanceRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates a savings plan. After you call this operation, a savings plan is purchased and paid for.
      *
-     * @return CreateSavingsPlansInstanceResponse CreateSavingsPlansInstanceResponse
+     * @param tmpReq - CreateSavingsPlansInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSavingsPlansInstanceResponse
+     *
+     * @param CreateSavingsPlansInstanceRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateSavingsPlansInstanceResponse
      */
     public function createSavingsPlansInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateSavingsPlansInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extendMap)) {
-            $request->extendMapShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extendMap, 'ExtendMap', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extendMap) {
+            $request->extendMapShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extendMap, 'ExtendMap', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
         }
-        if (!Utils::isUnset($request->effectiveDate)) {
-            $query['EffectiveDate'] = $request->effectiveDate;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->extendMapShrink)) {
-            $query['ExtendMap'] = $request->extendMapShrink;
+
+        if (null !== $request->effectiveDate) {
+            @$query['EffectiveDate'] = $request->effectiveDate;
         }
-        if (!Utils::isUnset($request->payMode)) {
-            $query['PayMode'] = $request->payMode;
+
+        if (null !== $request->extendMapShrink) {
+            @$query['ExtendMap'] = $request->extendMapShrink;
         }
-        if (!Utils::isUnset($request->poolValue)) {
-            $query['PoolValue'] = $request->poolValue;
+
+        if (null !== $request->payMode) {
+            @$query['PayMode'] = $request->payMode;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->poolValue) {
+            @$query['PoolValue'] = $request->poolValue;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->specification) {
+            @$query['Specification'] = $request->specification;
         }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSavingsPlansInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSavingsPlansInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSavingsPlansInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a savings plan. After you call this operation, a savings plan is purchased and paid for.
-     *  *
-     * @param CreateSavingsPlansInstanceRequest $request CreateSavingsPlansInstanceRequest
+     * Creates a savings plan. After you call this operation, a savings plan is purchased and paid for.
      *
-     * @return CreateSavingsPlansInstanceResponse CreateSavingsPlansInstanceResponse
+     * @param request - CreateSavingsPlansInstanceRequest
+     *
+     * @returns CreateSavingsPlansInstanceResponse
+     *
+     * @param CreateSavingsPlansInstanceRequest $request
+     *
+     * @return CreateSavingsPlansInstanceResponse
      */
     public function createSavingsPlansInstance($request)
     {
@@ -1155,47 +1376,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a cost center.
-     *  *
-     * @param DeleteCostUnitRequest $request DeleteCostUnitRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a cost center.
      *
-     * @return DeleteCostUnitResponse DeleteCostUnitResponse
+     * @param request - DeleteCostUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCostUnitResponse
+     *
+     * @param DeleteCostUnitRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteCostUnitResponse
      */
     public function deleteCostUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerUid)) {
-            $query['OwnerUid'] = $request->ownerUid;
+        if (null !== $request->ownerUid) {
+            @$query['OwnerUid'] = $request->ownerUid;
         }
-        if (!Utils::isUnset($request->unitId)) {
-            $query['UnitId'] = $request->unitId;
+
+        if (null !== $request->unitId) {
+            @$query['UnitId'] = $request->unitId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCostUnit',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCostUnit',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCostUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a cost center.
-     *  *
-     * @param DeleteCostUnitRequest $request DeleteCostUnitRequest
+     * Deletes a cost center.
      *
-     * @return DeleteCostUnitResponse DeleteCostUnitResponse
+     * @param request - DeleteCostUnitRequest
+     *
+     * @returns DeleteCostUnitResponse
+     *
+     * @param DeleteCostUnitRequest $request
+     *
+     * @return DeleteCostUnitResponse
      */
     public function deleteCostUnit($request)
     {
@@ -1205,60 +1437,76 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Query the summary information of the user "Cost Management-Budget".
-     *  *
-     * @description This operation is in beta testing and is only available for specific users in the whitelist. Excessive calls may result in performance issues. For example, the response times out.
-     *  *
-     * @param DescribeCostBudgetsSummaryRequest $request DescribeCostBudgetsSummaryRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Query the summary information of the user "Cost Management-Budget".
      *
-     * @return DescribeCostBudgetsSummaryResponse DescribeCostBudgetsSummaryResponse
+     * @remarks
+     * This operation is in beta testing and is only available for specific users in the whitelist. Excessive calls may result in performance issues. For example, the response times out.
+     *
+     * @param request - DescribeCostBudgetsSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCostBudgetsSummaryResponse
+     *
+     * @param DescribeCostBudgetsSummaryRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeCostBudgetsSummaryResponse
      */
     public function describeCostBudgetsSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->budgetName)) {
-            $query['BudgetName'] = $request->budgetName;
+        if (null !== $request->budgetName) {
+            @$query['BudgetName'] = $request->budgetName;
         }
-        if (!Utils::isUnset($request->budgetStatus)) {
-            $query['BudgetStatus'] = $request->budgetStatus;
+
+        if (null !== $request->budgetStatus) {
+            @$query['BudgetStatus'] = $request->budgetStatus;
         }
-        if (!Utils::isUnset($request->budgetType)) {
-            $query['BudgetType'] = $request->budgetType;
+
+        if (null !== $request->budgetType) {
+            @$query['BudgetType'] = $request->budgetType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCostBudgetsSummary',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCostBudgetsSummary',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCostBudgetsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Query the summary information of the user "Cost Management-Budget".
-     *  *
-     * @description This operation is in beta testing and is only available for specific users in the whitelist. Excessive calls may result in performance issues. For example, the response times out.
-     *  *
-     * @param DescribeCostBudgetsSummaryRequest $request DescribeCostBudgetsSummaryRequest
+     * Query the summary information of the user "Cost Management-Budget".
      *
-     * @return DescribeCostBudgetsSummaryResponse DescribeCostBudgetsSummaryResponse
+     * @remarks
+     * This operation is in beta testing and is only available for specific users in the whitelist. Excessive calls may result in performance issues. For example, the response times out.
+     *
+     * @param request - DescribeCostBudgetsSummaryRequest
+     *
+     * @returns DescribeCostBudgetsSummaryResponse
+     *
+     * @param DescribeCostBudgetsSummaryRequest $request
+     *
+     * @return DescribeCostBudgetsSummaryResponse
      */
     public function describeCostBudgetsSummary($request)
     {
@@ -1268,78 +1516,100 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monthly allocated costs of instances by allocation month.
-     *  *
-     * @description You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
-     *  *
-     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request DescribeInstanceAmortizedCostByAmortizationPeriodRequest
-     * @param RuntimeOptions                                           $runtime runtime options for this request RuntimeOptions
+     * Queries the monthly allocated costs of instances by allocation month.
      *
-     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse DescribeInstanceAmortizedCostByAmortizationPeriodResponse
+     * @remarks
+     * You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+     *
+     * @param request - DescribeInstanceAmortizedCostByAmortizationPeriodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceAmortizedCostByAmortizationPeriodResponse
+     *
+     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request
+     * @param RuntimeOptions                                           $runtime
+     *
+     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse
      */
     public function describeInstanceAmortizedCostByAmortizationPeriodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->billOwnerIdList)) {
-            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+        if (null !== $request->billOwnerIdList) {
+            @$body['BillOwnerIdList'] = $request->billOwnerIdList;
         }
-        if (!Utils::isUnset($request->billUserIdList)) {
-            $body['BillUserIdList'] = $request->billUserIdList;
+
+        if (null !== $request->billUserIdList) {
+            @$body['BillUserIdList'] = $request->billUserIdList;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $body['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$body['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->consumePeriodFilter)) {
-            $body['ConsumePeriodFilter'] = $request->consumePeriodFilter;
+
+        if (null !== $request->consumePeriodFilter) {
+            @$body['ConsumePeriodFilter'] = $request->consumePeriodFilter;
         }
-        if (!Utils::isUnset($request->costUnitCode)) {
-            $body['CostUnitCode'] = $request->costUnitCode;
+
+        if (null !== $request->costUnitCode) {
+            @$body['CostUnitCode'] = $request->costUnitCode;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $body['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$body['InstanceIdList'] = $request->instanceIdList;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productDetail)) {
-            $body['ProductDetail'] = $request->productDetail;
+
+        if (null !== $request->productDetail) {
+            @$body['ProductDetail'] = $request->productDetail;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $body['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$body['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceAmortizedCostByAmortizationPeriod',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceAmortizedCostByAmortizationPeriod',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceAmortizedCostByAmortizationPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monthly allocated costs of instances by allocation month.
-     *  *
-     * @description You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
-     *  *
-     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request DescribeInstanceAmortizedCostByAmortizationPeriodRequest
+     * Queries the monthly allocated costs of instances by allocation month.
      *
-     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse DescribeInstanceAmortizedCostByAmortizationPeriodResponse
+     * @remarks
+     * You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+     *
+     * @param request - DescribeInstanceAmortizedCostByAmortizationPeriodRequest
+     *
+     * @returns DescribeInstanceAmortizedCostByAmortizationPeriodResponse
+     *
+     * @param DescribeInstanceAmortizedCostByAmortizationPeriodRequest $request
+     *
+     * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse
      */
     public function describeInstanceAmortizedCostByAmortizationPeriod($request)
     {
@@ -1349,77 +1619,98 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 实例摊销日摊销成本
-     *  *
-     * @param DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest $request DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest
-     * @param RuntimeOptions                                               $runtime runtime options for this request RuntimeOptions
+     * 实例摊销日摊销成本.
      *
-     * @return DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse
+     * @param request - DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse
+     *
+     * @param DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest $request
+     * @param RuntimeOptions                                               $runtime
+     *
+     * @return DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse
      */
     public function describeInstanceAmortizedCostByAmortizationPeriodDateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->amortizationDateEnd)) {
-            $body['AmortizationDateEnd'] = $request->amortizationDateEnd;
+        if (null !== $request->amortizationDateEnd) {
+            @$body['AmortizationDateEnd'] = $request->amortizationDateEnd;
         }
-        if (!Utils::isUnset($request->amortizationDateStart)) {
-            $body['AmortizationDateStart'] = $request->amortizationDateStart;
+
+        if (null !== $request->amortizationDateStart) {
+            @$body['AmortizationDateStart'] = $request->amortizationDateStart;
         }
-        if (!Utils::isUnset($request->billOwnerIdList)) {
-            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+
+        if (null !== $request->billOwnerIdList) {
+            @$body['BillOwnerIdList'] = $request->billOwnerIdList;
         }
-        if (!Utils::isUnset($request->billUserIdList)) {
-            $body['BillUserIdList'] = $request->billUserIdList;
+
+        if (null !== $request->billUserIdList) {
+            @$body['BillUserIdList'] = $request->billUserIdList;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $body['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$body['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->costUnitCode)) {
-            $body['CostUnitCode'] = $request->costUnitCode;
+
+        if (null !== $request->costUnitCode) {
+            @$body['CostUnitCode'] = $request->costUnitCode;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $body['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$body['InstanceIdList'] = $request->instanceIdList;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productDetail)) {
-            $body['ProductDetail'] = $request->productDetail;
+
+        if (null !== $request->productDetail) {
+            @$body['ProductDetail'] = $request->productDetail;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $body['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$body['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceAmortizedCostByAmortizationPeriodDate',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceAmortizedCostByAmortizationPeriodDate',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实例摊销日摊销成本
-     *  *
-     * @param DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest $request DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest
+     * 实例摊销日摊销成本.
      *
-     * @return DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse
+     * @param request - DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest
+     *
+     * @returns DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse
+     *
+     * @param DescribeInstanceAmortizedCostByAmortizationPeriodDateRequest $request
+     *
+     * @return DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse
      */
     public function describeInstanceAmortizedCostByAmortizationPeriodDate($request)
     {
@@ -1429,74 +1720,94 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 实例账期月摊销成本
-     *  *
-     * @param DescribeInstanceAmortizedCostByConsumePeriodRequest $request DescribeInstanceAmortizedCostByConsumePeriodRequest
-     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     * 实例账期月摊销成本.
      *
-     * @return DescribeInstanceAmortizedCostByConsumePeriodResponse DescribeInstanceAmortizedCostByConsumePeriodResponse
+     * @param request - DescribeInstanceAmortizedCostByConsumePeriodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceAmortizedCostByConsumePeriodResponse
+     *
+     * @param DescribeInstanceAmortizedCostByConsumePeriodRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DescribeInstanceAmortizedCostByConsumePeriodResponse
      */
     public function describeInstanceAmortizedCostByConsumePeriodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->amortizationPeriodFilter)) {
-            $body['AmortizationPeriodFilter'] = $request->amortizationPeriodFilter;
+        if (null !== $request->amortizationPeriodFilter) {
+            @$body['AmortizationPeriodFilter'] = $request->amortizationPeriodFilter;
         }
-        if (!Utils::isUnset($request->billOwnerIdList)) {
-            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+
+        if (null !== $request->billOwnerIdList) {
+            @$body['BillOwnerIdList'] = $request->billOwnerIdList;
         }
-        if (!Utils::isUnset($request->billUserIdList)) {
-            $body['BillUserIdList'] = $request->billUserIdList;
+
+        if (null !== $request->billUserIdList) {
+            @$body['BillUserIdList'] = $request->billUserIdList;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $body['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$body['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->costUnitCode)) {
-            $body['CostUnitCode'] = $request->costUnitCode;
+
+        if (null !== $request->costUnitCode) {
+            @$body['CostUnitCode'] = $request->costUnitCode;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $body['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$body['InstanceIdList'] = $request->instanceIdList;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productDetail)) {
-            $body['ProductDetail'] = $request->productDetail;
+
+        if (null !== $request->productDetail) {
+            @$body['ProductDetail'] = $request->productDetail;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $body['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$body['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceAmortizedCostByConsumePeriod',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceAmortizedCostByConsumePeriod',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceAmortizedCostByConsumePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实例账期月摊销成本
-     *  *
-     * @param DescribeInstanceAmortizedCostByConsumePeriodRequest $request DescribeInstanceAmortizedCostByConsumePeriodRequest
+     * 实例账期月摊销成本.
      *
-     * @return DescribeInstanceAmortizedCostByConsumePeriodResponse DescribeInstanceAmortizedCostByConsumePeriodResponse
+     * @param request - DescribeInstanceAmortizedCostByConsumePeriodRequest
+     *
+     * @returns DescribeInstanceAmortizedCostByConsumePeriodResponse
+     *
+     * @param DescribeInstanceAmortizedCostByConsumePeriodRequest $request
+     *
+     * @return DescribeInstanceAmortizedCostByConsumePeriodResponse
      */
     public function describeInstanceAmortizedCostByConsumePeriod($request)
     {
@@ -1506,91 +1817,116 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the billing information about instances or billable items in a billing cycle.
-     *  *
-     * @description *   Instance bills are generated after the total bill is split. In most cases, the instance bills do not include data generated on the last day of the specified billing cycle.
+     * Queries the billing information about instances or billable items in a billing cycle.
+     *
+     * @remarks
+     *   Instance bills are generated after the total bill is split. In most cases, the instance bills do not include data generated on the last day of the specified billing cycle.
      * *   The instance information may change during the billing cycle. The instance configurations and types in monthly bills are subject to the point in time when you query bills. For more information, see the corresponding bill details.
      * *   You can query data generated after June 2020 for Cloud Communications services. You can query data generated after November 2020 for Alibaba Cloud Domains.
-     *  *
-     * @param DescribeInstanceBillRequest $request DescribeInstanceBillRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceBillResponse DescribeInstanceBillResponse
+     * @param request - DescribeInstanceBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceBillResponse
+     *
+     * @param DescribeInstanceBillRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeInstanceBillResponse
      */
     public function describeInstanceBillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->billingDate)) {
-            $query['BillingDate'] = $request->billingDate;
+
+        if (null !== $request->billingDate) {
+            @$query['BillingDate'] = $request->billingDate;
         }
-        if (!Utils::isUnset($request->granularity)) {
-            $query['Granularity'] = $request->granularity;
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
         }
-        if (!Utils::isUnset($request->instanceID)) {
-            $query['InstanceID'] = $request->instanceID;
+
+        if (null !== $request->instanceID) {
+            @$query['InstanceID'] = $request->instanceID;
         }
-        if (!Utils::isUnset($request->isBillingItem)) {
-            $query['IsBillingItem'] = $request->isBillingItem;
+
+        if (null !== $request->isBillingItem) {
+            @$query['IsBillingItem'] = $request->isBillingItem;
         }
-        if (!Utils::isUnset($request->isHideZeroCharge)) {
-            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+
+        if (null !== $request->isHideZeroCharge) {
+            @$query['IsHideZeroCharge'] = $request->isHideZeroCharge;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pipCode)) {
-            $query['PipCode'] = $request->pipCode;
+
+        if (null !== $request->pipCode) {
+            @$query['PipCode'] = $request->pipCode;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceBill',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceBill',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the billing information about instances or billable items in a billing cycle.
-     *  *
-     * @description *   Instance bills are generated after the total bill is split. In most cases, the instance bills do not include data generated on the last day of the specified billing cycle.
+     * Queries the billing information about instances or billable items in a billing cycle.
+     *
+     * @remarks
+     *   Instance bills are generated after the total bill is split. In most cases, the instance bills do not include data generated on the last day of the specified billing cycle.
      * *   The instance information may change during the billing cycle. The instance configurations and types in monthly bills are subject to the point in time when you query bills. For more information, see the corresponding bill details.
      * *   You can query data generated after June 2020 for Cloud Communications services. You can query data generated after November 2020 for Alibaba Cloud Domains.
-     *  *
-     * @param DescribeInstanceBillRequest $request DescribeInstanceBillRequest
      *
-     * @return DescribeInstanceBillResponse DescribeInstanceBillResponse
+     * @param request - DescribeInstanceBillRequest
+     *
+     * @returns DescribeInstanceBillResponse
+     *
+     * @param DescribeInstanceBillRequest $request
+     *
+     * @return DescribeInstanceBillResponse
      */
     public function describeInstanceBill($request)
     {
@@ -1600,71 +1936,90 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 实例摊销日抵扣还原摊销成本
-     *  *
-     * @param DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest $request DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest
-     * @param RuntimeOptions                                                 $runtime runtime options for this request RuntimeOptions
+     * 实例摊销日抵扣还原摊销成本.
      *
-     * @return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse
+     * @param request - DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse
+     *
+     * @param DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest $request
+     * @param RuntimeOptions                                                 $runtime
+     *
+     * @return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse
      */
     public function describeInstanceDeductAmortizedCostByAmortizationPeriodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->billOwnerIdList)) {
-            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+        if (null !== $request->billOwnerIdList) {
+            @$body['BillOwnerIdList'] = $request->billOwnerIdList;
         }
-        if (!Utils::isUnset($request->billUserIdList)) {
-            $body['BillUserIdList'] = $request->billUserIdList;
+
+        if (null !== $request->billUserIdList) {
+            @$body['BillUserIdList'] = $request->billUserIdList;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $body['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$body['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->costUnitCode)) {
-            $body['CostUnitCode'] = $request->costUnitCode;
+
+        if (null !== $request->costUnitCode) {
+            @$body['CostUnitCode'] = $request->costUnitCode;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $body['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$body['InstanceIdList'] = $request->instanceIdList;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productDetail)) {
-            $body['ProductDetail'] = $request->productDetail;
+
+        if (null !== $request->productDetail) {
+            @$body['ProductDetail'] = $request->productDetail;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $body['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$body['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceDeductAmortizedCostByAmortizationPeriod',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceDeductAmortizedCostByAmortizationPeriod',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 实例摊销日抵扣还原摊销成本
-     *  *
-     * @param DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest $request DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest
+     * 实例摊销日抵扣还原摊销成本.
      *
-     * @return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse
+     * @param request - DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest
+     *
+     * @returns DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse
+     *
+     * @param DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest $request
+     *
+     * @return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse
      */
     public function describeInstanceDeductAmortizedCostByAmortizationPeriod($request)
     {
@@ -1674,53 +2029,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the pricing information about an Alibaba Cloud service.
-     *  *
-     * @param DescribePricingModuleRequest $request DescribePricingModuleRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the pricing information about an Alibaba Cloud service.
      *
-     * @return DescribePricingModuleResponse DescribePricingModuleResponse
+     * @param request - DescribePricingModuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePricingModuleResponse
+     *
+     * @param DescribePricingModuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePricingModuleResponse
      */
     public function describePricingModuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePricingModule',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePricingModule',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePricingModuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the pricing information about an Alibaba Cloud service.
-     *  *
-     * @param DescribePricingModuleRequest $request DescribePricingModuleRequest
+     * Queries the pricing information about an Alibaba Cloud service.
      *
-     * @return DescribePricingModuleResponse DescribePricingModuleResponse
+     * @param request - DescribePricingModuleRequest
+     *
+     * @returns DescribePricingModuleResponse
+     *
+     * @param DescribePricingModuleRequest $request
+     *
+     * @return DescribePricingModuleResponse
      */
     public function describePricingModule($request)
     {
@@ -1730,75 +2098,96 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the allocated costs of services by allocation month.
-     *  *
-     * @description You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
-     *  *
-     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request DescribeProductAmortizedCostByAmortizationPeriodRequest
-     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
+     * Queries the allocated costs of services by allocation month.
      *
-     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse DescribeProductAmortizedCostByAmortizationPeriodResponse
+     * @remarks
+     * You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+     *
+     * @param request - DescribeProductAmortizedCostByAmortizationPeriodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProductAmortizedCostByAmortizationPeriodResponse
+     *
+     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse
      */
     public function describeProductAmortizedCostByAmortizationPeriodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->billOwnerIdList)) {
-            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+        if (null !== $request->billOwnerIdList) {
+            @$body['BillOwnerIdList'] = $request->billOwnerIdList;
         }
-        if (!Utils::isUnset($request->billUserIdList)) {
-            $body['BillUserIdList'] = $request->billUserIdList;
+
+        if (null !== $request->billUserIdList) {
+            @$body['BillUserIdList'] = $request->billUserIdList;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $body['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$body['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->consumePeriodFilter)) {
-            $body['ConsumePeriodFilter'] = $request->consumePeriodFilter;
+
+        if (null !== $request->consumePeriodFilter) {
+            @$body['ConsumePeriodFilter'] = $request->consumePeriodFilter;
         }
-        if (!Utils::isUnset($request->costUnitCode)) {
-            $body['CostUnitCode'] = $request->costUnitCode;
+
+        if (null !== $request->costUnitCode) {
+            @$body['CostUnitCode'] = $request->costUnitCode;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productDetail)) {
-            $body['ProductDetail'] = $request->productDetail;
+
+        if (null !== $request->productDetail) {
+            @$body['ProductDetail'] = $request->productDetail;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $body['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$body['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProductAmortizedCostByAmortizationPeriod',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProductAmortizedCostByAmortizationPeriod',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeProductAmortizedCostByAmortizationPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the allocated costs of services by allocation month.
-     *  *
-     * @description You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
-     *  *
-     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request DescribeProductAmortizedCostByAmortizationPeriodRequest
+     * Queries the allocated costs of services by allocation month.
      *
-     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse DescribeProductAmortizedCostByAmortizationPeriodResponse
+     * @remarks
+     * You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+     *
+     * @param request - DescribeProductAmortizedCostByAmortizationPeriodRequest
+     *
+     * @returns DescribeProductAmortizedCostByAmortizationPeriodResponse
+     *
+     * @param DescribeProductAmortizedCostByAmortizationPeriodRequest $request
+     *
+     * @return DescribeProductAmortizedCostByAmortizationPeriodResponse
      */
     public function describeProductAmortizedCostByAmortizationPeriod($request)
     {
@@ -1808,71 +2197,90 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 产品账期月摊销成本
-     *  *
-     * @param DescribeProductAmortizedCostByConsumePeriodRequest $request DescribeProductAmortizedCostByConsumePeriodRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     * 产品账期月摊销成本.
      *
-     * @return DescribeProductAmortizedCostByConsumePeriodResponse DescribeProductAmortizedCostByConsumePeriodResponse
+     * @param request - DescribeProductAmortizedCostByConsumePeriodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProductAmortizedCostByConsumePeriodResponse
+     *
+     * @param DescribeProductAmortizedCostByConsumePeriodRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return DescribeProductAmortizedCostByConsumePeriodResponse
      */
     public function describeProductAmortizedCostByConsumePeriodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->amortizationPeriodFilter)) {
-            $body['AmortizationPeriodFilter'] = $request->amortizationPeriodFilter;
+        if (null !== $request->amortizationPeriodFilter) {
+            @$body['AmortizationPeriodFilter'] = $request->amortizationPeriodFilter;
         }
-        if (!Utils::isUnset($request->billOwnerIdList)) {
-            $body['BillOwnerIdList'] = $request->billOwnerIdList;
+
+        if (null !== $request->billOwnerIdList) {
+            @$body['BillOwnerIdList'] = $request->billOwnerIdList;
         }
-        if (!Utils::isUnset($request->billUserIdList)) {
-            $body['BillUserIdList'] = $request->billUserIdList;
+
+        if (null !== $request->billUserIdList) {
+            @$body['BillUserIdList'] = $request->billUserIdList;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $body['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$body['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->costUnitCode)) {
-            $body['CostUnitCode'] = $request->costUnitCode;
+
+        if (null !== $request->costUnitCode) {
+            @$body['CostUnitCode'] = $request->costUnitCode;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productDetail)) {
-            $body['ProductDetail'] = $request->productDetail;
+
+        if (null !== $request->productDetail) {
+            @$body['ProductDetail'] = $request->productDetail;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $body['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$body['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProductAmortizedCostByConsumePeriod',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProductAmortizedCostByConsumePeriod',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeProductAmortizedCostByConsumePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 产品账期月摊销成本
-     *  *
-     * @param DescribeProductAmortizedCostByConsumePeriodRequest $request DescribeProductAmortizedCostByConsumePeriodRequest
+     * 产品账期月摊销成本.
      *
-     * @return DescribeProductAmortizedCostByConsumePeriodResponse DescribeProductAmortizedCostByConsumePeriodResponse
+     * @param request - DescribeProductAmortizedCostByConsumePeriodRequest
+     *
+     * @returns DescribeProductAmortizedCostByConsumePeriodResponse
+     *
+     * @param DescribeProductAmortizedCostByConsumePeriodRequest $request
+     *
+     * @return DescribeProductAmortizedCostByConsumePeriodResponse
      */
     public function describeProductAmortizedCostByConsumePeriod($request)
     {
@@ -1882,70 +2290,88 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the coverage details of reserved instances (RIs) or storage capacity units (SCUs).
-     *  *
-     * @description 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     * Queries the coverage details of reserved instances (RIs) or storage capacity units (SCUs).
+     *
+     * @remarks
+     * 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
      * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
      * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
-     *  *
-     * @param DescribeResourceCoverageDetailRequest $request DescribeResourceCoverageDetailRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceCoverageDetailResponse DescribeResourceCoverageDetailResponse
+     * @param request - DescribeResourceCoverageDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceCoverageDetailResponse
+     *
+     * @param DescribeResourceCoverageDetailRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResourceCoverageDetailResponse
      */
     public function describeResourceCoverageDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->endPeriod)) {
-            $query['EndPeriod'] = $request->endPeriod;
+
+        if (null !== $request->endPeriod) {
+            @$query['EndPeriod'] = $request->endPeriod;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->startPeriod)) {
-            $query['StartPeriod'] = $request->startPeriod;
+
+        if (null !== $request->startPeriod) {
+            @$query['StartPeriod'] = $request->startPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceCoverageDetail',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceCoverageDetail',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResourceCoverageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the coverage details of reserved instances (RIs) or storage capacity units (SCUs).
-     *  *
-     * @description 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     * Queries the coverage details of reserved instances (RIs) or storage capacity units (SCUs).
+     *
+     * @remarks
+     * 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
      * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
      * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
-     *  *
-     * @param DescribeResourceCoverageDetailRequest $request DescribeResourceCoverageDetailRequest
      *
-     * @return DescribeResourceCoverageDetailResponse DescribeResourceCoverageDetailResponse
+     * @param request - DescribeResourceCoverageDetailRequest
+     *
+     * @returns DescribeResourceCoverageDetailResponse
+     *
+     * @param DescribeResourceCoverageDetailRequest $request
+     *
+     * @return DescribeResourceCoverageDetailResponse
      */
     public function describeResourceCoverageDetail($request)
     {
@@ -1955,62 +2381,78 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total coverage data of reserved instances (RIs) or storage capacity units (SCUs).
-     *  *
-     * @description The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
-     * You can call this operation to query the total coverage data of RIs or SCUs.
-     *  *
-     * @param DescribeResourceCoverageTotalRequest $request DescribeResourceCoverageTotalRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the total coverage data of reserved instances (RIs) or storage capacity units (SCUs).
      *
-     * @return DescribeResourceCoverageTotalResponse DescribeResourceCoverageTotalResponse
+     * @remarks
+     * The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     * You can call this operation to query the total coverage data of RIs or SCUs.
+     *
+     * @param request - DescribeResourceCoverageTotalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceCoverageTotalResponse
+     *
+     * @param DescribeResourceCoverageTotalRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeResourceCoverageTotalResponse
      */
     public function describeResourceCoverageTotalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->endPeriod)) {
-            $query['EndPeriod'] = $request->endPeriod;
+
+        if (null !== $request->endPeriod) {
+            @$query['EndPeriod'] = $request->endPeriod;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->startPeriod)) {
-            $query['StartPeriod'] = $request->startPeriod;
+
+        if (null !== $request->startPeriod) {
+            @$query['StartPeriod'] = $request->startPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceCoverageTotal',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceCoverageTotal',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResourceCoverageTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the total coverage data of reserved instances (RIs) or storage capacity units (SCUs).
-     *  *
-     * @description The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
-     * You can call this operation to query the total coverage data of RIs or SCUs.
-     *  *
-     * @param DescribeResourceCoverageTotalRequest $request DescribeResourceCoverageTotalRequest
+     * Queries the total coverage data of reserved instances (RIs) or storage capacity units (SCUs).
      *
-     * @return DescribeResourceCoverageTotalResponse DescribeResourceCoverageTotalResponse
+     * @remarks
+     * The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
+     * You can call this operation to query the total coverage data of RIs or SCUs.
+     *
+     * @param request - DescribeResourceCoverageTotalRequest
+     *
+     * @returns DescribeResourceCoverageTotalResponse
+     *
+     * @param DescribeResourceCoverageTotalRequest $request
+     *
+     * @return DescribeResourceCoverageTotalResponse
      */
     public function describeResourceCoverageTotal($request)
     {
@@ -2020,44 +2462,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about resource plans of an Alibaba Cloud service.
-     *  *
-     * @param DescribeResourcePackageProductRequest $request DescribeResourcePackageProductRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about resource plans of an Alibaba Cloud service.
      *
-     * @return DescribeResourcePackageProductResponse DescribeResourcePackageProductResponse
+     * @param request - DescribeResourcePackageProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourcePackageProductResponse
+     *
+     * @param DescribeResourcePackageProductRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResourcePackageProductResponse
      */
     public function describeResourcePackageProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourcePackageProduct',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourcePackageProduct',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResourcePackageProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about resource plans of an Alibaba Cloud service.
-     *  *
-     * @param DescribeResourcePackageProductRequest $request DescribeResourcePackageProductRequest
+     * Queries the information about resource plans of an Alibaba Cloud service.
      *
-     * @return DescribeResourcePackageProductResponse DescribeResourcePackageProductResponse
+     * @param request - DescribeResourcePackageProductRequest
+     *
+     * @returns DescribeResourcePackageProductResponse
+     *
+     * @param DescribeResourcePackageProductRequest $request
+     *
+     * @return DescribeResourcePackageProductResponse
      */
     public function describeResourcePackageProduct($request)
     {
@@ -2067,62 +2519,78 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage details of reserved instances (RIs) or storage capacity units (SCUs).
-     *  *
-     * @param DescribeResourceUsageDetailRequest $request DescribeResourceUsageDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the usage details of reserved instances (RIs) or storage capacity units (SCUs).
      *
-     * @return DescribeResourceUsageDetailResponse DescribeResourceUsageDetailResponse
+     * @param request - DescribeResourceUsageDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceUsageDetailResponse
+     *
+     * @param DescribeResourceUsageDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeResourceUsageDetailResponse
      */
     public function describeResourceUsageDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->endPeriod)) {
-            $query['EndPeriod'] = $request->endPeriod;
+
+        if (null !== $request->endPeriod) {
+            @$query['EndPeriod'] = $request->endPeriod;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->startPeriod)) {
-            $query['StartPeriod'] = $request->startPeriod;
+
+        if (null !== $request->startPeriod) {
+            @$query['StartPeriod'] = $request->startPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceUsageDetail',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceUsageDetail',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResourceUsageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage details of reserved instances (RIs) or storage capacity units (SCUs).
-     *  *
-     * @param DescribeResourceUsageDetailRequest $request DescribeResourceUsageDetailRequest
+     * Queries the usage details of reserved instances (RIs) or storage capacity units (SCUs).
      *
-     * @return DescribeResourceUsageDetailResponse DescribeResourceUsageDetailResponse
+     * @param request - DescribeResourceUsageDetailRequest
+     *
+     * @returns DescribeResourceUsageDetailResponse
+     *
+     * @param DescribeResourceUsageDetailRequest $request
+     *
+     * @return DescribeResourceUsageDetailResponse
      */
     public function describeResourceUsageDetail($request)
     {
@@ -2132,56 +2600,70 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total usage data of reserved instances or storage capacity units (SCUs).
-     *  *
-     * @param DescribeResourceUsageTotalRequest $request DescribeResourceUsageTotalRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the total usage data of reserved instances or storage capacity units (SCUs).
      *
-     * @return DescribeResourceUsageTotalResponse DescribeResourceUsageTotalResponse
+     * @param request - DescribeResourceUsageTotalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceUsageTotalResponse
+     *
+     * @param DescribeResourceUsageTotalRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeResourceUsageTotalResponse
      */
     public function describeResourceUsageTotalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->endPeriod)) {
-            $query['EndPeriod'] = $request->endPeriod;
+
+        if (null !== $request->endPeriod) {
+            @$query['EndPeriod'] = $request->endPeriod;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->startPeriod)) {
-            $query['StartPeriod'] = $request->startPeriod;
+
+        if (null !== $request->startPeriod) {
+            @$query['StartPeriod'] = $request->startPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceUsageTotal',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceUsageTotal',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeResourceUsageTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the total usage data of reserved instances or storage capacity units (SCUs).
-     *  *
-     * @param DescribeResourceUsageTotalRequest $request DescribeResourceUsageTotalRequest
+     * Queries the total usage data of reserved instances or storage capacity units (SCUs).
      *
-     * @return DescribeResourceUsageTotalResponse DescribeResourceUsageTotalResponse
+     * @param request - DescribeResourceUsageTotalRequest
+     *
+     * @returns DescribeResourceUsageTotalResponse
+     *
+     * @param DescribeResourceUsageTotalRequest $request
+     *
+     * @return DescribeResourceUsageTotalResponse
      */
     public function describeResourceUsageTotal($request)
     {
@@ -2191,59 +2673,74 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the coverage details of savings plans.
-     *  *
-     * @param DescribeSavingsPlansCoverageDetailRequest $request DescribeSavingsPlansCoverageDetailRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the coverage details of savings plans.
      *
-     * @return DescribeSavingsPlansCoverageDetailResponse DescribeSavingsPlansCoverageDetailResponse
+     * @param request - DescribeSavingsPlansCoverageDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSavingsPlansCoverageDetailResponse
+     *
+     * @param DescribeSavingsPlansCoverageDetailRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeSavingsPlansCoverageDetailResponse
      */
     public function describeSavingsPlansCoverageDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->endPeriod)) {
-            $query['EndPeriod'] = $request->endPeriod;
+
+        if (null !== $request->endPeriod) {
+            @$query['EndPeriod'] = $request->endPeriod;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->startPeriod)) {
-            $query['StartPeriod'] = $request->startPeriod;
+
+        if (null !== $request->startPeriod) {
+            @$query['StartPeriod'] = $request->startPeriod;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSavingsPlansCoverageDetail',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSavingsPlansCoverageDetail',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSavingsPlansCoverageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the coverage details of savings plans.
-     *  *
-     * @param DescribeSavingsPlansCoverageDetailRequest $request DescribeSavingsPlansCoverageDetailRequest
+     * Queries the coverage details of savings plans.
      *
-     * @return DescribeSavingsPlansCoverageDetailResponse DescribeSavingsPlansCoverageDetailResponse
+     * @param request - DescribeSavingsPlansCoverageDetailRequest
+     *
+     * @returns DescribeSavingsPlansCoverageDetailResponse
+     *
+     * @param DescribeSavingsPlansCoverageDetailRequest $request
+     *
+     * @return DescribeSavingsPlansCoverageDetailResponse
      */
     public function describeSavingsPlansCoverageDetail($request)
     {
@@ -2253,53 +2750,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the coverage summary of savings plans.
-     *  *
-     * @param DescribeSavingsPlansCoverageTotalRequest $request DescribeSavingsPlansCoverageTotalRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the coverage summary of savings plans.
      *
-     * @return DescribeSavingsPlansCoverageTotalResponse DescribeSavingsPlansCoverageTotalResponse
+     * @param request - DescribeSavingsPlansCoverageTotalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSavingsPlansCoverageTotalResponse
+     *
+     * @param DescribeSavingsPlansCoverageTotalRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeSavingsPlansCoverageTotalResponse
      */
     public function describeSavingsPlansCoverageTotalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->endPeriod)) {
-            $query['EndPeriod'] = $request->endPeriod;
+
+        if (null !== $request->endPeriod) {
+            @$query['EndPeriod'] = $request->endPeriod;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->startPeriod)) {
-            $query['StartPeriod'] = $request->startPeriod;
+
+        if (null !== $request->startPeriod) {
+            @$query['StartPeriod'] = $request->startPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSavingsPlansCoverageTotal',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSavingsPlansCoverageTotal',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSavingsPlansCoverageTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the coverage summary of savings plans.
-     *  *
-     * @param DescribeSavingsPlansCoverageTotalRequest $request DescribeSavingsPlansCoverageTotalRequest
+     * Queries the coverage summary of savings plans.
      *
-     * @return DescribeSavingsPlansCoverageTotalResponse DescribeSavingsPlansCoverageTotalResponse
+     * @param request - DescribeSavingsPlansCoverageTotalRequest
+     *
+     * @returns DescribeSavingsPlansCoverageTotalResponse
+     *
+     * @param DescribeSavingsPlansCoverageTotalRequest $request
+     *
+     * @return DescribeSavingsPlansCoverageTotalResponse
      */
     public function describeSavingsPlansCoverageTotal($request)
     {
@@ -2309,59 +2819,74 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage details of savings plans.
-     *  *
-     * @param DescribeSavingsPlansUsageDetailRequest $request DescribeSavingsPlansUsageDetailRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the usage details of savings plans.
      *
-     * @return DescribeSavingsPlansUsageDetailResponse DescribeSavingsPlansUsageDetailResponse
+     * @param request - DescribeSavingsPlansUsageDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSavingsPlansUsageDetailResponse
+     *
+     * @param DescribeSavingsPlansUsageDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSavingsPlansUsageDetailResponse
      */
     public function describeSavingsPlansUsageDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->endPeriod)) {
-            $query['EndPeriod'] = $request->endPeriod;
+
+        if (null !== $request->endPeriod) {
+            @$query['EndPeriod'] = $request->endPeriod;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->startPeriod)) {
-            $query['StartPeriod'] = $request->startPeriod;
+
+        if (null !== $request->startPeriod) {
+            @$query['StartPeriod'] = $request->startPeriod;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSavingsPlansUsageDetail',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSavingsPlansUsageDetail',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSavingsPlansUsageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage details of savings plans.
-     *  *
-     * @param DescribeSavingsPlansUsageDetailRequest $request DescribeSavingsPlansUsageDetailRequest
+     * Queries the usage details of savings plans.
      *
-     * @return DescribeSavingsPlansUsageDetailResponse DescribeSavingsPlansUsageDetailResponse
+     * @param request - DescribeSavingsPlansUsageDetailRequest
+     *
+     * @returns DescribeSavingsPlansUsageDetailResponse
+     *
+     * @param DescribeSavingsPlansUsageDetailRequest $request
+     *
+     * @return DescribeSavingsPlansUsageDetailResponse
      */
     public function describeSavingsPlansUsageDetail($request)
     {
@@ -2371,53 +2896,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage summary of savings plans.
-     *  *
-     * @param DescribeSavingsPlansUsageTotalRequest $request DescribeSavingsPlansUsageTotalRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the usage summary of savings plans.
      *
-     * @return DescribeSavingsPlansUsageTotalResponse DescribeSavingsPlansUsageTotalResponse
+     * @param request - DescribeSavingsPlansUsageTotalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSavingsPlansUsageTotalResponse
+     *
+     * @param DescribeSavingsPlansUsageTotalRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeSavingsPlansUsageTotalResponse
      */
     public function describeSavingsPlansUsageTotalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->endPeriod)) {
-            $query['EndPeriod'] = $request->endPeriod;
+
+        if (null !== $request->endPeriod) {
+            @$query['EndPeriod'] = $request->endPeriod;
         }
-        if (!Utils::isUnset($request->periodType)) {
-            $query['PeriodType'] = $request->periodType;
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
         }
-        if (!Utils::isUnset($request->startPeriod)) {
-            $query['StartPeriod'] = $request->startPeriod;
+
+        if (null !== $request->startPeriod) {
+            @$query['StartPeriod'] = $request->startPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSavingsPlansUsageTotal',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSavingsPlansUsageTotal',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSavingsPlansUsageTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage summary of savings plans.
-     *  *
-     * @param DescribeSavingsPlansUsageTotalRequest $request DescribeSavingsPlansUsageTotalRequest
+     * Queries the usage summary of savings plans.
      *
-     * @return DescribeSavingsPlansUsageTotalResponse DescribeSavingsPlansUsageTotalResponse
+     * @param request - DescribeSavingsPlansUsageTotalRequest
+     *
+     * @returns DescribeSavingsPlansUsageTotalResponse
+     *
+     * @param DescribeSavingsPlansUsageTotalRequest $request
+     *
+     * @return DescribeSavingsPlansUsageTotalResponse
      */
     public function describeSavingsPlansUsageTotal($request)
     {
@@ -2427,94 +2965,120 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries split bills.
-     *  *
-     * @description *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
+     * Queries split bills.
+     *
+     * @remarks
+     *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
      * *   You can query split bills that were generated within the last 12 months by calling this operation.
      * *   You can query split bills only after you enable the [Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) service in the User Center console.
-     *  *
-     * @param DescribeSplitItemBillRequest $request DescribeSplitItemBillRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSplitItemBillResponse DescribeSplitItemBillResponse
+     * @param request - DescribeSplitItemBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSplitItemBillResponse
+     *
+     * @param DescribeSplitItemBillRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSplitItemBillResponse
      */
     public function describeSplitItemBillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->billingDate)) {
-            $query['BillingDate'] = $request->billingDate;
+
+        if (null !== $request->billingDate) {
+            @$query['BillingDate'] = $request->billingDate;
         }
-        if (!Utils::isUnset($request->granularity)) {
-            $query['Granularity'] = $request->granularity;
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
         }
-        if (!Utils::isUnset($request->instanceID)) {
-            $query['InstanceID'] = $request->instanceID;
+
+        if (null !== $request->instanceID) {
+            @$query['InstanceID'] = $request->instanceID;
         }
-        if (!Utils::isUnset($request->isHideZeroCharge)) {
-            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+
+        if (null !== $request->isHideZeroCharge) {
+            @$query['IsHideZeroCharge'] = $request->isHideZeroCharge;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pipCode)) {
-            $query['PipCode'] = $request->pipCode;
+
+        if (null !== $request->pipCode) {
+            @$query['PipCode'] = $request->pipCode;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->splitItemID)) {
-            $query['SplitItemID'] = $request->splitItemID;
+
+        if (null !== $request->splitItemID) {
+            @$query['SplitItemID'] = $request->splitItemID;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
-        if (!Utils::isUnset($request->tagFilter)) {
-            $query['TagFilter'] = $request->tagFilter;
+
+        if (null !== $request->tagFilter) {
+            @$query['TagFilter'] = $request->tagFilter;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSplitItemBill',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSplitItemBill',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSplitItemBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries split bills.
-     *  *
-     * @description *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
+     * Queries split bills.
+     *
+     * @remarks
+     *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
      * *   You can query split bills that were generated within the last 12 months by calling this operation.
      * *   You can query split bills only after you enable the [Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) service in the User Center console.
-     *  *
-     * @param DescribeSplitItemBillRequest $request DescribeSplitItemBillRequest
      *
-     * @return DescribeSplitItemBillResponse DescribeSplitItemBillResponse
+     * @param request - DescribeSplitItemBillRequest
+     *
+     * @returns DescribeSplitItemBillResponse
+     *
+     * @param DescribeSplitItemBillRequest $request
+     *
+     * @return DescribeSplitItemBillResponse
      */
     public function describeSplitItemBill($request)
     {
@@ -2524,41 +3088,50 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a financial relationship.
-     *  *
-     * @param GetAccountRelationRequest $request GetAccountRelationRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a financial relationship.
      *
-     * @return GetAccountRelationResponse GetAccountRelationResponse
+     * @param request - GetAccountRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccountRelationResponse
+     *
+     * @param GetAccountRelationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAccountRelationResponse
      */
     public function getAccountRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccountRelation',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountRelation',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAccountRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a financial relationship.
-     *  *
-     * @param GetAccountRelationRequest $request GetAccountRelationRequest
+     * Queries the details of a financial relationship.
      *
-     * @return GetAccountRelationResponse GetAccountRelationResponse
+     * @param request - GetAccountRelationRequest
+     *
+     * @returns GetAccountRelationResponse
+     *
+     * @param GetAccountRelationRequest $request
+     *
+     * @return GetAccountRelationResponse
      */
     public function getAccountRelation($request)
     {
@@ -2568,44 +3141,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the account information about a customer of a virtual network operator (VNO).
-     *  *
-     * @param GetCustomerAccountInfoRequest $request GetCustomerAccountInfoRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the account information about a customer of a virtual network operator (VNO).
      *
-     * @return GetCustomerAccountInfoResponse GetCustomerAccountInfoResponse
+     * @param request - GetCustomerAccountInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomerAccountInfoResponse
+     *
+     * @param GetCustomerAccountInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetCustomerAccountInfoResponse
      */
     public function getCustomerAccountInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCustomerAccountInfo',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCustomerAccountInfo',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCustomerAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the account information about a customer of a virtual network operator (VNO).
-     *  *
-     * @param GetCustomerAccountInfoRequest $request GetCustomerAccountInfoRequest
+     * Queries the account information about a customer of a virtual network operator (VNO).
      *
-     * @return GetCustomerAccountInfoResponse GetCustomerAccountInfoResponse
+     * @param request - GetCustomerAccountInfoRequest
+     *
+     * @returns GetCustomerAccountInfoResponse
+     *
+     * @param GetCustomerAccountInfoRequest $request
+     *
+     * @return GetCustomerAccountInfoResponse
      */
     public function getCustomerAccountInfo($request)
     {
@@ -2615,38 +3198,47 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IDs of customers of a virtual network operator (VNO).
-     *  *
-     * @description The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the IDs of customers of a virtual network operator (VNO).
      *
-     * @return GetCustomerListResponse GetCustomerListResponse
+     * @remarks
+     * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
+     *
+     * @param request - GetCustomerListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomerListResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCustomerListResponse
      */
     public function getCustomerListWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetCustomerList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCustomerList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCustomerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the IDs of customers of a virtual network operator (VNO).
-     *  *
-     * @description The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
-     *  *
-     * @return GetCustomerListResponse GetCustomerListResponse
+     * Queries the IDs of customers of a virtual network operator (VNO).
+     *
+     * @remarks
+     * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
+     *
+     * @returns GetCustomerListResponse
+     *
+     * @return GetCustomerListResponse
      */
     public function getCustomerList()
     {
@@ -2656,47 +3248,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an order that belongs to your Alibaba Cloud account or distributors.
-     *  *
-     * @param GetOrderDetailRequest $request GetOrderDetailRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an order that belongs to your Alibaba Cloud account or distributors.
      *
-     * @return GetOrderDetailResponse GetOrderDetailResponse
+     * @param request - GetOrderDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOrderDetailResponse
+     *
+     * @param GetOrderDetailRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetOrderDetailResponse
      */
     public function getOrderDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOrderDetail',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOrderDetail',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an order that belongs to your Alibaba Cloud account or distributors.
-     *  *
-     * @param GetOrderDetailRequest $request GetOrderDetailRequest
+     * Queries the details of an order that belongs to your Alibaba Cloud account or distributors.
      *
-     * @return GetOrderDetailResponse GetOrderDetailResponse
+     * @param request - GetOrderDetailRequest
+     *
+     * @returns GetOrderDetailResponse
+     *
+     * @param GetOrderDetailRequest $request
+     *
+     * @return GetOrderDetailResponse
      */
     public function getOrderDetail($request)
     {
@@ -2706,69 +3309,86 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the pay-as-you-go price of an Alibaba Cloud service.
-     *  *
-     * @description ### Usage notes
+     * Queries the pay-as-you-go price of an Alibaba Cloud service.
+     *
+     * @remarks
+     * ### Usage notes
      * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
      * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html).
      * 3.  Call the GetPayAsYouGoPrice operation to obtain the pay-as-you-go price of the service based on the returned configuration parameters.
-     *  *
-     * @param GetPayAsYouGoPriceRequest $request GetPayAsYouGoPriceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPayAsYouGoPriceResponse GetPayAsYouGoPriceResponse
+     * @param request - GetPayAsYouGoPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPayAsYouGoPriceResponse
+     *
+     * @param GetPayAsYouGoPriceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetPayAsYouGoPriceResponse
      */
     public function getPayAsYouGoPriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->moduleList)) {
-            $query['ModuleList'] = $request->moduleList;
+        if (null !== $request->moduleList) {
+            @$query['ModuleList'] = $request->moduleList;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPayAsYouGoPrice',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPayAsYouGoPrice',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPayAsYouGoPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the pay-as-you-go price of an Alibaba Cloud service.
-     *  *
-     * @description ### Usage notes
+     * Queries the pay-as-you-go price of an Alibaba Cloud service.
+     *
+     * @remarks
+     * ### Usage notes
      * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
      * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html).
      * 3.  Call the GetPayAsYouGoPrice operation to obtain the pay-as-you-go price of the service based on the returned configuration parameters.
-     *  *
-     * @param GetPayAsYouGoPriceRequest $request GetPayAsYouGoPriceRequest
      *
-     * @return GetPayAsYouGoPriceResponse GetPayAsYouGoPriceResponse
+     * @param request - GetPayAsYouGoPriceRequest
+     *
+     * @returns GetPayAsYouGoPriceResponse
+     *
+     * @param GetPayAsYouGoPriceRequest $request
+     *
+     * @return GetPayAsYouGoPriceResponse
      */
     public function getPayAsYouGoPrice($request)
     {
@@ -2778,68 +3398,86 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the price of a resource plan.
-     *  *
-     * @param GetResourcePackagePriceRequest $request GetResourcePackagePriceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the price of a resource plan.
      *
-     * @return GetResourcePackagePriceResponse GetResourcePackagePriceResponse
+     * @param request - GetResourcePackagePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourcePackagePriceResponse
+     *
+     * @param GetResourcePackagePriceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetResourcePackagePriceResponse
      */
     public function getResourcePackagePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->effectiveDate)) {
-            $query['EffectiveDate'] = $request->effectiveDate;
+
+        if (null !== $request->effectiveDate) {
+            @$query['EffectiveDate'] = $request->effectiveDate;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->packageType)) {
-            $query['PackageType'] = $request->packageType;
+
+        if (null !== $request->packageType) {
+            @$query['PackageType'] = $request->packageType;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
+
+        if (null !== $request->specification) {
+            @$query['Specification'] = $request->specification;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourcePackagePrice',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourcePackagePrice',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetResourcePackagePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the price of a resource plan.
-     *  *
-     * @param GetResourcePackagePriceRequest $request GetResourcePackagePriceRequest
+     * Queries the price of a resource plan.
      *
-     * @return GetResourcePackagePriceResponse GetResourcePackagePriceResponse
+     * @param request - GetResourcePackagePriceRequest
+     *
+     * @returns GetResourcePackagePriceResponse
+     *
+     * @param GetResourcePackagePriceRequest $request
+     *
+     * @return GetResourcePackagePriceResponse
      */
     public function getResourcePackagePrice($request)
     {
@@ -2849,82 +3487,104 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the subscription price of an Alibaba Cloud service.
-     *  *
-     * @description 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
+     * Queries the subscription price of an Alibaba Cloud service.
+     *
+     * @remarks
+     * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
      * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html).
      * 3.  Call the GetSubscriptionPrice operation to obtain the pricing of the service based on the returned configuration parameters.
-     *  *
-     * @param GetSubscriptionPriceRequest $request GetSubscriptionPriceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSubscriptionPriceResponse GetSubscriptionPriceResponse
+     * @param request - GetSubscriptionPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubscriptionPriceResponse
+     *
+     * @param GetSubscriptionPriceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSubscriptionPriceResponse
      */
     public function getSubscriptionPriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleList)) {
-            $query['ModuleList'] = $request->moduleList;
+
+        if (null !== $request->moduleList) {
+            @$query['ModuleList'] = $request->moduleList;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->quantity)) {
-            $query['Quantity'] = $request->quantity;
+
+        if (null !== $request->quantity) {
+            @$query['Quantity'] = $request->quantity;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->servicePeriodQuantity)) {
-            $query['ServicePeriodQuantity'] = $request->servicePeriodQuantity;
+
+        if (null !== $request->servicePeriodQuantity) {
+            @$query['ServicePeriodQuantity'] = $request->servicePeriodQuantity;
         }
-        if (!Utils::isUnset($request->servicePeriodUnit)) {
-            $query['ServicePeriodUnit'] = $request->servicePeriodUnit;
+
+        if (null !== $request->servicePeriodUnit) {
+            @$query['ServicePeriodUnit'] = $request->servicePeriodUnit;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSubscriptionPrice',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSubscriptionPrice',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSubscriptionPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the subscription price of an Alibaba Cloud service.
-     *  *
-     * @description 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
+     * Queries the subscription price of an Alibaba Cloud service.
+     *
+     * @remarks
+     * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
      * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html).
      * 3.  Call the GetSubscriptionPrice operation to obtain the pricing of the service based on the returned configuration parameters.
-     *  *
-     * @param GetSubscriptionPriceRequest $request GetSubscriptionPriceRequest
      *
-     * @return GetSubscriptionPriceResponse GetSubscriptionPriceResponse
+     * @param request - GetSubscriptionPriceRequest
+     *
+     * @returns GetSubscriptionPriceResponse
+     *
+     * @param GetSubscriptionPriceRequest $request
+     *
+     * @return GetSubscriptionPriceResponse
      */
     public function getSubscriptionPrice($request)
     {
@@ -2934,61 +3594,76 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the refundable amount for an instance from which you want to unsubscribe.
-     *  *
-     * @description 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
-     * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
-     * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
-     *  *
-     * @param InquiryPriceRefundInstanceRequest $request InquiryPriceRefundInstanceRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the refundable amount for an instance from which you want to unsubscribe.
      *
-     * @return InquiryPriceRefundInstanceResponse InquiryPriceRefundInstanceResponse
+     * @remarks
+     * 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
+     * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
+     * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/en/user-center/user-guide/refund-rules).
+     *
+     * @param request - InquiryPriceRefundInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InquiryPriceRefundInstanceResponse
+     *
+     * @param InquiryPriceRefundInstanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return InquiryPriceRefundInstanceResponse
      */
     public function inquiryPriceRefundInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InquiryPriceRefundInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InquiryPriceRefundInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InquiryPriceRefundInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the refundable amount for an instance from which you want to unsubscribe.
-     *  *
-     * @description 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
-     * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
-     * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
-     *  *
-     * @param InquiryPriceRefundInstanceRequest $request InquiryPriceRefundInstanceRequest
+     * Queries the refundable amount for an instance from which you want to unsubscribe.
      *
-     * @return InquiryPriceRefundInstanceResponse InquiryPriceRefundInstanceResponse
+     * @remarks
+     * 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
+     * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
+     * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/en/user-center/user-guide/refund-rules).
+     *
+     * @param request - InquiryPriceRefundInstanceRequest
+     *
+     * @returns InquiryPriceRefundInstanceResponse
+     *
+     * @param InquiryPriceRefundInstanceRequest $request
+     *
+     * @return InquiryPriceRefundInstanceResponse
      */
     public function inquiryPriceRefundInstance($request)
     {
@@ -2998,68 +3673,86 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Adds or removes permissions granted to a member in a financial relationship.
-     *  *
-     * @param ModifyAccountRelationRequest $request ModifyAccountRelationRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Adds or removes permissions granted to a member in a financial relationship.
      *
-     * @return ModifyAccountRelationResponse ModifyAccountRelationResponse
+     * @param request - ModifyAccountRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAccountRelationResponse
+     *
+     * @param ModifyAccountRelationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAccountRelationResponse
      */
     public function modifyAccountRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->childNick)) {
-            $query['ChildNick'] = $request->childNick;
+        if (null !== $request->childNick) {
+            @$query['ChildNick'] = $request->childNick;
         }
-        if (!Utils::isUnset($request->childUserId)) {
-            $query['ChildUserId'] = $request->childUserId;
+
+        if (null !== $request->childUserId) {
+            @$query['ChildUserId'] = $request->childUserId;
         }
-        if (!Utils::isUnset($request->parentUserId)) {
-            $query['ParentUserId'] = $request->parentUserId;
+
+        if (null !== $request->parentUserId) {
+            @$query['ParentUserId'] = $request->parentUserId;
         }
-        if (!Utils::isUnset($request->permissionCodes)) {
-            $query['PermissionCodes'] = $request->permissionCodes;
+
+        if (null !== $request->permissionCodes) {
+            @$query['PermissionCodes'] = $request->permissionCodes;
         }
-        if (!Utils::isUnset($request->relationId)) {
-            $query['RelationId'] = $request->relationId;
+
+        if (null !== $request->relationId) {
+            @$query['RelationId'] = $request->relationId;
         }
-        if (!Utils::isUnset($request->relationOperation)) {
-            $query['RelationOperation'] = $request->relationOperation;
+
+        if (null !== $request->relationOperation) {
+            @$query['RelationOperation'] = $request->relationOperation;
         }
-        if (!Utils::isUnset($request->relationType)) {
-            $query['RelationType'] = $request->relationType;
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$query['RequestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->roleCodes)) {
-            $query['RoleCodes'] = $request->roleCodes;
+
+        if (null !== $request->roleCodes) {
+            @$query['RoleCodes'] = $request->roleCodes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountRelation',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountRelation',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyAccountRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds or removes permissions granted to a member in a financial relationship.
-     *  *
-     * @param ModifyAccountRelationRequest $request ModifyAccountRelationRequest
+     * Adds or removes permissions granted to a member in a financial relationship.
      *
-     * @return ModifyAccountRelationResponse ModifyAccountRelationResponse
+     * @param request - ModifyAccountRelationRequest
+     *
+     * @returns ModifyAccountRelationResponse
+     *
+     * @param ModifyAccountRelationRequest $request
+     *
+     * @return ModifyAccountRelationResponse
      */
     public function modifyAccountRelation($request)
     {
@@ -3069,44 +3762,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies one or more cost centers.
-     *  *
-     * @param ModifyCostUnitRequest $request ModifyCostUnitRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modifies one or more cost centers.
      *
-     * @return ModifyCostUnitResponse ModifyCostUnitResponse
+     * @param request - ModifyCostUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCostUnitResponse
+     *
+     * @param ModifyCostUnitRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyCostUnitResponse
      */
     public function modifyCostUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->unitEntityList)) {
-            $query['UnitEntityList'] = $request->unitEntityList;
+        if (null !== $request->unitEntityList) {
+            @$query['UnitEntityList'] = $request->unitEntityList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCostUnit',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCostUnit',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyCostUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies one or more cost centers.
-     *  *
-     * @param ModifyCostUnitRequest $request ModifyCostUnitRequest
+     * Modifies one or more cost centers.
      *
-     * @return ModifyCostUnitResponse ModifyCostUnitResponse
+     * @param request - ModifyCostUnitRequest
+     *
+     * @returns ModifyCostUnitResponse
+     *
+     * @param ModifyCostUnitRequest $request
+     *
+     * @return ModifyCostUnitResponse
      */
     public function modifyCostUnit($request)
     {
@@ -3116,65 +3819,82 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of an instance. When you call this operation, the system generates a modification order and automatically completes the payment. You cannot call this operation to modify the configurations of an Elastic Compute Service (ECS) instance or ApsaraDB RDS instance. To modify the configurations of an ECS or ApsaraDB RDS instance, call the dedicated operation of the corresponding service.
-     *  *
-     * @param ModifyInstanceRequest $request ModifyInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of an instance. When you call this operation, the system generates a modification order and automatically completes the payment. You cannot call this operation to modify the configurations of an Elastic Compute Service (ECS) instance or ApsaraDB RDS instance. To modify the configurations of an ECS or ApsaraDB RDS instance, call the dedicated operation of the corresponding service.
      *
-     * @return ModifyInstanceResponse ModifyInstanceResponse
+     * @param request - ModifyInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceResponse
+     *
+     * @param ModifyInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyInstanceResponse
      */
     public function modifyInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->modifyType)) {
-            $query['ModifyType'] = $request->modifyType;
+
+        if (null !== $request->modifyType) {
+            @$query['ModifyType'] = $request->modifyType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->parameter)) {
-            $query['Parameter'] = $request->parameter;
+
+        if (null !== $request->parameter) {
+            @$query['Parameter'] = $request->parameter;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of an instance. When you call this operation, the system generates a modification order and automatically completes the payment. You cannot call this operation to modify the configurations of an Elastic Compute Service (ECS) instance or ApsaraDB RDS instance. To modify the configurations of an ECS or ApsaraDB RDS instance, call the dedicated operation of the corresponding service.
-     *  *
-     * @param ModifyInstanceRequest $request ModifyInstanceRequest
+     * Modifies the configurations of an instance. When you call this operation, the system generates a modification order and automatically completes the payment. You cannot call this operation to modify the configurations of an Elastic Compute Service (ECS) instance or ApsaraDB RDS instance. To modify the configurations of an ECS or ApsaraDB RDS instance, call the dedicated operation of the corresponding service.
      *
-     * @return ModifyInstanceResponse ModifyInstanceResponse
+     * @param request - ModifyInstanceRequest
+     *
+     * @returns ModifyInstanceResponse
+     *
+     * @param ModifyInstanceRequest $request
+     *
+     * @return ModifyInstanceResponse
      */
     public function modifyInstance($request)
     {
@@ -3184,34 +3904,122 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the balance of your account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 对客订单支付接口.
      *
-     * @return QueryAccountBalanceResponse QueryAccountBalanceResponse
+     * @param request - PayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PayOrderResponse
+     *
+     * @param PayOrderRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return PayOrderResponse
+     */
+    public function payOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->buyerId) {
+            @$query['BuyerId'] = $request->buyerId;
+        }
+
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->paySubmitUid) {
+            @$query['PaySubmitUid'] = $request->paySubmitUid;
+        }
+
+        if (null !== $request->payerId) {
+            @$query['PayerId'] = $request->payerId;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PayOrder',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对客订单支付接口.
+     *
+     * @param request - PayOrderRequest
+     *
+     * @returns PayOrderResponse
+     *
+     * @param PayOrderRequest $request
+     *
+     * @return PayOrderResponse
+     */
+    public function payOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->payOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the balance of your account.
+     *
+     * @param request - QueryAccountBalanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAccountBalanceResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryAccountBalanceResponse
      */
     public function queryAccountBalanceWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'QueryAccountBalance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAccountBalance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAccountBalanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the balance of your account.
-     *  *
-     * @return QueryAccountBalanceResponse QueryAccountBalanceResponse
+     * Queries the balance of your account.
+     *
+     * @returns QueryAccountBalanceResponse
+     *
+     * @return QueryAccountBalanceResponse
      */
     public function queryAccountBalance()
     {
@@ -3221,76 +4029,96 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bills of your Alibaba Cloud account within a billing cycle. You can summarize the bills by resource owner.
-     *  *
-     * @description Before you call this operation, take note of the following items:
+     * Queries the bills of your Alibaba Cloud account within a billing cycle. You can summarize the bills by resource owner.
+     *
+     * @remarks
+     * Before you call this operation, take note of the following items:
      * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
      * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
-     *  *
-     * @param QueryAccountBillRequest $request QueryAccountBillRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAccountBillResponse QueryAccountBillResponse
+     * @param request - QueryAccountBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAccountBillResponse
+     *
+     * @param QueryAccountBillRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryAccountBillResponse
      */
     public function queryAccountBillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->billingDate)) {
-            $query['BillingDate'] = $request->billingDate;
+
+        if (null !== $request->billingDate) {
+            @$query['BillingDate'] = $request->billingDate;
         }
-        if (!Utils::isUnset($request->granularity)) {
-            $query['Granularity'] = $request->granularity;
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
         }
-        if (!Utils::isUnset($request->isGroupByProduct)) {
-            $query['IsGroupByProduct'] = $request->isGroupByProduct;
+
+        if (null !== $request->isGroupByProduct) {
+            @$query['IsGroupByProduct'] = $request->isGroupByProduct;
         }
-        if (!Utils::isUnset($request->ownerID)) {
-            $query['OwnerID'] = $request->ownerID;
+
+        if (null !== $request->ownerID) {
+            @$query['OwnerID'] = $request->ownerID;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAccountBill',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAccountBill',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAccountBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bills of your Alibaba Cloud account within a billing cycle. You can summarize the bills by resource owner.
-     *  *
-     * @description Before you call this operation, take note of the following items:
+     * Queries the bills of your Alibaba Cloud account within a billing cycle. You can summarize the bills by resource owner.
+     *
+     * @remarks
+     * Before you call this operation, take note of the following items:
      * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
      * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
-     *  *
-     * @param QueryAccountBillRequest $request QueryAccountBillRequest
      *
-     * @return QueryAccountBillResponse QueryAccountBillResponse
+     * @param request - QueryAccountBillRequest
+     *
+     * @returns QueryAccountBillResponse
+     *
+     * @param QueryAccountBillRequest $request
+     *
+     * @return QueryAccountBillResponse
      */
     public function queryAccountBill($request)
     {
@@ -3300,68 +4128,86 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of transactions within your account.
-     *  *
-     * @param QueryAccountTransactionDetailsRequest $request QueryAccountTransactionDetailsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of transactions within your account.
      *
-     * @return QueryAccountTransactionDetailsResponse QueryAccountTransactionDetailsResponse
+     * @param request - QueryAccountTransactionDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAccountTransactionDetailsResponse
+     *
+     * @param QueryAccountTransactionDetailsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryAccountTransactionDetailsResponse
      */
     public function queryAccountTransactionDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $query['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->recordID)) {
-            $query['RecordID'] = $request->recordID;
+
+        if (null !== $request->recordID) {
+            @$query['RecordID'] = $request->recordID;
         }
-        if (!Utils::isUnset($request->transactionChannel)) {
-            $query['TransactionChannel'] = $request->transactionChannel;
+
+        if (null !== $request->transactionChannel) {
+            @$query['TransactionChannel'] = $request->transactionChannel;
         }
-        if (!Utils::isUnset($request->transactionChannelSN)) {
-            $query['TransactionChannelSN'] = $request->transactionChannelSN;
+
+        if (null !== $request->transactionChannelSN) {
+            @$query['TransactionChannelSN'] = $request->transactionChannelSN;
         }
-        if (!Utils::isUnset($request->transactionNumber)) {
-            $query['TransactionNumber'] = $request->transactionNumber;
+
+        if (null !== $request->transactionNumber) {
+            @$query['TransactionNumber'] = $request->transactionNumber;
         }
-        if (!Utils::isUnset($request->transactionType)) {
-            $query['TransactionType'] = $request->transactionType;
+
+        if (null !== $request->transactionType) {
+            @$query['TransactionType'] = $request->transactionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAccountTransactionDetails',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAccountTransactionDetails',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAccountTransactionDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of transactions within your account.
-     *  *
-     * @param QueryAccountTransactionDetailsRequest $request QueryAccountTransactionDetailsRequest
+     * Queries the details of transactions within your account.
      *
-     * @return QueryAccountTransactionDetailsResponse QueryAccountTransactionDetailsResponse
+     * @param request - QueryAccountTransactionDetailsRequest
+     *
+     * @returns QueryAccountTransactionDetailsResponse
+     *
+     * @param QueryAccountTransactionDetailsRequest $request
+     *
+     * @return QueryAccountTransactionDetailsResponse
      */
     public function queryAccountTransactionDetails($request)
     {
@@ -3371,71 +4217,90 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries transactions within your Alibaba Cloud account.
-     *  *
-     * @param QueryAccountTransactionsRequest $request QueryAccountTransactionsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries transactions within your Alibaba Cloud account.
      *
-     * @return QueryAccountTransactionsResponse QueryAccountTransactionsResponse
+     * @param request - QueryAccountTransactionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAccountTransactionsResponse
+     *
+     * @param QueryAccountTransactionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryAccountTransactionsResponse
      */
     public function queryAccountTransactionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $query['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->recordID)) {
-            $query['RecordID'] = $request->recordID;
+
+        if (null !== $request->recordID) {
+            @$query['RecordID'] = $request->recordID;
         }
-        if (!Utils::isUnset($request->transactionChannel)) {
-            $query['TransactionChannel'] = $request->transactionChannel;
+
+        if (null !== $request->transactionChannel) {
+            @$query['TransactionChannel'] = $request->transactionChannel;
         }
-        if (!Utils::isUnset($request->transactionChannelSN)) {
-            $query['TransactionChannelSN'] = $request->transactionChannelSN;
+
+        if (null !== $request->transactionChannelSN) {
+            @$query['TransactionChannelSN'] = $request->transactionChannelSN;
         }
-        if (!Utils::isUnset($request->transactionFlow)) {
-            $query['TransactionFlow'] = $request->transactionFlow;
+
+        if (null !== $request->transactionFlow) {
+            @$query['TransactionFlow'] = $request->transactionFlow;
         }
-        if (!Utils::isUnset($request->transactionNumber)) {
-            $query['TransactionNumber'] = $request->transactionNumber;
+
+        if (null !== $request->transactionNumber) {
+            @$query['TransactionNumber'] = $request->transactionNumber;
         }
-        if (!Utils::isUnset($request->transactionType)) {
-            $query['TransactionType'] = $request->transactionType;
+
+        if (null !== $request->transactionType) {
+            @$query['TransactionType'] = $request->transactionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAccountTransactions',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAccountTransactions',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAccountTransactionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries transactions within your Alibaba Cloud account.
-     *  *
-     * @param QueryAccountTransactionsRequest $request QueryAccountTransactionsRequest
+     * Queries transactions within your Alibaba Cloud account.
      *
-     * @return QueryAccountTransactionsResponse QueryAccountTransactionsResponse
+     * @param request - QueryAccountTransactionsRequest
+     *
+     * @returns QueryAccountTransactionsResponse
+     *
+     * @param QueryAccountTransactionsRequest $request
+     *
+     * @return QueryAccountTransactionsResponse
      */
     public function queryAccountTransactions($request)
     {
@@ -3445,80 +4310,102 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries available instances.
-     *  *
-     * @param QueryAvailableInstancesRequest $request QueryAvailableInstancesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries available instances.
      *
-     * @return QueryAvailableInstancesResponse QueryAvailableInstancesResponse
+     * @param request - QueryAvailableInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAvailableInstancesResponse
+     *
+     * @param QueryAvailableInstancesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryAvailableInstancesResponse
      */
     public function queryAvailableInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $query['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->endTimeEnd)) {
-            $query['EndTimeEnd'] = $request->endTimeEnd;
+
+        if (null !== $request->endTimeEnd) {
+            @$query['EndTimeEnd'] = $request->endTimeEnd;
         }
-        if (!Utils::isUnset($request->endTimeStart)) {
-            $query['EndTimeStart'] = $request->endTimeStart;
+
+        if (null !== $request->endTimeStart) {
+            @$query['EndTimeStart'] = $request->endTimeStart;
         }
-        if (!Utils::isUnset($request->instanceIDs)) {
-            $query['InstanceIDs'] = $request->instanceIDs;
+
+        if (null !== $request->instanceIDs) {
+            @$query['InstanceIDs'] = $request->instanceIDs;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->renewStatus)) {
-            $query['RenewStatus'] = $request->renewStatus;
+
+        if (null !== $request->renewStatus) {
+            @$query['RenewStatus'] = $request->renewStatus;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAvailableInstances',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAvailableInstances',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAvailableInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries available instances.
-     *  *
-     * @param QueryAvailableInstancesRequest $request QueryAvailableInstancesRequest
+     * Queries available instances.
      *
-     * @return QueryAvailableInstancesResponse QueryAvailableInstancesResponse
+     * @param request - QueryAvailableInstancesRequest
+     *
+     * @returns QueryAvailableInstancesResponse
+     *
+     * @param QueryAvailableInstancesRequest $request
+     *
+     * @return QueryAvailableInstancesResponse
      */
     public function queryAvailableInstances($request)
     {
@@ -3528,74 +4415,94 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bills in a billing cycle.
-     *  *
-     * @param QueryBillRequest $request QueryBillRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the bills in a billing cycle.
      *
-     * @return QueryBillResponse QueryBillResponse
+     * @param request - QueryBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryBillResponse
+     *
+     * @param QueryBillRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return QueryBillResponse
      */
     public function queryBillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->isDisplayLocalCurrency)) {
-            $query['IsDisplayLocalCurrency'] = $request->isDisplayLocalCurrency;
+
+        if (null !== $request->isDisplayLocalCurrency) {
+            @$query['IsDisplayLocalCurrency'] = $request->isDisplayLocalCurrency;
         }
-        if (!Utils::isUnset($request->isHideZeroCharge)) {
-            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+
+        if (null !== $request->isHideZeroCharge) {
+            @$query['IsHideZeroCharge'] = $request->isHideZeroCharge;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryBill',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryBill',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bills in a billing cycle.
-     *  *
-     * @param QueryBillRequest $request QueryBillRequest
+     * Queries the bills in a billing cycle.
      *
-     * @return QueryBillResponse QueryBillResponse
+     * @param request - QueryBillRequest
+     *
+     * @returns QueryBillResponse
+     *
+     * @param QueryBillRequest $request
+     *
+     * @return QueryBillResponse
      */
     public function queryBill($request)
     {
@@ -3605,56 +4512,70 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bill overview information in a billing cycle.
-     *  *
-     * @param QueryBillOverviewRequest $request QueryBillOverviewRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the bill overview information in a billing cycle.
      *
-     * @return QueryBillOverviewResponse QueryBillOverviewResponse
+     * @param request - QueryBillOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryBillOverviewResponse
+     *
+     * @param QueryBillOverviewRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryBillOverviewResponse
      */
     public function queryBillOverviewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryBillOverview',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryBillOverview',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryBillOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bill overview information in a billing cycle.
-     *  *
-     * @param QueryBillOverviewRequest $request QueryBillOverviewRequest
+     * Queries the bill overview information in a billing cycle.
      *
-     * @return QueryBillOverviewResponse QueryBillOverviewResponse
+     * @param request - QueryBillOverviewRequest
+     *
+     * @returns QueryBillOverviewResponse
+     *
+     * @param QueryBillOverviewRequest $request
+     *
+     * @return QueryBillOverviewResponse
      */
     public function queryBillOverview($request)
     {
@@ -3664,34 +4585,41 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the subscribed bills that are stored in Object Storage Service (OSS) bucket.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the subscribed bills that are stored in Object Storage Service (OSS) bucket.
      *
-     * @return QueryBillToOSSSubscriptionResponse QueryBillToOSSSubscriptionResponse
+     * @param request - QueryBillToOSSSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryBillToOSSSubscriptionResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryBillToOSSSubscriptionResponse
      */
     public function queryBillToOSSSubscriptionWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'QueryBillToOSSSubscription',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryBillToOSSSubscription',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryBillToOSSSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the subscribed bills that are stored in Object Storage Service (OSS) bucket.
-     *  *
-     * @return QueryBillToOSSSubscriptionResponse QueryBillToOSSSubscriptionResponse
+     * Queries the subscribed bills that are stored in Object Storage Service (OSS) bucket.
+     *
+     * @returns QueryBillToOSSSubscriptionResponse
+     *
+     * @return QueryBillToOSSSubscriptionResponse
      */
     public function queryBillToOSSSubscription()
     {
@@ -3701,50 +4629,62 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about vouchers.
-     *  *
-     * @param QueryCashCouponsRequest $request QueryCashCouponsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about vouchers.
      *
-     * @return QueryCashCouponsResponse QueryCashCouponsResponse
+     * @param request - QueryCashCouponsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCashCouponsResponse
+     *
+     * @param QueryCashCouponsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryCashCouponsResponse
      */
     public function queryCashCouponsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->effectiveOrNot)) {
-            $query['EffectiveOrNot'] = $request->effectiveOrNot;
+        if (null !== $request->effectiveOrNot) {
+            @$query['EffectiveOrNot'] = $request->effectiveOrNot;
         }
-        if (!Utils::isUnset($request->expiryTimeEnd)) {
-            $query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
+
+        if (null !== $request->expiryTimeEnd) {
+            @$query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
         }
-        if (!Utils::isUnset($request->expiryTimeStart)) {
-            $query['ExpiryTimeStart'] = $request->expiryTimeStart;
+
+        if (null !== $request->expiryTimeStart) {
+            @$query['ExpiryTimeStart'] = $request->expiryTimeStart;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCashCoupons',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCashCoupons',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCashCouponsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about vouchers.
-     *  *
-     * @param QueryCashCouponsRequest $request QueryCashCouponsRequest
+     * Queries the information about vouchers.
      *
-     * @return QueryCashCouponsResponse QueryCashCouponsResponse
+     * @param request - QueryCashCouponsRequest
+     *
+     * @returns QueryCashCouponsResponse
+     *
+     * @param QueryCashCouponsRequest $request
+     *
+     * @return QueryCashCouponsResponse
      */
     public function queryCashCoupons($request)
     {
@@ -3754,45 +4694,56 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a service based on the service code.
-     *  *
-     * @description You can call this operation to query the information about a service based on the service code.
-     *  *
-     * @param QueryCommodityListRequest $request QueryCommodityListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a service based on the service code.
      *
-     * @return QueryCommodityListResponse QueryCommodityListResponse
+     * @remarks
+     * You can call this operation to query the information about a service based on the service code.
+     *
+     * @param request - QueryCommodityListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCommodityListResponse
+     *
+     * @param QueryCommodityListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryCommodityListResponse
      */
     public function queryCommodityListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCommodityList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCommodityList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCommodityListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a service based on the service code.
-     *  *
-     * @description You can call this operation to query the information about a service based on the service code.
-     *  *
-     * @param QueryCommodityListRequest $request QueryCommodityListRequest
+     * Queries the information about a service based on the service code.
      *
-     * @return QueryCommodityListResponse QueryCommodityListResponse
+     * @remarks
+     * You can call this operation to query the information about a service based on the service code.
+     *
+     * @param request - QueryCommodityListRequest
+     *
+     * @returns QueryCommodityListResponse
+     *
+     * @param QueryCommodityListRequest $request
+     *
+     * @return QueryCommodityListResponse
      */
     public function queryCommodityList($request)
     {
@@ -3802,53 +4753,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries all cost centers within the current node of the cost center tree. If the ParentUnitId parameter is set to -1, all cost centers are queried.
-     *  *
-     * @param QueryCostUnitRequest $request QueryCostUnitRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries all cost centers within the current node of the cost center tree. If the ParentUnitId parameter is set to -1, all cost centers are queried.
      *
-     * @return QueryCostUnitResponse QueryCostUnitResponse
+     * @param request - QueryCostUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostUnitResponse
+     *
+     * @param QueryCostUnitRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryCostUnitResponse
      */
     public function queryCostUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerUid)) {
-            $query['OwnerUid'] = $request->ownerUid;
+        if (null !== $request->ownerUid) {
+            @$query['OwnerUid'] = $request->ownerUid;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentUnitId)) {
-            $query['ParentUnitId'] = $request->parentUnitId;
+
+        if (null !== $request->parentUnitId) {
+            @$query['ParentUnitId'] = $request->parentUnitId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCostUnit',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCostUnit',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCostUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all cost centers within the current node of the cost center tree. If the ParentUnitId parameter is set to -1, all cost centers are queried.
-     *  *
-     * @param QueryCostUnitRequest $request QueryCostUnitRequest
+     * Queries all cost centers within the current node of the cost center tree. If the ParentUnitId parameter is set to -1, all cost centers are queried.
      *
-     * @return QueryCostUnitResponse QueryCostUnitResponse
+     * @param request - QueryCostUnitRequest
+     *
+     * @returns QueryCostUnitResponse
+     *
+     * @param QueryCostUnitRequest $request
+     *
+     * @return QueryCostUnitResponse
      */
     public function queryCostUnit($request)
     {
@@ -3858,53 +4822,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource instances that are allocated to a cost center. If the unitId parameter is set to 0, the unallocated primary resource instances and sub-resource instances are queried.
-     *  *
-     * @param QueryCostUnitResourceRequest $request QueryCostUnitResourceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the resource instances that are allocated to a cost center. If the unitId parameter is set to 0, the unallocated primary resource instances and sub-resource instances are queried.
      *
-     * @return QueryCostUnitResourceResponse QueryCostUnitResourceResponse
+     * @param request - QueryCostUnitResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostUnitResourceResponse
+     *
+     * @param QueryCostUnitResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryCostUnitResourceResponse
      */
     public function queryCostUnitResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerUid)) {
-            $query['OwnerUid'] = $request->ownerUid;
+        if (null !== $request->ownerUid) {
+            @$query['OwnerUid'] = $request->ownerUid;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->unitId)) {
-            $query['UnitId'] = $request->unitId;
+
+        if (null !== $request->unitId) {
+            @$query['UnitId'] = $request->unitId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCostUnitResource',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCostUnitResource',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCostUnitResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resource instances that are allocated to a cost center. If the unitId parameter is set to 0, the unallocated primary resource instances and sub-resource instances are queried.
-     *  *
-     * @param QueryCostUnitResourceRequest $request QueryCostUnitResourceRequest
+     * Queries the resource instances that are allocated to a cost center. If the unitId parameter is set to 0, the unallocated primary resource instances and sub-resource instances are queried.
      *
-     * @return QueryCostUnitResourceResponse QueryCostUnitResourceResponse
+     * @param request - QueryCostUnitResourceRequest
+     *
+     * @returns QueryCostUnitResourceResponse
+     *
+     * @param QueryCostUnitResourceRequest $request
+     *
+     * @return QueryCostUnitResourceResponse
      */
     public function queryCostUnitResource($request)
     {
@@ -3914,44 +4891,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the addresses to which invoices are mailed.
-     *  *
-     * @param QueryCustomerAddressListRequest $request QueryCustomerAddressListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the addresses to which invoices are mailed.
      *
-     * @return QueryCustomerAddressListResponse QueryCustomerAddressListResponse
+     * @param request - QueryCustomerAddressListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCustomerAddressListResponse
+     *
+     * @param QueryCustomerAddressListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryCustomerAddressListResponse
      */
     public function queryCustomerAddressListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCustomerAddressList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCustomerAddressList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryCustomerAddressListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the addresses to which invoices are mailed.
-     *  *
-     * @param QueryCustomerAddressListRequest $request QueryCustomerAddressListRequest
+     * Queries the addresses to which invoices are mailed.
      *
-     * @return QueryCustomerAddressListResponse QueryCustomerAddressListResponse
+     * @param request - QueryCustomerAddressListRequest
+     *
+     * @returns QueryCustomerAddressListResponse
+     *
+     * @param QueryCustomerAddressListRequest $request
+     *
+     * @return QueryCustomerAddressListResponse
      */
     public function queryCustomerAddressList($request)
     {
@@ -3961,77 +4948,98 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage of resource plans, including reserved instances (RIs) and storage capacity units (SCUs).
-     *  *
-     * @description Limits:
-     * *   Only the usage records within the past year can be queried.
-     *  *
-     * @param QueryDPUtilizationDetailRequest $request QueryDPUtilizationDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the usage of resource plans, including reserved instances (RIs) and storage capacity units (SCUs).
      *
-     * @return QueryDPUtilizationDetailResponse QueryDPUtilizationDetailResponse
+     * @remarks
+     * Limits:
+     * *   Only the usage records within the past year can be queried.
+     *
+     * @param request - QueryDPUtilizationDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDPUtilizationDetailResponse
+     *
+     * @param QueryDPUtilizationDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryDPUtilizationDetailResponse
      */
     public function queryDPUtilizationDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
         }
-        if (!Utils::isUnset($request->deductedInstanceId)) {
-            $query['DeductedInstanceId'] = $request->deductedInstanceId;
+
+        if (null !== $request->deductedInstanceId) {
+            @$query['DeductedInstanceId'] = $request->deductedInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->includeShare)) {
-            $query['IncludeShare'] = $request->includeShare;
+
+        if (null !== $request->includeShare) {
+            @$query['IncludeShare'] = $request->includeShare;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceSpec)) {
-            $query['InstanceSpec'] = $request->instanceSpec;
+
+        if (null !== $request->instanceSpec) {
+            @$query['InstanceSpec'] = $request->instanceSpec;
         }
-        if (!Utils::isUnset($request->lastToken)) {
-            $query['LastToken'] = $request->lastToken;
+
+        if (null !== $request->lastToken) {
+            @$query['LastToken'] = $request->lastToken;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDPUtilizationDetail',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDPUtilizationDetail',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDPUtilizationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage of resource plans, including reserved instances (RIs) and storage capacity units (SCUs).
-     *  *
-     * @description Limits:
-     * *   Only the usage records within the past year can be queried.
-     *  *
-     * @param QueryDPUtilizationDetailRequest $request QueryDPUtilizationDetailRequest
+     * Queries the usage of resource plans, including reserved instances (RIs) and storage capacity units (SCUs).
      *
-     * @return QueryDPUtilizationDetailResponse QueryDPUtilizationDetailResponse
+     * @remarks
+     * Limits:
+     * *   Only the usage records within the past year can be queried.
+     *
+     * @param request - QueryDPUtilizationDetailRequest
+     *
+     * @returns QueryDPUtilizationDetailResponse
+     *
+     * @param QueryDPUtilizationDetailRequest $request
+     *
+     * @return QueryDPUtilizationDetailResponse
      */
     public function queryDPUtilizationDetail($request)
     {
@@ -4041,83 +5049,106 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the orders for which you want to apply for invoices.
-     *  *
-     * @param QueryEvaluateListRequest $request QueryEvaluateListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the orders for which you want to apply for invoices.
      *
-     * @return QueryEvaluateListResponse QueryEvaluateListResponse
+     * @param request - QueryEvaluateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEvaluateListResponse
+     *
+     * @param QueryEvaluateListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryEvaluateListResponse
      */
     public function queryEvaluateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billCycle)) {
-            $query['BillCycle'] = $request->billCycle;
+        if (null !== $request->billCycle) {
+            @$query['BillCycle'] = $request->billCycle;
         }
-        if (!Utils::isUnset($request->bizTypeList)) {
-            $query['BizTypeList'] = $request->bizTypeList;
+
+        if (null !== $request->bizTypeList) {
+            @$query['BizTypeList'] = $request->bizTypeList;
         }
-        if (!Utils::isUnset($request->endAmount)) {
-            $query['EndAmount'] = $request->endAmount;
+
+        if (null !== $request->endAmount) {
+            @$query['EndAmount'] = $request->endAmount;
         }
-        if (!Utils::isUnset($request->endBizTime)) {
-            $query['EndBizTime'] = $request->endBizTime;
+
+        if (null !== $request->endBizTime) {
+            @$query['EndBizTime'] = $request->endBizTime;
         }
-        if (!Utils::isUnset($request->endSearchTime)) {
-            $query['EndSearchTime'] = $request->endSearchTime;
+
+        if (null !== $request->endSearchTime) {
+            @$query['EndSearchTime'] = $request->endSearchTime;
         }
-        if (!Utils::isUnset($request->outBizId)) {
-            $query['OutBizId'] = $request->outBizId;
+
+        if (null !== $request->outBizId) {
+            @$query['OutBizId'] = $request->outBizId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortType)) {
-            $query['SortType'] = $request->sortType;
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
         }
-        if (!Utils::isUnset($request->startAmount)) {
-            $query['StartAmount'] = $request->startAmount;
+
+        if (null !== $request->startAmount) {
+            @$query['StartAmount'] = $request->startAmount;
         }
-        if (!Utils::isUnset($request->startBizTime)) {
-            $query['StartBizTime'] = $request->startBizTime;
+
+        if (null !== $request->startBizTime) {
+            @$query['StartBizTime'] = $request->startBizTime;
         }
-        if (!Utils::isUnset($request->startSearchTime)) {
-            $query['StartSearchTime'] = $request->startSearchTime;
+
+        if (null !== $request->startSearchTime) {
+            @$query['StartSearchTime'] = $request->startSearchTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryEvaluateList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryEvaluateList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryEvaluateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the orders for which you want to apply for invoices.
-     *  *
-     * @param QueryEvaluateListRequest $request QueryEvaluateListRequest
+     * Queries the information about the orders for which you want to apply for invoices.
      *
-     * @return QueryEvaluateListResponse QueryEvaluateListResponse
+     * @param request - QueryEvaluateListRequest
+     *
+     * @returns QueryEvaluateListResponse
+     *
+     * @param QueryEvaluateListRequest $request
+     *
+     * @return QueryEvaluateListResponse
      */
     public function queryEvaluateList($request)
     {
@@ -4127,44 +5158,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a financial account.
-     *  *
-     * @param QueryFinancialAccountInfoRequest $request QueryFinancialAccountInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a financial account.
      *
-     * @return QueryFinancialAccountInfoResponse QueryFinancialAccountInfoResponse
+     * @param request - QueryFinancialAccountInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryFinancialAccountInfoResponse
+     *
+     * @param QueryFinancialAccountInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryFinancialAccountInfoResponse
      */
     public function queryFinancialAccountInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryFinancialAccountInfo',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryFinancialAccountInfo',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryFinancialAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a financial account.
-     *  *
-     * @param QueryFinancialAccountInfoRequest $request QueryFinancialAccountInfoRequest
+     * Queries the information about a financial account.
      *
-     * @return QueryFinancialAccountInfoResponse QueryFinancialAccountInfoResponse
+     * @param request - QueryFinancialAccountInfoRequest
+     *
+     * @returns QueryFinancialAccountInfoResponse
+     *
+     * @param QueryFinancialAccountInfoRequest $request
+     *
+     * @return QueryFinancialAccountInfoResponse
      */
     public function queryFinancialAccountInfo($request)
     {
@@ -4174,89 +5215,112 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bills of instances or billable items in a billing cycle.
-     *  *
-     * @description ##
+     * Queries the bills of instances or billable items in a billing cycle.
+     *
+     * @remarks
+     * ##
      * *   This API operation has been upgraded to DescribeInstanceBill. We recommend that you call the [DescribeInstanceBill](https://help.aliyun.com/document_detail/209402.html) operation to query the bills of instances or billable items in a billing cycle. You can call the QueryInstanceBill operation to query a maximum of 50,000 data rows in a bill.
      * *   Instance bills are generated after bills are split. In most cases, the instance bills do not include data generated on the last day of the specified period.
      * *   The instance information changes within a billing cycle. The instance configurations and specifications and the time when the instance was used in the billing cycle are all recorded. For more information, see the corresponding bill details.
      * *   You can query the data generated in June 2020 or later for Cloud Communications services, and the data generated in November 2020 or later for Alibaba Cloud Domains.
-     *  *
-     * @param QueryInstanceBillRequest $request QueryInstanceBillRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryInstanceBillResponse QueryInstanceBillResponse
+     * @param request - QueryInstanceBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInstanceBillResponse
+     *
+     * @param QueryInstanceBillRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryInstanceBillResponse
      */
     public function queryInstanceBillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->billingDate)) {
-            $query['BillingDate'] = $request->billingDate;
+
+        if (null !== $request->billingDate) {
+            @$query['BillingDate'] = $request->billingDate;
         }
-        if (!Utils::isUnset($request->granularity)) {
-            $query['Granularity'] = $request->granularity;
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
         }
-        if (!Utils::isUnset($request->isBillingItem)) {
-            $query['IsBillingItem'] = $request->isBillingItem;
+
+        if (null !== $request->isBillingItem) {
+            @$query['IsBillingItem'] = $request->isBillingItem;
         }
-        if (!Utils::isUnset($request->isHideZeroCharge)) {
-            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+
+        if (null !== $request->isHideZeroCharge) {
+            @$query['IsHideZeroCharge'] = $request->isHideZeroCharge;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryInstanceBill',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInstanceBill',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryInstanceBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bills of instances or billable items in a billing cycle.
-     *  *
-     * @description ##
+     * Queries the bills of instances or billable items in a billing cycle.
+     *
+     * @remarks
+     * ##
      * *   This API operation has been upgraded to DescribeInstanceBill. We recommend that you call the [DescribeInstanceBill](https://help.aliyun.com/document_detail/209402.html) operation to query the bills of instances or billable items in a billing cycle. You can call the QueryInstanceBill operation to query a maximum of 50,000 data rows in a bill.
      * *   Instance bills are generated after bills are split. In most cases, the instance bills do not include data generated on the last day of the specified period.
      * *   The instance information changes within a billing cycle. The instance configurations and specifications and the time when the instance was used in the billing cycle are all recorded. For more information, see the corresponding bill details.
      * *   You can query the data generated in June 2020 or later for Cloud Communications services, and the data generated in November 2020 or later for Alibaba Cloud Domains.
-     *  *
-     * @param QueryInstanceBillRequest $request QueryInstanceBillRequest
      *
-     * @return QueryInstanceBillResponse QueryInstanceBillResponse
+     * @param request - QueryInstanceBillRequest
+     *
+     * @returns QueryInstanceBillResponse
+     *
+     * @param QueryInstanceBillRequest $request
+     *
+     * @return QueryInstanceBillResponse
      */
     public function queryInstanceBill($request)
     {
@@ -4266,50 +5330,62 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries instances by tag.
-     *  *
-     * @param QueryInstanceByTagRequest $request QueryInstanceByTagRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries instances by tag.
      *
-     * @return QueryInstanceByTagResponse QueryInstanceByTagResponse
+     * @param request - QueryInstanceByTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInstanceByTagResponse
+     *
+     * @param QueryInstanceByTagRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryInstanceByTagResponse
      */
     public function queryInstanceByTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryInstanceByTag',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInstanceByTag',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryInstanceByTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries instances by tag.
-     *  *
-     * @param QueryInstanceByTagRequest $request QueryInstanceByTagRequest
+     * Queries instances by tag.
      *
-     * @return QueryInstanceByTagResponse QueryInstanceByTagResponse
+     * @param request - QueryInstanceByTagRequest
+     *
+     * @returns QueryInstanceByTagResponse
+     *
+     * @param QueryInstanceByTagRequest $request
+     *
+     * @return QueryInstanceByTagResponse
      */
     public function queryInstanceByTag($request)
     {
@@ -4319,59 +5395,74 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary The code of the service.
-     *  *
-     * @param QueryInstanceGaapCostRequest $request QueryInstanceGaapCostRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * The code of the service.
      *
-     * @return QueryInstanceGaapCostResponse QueryInstanceGaapCostResponse
+     * @param request - QueryInstanceGaapCostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInstanceGaapCostResponse
+     *
+     * @param QueryInstanceGaapCostRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryInstanceGaapCostResponse
      */
     public function queryInstanceGaapCostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryInstanceGaapCost',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInstanceGaapCost',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryInstanceGaapCostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The code of the service.
-     *  *
-     * @param QueryInstanceGaapCostRequest $request QueryInstanceGaapCostRequest
+     * The code of the service.
      *
-     * @return QueryInstanceGaapCostResponse QueryInstanceGaapCostResponse
+     * @param request - QueryInstanceGaapCostRequest
+     *
+     * @returns QueryInstanceGaapCostResponse
+     *
+     * @param QueryInstanceGaapCostRequest $request
+     *
+     * @return QueryInstanceGaapCostResponse
      */
     public function queryInstanceGaapCost($request)
     {
@@ -4381,44 +5472,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about invoice titles.
-     *  *
-     * @param QueryInvoicingCustomerListRequest $request QueryInvoicingCustomerListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about invoice titles.
      *
-     * @return QueryInvoicingCustomerListResponse QueryInvoicingCustomerListResponse
+     * @param request - QueryInvoicingCustomerListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInvoicingCustomerListResponse
+     *
+     * @param QueryInvoicingCustomerListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryInvoicingCustomerListResponse
      */
     public function queryInvoicingCustomerListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryInvoicingCustomerList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInvoicingCustomerList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryInvoicingCustomerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about invoice titles.
-     *  *
-     * @param QueryInvoicingCustomerListRequest $request QueryInvoicingCustomerListRequest
+     * Queries the information about invoice titles.
      *
-     * @return QueryInvoicingCustomerListResponse QueryInvoicingCustomerListResponse
+     * @param request - QueryInvoicingCustomerListRequest
+     *
+     * @returns QueryInvoicingCustomerListResponse
+     *
+     * @param QueryInvoicingCustomerListRequest $request
+     *
+     * @return QueryInvoicingCustomerListResponse
      */
     public function queryInvoicingCustomerList($request)
     {
@@ -4428,71 +5529,90 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the orders of your Alibaba Cloud account or distributors. By default, orders within the last hour are queried. To query earlier orders, specify the CreateTimeStart and CreateTimeEnd parameters.
-     *  *
-     * @param QueryOrdersRequest $request QueryOrdersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the orders of your Alibaba Cloud account or distributors. By default, orders within the last hour are queried. To query earlier orders, specify the CreateTimeStart and CreateTimeEnd parameters.
      *
-     * @return QueryOrdersResponse QueryOrdersResponse
+     * @param request - QueryOrdersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryOrdersResponse
+     *
+     * @param QueryOrdersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return QueryOrdersResponse
      */
     public function queryOrdersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $query['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paymentStatus)) {
-            $query['PaymentStatus'] = $request->paymentStatus;
+
+        if (null !== $request->paymentStatus) {
+            @$query['PaymentStatus'] = $request->paymentStatus;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryOrders',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryOrders',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the orders of your Alibaba Cloud account or distributors. By default, orders within the last hour are queried. To query earlier orders, specify the CreateTimeStart and CreateTimeEnd parameters.
-     *  *
-     * @param QueryOrdersRequest $request QueryOrdersRequest
+     * Queries the orders of your Alibaba Cloud account or distributors. By default, orders within the last hour are queried. To query earlier orders, specify the CreateTimeStart and CreateTimeEnd parameters.
      *
-     * @return QueryOrdersResponse QueryOrdersResponse
+     * @param request - QueryOrdersRequest
+     *
+     * @returns QueryOrdersResponse
+     *
+     * @param QueryOrdersRequest $request
+     *
+     * @return QueryOrdersResponse
      */
     public function queryOrders($request)
     {
@@ -4502,44 +5622,54 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries, by relationship ID, permissions granted to accounts between which a management-member relationship is established.
-     *  *
-     * @param QueryPermissionListRequest $request QueryPermissionListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries, by relationship ID, permissions granted to accounts between which a management-member relationship is established.
      *
-     * @return QueryPermissionListResponse QueryPermissionListResponse
+     * @param request - QueryPermissionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPermissionListResponse
+     *
+     * @param QueryPermissionListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryPermissionListResponse
      */
     public function queryPermissionListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->relationId)) {
-            $query['RelationId'] = $request->relationId;
+        if (null !== $request->relationId) {
+            @$query['RelationId'] = $request->relationId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPermissionList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPermissionList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPermissionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries, by relationship ID, permissions granted to accounts between which a management-member relationship is established.
-     *  *
-     * @param QueryPermissionListRequest $request QueryPermissionListRequest
+     * Queries, by relationship ID, permissions granted to accounts between which a management-member relationship is established.
      *
-     * @return QueryPermissionListResponse QueryPermissionListResponse
+     * @param request - QueryPermissionListRequest
+     *
+     * @returns QueryPermissionListResponse
+     *
+     * @param QueryPermissionListRequest $request
+     *
+     * @return QueryPermissionListResponse
      */
     public function queryPermissionList($request)
     {
@@ -4549,50 +5679,62 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries prepaid cards.
-     *  *
-     * @param QueryPrepaidCardsRequest $request QueryPrepaidCardsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries prepaid cards.
      *
-     * @return QueryPrepaidCardsResponse QueryPrepaidCardsResponse
+     * @param request - QueryPrepaidCardsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPrepaidCardsResponse
+     *
+     * @param QueryPrepaidCardsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryPrepaidCardsResponse
      */
     public function queryPrepaidCardsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->effectiveOrNot)) {
-            $query['EffectiveOrNot'] = $request->effectiveOrNot;
+        if (null !== $request->effectiveOrNot) {
+            @$query['EffectiveOrNot'] = $request->effectiveOrNot;
         }
-        if (!Utils::isUnset($request->expiryTimeEnd)) {
-            $query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
+
+        if (null !== $request->expiryTimeEnd) {
+            @$query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
         }
-        if (!Utils::isUnset($request->expiryTimeStart)) {
-            $query['ExpiryTimeStart'] = $request->expiryTimeStart;
+
+        if (null !== $request->expiryTimeStart) {
+            @$query['ExpiryTimeStart'] = $request->expiryTimeStart;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPrepaidCards',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPrepaidCards',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPrepaidCardsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries prepaid cards.
-     *  *
-     * @param QueryPrepaidCardsRequest $request QueryPrepaidCardsRequest
+     * Queries prepaid cards.
      *
-     * @return QueryPrepaidCardsResponse QueryPrepaidCardsResponse
+     * @param request - QueryPrepaidCardsRequest
+     *
+     * @returns QueryPrepaidCardsResponse
+     *
+     * @param QueryPrepaidCardsRequest $request
+     *
+     * @return QueryPrepaidCardsResponse
      */
     public function queryPrepaidCards($request)
     {
@@ -4602,45 +5744,56 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the billable items of a service.
-     *  *
-     * @description You can call this operation to query the billable items of a service. A billable item is the minimum unit used to calculate costs.
-     *  *
-     * @param QueryPriceEntityListRequest $request QueryPriceEntityListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the billable items of a service.
      *
-     * @return QueryPriceEntityListResponse QueryPriceEntityListResponse
+     * @remarks
+     * You can call this operation to query the billable items of a service. A billable item is the minimum unit used to calculate costs.
+     *
+     * @param request - QueryPriceEntityListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPriceEntityListResponse
+     *
+     * @param QueryPriceEntityListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryPriceEntityListResponse
      */
     public function queryPriceEntityListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPriceEntityList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPriceEntityList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPriceEntityListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the billable items of a service.
-     *  *
-     * @description You can call this operation to query the billable items of a service. A billable item is the minimum unit used to calculate costs.
-     *  *
-     * @param QueryPriceEntityListRequest $request QueryPriceEntityListRequest
+     * Queries the billable items of a service.
      *
-     * @return QueryPriceEntityListResponse QueryPriceEntityListResponse
+     * @remarks
+     * You can call this operation to query the billable items of a service. A billable item is the minimum unit used to calculate costs.
+     *
+     * @param request - QueryPriceEntityListRequest
+     *
+     * @returns QueryPriceEntityListResponse
+     *
+     * @param QueryPriceEntityListRequest $request
+     *
+     * @return QueryPriceEntityListResponse
      */
     public function queryPriceEntityList($request)
     {
@@ -4650,50 +5803,62 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all Alibaba Cloud services.
-     *  *
-     * @param QueryProductListRequest $request QueryProductListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about all Alibaba Cloud services.
      *
-     * @return QueryProductListResponse QueryProductListResponse
+     * @param request - QueryProductListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryProductListResponse
+     *
+     * @param QueryProductListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryProductListResponse
      */
     public function queryProductListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryTotalCount)) {
-            $query['QueryTotalCount'] = $request->queryTotalCount;
+
+        if (null !== $request->queryTotalCount) {
+            @$query['QueryTotalCount'] = $request->queryTotalCount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryProductList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryProductList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryProductListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about all Alibaba Cloud services.
-     *  *
-     * @param QueryProductListRequest $request QueryProductListRequest
+     * Queries the information about all Alibaba Cloud services.
      *
-     * @return QueryProductListResponse QueryProductListResponse
+     * @param request - QueryProductListRequest
+     *
+     * @returns QueryProductListResponse
+     *
+     * @param QueryProductListRequest $request
+     *
+     * @return QueryProductListResponse
      */
     public function queryProductList($request)
     {
@@ -4703,65 +5868,82 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage details of a reserved instance (RI).
-     *  *
-     * @param QueryRIUtilizationDetailRequest $request QueryRIUtilizationDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the usage details of a reserved instance (RI).
      *
-     * @return QueryRIUtilizationDetailResponse QueryRIUtilizationDetailResponse
+     * @param request - QueryRIUtilizationDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRIUtilizationDetailResponse
+     *
+     * @param QueryRIUtilizationDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryRIUtilizationDetailResponse
      */
     public function queryRIUtilizationDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deductedInstanceId)) {
-            $query['DeductedInstanceId'] = $request->deductedInstanceId;
+        if (null !== $request->deductedInstanceId) {
+            @$query['DeductedInstanceId'] = $request->deductedInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceSpec)) {
-            $query['InstanceSpec'] = $request->instanceSpec;
+
+        if (null !== $request->instanceSpec) {
+            @$query['InstanceSpec'] = $request->instanceSpec;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->RICommodityCode)) {
-            $query['RICommodityCode'] = $request->RICommodityCode;
+
+        if (null !== $request->RICommodityCode) {
+            @$query['RICommodityCode'] = $request->RICommodityCode;
         }
-        if (!Utils::isUnset($request->RIInstanceId)) {
-            $query['RIInstanceId'] = $request->RIInstanceId;
+
+        if (null !== $request->RIInstanceId) {
+            @$query['RIInstanceId'] = $request->RIInstanceId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRIUtilizationDetail',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRIUtilizationDetail',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRIUtilizationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage details of a reserved instance (RI).
-     *  *
-     * @param QueryRIUtilizationDetailRequest $request QueryRIUtilizationDetailRequest
+     * Queries the usage details of a reserved instance (RI).
      *
-     * @return QueryRIUtilizationDetailResponse QueryRIUtilizationDetailResponse
+     * @param request - QueryRIUtilizationDetailRequest
+     *
+     * @returns QueryRIUtilizationDetailResponse
+     *
+     * @param QueryRIUtilizationDetailRequest $request
+     *
+     * @return QueryRIUtilizationDetailResponse
      */
     public function queryRIUtilizationDetail($request)
     {
@@ -4771,41 +5953,50 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a redemption coupon.
-     *  *
-     * @param QueryRedeemRequest $request QueryRedeemRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a redemption coupon.
      *
-     * @return QueryRedeemResponse QueryRedeemResponse
+     * @param request - QueryRedeemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRedeemResponse
+     *
+     * @param QueryRedeemRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return QueryRedeemResponse
      */
     public function queryRedeemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRedeem',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRedeem',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRedeemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a redemption coupon.
-     *  *
-     * @param QueryRedeemRequest $request QueryRedeemRequest
+     * Queries the information about a redemption coupon.
      *
-     * @return QueryRedeemResponse QueryRedeemResponse
+     * @param request - QueryRedeemRequest
+     *
+     * @returns QueryRedeemResponse
+     *
+     * @param QueryRedeemRequest $request
+     *
+     * @return QueryRedeemResponse
      */
     public function queryRedeem($request)
     {
@@ -4815,53 +6006,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the members of a management account.
-     *  *
-     * @param QueryRelationListRequest $request QueryRelationListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the members of a management account.
      *
-     * @return QueryRelationListResponse QueryRelationListResponse
+     * @param request - QueryRelationListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRelationListResponse
+     *
+     * @param QueryRelationListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryRelationListResponse
      */
     public function queryRelationListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $query['StatusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRelationList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRelationList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRelationListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the members of a management account.
-     *  *
-     * @param QueryRelationListRequest $request QueryRelationListRequest
+     * Queries the members of a management account.
      *
-     * @return QueryRelationListResponse QueryRelationListResponse
+     * @param request - QueryRelationListRequest
+     *
+     * @returns QueryRelationListResponse
+     *
+     * @param QueryRelationListRequest $request
+     *
+     * @return QueryRelationListResponse
      */
     public function queryRelationList($request)
     {
@@ -4871,47 +6075,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
-     *  *
-     * @param QueryResellerAvailableQuotaRequest $request QueryResellerAvailableQuotaRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
      *
-     * @return QueryResellerAvailableQuotaResponse QueryResellerAvailableQuotaResponse
+     * @param request - QueryResellerAvailableQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryResellerAvailableQuotaResponse
+     *
+     * @param QueryResellerAvailableQuotaRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryResellerAvailableQuotaResponse
      */
     public function queryResellerAvailableQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->itemCodes)) {
-            $query['ItemCodes'] = $request->itemCodes;
+        if (null !== $request->itemCodes) {
+            @$query['ItemCodes'] = $request->itemCodes;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryResellerAvailableQuota',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryResellerAvailableQuota',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryResellerAvailableQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
-     *  *
-     * @param QueryResellerAvailableQuotaRequest $request QueryResellerAvailableQuotaRequest
+     * Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
      *
-     * @return QueryResellerAvailableQuotaResponse QueryResellerAvailableQuotaResponse
+     * @param request - QueryResellerAvailableQuotaRequest
+     *
+     * @returns QueryResellerAvailableQuotaResponse
+     *
+     * @param QueryResellerAvailableQuotaRequest $request
+     *
+     * @return QueryResellerAvailableQuotaResponse
      */
     public function queryResellerAvailableQuota($request)
     {
@@ -4921,47 +6136,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户的信控预警阀值,该接口暂未测试启用
-     *  *
-     * @param QueryResellerUserAlarmThresholdRequest $request QueryResellerUserAlarmThresholdRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 查询用户的信控预警阀值,该接口暂未测试启用.
      *
-     * @return QueryResellerUserAlarmThresholdResponse QueryResellerUserAlarmThresholdResponse
+     * @param request - QueryResellerUserAlarmThresholdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryResellerUserAlarmThresholdResponse
+     *
+     * @param QueryResellerUserAlarmThresholdRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return QueryResellerUserAlarmThresholdResponse
      */
     public function queryResellerUserAlarmThresholdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alarmType)) {
-            $query['AlarmType'] = $request->alarmType;
+        if (null !== $request->alarmType) {
+            @$query['AlarmType'] = $request->alarmType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryResellerUserAlarmThreshold',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryResellerUserAlarmThreshold',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryResellerUserAlarmThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户的信控预警阀值,该接口暂未测试启用
-     *  *
-     * @param QueryResellerUserAlarmThresholdRequest $request QueryResellerUserAlarmThresholdRequest
+     * 查询用户的信控预警阀值,该接口暂未测试启用.
      *
-     * @return QueryResellerUserAlarmThresholdResponse QueryResellerUserAlarmThresholdResponse
+     * @param request - QueryResellerUserAlarmThresholdRequest
+     *
+     * @returns QueryResellerUserAlarmThresholdResponse
+     *
+     * @param QueryResellerUserAlarmThresholdRequest $request
+     *
+     * @return QueryResellerUserAlarmThresholdResponse
      */
     public function queryResellerUserAlarmThreshold($request)
     {
@@ -4971,62 +6197,78 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the instances of a resource plan. You can query the resource plans that are expired within one year.
-     *  *
-     * @param QueryResourcePackageInstancesRequest $request QueryResourcePackageInstancesRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the instances of a resource plan. You can query the resource plans that are expired within one year.
      *
-     * @return QueryResourcePackageInstancesResponse QueryResourcePackageInstancesResponse
+     * @param request - QueryResourcePackageInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryResourcePackageInstancesResponse
+     *
+     * @param QueryResourcePackageInstancesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryResourcePackageInstancesResponse
      */
     public function queryResourcePackageInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expiryTimeEnd)) {
-            $query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
+        if (null !== $request->expiryTimeEnd) {
+            @$query['ExpiryTimeEnd'] = $request->expiryTimeEnd;
         }
-        if (!Utils::isUnset($request->expiryTimeStart)) {
-            $query['ExpiryTimeStart'] = $request->expiryTimeStart;
+
+        if (null !== $request->expiryTimeStart) {
+            @$query['ExpiryTimeStart'] = $request->expiryTimeStart;
         }
-        if (!Utils::isUnset($request->includePartner)) {
-            $query['IncludePartner'] = $request->includePartner;
+
+        if (null !== $request->includePartner) {
+            @$query['IncludePartner'] = $request->includePartner;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryResourcePackageInstances',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryResourcePackageInstances',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryResourcePackageInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the instances of a resource plan. You can query the resource plans that are expired within one year.
-     *  *
-     * @param QueryResourcePackageInstancesRequest $request QueryResourcePackageInstancesRequest
+     * Queries the instances of a resource plan. You can query the resource plans that are expired within one year.
      *
-     * @return QueryResourcePackageInstancesResponse QueryResourcePackageInstancesResponse
+     * @param request - QueryResourcePackageInstancesRequest
+     *
+     * @returns QueryResourcePackageInstancesResponse
+     *
+     * @param QueryResourcePackageInstancesRequest $request
+     *
+     * @return QueryResourcePackageInstancesResponse
      */
     public function queryResourcePackageInstances($request)
     {
@@ -5036,62 +6278,78 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the deduction details of savings plans.
-     *  *
-     * @param QuerySavingsPlansDeductLogRequest $request QuerySavingsPlansDeductLogRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the deduction details of savings plans.
      *
-     * @return QuerySavingsPlansDeductLogResponse QuerySavingsPlansDeductLogResponse
+     * @param request - QuerySavingsPlansDeductLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySavingsPlansDeductLogResponse
+     *
+     * @param QuerySavingsPlansDeductLogRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QuerySavingsPlansDeductLogResponse
      */
     public function querySavingsPlansDeductLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->locale)) {
-            $query['Locale'] = $request->locale;
+
+        if (null !== $request->locale) {
+            @$query['Locale'] = $request->locale;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySavingsPlansDeductLog',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySavingsPlansDeductLog',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySavingsPlansDeductLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the deduction details of savings plans.
-     *  *
-     * @param QuerySavingsPlansDeductLogRequest $request QuerySavingsPlansDeductLogRequest
+     * Queries the deduction details of savings plans.
      *
-     * @return QuerySavingsPlansDeductLogResponse QuerySavingsPlansDeductLogResponse
+     * @param request - QuerySavingsPlansDeductLogRequest
+     *
+     * @returns QuerySavingsPlansDeductLogResponse
+     *
+     * @param QuerySavingsPlansDeductLogRequest $request
+     *
+     * @return QuerySavingsPlansDeductLogResponse
      */
     public function querySavingsPlansDeductLog($request)
     {
@@ -5101,41 +6359,50 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries discounts on savings plans.
-     *  *
-     * @param QuerySavingsPlansDiscountRequest $request QuerySavingsPlansDiscountRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries discounts on savings plans.
      *
-     * @return QuerySavingsPlansDiscountResponse QuerySavingsPlansDiscountResponse
+     * @param request - QuerySavingsPlansDiscountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySavingsPlansDiscountResponse
+     *
+     * @param QuerySavingsPlansDiscountRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QuerySavingsPlansDiscountResponse
      */
     public function querySavingsPlansDiscountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySavingsPlansDiscount',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySavingsPlansDiscount',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySavingsPlansDiscountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries discounts on savings plans.
-     *  *
-     * @param QuerySavingsPlansDiscountRequest $request QuerySavingsPlansDiscountRequest
+     * Queries discounts on savings plans.
      *
-     * @return QuerySavingsPlansDiscountResponse QuerySavingsPlansDiscountResponse
+     * @param request - QuerySavingsPlansDiscountRequest
+     *
+     * @returns QuerySavingsPlansDiscountResponse
+     *
+     * @param QuerySavingsPlansDiscountRequest $request
+     *
+     * @return QuerySavingsPlansDiscountResponse
      */
     public function querySavingsPlansDiscount($request)
     {
@@ -5145,68 +6412,86 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about savings plan instances of the current user.
-     *  *
-     * @param QuerySavingsPlansInstanceRequest $request QuerySavingsPlansInstanceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about savings plan instances of the current user.
      *
-     * @return QuerySavingsPlansInstanceResponse QuerySavingsPlansInstanceResponse
+     * @param request - QuerySavingsPlansInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySavingsPlansInstanceResponse
+     *
+     * @param QuerySavingsPlansInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QuerySavingsPlansInstanceResponse
      */
     public function querySavingsPlansInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->locale)) {
-            $query['Locale'] = $request->locale;
+
+        if (null !== $request->locale) {
+            @$query['Locale'] = $request->locale;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySavingsPlansInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySavingsPlansInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySavingsPlansInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about savings plan instances of the current user.
-     *  *
-     * @param QuerySavingsPlansInstanceRequest $request QuerySavingsPlansInstanceRequest
+     * Queries the information about savings plan instances of the current user.
      *
-     * @return QuerySavingsPlansInstanceResponse QuerySavingsPlansInstanceResponse
+     * @param request - QuerySavingsPlansInstanceRequest
+     *
+     * @returns QuerySavingsPlansInstanceResponse
+     *
+     * @param QuerySavingsPlansInstanceRequest $request
+     *
+     * @return QuerySavingsPlansInstanceResponse
      */
     public function querySavingsPlansInstance($request)
     {
@@ -5216,77 +6501,98 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary The code of the service.
-     *  *
-     * @param QuerySettleBillRequest $request QuerySettleBillRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * The code of the service.
      *
-     * @return QuerySettleBillResponse QuerySettleBillResponse
+     * @param request - QuerySettleBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySettleBillResponse
+     *
+     * @param QuerySettleBillRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QuerySettleBillResponse
      */
     public function querySettleBillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->isDisplayLocalCurrency)) {
-            $query['IsDisplayLocalCurrency'] = $request->isDisplayLocalCurrency;
+
+        if (null !== $request->isDisplayLocalCurrency) {
+            @$query['IsDisplayLocalCurrency'] = $request->isDisplayLocalCurrency;
         }
-        if (!Utils::isUnset($request->isHideZeroCharge)) {
-            $query['IsHideZeroCharge'] = $request->isHideZeroCharge;
+
+        if (null !== $request->isHideZeroCharge) {
+            @$query['IsHideZeroCharge'] = $request->isHideZeroCharge;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->recordID)) {
-            $query['RecordID'] = $request->recordID;
+
+        if (null !== $request->recordID) {
+            @$query['RecordID'] = $request->recordID;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySettleBill',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySettleBill',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySettleBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary The code of the service.
-     *  *
-     * @param QuerySettleBillRequest $request QuerySettleBillRequest
+     * The code of the service.
      *
-     * @return QuerySettleBillResponse QuerySettleBillResponse
+     * @param request - QuerySettleBillRequest
+     *
+     * @returns QuerySettleBillResponse
+     *
+     * @param QuerySettleBillRequest $request
+     *
+     * @return QuerySettleBillResponse
      */
     public function querySettleBill($request)
     {
@@ -5296,46 +6602,56 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the stock keeping units (SKUs) of a service. In most cases, a service has one or more SKUs. A service may even have tens of thousands of SKUs. You can call this operation to query the SKUs of a specific service and the prices of the SKUs. You can configure request parameters to query the specified SKUs based on the configurations of the SKUs.
-     *  *
-     * @param QuerySkuPriceListRequest $tmpReq  QuerySkuPriceListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the stock keeping units (SKUs) of a service. In most cases, a service has one or more SKUs. A service may even have tens of thousands of SKUs. You can call this operation to query the SKUs of a specific service and the prices of the SKUs. You can configure request parameters to query the specified SKUs based on the configurations of the SKUs.
      *
-     * @return QuerySkuPriceListResponse QuerySkuPriceListResponse
+     * @param tmpReq - QuerySkuPriceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySkuPriceListResponse
+     *
+     * @param QuerySkuPriceListRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QuerySkuPriceListResponse
      */
     public function querySkuPriceListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QuerySkuPriceListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->priceFactorConditionMap)) {
-            $request->priceFactorConditionMapShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->priceFactorConditionMap, 'PriceFactorConditionMap', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->priceFactorConditionMap) {
+            $request->priceFactorConditionMapShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->priceFactorConditionMap, 'PriceFactorConditionMap', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySkuPriceList',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySkuPriceList',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySkuPriceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the stock keeping units (SKUs) of a service. In most cases, a service has one or more SKUs. A service may even have tens of thousands of SKUs. You can call this operation to query the SKUs of a specific service and the prices of the SKUs. You can configure request parameters to query the specified SKUs based on the configurations of the SKUs.
-     *  *
-     * @param QuerySkuPriceListRequest $request QuerySkuPriceListRequest
+     * Queries the stock keeping units (SKUs) of a service. In most cases, a service has one or more SKUs. A service may even have tens of thousands of SKUs. You can call this operation to query the SKUs of a specific service and the prices of the SKUs. You can configure request parameters to query the specified SKUs based on the configurations of the SKUs.
      *
-     * @return QuerySkuPriceListResponse QuerySkuPriceListResponse
+     * @param request - QuerySkuPriceListRequest
+     *
+     * @returns QuerySkuPriceListResponse
+     *
+     * @param QuerySkuPriceListRequest $request
+     *
+     * @return QuerySkuPriceListResponse
      */
     public function querySkuPriceList($request)
     {
@@ -5345,75 +6661,94 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries split bills.
-     *  *
-     * @description *   This API operation has been upgraded to DescribeSplitItemBill. We recommend that you call the [DescribeSplitItemBill](https://help.aliyun.com/document_detail/208169.html) operation to query split bills. You can call the QuerySplitItemBill operation to query a maximum of 50,000 data rows in a bill.
+     * Queries split bills.
+     *
+     * @remarks
+     *   This API operation has been upgraded to DescribeSplitItemBill. We recommend that you call the [DescribeSplitItemBill](https://help.aliyun.com/document_detail/208169.html) operation to query split bills. You can call the QuerySplitItemBill operation to query a maximum of 50,000 data rows in a bill.
      * *   The data queried by calling the QuerySplitItemBill operation is consistent with the data that is displayed for the specified billing cycle on the Split Bill page in User Center.
      * *   You can call this operation to query split bills generated within the last 12 months.
      * *   This operation returns split bills only after you activate the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in User Center.
-     *  *
-     * @param QuerySplitItemBillRequest $request QuerySplitItemBillRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySplitItemBillResponse QuerySplitItemBillResponse
+     * @param request - QuerySplitItemBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySplitItemBillResponse
+     *
+     * @param QuerySplitItemBillRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QuerySplitItemBillResponse
      */
     public function querySplitItemBillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->billOwnerId)) {
-            $query['BillOwnerId'] = $request->billOwnerId;
+        if (null !== $request->billOwnerId) {
+            @$query['BillOwnerId'] = $request->billOwnerId;
         }
-        if (!Utils::isUnset($request->billingCycle)) {
-            $query['BillingCycle'] = $request->billingCycle;
+
+        if (null !== $request->billingCycle) {
+            @$query['BillingCycle'] = $request->billingCycle;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySplitItemBill',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySplitItemBill',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySplitItemBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries split bills.
-     *  *
-     * @description *   This API operation has been upgraded to DescribeSplitItemBill. We recommend that you call the [DescribeSplitItemBill](https://help.aliyun.com/document_detail/208169.html) operation to query split bills. You can call the QuerySplitItemBill operation to query a maximum of 50,000 data rows in a bill.
+     * Queries split bills.
+     *
+     * @remarks
+     *   This API operation has been upgraded to DescribeSplitItemBill. We recommend that you call the [DescribeSplitItemBill](https://help.aliyun.com/document_detail/208169.html) operation to query split bills. You can call the QuerySplitItemBill operation to query a maximum of 50,000 data rows in a bill.
      * *   The data queried by calling the QuerySplitItemBill operation is consistent with the data that is displayed for the specified billing cycle on the Split Bill page in User Center.
      * *   You can call this operation to query split bills generated within the last 12 months.
      * *   This operation returns split bills only after you activate the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in User Center.
-     *  *
-     * @param QuerySplitItemBillRequest $request QuerySplitItemBillRequest
      *
-     * @return QuerySplitItemBillResponse QuerySplitItemBillResponse
+     * @param request - QuerySplitItemBillRequest
+     *
+     * @returns QuerySplitItemBillResponse
+     *
+     * @param QuerySplitItemBillRequest $request
+     *
+     * @return QuerySplitItemBillResponse
      */
     public function querySplitItemBill($request)
     {
@@ -5423,74 +6758,92 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage data of an Alibaba Cloud service.
-     *  *
-     * @description You can call this operation to query the usage data of an Alibaba Cloud service. Take note of the following items:
+     * Queries the usage data of an Alibaba Cloud service.
+     *
+     * @remarks
+     * You can call this operation to query the usage data of an Alibaba Cloud service. Take note of the following items:
      * *   The service code that you specify for querying the usage data of a specific Alibaba Cloud service must be valid. You can query the usage data by hour or by day.
      * *   The time that you specify must follow the ISO8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
      *     *   Latency exists in data pushes. Therefore, if you set the DataType parameter to Hour, the integrity of usage data recorded in the last 24 hours can be ensured. If you set the DataType parameter to Day, the integrity of usage data recorded in the last two days can be ensured.
      *     *   You can query the usage data that is recorded in the last quarter.
-     *  *
-     * @param QueryUserOmsDataRequest $request QueryUserOmsDataRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserOmsDataResponse QueryUserOmsDataResponse
+     * @param request - QueryUserOmsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserOmsDataResponse
+     *
+     * @param QueryUserOmsDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryUserOmsDataResponse
      */
     public function queryUserOmsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$query['Marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->table)) {
-            $query['Table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$query['Table'] = $request->table;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserOmsData',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserOmsData',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryUserOmsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage data of an Alibaba Cloud service.
-     *  *
-     * @description You can call this operation to query the usage data of an Alibaba Cloud service. Take note of the following items:
+     * Queries the usage data of an Alibaba Cloud service.
+     *
+     * @remarks
+     * You can call this operation to query the usage data of an Alibaba Cloud service. Take note of the following items:
      * *   The service code that you specify for querying the usage data of a specific Alibaba Cloud service must be valid. You can query the usage data by hour or by day.
      * *   The time that you specify must follow the ISO8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
      *     *   Latency exists in data pushes. Therefore, if you set the DataType parameter to Hour, the integrity of usage data recorded in the last 24 hours can be ensured. If you set the DataType parameter to Day, the integrity of usage data recorded in the last two days can be ensured.
      *     *   You can query the usage data that is recorded in the last quarter.
-     *  *
-     * @param QueryUserOmsDataRequest $request QueryUserOmsDataRequest
      *
-     * @return QueryUserOmsDataResponse QueryUserOmsDataResponse
+     * @param request - QueryUserOmsDataRequest
+     *
+     * @returns QueryUserOmsDataResponse
+     *
+     * @param QueryUserOmsDataRequest $request
+     *
+     * @return QueryUserOmsDataResponse
      */
     public function queryUserOmsData($request)
     {
@@ -5500,64 +6853,80 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Unsubscribes from an instance that is no longer needed.
-     *  *
-     * @description 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
-     * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
-     * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
-     *  *
-     * @param RefundInstanceRequest $request RefundInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Unsubscribes from an instance that is no longer needed.
      *
-     * @return RefundInstanceResponse RefundInstanceResponse
+     * @remarks
+     * 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
+     * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
+     * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/en/user-center/refund-rules).
+     *
+     * @param request - RefundInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefundInstanceResponse
+     *
+     * @param RefundInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RefundInstanceResponse
      */
     public function refundInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->immediatelyRelease)) {
-            $query['ImmediatelyRelease'] = $request->immediatelyRelease;
+
+        if (null !== $request->immediatelyRelease) {
+            @$query['ImmediatelyRelease'] = $request->immediatelyRelease;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefundInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefundInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RefundInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Unsubscribes from an instance that is no longer needed.
-     *  *
-     * @description 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
-     * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
-     * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules).
-     *  *
-     * @param RefundInstanceRequest $request RefundInstanceRequest
+     * Unsubscribes from an instance that is no longer needed.
      *
-     * @return RefundInstanceResponse RefundInstanceResponse
+     * @remarks
+     * 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
+     * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
+     * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/en/user-center/refund-rules).
+     *
+     * @param request - RefundInstanceRequest
+     *
+     * @returns RefundInstanceResponse
+     *
+     * @param RefundInstanceRequest $request
+     *
+     * @return RefundInstanceResponse
      */
     public function refundInstance($request)
     {
@@ -5567,66 +6936,84 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Releases instances by Virtual Network Operators (VNOs).
-     *  *
-     * @description This operation is provided for only VNOs to release instances. If a non-specific VNO calls this operation, the request is blocked.
-     *  *
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Releases instances by Virtual Network Operators (VNOs).
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @remarks
+     * This operation is provided for only VNOs to release instances. If a non-specific VNO calls this operation, the request is blocked.
+     *
+     * @param request - ReleaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->renewStatus)) {
-            $query['RenewStatus'] = $request->renewStatus;
+
+        if (null !== $request->renewStatus) {
+            @$query['RenewStatus'] = $request->renewStatus;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases instances by Virtual Network Operators (VNOs).
-     *  *
-     * @description This operation is provided for only VNOs to release instances. If a non-specific VNO calls this operation, the request is blocked.
-     *  *
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
+     * Releases instances by Virtual Network Operators (VNOs).
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @remarks
+     * This operation is provided for only VNOs to release instances. If a non-specific VNO calls this operation, the request is blocked.
+     *
+     * @param request - ReleaseInstanceRequest
+     *
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstance($request)
     {
@@ -5636,56 +7023,70 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Terminates a financial relationship between the management account and a member.
-     *  *
-     * @param RelieveAccountRelationRequest $request RelieveAccountRelationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Terminates a financial relationship between the management account and a member.
      *
-     * @return RelieveAccountRelationResponse RelieveAccountRelationResponse
+     * @param request - RelieveAccountRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RelieveAccountRelationResponse
+     *
+     * @param RelieveAccountRelationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RelieveAccountRelationResponse
      */
     public function relieveAccountRelationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->childUserId)) {
-            $query['ChildUserId'] = $request->childUserId;
+        if (null !== $request->childUserId) {
+            @$query['ChildUserId'] = $request->childUserId;
         }
-        if (!Utils::isUnset($request->parentUserId)) {
-            $query['ParentUserId'] = $request->parentUserId;
+
+        if (null !== $request->parentUserId) {
+            @$query['ParentUserId'] = $request->parentUserId;
         }
-        if (!Utils::isUnset($request->relationId)) {
-            $query['RelationId'] = $request->relationId;
+
+        if (null !== $request->relationId) {
+            @$query['RelationId'] = $request->relationId;
         }
-        if (!Utils::isUnset($request->relationType)) {
-            $query['RelationType'] = $request->relationType;
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$query['RequestId'] = $request->requestId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RelieveAccountRelation',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RelieveAccountRelation',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RelieveAccountRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Terminates a financial relationship between the management account and a member.
-     *  *
-     * @param RelieveAccountRelationRequest $request RelieveAccountRelationRequest
+     * Terminates a financial relationship between the management account and a member.
      *
-     * @return RelieveAccountRelationResponse RelieveAccountRelationResponse
+     * @param request - RelieveAccountRelationRequest
+     *
+     * @returns RelieveAccountRelationResponse
+     *
+     * @param RelieveAccountRelationRequest $request
+     *
+     * @return RelieveAccountRelationResponse
      */
     public function relieveAccountRelation($request)
     {
@@ -5695,62 +7096,78 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 续费变配接口
-     *  *
-     * @param RenewChangeInstanceRequest $request RenewChangeInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 续费变配接口.
      *
-     * @return RenewChangeInstanceResponse RenewChangeInstanceResponse
+     * @param request - RenewChangeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewChangeInstanceResponse
+     *
+     * @param RenewChangeInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RenewChangeInstanceResponse
      */
     public function renewChangeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->parameter)) {
-            $query['Parameter'] = $request->parameter;
+
+        if (null !== $request->parameter) {
+            @$query['Parameter'] = $request->parameter;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->renewPeriod)) {
-            $query['RenewPeriod'] = $request->renewPeriod;
+
+        if (null !== $request->renewPeriod) {
+            @$query['RenewPeriod'] = $request->renewPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewChangeInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewChangeInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RenewChangeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 续费变配接口
-     *  *
-     * @param RenewChangeInstanceRequest $request RenewChangeInstanceRequest
+     * 续费变配接口.
      *
-     * @return RenewChangeInstanceResponse RenewChangeInstanceResponse
+     * @param request - RenewChangeInstanceRequest
+     *
+     * @returns RenewChangeInstanceResponse
+     *
+     * @param RenewChangeInstanceRequest $request
+     *
+     * @return RenewChangeInstanceResponse
      */
     public function renewChangeInstance($request)
     {
@@ -5760,59 +7177,74 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Renews a specified instance. You cannot call this operation to renew Elastic Compute Service (ECS) instances, ApsaraDB RDS instances, or ApsaraDB for Redis instances. To renew these types of instances, call the dedicated operation of the corresponding service.
-     *  *
-     * @param RenewInstanceRequest $request RenewInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Renews a specified instance. You cannot call this operation to renew Elastic Compute Service (ECS) instances, ApsaraDB RDS instances, or ApsaraDB for Redis instances. To renew these types of instances, call the dedicated operation of the corresponding service.
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @param request - RenewInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewInstanceResponse
+     *
+     * @param RenewInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->renewPeriod)) {
-            $query['RenewPeriod'] = $request->renewPeriod;
+
+        if (null !== $request->renewPeriod) {
+            @$query['RenewPeriod'] = $request->renewPeriod;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewInstance',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewInstance',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Renews a specified instance. You cannot call this operation to renew Elastic Compute Service (ECS) instances, ApsaraDB RDS instances, or ApsaraDB for Redis instances. To renew these types of instances, call the dedicated operation of the corresponding service.
-     *  *
-     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * Renews a specified instance. You cannot call this operation to renew Elastic Compute Service (ECS) instances, ApsaraDB RDS instances, or ApsaraDB for Redis instances. To renew these types of instances, call the dedicated operation of the corresponding service.
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @param request - RenewInstanceRequest
+     *
+     * @returns RenewInstanceResponse
+     *
+     * @param RenewInstanceRequest $request
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -5822,56 +7254,70 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Renews a resource plan.
-     *  *
-     * @param RenewResourcePackageRequest $request RenewResourcePackageRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Renews a resource plan.
      *
-     * @return RenewResourcePackageResponse RenewResourcePackageResponse
+     * @param request - RenewResourcePackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewResourcePackageResponse
+     *
+     * @param RenewResourcePackageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RenewResourcePackageResponse
      */
     public function renewResourcePackageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->effectiveDate)) {
-            $query['EffectiveDate'] = $request->effectiveDate;
+
+        if (null !== $request->effectiveDate) {
+            @$query['EffectiveDate'] = $request->effectiveDate;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $query['PricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewResourcePackage',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewResourcePackage',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RenewResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Renews a resource plan.
-     *  *
-     * @param RenewResourcePackageRequest $request RenewResourcePackageRequest
+     * Renews a resource plan.
      *
-     * @return RenewResourcePackageResponse RenewResourcePackageResponse
+     * @param request - RenewResourcePackageRequest
+     *
+     * @returns RenewResourcePackageResponse
+     *
+     * @param RenewResourcePackageRequest $request
+     *
+     * @return RenewResourcePackageResponse
      */
     public function renewResourcePackage($request)
     {
@@ -5881,47 +7327,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Sets an expiration date for all Elastic Compute Service (ECS) instances.
-     *  *
-     * @param SetAllExpirationDayRequest $request SetAllExpirationDayRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Sets an expiration date for all Elastic Compute Service (ECS) instances.
      *
-     * @return SetAllExpirationDayResponse SetAllExpirationDayResponse
+     * @param request - SetAllExpirationDayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAllExpirationDayResponse
+     *
+     * @param SetAllExpirationDayRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetAllExpirationDayResponse
      */
     public function setAllExpirationDayWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->unifyExpireDay)) {
-            $query['UnifyExpireDay'] = $request->unifyExpireDay;
+
+        if (null !== $request->unifyExpireDay) {
+            @$query['UnifyExpireDay'] = $request->unifyExpireDay;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetAllExpirationDay',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetAllExpirationDay',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetAllExpirationDayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets an expiration date for all Elastic Compute Service (ECS) instances.
-     *  *
-     * @param SetAllExpirationDayRequest $request SetAllExpirationDayRequest
+     * Sets an expiration date for all Elastic Compute Service (ECS) instances.
      *
-     * @return SetAllExpirationDayResponse SetAllExpirationDayResponse
+     * @param request - SetAllExpirationDayRequest
+     *
+     * @returns SetAllExpirationDayResponse
+     *
+     * @param SetAllExpirationDayRequest $request
+     *
+     * @return SetAllExpirationDayResponse
      */
     public function setAllExpirationDay($request)
     {
@@ -5931,65 +7388,82 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Enables auto-renewal for an instance.
-     *  *
-     * @param SetRenewalRequest $request SetRenewalRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Enables auto-renewal for an instance.
      *
-     * @return SetRenewalResponse SetRenewalResponse
+     * @param request - SetRenewalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetRenewalResponse
+     *
+     * @param SetRenewalRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SetRenewalResponse
      */
     public function setRenewalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIDs)) {
-            $query['InstanceIDs'] = $request->instanceIDs;
+        if (null !== $request->instanceIDs) {
+            @$query['InstanceIDs'] = $request->instanceIDs;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->renewalPeriod)) {
-            $query['RenewalPeriod'] = $request->renewalPeriod;
+
+        if (null !== $request->renewalPeriod) {
+            @$query['RenewalPeriod'] = $request->renewalPeriod;
         }
-        if (!Utils::isUnset($request->renewalPeriodUnit)) {
-            $query['RenewalPeriodUnit'] = $request->renewalPeriodUnit;
+
+        if (null !== $request->renewalPeriodUnit) {
+            @$query['RenewalPeriodUnit'] = $request->renewalPeriodUnit;
         }
-        if (!Utils::isUnset($request->renewalStatus)) {
-            $query['RenewalStatus'] = $request->renewalStatus;
+
+        if (null !== $request->renewalStatus) {
+            @$query['RenewalStatus'] = $request->renewalStatus;
         }
-        if (!Utils::isUnset($request->subscriptionType)) {
-            $query['SubscriptionType'] = $request->subscriptionType;
+
+        if (null !== $request->subscriptionType) {
+            @$query['SubscriptionType'] = $request->subscriptionType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetRenewal',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetRenewal',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetRenewalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables auto-renewal for an instance.
-     *  *
-     * @param SetRenewalRequest $request SetRenewalRequest
+     * Enables auto-renewal for an instance.
      *
-     * @return SetRenewalResponse SetRenewalResponse
+     * @param request - SetRenewalRequest
+     *
+     * @returns SetRenewalResponse
+     *
+     * @param SetRenewalRequest $request
+     *
+     * @return SetRenewalResponse
      */
     public function setRenewal($request)
     {
@@ -5999,46 +7473,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param SetResellerUserAlarmThresholdRequest $request SetResellerUserAlarmThresholdRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - SetResellerUserAlarmThresholdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SetResellerUserAlarmThresholdResponse SetResellerUserAlarmThresholdResponse
+     * @returns SetResellerUserAlarmThresholdResponse
+     *
+     * @param SetResellerUserAlarmThresholdRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SetResellerUserAlarmThresholdResponse
      */
     public function setResellerUserAlarmThresholdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alarmThresholds)) {
-            $query['AlarmThresholds'] = $request->alarmThresholds;
+        if (null !== $request->alarmThresholds) {
+            @$query['AlarmThresholds'] = $request->alarmThresholds;
         }
-        if (!Utils::isUnset($request->alarmType)) {
-            $query['AlarmType'] = $request->alarmType;
+
+        if (null !== $request->alarmType) {
+            @$query['AlarmType'] = $request->alarmType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetResellerUserAlarmThreshold',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetResellerUserAlarmThreshold',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetResellerUserAlarmThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SetResellerUserAlarmThresholdRequest $request SetResellerUserAlarmThresholdRequest
+     * @param request - SetResellerUserAlarmThresholdRequest
      *
-     * @return SetResellerUserAlarmThresholdResponse SetResellerUserAlarmThresholdResponse
+     * @returns SetResellerUserAlarmThresholdResponse
+     *
+     * @param SetResellerUserAlarmThresholdRequest $request
+     *
+     * @return SetResellerUserAlarmThresholdResponse
      */
     public function setResellerUserAlarmThreshold($request)
     {
@@ -6048,53 +7534,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Modify the quota ledger and consumption ledger.
-     *  *
-     * @param SetResellerUserQuotaRequest $request SetResellerUserQuotaRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modify the quota ledger and consumption ledger.
      *
-     * @return SetResellerUserQuotaResponse SetResellerUserQuotaResponse
+     * @param request - SetResellerUserQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetResellerUserQuotaResponse
+     *
+     * @param SetResellerUserQuotaRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetResellerUserQuotaResponse
      */
     public function setResellerUserQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->currency)) {
-            $query['Currency'] = $request->currency;
+
+        if (null !== $request->currency) {
+            @$query['Currency'] = $request->currency;
         }
-        if (!Utils::isUnset($request->outBizId)) {
-            $query['OutBizId'] = $request->outBizId;
+
+        if (null !== $request->outBizId) {
+            @$query['OutBizId'] = $request->outBizId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetResellerUserQuota',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetResellerUserQuota',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetResellerUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modify the quota ledger and consumption ledger.
-     *  *
-     * @param SetResellerUserQuotaRequest $request SetResellerUserQuotaRequest
+     * Modify the quota ledger and consumption ledger.
      *
-     * @return SetResellerUserQuotaResponse SetResellerUserQuotaResponse
+     * @param request - SetResellerUserQuotaRequest
+     *
+     * @returns SetResellerUserQuotaResponse
+     *
+     * @param SetResellerUserQuotaRequest $request
+     *
+     * @return SetResellerUserQuotaResponse
      */
     public function setResellerUserQuota($request)
     {
@@ -6104,49 +7603,62 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @param SetResellerUserStatusRequest $request SetResellerUserStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - SetResellerUserStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SetResellerUserStatusResponse SetResellerUserStatusResponse
+     * @returns SetResellerUserStatusResponse
+     *
+     * @param SetResellerUserStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetResellerUserStatusResponse
      */
     public function setResellerUserStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->stopMode)) {
-            $query['StopMode'] = $request->stopMode;
+
+        if (null !== $request->stopMode) {
+            @$query['StopMode'] = $request->stopMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetResellerUserStatus',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetResellerUserStatus',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetResellerUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SetResellerUserStatusRequest $request SetResellerUserStatusRequest
+     * @param request - SetResellerUserStatusRequest
      *
-     * @return SetResellerUserStatusResponse SetResellerUserStatusResponse
+     * @returns SetResellerUserStatusResponse
+     *
+     * @param SetResellerUserStatusRequest $request
+     *
+     * @return SetResellerUserStatusResponse
      */
     public function setResellerUserStatus($request)
     {
@@ -6156,63 +7668,78 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary 设置节省计划用户级抵扣规则
-     *  *
-     * @param SetSavingPlanUserDeductRuleRequest $tmpReq  SetSavingPlanUserDeductRuleRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 设置节省计划用户级抵扣规则.
      *
-     * @return SetSavingPlanUserDeductRuleResponse SetSavingPlanUserDeductRuleResponse
+     * @param tmpReq - SetSavingPlanUserDeductRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetSavingPlanUserDeductRuleResponse
+     *
+     * @param SetSavingPlanUserDeductRuleRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetSavingPlanUserDeductRuleResponse
      */
     public function setSavingPlanUserDeductRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SetSavingPlanUserDeductRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
-            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->userDeductRules)) {
-            $request->userDeductRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userDeductRules, 'UserDeductRules', 'json');
+
+        if (null !== $tmpReq->userDeductRules) {
+            $request->userDeductRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userDeductRules, 'UserDeductRules', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
-            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
         }
-        if (!Utils::isUnset($request->nbid)) {
-            $query['Nbid'] = $request->nbid;
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->spnInstanceCode)) {
-            $body['SpnInstanceCode'] = $request->spnInstanceCode;
+        if (null !== $request->spnInstanceCode) {
+            @$body['SpnInstanceCode'] = $request->spnInstanceCode;
         }
-        if (!Utils::isUnset($request->userDeductRulesShrink)) {
-            $body['UserDeductRules'] = $request->userDeductRulesShrink;
+
+        if (null !== $request->userDeductRulesShrink) {
+            @$body['UserDeductRules'] = $request->userDeductRulesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetSavingPlanUserDeductRule',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetSavingPlanUserDeductRule',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetSavingPlanUserDeductRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置节省计划用户级抵扣规则
-     *  *
-     * @param SetSavingPlanUserDeductRuleRequest $request SetSavingPlanUserDeductRuleRequest
+     * 设置节省计划用户级抵扣规则.
      *
-     * @return SetSavingPlanUserDeductRuleResponse SetSavingPlanUserDeductRuleResponse
+     * @param request - SetSavingPlanUserDeductRuleRequest
+     *
+     * @returns SetSavingPlanUserDeductRuleResponse
+     *
+     * @param SetSavingPlanUserDeductRuleRequest $request
+     *
+     * @return SetSavingPlanUserDeductRuleResponse
      */
     public function setSavingPlanUserDeductRule($request)
     {
@@ -6222,9 +7749,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Subscribes to the bills that are stored in Object Storage Service (OSS) buckets.
-     *  *
-     * @description Before you call this operation, take note of the following items:
+     * Subscribes to the bills that are stored in Object Storage Service (OSS) buckets.
+     *
+     * @remarks
+     * Before you call this operation, take note of the following items:
      * *   You can subscribe to only one type of bill at a time.
      * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
      * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
@@ -6251,62 +7779,76 @@ class BssOpenApi extends OpenApiClient
      *     *   **MonthBill** (Monthly bill in the PDF format)
      *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
      * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
-     *  *
-     * @param SubscribeBillToOSSRequest $request SubscribeBillToOSSRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubscribeBillToOSSResponse SubscribeBillToOSSResponse
+     * @param request - SubscribeBillToOSSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubscribeBillToOSSResponse
+     *
+     * @param SubscribeBillToOSSRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubscribeBillToOSSResponse
      */
     public function subscribeBillToOSSWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginBillingCycle)) {
-            $query['BeginBillingCycle'] = $request->beginBillingCycle;
+        if (null !== $request->beginBillingCycle) {
+            @$query['BeginBillingCycle'] = $request->beginBillingCycle;
         }
-        if (!Utils::isUnset($request->bucketOwnerId)) {
-            $query['BucketOwnerId'] = $request->bucketOwnerId;
+
+        if (null !== $request->bucketOwnerId) {
+            @$query['BucketOwnerId'] = $request->bucketOwnerId;
         }
-        if (!Utils::isUnset($request->bucketPath)) {
-            $query['BucketPath'] = $request->bucketPath;
+
+        if (null !== $request->bucketPath) {
+            @$query['BucketPath'] = $request->bucketPath;
         }
-        if (!Utils::isUnset($request->multAccountRelSubscribe)) {
-            $query['MultAccountRelSubscribe'] = $request->multAccountRelSubscribe;
+
+        if (null !== $request->multAccountRelSubscribe) {
+            @$query['MultAccountRelSubscribe'] = $request->multAccountRelSubscribe;
         }
-        if (!Utils::isUnset($request->rowLimitPerFile)) {
-            $query['RowLimitPerFile'] = $request->rowLimitPerFile;
+
+        if (null !== $request->rowLimitPerFile) {
+            @$query['RowLimitPerFile'] = $request->rowLimitPerFile;
         }
-        if (!Utils::isUnset($request->subscribeBucket)) {
-            $query['SubscribeBucket'] = $request->subscribeBucket;
+
+        if (null !== $request->subscribeBucket) {
+            @$query['SubscribeBucket'] = $request->subscribeBucket;
         }
-        if (!Utils::isUnset($request->subscribeType)) {
-            $query['SubscribeType'] = $request->subscribeType;
+
+        if (null !== $request->subscribeType) {
+            @$query['SubscribeType'] = $request->subscribeType;
         }
-        if (!Utils::isUnset($request->usingSsl)) {
-            $query['UsingSsl'] = $request->usingSsl;
+
+        if (null !== $request->usingSsl) {
+            @$query['UsingSsl'] = $request->usingSsl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubscribeBillToOSS',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubscribeBillToOSS',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubscribeBillToOSSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Subscribes to the bills that are stored in Object Storage Service (OSS) buckets.
-     *  *
-     * @description Before you call this operation, take note of the following items:
+     * Subscribes to the bills that are stored in Object Storage Service (OSS) buckets.
+     *
+     * @remarks
+     * Before you call this operation, take note of the following items:
      * *   You can subscribe to only one type of bill at a time.
      * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
      * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
@@ -6333,10 +7875,14 @@ class BssOpenApi extends OpenApiClient
      *     *   **MonthBill** (Monthly bill in the PDF format)
      *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
      * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
-     *  *
-     * @param SubscribeBillToOSSRequest $request SubscribeBillToOSSRequest
      *
-     * @return SubscribeBillToOSSResponse SubscribeBillToOSSResponse
+     * @param request - SubscribeBillToOSSRequest
+     *
+     * @returns SubscribeBillToOSSResponse
+     *
+     * @param SubscribeBillToOSSRequest $request
+     *
+     * @return SubscribeBillToOSSResponse
      */
     public function subscribeBillToOSS($request)
     {
@@ -6346,50 +7892,62 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Add tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Add tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Add tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Add tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -6399,47 +7957,58 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Unsubscribes from the bills that are stored in Object Storage Service (OSS) buckets.
-     *  *
-     * @param UnsubscribeBillToOSSRequest $request UnsubscribeBillToOSSRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Unsubscribes from the bills that are stored in Object Storage Service (OSS) buckets.
      *
-     * @return UnsubscribeBillToOSSResponse UnsubscribeBillToOSSResponse
+     * @param request - UnsubscribeBillToOSSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnsubscribeBillToOSSResponse
+     *
+     * @param UnsubscribeBillToOSSRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UnsubscribeBillToOSSResponse
      */
     public function unsubscribeBillToOSSWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->multAccountRelSubscribe)) {
-            $query['MultAccountRelSubscribe'] = $request->multAccountRelSubscribe;
+        if (null !== $request->multAccountRelSubscribe) {
+            @$query['MultAccountRelSubscribe'] = $request->multAccountRelSubscribe;
         }
-        if (!Utils::isUnset($request->subscribeType)) {
-            $query['SubscribeType'] = $request->subscribeType;
+
+        if (null !== $request->subscribeType) {
+            @$query['SubscribeType'] = $request->subscribeType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnsubscribeBillToOSS',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnsubscribeBillToOSS',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnsubscribeBillToOSSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Unsubscribes from the bills that are stored in Object Storage Service (OSS) buckets.
-     *  *
-     * @param UnsubscribeBillToOSSRequest $request UnsubscribeBillToOSSRequest
+     * Unsubscribes from the bills that are stored in Object Storage Service (OSS) buckets.
      *
-     * @return UnsubscribeBillToOSSResponse UnsubscribeBillToOSSResponse
+     * @param request - UnsubscribeBillToOSSRequest
+     *
+     * @returns UnsubscribeBillToOSSResponse
+     *
+     * @param UnsubscribeBillToOSSRequest $request
+     *
+     * @return UnsubscribeBillToOSSResponse
      */
     public function unsubscribeBillToOSS($request)
     {
@@ -6449,53 +8018,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from resources.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -6505,53 +8087,66 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades a resource plan.
-     *  *
-     * @param UpgradeResourcePackageRequest $request UpgradeResourcePackageRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Upgrades a resource plan.
      *
-     * @return UpgradeResourcePackageResponse UpgradeResourcePackageResponse
+     * @param request - UpgradeResourcePackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeResourcePackageResponse
+     *
+     * @param UpgradeResourcePackageRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeResourcePackageResponse
      */
     public function upgradeResourcePackageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->effectiveDate)) {
-            $query['EffectiveDate'] = $request->effectiveDate;
+        if (null !== $request->effectiveDate) {
+            @$query['EffectiveDate'] = $request->effectiveDate;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
+
+        if (null !== $request->specification) {
+            @$query['Specification'] = $request->specification;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeResourcePackage',
-            'version'     => '2017-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeResourcePackage',
+            'version' => '2017-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpgradeResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Upgrades a resource plan.
-     *  *
-     * @param UpgradeResourcePackageRequest $request UpgradeResourcePackageRequest
+     * Upgrades a resource plan.
      *
-     * @return UpgradeResourcePackageResponse UpgradeResourcePackageResponse
+     * @param request - UpgradeResourcePackageRequest
+     *
+     * @returns UpgradeResourcePackageResponse
+     *
+     * @param UpgradeResourcePackageRequest $request
+     *
+     * @return UpgradeResourcePackageResponse
      */
     public function upgradeResourcePackage($request)
     {

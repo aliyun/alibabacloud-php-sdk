@@ -4,99 +4,87 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceByTagResponseBody\tagResource;
-use AlibabaCloud\Tea\Model;
 
 class QueryInstanceByTagResponseBody extends Model
 {
     /**
-     * @description The status code returned.
-     *
-     * @example PARAM_ERROR
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The error message returned.
-     *
-     * @example param is null
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the QueryInstanceByTag operation was called.
-     *
-     * @example CAESEgoQCg4KCm
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 9EC6C0B7-3397-5FAE-9915-8972CDDB1211
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description The instances returned.
-     *
      * @var tagResource[]
      */
     public $tagResource;
     protected $_name = [
-        'code'        => 'Code',
-        'message'     => 'Message',
-        'nextToken'   => 'NextToken',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
+        'code' => 'Code',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'tagResource' => 'TagResource',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tagResource)) {
+            Model::validateArray($this->tagResource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->tagResource) {
-            $res['TagResource'] = [];
-            if (null !== $this->tagResource && \is_array($this->tagResource)) {
-                $n = 0;
-                foreach ($this->tagResource as $item) {
-                    $res['TagResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagResource)) {
+                $res['TagResource'] = [];
+                $n1 = 0;
+                foreach ($this->tagResource as $item1) {
+                    $res['TagResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,35 +92,41 @@ class QueryInstanceByTagResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryInstanceByTagResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TagResource'])) {
             if (!empty($map['TagResource'])) {
                 $model->tagResource = [];
-                $n                  = 0;
-                foreach ($map['TagResource'] as $item) {
-                    $model->tagResource[$n++] = null !== $item ? tagResource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TagResource'] as $item1) {
+                    $model->tagResource[$n1] = tagResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

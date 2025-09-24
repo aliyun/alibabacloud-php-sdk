@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyCostUnitRequest\unitEntityList;
-use AlibabaCloud\Tea\Model;
 
 class ModifyCostUnitRequest extends Model
 {
     /**
-     * @description The cost centers to be modified.
-     *
      * @var unitEntityList[]
      */
     public $unitEntityList;
@@ -21,17 +19,22 @@ class ModifyCostUnitRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->unitEntityList)) {
+            Model::validateArray($this->unitEntityList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->unitEntityList) {
-            $res['UnitEntityList'] = [];
-            if (null !== $this->unitEntityList && \is_array($this->unitEntityList)) {
-                $n = 0;
-                foreach ($this->unitEntityList as $item) {
-                    $res['UnitEntityList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->unitEntityList)) {
+                $res['UnitEntityList'] = [];
+                $n1 = 0;
+                foreach ($this->unitEntityList as $item1) {
+                    $res['UnitEntityList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class ModifyCostUnitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCostUnitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UnitEntityList'])) {
             if (!empty($map['UnitEntityList'])) {
                 $model->unitEntityList = [];
-                $n                     = 0;
-                foreach ($map['UnitEntityList'] as $item) {
-                    $model->unitEntityList[$n++] = null !== $item ? unitEntityList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UnitEntityList'] as $item1) {
+                    $model->unitEntityList[$n1] = unitEntityList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

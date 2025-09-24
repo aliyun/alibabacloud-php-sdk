@@ -4,70 +4,77 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalResponseBody\data\periodCoverage;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalResponseBody\data\totalUsage;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The usage of resource plans in the specified period.
-     *
      * @var periodCoverage[]
      */
     public $periodCoverage;
 
     /**
-     * @description The total usage of resource plans.
-     *
      * @var totalUsage
      */
     public $totalUsage;
     protected $_name = [
         'periodCoverage' => 'PeriodCoverage',
-        'totalUsage'     => 'TotalUsage',
+        'totalUsage' => 'TotalUsage',
     ];
 
     public function validate()
     {
+        if (\is_array($this->periodCoverage)) {
+            Model::validateArray($this->periodCoverage);
+        }
+        if (null !== $this->totalUsage) {
+            $this->totalUsage->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->periodCoverage) {
-            $res['PeriodCoverage'] = [];
-            if (null !== $this->periodCoverage && \is_array($this->periodCoverage)) {
-                $n = 0;
-                foreach ($this->periodCoverage as $item) {
-                    $res['PeriodCoverage'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->periodCoverage)) {
+                $res['PeriodCoverage'] = [];
+                $n1 = 0;
+                foreach ($this->periodCoverage as $item1) {
+                    $res['PeriodCoverage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalUsage) {
-            $res['TotalUsage'] = null !== $this->totalUsage ? $this->totalUsage->toMap() : null;
+            $res['TotalUsage'] = null !== $this->totalUsage ? $this->totalUsage->toArray($noStream) : $this->totalUsage;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeriodCoverage'])) {
             if (!empty($map['PeriodCoverage'])) {
                 $model->periodCoverage = [];
-                $n                     = 0;
-                foreach ($map['PeriodCoverage'] as $item) {
-                    $model->periodCoverage[$n++] = null !== $item ? periodCoverage::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PeriodCoverage'] as $item1) {
+                    $model->periodCoverage[$n1] = periodCoverage::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalUsage'])) {
             $model->totalUsage = totalUsage::fromMap($map['TotalUsage']);
         }

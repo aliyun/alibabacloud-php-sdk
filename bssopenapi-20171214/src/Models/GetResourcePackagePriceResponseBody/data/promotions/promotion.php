@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetResourcePackagePriceResponseBody\data\promotions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class promotion extends Model
 {
     /**
-     * @description The ID of the promotion.
-     *
-     * @example 1000680914
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The description of the discount.
-     *
-     * @example A discount of 17% is offered if you purchase a resource plan for six months.
-     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +41,18 @@ class promotion extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return promotion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

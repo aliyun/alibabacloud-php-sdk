@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySkuPriceListRequest extends Model
 {
     /**
-     * @description The code of the service.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $commodityCode;
@@ -24,103 +19,125 @@ class QuerySkuPriceListRequest extends Model
     public $lang;
 
     /**
-     * @description The token that is used to retrieve the next page. You do not need to set this parameter if you query coverage details for the first time. The response returns a token that you can use to query coverage details of the next page. If a null value is returned for the NextPageToken parameter, no more coverage details can be queried.
-     *
-     * @example 080112060a0422020800180022490a470342000000315333303332363436363336333433393636333136333338333733373333333133373336363336323634363336363337333836333636333636313336363433363332
-     *
      * @var string
      */
     public $nextPageToken;
 
     /**
-     * @description The number of entries to be returned on each page. Maximum value: 50.
-     *
-     * This parameter is required.
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The code of the pricing object.
-     *
-     * This parameter is required.
-     * @example instance_type
-     *
      * @var string
      */
     public $priceEntityCode;
 
     /**
-     * @description The conditions of the pricing factors.
-     *
      * @var string[][]
      */
     public $priceFactorConditionMap;
     protected $_name = [
-        'commodityCode'           => 'CommodityCode',
-        'lang'                    => 'Lang',
-        'nextPageToken'           => 'NextPageToken',
-        'pageSize'                => 'PageSize',
-        'priceEntityCode'         => 'PriceEntityCode',
+        'commodityCode' => 'CommodityCode',
+        'lang' => 'Lang',
+        'nextPageToken' => 'NextPageToken',
+        'pageSize' => 'PageSize',
+        'priceEntityCode' => 'PriceEntityCode',
         'priceFactorConditionMap' => 'PriceFactorConditionMap',
     ];
 
     public function validate()
     {
+        if (\is_array($this->priceFactorConditionMap)) {
+            Model::validateArray($this->priceFactorConditionMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->priceEntityCode) {
             $res['PriceEntityCode'] = $this->priceEntityCode;
         }
+
         if (null !== $this->priceFactorConditionMap) {
-            $res['PriceFactorConditionMap'] = $this->priceFactorConditionMap;
+            if (\is_array($this->priceFactorConditionMap)) {
+                $res['PriceFactorConditionMap'] = [];
+                foreach ($this->priceFactorConditionMap as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['PriceFactorConditionMap'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['PriceFactorConditionMap'][$key1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySkuPriceListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PriceEntityCode'])) {
             $model->priceEntityCode = $map['PriceEntityCode'];
         }
+
         if (isset($map['PriceFactorConditionMap'])) {
-            $model->priceFactorConditionMap = $map['PriceFactorConditionMap'];
+            if (!empty($map['PriceFactorConditionMap'])) {
+                $model->priceFactorConditionMap = [];
+                foreach ($map['PriceFactorConditionMap'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->priceFactorConditionMap[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->priceFactorConditionMap[$key1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         return $model;

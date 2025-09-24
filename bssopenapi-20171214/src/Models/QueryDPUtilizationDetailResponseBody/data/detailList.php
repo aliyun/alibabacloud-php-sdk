@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryDPUtilizationDetailResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryDPUtilizationDetailResponseBody\data\detailList\detailList;
 
 class detailList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryDPUtilizationDetailResponseBody\data\detailList\detailList[]
+     * @var detailList[]
      */
     public $detailList;
     protected $_name = [
@@ -18,17 +19,22 @@ class detailList extends Model
 
     public function validate()
     {
+        if (\is_array($this->detailList)) {
+            Model::validateArray($this->detailList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detailList) {
-            $res['DetailList'] = [];
-            if (null !== $this->detailList && \is_array($this->detailList)) {
-                $n = 0;
-                foreach ($this->detailList as $item) {
-                    $res['DetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->detailList)) {
+                $res['DetailList'] = [];
+                $n1 = 0;
+                foreach ($this->detailList as $item1) {
+                    $res['DetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class detailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetailList'])) {
             if (!empty($map['DetailList'])) {
                 $model->detailList = [];
-                $n                 = 0;
-                foreach ($map['DetailList'] as $item) {
-                    $model->detailList[$n++] = null !== $item ? \AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryDPUtilizationDetailResponseBody\data\detailList\detailList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DetailList'] as $item1) {
+                    $model->detailList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

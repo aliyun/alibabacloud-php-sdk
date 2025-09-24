@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryDPUtilizationDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryDPUtilizationDetailResponseBody\data\detailList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The detailed resource plan usage.
-     *
      * @var detailList
      */
     public $detailList;
 
     /**
-     * @description The token that is used to retrieve the next page of results. You can set the LastToken parameter to this value in the next request. If null is returned, all results are queried.
-     *
-     * @example CAESF***zNTAw
-     *
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'detailList' => 'DetailList',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
     {
+        if (null !== $this->detailList) {
+            $this->detailList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detailList) {
-            $res['DetailList'] = null !== $this->detailList ? $this->detailList->toMap() : null;
+            $res['DetailList'] = null !== $this->detailList ? $this->detailList->toArray($noStream) : $this->detailList;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -46,17 +45,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetailList'])) {
             $model->detailList = detailList::fromMap($map['DetailList']);
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

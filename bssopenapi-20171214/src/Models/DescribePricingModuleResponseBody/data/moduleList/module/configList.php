@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponseBody\data\moduleList\module;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configList extends Model
 {
@@ -18,29 +18,45 @@ class configList extends Model
 
     public function validate()
     {
+        if (\is_array($this->configList)) {
+            Model::validateArray($this->configList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configList) {
-            $res['ConfigList'] = $this->configList;
+            if (\is_array($this->configList)) {
+                $res['ConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->configList as $item1) {
+                    $res['ConfigList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
-                $model->configList = $map['ConfigList'];
+                $model->configList = [];
+                $n1 = 0;
+                foreach ($map['ConfigList'] as $item1) {
+                    $model->configList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageTotalResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class totalCoverage extends Model
 {
     /**
-     * @description The total coverage.
-     *
-     * @example 1
-     *
      * @var float
      */
     public $coveragePercentage;
 
     /**
-     * @description The total deducted amount.
-     *
-     * @example 100
-     *
      * @var float
      */
     public $deductAmount;
     protected $_name = [
         'coveragePercentage' => 'CoveragePercentage',
-        'deductAmount'       => 'DeductAmount',
+        'deductAmount' => 'DeductAmount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coveragePercentage) {
             $res['CoveragePercentage'] = $this->coveragePercentage;
         }
+
         if (null !== $this->deductAmount) {
             $res['DeductAmount'] = $this->deductAmount;
         }
@@ -47,17 +41,18 @@ class totalCoverage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return totalCoverage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoveragePercentage'])) {
             $model->coveragePercentage = $map['CoveragePercentage'];
         }
+
         if (isset($map['DeductAmount'])) {
             $model->deductAmount = $map['DeductAmount'];
         }

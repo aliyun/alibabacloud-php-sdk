@@ -4,58 +4,63 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponseBody\data\attributeList;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponseBody\data\moduleList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The module attributes.
-     *
      * @var attributeList
      */
     public $attributeList;
 
     /**
-     * @description The pricing information of modules.
-     *
      * @var moduleList
      */
     public $moduleList;
     protected $_name = [
         'attributeList' => 'AttributeList',
-        'moduleList'    => 'ModuleList',
+        'moduleList' => 'ModuleList',
     ];
 
     public function validate()
     {
+        if (null !== $this->attributeList) {
+            $this->attributeList->validate();
+        }
+        if (null !== $this->moduleList) {
+            $this->moduleList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeList) {
-            $res['AttributeList'] = null !== $this->attributeList ? $this->attributeList->toMap() : null;
+            $res['AttributeList'] = null !== $this->attributeList ? $this->attributeList->toArray($noStream) : $this->attributeList;
         }
+
         if (null !== $this->moduleList) {
-            $res['ModuleList'] = null !== $this->moduleList ? $this->moduleList->toMap() : null;
+            $res['ModuleList'] = null !== $this->moduleList ? $this->moduleList->toArray($noStream) : $this->moduleList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttributeList'])) {
             $model->attributeList = attributeList::fromMap($map['AttributeList']);
         }
+
         if (isset($map['ModuleList'])) {
             $model->moduleList = moduleList::fromMap($map['ModuleList']);
         }

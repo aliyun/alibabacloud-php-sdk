@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryFinancialAccountInfoRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account.
-     *
-     * This parameter is required.
-     * @example 1990699401005016
-     *
      * @var int
      */
     public $userId;
@@ -23,9 +18,10 @@ class QueryFinancialAccountInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -35,11 +31,11 @@ class QueryFinancialAccountInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryFinancialAccountInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

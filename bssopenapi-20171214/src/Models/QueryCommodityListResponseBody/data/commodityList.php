@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCommodityListResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class commodityList extends Model
 {
     /**
-     * @description The payment type. Valid values: POSTPAY (pay-as-you-go) and PREPAY (subscription).
-     *
-     * @example POSTPAY
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The code of the service, which is the same as that on the Billing Management page.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description The name of the service.
-     *
-     * @example ECS (Pay-As-You-Go)
-     *
      * @var string
      */
     public $commodityName;
     protected $_name = [
-        'chargeType'    => 'ChargeType',
+        'chargeType' => 'ChargeType',
         'commodityCode' => 'CommodityCode',
         'commodityName' => 'CommodityName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->commodityName) {
             $res['CommodityName'] = $this->commodityName;
         }
@@ -60,20 +51,22 @@ class commodityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commodityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['CommodityName'])) {
             $model->commodityName = $map['CommodityName'];
         }

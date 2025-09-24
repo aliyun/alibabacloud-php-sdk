@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryEvaluateListResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryEvaluateListResponseBody\data\evaluateList\evaluate;
-use AlibabaCloud\Tea\Model;
 
 class evaluateList extends Model
 {
@@ -19,17 +19,22 @@ class evaluateList extends Model
 
     public function validate()
     {
+        if (\is_array($this->evaluate)) {
+            Model::validateArray($this->evaluate);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->evaluate) {
-            $res['Evaluate'] = [];
-            if (null !== $this->evaluate && \is_array($this->evaluate)) {
-                $n = 0;
-                foreach ($this->evaluate as $item) {
-                    $res['Evaluate'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->evaluate)) {
+                $res['Evaluate'] = [];
+                $n1 = 0;
+                foreach ($this->evaluate as $item1) {
+                    $res['Evaluate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class evaluateList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return evaluateList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Evaluate'])) {
             if (!empty($map['Evaluate'])) {
                 $model->evaluate = [];
-                $n               = 0;
-                foreach ($map['Evaluate'] as $item) {
-                    $model->evaluate[$n++] = null !== $item ? evaluate::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Evaluate'] as $item1) {
+                    $model->evaluate[$n1] = evaluate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

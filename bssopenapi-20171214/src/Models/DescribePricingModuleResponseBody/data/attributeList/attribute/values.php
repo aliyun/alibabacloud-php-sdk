@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponseBody\data\attributeList\attribute;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponseBody\data\attributeList\attribute\values\attributeValue;
-use AlibabaCloud\Tea\Model;
 
 class values extends Model
 {
@@ -19,17 +19,22 @@ class values extends Model
 
     public function validate()
     {
+        if (\is_array($this->attributeValue)) {
+            Model::validateArray($this->attributeValue);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeValue) {
-            $res['AttributeValue'] = [];
-            if (null !== $this->attributeValue && \is_array($this->attributeValue)) {
-                $n = 0;
-                foreach ($this->attributeValue as $item) {
-                    $res['AttributeValue'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attributeValue)) {
+                $res['AttributeValue'] = [];
+                $n1 = 0;
+                foreach ($this->attributeValue as $item1) {
+                    $res['AttributeValue'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class values extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return values
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttributeValue'])) {
             if (!empty($map['AttributeValue'])) {
                 $model->attributeValue = [];
-                $n                     = 0;
-                foreach ($map['AttributeValue'] as $item) {
-                    $model->attributeValue[$n++] = null !== $item ? attributeValue::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AttributeValue'] as $item1) {
+                    $model->attributeValue[$n1] = attributeValue::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

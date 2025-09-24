@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceGaapCostResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceGaapCostResponseBody\data\modules\module;
-use AlibabaCloud\Tea\Model;
 
 class modules extends Model
 {
@@ -19,17 +19,22 @@ class modules extends Model
 
     public function validate()
     {
+        if (\is_array($this->module)) {
+            Model::validateArray($this->module);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->module) {
-            $res['Module'] = [];
-            if (null !== $this->module && \is_array($this->module)) {
-                $n = 0;
-                foreach ($this->module as $item) {
-                    $res['Module'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->module)) {
+                $res['Module'] = [];
+                $n1 = 0;
+                foreach ($this->module as $item1) {
+                    $res['Module'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class modules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Module'])) {
             if (!empty($map['Module'])) {
                 $model->module = [];
-                $n             = 0;
-                foreach ($map['Module'] as $item) {
-                    $model->module[$n++] = null !== $item ? module::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Module'] as $item1) {
+                    $model->module[$n1] = module::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

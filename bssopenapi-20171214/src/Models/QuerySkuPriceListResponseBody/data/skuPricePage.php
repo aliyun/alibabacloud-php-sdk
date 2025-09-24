@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListResponseBody\data\skuPricePage\skuPriceList;
-use AlibabaCloud\Tea\Model;
 
 class skuPricePage extends Model
 {
     /**
-     * @description The token that is used to query the next page.
-     *
-     * @example 080112060a0422020800180022490a470342000000315333303332363436363336333433393636333136333338333733373333333133373336363336323634363336363337333836333636333636313336363433363332
-     *
      * @var string
      */
     public $nextPageToken;
 
     /**
-     * @description The SKUs.
-     *
      * @var skuPriceList[]
      */
     public $skuPriceList;
 
     /**
-     * @description The total number of SKUs.
-     *
-     * @example 18732
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'nextPageToken' => 'NextPageToken',
-        'skuPriceList'  => 'SkuPriceList',
-        'totalCount'    => 'TotalCount',
+        'skuPriceList' => 'SkuPriceList',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->skuPriceList)) {
+            Model::validateArray($this->skuPriceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->skuPriceList) {
-            $res['SkuPriceList'] = [];
-            if (null !== $this->skuPriceList && \is_array($this->skuPriceList)) {
-                $n = 0;
-                foreach ($this->skuPriceList as $item) {
-                    $res['SkuPriceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skuPriceList)) {
+                $res['SkuPriceList'] = [];
+                $n1 = 0;
+                foreach ($this->skuPriceList as $item1) {
+                    $res['SkuPriceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +62,29 @@ class skuPricePage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return skuPricePage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['SkuPriceList'])) {
             if (!empty($map['SkuPriceList'])) {
                 $model->skuPriceList = [];
-                $n                   = 0;
-                foreach ($map['SkuPriceList'] as $item) {
-                    $model->skuPriceList[$n++] = null !== $item ? skuPriceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SkuPriceList'] as $item1) {
+                    $model->skuPriceList[$n1] = skuPriceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

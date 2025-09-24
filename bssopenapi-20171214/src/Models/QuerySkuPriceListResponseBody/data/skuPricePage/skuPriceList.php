@@ -4,87 +4,102 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListResponseBody\data\skuPricePage;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySkuPriceListResponseBody\data\skuPricePage\skuPriceList\cskuPriceList;
-use AlibabaCloud\Tea\Model;
 
 class skuPriceList extends Model
 {
     /**
-     * @description The prices of the SKUs.
-     *
      * @var cskuPriceList[]
      */
     public $cskuPriceList;
 
     /**
-     * @description The code of the SKU.
-     *
-     * @example 017c15a31507bc6de22aa93777461adc
-     *
      * @var string
      */
     public $skuCode;
 
     /**
-     * @description The values of the pricing factors.
-     *
      * @var string[]
      */
     public $skuFactorMap;
     protected $_name = [
         'cskuPriceList' => 'CskuPriceList',
-        'skuCode'       => 'SkuCode',
-        'skuFactorMap'  => 'SkuFactorMap',
+        'skuCode' => 'SkuCode',
+        'skuFactorMap' => 'SkuFactorMap',
     ];
 
     public function validate()
     {
+        if (\is_array($this->cskuPriceList)) {
+            Model::validateArray($this->cskuPriceList);
+        }
+        if (\is_array($this->skuFactorMap)) {
+            Model::validateArray($this->skuFactorMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cskuPriceList) {
-            $res['CskuPriceList'] = [];
-            if (null !== $this->cskuPriceList && \is_array($this->cskuPriceList)) {
-                $n = 0;
-                foreach ($this->cskuPriceList as $item) {
-                    $res['CskuPriceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cskuPriceList)) {
+                $res['CskuPriceList'] = [];
+                $n1 = 0;
+                foreach ($this->cskuPriceList as $item1) {
+                    $res['CskuPriceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->skuCode) {
             $res['SkuCode'] = $this->skuCode;
         }
+
         if (null !== $this->skuFactorMap) {
-            $res['SkuFactorMap'] = $this->skuFactorMap;
+            if (\is_array($this->skuFactorMap)) {
+                $res['SkuFactorMap'] = [];
+                foreach ($this->skuFactorMap as $key1 => $value1) {
+                    $res['SkuFactorMap'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return skuPriceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CskuPriceList'])) {
             if (!empty($map['CskuPriceList'])) {
                 $model->cskuPriceList = [];
-                $n                    = 0;
-                foreach ($map['CskuPriceList'] as $item) {
-                    $model->cskuPriceList[$n++] = null !== $item ? cskuPriceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CskuPriceList'] as $item1) {
+                    $model->cskuPriceList[$n1] = cskuPriceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SkuCode'])) {
             $model->skuCode = $map['SkuCode'];
         }
+
         if (isset($map['SkuFactorMap'])) {
-            $model->skuFactorMap = $map['SkuFactorMap'];
+            if (!empty($map['SkuFactorMap'])) {
+                $model->skuFactorMap = [];
+                foreach ($map['SkuFactorMap'] as $key1 => $value1) {
+                    $model->skuFactorMap[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

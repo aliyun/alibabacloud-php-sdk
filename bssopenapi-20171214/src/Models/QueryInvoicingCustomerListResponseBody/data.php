@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInvoicingCustomerListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInvoicingCustomerListResponseBody\data\customerInvoiceList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the invoice.
-     *
      * @var customerInvoiceList
      */
     public $customerInvoiceList;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->customerInvoiceList) {
+            $this->customerInvoiceList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customerInvoiceList) {
-            $res['CustomerInvoiceList'] = null !== $this->customerInvoiceList ? $this->customerInvoiceList->toMap() : null;
+            $res['CustomerInvoiceList'] = null !== $this->customerInvoiceList ? $this->customerInvoiceList->toArray($noStream) : $this->customerInvoiceList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

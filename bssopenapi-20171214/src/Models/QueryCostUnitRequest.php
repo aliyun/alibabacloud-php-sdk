@@ -4,70 +4,56 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryCostUnitRequest extends Model
 {
     /**
-     * @description The user ID of the cost center owner.
-     *
-     * This parameter is required.
-     * @example 28394563429587
-     *
      * @var int
      */
     public $ownerUid;
 
     /**
-     * @description The page number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description The number of entries per page. A maximum of 300 entries can be returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the parent cost center. A value of -1 indicates the root cost center.
-     *
-     * This parameter is required.
-     * @example -1
-     *
      * @var int
      */
     public $parentUnitId;
     protected $_name = [
-        'ownerUid'     => 'OwnerUid',
-        'pageNum'      => 'PageNum',
-        'pageSize'     => 'PageSize',
+        'ownerUid' => 'OwnerUid',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'parentUnitId' => 'ParentUnitId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerUid) {
             $res['OwnerUid'] = $this->ownerUid;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->parentUnitId) {
             $res['ParentUnitId'] = $this->parentUnitId;
         }
@@ -75,23 +61,26 @@ class QueryCostUnitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCostUnitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerUid'])) {
             $model->ownerUid = $map['OwnerUid'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ParentUnitId'])) {
             $model->parentUnitId = $map['ParentUnitId'];
         }

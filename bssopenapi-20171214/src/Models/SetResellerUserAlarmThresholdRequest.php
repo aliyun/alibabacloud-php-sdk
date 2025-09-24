@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetResellerUserAlarmThresholdRequest extends Model
 {
     /**
-     * @example [{\\"denominator\\":100,\\"numerator\\":30,\\"thresholdType\\":1}]
-     *
      * @var string
      */
     public $alarmThresholds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example quota_low_balance
-     *
      * @var string
      */
     public $alarmType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $ownerId;
     protected $_name = [
         'alarmThresholds' => 'AlarmThresholds',
-        'alarmType'       => 'AlarmType',
-        'ownerId'         => 'OwnerId',
+        'alarmType' => 'AlarmType',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmThresholds) {
             $res['AlarmThresholds'] = $this->alarmThresholds;
         }
+
         if (null !== $this->alarmType) {
             $res['AlarmType'] = $this->alarmType;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -56,20 +51,22 @@ class SetResellerUserAlarmThresholdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetResellerUserAlarmThresholdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmThresholds'])) {
             $model->alarmThresholds = $map['AlarmThresholds'];
         }
+
         if (isset($map['AlarmType'])) {
             $model->alarmType = $map['AlarmType'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

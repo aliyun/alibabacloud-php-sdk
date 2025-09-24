@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest extends Model
 {
@@ -19,15 +19,11 @@ class DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest extends Mod
     public $billUserIdList;
 
     /**
-     * @example 2023-04
-     *
      * @var string
      */
     public $billingCycle;
 
     /**
-     * @example 123#
-     *
      * @var string
      */
     public $costUnitCode;
@@ -38,86 +34,116 @@ class DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest extends Mod
     public $instanceIdList;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example rds
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @example rds
-     *
      * @var string
      */
     public $productDetail;
 
     /**
-     * @example PayAsYouGo
-     *
      * @var string
      */
     public $subscriptionType;
     protected $_name = [
-        'billOwnerIdList'  => 'BillOwnerIdList',
-        'billUserIdList'   => 'BillUserIdList',
-        'billingCycle'     => 'BillingCycle',
-        'costUnitCode'     => 'CostUnitCode',
-        'instanceIdList'   => 'InstanceIdList',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'productCode'      => 'ProductCode',
-        'productDetail'    => 'ProductDetail',
+        'billOwnerIdList' => 'BillOwnerIdList',
+        'billUserIdList' => 'BillUserIdList',
+        'billingCycle' => 'BillingCycle',
+        'costUnitCode' => 'CostUnitCode',
+        'instanceIdList' => 'InstanceIdList',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'productCode' => 'ProductCode',
+        'productDetail' => 'ProductDetail',
         'subscriptionType' => 'SubscriptionType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->billOwnerIdList)) {
+            Model::validateArray($this->billOwnerIdList);
+        }
+        if (\is_array($this->billUserIdList)) {
+            Model::validateArray($this->billUserIdList);
+        }
+        if (\is_array($this->instanceIdList)) {
+            Model::validateArray($this->instanceIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billOwnerIdList) {
-            $res['BillOwnerIdList'] = $this->billOwnerIdList;
+            if (\is_array($this->billOwnerIdList)) {
+                $res['BillOwnerIdList'] = [];
+                $n1 = 0;
+                foreach ($this->billOwnerIdList as $item1) {
+                    $res['BillOwnerIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->billUserIdList) {
-            $res['BillUserIdList'] = $this->billUserIdList;
+            if (\is_array($this->billUserIdList)) {
+                $res['BillUserIdList'] = [];
+                $n1 = 0;
+                foreach ($this->billUserIdList as $item1) {
+                    $res['BillUserIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->billingCycle) {
             $res['BillingCycle'] = $this->billingCycle;
         }
+
         if (null !== $this->costUnitCode) {
             $res['CostUnitCode'] = $this->costUnitCode;
         }
+
         if (null !== $this->instanceIdList) {
-            $res['InstanceIdList'] = $this->instanceIdList;
+            if (\is_array($this->instanceIdList)) {
+                $res['InstanceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIdList as $item1) {
+                    $res['InstanceIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->productDetail) {
             $res['ProductDetail'] = $this->productDetail;
         }
+
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
         }
@@ -125,47 +151,71 @@ class DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest extends Mod
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillOwnerIdList'])) {
             if (!empty($map['BillOwnerIdList'])) {
-                $model->billOwnerIdList = $map['BillOwnerIdList'];
+                $model->billOwnerIdList = [];
+                $n1 = 0;
+                foreach ($map['BillOwnerIdList'] as $item1) {
+                    $model->billOwnerIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['BillUserIdList'])) {
             if (!empty($map['BillUserIdList'])) {
-                $model->billUserIdList = $map['BillUserIdList'];
+                $model->billUserIdList = [];
+                $n1 = 0;
+                foreach ($map['BillUserIdList'] as $item1) {
+                    $model->billUserIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['BillingCycle'])) {
             $model->billingCycle = $map['BillingCycle'];
         }
+
         if (isset($map['CostUnitCode'])) {
             $model->costUnitCode = $map['CostUnitCode'];
         }
+
         if (isset($map['InstanceIdList'])) {
             if (!empty($map['InstanceIdList'])) {
-                $model->instanceIdList = $map['InstanceIdList'];
+                $model->instanceIdList = [];
+                $n1 = 0;
+                foreach ($map['InstanceIdList'] as $item1) {
+                    $model->instanceIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['ProductDetail'])) {
             $model->productDetail = $map['ProductDetail'];
         }
+
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
         }
