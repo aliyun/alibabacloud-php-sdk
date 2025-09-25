@@ -20,6 +20,10 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceEndpointsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceEndpointsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceIpWhitelistResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceRAGConfigRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceRAGConfigResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceSSLRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceSSLResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest;
@@ -27,6 +31,11 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceIpWhitelistResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceRAGConfigRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceRAGConfigResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceRAGConfigShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceSSLRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceSSLResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigShrinkRequest;
@@ -571,6 +580,128 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 查看实例RAG配置.
+     *
+     * @param request - DescribeInstanceRAGConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceRAGConfigResponse
+     *
+     * @param DescribeInstanceRAGConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeInstanceRAGConfigResponse
+     */
+    public function describeInstanceRAGConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceRAGConfig',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceRAGConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看实例RAG配置.
+     *
+     * @param request - DescribeInstanceRAGConfigRequest
+     *
+     * @returns DescribeInstanceRAGConfigResponse
+     *
+     * @param DescribeInstanceRAGConfigRequest $request
+     *
+     * @return DescribeInstanceRAGConfigResponse
+     */
+    public function describeInstanceRAGConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceRAGConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看实例SSL配置.
+     *
+     * @param request - DescribeInstanceSSLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceSSLResponse
+     *
+     * @param DescribeInstanceSSLRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInstanceSSLResponse
+     */
+    public function describeInstanceSSLWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceSSL',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看实例SSL配置.
+     *
+     * @param request - DescribeInstanceSSLRequest
+     *
+     * @returns DescribeInstanceSSLResponse
+     *
+     * @param DescribeInstanceSSLRequest $request
+     *
+     * @return DescribeInstanceSSLResponse
+     */
+    public function describeInstanceSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceSSLWithOptions($request, $runtime);
+    }
+
+    /**
      * 查看实例存储配置.
      *
      * @param request - DescribeInstanceStorageConfigRequest
@@ -777,6 +908,162 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceIpWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改实例RAG配置.
+     *
+     * @param tmpReq - ModifyInstanceRAGConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceRAGConfigResponse
+     *
+     * @param ModifyInstanceRAGConfigRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyInstanceRAGConfigResponse
+     */
+    public function modifyInstanceRAGConfigWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyInstanceRAGConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configList) {
+            $request->configListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configList, 'ConfigList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configListShrink) {
+            @$query['ConfigList'] = $request->configListShrink;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceRAGConfig',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceRAGConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例RAG配置.
+     *
+     * @param request - ModifyInstanceRAGConfigRequest
+     *
+     * @returns ModifyInstanceRAGConfigResponse
+     *
+     * @param ModifyInstanceRAGConfigRequest $request
+     *
+     * @return ModifyInstanceRAGConfigResponse
+     */
+    public function modifyInstanceRAGConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceRAGConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改实例SSL配置.
+     *
+     * @param request - ModifyInstanceSSLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceSSLResponse
+     *
+     * @param ModifyInstanceSSLRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyInstanceSSLResponse
+     */
+    public function modifyInstanceSSLWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->CAType) {
+            @$query['CAType'] = $request->CAType;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->SSLEnabled) {
+            @$query['SSLEnabled'] = $request->SSLEnabled;
+        }
+
+        if (null !== $request->serverCert) {
+            @$query['ServerCert'] = $request->serverCert;
+        }
+
+        if (null !== $request->serverKey) {
+            @$query['ServerKey'] = $request->serverKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceSSL',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例SSL配置.
+     *
+     * @param request - ModifyInstanceSSLRequest
+     *
+     * @returns ModifyInstanceSSLResponse
+     *
+     * @param ModifyInstanceSSLRequest $request
+     *
+     * @return ModifyInstanceSSLResponse
+     */
+    public function modifyInstanceSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceSSLWithOptions($request, $runtime);
     }
 
     /**
