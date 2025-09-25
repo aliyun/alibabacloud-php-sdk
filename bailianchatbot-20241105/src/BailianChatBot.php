@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\BailianChatBot\V20241105;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\BailianChatBot\V20241105\Models\SseChatRequest;
 use AlibabaCloud\SDK\BailianChatBot\V20241105\Models\SseChatResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class BailianChatBot extends OpenApiClient
 {
@@ -37,79 +35,173 @@ class BailianChatBot extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary SSE问答接口
-     *  *
-     * @param SseChatRequest $request SseChatRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * SSE问答接口.
      *
-     * @return SseChatResponse SseChatResponse
+     * @param request - SseChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SseChatResponse
+     *
+     * @param SseChatRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return SseChatResponse
+     */
+    public function sseChatWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->command) {
+            @$query['Command'] = $request->command;
+        }
+
+        if (null !== $request->senderId) {
+            @$query['SenderId'] = $request->senderId;
+        }
+
+        if (null !== $request->senderNick) {
+            @$query['SenderNick'] = $request->senderNick;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
+        }
+
+        if (null !== $request->vendorParam) {
+            @$query['VendorParam'] = $request->vendorParam;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SseChat',
+            'version' => '2024-11-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield SseChatResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * SSE问答接口.
+     *
+     * @param request - SseChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SseChatResponse
+     *
+     * @param SseChatRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return SseChatResponse
      */
     public function sseChatWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->command)) {
-            $query['Command'] = $request->command;
-        }
-        if (!Utils::isUnset($request->senderId)) {
-            $query['SenderId'] = $request->senderId;
-        }
-        if (!Utils::isUnset($request->senderNick)) {
-            $query['SenderNick'] = $request->senderNick;
-        }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
-        }
-        if (!Utils::isUnset($request->utterance)) {
-            $query['Utterance'] = $request->utterance;
-        }
-        if (!Utils::isUnset($request->vendorParam)) {
-            $query['VendorParam'] = $request->vendorParam;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SseChat',
-            'version'     => '2024-11-05',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SseChatResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
 
-        return SseChatResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->command) {
+            @$query['Command'] = $request->command;
+        }
+
+        if (null !== $request->senderId) {
+            @$query['SenderId'] = $request->senderId;
+        }
+
+        if (null !== $request->senderNick) {
+            @$query['SenderNick'] = $request->senderNick;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
+        }
+
+        if (null !== $request->vendorParam) {
+            @$query['VendorParam'] = $request->vendorParam;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SseChat',
+            'version' => '2024-11-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SseChatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary SSE问答接口
-     *  *
-     * @param SseChatRequest $request SseChatRequest
+     * SSE问答接口.
      *
-     * @return SseChatResponse SseChatResponse
+     * @param request - SseChatRequest
+     *
+     * @returns SseChatResponse
+     *
+     * @param SseChatRequest $request
+     *
+     * @return SseChatResponse
      */
     public function sseChat($request)
     {
