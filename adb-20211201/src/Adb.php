@@ -238,6 +238,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppDiagnosisInfoRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppDiagnosisInfoResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppTypeRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppTypeResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAuditLogRecordsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAuditLogRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkCodeLogRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkCodeLogResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkCodeOutputRequest;
@@ -428,6 +430,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyLakeCacheSizeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewShrinkRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifySqlTemplatePositionRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifySqlTemplatePositionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyUserEniVswitchOptionsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyUserEniVswitchOptionsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsRequest;
@@ -10121,6 +10125,143 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 查询Spark审计日志.
+     *
+     * @param request - DescribeSparkAuditLogRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSparkAuditLogRecordsResponse
+     *
+     * @param DescribeSparkAuditLogRecordsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSparkAuditLogRecordsResponse
+     */
+    public function describeSparkAuditLogRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->processId) {
+            @$query['ProcessId'] = $request->processId;
+        }
+
+        if (null !== $request->proxyUser) {
+            @$query['ProxyUser'] = $request->proxyUser;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->SQLText) {
+            @$query['SQLText'] = $request->SQLText;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statementId) {
+            @$query['StatementId'] = $request->statementId;
+        }
+
+        if (null !== $request->statementSource) {
+            @$query['StatementSource'] = $request->statementSource;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->totalTime) {
+            @$query['TotalTime'] = $request->totalTime;
+        }
+
+        if (null !== $request->user) {
+            @$query['User'] = $request->user;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSparkAuditLogRecords',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSparkAuditLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Spark审计日志.
+     *
+     * @param request - DescribeSparkAuditLogRecordsRequest
+     *
+     * @returns DescribeSparkAuditLogRecordsResponse
+     *
+     * @param DescribeSparkAuditLogRecordsRequest $request
+     *
+     * @return DescribeSparkAuditLogRecordsResponse
+     */
+    public function describeSparkAuditLogRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSparkAuditLogRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the execution logs of Spark code.
      *
      * @remarks
@@ -17031,6 +17172,75 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPerformanceViewWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改SQL脚本模板位置.
+     *
+     * @param request - ModifySqlTemplatePositionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySqlTemplatePositionResponse
+     *
+     * @param ModifySqlTemplatePositionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifySqlTemplatePositionResponse
+     */
+    public function modifySqlTemplatePositionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->targetTemplateGroupId) {
+            @$query['TargetTemplateGroupId'] = $request->targetTemplateGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySqlTemplatePosition',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySqlTemplatePositionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改SQL脚本模板位置.
+     *
+     * @param request - ModifySqlTemplatePositionRequest
+     *
+     * @returns ModifySqlTemplatePositionResponse
+     *
+     * @param ModifySqlTemplatePositionRequest $request
+     *
+     * @return ModifySqlTemplatePositionResponse
+     */
+    public function modifySqlTemplatePosition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySqlTemplatePositionWithOptions($request, $runtime);
     }
 
     /**

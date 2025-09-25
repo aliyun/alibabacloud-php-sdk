@@ -33,12 +33,18 @@ class jobAcuUsage extends Model
      * @var string
      */
     public $resourceGroupName;
+
+    /**
+     * @var bool
+     */
+    public $useCachePool;
     protected $_name = [
         'acuUsageDetail' => 'AcuUsageDetail',
         'jobEndTime' => 'JobEndTime',
         'jobId' => 'JobId',
         'jobStartTime' => 'JobStartTime',
         'resourceGroupName' => 'ResourceGroupName',
+        'useCachePool' => 'UseCachePool',
     ];
 
     public function validate()
@@ -72,6 +78,10 @@ class jobAcuUsage extends Model
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
 
+        if (null !== $this->useCachePool) {
+            $res['UseCachePool'] = $this->useCachePool;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class jobAcuUsage extends Model
 
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
+        }
+
+        if (isset($map['UseCachePool'])) {
+            $model->useCachePool = $map['UseCachePool'];
         }
 
         return $model;
