@@ -62,6 +62,11 @@ class delta extends Model
      * @var string
      */
     public $selfDirectedScriptFullContent;
+
+    /**
+     * @var bool
+     */
+    public $skipCurrentRecognize;
     protected $_name = [
         'analysisProcess' => 'analysisProcess',
         'callTime' => 'callTime',
@@ -74,6 +79,7 @@ class delta extends Model
         'recommendScript' => 'recommendScript',
         'selfDirectedScript' => 'selfDirectedScript',
         'selfDirectedScriptFullContent' => 'selfDirectedScriptFullContent',
+        'skipCurrentRecognize' => 'skipCurrentRecognize',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class delta extends Model
 
         if (null !== $this->selfDirectedScriptFullContent) {
             $res['selfDirectedScriptFullContent'] = $this->selfDirectedScriptFullContent;
+        }
+
+        if (null !== $this->skipCurrentRecognize) {
+            $res['skipCurrentRecognize'] = $this->skipCurrentRecognize;
         }
 
         return $res;
@@ -181,6 +191,10 @@ class delta extends Model
 
         if (isset($map['selfDirectedScriptFullContent'])) {
             $model->selfDirectedScriptFullContent = $map['selfDirectedScriptFullContent'];
+        }
+
+        if (isset($map['skipCurrentRecognize'])) {
+            $model->skipCurrentRecognize = $map['skipCurrentRecognize'];
         }
 
         return $model;

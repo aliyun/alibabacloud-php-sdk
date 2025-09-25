@@ -4,8 +4,14 @@
 
 namespace AlibabaCloud\SDK\DianJin\V20240628;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogAnalysisTaskRequest;
@@ -39,6 +45,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogDetailRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogDetailResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogLogRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogLogResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentListRequest;
@@ -98,13 +106,7 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateQaLibraryResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UploadDocumentAdvanceRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UploadDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UploadDocumentResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -119,6 +121,51 @@ class DianJin extends OpenApiClient
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dianjin', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string  $bucketName
+     * @param mixed[] $form
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form)
+    {
+        $_request = new Request();
+        $boundary = FormUtil::getBoundary();
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => '' . @$form['host'],
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request, ['stream' => true]);
+
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
+                ],
+            ]);
+        }
+
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -148,7 +195,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建按年文档总结任务
      *
-     * @param request - CreateAnnualDocSummaryTaskRequest
+     * @param Request - CreateAnnualDocSummaryTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -207,7 +254,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建按年文档总结任务
      *
-     * @param request - CreateAnnualDocSummaryTaskRequest
+     * @param Request - CreateAnnualDocSummaryTaskRequest
      *
      * @returns CreateAnnualDocSummaryTaskResponse
      *
@@ -227,7 +274,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建外呼会话.
      *
-     * @param request - CreateDialogRequest
+     * @param Request - CreateDialogRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -294,7 +341,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建外呼会话.
      *
-     * @param request - CreateDialogRequest
+     * @param Request - CreateDialogRequest
      *
      * @returns CreateDialogResponse
      *
@@ -314,7 +361,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建会话分析任务
      *
-     * @param request - CreateDialogAnalysisTaskRequest
+     * @param Request - CreateDialogAnalysisTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -373,7 +420,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建会话分析任务
      *
-     * @param request - CreateDialogAnalysisTaskRequest
+     * @param Request - CreateDialogAnalysisTaskRequest
      *
      * @returns CreateDialogAnalysisTaskResponse
      *
@@ -393,7 +440,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建财报总结任务
      *
-     * @param request - CreateDocsSummaryTaskRequest
+     * @param Request - CreateDocsSummaryTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -448,7 +495,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建财报总结任务
      *
-     * @param request - CreateDocsSummaryTaskRequest
+     * @param Request - CreateDocsSummaryTaskRequest
      *
      * @returns CreateDocsSummaryTaskResponse
      *
@@ -468,7 +515,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建财报总结任务
      *
-     * @param request - CreateFinReportSummaryTaskRequest
+     * @param Request - CreateFinReportSummaryTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -539,7 +586,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建财报总结任务
      *
-     * @param request - CreateFinReportSummaryTaskRequest
+     * @param Request - CreateFinReportSummaryTaskRequest
      *
      * @returns CreateFinReportSummaryTaskResponse
      *
@@ -559,7 +606,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建文档库.
      *
-     * @param request - CreateLibraryRequest
+     * @param Request - CreateLibraryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -610,7 +657,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建文档库.
      *
-     * @param request - CreateLibraryRequest
+     * @param Request - CreateLibraryRequest
      *
      * @returns CreateLibraryResponse
      *
@@ -630,7 +677,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建PDF翻译任务
      *
-     * @param request - CreatePdfTranslateTaskRequest
+     * @param Request - CreatePdfTranslateTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -689,7 +736,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建PDF翻译任务
      *
-     * @param request - CreatePdfTranslateTaskRequest
+     * @param Request - CreatePdfTranslateTaskRequest
      *
      * @returns CreatePdfTranslateTaskResponse
      *
@@ -709,7 +756,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建预定义文档.
      *
-     * @param request - CreatePredefinedDocumentRequest
+     * @param Request - CreatePredefinedDocumentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -764,7 +811,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建预定义文档.
      *
-     * @param request - CreatePredefinedDocumentRequest
+     * @param Request - CreatePredefinedDocumentRequest
      *
      * @returns CreatePredefinedDocumentResponse
      *
@@ -784,7 +831,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建财报总结的任务
      *
-     * @param request - CreateQualityCheckTaskRequest
+     * @param Request - CreateQualityCheckTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -847,7 +894,7 @@ class DianJin extends OpenApiClient
     /**
      * 创建财报总结的任务
      *
-     * @param request - CreateQualityCheckTaskRequest
+     * @param Request - CreateQualityCheckTaskRequest
      *
      * @returns CreateQualityCheckTaskResponse
      *
@@ -867,7 +914,7 @@ class DianJin extends OpenApiClient
     /**
      * 删除文档.
      *
-     * @param request - DeleteDocumentRequest
+     * @param Request - DeleteDocumentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -914,7 +961,7 @@ class DianJin extends OpenApiClient
     /**
      * 删除文档.
      *
-     * @param request - DeleteDocumentRequest
+     * @param Request - DeleteDocumentRequest
      *
      * @returns DeleteDocumentResponse
      *
@@ -934,7 +981,7 @@ class DianJin extends OpenApiClient
     /**
      * 删除文档库.
      *
-     * @param request - DeleteLibraryRequest
+     * @param Request - DeleteLibraryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -977,7 +1024,7 @@ class DianJin extends OpenApiClient
     /**
      * 删除文档库.
      *
-     * @param request - DeleteLibraryRequest
+     * @param Request - DeleteLibraryRequest
      *
      * @returns DeleteLibraryResponse
      *
@@ -997,7 +1044,7 @@ class DianJin extends OpenApiClient
     /**
      * 中断任务
      *
-     * @param request - EvictTaskRequest
+     * @param Request - EvictTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1040,7 +1087,7 @@ class DianJin extends OpenApiClient
     /**
      * 中断任务
      *
-     * @param request - EvictTaskRequest
+     * @param Request - EvictTaskRequest
      *
      * @returns EvictTaskResponse
      *
@@ -1060,7 +1107,7 @@ class DianJin extends OpenApiClient
     /**
      * 根据文档解析问答QA.
      *
-     * @param request - GenDocQaResultRequest
+     * @param Request - GenDocQaResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1111,7 +1158,7 @@ class DianJin extends OpenApiClient
     /**
      * 根据文档解析问答QA.
      *
-     * @param request - GenDocQaResultRequest
+     * @param Request - GenDocQaResultRequest
      *
      * @returns GenDocQaResultResponse
      *
@@ -1182,7 +1229,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取问答结果.
      *
-     * @param request - GetChatQuestionRespRequest
+     * @param Request - GetChatQuestionRespRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1229,7 +1276,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取问答结果.
      *
-     * @param request - GetChatQuestionRespRequest
+     * @param Request - GetChatQuestionRespRequest
      *
      * @returns GetChatQuestionRespResponse
      *
@@ -1249,7 +1296,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取外呼会话分析结果.
      *
-     * @param request - GetDialogAnalysisResultRequest
+     * @param Request - GetDialogAnalysisResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1308,7 +1355,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取外呼会话分析结果.
      *
-     * @param request - GetDialogAnalysisResultRequest
+     * @param Request - GetDialogAnalysisResultRequest
      *
      * @returns GetDialogAnalysisResultResponse
      *
@@ -1328,7 +1375,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取异步任务的结果.
      *
-     * @param request - GetDialogDetailRequest
+     * @param Request - GetDialogDetailRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1371,7 +1418,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取异步任务的结果.
      *
-     * @param request - GetDialogDetailRequest
+     * @param Request - GetDialogDetailRequest
      *
      * @returns GetDialogDetailResponse
      *
@@ -1389,9 +1436,76 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * 查询会话日志.
+     *
+     * @param Request - GetDialogLogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDialogLogResponse
+     *
+     * @param string              $workspaceId
+     * @param GetDialogLogRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetDialogLogResponse
+     */
+    public function getDialogLogWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDialogLog',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/dialog/log',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDialogLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询会话日志.
+     *
+     * @param Request - GetDialogLogRequest
+     *
+     * @returns GetDialogLogResponse
+     *
+     * @param string              $workspaceId
+     * @param GetDialogLogRequest $request
+     *
+     * @return GetDialogLogResponse
+     */
+    public function getDialogLog($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDialogLogWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取文档的chunk列表.
      *
-     * @param request - GetDocumentChunkListRequest
+     * @param Request - GetDocumentChunkListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1462,7 +1576,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取文档的chunk列表.
      *
-     * @param request - GetDocumentChunkListRequest
+     * @param Request - GetDocumentChunkListRequest
      *
      * @returns GetDocumentChunkListResponse
      *
@@ -1482,7 +1596,7 @@ class DianJin extends OpenApiClient
     /**
      * 分页查询文档库的文档列表.
      *
-     * @param request - GetDocumentListRequest
+     * @param Request - GetDocumentListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1537,7 +1651,7 @@ class DianJin extends OpenApiClient
     /**
      * 分页查询文档库的文档列表.
      *
-     * @param request - GetDocumentListRequest
+     * @param Request - GetDocumentListRequest
      *
      * @returns GetDocumentListResponse
      *
@@ -1557,7 +1671,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取文档URL.
      *
-     * @param request - GetDocumentUrlRequest
+     * @param Request - GetDocumentUrlRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1600,7 +1714,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取文档URL.
      *
-     * @param request - GetDocumentUrlRequest
+     * @param Request - GetDocumentUrlRequest
      *
      * @returns GetDocumentUrlResponse
      *
@@ -1620,7 +1734,7 @@ class DianJin extends OpenApiClient
     /**
      * 带条件的分页查询文档库的文档列表.
      *
-     * @param request - GetFilterDocumentListRequest
+     * @param Request - GetFilterDocumentListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1687,7 +1801,7 @@ class DianJin extends OpenApiClient
     /**
      * 带条件的分页查询文档库的文档列表.
      *
-     * @param request - GetFilterDocumentListRequest
+     * @param Request - GetFilterDocumentListRequest
      *
      * @returns GetFilterDocumentListResponse
      *
@@ -1707,7 +1821,7 @@ class DianJin extends OpenApiClient
     /**
      * 分页查询文档库列表.
      *
-     * @param request - GetHistoryListByBizTypeRequest
+     * @param Request - GetHistoryListByBizTypeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1762,7 +1876,7 @@ class DianJin extends OpenApiClient
     /**
      * 分页查询文档库列表.
      *
-     * @param request - GetHistoryListByBizTypeRequest
+     * @param Request - GetHistoryListByBizTypeRequest
      *
      * @returns GetHistoryListByBizTypeResponse
      *
@@ -1782,7 +1896,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取文档库配置详情.
      *
-     * @param request - GetLibraryRequest
+     * @param Request - GetLibraryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1825,7 +1939,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取文档库配置详情.
      *
-     * @param request - GetLibraryRequest
+     * @param Request - GetLibraryRequest
      *
      * @returns GetLibraryResponse
      *
@@ -1845,7 +1959,7 @@ class DianJin extends OpenApiClient
     /**
      * 分页查询文档库列表.
      *
-     * @param request - GetLibraryListRequest
+     * @param Request - GetLibraryListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1896,7 +2010,7 @@ class DianJin extends OpenApiClient
     /**
      * 分页查询文档库列表.
      *
-     * @param request - GetLibraryListRequest
+     * @param Request - GetLibraryListRequest
      *
      * @returns GetLibraryListResponse
      *
@@ -1916,7 +2030,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取解析结果.
      *
-     * @param request - GetParseResultRequest
+     * @param Request - GetParseResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1967,7 +2081,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取解析结果.
      *
-     * @param request - GetParseResultRequest
+     * @param Request - GetParseResultRequest
      *
      * @returns GetParseResultResponse
      *
@@ -1987,7 +2101,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取异步任务的结果.
      *
-     * @param request - GetQualityCheckTaskResultRequest
+     * @param Request - GetQualityCheckTaskResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2030,7 +2144,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取异步任务的结果.
      *
-     * @param request - GetQualityCheckTaskResultRequest
+     * @param Request - GetQualityCheckTaskResultRequest
      *
      * @returns GetQualityCheckTaskResultResponse
      *
@@ -2050,7 +2164,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取财报总结任务结果.
      *
-     * @param request - GetSummaryTaskResultRequest
+     * @param Request - GetSummaryTaskResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2093,7 +2207,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取财报总结任务结果.
      *
-     * @param request - GetSummaryTaskResultRequest
+     * @param Request - GetSummaryTaskResultRequest
      *
      * @returns GetSummaryTaskResultResponse
      *
@@ -2113,7 +2227,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取异步任务结果.
      *
-     * @param request - GetTaskResultRequest
+     * @param Request - GetTaskResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2156,7 +2270,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取异步任务结果.
      *
-     * @param request - GetTaskResultRequest
+     * @param Request - GetTaskResultRequest
      *
      * @returns GetTaskResultResponse
      *
@@ -2176,7 +2290,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取财报总结任务结果.
      *
-     * @param request - GetTaskStatusRequest
+     * @param Request - GetTaskStatusRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2219,7 +2333,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取财报总结任务结果.
      *
-     * @param request - GetTaskStatusRequest
+     * @param Request - GetTaskStatusRequest
      *
      * @returns GetTaskStatusResponse
      *
@@ -2239,7 +2353,7 @@ class DianJin extends OpenApiClient
     /**
      * 插件调试接口.
      *
-     * @param request - InvokePluginRequest
+     * @param Request - InvokePluginRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2286,7 +2400,7 @@ class DianJin extends OpenApiClient
     /**
      * 插件调试接口.
      *
-     * @param request - InvokePluginRequest
+     * @param Request - InvokePluginRequest
      *
      * @returns InvokePluginResponse
      *
@@ -2306,7 +2420,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取文档预览.
      *
-     * @param request - PreviewDocumentRequest
+     * @param Request - PreviewDocumentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2349,7 +2463,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取文档预览.
      *
-     * @param request - PreviewDocumentRequest
+     * @param Request - PreviewDocumentRequest
      *
      * @returns PreviewDocumentResponse
      *
@@ -2369,7 +2483,7 @@ class DianJin extends OpenApiClient
     /**
      * 重新索引.
      *
-     * @param request - ReIndexRequest
+     * @param Request - ReIndexRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2412,7 +2526,7 @@ class DianJin extends OpenApiClient
     /**
      * 重新索引.
      *
-     * @param request - ReIndexRequest
+     * @param Request - ReIndexRequest
      *
      * @returns ReIndexResponse
      *
@@ -2432,7 +2546,102 @@ class DianJin extends OpenApiClient
     /**
      * 实时对话.
      *
-     * @param request - RealTimeDialogRequest
+     * @param Request - RealTimeDialogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RealTimeDialogResponse
+     *
+     * @param string                $workspaceId
+     * @param RealTimeDialogRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RealTimeDialogResponse
+     */
+    public function realTimeDialogWithSSE($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->analysis) {
+            @$body['analysis'] = $request->analysis;
+        }
+
+        if (null !== $request->bizType) {
+            @$body['bizType'] = $request->bizType;
+        }
+
+        if (null !== $request->conversationModel) {
+            @$body['conversationModel'] = $request->conversationModel;
+        }
+
+        if (null !== $request->dialogMemoryTurns) {
+            @$body['dialogMemoryTurns'] = $request->dialogMemoryTurns;
+        }
+
+        if (null !== $request->metaData) {
+            @$body['metaData'] = $request->metaData;
+        }
+
+        if (null !== $request->opType) {
+            @$body['opType'] = $request->opType;
+        }
+
+        if (null !== $request->recommend) {
+            @$body['recommend'] = $request->recommend;
+        }
+
+        if (null !== $request->scriptContentPlayed) {
+            @$body['scriptContentPlayed'] = $request->scriptContentPlayed;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->userVad) {
+            @$body['userVad'] = $request->userVad;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RealTimeDialog',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/realtime/dialog/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RealTimeDialogResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 实时对话.
+     *
+     * @param Request - RealTimeDialogRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2515,7 +2724,7 @@ class DianJin extends OpenApiClient
     /**
      * 实时对话.
      *
-     * @param request - RealTimeDialogRequest
+     * @param Request - RealTimeDialogRequest
      *
      * @returns RealTimeDialogResponse
      *
@@ -2535,7 +2744,7 @@ class DianJin extends OpenApiClient
     /**
      * 实时会话辅助.
      *
-     * @param request - RealtimeDialogAssistRequest
+     * @param Request - RealtimeDialogAssistRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2606,7 +2815,7 @@ class DianJin extends OpenApiClient
     /**
      * 实时会话辅助.
      *
-     * @param request - RealtimeDialogAssistRequest
+     * @param Request - RealtimeDialogAssistRequest
      *
      * @returns RealtimeDialogAssistResponse
      *
@@ -2626,7 +2835,7 @@ class DianJin extends OpenApiClient
     /**
      * 重建任务
      *
-     * @param request - RebuildTaskRequest
+     * @param Request - RebuildTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2669,7 +2878,7 @@ class DianJin extends OpenApiClient
     /**
      * 重建任务
      *
-     * @param request - RebuildTaskRequest
+     * @param Request - RebuildTaskRequest
      *
      * @returns RebuildTaskResponse
      *
@@ -2689,7 +2898,7 @@ class DianJin extends OpenApiClient
     /**
      * 文档召回。
      *
-     * @param request - RecallDocumentRequest
+     * @param Request - RecallDocumentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2744,7 +2953,7 @@ class DianJin extends OpenApiClient
     /**
      * 文档召回。
      *
-     * @param request - RecallDocumentRequest
+     * @param Request - RecallDocumentRequest
      *
      * @returns RecallDocumentResponse
      *
@@ -2764,7 +2973,7 @@ class DianJin extends OpenApiClient
     /**
      * 意图识别.
      *
-     * @param request - RecognizeIntentionRequest
+     * @param Request - RecognizeIntentionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2839,7 +3048,7 @@ class DianJin extends OpenApiClient
     /**
      * 意图识别.
      *
-     * @param request - RecognizeIntentionRequest
+     * @param Request - RecognizeIntentionRequest
      *
      * @returns RecognizeIntentionResponse
      *
@@ -2859,7 +3068,90 @@ class DianJin extends OpenApiClient
     /**
      * 运行智能体.
      *
-     * @param request - RunAgentRequest
+     * @param Request - RunAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunAgentResponse
+     *
+     * @param string          $workspaceId
+     * @param RunAgentRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RunAgentResponse
+     */
+    public function runAgentWithSSE($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->botId) {
+            @$body['botId'] = $request->botId;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        if (null !== $request->useDraft) {
+            @$body['useDraft'] = $request->useDraft;
+        }
+
+        if (null !== $request->userContent) {
+            @$body['userContent'] = $request->userContent;
+        }
+
+        if (null !== $request->userInputs) {
+            @$body['userInputs'] = $request->userInputs;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['versionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunAgent',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/bot/thread/run',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunAgentResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 运行智能体.
+     *
+     * @param Request - RunAgentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2930,7 +3222,7 @@ class DianJin extends OpenApiClient
     /**
      * 运行智能体.
      *
-     * @param request - RunAgentRequest
+     * @param Request - RunAgentRequest
      *
      * @returns RunAgentResponse
      *
@@ -2950,7 +3242,82 @@ class DianJin extends OpenApiClient
     /**
      * 获取生成式对话结果.
      *
-     * @param request - RunChatResultGenerationRequest
+     * @param Request - RunChatResultGenerationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunChatResultGenerationResponse
+     *
+     * @param string                         $workspaceId
+     * @param RunChatResultGenerationRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RunChatResultGenerationResponse
+     */
+    public function runChatResultGenerationWithSSE($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->inferenceParameters) {
+            @$body['inferenceParameters'] = $request->inferenceParameters;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->tools) {
+            @$body['tools'] = $request->tools;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunChatResultGeneration',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/run/chat/generation',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunChatResultGenerationResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 获取生成式对话结果.
+     *
+     * @param Request - RunChatResultGenerationRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3013,7 +3380,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取生成式对话结果.
      *
-     * @param request - RunChatResultGenerationRequest
+     * @param Request - RunChatResultGenerationRequest
      *
      * @returns RunChatResultGenerationResponse
      *
@@ -3033,7 +3400,130 @@ class DianJin extends OpenApiClient
     /**
      * 获取生成式对话结果.
      *
-     * @param request - RunLibraryChatGenerationRequest
+     * @param Request - RunLibraryChatGenerationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunLibraryChatGenerationResponse
+     *
+     * @param string                          $workspaceId
+     * @param RunLibraryChatGenerationRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RunLibraryChatGenerationResponse
+     */
+    public function runLibraryChatGenerationWithSSE($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->docIdList) {
+            @$body['docIdList'] = $request->docIdList;
+        }
+
+        if (null !== $request->enableFollowUp) {
+            @$body['enableFollowUp'] = $request->enableFollowUp;
+        }
+
+        if (null !== $request->enableMultiQuery) {
+            @$body['enableMultiQuery'] = $request->enableMultiQuery;
+        }
+
+        if (null !== $request->enableOpenQa) {
+            @$body['enableOpenQa'] = $request->enableOpenQa;
+        }
+
+        if (null !== $request->followUpLlm) {
+            @$body['followUpLlm'] = $request->followUpLlm;
+        }
+
+        if (null !== $request->libraryId) {
+            @$body['libraryId'] = $request->libraryId;
+        }
+
+        if (null !== $request->llmType) {
+            @$body['llmType'] = $request->llmType;
+        }
+
+        if (null !== $request->multiQueryLlm) {
+            @$body['multiQueryLlm'] = $request->multiQueryLlm;
+        }
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->queryCriteria) {
+            @$body['queryCriteria'] = $request->queryCriteria;
+        }
+
+        if (null !== $request->rerankType) {
+            @$body['rerankType'] = $request->rerankType;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->subQueryList) {
+            @$body['subQueryList'] = $request->subQueryList;
+        }
+
+        if (null !== $request->textSearchParameter) {
+            @$body['textSearchParameter'] = $request->textSearchParameter;
+        }
+
+        if (null !== $request->topK) {
+            @$body['topK'] = $request->topK;
+        }
+
+        if (null !== $request->vectorSearchParameter) {
+            @$body['vectorSearchParameter'] = $request->vectorSearchParameter;
+        }
+
+        if (null !== $request->withDocumentReference) {
+            @$body['withDocumentReference'] = $request->withDocumentReference;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunLibraryChatGeneration',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/run/library/chat/generation',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunLibraryChatGenerationResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 获取生成式对话结果.
+     *
+     * @param Request - RunLibraryChatGenerationRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3144,7 +3634,7 @@ class DianJin extends OpenApiClient
     /**
      * 获取生成式对话结果.
      *
-     * @param request - RunLibraryChatGenerationRequest
+     * @param Request - RunLibraryChatGenerationRequest
      *
      * @returns RunLibraryChatGenerationResponse
      *
@@ -3164,7 +3654,7 @@ class DianJin extends OpenApiClient
     /**
      * 提交问题列表.
      *
-     * @param request - SubmitChatQuestionRequest
+     * @param Request - SubmitChatQuestionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3227,7 +3717,7 @@ class DianJin extends OpenApiClient
     /**
      * 提交问题列表.
      *
-     * @param request - SubmitChatQuestionRequest
+     * @param Request - SubmitChatQuestionRequest
      *
      * @returns SubmitChatQuestionResponse
      *
@@ -3247,7 +3737,7 @@ class DianJin extends OpenApiClient
     /**
      * 更新文档.
      *
-     * @param request - UpdateDocumentRequest
+     * @param Request - UpdateDocumentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3302,7 +3792,7 @@ class DianJin extends OpenApiClient
     /**
      * 更新文档.
      *
-     * @param request - UpdateDocumentRequest
+     * @param Request - UpdateDocumentRequest
      *
      * @returns UpdateDocumentResponse
      *
@@ -3322,7 +3812,7 @@ class DianJin extends OpenApiClient
     /**
      * 更新文档的chunk.
      *
-     * @param request - UpdateDocumentChunkRequest
+     * @param Request - UpdateDocumentChunkRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3369,7 +3859,7 @@ class DianJin extends OpenApiClient
     /**
      * 更新文档的chunk.
      *
-     * @param request - UpdateDocumentChunkRequest
+     * @param Request - UpdateDocumentChunkRequest
      *
      * @returns UpdateDocumentChunkResponse
      *
@@ -3389,7 +3879,7 @@ class DianJin extends OpenApiClient
     /**
      * 更新文档库配置.
      *
-     * @param request - UpdateLibraryRequest
+     * @param Request - UpdateLibraryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3444,7 +3934,7 @@ class DianJin extends OpenApiClient
     /**
      * 更新文档库配置.
      *
-     * @param request - UpdateLibraryRequest
+     * @param Request - UpdateLibraryRequest
      *
      * @returns UpdateLibraryResponse
      *
@@ -3464,7 +3954,7 @@ class DianJin extends OpenApiClient
     /**
      * 更新QA问答库.
      *
-     * @param request - UpdateQaLibraryRequest
+     * @param Request - UpdateQaLibraryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3515,7 +4005,7 @@ class DianJin extends OpenApiClient
     /**
      * 更新QA问答库.
      *
-     * @param request - UpdateQaLibraryRequest
+     * @param Request - UpdateQaLibraryRequest
      *
      * @returns UpdateQaLibraryResponse
      *
@@ -3535,7 +4025,7 @@ class DianJin extends OpenApiClient
     /**
      * 上传文档到文档库.
      *
-     * @param request - UploadDocumentRequest
+     * @param Request - UploadDocumentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3590,7 +4080,7 @@ class DianJin extends OpenApiClient
     /**
      * 上传文档到文档库.
      *
-     * @param request - UploadDocumentRequest
+     * @param Request - UploadDocumentRequest
      *
      * @returns UploadDocumentResponse
      *
@@ -3618,12 +4108,20 @@ class DianJin extends OpenApiClient
     public function uploadDocumentAdvance($workspaceId, $request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
 
@@ -3640,51 +4138,54 @@ class DianJin extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'DianJin',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'DianJin',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $uploadDocumentReq = new UploadDocumentRequest([]);
         Utils::convert($request, $uploadDocumentReq);
         if (null !== $request->fileUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $uploadDocumentReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $uploadDocumentReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->uploadDocumentWithOptions($workspaceId, $uploadDocumentReq, $headers, $runtime);
