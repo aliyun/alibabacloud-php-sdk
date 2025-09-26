@@ -77,6 +77,16 @@ class instances extends Model
      * @var int
      */
     public $vendor;
+
+    /**
+     * @var string
+     */
+    public $vendorUid;
+
+    /**
+     * @var string
+     */
+    public $vendorUserName;
     protected $_name = [
         'alarmStatus' => 'AlarmStatus',
         'assetSubType' => 'AssetSubType',
@@ -92,6 +102,8 @@ class instances extends Model
         'securityInfo' => 'SecurityInfo',
         'tags' => 'Tags',
         'vendor' => 'Vendor',
+        'vendorUid' => 'VendorUid',
+        'vendorUserName' => 'VendorUserName',
     ];
 
     public function validate()
@@ -168,6 +180,14 @@ class instances extends Model
             $res['Vendor'] = $this->vendor;
         }
 
+        if (null !== $this->vendorUid) {
+            $res['VendorUid'] = $this->vendorUid;
+        }
+
+        if (null !== $this->vendorUserName) {
+            $res['VendorUserName'] = $this->vendorUserName;
+        }
+
         return $res;
     }
 
@@ -240,6 +260,14 @@ class instances extends Model
 
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
+        }
+
+        if (isset($map['VendorUid'])) {
+            $model->vendorUid = $map['VendorUid'];
+        }
+
+        if (isset($map['VendorUserName'])) {
+            $model->vendorUserName = $map['VendorUserName'];
         }
 
         return $model;

@@ -41434,7 +41434,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取语言设置.
+     * Queries the language settings of log analysis.
      *
      * @param request - GetUserLangRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41464,7 +41464,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取语言设置.
+     * Queries the language settings of log analysis.
      *
      * @returns GetUserLangResponse
      *

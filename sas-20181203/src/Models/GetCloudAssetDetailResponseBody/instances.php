@@ -61,6 +61,11 @@ class instances extends Model
     /**
      * @var string
      */
+    public $originalAssetInfo;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -77,6 +82,16 @@ class instances extends Model
      * @var int
      */
     public $vendor;
+
+    /**
+     * @var string
+     */
+    public $vendorUid;
+
+    /**
+     * @var string
+     */
+    public $vendorUserName;
     protected $_name = [
         'alarmStatus' => 'AlarmStatus',
         'assetSubType' => 'AssetSubType',
@@ -88,10 +103,13 @@ class instances extends Model
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'internetIp' => 'InternetIp',
+        'originalAssetInfo' => 'OriginalAssetInfo',
         'regionId' => 'RegionId',
         'riskStatus' => 'RiskStatus',
         'securityInfo' => 'SecurityInfo',
         'vendor' => 'Vendor',
+        'vendorUid' => 'VendorUid',
+        'vendorUserName' => 'VendorUserName',
     ];
 
     public function validate()
@@ -142,6 +160,10 @@ class instances extends Model
             $res['InternetIp'] = $this->internetIp;
         }
 
+        if (null !== $this->originalAssetInfo) {
+            $res['OriginalAssetInfo'] = $this->originalAssetInfo;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -156,6 +178,14 @@ class instances extends Model
 
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
+        }
+
+        if (null !== $this->vendorUid) {
+            $res['VendorUid'] = $this->vendorUid;
+        }
+
+        if (null !== $this->vendorUserName) {
+            $res['VendorUserName'] = $this->vendorUserName;
         }
 
         return $res;
@@ -209,6 +239,10 @@ class instances extends Model
             $model->internetIp = $map['InternetIp'];
         }
 
+        if (isset($map['OriginalAssetInfo'])) {
+            $model->originalAssetInfo = $map['OriginalAssetInfo'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -223,6 +257,14 @@ class instances extends Model
 
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
+        }
+
+        if (isset($map['VendorUid'])) {
+            $model->vendorUid = $map['VendorUid'];
+        }
+
+        if (isset($map['VendorUserName'])) {
+            $model->vendorUserName = $map['VendorUserName'];
         }
 
         return $model;

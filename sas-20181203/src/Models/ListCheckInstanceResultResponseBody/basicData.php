@@ -43,6 +43,11 @@ class basicData extends Model
      * @var string
      */
     public $statusMessage;
+
+    /**
+     * @var string
+     */
+    public $vendorUserName;
     protected $_name = [
         'id' => 'Id',
         'instanceId' => 'InstanceId',
@@ -51,6 +56,7 @@ class basicData extends Model
         'regionId' => 'RegionId',
         'status' => 'Status',
         'statusMessage' => 'StatusMessage',
+        'vendorUserName' => 'VendorUserName',
     ];
 
     public function validate()
@@ -92,6 +98,10 @@ class basicData extends Model
             $res['StatusMessage'] = $this->statusMessage;
         }
 
+        if (null !== $this->vendorUserName) {
+            $res['VendorUserName'] = $this->vendorUserName;
+        }
+
         return $res;
     }
 
@@ -129,6 +139,10 @@ class basicData extends Model
 
         if (isset($map['StatusMessage'])) {
             $model->statusMessage = $map['StatusMessage'];
+        }
+
+        if (isset($map['VendorUserName'])) {
+            $model->vendorUserName = $map['VendorUserName'];
         }
 
         return $model;

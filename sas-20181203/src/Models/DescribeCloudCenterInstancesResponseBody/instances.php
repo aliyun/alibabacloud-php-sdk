@@ -276,6 +276,16 @@ class instances extends Model
     /**
      * @var string
      */
+    public $vendorUid;
+
+    /**
+     * @var string
+     */
+    public $vendorUserName;
+
+    /**
+     * @var string
+     */
     public $vpcInstanceId;
 
     /**
@@ -341,6 +351,8 @@ class instances extends Model
         'uuid' => 'Uuid',
         'vendor' => 'Vendor',
         'vendorName' => 'VendorName',
+        'vendorUid' => 'VendorUid',
+        'vendorUserName' => 'VendorUserName',
         'vpcInstanceId' => 'VpcInstanceId',
         'vulCount' => 'VulCount',
         'vulStatus' => 'VulStatus',
@@ -564,6 +576,14 @@ class instances extends Model
 
         if (null !== $this->vendorName) {
             $res['VendorName'] = $this->vendorName;
+        }
+
+        if (null !== $this->vendorUid) {
+            $res['VendorUid'] = $this->vendorUid;
+        }
+
+        if (null !== $this->vendorUserName) {
+            $res['VendorUserName'] = $this->vendorUserName;
         }
 
         if (null !== $this->vpcInstanceId) {
@@ -799,6 +819,14 @@ class instances extends Model
 
         if (isset($map['VendorName'])) {
             $model->vendorName = $map['VendorName'];
+        }
+
+        if (isset($map['VendorUid'])) {
+            $model->vendorUid = $map['VendorUid'];
+        }
+
+        if (isset($map['VendorUserName'])) {
+            $model->vendorUserName = $map['VendorUserName'];
         }
 
         if (isset($map['VpcInstanceId'])) {
