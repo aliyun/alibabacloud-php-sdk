@@ -16,9 +16,15 @@ class fieldMap extends Model
     /**
      * @var string
      */
+    public $displayFieldValue;
+
+    /**
+     * @var string
+     */
     public $systemField;
     protected $_name = [
         'displayField' => 'DisplayField',
+        'displayFieldValue' => 'DisplayFieldValue',
         'systemField' => 'SystemField',
     ];
 
@@ -32,6 +38,10 @@ class fieldMap extends Model
         $res = [];
         if (null !== $this->displayField) {
             $res['DisplayField'] = $this->displayField;
+        }
+
+        if (null !== $this->displayFieldValue) {
+            $res['DisplayFieldValue'] = $this->displayFieldValue;
         }
 
         if (null !== $this->systemField) {
@@ -51,6 +61,10 @@ class fieldMap extends Model
         $model = new self();
         if (isset($map['DisplayField'])) {
             $model->displayField = $map['DisplayField'];
+        }
+
+        if (isset($map['DisplayFieldValue'])) {
+            $model->displayFieldValue = $map['DisplayFieldValue'];
         }
 
         if (isset($map['SystemField'])) {
