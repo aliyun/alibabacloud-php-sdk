@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources\columnInfo;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources\databaseInfo;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources\instanceInfo;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources\rowInfo;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources\rowValueInfo;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources\tableInfo;
 
 class resources extends Model
@@ -28,6 +30,16 @@ class resources extends Model
     public $instanceInfo;
 
     /**
+     * @var rowInfo
+     */
+    public $rowInfo;
+
+    /**
+     * @var rowValueInfo
+     */
+    public $rowValueInfo;
+
+    /**
      * @var tableInfo
      */
     public $tableInfo;
@@ -35,6 +47,8 @@ class resources extends Model
         'columnInfo' => 'ColumnInfo',
         'databaseInfo' => 'DatabaseInfo',
         'instanceInfo' => 'InstanceInfo',
+        'rowInfo' => 'RowInfo',
+        'rowValueInfo' => 'RowValueInfo',
         'tableInfo' => 'TableInfo',
     ];
 
@@ -48,6 +62,12 @@ class resources extends Model
         }
         if (null !== $this->instanceInfo) {
             $this->instanceInfo->validate();
+        }
+        if (null !== $this->rowInfo) {
+            $this->rowInfo->validate();
+        }
+        if (null !== $this->rowValueInfo) {
+            $this->rowValueInfo->validate();
         }
         if (null !== $this->tableInfo) {
             $this->tableInfo->validate();
@@ -68,6 +88,14 @@ class resources extends Model
 
         if (null !== $this->instanceInfo) {
             $res['InstanceInfo'] = null !== $this->instanceInfo ? $this->instanceInfo->toArray($noStream) : $this->instanceInfo;
+        }
+
+        if (null !== $this->rowInfo) {
+            $res['RowInfo'] = null !== $this->rowInfo ? $this->rowInfo->toArray($noStream) : $this->rowInfo;
+        }
+
+        if (null !== $this->rowValueInfo) {
+            $res['RowValueInfo'] = null !== $this->rowValueInfo ? $this->rowValueInfo->toArray($noStream) : $this->rowValueInfo;
         }
 
         if (null !== $this->tableInfo) {
@@ -95,6 +123,14 @@ class resources extends Model
 
         if (isset($map['InstanceInfo'])) {
             $model->instanceInfo = instanceInfo::fromMap($map['InstanceInfo']);
+        }
+
+        if (isset($map['RowInfo'])) {
+            $model->rowInfo = rowInfo::fromMap($map['RowInfo']);
+        }
+
+        if (isset($map['RowValueInfo'])) {
+            $model->rowValueInfo = rowValueInfo::fromMap($map['RowValueInfo']);
         }
 
         if (isset($map['TableInfo'])) {
