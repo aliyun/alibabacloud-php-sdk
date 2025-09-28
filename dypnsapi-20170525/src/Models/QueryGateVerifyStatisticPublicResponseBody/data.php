@@ -4,86 +4,77 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicResponseBody\data\dayStatistic;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the daily calls.
-     *
      * @var dayStatistic[]
      */
     public $dayStatistic;
 
     /**
-     * @description The total calls.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $total;
 
     /**
-     * @description The failed calls.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $totalFail;
 
     /**
-     * @description The successful calls.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $totalSuccess;
 
     /**
-     * @description The unknown calls.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $totalUnknown;
     protected $_name = [
         'dayStatistic' => 'DayStatistic',
-        'total'        => 'Total',
-        'totalFail'    => 'TotalFail',
+        'total' => 'Total',
+        'totalFail' => 'TotalFail',
         'totalSuccess' => 'TotalSuccess',
         'totalUnknown' => 'TotalUnknown',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dayStatistic)) {
+            Model::validateArray($this->dayStatistic);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dayStatistic) {
-            $res['DayStatistic'] = [];
-            if (null !== $this->dayStatistic && \is_array($this->dayStatistic)) {
-                $n = 0;
-                foreach ($this->dayStatistic as $item) {
-                    $res['DayStatistic'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dayStatistic)) {
+                $res['DayStatistic'] = [];
+                $n1 = 0;
+                foreach ($this->dayStatistic as $item1) {
+                    $res['DayStatistic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
+
         if (null !== $this->totalFail) {
             $res['TotalFail'] = $this->totalFail;
         }
+
         if (null !== $this->totalSuccess) {
             $res['TotalSuccess'] = $this->totalSuccess;
         }
+
         if (null !== $this->totalUnknown) {
             $res['TotalUnknown'] = $this->totalUnknown;
         }
@@ -91,32 +82,37 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DayStatistic'])) {
             if (!empty($map['DayStatistic'])) {
                 $model->dayStatistic = [];
-                $n                   = 0;
-                foreach ($map['DayStatistic'] as $item) {
-                    $model->dayStatistic[$n++] = null !== $item ? dayStatistic::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DayStatistic'] as $item1) {
+                    $model->dayStatistic[$n1] = dayStatistic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
+
         if (isset($map['TotalFail'])) {
             $model->totalFail = $map['TotalFail'];
         }
+
         if (isset($map['TotalSuccess'])) {
             $model->totalSuccess = $map['TotalSuccess'];
         }
+
         if (isset($map['TotalUnknown'])) {
             $model->totalUnknown = $map['TotalUnknown'];
         }

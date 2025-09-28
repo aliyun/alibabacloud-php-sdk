@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class getMobileResultDTO extends Model
 {
     /**
-     * @description The phone number,
-     *
-     * @example 13900001234
-     *
      * @var string
      */
     public $mobile;
@@ -22,9 +18,10 @@ class getMobileResultDTO extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mobile) {
@@ -34,11 +31,11 @@ class getMobileResultDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return getMobileResultDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

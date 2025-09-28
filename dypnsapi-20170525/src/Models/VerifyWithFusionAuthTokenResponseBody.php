@@ -4,80 +4,70 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyWithFusionAuthTokenResponseBody\model_;
-use AlibabaCloud\Tea\Model;
 
 class VerifyWithFusionAuthTokenResponseBody extends Model
 {
     /**
-     * @description The response code. If OK is returned, the request is successful. Other values indicate that the request failed. For more information, see Error codes.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The returned message.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The returned data.
-     *
      * @var model_
      */
     public $model;
 
     /**
-     * @description The request ID, which is used to troubleshoot issues.
-     *
-     * @example CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values: true false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'model'     => 'Model',
+        'code' => 'Code',
+        'message' => 'Message',
+        'model' => 'Model',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->model) {
+            $this->model->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->model) {
-            $res['Model'] = null !== $this->model ? $this->model->toMap() : null;
+            $res['Model'] = null !== $this->model ? $this->model->toArray($noStream) : $this->model;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -85,26 +75,30 @@ class VerifyWithFusionAuthTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyWithFusionAuthTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Model'])) {
             $model->model = model_::fromMap($map['Model']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

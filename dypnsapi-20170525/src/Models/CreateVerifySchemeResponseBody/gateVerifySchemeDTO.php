@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class gateVerifySchemeDTO extends Model
 {
     /**
-     * @description The service code.
-     *
-     * @example FC10001287****
-     *
      * @var string
      */
     public $schemeCode;
@@ -22,9 +18,10 @@ class gateVerifySchemeDTO extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->schemeCode) {
@@ -34,11 +31,11 @@ class gateVerifySchemeDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return gateVerifySchemeDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

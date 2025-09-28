@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVerifySchemeRequest extends Model
 {
     /**
-     * @description The user ID.
-     *
-     * @example 12345678
-     *
      * @var int
      */
     public $customerId;
@@ -33,41 +29,41 @@ class DeleteVerifySchemeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The service code.
-     *
-     * This parameter is required.
-     * @example FC10000014164****
-     *
      * @var string
      */
     public $schemeCode;
     protected $_name = [
-        'customerId'           => 'CustomerId',
-        'ownerId'              => 'OwnerId',
+        'customerId' => 'CustomerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'schemeCode'           => 'SchemeCode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'schemeCode' => 'SchemeCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customerId) {
             $res['CustomerId'] = $this->customerId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->schemeCode) {
             $res['SchemeCode'] = $this->schemeCode;
         }
@@ -75,26 +71,30 @@ class DeleteVerifySchemeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVerifySchemeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomerId'])) {
             $model->customerId = $map['CustomerId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SchemeCode'])) {
             $model->schemeCode = $map['SchemeCode'];
         }

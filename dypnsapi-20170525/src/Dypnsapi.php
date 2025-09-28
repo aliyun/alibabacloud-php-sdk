@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CheckSmsVerifyCodeRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CheckSmsVerifyCodeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateSchemeConfigRequest;
@@ -28,10 +27,6 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetPhoneWithTokenRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetPhoneWithTokenResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensResponse;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyCreateVerifySchemeRequest;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyCreateVerifySchemeResponse;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyQueryAppInfoBySceneCodeRequest;
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\JyQueryAppInfoBySceneCodeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicRequest;
@@ -48,19 +43,17 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifySmsCodeRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifySmsCodeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyWithFusionAuthTokenRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyWithFusionAuthTokenResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dypnsapi extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'central';
+        $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dypnsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -78,79 +71,98 @@ class Dypnsapi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Verifies SMS verification codes.
-     *  *
-     * @param CheckSmsVerifyCodeRequest $request CheckSmsVerifyCodeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Verifies SMS verification codes.
      *
-     * @return CheckSmsVerifyCodeResponse CheckSmsVerifyCodeResponse
+     * @param request - CheckSmsVerifyCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSmsVerifyCodeResponse
+     *
+     * @param CheckSmsVerifyCodeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckSmsVerifyCodeResponse
      */
     public function checkSmsVerifyCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->caseAuthPolicy)) {
-            $query['CaseAuthPolicy'] = $request->caseAuthPolicy;
+        if (null !== $request->caseAuthPolicy) {
+            @$query['CaseAuthPolicy'] = $request->caseAuthPolicy;
         }
-        if (!Utils::isUnset($request->countryCode)) {
-            $query['CountryCode'] = $request->countryCode;
+
+        if (null !== $request->countryCode) {
+            @$query['CountryCode'] = $request->countryCode;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemeName)) {
-            $query['SchemeName'] = $request->schemeName;
+
+        if (null !== $request->schemeName) {
+            @$query['SchemeName'] = $request->schemeName;
         }
-        if (!Utils::isUnset($request->verifyCode)) {
-            $query['VerifyCode'] = $request->verifyCode;
+
+        if (null !== $request->verifyCode) {
+            @$query['VerifyCode'] = $request->verifyCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckSmsVerifyCode',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckSmsVerifyCode',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckSmsVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies SMS verification codes.
-     *  *
-     * @param CheckSmsVerifyCodeRequest $request CheckSmsVerifyCodeRequest
+     * Verifies SMS verification codes.
      *
-     * @return CheckSmsVerifyCodeResponse CheckSmsVerifyCodeResponse
+     * @param request - CheckSmsVerifyCodeRequest
+     *
+     * @returns CheckSmsVerifyCodeResponse
+     *
+     * @param CheckSmsVerifyCodeRequest $request
+     *
+     * @return CheckSmsVerifyCodeResponse
      */
     public function checkSmsVerifyCode($request)
     {
@@ -160,74 +172,94 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a code for a converged communication authentication service.
-     *  *
-     * @param CreateSchemeConfigRequest $request CreateSchemeConfigRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a code for a converged communication authentication service.
      *
-     * @return CreateSchemeConfigResponse CreateSchemeConfigResponse
+     * @param request - CreateSchemeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSchemeConfigResponse
+     *
+     * @param CreateSchemeConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateSchemeConfigResponse
      */
     public function createSchemeConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidPackageName)) {
-            $query['AndroidPackageName'] = $request->androidPackageName;
+        if (null !== $request->androidPackageName) {
+            @$query['AndroidPackageName'] = $request->androidPackageName;
         }
-        if (!Utils::isUnset($request->androidPackageSign)) {
-            $query['AndroidPackageSign'] = $request->androidPackageSign;
+
+        if (null !== $request->androidPackageSign) {
+            @$query['AndroidPackageSign'] = $request->androidPackageSign;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->h5Origin)) {
-            $query['H5Origin'] = $request->h5Origin;
+
+        if (null !== $request->h5Origin) {
+            @$query['H5Origin'] = $request->h5Origin;
         }
-        if (!Utils::isUnset($request->h5Url)) {
-            $query['H5Url'] = $request->h5Url;
+
+        if (null !== $request->h5Url) {
+            @$query['H5Url'] = $request->h5Url;
         }
-        if (!Utils::isUnset($request->iosBundleId)) {
-            $query['IosBundleId'] = $request->iosBundleId;
+
+        if (null !== $request->iosBundleId) {
+            @$query['IosBundleId'] = $request->iosBundleId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $query['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemeName)) {
-            $query['SchemeName'] = $request->schemeName;
+
+        if (null !== $request->schemeName) {
+            @$query['SchemeName'] = $request->schemeName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSchemeConfig',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSchemeConfig',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSchemeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a code for a converged communication authentication service.
-     *  *
-     * @param CreateSchemeConfigRequest $request CreateSchemeConfigRequest
+     * Creates a code for a converged communication authentication service.
      *
-     * @return CreateSchemeConfigResponse CreateSchemeConfigResponse
+     * @param request - CreateSchemeConfigRequest
+     *
+     * @returns CreateSchemeConfigResponse
+     *
+     * @param CreateSchemeConfigRequest $request
+     *
+     * @return CreateSchemeConfigResponse
      */
     public function createSchemeConfig($request)
     {
@@ -237,113 +269,146 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a verification service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateVerifySchemeRequest $request CreateVerifySchemeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a verification service.
      *
-     * @return CreateVerifySchemeResponse CreateVerifySchemeResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CreateVerifySchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVerifySchemeResponse
+     *
+     * @param CreateVerifySchemeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateVerifySchemeResponse
      */
     public function createVerifySchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->authType)) {
-            $query['AuthType'] = $request->authType;
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
         }
-        if (!Utils::isUnset($request->bundleId)) {
-            $query['BundleId'] = $request->bundleId;
+
+        if (null !== $request->bundleId) {
+            @$query['BundleId'] = $request->bundleId;
         }
-        if (!Utils::isUnset($request->cmApiCode)) {
-            $query['CmApiCode'] = $request->cmApiCode;
+
+        if (null !== $request->cmApiCode) {
+            @$query['CmApiCode'] = $request->cmApiCode;
         }
-        if (!Utils::isUnset($request->ctApiCode)) {
-            $query['CtApiCode'] = $request->ctApiCode;
+
+        if (null !== $request->ctApiCode) {
+            @$query['CtApiCode'] = $request->ctApiCode;
         }
-        if (!Utils::isUnset($request->cuApiCode)) {
-            $query['CuApiCode'] = $request->cuApiCode;
+
+        if (null !== $request->cuApiCode) {
+            @$query['CuApiCode'] = $request->cuApiCode;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->hmAppIdentifier)) {
-            $query['HmAppIdentifier'] = $request->hmAppIdentifier;
+
+        if (null !== $request->hmAppIdentifier) {
+            @$query['HmAppIdentifier'] = $request->hmAppIdentifier;
         }
-        if (!Utils::isUnset($request->hmPackageName)) {
-            $query['HmPackageName'] = $request->hmPackageName;
+
+        if (null !== $request->hmPackageName) {
+            @$query['HmPackageName'] = $request->hmPackageName;
         }
-        if (!Utils::isUnset($request->hmSignName)) {
-            $query['HmSignName'] = $request->hmSignName;
+
+        if (null !== $request->hmSignName) {
+            @$query['HmSignName'] = $request->hmSignName;
         }
-        if (!Utils::isUnset($request->ipWhiteList)) {
-            $query['IpWhiteList'] = $request->ipWhiteList;
+
+        if (null !== $request->ipWhiteList) {
+            @$query['IpWhiteList'] = $request->ipWhiteList;
         }
-        if (!Utils::isUnset($request->origin)) {
-            $query['Origin'] = $request->origin;
+
+        if (null !== $request->origin) {
+            @$query['Origin'] = $request->origin;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->packName)) {
-            $query['PackName'] = $request->packName;
+
+        if (null !== $request->packName) {
+            @$query['PackName'] = $request->packName;
         }
-        if (!Utils::isUnset($request->packSign)) {
-            $query['PackSign'] = $request->packSign;
+
+        if (null !== $request->packSign) {
+            @$query['PackSign'] = $request->packSign;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sceneType)) {
-            $query['SceneType'] = $request->sceneType;
+
+        if (null !== $request->sceneType) {
+            @$query['SceneType'] = $request->sceneType;
         }
-        if (!Utils::isUnset($request->schemeName)) {
-            $query['SchemeName'] = $request->schemeName;
+
+        if (null !== $request->schemeName) {
+            @$query['SchemeName'] = $request->schemeName;
         }
-        if (!Utils::isUnset($request->smsSignName)) {
-            $query['SmsSignName'] = $request->smsSignName;
+
+        if (null !== $request->smsSignName) {
+            @$query['SmsSignName'] = $request->smsSignName;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVerifyScheme',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVerifyScheme',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateVerifySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a verification service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateVerifySchemeRequest $request CreateVerifySchemeRequest
+     * Creates a verification service.
      *
-     * @return CreateVerifySchemeResponse CreateVerifySchemeResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CreateVerifySchemeRequest
+     *
+     * @returns CreateVerifySchemeResponse
+     *
+     * @param CreateVerifySchemeRequest $request
+     *
+     * @return CreateVerifySchemeResponse
      */
     public function createVerifyScheme($request)
     {
@@ -353,62 +418,78 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a verification service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteVerifySchemeRequest $request DeleteVerifySchemeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes a verification service.
      *
-     * @return DeleteVerifySchemeResponse DeleteVerifySchemeResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DeleteVerifySchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVerifySchemeResponse
+     *
+     * @param DeleteVerifySchemeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteVerifySchemeResponse
      */
     public function deleteVerifySchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customerId)) {
-            $query['CustomerId'] = $request->customerId;
+        if (null !== $request->customerId) {
+            @$query['CustomerId'] = $request->customerId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemeCode)) {
-            $query['SchemeCode'] = $request->schemeCode;
+
+        if (null !== $request->schemeCode) {
+            @$query['SchemeCode'] = $request->schemeCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVerifyScheme',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVerifyScheme',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteVerifySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a verification service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteVerifySchemeRequest $request DeleteVerifySchemeRequest
+     * Deletes a verification service.
      *
-     * @return DeleteVerifySchemeResponse DeleteVerifySchemeResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DeleteVerifySchemeRequest
+     *
+     * @returns DeleteVerifySchemeResponse
+     *
+     * @param DeleteVerifySchemeRequest $request
+     *
+     * @return DeleteVerifySchemeResponse
      */
     public function deleteVerifyScheme($request)
     {
@@ -418,62 +499,78 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a verification service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeVerifySchemeRequest $request DescribeVerifySchemeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a verification service.
      *
-     * @return DescribeVerifySchemeResponse DescribeVerifySchemeResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DescribeVerifySchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifySchemeResponse
+     *
+     * @param DescribeVerifySchemeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeVerifySchemeResponse
      */
     public function describeVerifySchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customerId)) {
-            $query['CustomerId'] = $request->customerId;
+        if (null !== $request->customerId) {
+            @$query['CustomerId'] = $request->customerId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemeCode)) {
-            $query['SchemeCode'] = $request->schemeCode;
+
+        if (null !== $request->schemeCode) {
+            @$query['SchemeCode'] = $request->schemeCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVerifyScheme',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVerifyScheme',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVerifySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a verification service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeVerifySchemeRequest $request DescribeVerifySchemeRequest
+     * Queries the details of a verification service.
      *
-     * @return DescribeVerifySchemeResponse DescribeVerifySchemeResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DescribeVerifySchemeRequest
+     *
+     * @returns DescribeVerifySchemeResponse
+     *
+     * @param DescribeVerifySchemeRequest $request
+     *
+     * @return DescribeVerifySchemeResponse
      */
     public function describeVerifyScheme($request)
     {
@@ -483,84 +580,106 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the authorization token used for the authentication of the phone number verification for HTML5 pages. You can obtain AccessToken and JwtToken after a successful call.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains the authorization token used for the authentication of the phone number verification for HTML5 pages. You can obtain AccessToken and JwtToken after a successful call.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](https://help.aliyun.com/document_detail/169786.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetAuthTokenRequest $request GetAuthTokenRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAuthTokenResponse GetAuthTokenResponse
+     * @param request - GetAuthTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuthTokenResponse
+     *
+     * @param GetAuthTokenRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAuthTokenResponse
      */
     public function getAuthTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->cmApiCode)) {
-            $query['CmApiCode'] = $request->cmApiCode;
+
+        if (null !== $request->cmApiCode) {
+            @$query['CmApiCode'] = $request->cmApiCode;
         }
-        if (!Utils::isUnset($request->ctApiCode)) {
-            $query['CtApiCode'] = $request->ctApiCode;
+
+        if (null !== $request->ctApiCode) {
+            @$query['CtApiCode'] = $request->ctApiCode;
         }
-        if (!Utils::isUnset($request->cuApiCode)) {
-            $query['CuApiCode'] = $request->cuApiCode;
+
+        if (null !== $request->cuApiCode) {
+            @$query['CuApiCode'] = $request->cuApiCode;
         }
-        if (!Utils::isUnset($request->origin)) {
-            $query['Origin'] = $request->origin;
+
+        if (null !== $request->origin) {
+            @$query['Origin'] = $request->origin;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAuthToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAuthToken',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the authorization token used for the authentication of the phone number verification for HTML5 pages. You can obtain AccessToken and JwtToken after a successful call.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains the authorization token used for the authentication of the phone number verification for HTML5 pages. You can obtain AccessToken and JwtToken after a successful call.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](https://help.aliyun.com/document_detail/169786.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetAuthTokenRequest $request GetAuthTokenRequest
      *
-     * @return GetAuthTokenResponse GetAuthTokenResponse
+     * @param request - GetAuthTokenRequest
+     *
+     * @returns GetAuthTokenResponse
+     *
+     * @param GetAuthTokenRequest $request
+     *
+     * @return GetAuthTokenResponse
      */
     public function getAuthToken($request)
     {
@@ -570,69 +689,86 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the URL for the Alipay account authorization.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains the URL for the Alipay account authorization.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account and obtain an Alibaba Cloud AccessKey pair. For more information, see [Process of communication authorization](https://help.aliyun.com/document_detail/196922.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetAuthorizationUrlRequest $request GetAuthorizationUrlRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAuthorizationUrlResponse GetAuthorizationUrlResponse
+     * @param request - GetAuthorizationUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuthorizationUrlResponse
+     *
+     * @param GetAuthorizationUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAuthorizationUrlResponse
      */
     public function getAuthorizationUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNo)) {
-            $query['PhoneNo'] = $request->phoneNo;
+
+        if (null !== $request->phoneNo) {
+            @$query['PhoneNo'] = $request->phoneNo;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemeId)) {
-            $query['SchemeId'] = $request->schemeId;
+
+        if (null !== $request->schemeId) {
+            @$query['SchemeId'] = $request->schemeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAuthorizationUrl',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAuthorizationUrl',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAuthorizationUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the URL for the Alipay account authorization.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains the URL for the Alipay account authorization.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account and obtain an Alibaba Cloud AccessKey pair. For more information, see [Process of communication authorization](https://help.aliyun.com/document_detail/196922.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetAuthorizationUrlRequest $request GetAuthorizationUrlRequest
      *
-     * @return GetAuthorizationUrlResponse GetAuthorizationUrlResponse
+     * @param request - GetAuthorizationUrlRequest
+     *
+     * @returns GetAuthorizationUrlResponse
+     *
+     * @param GetAuthorizationUrlRequest $request
+     *
+     * @return GetAuthorizationUrlResponse
      */
     public function getAuthorizationUrl($request)
     {
@@ -642,68 +778,86 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the verification results by using the token that is obtained from the client SDKs.
-     *  *
-     * @param GetFusionAuthTokenRequest $request GetFusionAuthTokenRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Obtains the verification results by using the token that is obtained from the client SDKs.
      *
-     * @return GetFusionAuthTokenResponse GetFusionAuthTokenResponse
+     * @param request - GetFusionAuthTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFusionAuthTokenResponse
+     *
+     * @param GetFusionAuthTokenRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetFusionAuthTokenResponse
      */
     public function getFusionAuthTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bundleId)) {
-            $query['BundleId'] = $request->bundleId;
+        if (null !== $request->bundleId) {
+            @$query['BundleId'] = $request->bundleId;
         }
-        if (!Utils::isUnset($request->durationSeconds)) {
-            $query['DurationSeconds'] = $request->durationSeconds;
+
+        if (null !== $request->durationSeconds) {
+            @$query['DurationSeconds'] = $request->durationSeconds;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->packageName)) {
-            $query['PackageName'] = $request->packageName;
+
+        if (null !== $request->packageName) {
+            @$query['PackageName'] = $request->packageName;
         }
-        if (!Utils::isUnset($request->packageSign)) {
-            $query['PackageSign'] = $request->packageSign;
+
+        if (null !== $request->packageSign) {
+            @$query['PackageSign'] = $request->packageSign;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $query['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemeCode)) {
-            $query['SchemeCode'] = $request->schemeCode;
+
+        if (null !== $request->schemeCode) {
+            @$query['SchemeCode'] = $request->schemeCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFusionAuthToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFusionAuthToken',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFusionAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the verification results by using the token that is obtained from the client SDKs.
-     *  *
-     * @param GetFusionAuthTokenRequest $request GetFusionAuthTokenRequest
+     * Obtains the verification results by using the token that is obtained from the client SDKs.
      *
-     * @return GetFusionAuthTokenResponse GetFusionAuthTokenResponse
+     * @param request - GetFusionAuthTokenRequest
+     *
+     * @returns GetFusionAuthTokenResponse
+     *
+     * @param GetFusionAuthTokenRequest $request
+     *
+     * @return GetFusionAuthTokenResponse
      */
     public function getFusionAuthToken($request)
     {
@@ -713,68 +867,84 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a phone number for one-click logon.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains a phone number for one-click logon.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
      * >  This operation is applicable only to one-click logon or registration. You can call this operation only after you confirm the authorization on the authorization page provided by the SDK for one-click logon. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetMobileRequest $request GetMobileRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMobileResponse GetMobileResponse
+     * @param request - GetMobileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMobileResponse
+     *
+     * @param GetMobileRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetMobileResponse
      */
     public function getMobileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['AccessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['AccessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMobile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMobile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMobileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a phone number for one-click logon.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains a phone number for one-click logon.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
      * >  This operation is applicable only to one-click logon or registration. You can call this operation only after you confirm the authorization on the authorization page provided by the SDK for one-click logon. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetMobileRequest $request GetMobileRequest
      *
-     * @return GetMobileResponse GetMobileResponse
+     * @param request - GetMobileRequest
+     *
+     * @returns GetMobileResponse
+     *
+     * @param GetMobileRequest $request
+     *
+     * @return GetMobileResponse
      */
     public function getMobile($request)
     {
@@ -784,65 +954,80 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a phone number for one-click logon. This operation is exclusive to HTML5 pages.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains a phone number for one-click logon. This operation is exclusive to HTML5 pages.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
      * >  This operation is applicable only to one-click logon or registration in HTML5 pages. You can call this operation only after you confirm the authorization on the authorization page provided by the JavaScript SDK. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
      * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetPhoneWithTokenRequest $request GetPhoneWithTokenRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPhoneWithTokenResponse GetPhoneWithTokenResponse
+     * @param request - GetPhoneWithTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhoneWithTokenResponse
+     *
+     * @param GetPhoneWithTokenRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetPhoneWithTokenResponse
      */
     public function getPhoneWithTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->spToken)) {
-            $query['SpToken'] = $request->spToken;
+
+        if (null !== $request->spToken) {
+            @$query['SpToken'] = $request->spToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPhoneWithToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPhoneWithToken',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPhoneWithTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a phone number for one-click logon. This operation is exclusive to HTML5 pages.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains a phone number for one-click logon. This operation is exclusive to HTML5 pages.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
      * >  This operation is applicable only to one-click logon or registration in HTML5 pages. You can call this operation only after you confirm the authorization on the authorization page provided by the JavaScript SDK. You are prohibited from simulating or bypassing the authorization process. Alibaba Cloud reserves the right to terminate our services and take legal actions against such violations.
      * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetPhoneWithTokenRequest $request GetPhoneWithTokenRequest
      *
-     * @return GetPhoneWithTokenResponse GetPhoneWithTokenResponse
+     * @param request - GetPhoneWithTokenRequest
+     *
+     * @returns GetPhoneWithTokenResponse
+     *
+     * @param GetPhoneWithTokenRequest $request
+     *
+     * @return GetPhoneWithTokenResponse
      */
     public function getPhoneWithToken($request)
     {
@@ -852,84 +1037,106 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the authorization token for an SMS verification code.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains the authorization token for an SMS verification code.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](https://help.aliyun.com/document_detail/313209.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetSmsAuthTokensRequest $request GetSmsAuthTokensRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSmsAuthTokensResponse GetSmsAuthTokensResponse
+     * @param request - GetSmsAuthTokensRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSmsAuthTokensResponse
+     *
+     * @param GetSmsAuthTokensRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSmsAuthTokensResponse
      */
     public function getSmsAuthTokensWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bundleId)) {
-            $query['BundleId'] = $request->bundleId;
+        if (null !== $request->bundleId) {
+            @$query['BundleId'] = $request->bundleId;
         }
-        if (!Utils::isUnset($request->expire)) {
-            $query['Expire'] = $request->expire;
+
+        if (null !== $request->expire) {
+            @$query['Expire'] = $request->expire;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->packageName)) {
-            $query['PackageName'] = $request->packageName;
+
+        if (null !== $request->packageName) {
+            @$query['PackageName'] = $request->packageName;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
         }
-        if (!Utils::isUnset($request->signName)) {
-            $query['SignName'] = $request->signName;
+
+        if (null !== $request->signName) {
+            @$query['SignName'] = $request->signName;
         }
-        if (!Utils::isUnset($request->smsCodeExpire)) {
-            $query['SmsCodeExpire'] = $request->smsCodeExpire;
+
+        if (null !== $request->smsCodeExpire) {
+            @$query['SmsCodeExpire'] = $request->smsCodeExpire;
         }
-        if (!Utils::isUnset($request->smsTemplateCode)) {
-            $query['SmsTemplateCode'] = $request->smsTemplateCode;
+
+        if (null !== $request->smsTemplateCode) {
+            @$query['SmsTemplateCode'] = $request->smsTemplateCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSmsAuthTokens',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSmsAuthTokens',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSmsAuthTokensResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the authorization token for an SMS verification code.
-     *  *
-     * @description ### [](#)Preparations
+     * Obtains the authorization token for an SMS verification code.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](https://help.aliyun.com/document_detail/313209.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetSmsAuthTokensRequest $request GetSmsAuthTokensRequest
      *
-     * @return GetSmsAuthTokensResponse GetSmsAuthTokensResponse
+     * @param request - GetSmsAuthTokensRequest
+     *
+     * @returns GetSmsAuthTokensResponse
+     *
+     * @param GetSmsAuthTokensRequest $request
+     *
+     * @return GetSmsAuthTokensResponse
      */
     public function getSmsAuthTokens($request)
     {
@@ -939,211 +1146,74 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @deprecated openAPI JyCreateVerifyScheme is deprecated, please use Dypnsapi::2017-05-25::CreateVerifyScheme instead
-     *  *
-     * @summary 创建方案号（为极意临时定制）
-     *  *
-     * Deprecated
+     * Queries the fees generated by a verification service.
      *
-     * @param JyCreateVerifySchemeRequest $request JyCreateVerifySchemeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
-     *
-     * @return JyCreateVerifySchemeResponse JyCreateVerifySchemeResponse
-     */
-    public function jyCreateVerifySchemeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->bundleId)) {
-            $query['BundleId'] = $request->bundleId;
-        }
-        if (!Utils::isUnset($request->cmApiCode)) {
-            $query['CmApiCode'] = $request->cmApiCode;
-        }
-        if (!Utils::isUnset($request->ctApiCode)) {
-            $query['CtApiCode'] = $request->ctApiCode;
-        }
-        if (!Utils::isUnset($request->cuApiCode)) {
-            $query['CuApiCode'] = $request->cuApiCode;
-        }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->packName)) {
-            $query['PackName'] = $request->packName;
-        }
-        if (!Utils::isUnset($request->packSign)) {
-            $query['PackSign'] = $request->packSign;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->schemeName)) {
-            $query['SchemeName'] = $request->schemeName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'JyCreateVerifyScheme',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return JyCreateVerifySchemeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated openAPI JyCreateVerifyScheme is deprecated, please use Dypnsapi::2017-05-25::CreateVerifyScheme instead
-     *  *
-     * @summary 创建方案号（为极意临时定制）
-     *  *
-     * Deprecated
-     *
-     * @param JyCreateVerifySchemeRequest $request JyCreateVerifySchemeRequest
-     *
-     * @return JyCreateVerifySchemeResponse JyCreateVerifySchemeResponse
-     */
-    public function jyCreateVerifyScheme($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->jyCreateVerifySchemeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated openAPI JyQueryAppInfoBySceneCode is deprecated, please use Dypnsapi::2017-05-25::QueryAppInfoBySceneCode instead
-     *  *
-     * @summary 根据方案号查询运营商APP信（为极意临时定制）
-     *  *
-     * Deprecated
-     *
-     * @param JyQueryAppInfoBySceneCodeRequest $request JyQueryAppInfoBySceneCodeRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
-     *
-     * @return JyQueryAppInfoBySceneCodeResponse JyQueryAppInfoBySceneCodeResponse
-     */
-    public function jyQueryAppInfoBySceneCodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'JyQueryAppInfoBySceneCode',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return JyQueryAppInfoBySceneCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated openAPI JyQueryAppInfoBySceneCode is deprecated, please use Dypnsapi::2017-05-25::QueryAppInfoBySceneCode instead
-     *  *
-     * @summary 根据方案号查询运营商APP信（为极意临时定制）
-     *  *
-     * Deprecated
-     *
-     * @param JyQueryAppInfoBySceneCodeRequest $request JyQueryAppInfoBySceneCodeRequest
-     *
-     * @return JyQueryAppInfoBySceneCodeResponse JyQueryAppInfoBySceneCodeResponse
-     */
-    public function jyQueryAppInfoBySceneCode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->jyQueryAppInfoBySceneCodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the fees generated by a verification service.
-     *  *
-     * @description ### [](#qps)QPS limits
+     * @remarks
+     * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param QueryGateVerifyBillingPublicRequest $request QueryGateVerifyBillingPublicRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryGateVerifyBillingPublicResponse QueryGateVerifyBillingPublicResponse
+     * @param request - QueryGateVerifyBillingPublicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryGateVerifyBillingPublicResponse
+     *
+     * @param QueryGateVerifyBillingPublicRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryGateVerifyBillingPublicResponse
      */
     public function queryGateVerifyBillingPublicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authenticationType)) {
-            $query['AuthenticationType'] = $request->authenticationType;
+        if (null !== $request->authenticationType) {
+            @$query['AuthenticationType'] = $request->authenticationType;
         }
-        if (!Utils::isUnset($request->month)) {
-            $query['Month'] = $request->month;
+
+        if (null !== $request->month) {
+            @$query['Month'] = $request->month;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryGateVerifyBillingPublic',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryGateVerifyBillingPublic',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryGateVerifyBillingPublicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the fees generated by a verification service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param QueryGateVerifyBillingPublicRequest $request QueryGateVerifyBillingPublicRequest
+     * Queries the fees generated by a verification service.
      *
-     * @return QueryGateVerifyBillingPublicResponse QueryGateVerifyBillingPublicResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - QueryGateVerifyBillingPublicRequest
+     *
+     * @returns QueryGateVerifyBillingPublicResponse
+     *
+     * @param QueryGateVerifyBillingPublicRequest $request
+     *
+     * @return QueryGateVerifyBillingPublicResponse
      */
     public function queryGateVerifyBillingPublic($request)
     {
@@ -1153,68 +1223,86 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the calls of Phone Number Verification Service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param QueryGateVerifyStatisticPublicRequest $request QueryGateVerifyStatisticPublicRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the calls of Phone Number Verification Service.
      *
-     * @return QueryGateVerifyStatisticPublicResponse QueryGateVerifyStatisticPublicResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - QueryGateVerifyStatisticPublicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryGateVerifyStatisticPublicResponse
+     *
+     * @param QueryGateVerifyStatisticPublicRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryGateVerifyStatisticPublicResponse
      */
     public function queryGateVerifyStatisticPublicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authenticationType)) {
-            $query['AuthenticationType'] = $request->authenticationType;
+        if (null !== $request->authenticationType) {
+            @$query['AuthenticationType'] = $request->authenticationType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->sceneCode)) {
-            $query['SceneCode'] = $request->sceneCode;
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryGateVerifyStatisticPublic',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryGateVerifyStatisticPublic',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryGateVerifyStatisticPublicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the calls of Phone Number Verification Service.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param QueryGateVerifyStatisticPublicRequest $request QueryGateVerifyStatisticPublicRequest
+     * Queries the calls of Phone Number Verification Service.
      *
-     * @return QueryGateVerifyStatisticPublicResponse QueryGateVerifyStatisticPublicResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - QueryGateVerifyStatisticPublicRequest
+     *
+     * @returns QueryGateVerifyStatisticPublicResponse
+     *
+     * @param QueryGateVerifyStatisticPublicRequest $request
+     *
+     * @return QueryGateVerifyStatisticPublicResponse
      */
     public function queryGateVerifyStatisticPublic($request)
     {
@@ -1224,73 +1312,87 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
+     * Queries the delivery status of the SMS verification code. You can query only the delivery status of the SMS verification code that is sent by calling corresponding API operations.
+     *
      * @deprecated OpenAPI QuerySendDetails is deprecated
-     *  *
-     * @summary Queries the delivery status of the SMS verification code. You can query only the delivery status of the SMS verification code that is sent by calling corresponding API operations.
-     *  *
-     * Deprecated
      *
-     * @param QuerySendDetailsRequest $request QuerySendDetailsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - QuerySendDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QuerySendDetailsResponse QuerySendDetailsResponse
+     * @returns QuerySendDetailsResponse
+     *
+     * @param QuerySendDetailsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySendDetailsResponse
      */
     public function querySendDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendDate)) {
-            $query['SendDate'] = $request->sendDate;
+
+        if (null !== $request->sendDate) {
+            @$query['SendDate'] = $request->sendDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySendDetails',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySendDetails',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySendDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries the delivery status of the SMS verification code. You can query only the delivery status of the SMS verification code that is sent by calling corresponding API operations.
+     *
      * @deprecated OpenAPI QuerySendDetails is deprecated
-     *  *
-     * @summary Queries the delivery status of the SMS verification code. You can query only the delivery status of the SMS verification code that is sent by calling corresponding API operations.
-     *  *
-     * Deprecated
      *
-     * @param QuerySendDetailsRequest $request QuerySendDetailsRequest
+     * @param request - QuerySendDetailsRequest
      *
-     * @return QuerySendDetailsResponse QuerySendDetailsResponse
+     * @returns QuerySendDetailsResponse
+     *
+     * @param QuerySendDetailsRequest $request
+     *
+     * @return QuerySendDetailsResponse
      */
     public function querySendDetails($request)
     {
@@ -1300,92 +1402,122 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Sends SMS verification codes.
-     *  *
-     * @param SendSmsVerifyCodeRequest $request SendSmsVerifyCodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Sends SMS verification codes.
      *
-     * @return SendSmsVerifyCodeResponse SendSmsVerifyCodeResponse
+     * @param request - SendSmsVerifyCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendSmsVerifyCodeResponse
+     *
+     * @param SendSmsVerifyCodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SendSmsVerifyCodeResponse
      */
     public function sendSmsVerifyCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->codeLength)) {
-            $query['CodeLength'] = $request->codeLength;
+        if (null !== $request->autoRetry) {
+            @$query['AutoRetry'] = $request->autoRetry;
         }
-        if (!Utils::isUnset($request->codeType)) {
-            $query['CodeType'] = $request->codeType;
+
+        if (null !== $request->codeLength) {
+            @$query['CodeLength'] = $request->codeLength;
         }
-        if (!Utils::isUnset($request->countryCode)) {
-            $query['CountryCode'] = $request->countryCode;
+
+        if (null !== $request->codeType) {
+            @$query['CodeType'] = $request->codeType;
         }
-        if (!Utils::isUnset($request->duplicatePolicy)) {
-            $query['DuplicatePolicy'] = $request->duplicatePolicy;
+
+        if (null !== $request->countryCode) {
+            @$query['CountryCode'] = $request->countryCode;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->duplicatePolicy) {
+            @$query['DuplicatePolicy'] = $request->duplicatePolicy;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->returnVerifyCode)) {
-            $query['ReturnVerifyCode'] = $request->returnVerifyCode;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->schemeName)) {
-            $query['SchemeName'] = $request->schemeName;
+
+        if (null !== $request->returnVerifyCode) {
+            @$query['ReturnVerifyCode'] = $request->returnVerifyCode;
         }
-        if (!Utils::isUnset($request->signName)) {
-            $query['SignName'] = $request->signName;
+
+        if (null !== $request->schemeName) {
+            @$query['SchemeName'] = $request->schemeName;
         }
-        if (!Utils::isUnset($request->smsUpExtendCode)) {
-            $query['SmsUpExtendCode'] = $request->smsUpExtendCode;
+
+        if (null !== $request->signName) {
+            @$query['SignName'] = $request->signName;
         }
-        if (!Utils::isUnset($request->templateCode)) {
-            $query['TemplateCode'] = $request->templateCode;
+
+        if (null !== $request->smsUpExtendCode) {
+            @$query['SmsUpExtendCode'] = $request->smsUpExtendCode;
         }
-        if (!Utils::isUnset($request->templateParam)) {
-            $query['TemplateParam'] = $request->templateParam;
+
+        if (null !== $request->templateCode) {
+            @$query['TemplateCode'] = $request->templateCode;
         }
-        if (!Utils::isUnset($request->validTime)) {
-            $query['ValidTime'] = $request->validTime;
+
+        if (null !== $request->templateParam) {
+            @$query['TemplateParam'] = $request->templateParam;
         }
+
+        if (null !== $request->validTime) {
+            @$query['ValidTime'] = $request->validTime;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendSmsVerifyCode',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendSmsVerifyCode',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendSmsVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends SMS verification codes.
-     *  *
-     * @param SendSmsVerifyCodeRequest $request SendSmsVerifyCodeRequest
+     * Sends SMS verification codes.
      *
-     * @return SendSmsVerifyCodeResponse SendSmsVerifyCodeResponse
+     * @param request - SendSmsVerifyCodeRequest
+     *
+     * @returns SendSmsVerifyCodeResponse
+     *
+     * @param SendSmsVerifyCodeRequest $request
+     *
+     * @return SendSmsVerifyCodeResponse
      */
     public function sendSmsVerifyCode($request)
     {
@@ -1395,71 +1527,88 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Verifies the phone number that you use.
-     *  *
-     * @description ### [](#)Preparations
+     * Verifies the phone number that you use.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
      * >  This operation is applicable to only the verification of thephone number that you use. To obtain a phone number for one-click logon, call [GetMobile](https://help.aliyun.com/document_detail/189865.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param VerifyMobileRequest $request VerifyMobileRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyMobileResponse VerifyMobileResponse
+     * @param request - VerifyMobileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyMobileResponse
+     *
+     * @param VerifyMobileRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return VerifyMobileResponse
      */
     public function verifyMobileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessCode)) {
-            $query['AccessCode'] = $request->accessCode;
+        if (null !== $request->accessCode) {
+            @$query['AccessCode'] = $request->accessCode;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyMobile',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyMobile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyMobileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies the phone number that you use.
-     *  *
-     * @description ### [](#)Preparations
+     * Verifies the phone number that you use.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/84541.html).
      * >  This operation is applicable to only the verification of thephone number that you use. To obtain a phone number for one-click logon, call [GetMobile](https://help.aliyun.com/document_detail/189865.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param VerifyMobileRequest $request VerifyMobileRequest
      *
-     * @return VerifyMobileResponse VerifyMobileResponse
+     * @param request - VerifyMobileRequest
+     *
+     * @returns VerifyMobileResponse
+     *
+     * @param VerifyMobileRequest $request
+     *
+     * @return VerifyMobileResponse
      */
     public function verifyMobile($request)
     {
@@ -1469,66 +1618,82 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Verifies the phone number used in HTML5 pages.
-     *  *
-     * @description ### [](#)Preparations
+     * Verifies the phone number used in HTML5 pages.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](https://help.aliyun.com/document_detail/169786.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param VerifyPhoneWithTokenRequest $request VerifyPhoneWithTokenRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyPhoneWithTokenResponse VerifyPhoneWithTokenResponse
+     * @param request - VerifyPhoneWithTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyPhoneWithTokenResponse
+     *
+     * @param VerifyPhoneWithTokenRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return VerifyPhoneWithTokenResponse
      */
     public function verifyPhoneWithTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->spToken)) {
-            $query['SpToken'] = $request->spToken;
+
+        if (null !== $request->spToken) {
+            @$query['SpToken'] = $request->spToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyPhoneWithToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyPhoneWithToken',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyPhoneWithTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies the phone number used in HTML5 pages.
-     *  *
-     * @description ### [](#)Preparations
+     * Verifies the phone number used in HTML5 pages.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the phone number verification feature for HTML5 pages](https://help.aliyun.com/document_detail/169786.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param VerifyPhoneWithTokenRequest $request VerifyPhoneWithTokenRequest
      *
-     * @return VerifyPhoneWithTokenResponse VerifyPhoneWithTokenResponse
+     * @param request - VerifyPhoneWithTokenRequest
+     *
+     * @returns VerifyPhoneWithTokenResponse
+     *
+     * @param VerifyPhoneWithTokenRequest $request
+     *
+     * @return VerifyPhoneWithTokenResponse
      */
     public function verifyPhoneWithToken($request)
     {
@@ -1538,60 +1703,74 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Verifies SMS verification codes.
-     *  *
-     * @description ### [](#)Preparations
+     * Verifies SMS verification codes.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](https://help.aliyun.com/document_detail/313209.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param VerifySmsCodeRequest $request VerifySmsCodeRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifySmsCodeResponse VerifySmsCodeResponse
+     * @param request - VerifySmsCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifySmsCodeResponse
+     *
+     * @param VerifySmsCodeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return VerifySmsCodeResponse
      */
     public function verifySmsCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->smsCode)) {
-            $query['SmsCode'] = $request->smsCode;
+
+        if (null !== $request->smsCode) {
+            @$query['SmsCode'] = $request->smsCode;
         }
-        if (!Utils::isUnset($request->smsToken)) {
-            $query['SmsToken'] = $request->smsToken;
+
+        if (null !== $request->smsToken) {
+            @$query['SmsToken'] = $request->smsToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifySmsCode',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifySmsCode',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifySmsCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies SMS verification codes.
-     *  *
-     * @description ### [](#)Preparations
+     * Verifies SMS verification codes.
+     *
+     * @remarks
+     * ### [](#)Preparations
      * You must register an Alibaba Cloud account, obtain an Alibaba Cloud AccessKey pair, and create a verification service. For more information, see [Use the SMS verification feature](https://help.aliyun.com/document_detail/313209.html).
      * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param VerifySmsCodeRequest $request VerifySmsCodeRequest
      *
-     * @return VerifySmsCodeResponse VerifySmsCodeResponse
+     * @param request - VerifySmsCodeRequest
+     *
+     * @returns VerifySmsCodeResponse
+     *
+     * @param VerifySmsCodeRequest $request
+     *
+     * @return VerifySmsCodeResponse
      */
     public function verifySmsCode($request)
     {
@@ -1601,53 +1780,66 @@ class Dypnsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the verification results by using the verification token that is obtained by using the authentication token.
-     *  *
-     * @param VerifyWithFusionAuthTokenRequest $request VerifyWithFusionAuthTokenRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Obtains the verification results by using the verification token that is obtained by using the authentication token.
      *
-     * @return VerifyWithFusionAuthTokenResponse VerifyWithFusionAuthTokenResponse
+     * @param request - VerifyWithFusionAuthTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyWithFusionAuthTokenResponse
+     *
+     * @param VerifyWithFusionAuthTokenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return VerifyWithFusionAuthTokenResponse
      */
     public function verifyWithFusionAuthTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->verifyToken)) {
-            $query['VerifyToken'] = $request->verifyToken;
+
+        if (null !== $request->verifyToken) {
+            @$query['VerifyToken'] = $request->verifyToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyWithFusionAuthToken',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyWithFusionAuthToken',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyWithFusionAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the verification results by using the verification token that is obtained by using the authentication token.
-     *  *
-     * @param VerifyWithFusionAuthTokenRequest $request VerifyWithFusionAuthTokenRequest
+     * Obtains the verification results by using the verification token that is obtained by using the authentication token.
      *
-     * @return VerifyWithFusionAuthTokenResponse VerifyWithFusionAuthTokenResponse
+     * @param request - VerifyWithFusionAuthTokenRequest
+     *
+     * @returns VerifyWithFusionAuthTokenResponse
+     *
+     * @param VerifyWithFusionAuthTokenRequest $request
+     *
+     * @return VerifyWithFusionAuthTokenResponse
      */
     public function verifyWithFusionAuthToken($request)
     {

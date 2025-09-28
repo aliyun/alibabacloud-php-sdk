@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models\DescribeVerifySchemeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schemeQueryResultDTO extends Model
 {
     /**
-     * @description The key generated when you create a service in the console.
-     *
-     * @example ZDMARqPkyQzWVJjB/sB/+fCp5TA4lNsRnY7rEC+HfGsOIOk1Brj8UyXFW2RBYIWqLieCSo8ZypEaEj+h9rLd3FgpXAjGYDfmOperod6jPUUwFHhBObxK+HuKVoi2jOqN7aDOlyPyGcATyq3BDdlf922JmnFLT8Hvnu4qgzzCZk0LXWTb0XVPnm5/fHUGHEA2Q+aTrGkaWcHjmTDqQ7BtvrAIIcJJkCJu4i1aeU++/0EzGWap4mcb2VhKROBs****
-     *
      * @var string
      */
     public $appEncryptInfo;
@@ -22,9 +18,10 @@ class schemeQueryResultDTO extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appEncryptInfo) {
@@ -34,11 +31,11 @@ class schemeQueryResultDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schemeQueryResultDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

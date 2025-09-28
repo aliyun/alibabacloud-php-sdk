@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPhoneWithTokenRequest extends Model
 {
@@ -24,37 +24,36 @@ class GetPhoneWithTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The token for phone number verification that is obtained by the JavaScript SDK. The validity period of the token is 10 minutes for China Telecom, 30 minutes for China Unicom, and 2 minutes for China Mobile. The token can be used only once.
-     *
-     * This parameter is required.
-     * @example Dfafdafad542****
-     *
      * @var string
      */
     public $spToken;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'spToken'              => 'SpToken',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'spToken' => 'SpToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->spToken) {
             $res['SpToken'] = $this->spToken;
         }
@@ -62,23 +61,26 @@ class GetPhoneWithTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPhoneWithTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SpToken'])) {
             $model->spToken = $map['SpToken'];
         }
