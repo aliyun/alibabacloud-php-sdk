@@ -20,6 +20,16 @@ class resource extends Model
     public $disks;
 
     /**
+     * @var bool
+     */
+    public $enableHT;
+
+    /**
+     * @var string
+     */
+    public $hostNamePrefix;
+
+    /**
      * @var string[]
      */
     public $instanceTypes;
@@ -31,6 +41,8 @@ class resource extends Model
     protected $_name = [
         'cores' => 'Cores',
         'disks' => 'Disks',
+        'enableHT' => 'EnableHT',
+        'hostNamePrefix' => 'HostNamePrefix',
         'instanceTypes' => 'InstanceTypes',
         'memory' => 'Memory',
     ];
@@ -62,6 +74,14 @@ class resource extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->enableHT) {
+            $res['EnableHT'] = $this->enableHT;
+        }
+
+        if (null !== $this->hostNamePrefix) {
+            $res['HostNamePrefix'] = $this->hostNamePrefix;
         }
 
         if (null !== $this->instanceTypes) {
@@ -103,6 +123,14 @@ class resource extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EnableHT'])) {
+            $model->enableHT = $map['EnableHT'];
+        }
+
+        if (isset($map['HostNamePrefix'])) {
+            $model->hostNamePrefix = $map['HostNamePrefix'];
         }
 
         if (isset($map['InstanceTypes'])) {

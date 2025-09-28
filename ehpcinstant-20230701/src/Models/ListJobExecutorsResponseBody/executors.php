@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponseBody\e
 class executors extends Model
 {
     /**
+     * @var string
+     */
+    public $allocationSpec;
+
+    /**
      * @var int
      */
     public $arrayIndex;
@@ -79,6 +84,7 @@ class executors extends Model
      */
     public $tags;
     protected $_name = [
+        'allocationSpec' => 'AllocationSpec',
         'arrayIndex' => 'ArrayIndex',
         'blockDuration' => 'BlockDuration',
         'createTime' => 'CreateTime',
@@ -115,6 +121,10 @@ class executors extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allocationSpec) {
+            $res['AllocationSpec'] = $this->allocationSpec;
+        }
+
         if (null !== $this->arrayIndex) {
             $res['ArrayIndex'] = $this->arrayIndex;
         }
@@ -210,6 +220,10 @@ class executors extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocationSpec'])) {
+            $model->allocationSpec = $map['AllocationSpec'];
+        }
+
         if (isset($map['ArrayIndex'])) {
             $model->arrayIndex = $map['ArrayIndex'];
         }

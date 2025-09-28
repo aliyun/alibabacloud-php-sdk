@@ -13,6 +13,11 @@ class executors extends Model
     /**
      * @var string
      */
+    public $allocationSpec;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -125,6 +130,7 @@ class executors extends Model
      */
     public $vswitchId;
     protected $_name = [
+        'allocationSpec' => 'AllocationSpec',
         'appName' => 'AppName',
         'arrayIndex' => 'ArrayIndex',
         'blockDuration' => 'BlockDuration',
@@ -173,6 +179,10 @@ class executors extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allocationSpec) {
+            $res['AllocationSpec'] = $this->allocationSpec;
+        }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -304,6 +314,10 @@ class executors extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocationSpec'])) {
+            $model->allocationSpec = $map['AllocationSpec'];
+        }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
