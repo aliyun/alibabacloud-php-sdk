@@ -63,8 +63,13 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyCustomScrapeJobRulesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyCustomScrapeJobRulesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyDashboardsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyDashboardsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyPodMonitorsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyPodMonitorsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsRequest;
@@ -2494,6 +2499,121 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询接入中心策略列表信息.
+     *
+     * @param tmpReq - ListIntegrationPoliciesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntegrationPoliciesResponse
+     *
+     * @param ListIntegrationPoliciesRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListIntegrationPoliciesResponse
+     */
+    public function listIntegrationPoliciesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListIntegrationPoliciesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->addonName) {
+            @$query['addonName'] = $request->addonName;
+        }
+
+        if (null !== $request->entityGroupIds) {
+            @$query['entityGroupIds'] = $request->entityGroupIds;
+        }
+
+        if (null !== $request->filterRegionIds) {
+            @$query['filterRegionIds'] = $request->filterRegionIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['policyId'] = $request->policyId;
+        }
+
+        if (null !== $request->policyName) {
+            @$query['policyName'] = $request->policyName;
+        }
+
+        if (null !== $request->policyType) {
+            @$query['policyType'] = $request->policyType;
+        }
+
+        if (null !== $request->prometheusInstanceId) {
+            @$query['prometheusInstanceId'] = $request->prometheusInstanceId;
+        }
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['tag'] = $request->tagShrink;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIntegrationPolicies',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/integration-policies',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIntegrationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询接入中心策略列表信息.
+     *
+     * @param request - ListIntegrationPoliciesRequest
+     *
+     * @returns ListIntegrationPoliciesResponse
+     *
+     * @param ListIntegrationPoliciesRequest $request
+     *
+     * @return ListIntegrationPoliciesResponse
+     */
+    public function listIntegrationPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIntegrationPoliciesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取接入中心策略的存储要求信息.
      *
      * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
@@ -2562,6 +2682,73 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listIntegrationPolicyCustomScrapeJobRulesWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 策略大盘列表.
+     *
+     * @param request - ListIntegrationPolicyDashboardsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntegrationPolicyDashboardsResponse
+     *
+     * @param string                                 $policyId
+     * @param ListIntegrationPolicyDashboardsRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListIntegrationPolicyDashboardsResponse
+     */
+    public function listIntegrationPolicyDashboardsWithOptions($policyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addonName) {
+            @$query['addonName'] = $request->addonName;
+        }
+
+        if (null !== $request->scene) {
+            @$query['scene'] = $request->scene;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIntegrationPolicyDashboards',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/integration-policies/' . Url::percentEncode($policyId) . '/dashboards',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIntegrationPolicyDashboardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 策略大盘列表.
+     *
+     * @param request - ListIntegrationPolicyDashboardsRequest
+     *
+     * @returns ListIntegrationPolicyDashboardsResponse
+     *
+     * @param string                                 $policyId
+     * @param ListIntegrationPolicyDashboardsRequest $request
+     *
+     * @return ListIntegrationPolicyDashboardsResponse
+     */
+    public function listIntegrationPolicyDashboards($policyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIntegrationPolicyDashboardsWithOptions($policyId, $request, $headers, $runtime);
     }
 
     /**

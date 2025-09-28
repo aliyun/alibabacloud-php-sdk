@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\entityFilter;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\queries;
 
 class AlertRuleQuery extends Model
@@ -20,9 +21,19 @@ class AlertRuleQuery extends Model
     public $dimensions;
 
     /**
+     * @var string
+     */
+    public $domain;
+
+    /**
      * @var int
      */
     public $duration;
+
+    /**
+     * @var entityFilter
+     */
+    public $entityFilter;
 
     /**
      * @var string
@@ -48,6 +59,16 @@ class AlertRuleQuery extends Model
      * @var string
      */
     public $groupType;
+
+    /**
+     * @var string
+     */
+    public $metric;
+
+    /**
+     * @var string
+     */
+    public $metricSet;
 
     /**
      * @var string
@@ -81,12 +102,16 @@ class AlertRuleQuery extends Model
     protected $_name = [
         'checkAfterDataComplete' => 'checkAfterDataComplete',
         'dimensions' => 'dimensions',
+        'domain' => 'domain',
         'duration' => 'duration',
+        'entityFilter' => 'entityFilter',
         'expr' => 'expr',
         'firstJoin' => 'firstJoin',
         'groupFieldList' => 'groupFieldList',
         'groupId' => 'groupId',
         'groupType' => 'groupType',
+        'metric' => 'metric',
+        'metricSet' => 'metricSet',
         'namespace' => 'namespace',
         'queries' => 'queries',
         'relationType' => 'relationType',
@@ -99,6 +124,9 @@ class AlertRuleQuery extends Model
     {
         if (\is_array($this->dimensions)) {
             Model::validateArray($this->dimensions);
+        }
+        if (null !== $this->entityFilter) {
+            $this->entityFilter->validate();
         }
         if (null !== $this->firstJoin) {
             $this->firstJoin->validate();
@@ -141,8 +169,16 @@ class AlertRuleQuery extends Model
             }
         }
 
+        if (null !== $this->domain) {
+            $res['domain'] = $this->domain;
+        }
+
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
+        }
+
+        if (null !== $this->entityFilter) {
+            $res['entityFilter'] = null !== $this->entityFilter ? $this->entityFilter->toArray($noStream) : $this->entityFilter;
         }
 
         if (null !== $this->expr) {
@@ -170,6 +206,14 @@ class AlertRuleQuery extends Model
 
         if (null !== $this->groupType) {
             $res['groupType'] = $this->groupType;
+        }
+
+        if (null !== $this->metric) {
+            $res['metric'] = $this->metric;
+        }
+
+        if (null !== $this->metricSet) {
+            $res['metricSet'] = $this->metricSet;
         }
 
         if (null !== $this->namespace) {
@@ -241,8 +285,16 @@ class AlertRuleQuery extends Model
             }
         }
 
+        if (isset($map['domain'])) {
+            $model->domain = $map['domain'];
+        }
+
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];
+        }
+
+        if (isset($map['entityFilter'])) {
+            $model->entityFilter = entityFilter::fromMap($map['entityFilter']);
         }
 
         if (isset($map['expr'])) {
@@ -270,6 +322,14 @@ class AlertRuleQuery extends Model
 
         if (isset($map['groupType'])) {
             $model->groupType = $map['groupType'];
+        }
+
+        if (isset($map['metric'])) {
+            $model->metric = $map['metric'];
+        }
+
+        if (isset($map['metricSet'])) {
+            $model->metricSet = $map['metricSet'];
         }
 
         if (isset($map['namespace'])) {
