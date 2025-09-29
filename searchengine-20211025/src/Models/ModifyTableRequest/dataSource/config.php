@@ -41,12 +41,22 @@ class config extends Model
     /**
      * @var string
      */
+    public $format;
+
+    /**
+     * @var string
+     */
     public $ossPath;
 
     /**
      * @var string
      */
     public $partition;
+
+    /**
+     * @var string
+     */
+    public $path;
 
     /**
      * @var string
@@ -74,8 +84,10 @@ class config extends Model
         'catalog' => 'catalog',
         'database' => 'database',
         'endpoint' => 'endpoint',
+        'format' => 'format',
         'ossPath' => 'ossPath',
         'partition' => 'partition',
+        'path' => 'path',
         'project' => 'project',
         'table' => 'table',
         'tableFormat' => 'tableFormat',
@@ -114,12 +126,20 @@ class config extends Model
             $res['endpoint'] = $this->endpoint;
         }
 
+        if (null !== $this->format) {
+            $res['format'] = $this->format;
+        }
+
         if (null !== $this->ossPath) {
             $res['ossPath'] = $this->ossPath;
         }
 
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
+        }
+
+        if (null !== $this->path) {
+            $res['path'] = $this->path;
         }
 
         if (null !== $this->project) {
@@ -173,12 +193,20 @@ class config extends Model
             $model->endpoint = $map['endpoint'];
         }
 
+        if (isset($map['format'])) {
+            $model->format = $map['format'];
+        }
+
         if (isset($map['ossPath'])) {
             $model->ossPath = $map['ossPath'];
         }
 
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
+        }
+
+        if (isset($map['path'])) {
+            $model->path = $map['path'];
         }
 
         if (isset($map['project'])) {
