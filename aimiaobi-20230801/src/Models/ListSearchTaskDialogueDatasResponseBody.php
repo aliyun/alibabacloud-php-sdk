@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasResponseBody\articles;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasResponseBody\audios;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasResponseBody\images;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasResponseBody\videos;
 
@@ -15,6 +16,11 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
      * @var articles[]
      */
     public $articles;
+
+    /**
+     * @var audios[]
+     */
+    public $audios;
 
     /**
      * @var string
@@ -77,6 +83,7 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
     public $videos;
     protected $_name = [
         'articles' => 'Articles',
+        'audios' => 'Audios',
         'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
         'images' => 'Images',
@@ -96,6 +103,9 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
         if (\is_array($this->articles)) {
             Model::validateArray($this->articles);
         }
+        if (\is_array($this->audios)) {
+            Model::validateArray($this->audios);
+        }
         if (\is_array($this->images)) {
             Model::validateArray($this->images);
         }
@@ -114,6 +124,17 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->articles as $item1) {
                     $res['Articles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->audios) {
+            if (\is_array($this->audios)) {
+                $res['Audios'] = [];
+                $n1 = 0;
+                foreach ($this->audios as $item1) {
+                    $res['Audios'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -198,6 +219,17 @@ class ListSearchTaskDialogueDatasResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['Articles'] as $item1) {
                     $model->articles[$n1] = articles::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Audios'])) {
+            if (!empty($map['Audios'])) {
+                $model->audios = [];
+                $n1 = 0;
+                foreach ($map['Audios'] as $item1) {
+                    $model->audios[$n1] = audios::fromMap($item1);
                     ++$n1;
                 }
             }

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class newsCoordinate extends Model
 {
     /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
      * @var int
      */
     public $x;
@@ -23,6 +28,7 @@ class newsCoordinate extends Model
      */
     public $z;
     protected $_name = [
+        'mediaType' => 'MediaType',
         'x' => 'X',
         'y' => 'Y',
         'z' => 'Z',
@@ -36,6 +42,10 @@ class newsCoordinate extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
+        }
+
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
@@ -59,6 +69,10 @@ class newsCoordinate extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
+        }
+
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }

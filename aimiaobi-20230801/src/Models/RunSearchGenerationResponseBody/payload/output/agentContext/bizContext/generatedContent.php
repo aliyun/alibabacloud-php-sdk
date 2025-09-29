@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\audioSearchResult;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\clusterTopicResult;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\excerptResult;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\imageSearchResult;
@@ -16,6 +17,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\p
 
 class generatedContent extends Model
 {
+    /**
+     * @var audioSearchResult
+     */
+    public $audioSearchResult;
+
     /**
      * @var clusterTopicResult
      */
@@ -56,6 +62,7 @@ class generatedContent extends Model
      */
     public $videoSearchResult;
     protected $_name = [
+        'audioSearchResult' => 'AudioSearchResult',
         'clusterTopicResult' => 'ClusterTopicResult',
         'excerptResult' => 'ExcerptResult',
         'imageSearchResult' => 'ImageSearchResult',
@@ -68,6 +75,9 @@ class generatedContent extends Model
 
     public function validate()
     {
+        if (null !== $this->audioSearchResult) {
+            $this->audioSearchResult->validate();
+        }
         if (null !== $this->clusterTopicResult) {
             $this->clusterTopicResult->validate();
         }
@@ -98,6 +108,10 @@ class generatedContent extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->audioSearchResult) {
+            $res['AudioSearchResult'] = null !== $this->audioSearchResult ? $this->audioSearchResult->toArray($noStream) : $this->audioSearchResult;
+        }
+
         if (null !== $this->clusterTopicResult) {
             $res['ClusterTopicResult'] = null !== $this->clusterTopicResult ? $this->clusterTopicResult->toArray($noStream) : $this->clusterTopicResult;
         }
@@ -141,6 +155,10 @@ class generatedContent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioSearchResult'])) {
+            $model->audioSearchResult = audioSearchResult::fromMap($map['AudioSearchResult']);
+        }
+
         if (isset($map['ClusterTopicResult'])) {
             $model->clusterTopicResult = clusterTopicResult::fromMap($map['ClusterTopicResult']);
         }

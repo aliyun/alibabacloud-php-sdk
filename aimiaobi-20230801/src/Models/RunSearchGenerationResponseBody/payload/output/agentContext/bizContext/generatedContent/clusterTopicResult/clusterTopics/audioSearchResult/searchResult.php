@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\videoSearchResult;
+namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\clusterTopicResult\clusterTopics\audioSearchResult;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\videoSearchResult\searchResult\article;
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\videoSearchResult\searchResult\clipInfos;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\clusterTopicResult\clusterTopics\audioSearchResult\searchResult\article;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\clusterTopicResult\clusterTopics\audioSearchResult\searchResult\clipInfos;
 
 class searchResult extends Model
 {
@@ -29,17 +29,11 @@ class searchResult extends Model
      * @var string
      */
     public $mediaId;
-
-    /**
-     * @var string
-     */
-    public $traceabilityId;
     protected $_name = [
         'article' => 'Article',
         'clipInfos' => 'ClipInfos',
         'fileUrl' => 'FileUrl',
         'mediaId' => 'MediaId',
-        'traceabilityId' => 'TraceabilityId',
     ];
 
     public function validate()
@@ -79,10 +73,6 @@ class searchResult extends Model
             $res['MediaId'] = $this->mediaId;
         }
 
-        if (null !== $this->traceabilityId) {
-            $res['TraceabilityId'] = $this->traceabilityId;
-        }
-
         return $res;
     }
 
@@ -115,10 +105,6 @@ class searchResult extends Model
 
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
-        }
-
-        if (isset($map['TraceabilityId'])) {
-            $model->traceabilityId = $map['TraceabilityId'];
         }
 
         return $model;

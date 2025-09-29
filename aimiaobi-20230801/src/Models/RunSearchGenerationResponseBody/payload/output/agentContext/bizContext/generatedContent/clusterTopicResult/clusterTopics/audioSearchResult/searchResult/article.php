@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\textSearchResult;
+namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\clusterTopicResult\clusterTopics\audioSearchResult\searchResult;
 
 use AlibabaCloud\Dara\Model;
 
-class searchResult extends Model
+class article extends Model
 {
-    /**
-     * @var string
-     */
-    public $content;
-
     /**
      * @var string
      */
@@ -26,22 +21,7 @@ class searchResult extends Model
     /**
      * @var string
      */
-    public $pubTime;
-
-    /**
-     * @var string
-     */
-    public $searchSource;
-
-    /**
-     * @var string
-     */
     public $searchSourceName;
-
-    /**
-     * @var string
-     */
-    public $searchSourceType;
 
     /**
      * @var string
@@ -56,23 +36,13 @@ class searchResult extends Model
     /**
      * @var string
      */
-    public $traceabilityId;
-
-    /**
-     * @var string
-     */
     public $url;
     protected $_name = [
-        'content' => 'Content',
         'docId' => 'DocId',
         'docUuid' => 'DocUuid',
-        'pubTime' => 'PubTime',
-        'searchSource' => 'SearchSource',
         'searchSourceName' => 'SearchSourceName',
-        'searchSourceType' => 'SearchSourceType',
         'summary' => 'Summary',
         'title' => 'Title',
-        'traceabilityId' => 'TraceabilityId',
         'url' => 'Url',
     ];
 
@@ -84,10 +54,6 @@ class searchResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
@@ -96,20 +62,8 @@ class searchResult extends Model
             $res['DocUuid'] = $this->docUuid;
         }
 
-        if (null !== $this->pubTime) {
-            $res['PubTime'] = $this->pubTime;
-        }
-
-        if (null !== $this->searchSource) {
-            $res['SearchSource'] = $this->searchSource;
-        }
-
         if (null !== $this->searchSourceName) {
             $res['SearchSourceName'] = $this->searchSourceName;
-        }
-
-        if (null !== $this->searchSourceType) {
-            $res['SearchSourceType'] = $this->searchSourceType;
         }
 
         if (null !== $this->summary) {
@@ -118,10 +72,6 @@ class searchResult extends Model
 
         if (null !== $this->title) {
             $res['Title'] = $this->title;
-        }
-
-        if (null !== $this->traceabilityId) {
-            $res['TraceabilityId'] = $this->traceabilityId;
         }
 
         if (null !== $this->url) {
@@ -139,10 +89,6 @@ class searchResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
@@ -151,20 +97,8 @@ class searchResult extends Model
             $model->docUuid = $map['DocUuid'];
         }
 
-        if (isset($map['PubTime'])) {
-            $model->pubTime = $map['PubTime'];
-        }
-
-        if (isset($map['SearchSource'])) {
-            $model->searchSource = $map['SearchSource'];
-        }
-
         if (isset($map['SearchSourceName'])) {
             $model->searchSourceName = $map['SearchSourceName'];
-        }
-
-        if (isset($map['SearchSourceType'])) {
-            $model->searchSourceType = $map['SearchSourceType'];
         }
 
         if (isset($map['Summary'])) {
@@ -173,10 +107,6 @@ class searchResult extends Model
 
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
-        }
-
-        if (isset($map['TraceabilityId'])) {
-            $model->traceabilityId = $map['TraceabilityId'];
         }
 
         if (isset($map['Url'])) {

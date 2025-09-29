@@ -2,10 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\imageSearchResult;
+namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\audioSearchResult;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\imageSearchResult\searchResult\article;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\audioSearchResult\searchResult\article;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\audioSearchResult\searchResult\clipInfos;
 
 class searchResult extends Model
 {
@@ -13,6 +14,11 @@ class searchResult extends Model
      * @var article
      */
     public $article;
+
+    /**
+     * @var clipInfos[]
+     */
+    public $clipInfos;
 
     /**
      * @var string
@@ -30,6 +36,7 @@ class searchResult extends Model
     public $traceabilityId;
     protected $_name = [
         'article' => 'Article',
+        'clipInfos' => 'ClipInfos',
         'fileUrl' => 'FileUrl',
         'mediaId' => 'MediaId',
         'traceabilityId' => 'TraceabilityId',
@@ -40,6 +47,9 @@ class searchResult extends Model
         if (null !== $this->article) {
             $this->article->validate();
         }
+        if (\is_array($this->clipInfos)) {
+            Model::validateArray($this->clipInfos);
+        }
         parent::validate();
     }
 
@@ -48,6 +58,17 @@ class searchResult extends Model
         $res = [];
         if (null !== $this->article) {
             $res['Article'] = null !== $this->article ? $this->article->toArray($noStream) : $this->article;
+        }
+
+        if (null !== $this->clipInfos) {
+            if (\is_array($this->clipInfos)) {
+                $res['ClipInfos'] = [];
+                $n1 = 0;
+                foreach ($this->clipInfos as $item1) {
+                    $res['ClipInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->fileUrl) {
@@ -75,6 +96,17 @@ class searchResult extends Model
         $model = new self();
         if (isset($map['Article'])) {
             $model->article = article::fromMap($map['Article']);
+        }
+
+        if (isset($map['ClipInfos'])) {
+            if (!empty($map['ClipInfos'])) {
+                $model->clipInfos = [];
+                $n1 = 0;
+                foreach ($map['ClipInfos'] as $item1) {
+                    $model->clipInfos[$n1] = clipInfos::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['FileUrl'])) {

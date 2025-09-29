@@ -12535,6 +12535,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['ChatConfig'] = $request->chatConfigShrink;
         }
 
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
+        }
+
         if (null !== $request->modelId) {
             @$body['ModelId'] = $request->modelId;
         }
@@ -12618,6 +12622,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->chatConfigShrink) {
             @$body['ChatConfig'] = $request->chatConfigShrink;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
         }
 
         if (null !== $request->modelId) {
