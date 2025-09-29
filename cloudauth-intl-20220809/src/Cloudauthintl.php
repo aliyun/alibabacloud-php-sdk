@@ -25,8 +25,12 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialGetResultIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialGetResultIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialRecognitionIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialSubmitIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialSubmitIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlAdvanceRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlResponse;
@@ -46,6 +50,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCrossCompareIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCrossCompareIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceDuplicationCheckIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceDuplicationCheckIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceGuardRiskRequest;
@@ -76,6 +82,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\QueryFaceRecordRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\QueryFaceRecordResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\TempAccessTokenIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\TempAccessTokenIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\TempOssUrlIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\TempOssUrlIntlResponse;
 use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -743,6 +751,63 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * 凭证识别查询.
+     *
+     * @param Request - CredentialGetResultIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CredentialGetResultIntlResponse
+     *
+     * @param CredentialGetResultIntlRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CredentialGetResultIntlResponse
+     */
+    public function credentialGetResultIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->transactionId) {
+            @$query['TransactionId'] = $request->transactionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CredentialGetResultIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CredentialGetResultIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 凭证识别查询.
+     *
+     * @param Request - CredentialGetResultIntlRequest
+     *
+     * @returns CredentialGetResultIntlResponse
+     *
+     * @param CredentialGetResultIntlRequest $request
+     *
+     * @return CredentialGetResultIntlResponse
+     */
+    public function credentialGetResultIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialGetResultIntlWithOptions($request, $runtime);
+    }
+
+    /**
      * Credential Recognition.
      *
      * @remarks
@@ -825,6 +890,93 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->credentialRecognitionIntlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 凭证识别提交.
+     *
+     * @param Request - CredentialSubmitIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CredentialSubmitIntlResponse
+     *
+     * @param CredentialSubmitIntlRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CredentialSubmitIntlResponse
+     */
+    public function credentialSubmitIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->docType) {
+            @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->fraudCheck) {
+            @$query['FraudCheck'] = $request->fraudCheck;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->ocrArea) {
+            @$query['OcrArea'] = $request->ocrArea;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        $body = [];
+        if (null !== $request->credentialOcrPictureBase64) {
+            @$body['CredentialOcrPictureBase64'] = $request->credentialOcrPictureBase64;
+        }
+
+        if (null !== $request->credentialOcrPictureUrl) {
+            @$body['CredentialOcrPictureUrl'] = $request->credentialOcrPictureUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CredentialSubmitIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CredentialSubmitIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 凭证识别提交.
+     *
+     * @param Request - CredentialSubmitIntlRequest
+     *
+     * @returns CredentialSubmitIntlResponse
+     *
+     * @param CredentialSubmitIntlRequest $request
+     *
+     * @return CredentialSubmitIntlResponse
+     */
+    public function credentialSubmitIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialSubmitIntlWithOptions($request, $runtime);
     }
 
     /**
@@ -1652,6 +1804,103 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->faceCompareWithOptions($request, $runtime);
+    }
+
+    /**
+     * 人脸交叉比对.
+     *
+     * @param Request - FaceCrossCompareIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FaceCrossCompareIntlResponse
+     *
+     * @param FaceCrossCompareIntlRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FaceCrossCompareIntlResponse
+     */
+    public function faceCrossCompareIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->compareModel) {
+            @$query['CompareModel'] = $request->compareModel;
+        }
+
+        if (null !== $request->faceVerifyThreshold) {
+            @$query['FaceVerifyThreshold'] = $request->faceVerifyThreshold;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->sourceAFacePicture) {
+            @$query['SourceAFacePicture'] = $request->sourceAFacePicture;
+        }
+
+        if (null !== $request->sourceAFacePictureUrl) {
+            @$query['SourceAFacePictureUrl'] = $request->sourceAFacePictureUrl;
+        }
+
+        if (null !== $request->sourceBFacePicture) {
+            @$query['SourceBFacePicture'] = $request->sourceBFacePicture;
+        }
+
+        if (null !== $request->sourceBFacePictureUrl) {
+            @$query['SourceBFacePictureUrl'] = $request->sourceBFacePictureUrl;
+        }
+
+        if (null !== $request->sourceCFacePicture) {
+            @$query['SourceCFacePicture'] = $request->sourceCFacePicture;
+        }
+
+        if (null !== $request->sourceCFacePictureUrl) {
+            @$query['SourceCFacePictureUrl'] = $request->sourceCFacePictureUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FaceCrossCompareIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FaceCrossCompareIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 人脸交叉比对.
+     *
+     * @param Request - FaceCrossCompareIntlRequest
+     *
+     * @returns FaceCrossCompareIntlResponse
+     *
+     * @param FaceCrossCompareIntlRequest $request
+     *
+     * @return FaceCrossCompareIntlResponse
+     */
+    public function faceCrossCompareIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceCrossCompareIntlWithOptions($request, $runtime);
     }
 
     /**
@@ -2946,5 +3195,62 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tempAccessTokenIntlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件临时地址
+     *
+     * @param Request - TempOssUrlIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TempOssUrlIntlResponse
+     *
+     * @param TempOssUrlIntlRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return TempOssUrlIntlResponse
+     */
+    public function tempOssUrlIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->objectName) {
+            @$body['ObjectName'] = $request->objectName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TempOssUrlIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TempOssUrlIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件临时地址
+     *
+     * @param Request - TempOssUrlIntlRequest
+     *
+     * @returns TempOssUrlIntlResponse
+     *
+     * @param TempOssUrlIntlRequest $request
+     *
+     * @return TempOssUrlIntlResponse
+     */
+    public function tempOssUrlIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tempOssUrlIntlWithOptions($request, $runtime);
     }
 }
