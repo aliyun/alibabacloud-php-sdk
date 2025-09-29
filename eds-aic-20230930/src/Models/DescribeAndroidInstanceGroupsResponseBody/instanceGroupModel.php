@@ -88,6 +88,11 @@ class instanceGroupModel extends Model
     /**
      * @var string
      */
+    public $imageVersion;
+
+    /**
+     * @var string
+     */
     public $installedAppList;
 
     /**
@@ -200,6 +205,7 @@ class instanceGroupModel extends Model
         'gmtExpired' => 'GmtExpired',
         'gmtModified' => 'GmtModified',
         'imageId' => 'ImageId',
+        'imageVersion' => 'ImageVersion',
         'installedAppList' => 'InstalledAppList',
         'instanceGroupId' => 'InstanceGroupId',
         'instanceGroupName' => 'InstanceGroupName',
@@ -301,6 +307,10 @@ class instanceGroupModel extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->imageVersion) {
+            $res['ImageVersion'] = $this->imageVersion;
         }
 
         if (null !== $this->installedAppList) {
@@ -466,6 +476,10 @@ class instanceGroupModel extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['ImageVersion'])) {
+            $model->imageVersion = $map['ImageVersion'];
         }
 
         if (isset($map['InstalledAppList'])) {

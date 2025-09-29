@@ -395,6 +395,10 @@ class Edsaic extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->excludeSourceFilePathList) {
+            @$query['ExcludeSourceFilePathList'] = $request->excludeSourceFilePathList;
+        }
+
         if (null !== $request->sourceAppList) {
             @$query['SourceAppList'] = $request->sourceAppList;
         }
