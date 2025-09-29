@@ -278,6 +278,11 @@ class desktops extends Model
     /**
      * @var string
      */
+    public $serialNumber;
+
+    /**
+     * @var string
+     */
     public $sessionType;
 
     /**
@@ -392,6 +397,7 @@ class desktops extends Model
         'progress' => 'Progress',
         'protocolType' => 'ProtocolType',
         'resourceGroups' => 'ResourceGroups',
+        'serialNumber' => 'SerialNumber',
         'sessionType' => 'SessionType',
         'sessions' => 'Sessions',
         'snapshotPolicyId' => 'SnapshotPolicyId',
@@ -703,6 +709,10 @@ class desktops extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->serialNumber) {
+            $res['SerialNumber'] = $this->serialNumber;
         }
 
         if (null !== $this->sessionType) {
@@ -1037,6 +1047,10 @@ class desktops extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SerialNumber'])) {
+            $model->serialNumber = $map['SerialNumber'];
         }
 
         if (isset($map['SessionType'])) {
