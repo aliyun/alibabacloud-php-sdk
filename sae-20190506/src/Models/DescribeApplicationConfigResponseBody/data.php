@@ -102,6 +102,11 @@ class data extends Model
     public $customImageNetworkType;
 
     /**
+     * @var string
+     */
+    public $deploymentName;
+
+    /**
      * @var int
      */
     public $diskSize;
@@ -493,6 +498,7 @@ class data extends Model
         'cpu' => 'Cpu',
         'customHostAlias' => 'CustomHostAlias',
         'customImageNetworkType' => 'CustomImageNetworkType',
+        'deploymentName' => 'DeploymentName',
         'diskSize' => 'DiskSize',
         'dotnet' => 'Dotnet',
         'edasContainerVersion' => 'EdasContainerVersion',
@@ -678,6 +684,10 @@ class data extends Model
 
         if (null !== $this->customImageNetworkType) {
             $res['CustomImageNetworkType'] = $this->customImageNetworkType;
+        }
+
+        if (null !== $this->deploymentName) {
+            $res['DeploymentName'] = $this->deploymentName;
         }
 
         if (null !== $this->diskSize) {
@@ -1118,6 +1128,10 @@ class data extends Model
 
         if (isset($map['CustomImageNetworkType'])) {
             $model->customImageNetworkType = $map['CustomImageNetworkType'];
+        }
+
+        if (isset($map['DeploymentName'])) {
+            $model->deploymentName = $map['DeploymentName'];
         }
 
         if (isset($map['DiskSize'])) {
