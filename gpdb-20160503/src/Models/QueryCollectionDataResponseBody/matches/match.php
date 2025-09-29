@@ -4,6 +4,7 @@
  
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponseBody\matches;
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponseBody\matches\match\sparseValues;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponseBody\matches\match\values;
 class match extends Model {
   /**
@@ -23,6 +24,10 @@ class match extends Model {
    */
   public $score;
   /**
+   * @var sparseValues
+   */
+  public $sparseValues;
+  /**
    * @var values
    */
   public $values;
@@ -31,6 +36,7 @@ class match extends Model {
       'metadata' => 'Metadata',
       'metadataV2' => 'MetadataV2',
       'score' => 'Score',
+      'sparseValues' => 'SparseValues',
       'values' => 'Values',
   ];
 
@@ -41,6 +47,9 @@ class match extends Model {
     }
     if(is_array($this->metadataV2)) {
       Model::validateArray($this->metadataV2);
+    }
+    if(null !== $this->sparseValues) {
+      $this->sparseValues->validate();
     }
     if(null !== $this->values) {
       $this->values->validate();
@@ -75,6 +84,10 @@ class match extends Model {
 
     if (null !== $this->score) {
       $res['Score'] = $this->score;
+    }
+
+    if (null !== $this->sparseValues) {
+      $res['SparseValues'] = null !== $this->sparseValues ? $this->sparseValues->toArray($noStream) : $this->sparseValues;
     }
 
     if (null !== $this->values) {
@@ -116,6 +129,10 @@ class match extends Model {
 
     if (isset($map['Score'])) {
       $model->score = $map['Score'];
+    }
+
+    if (isset($map['SparseValues'])) {
+      $model->sparseValues = sparseValues::fromMap($map['SparseValues']);
     }
 
     if (isset($map['Values'])) {

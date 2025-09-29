@@ -46,6 +46,11 @@ class QueryCollectionDataShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $includeSparseValues;
+
+    /**
+     * @var bool
+     */
     public $includeValues;
 
     /**
@@ -115,6 +120,7 @@ class QueryCollectionDataShrinkRequest extends Model
         'hybridSearch' => 'HybridSearch',
         'hybridSearchArgsShrink' => 'HybridSearchArgs',
         'includeMetadataFields' => 'IncludeMetadataFields',
+        'includeSparseValues' => 'IncludeSparseValues',
         'includeValues' => 'IncludeValues',
         'metrics' => 'Metrics',
         'namespace' => 'Namespace',
@@ -164,6 +170,10 @@ class QueryCollectionDataShrinkRequest extends Model
 
         if (null !== $this->includeMetadataFields) {
             $res['IncludeMetadataFields'] = $this->includeMetadataFields;
+        }
+
+        if (null !== $this->includeSparseValues) {
+            $res['IncludeSparseValues'] = $this->includeSparseValues;
         }
 
         if (null !== $this->includeValues) {
@@ -255,6 +265,10 @@ class QueryCollectionDataShrinkRequest extends Model
 
         if (isset($map['IncludeMetadataFields'])) {
             $model->includeMetadataFields = $map['IncludeMetadataFields'];
+        }
+
+        if (isset($map['IncludeSparseValues'])) {
+            $model->includeSparseValues = $map['IncludeSparseValues'];
         }
 
         if (isset($map['IncludeValues'])) {

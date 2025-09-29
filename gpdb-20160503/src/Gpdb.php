@@ -15886,6 +15886,10 @@ class Gpdb extends OpenApiClient
             @$query['IncludeMetadataFields'] = $request->includeMetadataFields;
         }
 
+        if (null !== $request->includeSparseValues) {
+            @$query['IncludeSparseValues'] = $request->includeSparseValues;
+        }
+
         if (null !== $request->includeValues) {
             @$query['IncludeValues'] = $request->includeValues;
         }
