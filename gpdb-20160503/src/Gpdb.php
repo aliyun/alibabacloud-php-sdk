@@ -24,6 +24,12 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUpsertCollectionDataJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUpsertCollectionDataJobResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopNetConnectionRequest;
@@ -526,7 +532,7 @@ class Gpdb extends OpenApiClient
         ];
         @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
         $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request);
+        $_response = Dara::send($_request, ['stream' => true]);
 
         $respMap = null;
         $bodyStr = StreamUtil::readAsString($_response->body);
@@ -1075,6 +1081,276 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelUpsertCollectionDataJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @remarks
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @param tmpReq - ChatWithKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatWithKnowledgeBaseResponse
+     *
+     * @param ChatWithKnowledgeBaseRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ChatWithKnowledgeBaseResponse
+     */
+    public function chatWithKnowledgeBaseWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChatWithKnowledgeBaseShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->knowledgeParams) {
+            $request->knowledgeParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeParams, 'KnowledgeParams', 'json');
+        }
+
+        if (null !== $tmpReq->modelParams) {
+            $request->modelParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelParams, 'ModelParams', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->includeKnowledgeBaseResults) {
+            @$query['IncludeKnowledgeBaseResults'] = $request->includeKnowledgeBaseResults;
+        }
+
+        if (null !== $request->knowledgeParamsShrink) {
+            @$query['KnowledgeParams'] = $request->knowledgeParamsShrink;
+        }
+
+        if (null !== $request->modelParamsShrink) {
+            @$query['ModelParams'] = $request->modelParamsShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->promptParams) {
+            @$query['PromptParams'] = $request->promptParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChatWithKnowledgeBase',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatWithKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @remarks
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @param Request - ChatWithKnowledgeBaseRequest
+     *
+     * @returns ChatWithKnowledgeBaseResponse
+     *
+     * @param ChatWithKnowledgeBaseRequest $request
+     *
+     * @return ChatWithKnowledgeBaseResponse
+     */
+    public function chatWithKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatWithKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @remarks
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatWithKnowledgeBaseStreamResponse
+     *
+     * @param ChatWithKnowledgeBaseStreamRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ChatWithKnowledgeBaseStreamResponse
+     */
+    public function chatWithKnowledgeBaseStreamWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChatWithKnowledgeBaseStreamShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->knowledgeParams) {
+            $request->knowledgeParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeParams, 'KnowledgeParams', 'json');
+        }
+
+        if (null !== $tmpReq->modelParams) {
+            $request->modelParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelParams, 'ModelParams', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->includeKnowledgeBaseResults) {
+            @$query['IncludeKnowledgeBaseResults'] = $request->includeKnowledgeBaseResults;
+        }
+
+        if (null !== $request->knowledgeParamsShrink) {
+            @$query['KnowledgeParams'] = $request->knowledgeParamsShrink;
+        }
+
+        if (null !== $request->modelParamsShrink) {
+            @$query['ModelParams'] = $request->modelParamsShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->promptParams) {
+            @$query['PromptParams'] = $request->promptParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChatWithKnowledgeBaseStream',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield ChatWithKnowledgeBaseStreamResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @remarks
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatWithKnowledgeBaseStreamResponse
+     *
+     * @param ChatWithKnowledgeBaseStreamRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ChatWithKnowledgeBaseStreamResponse
+     */
+    public function chatWithKnowledgeBaseStreamWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChatWithKnowledgeBaseStreamShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->knowledgeParams) {
+            $request->knowledgeParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeParams, 'KnowledgeParams', 'json');
+        }
+
+        if (null !== $tmpReq->modelParams) {
+            $request->modelParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelParams, 'ModelParams', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->includeKnowledgeBaseResults) {
+            @$query['IncludeKnowledgeBaseResults'] = $request->includeKnowledgeBaseResults;
+        }
+
+        if (null !== $request->knowledgeParamsShrink) {
+            @$query['KnowledgeParams'] = $request->knowledgeParamsShrink;
+        }
+
+        if (null !== $request->modelParamsShrink) {
+            @$query['ModelParams'] = $request->modelParamsShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->promptParams) {
+            @$query['PromptParams'] = $request->promptParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChatWithKnowledgeBaseStream',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatWithKnowledgeBaseStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @remarks
+     * 通过结合知识库和大模型，提供智能问答服务。
+     *
+     * @param Request - ChatWithKnowledgeBaseStreamRequest
+     *
+     * @returns ChatWithKnowledgeBaseStreamResponse
+     *
+     * @param ChatWithKnowledgeBaseStreamRequest $request
+     *
+     * @return ChatWithKnowledgeBaseStreamResponse
+     */
+    public function chatWithKnowledgeBaseStream($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatWithKnowledgeBaseStreamWithOptions($request, $runtime);
     }
 
     /**
