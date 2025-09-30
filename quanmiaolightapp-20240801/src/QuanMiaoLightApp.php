@@ -87,6 +87,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisConfig
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisConfigResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTasksRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTasksResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTasksShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -4259,5 +4262,78 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->updateVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 视频理解-批量修改任务状态
+     *
+     * @param tmpReq - UpdateVideoAnalysisTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVideoAnalysisTasksResponse
+     *
+     * @param string                          $workspaceId
+     * @param UpdateVideoAnalysisTasksRequest $tmpReq
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateVideoAnalysisTasksResponse
+     */
+    public function updateVideoAnalysisTasksWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateVideoAnalysisTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'taskIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->taskIdsShrink) {
+            @$body['taskIds'] = $request->taskIdsShrink;
+        }
+
+        if (null !== $request->taskStatus) {
+            @$body['taskStatus'] = $request->taskStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVideoAnalysisTasks',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisTasks',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVideoAnalysisTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 视频理解-批量修改任务状态
+     *
+     * @param request - UpdateVideoAnalysisTasksRequest
+     *
+     * @returns UpdateVideoAnalysisTasksResponse
+     *
+     * @param string                          $workspaceId
+     * @param UpdateVideoAnalysisTasksRequest $request
+     *
+     * @return UpdateVideoAnalysisTasksResponse
+     */
+    public function updateVideoAnalysisTasks($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateVideoAnalysisTasksWithOptions($workspaceId, $request, $headers, $runtime);
     }
 }
