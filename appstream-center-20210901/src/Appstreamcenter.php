@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequ
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
@@ -609,6 +611,10 @@ class Appstreamcenter extends OpenApiClient
             @$bodyFlat['DataDisk'] = $request->dataDisk;
         }
 
+        if (null !== $request->idempotenceToken) {
+            @$body['IdempotenceToken'] = $request->idempotenceToken;
+        }
+
         if (null !== $request->imageId) {
             @$body['ImageId'] = $request->imageId;
         }
@@ -835,6 +841,63 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除工作站.
+     *
+     * @param request - DeleteWuyingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWuyingServerResponse
+     *
+     * @param DeleteWuyingServerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteWuyingServerResponse
+     */
+    public function deleteWuyingServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->wuyingServerId) {
+            @$body['WuyingServerId'] = $request->wuyingServerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWuyingServer',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWuyingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除工作站.
+     *
+     * @param request - DeleteWuyingServerRequest
+     *
+     * @returns DeleteWuyingServerResponse
+     *
+     * @param DeleteWuyingServerRequest $request
+     *
+     * @return DeleteWuyingServerResponse
+     */
+    public function deleteWuyingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWuyingServerWithOptions($request, $runtime);
     }
 
     /**

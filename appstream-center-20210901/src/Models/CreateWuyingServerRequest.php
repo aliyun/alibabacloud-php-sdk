@@ -42,6 +42,11 @@ class CreateWuyingServerRequest extends Model
     /**
      * @var string
      */
+    public $idempotenceToken;
+
+    /**
+     * @var string
+     */
     public $imageId;
 
     /**
@@ -110,6 +115,7 @@ class CreateWuyingServerRequest extends Model
         'bizRegionId' => 'BizRegionId',
         'chargeType' => 'ChargeType',
         'dataDisk' => 'DataDisk',
+        'idempotenceToken' => 'IdempotenceToken',
         'imageId' => 'ImageId',
         'officeSiteId' => 'OfficeSiteId',
         'password' => 'Password',
@@ -168,6 +174,10 @@ class CreateWuyingServerRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->idempotenceToken) {
+            $res['IdempotenceToken'] = $this->idempotenceToken;
         }
 
         if (null !== $this->imageId) {
@@ -269,6 +279,10 @@ class CreateWuyingServerRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['IdempotenceToken'])) {
+            $model->idempotenceToken = $map['IdempotenceToken'];
         }
 
         if (isset($map['ImageId'])) {
