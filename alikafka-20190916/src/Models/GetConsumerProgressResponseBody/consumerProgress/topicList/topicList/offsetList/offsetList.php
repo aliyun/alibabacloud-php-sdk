@@ -11,6 +11,11 @@ class offsetList extends Model
     /**
      * @var int
      */
+    public $accumulate;
+
+    /**
+     * @var int
+     */
     public $brokerOffset;
 
     /**
@@ -43,6 +48,7 @@ class offsetList extends Model
      */
     public $partition;
     protected $_name = [
+        'accumulate' => 'Accumulate',
         'brokerOffset' => 'BrokerOffset',
         'clientId' => 'ClientId',
         'clientIp' => 'ClientIp',
@@ -60,6 +66,10 @@ class offsetList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accumulate) {
+            $res['Accumulate'] = $this->accumulate;
+        }
+
         if (null !== $this->brokerOffset) {
             $res['BrokerOffset'] = $this->brokerOffset;
         }
@@ -99,6 +109,10 @@ class offsetList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accumulate'])) {
+            $model->accumulate = $map['Accumulate'];
+        }
+
         if (isset($map['BrokerOffset'])) {
             $model->brokerOffset = $map['BrokerOffset'];
         }
