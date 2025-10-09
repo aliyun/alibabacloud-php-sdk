@@ -401,6 +401,16 @@ class model_ extends Model
     /**
      * @var int
      */
+    public $isJailbroken;
+
+    /**
+     * @var int
+     */
+    public $isSimulator;
+
+    /**
+     * @var int
+     */
     public $isSpeedVersion;
 
     /**
@@ -796,6 +806,8 @@ class model_ extends Model
         'inMainProcess' => 'InMainProcess',
         'installSdCard' => 'InstallSdCard',
         'isBackTrace' => 'IsBackTrace',
+        'isJailbroken' => 'IsJailbroken',
+        'isSimulator' => 'IsSimulator',
         'isSpeedVersion' => 'IsSpeedVersion',
         'isp' => 'Isp',
         'jsBacktrace' => 'JsBacktrace',
@@ -1180,6 +1192,14 @@ class model_ extends Model
 
         if (null !== $this->isBackTrace) {
             $res['IsBackTrace'] = $this->isBackTrace;
+        }
+
+        if (null !== $this->isJailbroken) {
+            $res['IsJailbroken'] = $this->isJailbroken;
+        }
+
+        if (null !== $this->isSimulator) {
+            $res['IsSimulator'] = $this->isSimulator;
         }
 
         if (null !== $this->isSpeedVersion) {
@@ -1759,6 +1779,14 @@ class model_ extends Model
 
         if (isset($map['IsBackTrace'])) {
             $model->isBackTrace = $map['IsBackTrace'];
+        }
+
+        if (isset($map['IsJailbroken'])) {
+            $model->isJailbroken = $map['IsJailbroken'];
+        }
+
+        if (isset($map['IsSimulator'])) {
+            $model->isSimulator = $map['IsSimulator'];
         }
 
         if (isset($map['IsSpeedVersion'])) {

@@ -538,6 +538,8 @@ class Emasappmonitor extends OpenApiClient
     }
 
     /**
+     * RequestUploadToken.
+     *
      * @param request - RequestUploadTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -579,6 +581,8 @@ class Emasappmonitor extends OpenApiClient
     }
 
     /**
+     * RequestUploadToken.
+     *
      * @param request - RequestUploadTokenRequest
      *
      * @returns RequestUploadTokenResponse
@@ -595,6 +599,8 @@ class Emasappmonitor extends OpenApiClient
     }
 
     /**
+     * SubmitSymbolic.
+     *
      * @param request - SubmitSymbolicRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -660,6 +666,8 @@ class Emasappmonitor extends OpenApiClient
     }
 
     /**
+     * SubmitSymbolic.
+     *
      * @param request - SubmitSymbolicRequest
      *
      * @returns SubmitSymbolicResponse
