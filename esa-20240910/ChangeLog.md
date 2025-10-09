@@ -1,3 +1,6 @@
+2025-10-09 Version: 2.30.1
+- Generated php 2024-09-10 for ESA.
+
 2025-09-22 Version: 2.30.0
 - Support API GetRoutineCodeVersion.
 - Support API UpdateRoutineConfigDescription.

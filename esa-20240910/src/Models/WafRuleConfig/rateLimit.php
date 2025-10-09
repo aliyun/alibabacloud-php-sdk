@@ -5,13 +5,13 @@
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ESA\V20240910\Models\WafRatelimitCharacteristics;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig\rateLimit\threshold;
-use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleMatch2;
 
 class rateLimit extends Model
 {
     /**
-     * @var WafRuleMatch2
+     * @var WafRatelimitCharacteristics
      */
     public $characteristics;
 
@@ -88,7 +88,7 @@ class rateLimit extends Model
     {
         $model = new self();
         if (isset($map['Characteristics'])) {
-            $model->characteristics = WafRuleMatch2::fromMap($map['Characteristics']);
+            $model->characteristics = WafRatelimitCharacteristics::fromMap($map['Characteristics']);
         }
 
         if (isset($map['Interval'])) {

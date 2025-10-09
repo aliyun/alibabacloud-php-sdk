@@ -4833,7 +4833,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增边缘函数路由配置.
+     * Adds edge function routing configurations.
      *
      * @param Request - CreateRoutineRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4900,7 +4900,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增边缘函数路由配置.
+     * Adds edge function routing configurations.
      *
      * @param Request - CreateRoutineRouteRequest
      *
@@ -5571,7 +5571,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 创建网页监测配置.
+     * Create a web page monitoring configuration.
      *
      * @param Request - CreateUrlObservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5618,7 +5618,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 创建网页监测配置.
+     * Create a web page monitoring configuration.
      *
      * @param Request - CreateUrlObservationRequest
      *
@@ -5785,7 +5785,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点视频处理配置.
+     * Add video processing configurations for a website.
      *
      * @param Request - CreateVideoProcessingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5868,7 +5868,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点视频处理配置.
+     * Add video processing configurations for a website.
      *
      * @param Request - CreateVideoProcessingRequest
      *
@@ -8391,7 +8391,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除边缘函数路由配置.
+     * Deletes the route configuration of an edge function.
      *
      * @param Request - DeleteRoutineRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8434,7 +8434,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除边缘函数路由配置.
+     * Deletes the route configuration of an edge function.
      *
      * @param Request - DeleteRoutineRouteRequest
      *
@@ -8806,7 +8806,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除网页监测配置.
+     * Deletes page monitoring configurations.
      *
      * @param Request - DeleteUrlObservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8849,7 +8849,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除网页监测配置.
+     * Deletes page monitoring configurations.
      *
      * @param Request - DeleteUrlObservationRequest
      *
@@ -8936,7 +8936,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除站点视频处理配置.
+     * Deletes a video processing configuration.
      *
      * @param Request - DeleteVideoProcessingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8979,7 +8979,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除站点视频处理配置.
+     * Deletes a video processing configuration.
      *
      * @param Request - DeleteVideoProcessingRequest
      *
@@ -9582,7 +9582,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI.
+     * Provides monitoring data for metrics of ESA edge containers.
      *
      * @param Request - DescribeEdgeContainerAppStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9617,7 +9617,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI.
+     * Provides monitoring data for metrics of ESA edge containers.
      *
      * @param Request - DescribeEdgeContainerAppStatsRequest
      *
@@ -9962,7 +9962,13 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点离线日志.
+     * Queries the URLs from which you can download the raw access logs of a website.
+     *
+     * @remarks
+     *   If you do not specify StartTime or EndTime, the log data generated in the last 24 hours is queried. If you specify StartTime and EndTime, the log data generated within the specified time range is queried.
+     * *   The log data is collected every hour.
+     * *   You can call this operation up to 50 times per second per account.
+     * *   You can query only logs in the last month. The time range cannot exceed 31 days.
      *
      * @param Request - DescribeSiteLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10017,7 +10023,13 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点离线日志.
+     * Queries the URLs from which you can download the raw access logs of a website.
+     *
+     * @remarks
+     *   If you do not specify StartTime or EndTime, the log data generated in the last 24 hours is queried. If you specify StartTime and EndTime, the log data generated within the specified time range is queried.
+     * *   The log data is collected every hour.
+     * *   You can call this operation up to 50 times per second per account.
+     * *   You can query only logs in the last month. The time range cannot exceed 31 days.
      *
      * @param Request - DescribeSiteLogsRequest
      *
@@ -10036,6 +10048,16 @@ class ESA extends OpenApiClient
 
     /**
      * 获取时序数据.
+     *
+     * @remarks
+     *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
+     * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
+     *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
+     *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
+     *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
+     *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
+     *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
+     * *   Data analysis may be sampled due to a large number of visits during the query period.
      *
      * @param tmpReq - DescribeSiteTimeSeriesDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10098,6 +10120,16 @@ class ESA extends OpenApiClient
     /**
      * 获取时序数据.
      *
+     * @remarks
+     *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
+     * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
+     *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
+     *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
+     *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
+     *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
+     *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
+     * *   Data analysis may be sampled due to a large number of visits during the query period.
+     *
      * @param Request - DescribeSiteTimeSeriesDataRequest
      *
      * @returns DescribeSiteTimeSeriesDataResponse
@@ -10114,7 +10146,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取Top数据.
+     * Queries the top-ranking records in a traffic analytics report by website or Alibaba Cloud account.
+     *
+     * @remarks
+     *   If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the previous 24 hours. If you specify both parameters, the request returns the data collected within the specified time range.
      *
      * @param tmpReq - DescribeSiteTopDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10179,7 +10214,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取Top数据.
+     * Queries the top-ranking records in a traffic analytics report by website or Alibaba Cloud account.
+     *
+     * @remarks
+     *   If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the previous 24 hours. If you specify both parameters, the request returns the data collected within the specified time range.
      *
      * @param Request - DescribeSiteTopDataRequest
      *
@@ -10197,7 +10235,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询网页观测质量数据.
+     * Queries the page monitoring data.
+     *
+     * @remarks
+     * If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
      *
      * @param Request - DescribeUrlObservationDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10256,7 +10297,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询网页观测质量数据.
+     * Queries the page monitoring data.
+     *
+     * @remarks
+     * If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
      *
      * @param Request - DescribeUrlObservationDataRequest
      *
@@ -11035,7 +11079,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点中国大陆网络接入优化配置.
+     * Queries the configuration of Chinese mainland access optimization.
      *
      * @param Request - GetCrossBorderOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11070,7 +11114,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点中国大陆网络接入优化配置.
+     * Queries the configuration of Chinese mainland access optimization.
      *
      * @param Request - GetCrossBorderOptimizationRequest
      *
@@ -11251,7 +11295,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取边缘容器资源预留配置.
+     * Obtain the resource reservation configuration of the edge container.
      *
      * @param Request - GetEdgeContainerAppResourceReserveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11290,7 +11334,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取边缘容器资源预留配置.
+     * Obtain the resource reservation configuration of the edge container.
      *
      * @param Request - GetEdgeContainerAppResourceReserveRequest
      *
@@ -11308,7 +11352,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取边缘容器应用资源分布.
+     * Obtains the distribution of edge container application resources.
      *
      * @param Request - GetEdgeContainerAppResourceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11347,7 +11391,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取边缘容器应用资源分布.
+     * Obtains the distribution of edge container application resources.
      *
      * @param Request - GetEdgeContainerAppResourceStatusRequest
      *
@@ -13302,7 +13346,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条边缘函数路由配置.
+     * Queries the route configurations of a single edge function.
      *
      * @param Request - GetRoutineRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13345,7 +13389,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条边缘函数路由配置.
+     * Queries the route configurations of a single edge function.
      *
      * @param Request - GetRoutineRouteRequest
      *
@@ -14422,7 +14466,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点视频处理配置详情.
+     * Queries the video processing configuration details of a site.
      *
      * @param Request - GetVideoProcessingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14465,7 +14509,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点视频处理配置详情.
+     * Queries the video processing configuration details of a site.
      *
      * @param Request - GetVideoProcessingRequest
      *
@@ -14938,7 +14982,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询匹配记录名的站点证书列表.
+     * Lists certificates that match specified records for a website. You can specify multiple records at a time.
      *
      * @param Request - ListCertificatesByRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14973,7 +15017,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询匹配记录名的站点证书列表.
+     * Lists certificates that match specified records for a website. You can specify multiple records at a time.
      *
      * @param Request - ListCertificatesByRecordRequest
      *
@@ -15203,7 +15247,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 批量查询IP是否为VIP.
+     * Batch query whether the IP address is included in the ESA resolution result.
+     *
+     * @remarks
+     * This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
      *
      * @param Request - ListESAIPInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15238,7 +15285,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 批量查询IP是否为VIP.
+     * Batch query whether the IP address is included in the ESA resolution result.
+     *
+     * @remarks
+     * This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
      *
      * @param Request - ListESAIPInfoRequest
      *
@@ -16981,7 +17031,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询Routine的代码版本列表.
+     * Queries the code versions of a function (routine) by page.
+     *
+     * @remarks
+     * Call this operation to query the code versions of a specific function. Paged query and fuzzy search are supported. You can configure `Name` to specify the name of a function.
+     * Specify `PageNumber` and `PageSize` to control the number of entries returned in a request, and use `SearchKeyWord` to specify a keyword for fuzzy search.
+     * The response includes the number, description, and creation time of each code version.
      *
      * @param Request - ListRoutineCodeVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17032,7 +17087,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询Routine的代码版本列表.
+     * Queries the code versions of a function (routine) by page.
+     *
+     * @remarks
+     * Call this operation to query the code versions of a specific function. Paged query and fuzzy search are supported. You can configure `Name` to specify the name of a function.
+     * Specify `PageNumber` and `PageSize` to control the number of entries returned in a request, and use `SearchKeyWord` to specify a keyword for fuzzy search.
+     * The response includes the number, description, and creation time of each code version.
      *
      * @param Request - ListRoutineCodeVersionsRequest
      *
@@ -17050,7 +17110,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询函数关联域名列表.
+     * The records associated with the function.
+     *
+     * @remarks
+     * You can call this operation to query the routes associated with a function. You can specify paged query parameters to obtain the specified number of routes or specify a keyword for fuzzy search to filter specific routes.
      *
      * @param Request - ListRoutineRelatedRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17101,7 +17164,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询函数关联域名列表.
+     * The records associated with the function.
+     *
+     * @remarks
+     * You can call this operation to query the routes associated with a function. You can specify paged query parameters to obtain the specified number of routes or specify a keyword for fuzzy search to filter specific routes.
      *
      * @param Request - ListRoutineRelatedRecordsRequest
      *
@@ -17119,7 +17185,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询边缘程序的函数路由列表.
+     * Queries the routes of an edge function.
      *
      * @param Request - ListRoutineRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17166,7 +17232,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询边缘程序的函数路由列表.
+     * Queries the routes of an edge function.
      *
      * @param Request - ListRoutineRoutesRequest
      *
@@ -17343,7 +17409,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点的函数路由列表.
+     * Queries the edge function routes for a website.
      *
      * @param Request - ListSiteRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17402,7 +17468,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点的函数路由列表.
+     * Queries the edge function routes for a website.
      *
      * @param Request - ListSiteRoutesRequest
      *
@@ -17670,7 +17736,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询网页观测配置列表.
+     * Queries the list of page monitoring configurations.
      *
      * @param Request - ListUrlObservationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17721,7 +17787,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询网页观测配置列表.
+     * Queries the list of page monitoring configurations.
      *
      * @param Request - ListUrlObservationsRequest
      *
@@ -17845,7 +17911,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询用户的Routine列表.
+     * Queries the functions created in your account and the maximum number of functions supported by your plan. You can call this operation to perform a paged query.
+     *
+     * @remarks
+     * You can call this operation to perform a paged query to query all functions created in your account, the maximum number of functions supported by the billing plan that you use, and the number of functions already created. You can specify `PageNumber` and `PageSize` to control the number of entries to be returned in the response and specify `SearchKeyWord` to perform a fuzzy search to filter specific routine names.
      *
      * @param Request - ListUserRoutinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17892,7 +17961,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询用户的Routine列表.
+     * Queries the functions created in your account and the maximum number of functions supported by your plan. You can call this operation to perform a paged query.
+     *
+     * @remarks
+     * You can call this operation to perform a paged query to query all functions created in your account, the maximum number of functions supported by the billing plan that you use, and the number of functions already created. You can specify `PageNumber` and `PageSize` to control the number of entries to be returned in the response and specify `SearchKeyWord` to perform a fuzzy search to filter specific routine names.
      *
      * @param Request - ListUserRoutinesRequest
      *
@@ -17910,7 +17982,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点视频处理配置列表.
+     * Queries the video processing configurations of a site.
      *
      * @param Request - ListVideoProcessingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17973,7 +18045,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点视频处理配置列表.
+     * Queries the video processing configurations of a site.
      *
      * @param Request - ListVideoProcessingsRequest
      *
@@ -21085,7 +21157,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 更新边缘容器资源预留配置.
+     * Updates the resource reservation configuration of an edge container.
      *
      * @param tmpReq - UpdateEdgeContainerAppResourceReserveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21146,7 +21218,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 更新边缘容器资源预留配置.
+     * Updates the resource reservation configuration of an edge container.
      *
      * @param Request - UpdateEdgeContainerAppResourceReserveRequest
      *
@@ -23142,7 +23214,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改边缘函数路由配置.
+     * Modifies the route configuration of an edge function.
      *
      * @param Request - UpdateRoutineRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23213,7 +23285,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改边缘函数路由配置.
+     * Modifies the route configuration of an edge function.
      *
      * @param Request - UpdateRoutineRouteRequest
      *
@@ -23306,7 +23378,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点放行搜索引擎爬虫配置.
+     * Modifies the search engine crawler configuration for a website.
      *
      * @param Request - UpdateSeoBypassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23349,7 +23421,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点放行搜索引擎爬虫配置.
+     * Modifies the search engine crawler configuration for a website.
      *
      * @param Request - UpdateSeoBypassRequest
      *
@@ -24043,7 +24115,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 更新网页监测配置.
+     * Updates the webpage monitoring configuration.
      *
      * @param Request - UpdateUrlObservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24090,7 +24162,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 更新网页监测配置.
+     * Updates the webpage monitoring configuration.
      *
      * @param Request - UpdateUrlObservationRequest
      *
@@ -24246,7 +24318,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点视频处理配置.
+     * Modifies the video processing configuration of the site.
      *
      * @param Request - UpdateVideoProcessingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24329,7 +24401,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点视频处理配置.
+     * Modifies the video processing configuration of the site.
      *
      * @param Request - UpdateVideoProcessingRequest
      *
