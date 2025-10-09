@@ -11,6 +11,16 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosMcpServerResponseBody\data\too
 class toolSpec extends Model
 {
     /**
+     * @var mixed
+     */
+    public $securitySchemes;
+
+    /**
+     * @var string
+     */
+    public $specificationType;
+
+    /**
      * @var tools[]
      */
     public $tools;
@@ -20,6 +30,8 @@ class toolSpec extends Model
      */
     public $toolsMeta;
     protected $_name = [
+        'securitySchemes' => 'SecuritySchemes',
+        'specificationType' => 'SpecificationType',
         'tools' => 'Tools',
         'toolsMeta' => 'ToolsMeta',
     ];
@@ -38,6 +50,14 @@ class toolSpec extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->securitySchemes) {
+            $res['SecuritySchemes'] = $this->securitySchemes;
+        }
+
+        if (null !== $this->specificationType) {
+            $res['SpecificationType'] = $this->specificationType;
+        }
+
         if (null !== $this->tools) {
             if (\is_array($this->tools)) {
                 $res['Tools'] = [];
@@ -69,6 +89,14 @@ class toolSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SecuritySchemes'])) {
+            $model->securitySchemes = $map['SecuritySchemes'];
+        }
+
+        if (isset($map['SpecificationType'])) {
+            $model->specificationType = $map['SpecificationType'];
+        }
+
         if (isset($map['Tools'])) {
             if (!empty($map['Tools'])) {
                 $model->tools = [];

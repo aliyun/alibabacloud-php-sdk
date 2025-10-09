@@ -14,6 +14,11 @@ class CreateNacosMcpServerRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var bool
+     */
+    public $encryptToolSpec;
+
+    /**
      * @var string
      */
     public $endpointSpecification;
@@ -49,6 +54,7 @@ class CreateNacosMcpServerRequest extends Model
     public $yamlConfig;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'encryptToolSpec' => 'EncryptToolSpec',
         'endpointSpecification' => 'EndpointSpecification',
         'instanceId' => 'InstanceId',
         'namespaceId' => 'NamespaceId',
@@ -68,6 +74,10 @@ class CreateNacosMcpServerRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+
+        if (null !== $this->encryptToolSpec) {
+            $res['EncryptToolSpec'] = $this->encryptToolSpec;
         }
 
         if (null !== $this->endpointSpecification) {
@@ -111,6 +121,10 @@ class CreateNacosMcpServerRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+
+        if (isset($map['EncryptToolSpec'])) {
+            $model->encryptToolSpec = $map['EncryptToolSpec'];
         }
 
         if (isset($map['EndpointSpecification'])) {

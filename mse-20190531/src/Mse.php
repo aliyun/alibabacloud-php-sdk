@@ -3894,6 +3894,10 @@ class Mse extends OpenApiClient
             @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
 
+        if (null !== $request->encryptToolSpec) {
+            @$query['EncryptToolSpec'] = $request->encryptToolSpec;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
