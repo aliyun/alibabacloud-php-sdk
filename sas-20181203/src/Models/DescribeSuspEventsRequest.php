@@ -154,6 +154,11 @@ class DescribeSuspEventsRequest extends Model
     public $strictMode;
 
     /**
+     * @var string[]
+     */
+    public $supportOperateCodeList;
+
+    /**
      * @var string
      */
     public $tacticId;
@@ -212,6 +217,7 @@ class DescribeSuspEventsRequest extends Model
         'sourceIp' => 'SourceIp',
         'status' => 'Status',
         'strictMode' => 'StrictMode',
+        'supportOperateCodeList' => 'SupportOperateCodeList',
         'tacticId' => 'TacticId',
         'targetType' => 'TargetType',
         'timeEnd' => 'TimeEnd',
@@ -230,6 +236,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (\is_array($this->sourceAliUids)) {
             Model::validateArray($this->sourceAliUids);
+        }
+        if (\is_array($this->supportOperateCodeList)) {
+            Model::validateArray($this->supportOperateCodeList);
         }
         parent::validate();
     }
@@ -372,6 +381,17 @@ class DescribeSuspEventsRequest extends Model
 
         if (null !== $this->strictMode) {
             $res['StrictMode'] = $this->strictMode;
+        }
+
+        if (null !== $this->supportOperateCodeList) {
+            if (\is_array($this->supportOperateCodeList)) {
+                $res['SupportOperateCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->supportOperateCodeList as $item1) {
+                    $res['SupportOperateCodeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->tacticId) {
@@ -544,6 +564,17 @@ class DescribeSuspEventsRequest extends Model
 
         if (isset($map['StrictMode'])) {
             $model->strictMode = $map['StrictMode'];
+        }
+
+        if (isset($map['SupportOperateCodeList'])) {
+            if (!empty($map['SupportOperateCodeList'])) {
+                $model->supportOperateCodeList = [];
+                $n1 = 0;
+                foreach ($map['SupportOperateCodeList'] as $item1) {
+                    $model->supportOperateCodeList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TacticId'])) {

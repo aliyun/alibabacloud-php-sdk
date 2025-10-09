@@ -24566,6 +24566,10 @@ class Sas extends OpenApiClient
             @$query['SourceIp'] = $request->sourceIp;
         }
 
+        if (null !== $request->supportOperateCodeList) {
+            @$query['SupportOperateCodeList'] = $request->supportOperateCodeList;
+        }
+
         if (null !== $request->uuids) {
             @$query['Uuids'] = $request->uuids;
         }
@@ -29601,6 +29605,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->strictMode) {
             @$query['StrictMode'] = $request->strictMode;
+        }
+
+        if (null !== $request->supportOperateCodeList) {
+            @$query['SupportOperateCodeList'] = $request->supportOperateCodeList;
         }
 
         if (null !== $request->targetType) {

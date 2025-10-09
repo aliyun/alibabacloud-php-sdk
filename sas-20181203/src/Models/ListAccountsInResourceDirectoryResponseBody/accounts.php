@@ -69,6 +69,11 @@ class accounts extends Model
     public $isSiemDaAccount;
 
     /**
+     * @var int
+     */
+    public $postBasicService;
+
+    /**
      * @var string
      */
     public $postPayModuleSwitch;
@@ -95,6 +100,7 @@ class accounts extends Model
         'isSasDaAccount' => 'IsSasDaAccount',
         'isSiemControlAccount' => 'IsSiemControlAccount',
         'isSiemDaAccount' => 'IsSiemDaAccount',
+        'postBasicService' => 'PostBasicService',
         'postPayModuleSwitch' => 'PostPayModuleSwitch',
         'saleInstance' => 'SaleInstance',
         'sasVersion' => 'SasVersion',
@@ -154,6 +160,10 @@ class accounts extends Model
 
         if (null !== $this->isSiemDaAccount) {
             $res['IsSiemDaAccount'] = $this->isSiemDaAccount;
+        }
+
+        if (null !== $this->postBasicService) {
+            $res['PostBasicService'] = $this->postBasicService;
         }
 
         if (null !== $this->postPayModuleSwitch) {
@@ -225,6 +235,10 @@ class accounts extends Model
 
         if (isset($map['IsSiemDaAccount'])) {
             $model->isSiemDaAccount = $map['IsSiemDaAccount'];
+        }
+
+        if (isset($map['PostBasicService'])) {
+            $model->postBasicService = $map['PostBasicService'];
         }
 
         if (isset($map['PostPayModuleSwitch'])) {

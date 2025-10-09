@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMonitorAccountsResponseBody\accountIdInfos;
 
 class DescribeMonitorAccountsResponseBody extends Model
 {
+    /**
+     * @var accountIdInfos[]
+     */
+    public $accountIdInfos;
+
     /**
      * @var string[]
      */
@@ -18,12 +24,16 @@ class DescribeMonitorAccountsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'accountIdInfos' => 'AccountIdInfos',
         'accountIds' => 'AccountIds',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->accountIdInfos)) {
+            Model::validateArray($this->accountIdInfos);
+        }
         if (\is_array($this->accountIds)) {
             Model::validateArray($this->accountIds);
         }
@@ -33,6 +43,17 @@ class DescribeMonitorAccountsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountIdInfos) {
+            if (\is_array($this->accountIdInfos)) {
+                $res['AccountIdInfos'] = [];
+                $n1 = 0;
+                foreach ($this->accountIdInfos as $item1) {
+                    $res['AccountIdInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->accountIds) {
             if (\is_array($this->accountIds)) {
                 $res['AccountIds'] = [];
@@ -59,6 +80,17 @@ class DescribeMonitorAccountsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountIdInfos'])) {
+            if (!empty($map['AccountIdInfos'])) {
+                $model->accountIdInfos = [];
+                $n1 = 0;
+                foreach ($map['AccountIdInfos'] as $item1) {
+                    $model->accountIdInfos[$n1] = accountIdInfos::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = [];

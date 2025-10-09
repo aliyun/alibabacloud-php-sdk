@@ -267,6 +267,11 @@ class suspEvents extends Model
     public $stages;
 
     /**
+     * @var string
+     */
+    public $supportOperateCode;
+
+    /**
      * @var tacticItems[]
      */
     public $tacticItems;
@@ -337,6 +342,7 @@ class suspEvents extends Model
         'securityEventIds' => 'SecurityEventIds',
         'sourceAliUid' => 'SourceAliUid',
         'stages' => 'Stages',
+        'supportOperateCode' => 'SupportOperateCode',
         'tacticItems' => 'TacticItems',
         'uniqueInfo' => 'UniqueInfo',
         'uuid' => 'Uuid',
@@ -586,6 +592,10 @@ class suspEvents extends Model
 
         if (null !== $this->stages) {
             $res['Stages'] = $this->stages;
+        }
+
+        if (null !== $this->supportOperateCode) {
+            $res['SupportOperateCode'] = $this->supportOperateCode;
         }
 
         if (null !== $this->tacticItems) {
@@ -845,6 +855,10 @@ class suspEvents extends Model
 
         if (isset($map['Stages'])) {
             $model->stages = $map['Stages'];
+        }
+
+        if (isset($map['SupportOperateCode'])) {
+            $model->supportOperateCode = $map['SupportOperateCode'];
         }
 
         if (isset($map['TacticItems'])) {

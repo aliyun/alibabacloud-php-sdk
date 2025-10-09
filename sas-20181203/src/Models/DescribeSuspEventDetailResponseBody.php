@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailResponseBody\de
 class DescribeSuspEventDetailResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $alarmUniqueInfo;
+
+    /**
      * @var bool
      */
     public $canBeDealOnLine;
@@ -99,6 +104,7 @@ class DescribeSuspEventDetailResponseBody extends Model
      */
     public $uuid;
     protected $_name = [
+        'alarmUniqueInfo' => 'AlarmUniqueInfo',
         'canBeDealOnLine' => 'CanBeDealOnLine',
         'dataSource' => 'DataSource',
         'details' => 'Details',
@@ -130,6 +136,10 @@ class DescribeSuspEventDetailResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alarmUniqueInfo) {
+            $res['AlarmUniqueInfo'] = $this->alarmUniqueInfo;
+        }
+
         if (null !== $this->canBeDealOnLine) {
             $res['CanBeDealOnLine'] = $this->canBeDealOnLine;
         }
@@ -220,6 +230,10 @@ class DescribeSuspEventDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlarmUniqueInfo'])) {
+            $model->alarmUniqueInfo = $map['AlarmUniqueInfo'];
+        }
+
         if (isset($map['CanBeDealOnLine'])) {
             $model->canBeDealOnLine = $map['CanBeDealOnLine'];
         }

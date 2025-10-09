@@ -34,6 +34,11 @@ class GetAuthSummaryResponseBody extends Model
     /**
      * @var int
      */
+    public $clusterNodeCheck;
+
+    /**
+     * @var int
+     */
     public $defaultAuthToAll;
 
     /**
@@ -95,6 +100,7 @@ class GetAuthSummaryResponseBody extends Model
         'allowUpgradePartialBuy' => 'AllowUpgradePartialBuy',
         'allowUserUnbind' => 'AllowUserUnbind',
         'autoBind' => 'AutoBind',
+        'clusterNodeCheck' => 'ClusterNodeCheck',
         'defaultAuthToAll' => 'DefaultAuthToAll',
         'hasPreBindSetting' => 'HasPreBindSetting',
         'highestVersion' => 'HighestVersion',
@@ -140,6 +146,10 @@ class GetAuthSummaryResponseBody extends Model
 
         if (null !== $this->autoBind) {
             $res['AutoBind'] = $this->autoBind;
+        }
+
+        if (null !== $this->clusterNodeCheck) {
+            $res['ClusterNodeCheck'] = $this->clusterNodeCheck;
         }
 
         if (null !== $this->defaultAuthToAll) {
@@ -229,6 +239,10 @@ class GetAuthSummaryResponseBody extends Model
 
         if (isset($map['AutoBind'])) {
             $model->autoBind = $map['AutoBind'];
+        }
+
+        if (isset($map['ClusterNodeCheck'])) {
+            $model->clusterNodeCheck = $map['ClusterNodeCheck'];
         }
 
         if (isset($map['DefaultAuthToAll'])) {

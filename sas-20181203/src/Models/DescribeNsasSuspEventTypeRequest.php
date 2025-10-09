@@ -49,6 +49,11 @@ class DescribeNsasSuspEventTypeRequest extends Model
     public $sourceIp;
 
     /**
+     * @var string[]
+     */
+    public $supportOperateCodeList;
+
+    /**
      * @var string
      */
     public $uuids;
@@ -61,11 +66,15 @@ class DescribeNsasSuspEventTypeRequest extends Model
         'name' => 'Name',
         'remark' => 'Remark',
         'sourceIp' => 'SourceIp',
+        'supportOperateCodeList' => 'SupportOperateCodeList',
         'uuids' => 'Uuids',
     ];
 
     public function validate()
     {
+        if (\is_array($this->supportOperateCodeList)) {
+            Model::validateArray($this->supportOperateCodeList);
+        }
         parent::validate();
     }
 
@@ -102,6 +111,17 @@ class DescribeNsasSuspEventTypeRequest extends Model
 
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
+        }
+
+        if (null !== $this->supportOperateCodeList) {
+            if (\is_array($this->supportOperateCodeList)) {
+                $res['SupportOperateCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->supportOperateCodeList as $item1) {
+                    $res['SupportOperateCodeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->uuids) {
@@ -149,6 +169,17 @@ class DescribeNsasSuspEventTypeRequest extends Model
 
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
+        }
+
+        if (isset($map['SupportOperateCodeList'])) {
+            if (!empty($map['SupportOperateCodeList'])) {
+                $model->supportOperateCodeList = [];
+                $n1 = 0;
+                foreach ($map['SupportOperateCodeList'] as $item1) {
+                    $model->supportOperateCodeList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Uuids'])) {
