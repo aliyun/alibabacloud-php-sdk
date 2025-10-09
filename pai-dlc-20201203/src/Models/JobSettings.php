@@ -94,6 +94,11 @@ class JobSettings extends Model
     public $jobReservedPolicy;
 
     /**
+     * @var ModelConfig
+     */
+    public $modelConfig;
+
+    /**
      * @var string
      */
     public $oversoldType;
@@ -130,6 +135,7 @@ class JobSettings extends Model
         'errorMonitoringArgs' => 'ErrorMonitoringArgs',
         'jobReservedMinutes' => 'JobReservedMinutes',
         'jobReservedPolicy' => 'JobReservedPolicy',
+        'modelConfig' => 'ModelConfig',
         'oversoldType' => 'OversoldType',
         'pipelineId' => 'PipelineId',
         'sanityCheckArgs' => 'SanityCheckArgs',
@@ -143,6 +149,9 @@ class JobSettings extends Model
         }
         if (null !== $this->dataJuicerConfig) {
             $this->dataJuicerConfig->validate();
+        }
+        if (null !== $this->modelConfig) {
+            $this->modelConfig->validate();
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -224,6 +233,10 @@ class JobSettings extends Model
 
         if (null !== $this->jobReservedPolicy) {
             $res['JobReservedPolicy'] = $this->jobReservedPolicy;
+        }
+
+        if (null !== $this->modelConfig) {
+            $res['ModelConfig'] = null !== $this->modelConfig ? $this->modelConfig->toArray($noStream) : $this->modelConfig;
         }
 
         if (null !== $this->oversoldType) {
@@ -329,6 +342,10 @@ class JobSettings extends Model
 
         if (isset($map['JobReservedPolicy'])) {
             $model->jobReservedPolicy = $map['JobReservedPolicy'];
+        }
+
+        if (isset($map['ModelConfig'])) {
+            $model->modelConfig = ModelConfig::fromMap($map['ModelConfig']);
         }
 
         if (isset($map['OversoldType'])) {

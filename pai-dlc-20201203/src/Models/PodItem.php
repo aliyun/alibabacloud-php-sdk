@@ -46,6 +46,11 @@ class PodItem extends Model
     /**
      * @var string
      */
+    public $podIp;
+
+    /**
+     * @var string
+     */
     public $podUid;
 
     /**
@@ -70,6 +75,7 @@ class PodItem extends Model
         'ip' => 'Ip',
         'nodeName' => 'NodeName',
         'podId' => 'PodId',
+        'podIp' => 'PodIp',
         'podUid' => 'PodUid',
         'status' => 'Status',
         'subStatus' => 'SubStatus',
@@ -120,6 +126,10 @@ class PodItem extends Model
 
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
+        }
+
+        if (null !== $this->podIp) {
+            $res['PodIp'] = $this->podIp;
         }
 
         if (null !== $this->podUid) {
@@ -182,6 +192,10 @@ class PodItem extends Model
 
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
+        }
+
+        if (isset($map['PodIp'])) {
+            $model->podIp = $map['PodIp'];
         }
 
         if (isset($map['PodUid'])) {
