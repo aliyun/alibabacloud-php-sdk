@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponseBody\alertRule;
-use AlibabaCloud\Tea\Model;
 
 class GetAlertRuleResponseBody extends Model
 {
     /**
-     * @description The information about the rule.
-     *
      * @var alertRule
      */
     public $alertRule;
 
     /**
-     * @description The request ID.
-     *
-     * @example 8abcb91f-d266-4073-b907-2ed670378ed1
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetAlertRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->alertRule) {
+            $this->alertRule->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertRule) {
-            $res['AlertRule'] = null !== $this->alertRule ? $this->alertRule->toMap() : null;
+            $res['AlertRule'] = null !== $this->alertRule ? $this->alertRule->toArray($noStream) : $this->alertRule;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetAlertRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAlertRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertRule'])) {
             $model->alertRule = alertRule::fromMap($map['AlertRule']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

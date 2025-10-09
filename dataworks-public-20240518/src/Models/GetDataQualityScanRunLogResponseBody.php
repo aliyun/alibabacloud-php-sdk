@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunLogResponseBody\logSegment;
-use AlibabaCloud\Tea\Model;
 
 class GetDataQualityScanRunLogResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class GetDataQualityScanRunLogResponseBody extends Model
     public $logSegment;
 
     /**
-     * @example 0bc14115***159376359
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class GetDataQualityScanRunLogResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->logSegment) {
+            $this->logSegment->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logSegment) {
-            $res['LogSegment'] = null !== $this->logSegment ? $this->logSegment->toMap() : null;
+            $res['LogSegment'] = null !== $this->logSegment ? $this->logSegment->toArray($noStream) : $this->logSegment;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class GetDataQualityScanRunLogResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataQualityScanRunLogResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogSegment'])) {
             $model->logSegment = logSegment::fromMap($map['LogSegment']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

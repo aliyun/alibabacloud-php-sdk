@@ -4,40 +4,30 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody\eventDetail\committedFile;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody\eventDetail\deletedFile;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody\eventDetail\fileExecutionCommand;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody\eventDetail\tableModel;
-use AlibabaCloud\Tea\Model;
 
 class eventDetail extends Model
 {
     /**
-     * @description The data snapshot when the file is committed and deployed.
-     *
-     * This parameter is valid only if the message type is IDE_FILE_SUBMIT_BEFORE or IDE_FILE_DEPLOY_BEFORE.
-     *
      * @var committedFile
      */
     public $committedFile;
 
     /**
-     * @description The data snapshot when the file is deleted. This parameter is valid only if the message type is IDE_FILE_DELETE_BEFORE.
-     *
      * @var deletedFile
      */
     public $deletedFile;
 
     /**
-     * @description The data snapshot when the code in the file is run. This parameter is valid only if the message type is IDE_FILE_EXECUTE_BEFORE.
-     *
      * @var fileExecutionCommand
      */
     public $fileExecutionCommand;
 
     /**
-     * @description The data snapshot when the table is committed and deployed. This parameter is valid only if the message type is IDE_TABLE_SUBMIT_BEFORE or IDE_TABLE_DEPLOY_BEFORE.
-     *
      * @var tableModel
      */
     public $tableModel;
@@ -48,44 +38,65 @@ class eventDetail extends Model
         'tableModel' => 'TableModel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->committedFile) {
+            $this->committedFile->validate();
+        }
+        if (null !== $this->deletedFile) {
+            $this->deletedFile->validate();
+        }
+        if (null !== $this->fileExecutionCommand) {
+            $this->fileExecutionCommand->validate();
+        }
+        if (null !== $this->tableModel) {
+            $this->tableModel->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->committedFile) {
-            $res['CommittedFile'] = null !== $this->committedFile ? $this->committedFile->toMap() : null;
+            $res['CommittedFile'] = null !== $this->committedFile ? $this->committedFile->toArray($noStream) : $this->committedFile;
         }
+
         if (null !== $this->deletedFile) {
-            $res['DeletedFile'] = null !== $this->deletedFile ? $this->deletedFile->toMap() : null;
+            $res['DeletedFile'] = null !== $this->deletedFile ? $this->deletedFile->toArray($noStream) : $this->deletedFile;
         }
+
         if (null !== $this->fileExecutionCommand) {
-            $res['FileExecutionCommand'] = null !== $this->fileExecutionCommand ? $this->fileExecutionCommand->toMap() : null;
+            $res['FileExecutionCommand'] = null !== $this->fileExecutionCommand ? $this->fileExecutionCommand->toArray($noStream) : $this->fileExecutionCommand;
         }
+
         if (null !== $this->tableModel) {
-            $res['TableModel'] = null !== $this->tableModel ? $this->tableModel->toMap() : null;
+            $res['TableModel'] = null !== $this->tableModel ? $this->tableModel->toArray($noStream) : $this->tableModel;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommittedFile'])) {
             $model->committedFile = committedFile::fromMap($map['CommittedFile']);
         }
+
         if (isset($map['DeletedFile'])) {
             $model->deletedFile = deletedFile::fromMap($map['DeletedFile']);
         }
+
         if (isset($map['FileExecutionCommand'])) {
             $model->fileExecutionCommand = fileExecutionCommand::fromMap($map['FileExecutionCommand']);
         }
+
         if (isset($map['TableModel'])) {
             $model->tableModel = tableModel::fromMap($map['TableModel']);
         }

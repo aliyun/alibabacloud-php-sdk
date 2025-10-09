@@ -4,93 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponseBody\pagingInfo\pipelineRuns;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stages extends Model
 {
     /**
-     * @description The code of the stage.
-     *
-     * @example DEV_CHECK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The description of the stage.
-     *
-     * @example Check before going online to development
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The additional information about the stage.
-     *
      * @var mixed[]
      */
     public $detail;
 
     /**
-     * @description The error message returned during the stage.
-     *
-     * @example Error message
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The name of the stage.
-     *
-     * @example Check before going online to development
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The status of the stage.
-     *
-     * Valid values:
-     *
-     *   Init
-     *   Running
-     *   Success
-     *   Fail
-     *   Termination
-     *   Cancel
-     *
-     * @example Running
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The step number of the stage.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $step;
 
     /**
-     * @description The type of the stage. This parameter indicates the operation type in the stage.
-     *
-     * Valid values:
-     *
-     *   Deploy
-     *   Check
-     *   Offline
-     *   Build
-     *   Delete
-     *
-     * @example Check
-     *
      * @var string
      */
     public $type;
@@ -105,32 +58,50 @@ class stages extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->detail)) {
+            Model::validateArray($this->detail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
+            if (\is_array($this->detail)) {
+                $res['Detail'] = [];
+                foreach ($this->detail as $key1 => $value1) {
+                    $res['Detail'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -138,35 +109,47 @@ class stages extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
+            if (!empty($map['Detail'])) {
+                $model->detail = [];
+                foreach ($map['Detail'] as $key1 => $value1) {
+                    $model->detail[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

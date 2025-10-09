@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunResponseBody\dataQualityScanRun\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class details extends Model
 {
     /**
-     * @example 100.0
-     *
      * @var string
      */
     public $checkValue;
 
     /**
-     * @example 0.0
-     *
      * @var string
      */
     public $referenceValue;
 
     /**
-     * @example Fail
-     *
      * @var string
      */
     public $status;
@@ -34,17 +28,22 @@ class details extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkValue) {
             $res['CheckValue'] = $this->checkValue;
         }
+
         if (null !== $this->referenceValue) {
             $res['ReferenceValue'] = $this->referenceValue;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,20 +51,22 @@ class details extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return details
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckValue'])) {
             $model->checkValue = $map['CheckValue'];
         }
+
         if (isset($map['ReferenceValue'])) {
             $model->referenceValue = $map['ReferenceValue'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

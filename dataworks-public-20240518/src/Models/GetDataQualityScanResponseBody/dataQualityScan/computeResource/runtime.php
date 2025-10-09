@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanResponseBody\dataQualityScan\computeResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class runtime extends Model
 {
     /**
-     * @example Hive
-     *
      * @var string
      */
     public $engine;
 
     /**
-     * @example mapreduce.job.queuename=dq_queue
-     *
      * @var mixed[]
      */
     public $hiveConf;
 
     /**
-     * @example spark.yarn.queue=dq_queue
-     *
      * @var mixed[]
      */
     public $sparkConf;
@@ -34,40 +28,73 @@ class runtime extends Model
         'sparkConf' => 'SparkConf',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hiveConf)) {
+            Model::validateArray($this->hiveConf);
+        }
+        if (\is_array($this->sparkConf)) {
+            Model::validateArray($this->sparkConf);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->hiveConf) {
-            $res['HiveConf'] = $this->hiveConf;
+            if (\is_array($this->hiveConf)) {
+                $res['HiveConf'] = [];
+                foreach ($this->hiveConf as $key1 => $value1) {
+                    $res['HiveConf'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sparkConf) {
-            $res['SparkConf'] = $this->sparkConf;
+            if (\is_array($this->sparkConf)) {
+                $res['SparkConf'] = [];
+                foreach ($this->sparkConf as $key1 => $value1) {
+                    $res['SparkConf'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return runtime
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['HiveConf'])) {
-            $model->hiveConf = $map['HiveConf'];
+            if (!empty($map['HiveConf'])) {
+                $model->hiveConf = [];
+                foreach ($map['HiveConf'] as $key1 => $value1) {
+                    $model->hiveConf[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SparkConf'])) {
-            $model->sparkConf = $map['SparkConf'];
+            if (!empty($map['SparkConf'])) {
+                $model->sparkConf = [];
+                foreach ($map['SparkConf'] as $key1 => $value1) {
+                    $model->sparkConf[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

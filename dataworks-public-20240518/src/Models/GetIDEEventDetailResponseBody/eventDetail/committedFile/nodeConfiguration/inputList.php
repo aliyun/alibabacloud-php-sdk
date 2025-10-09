@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody\eventDetail\committedFile\nodeConfiguration;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class inputList extends Model
 {
     /**
-     * @description The output name of the parent file on which the current file depends.
-     *
-     * This parameter corresponds to the Output Name of Ancestor Node parameter under Parent Nodes in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
-     *
-     * @example dw_project_root
-     *
      * @var string
      */
     public $input;
 
     /**
-     * @description The mode of the configuration file dependency. Valid values:
-     *
-     *   MANUAL: Scheduling dependencies are manually configured.
-     *   AUTO: Scheduling dependencies are automatically parsed.
-     *
-     * @example MANUAL
-     *
      * @var string
      */
     public $parseType;
@@ -35,14 +22,18 @@ class inputList extends Model
         'parseType' => 'ParseType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
+
         if (null !== $this->parseType) {
             $res['ParseType'] = $this->parseType;
         }
@@ -50,17 +41,18 @@ class inputList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inputList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }
+
         if (isset($map['ParseType'])) {
             $model->parseType = $map['ParseType'];
         }

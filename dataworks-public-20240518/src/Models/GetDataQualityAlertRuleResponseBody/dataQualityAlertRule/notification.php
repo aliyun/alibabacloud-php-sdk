@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityAlertRuleResponseBody\dataQualityAlertRule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityAlertRuleResponseBody\dataQualityAlertRule\notification\receivers;
-use AlibabaCloud\Tea\Model;
 
 class notification extends Model
 {
@@ -23,20 +23,38 @@ class notification extends Model
         'receivers' => 'Receivers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->channels)) {
+            Model::validateArray($this->channels);
+        }
+        if (\is_array($this->receivers)) {
+            Model::validateArray($this->receivers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channels) {
-            $res['Channels'] = $this->channels;
+            if (\is_array($this->channels)) {
+                $res['Channels'] = [];
+                $n1 = 0;
+                foreach ($this->channels as $item1) {
+                    $res['Channels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->receivers) {
-            $res['Receivers'] = [];
-            if (null !== $this->receivers && \is_array($this->receivers)) {
-                $n = 0;
-                foreach ($this->receivers as $item) {
-                    $res['Receivers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->receivers)) {
+                $res['Receivers'] = [];
+                $n1 = 0;
+                foreach ($this->receivers as $item1) {
+                    $res['Receivers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -44,25 +62,32 @@ class notification extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notification
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channels'])) {
             if (!empty($map['Channels'])) {
-                $model->channels = $map['Channels'];
+                $model->channels = [];
+                $n1 = 0;
+                foreach ($map['Channels'] as $item1) {
+                    $model->channels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Receivers'])) {
             if (!empty($map['Receivers'])) {
                 $model->receivers = [];
-                $n = 0;
-                foreach ($map['Receivers'] as $item) {
-                    $model->receivers[$n++] = null !== $item ? receivers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Receivers'] as $item1) {
+                    $model->receivers[$n1] = receivers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

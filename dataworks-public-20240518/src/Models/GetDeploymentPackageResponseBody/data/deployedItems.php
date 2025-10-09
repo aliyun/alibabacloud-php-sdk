@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentPackageResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deployedItems extends Model
 {
     /**
-     * @example 5076****
-     *
      * @var int
      */
     public $fileId;
 
     /**
-     * @example 7
-     *
      * @var int
      */
     public $fileVersion;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -34,17 +28,22 @@ class deployedItems extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->fileVersion) {
             $res['FileVersion'] = $this->fileVersion;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,20 +51,22 @@ class deployedItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deployedItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['FileVersion'])) {
             $model->fileVersion = $map['FileVersion'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

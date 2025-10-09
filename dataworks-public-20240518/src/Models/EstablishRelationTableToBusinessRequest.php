@@ -4,45 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EstablishRelationTableToBusinessRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1000001
-     *
      * @var string
      */
     public $businessId;
 
     /**
-     * @example 2eb6f9****
-     *
      * @var string
      */
     public $folderId;
 
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @example dw
-     *
      * @var string
      */
     public $projectIdentifier;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example odps.dw_project.tb1
-     *
      * @var string
      */
     public $tableGuid;
@@ -54,23 +40,30 @@ class EstablishRelationTableToBusinessRequest extends Model
         'tableGuid' => 'TableGuid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
         }
+
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
+
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
@@ -78,26 +71,30 @@ class EstablishRelationTableToBusinessRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EstablishRelationTableToBusinessRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
         }
+
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
         }
+
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }

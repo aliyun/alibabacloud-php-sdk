@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LineageEntity extends Model
 {
     /**
-     * @example {"key1":"value1"}
-     *
      * @var string[]
      */
     public $attributes;
 
     /**
-     * @example maxcompute-table:123456::test_project::test_tbl
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example test_tbl
-     *
      * @var string
      */
     public $name;
@@ -34,17 +28,30 @@ class LineageEntity extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['Attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['Attributes'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -52,20 +59,27 @@ class LineageEntity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LineageEntity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
+            if (!empty($map['Attributes'])) {
+                $model->attributes = [];
+                foreach ($map['Attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

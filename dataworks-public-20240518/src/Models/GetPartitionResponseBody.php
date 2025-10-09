@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPartitionResponseBody extends Model
 {
@@ -14,15 +14,11 @@ class GetPartitionResponseBody extends Model
     public $partition;
 
     /**
-     * @example D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -32,17 +28,25 @@ class GetPartitionResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->partition) {
+            $this->partition->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->partition) {
-            $res['Partition'] = null !== $this->partition ? $this->partition->toMap() : null;
+            $res['Partition'] = null !== $this->partition ? $this->partition->toArray($noStream) : $this->partition;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -50,20 +54,22 @@ class GetPartitionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPartitionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Partition'])) {
             $model->partition = Partition::fromMap($map['Partition']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

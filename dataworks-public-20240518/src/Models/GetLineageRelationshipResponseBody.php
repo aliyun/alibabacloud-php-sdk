@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLineageRelationshipResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class GetLineageRelationshipResponseBody extends Model
     public $lineageRelationship;
 
     /**
-     * @example 58D5334A-B013-430E
-     *
      * @var string
      */
     public $requestId;
@@ -24,14 +22,21 @@ class GetLineageRelationshipResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->lineageRelationship) {
+            $this->lineageRelationship->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lineageRelationship) {
-            $res['LineageRelationship'] = null !== $this->lineageRelationship ? $this->lineageRelationship->toMap() : null;
+            $res['LineageRelationship'] = null !== $this->lineageRelationship ? $this->lineageRelationship->toArray($noStream) : $this->lineageRelationship;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,17 +44,18 @@ class GetLineageRelationshipResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLineageRelationshipResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LineageRelationship'])) {
             $model->lineageRelationship = LineageRelationship::fromMap($map['LineageRelationship']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

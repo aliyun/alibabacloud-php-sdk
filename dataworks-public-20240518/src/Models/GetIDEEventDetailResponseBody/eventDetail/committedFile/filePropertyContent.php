@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponseBody\eventDetail\committedFile;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filePropertyContent extends Model
 {
     /**
-     * @description The ID of the workflow to which the file belongs.
-     *
-     * @example 74328
-     *
      * @var int
      */
     public $businessId;
 
     /**
-     * @description The latest version number of the file.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentVersion;
 
     /**
-     * @description The name of the data source with which the file is associated.
-     *
-     * @example odps_source
-     *
      * @var string
      */
     public $dataSourceName;
 
     /**
-     * @description The ID of the folder to which the file belongs. You can call the [GetFolder](https://help.aliyun.com/document_detail/173952.html) operation to query the details of the file based on the folder ID.
-     *
-     * @example aldurie78l2falure
-     *
      * @var string
      */
     public $folderId;
 
     /**
-     * @description The file owner.
-     *
-     * @example 7384234****
-     *
      * @var string
      */
     public $owner;
 
     /**
-     * @description The ID of the do-while node or for-each node that corresponds to the file.
-     *
-     * @example 1234122
-     *
      * @var int
      */
     public $parentFileId;
@@ -70,26 +46,34 @@ class filePropertyContent extends Model
         'parentFileId' => 'ParentFileId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
         }
+
         if (null !== $this->currentVersion) {
             $res['CurrentVersion'] = $this->currentVersion;
         }
+
         if (null !== $this->dataSourceName) {
             $res['DataSourceName'] = $this->dataSourceName;
         }
+
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->parentFileId) {
             $res['ParentFileId'] = $this->parentFileId;
         }
@@ -97,29 +81,34 @@ class filePropertyContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filePropertyContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
         }
+
         if (isset($map['CurrentVersion'])) {
             $model->currentVersion = $map['CurrentVersion'];
         }
+
         if (isset($map['DataSourceName'])) {
             $model->dataSourceName = $map['DataSourceName'];
         }
+
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['ParentFileId'])) {
             $model->parentFileId = $map['ParentFileId'];
         }

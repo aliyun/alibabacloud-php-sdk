@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFolderResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 2735****
-     *
      * @var string
      */
     public $folderId;
 
     /**
-     * @example Business_process/my_first_business_process/MaxCompute/ods_layer
-     *
      * @var string
      */
     public $folderPath;
@@ -26,14 +22,18 @@ class data extends Model
         'folderPath' => 'FolderPath',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
+
         if (null !== $this->folderPath) {
             $res['FolderPath'] = $this->folderPath;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
+
         if (isset($map['FolderPath'])) {
             $model->folderPath = $map['FolderPath'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowDefinitionResponseBody\workflowDefinition;
-use AlibabaCloud\Tea\Model;
 
 class GetWorkflowDefinitionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F2BDD628-8A21-5BD1-B930-1A2D5989XXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the workflow.
-     *
      * @var workflowDefinition
      */
     public $workflowDefinition;
@@ -29,32 +23,40 @@ class GetWorkflowDefinitionResponseBody extends Model
         'workflowDefinition' => 'WorkflowDefinition',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->workflowDefinition) {
+            $this->workflowDefinition->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->workflowDefinition) {
-            $res['WorkflowDefinition'] = null !== $this->workflowDefinition ? $this->workflowDefinition->toMap() : null;
+            $res['WorkflowDefinition'] = null !== $this->workflowDefinition ? $this->workflowDefinition->toArray($noStream) : $this->workflowDefinition;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWorkflowDefinitionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WorkflowDefinition'])) {
             $model->workflowDefinition = workflowDefinition::fromMap($map['WorkflowDefinition']);
         }

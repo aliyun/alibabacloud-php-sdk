@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest\tableMappings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class transformationRules extends Model
 {
@@ -28,17 +28,22 @@ class transformationRules extends Model
         'ruleTargetType' => 'RuleTargetType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleActionType) {
             $res['RuleActionType'] = $this->ruleActionType;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->ruleTargetType) {
             $res['RuleTargetType'] = $this->ruleTargetType;
         }
@@ -46,20 +51,22 @@ class transformationRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transformationRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleActionType'])) {
             $model->ruleActionType = $map['RuleActionType'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['RuleTargetType'])) {
             $model->ruleTargetType = $map['RuleTargetType'];
         }

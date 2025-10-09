@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesResponseBody\pagingInfo\dataSources;
-use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
     /**
-     * @description The data source groups. Each element in the array indicates a data source group. Each data source group contains data sources in the development environment (if any) and the production environment.
-     *
      * @var dataSources[]
      */
     public $dataSources;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 131
-     *
      * @var int
      */
     public $totalCount;
@@ -49,26 +35,36 @@ class pagingInfo extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataSources)) {
+            Model::validateArray($this->dataSources);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSources) {
-            $res['DataSources'] = [];
-            if (null !== $this->dataSources && \is_array($this->dataSources)) {
-                $n = 0;
-                foreach ($this->dataSources as $item) {
-                    $res['DataSources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataSources)) {
+                $res['DataSources'] = [];
+                $n1 = 0;
+                foreach ($this->dataSources as $item1) {
+                    $res['DataSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -76,29 +72,33 @@ class pagingInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pagingInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSources'])) {
             if (!empty($map['DataSources'])) {
                 $model->dataSources = [];
-                $n = 0;
-                foreach ($map['DataSources'] as $item) {
-                    $model->dataSources[$n++] = null !== $item ? dataSources::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataSources'] as $item1) {
+                    $model->dataSources[$n1] = dataSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

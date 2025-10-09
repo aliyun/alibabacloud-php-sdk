@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMetaCollectionRequest extends Model
 {
     /**
-     * @description The collection administrator IDs. This parameter is available only for data albums. The administrator must be an account within the same tenant.
-     *
      * @var string[]
      */
     public $administrators;
 
     /**
-     * @example new comment
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The collection ID.
-     *
-     * This parameter is required.
-     *
-     * @example category.123
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example new_name
-     *
      * @var string
      */
     public $name;
@@ -46,20 +34,36 @@ class UpdateMetaCollectionRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->administrators)) {
+            Model::validateArray($this->administrators);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->administrators) {
-            $res['Administrators'] = $this->administrators;
+            if (\is_array($this->administrators)) {
+                $res['Administrators'] = [];
+                $n1 = 0;
+                foreach ($this->administrators as $item1) {
+                    $res['Administrators'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -67,25 +71,33 @@ class UpdateMetaCollectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMetaCollectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Administrators'])) {
             if (!empty($map['Administrators'])) {
-                $model->administrators = $map['Administrators'];
+                $model->administrators = [];
+                $n1 = 0;
+                foreach ($map['Administrators'] as $item1) {
+                    $model->administrators[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

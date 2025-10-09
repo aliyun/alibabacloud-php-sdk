@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCreateWorkflowInstancesResultRequest extends Model
 {
     /**
-     * @description The operation ID. This parameter is used to query the result of asynchronously creating a workflow instance. You can call the CreateWorkflowInstances operation to query the ID.
-     *
-     * This parameter is required.
-     *
-     * @example e15ad21c-b0e9-4792-8f55-b037xxxxxxxx
-     *
      * @var string
      */
     public $operationId;
@@ -22,9 +16,12 @@ class GetCreateWorkflowInstancesResultRequest extends Model
         'operationId' => 'OperationId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operationId) {
@@ -34,11 +31,11 @@ class GetCreateWorkflowInstancesResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCreateWorkflowInstancesResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

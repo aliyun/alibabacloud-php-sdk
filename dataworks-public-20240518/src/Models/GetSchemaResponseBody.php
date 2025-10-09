@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSchemaResponseBody extends Model
 {
     /**
-     * @example A89B5D9D-74EA-XXXXXX
-     *
      * @var string
      */
     public $requestId;
@@ -21,8 +19,6 @@ class GetSchemaResponseBody extends Model
     public $schema;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -32,17 +28,25 @@ class GetSchemaResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->schema) {
+            $this->schema->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schema) {
-            $res['Schema'] = null !== $this->schema ? $this->schema->toMap() : null;
+            $res['Schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -50,20 +54,22 @@ class GetSchemaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSchemaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Schema'])) {
             $model->schema = Schema::fromMap($map['Schema']);
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

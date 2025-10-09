@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataQualityScanRunLogRequest extends Model
 {
     /**
-     * @example 10001
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $offset;
@@ -26,14 +22,18 @@ class GetDataQualityScanRunLogRequest extends Model
         'offset' => 'Offset',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
@@ -41,17 +41,18 @@ class GetDataQualityScanRunLogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataQualityScanRunLogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }

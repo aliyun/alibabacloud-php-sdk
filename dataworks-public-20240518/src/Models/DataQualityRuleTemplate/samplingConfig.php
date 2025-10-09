@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRuleTemplate;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class samplingConfig extends Model
 {
     /**
-     * @example Min
-     *
      * @var string
      */
     public $metric;
 
     /**
-     * @example { "SQL": "SELECT min(id) from table;" }
-     *
      * @var string
      */
     public $metricParameters;
 
     /**
-     * @example SET odps.sql.udf.timeout=600s;
-     *
      * @var string
      */
     public $settingConfig;
@@ -34,17 +28,22 @@ class samplingConfig extends Model
         'settingConfig' => 'SettingConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metric) {
             $res['Metric'] = $this->metric;
         }
+
         if (null !== $this->metricParameters) {
             $res['MetricParameters'] = $this->metricParameters;
         }
+
         if (null !== $this->settingConfig) {
             $res['SettingConfig'] = $this->settingConfig;
         }
@@ -52,20 +51,22 @@ class samplingConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return samplingConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metric'])) {
             $model->metric = $map['Metric'];
         }
+
         if (isset($map['MetricParameters'])) {
             $model->metricParameters = $map['MetricParameters'];
         }
+
         if (isset($map['SettingConfig'])) {
             $model->settingConfig = $map['SettingConfig'];
         }

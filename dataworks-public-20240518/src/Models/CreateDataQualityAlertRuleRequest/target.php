@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityAlertRuleRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class target extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var int[]
      */
     public $ids;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example DataQualityScan
-     *
      * @var string
      */
     public $type;
@@ -28,14 +22,28 @@ class target extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ids)) {
+            Model::validateArray($this->ids);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+            if (\is_array($this->ids)) {
+                $res['Ids'] = [];
+                $n1 = 0;
+                foreach ($this->ids as $item1) {
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -43,19 +51,25 @@ class target extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return target
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = $map['Ids'];
+                $model->ids = [];
+                $n1 = 0;
+                foreach ($map['Ids'] as $item1) {
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

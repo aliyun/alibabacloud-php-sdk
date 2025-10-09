@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRerunWorkflowInstancesResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The failure message. Returned if the rerun fails.
-     *
-     * @example Invalid Param xxx
-     *
      * @var string
      */
     public $failureMessage;
 
     /**
-     * @description The status. NotRun Success Failure
-     *
-     * @example Success
-     *
      * @var string
      */
     public $status;
@@ -30,14 +22,18 @@ class result extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failureMessage) {
             $res['FailureMessage'] = $this->failureMessage;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -45,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailureMessage'])) {
             $model->failureMessage = $map['FailureMessage'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunLogResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logSegment extends Model
 {
@@ -14,8 +14,6 @@ class logSegment extends Model
     public $log;
 
     /**
-     * @example 512000
-     *
      * @var int
      */
     public $nextOffset;
@@ -24,14 +22,18 @@ class logSegment extends Model
         'nextOffset' => 'NextOffset',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->log) {
             $res['Log'] = $this->log;
         }
+
         if (null !== $this->nextOffset) {
             $res['NextOffset'] = $this->nextOffset;
         }
@@ -39,17 +41,18 @@ class logSegment extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logSegment
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Log'])) {
             $model->log = $map['Log'];
         }
+
         if (isset($map['NextOffset'])) {
             $model->nextOffset = $map['NextOffset'];
         }

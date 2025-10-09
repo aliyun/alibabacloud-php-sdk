@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponseBody\dataQualityEvaluationTaskInstance\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class details extends Model
 {
@@ -28,17 +28,22 @@ class details extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkedValue) {
             $res['CheckedValue'] = $this->checkedValue;
         }
+
         if (null !== $this->referencedValue) {
             $res['ReferencedValue'] = $this->referencedValue;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -46,20 +51,22 @@ class details extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return details
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckedValue'])) {
             $model->checkedValue = $map['CheckedValue'];
         }
+
         if (isset($map['ReferencedValue'])) {
             $model->referencedValue = $map['ReferencedValue'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

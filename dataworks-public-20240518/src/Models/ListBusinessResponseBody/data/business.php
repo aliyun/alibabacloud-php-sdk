@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListBusinessResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class business extends Model
 {
     /**
-     * @example 3000001
-     *
      * @var int
      */
     public $businessId;
@@ -26,22 +24,16 @@ class business extends Model
     public $description;
 
     /**
-     * @example 34824327****
-     *
      * @var string
      */
     public $owner;
 
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @example NORMAL
-     *
      * @var string
      */
     public $useType;
@@ -54,26 +46,34 @@ class business extends Model
         'useType' => 'UseType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
         }
+
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->useType) {
             $res['UseType'] = $this->useType;
         }
@@ -81,29 +81,34 @@ class business extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return business
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
         }
+
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['UseType'])) {
             $model->useType = $map['UseType'];
         }

@@ -4,117 +4,62 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RerunWorkflowInstancesRequest\filter;
-use AlibabaCloud\Tea\Model;
 
 class RerunWorkflowInstancesRequest extends Model
 {
     /**
-     * @description The business date used for matching manual workflow instances.
-     *
-     * @example 1710239005403
-     *
      * @var int
      */
     public $bizdate;
 
     /**
-     * @description The end trigger time of the manual workflow instance used for matching. This parameter must be used together with the StartTriggerTime.
-     *
-     * @example 1710239005403
-     *
      * @var int
      */
     public $endTriggerTime;
 
     /**
-     * @description The environment of the workspace. Valid values:
-     *
-     * Prod Dev
-     *
-     * @example Prod
-     *
      * @var string
      */
     public $envType;
 
     /**
-     * @description The match conditions for internal instances of manual workflow instances.
-     *
      * @var filter
      */
     public $filter;
 
     /**
-     * @description The instance IDs used for matching manual workflow instances.
-     *
      * @var int[]
      */
     public $ids;
 
     /**
-     * @description The manual workflow name, used for fuzzy matching.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The project ID.
-     *
-     * This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @description The start trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with EndTriggerTime.
-     *
-     * @example 1710239005403
-     *
      * @var int
      */
     public $startTriggerTime;
 
     /**
-     * @description The status used for matching manual workflow instances.
-     *
-     * Valid values:
-     *
-     *   Success
-     *   Failure
-     *
-     * @example Failure
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The type of the workflow instance. Valid values:
-     *
-     * ManualWorkflow.
-     *
-     * This parameter is required.
-     *
-     * @example ManualWorkflow
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The workflow ID.
-     *
-     * This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $workflowId;
@@ -132,41 +77,67 @@ class RerunWorkflowInstancesRequest extends Model
         'workflowId' => 'WorkflowId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filter) {
+            $this->filter->validate();
+        }
+        if (\is_array($this->ids)) {
+            Model::validateArray($this->ids);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
         }
+
         if (null !== $this->endTriggerTime) {
             $res['EndTriggerTime'] = $this->endTriggerTime;
         }
+
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+
         if (null !== $this->filter) {
-            $res['Filter'] = null !== $this->filter ? $this->filter->toMap() : null;
+            $res['Filter'] = null !== $this->filter ? $this->filter->toArray($noStream) : $this->filter;
         }
+
         if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+            if (\is_array($this->ids)) {
+                $res['Ids'] = [];
+                $n1 = 0;
+                foreach ($this->ids as $item1) {
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->startTriggerTime) {
             $res['StartTriggerTime'] = $this->startTriggerTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
         }
@@ -174,46 +145,61 @@ class RerunWorkflowInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RerunWorkflowInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
         }
+
         if (isset($map['EndTriggerTime'])) {
             $model->endTriggerTime = $map['EndTriggerTime'];
         }
+
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+
         if (isset($map['Filter'])) {
             $model->filter = filter::fromMap($map['Filter']);
         }
+
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = $map['Ids'];
+                $model->ids = [];
+                $n1 = 0;
+                foreach ($map['Ids'] as $item1) {
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['StartTriggerTime'])) {
             $model->startTriggerTime = $map['StartTriggerTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['WorkflowId'])) {
             $model->workflowId = $map['WorkflowId'];
         }

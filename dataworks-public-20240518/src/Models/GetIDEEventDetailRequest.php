@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIDEEventDetailRequest extends Model
 {
     /**
-     * @description The message ID in DataWorks OpenEvent. You can obtain the ID from a received message when an extension point event is triggered.
-     *
-     * This parameter is required.
-     *
-     * @example 8abcb91f-d266-4073-b907-2ed67****1
-     *
      * @var string
      */
     public $messageId;
 
     /**
-     * @description The DataWorks workspace ID. You can obtain the ID from the message.
-     *
-     * This parameter is required.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
@@ -34,14 +22,18 @@ class GetIDEEventDetailRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -49,17 +41,18 @@ class GetIDEEventDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIDEEventDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

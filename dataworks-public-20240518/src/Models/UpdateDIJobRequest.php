@@ -4,21 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\jobSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\resourceSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\tableMappings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\transformationRules;
-use AlibabaCloud\Tea\Model;
 
 class UpdateDIJobRequest extends Model
 {
     /**
-     * @description This parameter is deprecated. Use the Id parameter instead.
-     *
-     * @example 11588
-     *
-     * @deprecated
-     *
      * @var int
      */
     public $DIJobId;
@@ -29,10 +23,6 @@ class UpdateDIJobRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the synchronization task.
-     *
-     * @example 11588
-     *
      * @var int
      */
     public $id;
@@ -43,10 +33,6 @@ class UpdateDIJobRequest extends Model
     public $jobSettings;
 
     /**
-     * @description The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to obtain the ID.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
@@ -76,44 +62,68 @@ class UpdateDIJobRequest extends Model
         'transformationRules' => 'TransformationRules',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->jobSettings) {
+            $this->jobSettings->validate();
+        }
+        if (null !== $this->resourceSettings) {
+            $this->resourceSettings->validate();
+        }
+        if (\is_array($this->tableMappings)) {
+            Model::validateArray($this->tableMappings);
+        }
+        if (\is_array($this->transformationRules)) {
+            Model::validateArray($this->transformationRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIJobId) {
             $res['DIJobId'] = $this->DIJobId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->jobSettings) {
-            $res['JobSettings'] = null !== $this->jobSettings ? $this->jobSettings->toMap() : null;
+            $res['JobSettings'] = null !== $this->jobSettings ? $this->jobSettings->toArray($noStream) : $this->jobSettings;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->resourceSettings) {
-            $res['ResourceSettings'] = null !== $this->resourceSettings ? $this->resourceSettings->toMap() : null;
+            $res['ResourceSettings'] = null !== $this->resourceSettings ? $this->resourceSettings->toArray($noStream) : $this->resourceSettings;
         }
+
         if (null !== $this->tableMappings) {
-            $res['TableMappings'] = [];
-            if (null !== $this->tableMappings && \is_array($this->tableMappings)) {
-                $n = 0;
-                foreach ($this->tableMappings as $item) {
-                    $res['TableMappings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableMappings)) {
+                $res['TableMappings'] = [];
+                $n1 = 0;
+                foreach ($this->tableMappings as $item1) {
+                    $res['TableMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->transformationRules) {
-            $res['TransformationRules'] = [];
-            if (null !== $this->transformationRules && \is_array($this->transformationRules)) {
-                $n = 0;
-                foreach ($this->transformationRules as $item) {
-                    $res['TransformationRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transformationRules)) {
+                $res['TransformationRules'] = [];
+                $n1 = 0;
+                foreach ($this->transformationRules as $item1) {
+                    $res['TransformationRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,47 +131,56 @@ class UpdateDIJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDIJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIJobId'])) {
             $model->DIJobId = $map['DIJobId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['JobSettings'])) {
             $model->jobSettings = jobSettings::fromMap($map['JobSettings']);
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ResourceSettings'])) {
             $model->resourceSettings = resourceSettings::fromMap($map['ResourceSettings']);
         }
+
         if (isset($map['TableMappings'])) {
             if (!empty($map['TableMappings'])) {
                 $model->tableMappings = [];
-                $n = 0;
-                foreach ($map['TableMappings'] as $item) {
-                    $model->tableMappings[$n++] = null !== $item ? tableMappings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TableMappings'] as $item1) {
+                    $model->tableMappings[$n1] = tableMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TransformationRules'])) {
             if (!empty($map['TransformationRules'])) {
                 $model->transformationRules = [];
-                $n = 0;
-                foreach ($map['TransformationRules'] as $item) {
-                    $model->transformationRules[$n++] = null !== $item ? transformationRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TransformationRules'] as $item1) {
+                    $model->transformationRules[$n1] = transformationRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

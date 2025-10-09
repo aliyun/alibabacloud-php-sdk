@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDataQualityAlertRuleShrinkRequest extends Model
 {
     /**
-     * @example results.any { r -> r.status == \\"fail\\" && r.rule.severity == \\"High\\" }
-     *
      * @var string
      */
     public $condition;
 
     /**
-     * @example 105412
-     *
      * @var int
      */
     public $id;
@@ -28,8 +24,6 @@ class UpdateDataQualityAlertRuleShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $projectId;
@@ -46,23 +40,30 @@ class UpdateDataQualityAlertRuleShrinkRequest extends Model
         'targetShrink' => 'Target',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->targetShrink) {
             $res['Target'] = $this->targetShrink;
         }
@@ -70,26 +71,30 @@ class UpdateDataQualityAlertRuleShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDataQualityAlertRuleShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['Target'])) {
             $model->targetShrink = $map['Target'];
         }

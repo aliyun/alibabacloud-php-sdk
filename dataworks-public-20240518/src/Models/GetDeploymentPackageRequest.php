@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeploymentPackageRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1000000001
-     *
      * @var int
      */
     public $deploymentId;
 
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
 
     /**
-     * @example dw_project
-     *
      * @var string
      */
     public $projectIdentifier;
@@ -36,17 +28,22 @@ class GetDeploymentPackageRequest extends Model
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentId) {
             $res['DeploymentId'] = $this->deploymentId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectIdentifier) {
             $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
@@ -54,20 +51,22 @@ class GetDeploymentPackageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeploymentPackageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentId'])) {
             $model->deploymentId = $map['DeploymentId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectIdentifier'])) {
             $model->projectIdentifier = $map['ProjectIdentifier'];
         }

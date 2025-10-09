@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponseBody\pageInfo\dataQualityScans;
-use AlibabaCloud\Tea\Model;
 
 class pageInfo extends Model
 {
@@ -15,22 +15,16 @@ class pageInfo extends Model
     public $dataQualityScans;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -41,26 +35,36 @@ class pageInfo extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataQualityScans)) {
+            Model::validateArray($this->dataQualityScans);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQualityScans) {
-            $res['DataQualityScans'] = [];
-            if (null !== $this->dataQualityScans && \is_array($this->dataQualityScans)) {
-                $n = 0;
-                foreach ($this->dataQualityScans as $item) {
-                    $res['DataQualityScans'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataQualityScans)) {
+                $res['DataQualityScans'] = [];
+                $n1 = 0;
+                foreach ($this->dataQualityScans as $item1) {
+                    $res['DataQualityScans'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -68,29 +72,33 @@ class pageInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityScans'])) {
             if (!empty($map['DataQualityScans'])) {
                 $model->dataQualityScans = [];
-                $n = 0;
-                foreach ($map['DataQualityScans'] as $item) {
-                    $model->dataQualityScans[$n++] = null !== $item ? dataQualityScans::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataQualityScans'] as $item1) {
+                    $model->dataQualityScans[$n1] = dataQualityScans::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

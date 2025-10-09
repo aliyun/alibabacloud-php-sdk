@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowRequest\tasks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class script extends Model
 {
     /**
-     * @description The script content.
-     *
-     * @example echo "helloWorld"
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The script parameters.
-     *
-     * @example para1=$bizdate
-     *
      * @var string
      */
     public $parameters;
@@ -30,14 +22,18 @@ class script extends Model
         'parameters' => 'Parameters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
@@ -45,17 +41,18 @@ class script extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return script
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }

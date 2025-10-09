@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LineageTask extends Model
 {
@@ -14,15 +14,11 @@ class LineageTask extends Model
     public $attributes;
 
     /**
-     * @example 12345
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example custom-sql
-     *
      * @var string
      */
     public $type;
@@ -32,17 +28,30 @@ class LineageTask extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['Attributes'] = $this->attributes;
+            if (\is_array($this->attributes)) {
+                $res['Attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['Attributes'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -50,20 +59,27 @@ class LineageTask extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LineageTask
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attributes'])) {
-            $model->attributes = $map['Attributes'];
+            if (!empty($map['Attributes'])) {
+                $model->attributes = [];
+                foreach ($map['Attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

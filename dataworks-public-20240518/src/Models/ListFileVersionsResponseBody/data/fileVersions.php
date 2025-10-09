@@ -4,97 +4,71 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFileVersionsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fileVersions extends Model
 {
     /**
-     * @example UPDATE
-     *
      * @var string
      */
     public $changeType;
 
     /**
-     * @example Second version submission
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @example 1593881265000
-     *
      * @var int
      */
     public $commitTime;
 
     /**
-     * @example 73842342****
-     *
      * @var string
      */
     public $commitUser;
 
     /**
-     * @example SHOW TABLES;
-     *
      * @var string
      */
     public $fileContent;
 
     /**
-     * @example ods_user_info_d
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example {"fileName":"ods_user_info_d","fileType":10}
-     *
      * @var string
      */
     public $filePropertyContent;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $fileVersion;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isCurrentProd;
 
     /**
-     * @example {"cycleType":0,"cronExpress":"00 05 00 * * ?"}
-     *
      * @var string
      */
     public $nodeContent;
 
     /**
-     * @example 1234
-     *
      * @var int
      */
     public $nodeId;
 
     /**
-     * @example COMMITTED
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example NORMAL
-     *
      * @var string
      */
     public $useType;
@@ -114,47 +88,62 @@ class fileVersions extends Model
         'useType' => 'UseType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeType) {
             $res['ChangeType'] = $this->changeType;
         }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->commitTime) {
             $res['CommitTime'] = $this->commitTime;
         }
+
         if (null !== $this->commitUser) {
             $res['CommitUser'] = $this->commitUser;
         }
+
         if (null !== $this->fileContent) {
             $res['FileContent'] = $this->fileContent;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->filePropertyContent) {
             $res['FilePropertyContent'] = $this->filePropertyContent;
         }
+
         if (null !== $this->fileVersion) {
             $res['FileVersion'] = $this->fileVersion;
         }
+
         if (null !== $this->isCurrentProd) {
             $res['IsCurrentProd'] = $this->isCurrentProd;
         }
+
         if (null !== $this->nodeContent) {
             $res['NodeContent'] = $this->nodeContent;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->useType) {
             $res['UseType'] = $this->useType;
         }
@@ -162,50 +151,62 @@ class fileVersions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeType'])) {
             $model->changeType = $map['ChangeType'];
         }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['CommitTime'])) {
             $model->commitTime = $map['CommitTime'];
         }
+
         if (isset($map['CommitUser'])) {
             $model->commitUser = $map['CommitUser'];
         }
+
         if (isset($map['FileContent'])) {
             $model->fileContent = $map['FileContent'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FilePropertyContent'])) {
             $model->filePropertyContent = $map['FilePropertyContent'];
         }
+
         if (isset($map['FileVersion'])) {
             $model->fileVersion = $map['FileVersion'];
         }
+
         if (isset($map['IsCurrentProd'])) {
             $model->isCurrentProd = $map['IsCurrentProd'];
         }
+
         if (isset($map['NodeContent'])) {
             $model->nodeContent = $map['NodeContent'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['UseType'])) {
             $model->useType = $map['UseType'];
         }

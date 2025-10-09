@@ -4,34 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponseBody\alertRule\triggerCondition;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class target extends Model
 {
     /**
-     * @description The nodes that are not to be monitored.
-     *
      * @var int[]
      */
     public $allowTasks;
 
     /**
-     * @description The IDs of monitored objects.
-     *
      * @var int[]
      */
     public $ids;
 
     /**
-     * @description The type of the monitored objects. Valid values:
-     *
-     *   Task: node
-     *   Baseline: baseline
-     *   project: workspace
-     *   BizProcess: workflow
-     *
-     * @example Task
-     *
      * @var string
      */
     public $type;
@@ -41,17 +28,42 @@ class target extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->allowTasks)) {
+            Model::validateArray($this->allowTasks);
+        }
+        if (\is_array($this->ids)) {
+            Model::validateArray($this->ids);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowTasks) {
-            $res['AllowTasks'] = $this->allowTasks;
+            if (\is_array($this->allowTasks)) {
+                $res['AllowTasks'] = [];
+                $n1 = 0;
+                foreach ($this->allowTasks as $item1) {
+                    $res['AllowTasks'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+            if (\is_array($this->ids)) {
+                $res['Ids'] = [];
+                $n1 = 0;
+                foreach ($this->ids as $item1) {
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -59,24 +71,36 @@ class target extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return target
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowTasks'])) {
             if (!empty($map['AllowTasks'])) {
-                $model->allowTasks = $map['AllowTasks'];
+                $model->allowTasks = [];
+                $n1 = 0;
+                foreach ($map['AllowTasks'] as $item1) {
+                    $model->allowTasks[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = $map['Ids'];
+                $model->ids = [];
+                $n1 = 0;
+                foreach ($map['Ids'] as $item1) {
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

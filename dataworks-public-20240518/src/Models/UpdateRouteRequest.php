@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateRouteRequest extends Model
 {
     /**
-     * @description The destination CIDR block of the route that you want to update.
-     *
-     * This parameter is required.
-     *
-     * @example 192.168.0.0/16
-     *
      * @var string
      */
     public $destinationCidr;
 
     /**
-     * @description The route ID of the network resource.
-     *
-     * This parameter is required.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $id;
@@ -34,14 +22,18 @@ class UpdateRouteRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationCidr) {
             $res['DestinationCidr'] = $this->destinationCidr;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -49,17 +41,18 @@ class UpdateRouteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRouteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationCidr'])) {
             $model->destinationCidr = $map['DestinationCidr'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

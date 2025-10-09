@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobResponseBody\pagingInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobResponseBody\pagingInfo\tableMappings\sourceObjectSelectionRules;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDIJobResponseBody\pagingInfo\tableMappings\transformationRules;
-use AlibabaCloud\Tea\Model;
 
 class tableMappings extends Model
 {
     /**
-     * @description The list of rules used to select synchronization objects in the source.
-     *
      * @var sourceObjectSelectionRules[]
      */
     public $sourceObjectSelectionRules;
 
     /**
-     * @description The list of transformation rules that are applied to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
-     *
      * @var transformationRules[]
      */
     public $transformationRules;
@@ -28,26 +24,38 @@ class tableMappings extends Model
         'transformationRules' => 'TransformationRules',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sourceObjectSelectionRules)) {
+            Model::validateArray($this->sourceObjectSelectionRules);
+        }
+        if (\is_array($this->transformationRules)) {
+            Model::validateArray($this->transformationRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceObjectSelectionRules) {
-            $res['SourceObjectSelectionRules'] = [];
-            if (null !== $this->sourceObjectSelectionRules && \is_array($this->sourceObjectSelectionRules)) {
-                $n = 0;
-                foreach ($this->sourceObjectSelectionRules as $item) {
-                    $res['SourceObjectSelectionRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sourceObjectSelectionRules)) {
+                $res['SourceObjectSelectionRules'] = [];
+                $n1 = 0;
+                foreach ($this->sourceObjectSelectionRules as $item1) {
+                    $res['SourceObjectSelectionRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->transformationRules) {
-            $res['TransformationRules'] = [];
-            if (null !== $this->transformationRules && \is_array($this->transformationRules)) {
-                $n = 0;
-                foreach ($this->transformationRules as $item) {
-                    $res['TransformationRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transformationRules)) {
+                $res['TransformationRules'] = [];
+                $n1 = 0;
+                foreach ($this->transformationRules as $item1) {
+                    $res['TransformationRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,29 +63,32 @@ class tableMappings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableMappings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceObjectSelectionRules'])) {
             if (!empty($map['SourceObjectSelectionRules'])) {
                 $model->sourceObjectSelectionRules = [];
-                $n = 0;
-                foreach ($map['SourceObjectSelectionRules'] as $item) {
-                    $model->sourceObjectSelectionRules[$n++] = null !== $item ? sourceObjectSelectionRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SourceObjectSelectionRules'] as $item1) {
+                    $model->sourceObjectSelectionRules[$n1] = sourceObjectSelectionRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TransformationRules'])) {
             if (!empty($map['TransformationRules'])) {
                 $model->transformationRules = [];
-                $n = 0;
-                foreach ($map['TransformationRules'] as $item) {
-                    $model->transformationRules[$n++] = null !== $item ? transformationRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TransformationRules'] as $item1) {
+                    $model->transformationRules[$n1] = transformationRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

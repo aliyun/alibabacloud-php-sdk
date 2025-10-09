@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponseBody\pageInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponseBody\pageInfo\dataQualityScans\computeResource;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponseBody\pageInfo\dataQualityScans\hooks;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponseBody\pageInfo\dataQualityScans\parameters;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponseBody\pageInfo\dataQualityScans\runtimeResource;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponseBody\pageInfo\dataQualityScans\trigger;
-use AlibabaCloud\Tea\Model;
 
 class dataQualityScans extends Model
 {
@@ -19,22 +19,16 @@ class dataQualityScans extends Model
     public $computeResource;
 
     /**
-     * @example 1694512304000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example 7892346529452
-     *
      * @var string
      */
     public $createUser;
 
     /**
-     * @example This is a hourly run data quality evaluation plan.
-     *
      * @var string
      */
     public $description;
@@ -45,22 +39,16 @@ class dataQualityScans extends Model
     public $hooks;
 
     /**
-     * @example 26433
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example 17236236472
-     *
      * @var int
      */
     public $modifyTime;
 
     /**
-     * @example 23782382795249
-     *
      * @var string
      */
     public $modifyUser;
@@ -71,8 +59,6 @@ class dataQualityScans extends Model
     public $name;
 
     /**
-     * @example 23782382795249
-     *
      * @var string
      */
     public $owner;
@@ -83,8 +69,6 @@ class dataQualityScans extends Model
     public $parameters;
 
     /**
-     * @example 59094
-     *
      * @var int
      */
     public $projectId;
@@ -115,128 +99,176 @@ class dataQualityScans extends Model
         'trigger' => 'Trigger',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->computeResource) {
+            $this->computeResource->validate();
+        }
+        if (\is_array($this->hooks)) {
+            Model::validateArray($this->hooks);
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        if (null !== $this->runtimeResource) {
+            $this->runtimeResource->validate();
+        }
+        if (null !== $this->trigger) {
+            $this->trigger->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->computeResource) {
-            $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toMap() : null;
+            $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toArray($noStream) : $this->computeResource;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->createUser) {
             $res['CreateUser'] = $this->createUser;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->hooks) {
-            $res['Hooks'] = [];
-            if (null !== $this->hooks && \is_array($this->hooks)) {
-                $n = 0;
-                foreach ($this->hooks as $item) {
-                    $res['Hooks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hooks)) {
+                $res['Hooks'] = [];
+                $n1 = 0;
+                foreach ($this->hooks as $item1) {
+                    $res['Hooks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+
         if (null !== $this->modifyUser) {
             $res['ModifyUser'] = $this->modifyUser;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1 = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->runtimeResource) {
-            $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toMap() : null;
+            $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toArray($noStream) : $this->runtimeResource;
         }
+
         if (null !== $this->trigger) {
-            $res['Trigger'] = null !== $this->trigger ? $this->trigger->toMap() : null;
+            $res['Trigger'] = null !== $this->trigger ? $this->trigger->toArray($noStream) : $this->trigger;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataQualityScans
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['CreateUser'])) {
             $model->createUser = $map['CreateUser'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Hooks'])) {
             if (!empty($map['Hooks'])) {
                 $model->hooks = [];
-                $n = 0;
-                foreach ($map['Hooks'] as $item) {
-                    $model->hooks[$n++] = null !== $item ? hooks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Hooks'] as $item1) {
+                    $model->hooks[$n1] = hooks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+
         if (isset($map['ModifyUser'])) {
             $model->modifyUser = $map['ModifyUser'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RuntimeResource'])) {
             $model->runtimeResource = runtimeResource::fromMap($map['RuntimeResource']);
         }
+
         if (isset($map['Trigger'])) {
             $model->trigger = trigger::fromMap($map['Trigger']);
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CrawlerType\supportedEntityTypes;
-use AlibabaCloud\Tea\Model;
 
 class CrawlerType extends Model
 {
     /**
-     * @example Data Lake Formation
-     *
      * @var string
      */
     public $displayName;
@@ -22,8 +20,6 @@ class CrawlerType extends Model
     public $supportedEntityTypes;
 
     /**
-     * @example dlf
-     *
      * @var string
      */
     public $type;
@@ -33,23 +29,32 @@ class CrawlerType extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->supportedEntityTypes)) {
+            Model::validateArray($this->supportedEntityTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->supportedEntityTypes) {
-            $res['SupportedEntityTypes'] = [];
-            if (null !== $this->supportedEntityTypes && \is_array($this->supportedEntityTypes)) {
-                $n = 0;
-                foreach ($this->supportedEntityTypes as $item) {
-                    $res['SupportedEntityTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedEntityTypes)) {
+                $res['SupportedEntityTypes'] = [];
+                $n1 = 0;
+                foreach ($this->supportedEntityTypes as $item1) {
+                    $res['SupportedEntityTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -57,26 +62,29 @@ class CrawlerType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CrawlerType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['SupportedEntityTypes'])) {
             if (!empty($map['SupportedEntityTypes'])) {
                 $model->supportedEntityTypes = [];
-                $n = 0;
-                foreach ($map['SupportedEntityTypes'] as $item) {
-                    $model->supportedEntityTypes[$n++] = null !== $item ? supportedEntityTypes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportedEntityTypes'] as $item1) {
+                    $model->supportedEntityTypes[$n1] = supportedEntityTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityTemplateResponseBody\dataQualityTemplate;
-use AlibabaCloud\Tea\Model;
 
 class GetDataQualityTemplateResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class GetDataQualityTemplateResponseBody extends Model
     public $dataQualityTemplate;
 
     /**
-     * @example 0bc14115***159376359
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class GetDataQualityTemplateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dataQualityTemplate) {
+            $this->dataQualityTemplate->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQualityTemplate) {
-            $res['DataQualityTemplate'] = null !== $this->dataQualityTemplate ? $this->dataQualityTemplate->toMap() : null;
+            $res['DataQualityTemplate'] = null !== $this->dataQualityTemplate ? $this->dataQualityTemplate->toArray($noStream) : $this->dataQualityTemplate;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class GetDataQualityTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataQualityTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityTemplate'])) {
             $model->dataQualityTemplate = dataQualityTemplate::fromMap($map['DataQualityTemplate']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

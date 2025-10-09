@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanRunRequest\parameters;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanRunRequest\runtimeResource;
-use AlibabaCloud\Tea\Model;
 
 class CreateDataQualityScanRunRequest extends Model
 {
@@ -36,56 +36,73 @@ class CreateDataQualityScanRunRequest extends Model
         'runtimeResource' => 'RuntimeResource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        if (null !== $this->runtimeResource) {
+            $this->runtimeResource->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQualityScanId) {
             $res['DataQualityScanId'] = $this->dataQualityScanId;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1 = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->runtimeResource) {
-            $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toMap() : null;
+            $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toArray($noStream) : $this->runtimeResource;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataQualityScanRunRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityScanId'])) {
             $model->dataQualityScanId = $map['DataQualityScanId'];
         }
+
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RuntimeResource'])) {
             $model->runtimeResource = runtimeResource::fromMap($map['RuntimeResource']);
         }

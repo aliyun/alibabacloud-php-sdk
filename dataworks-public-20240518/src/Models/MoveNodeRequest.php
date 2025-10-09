@@ -4,43 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MoveNodeRequest extends Model
 {
     /**
-     * @description The ID of the node.
-     *
-     * This parameter is required.
-     *
-     * @example 652567824470354XXXX
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The path to which you want to move the node. You do not need to specify a node name in the path.
-     *
-     * For example, if you want to move the test node to root/demo/test, you must set this parameter to root/demo.
-     *
-     * This parameter is required.
-     *
-     * @example root/demo
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
-     *
-     * You can use this parameter to specify the DataWorks workspace on which you want to perform the API operation.
-     *
-     * This parameter is required.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
@@ -50,17 +28,22 @@ class MoveNodeRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -68,20 +51,22 @@ class MoveNodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MoveNodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

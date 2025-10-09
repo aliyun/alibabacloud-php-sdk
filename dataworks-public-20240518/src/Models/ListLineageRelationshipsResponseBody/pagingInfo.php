@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\LineageRelationship;
-use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
@@ -15,22 +15,16 @@ class pagingInfo extends Model
     public $lineageRelationships;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 123
-     *
      * @var int
      */
     public $totalCount;
@@ -41,26 +35,36 @@ class pagingInfo extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->lineageRelationships)) {
+            Model::validateArray($this->lineageRelationships);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lineageRelationships) {
-            $res['LineageRelationships'] = [];
-            if (null !== $this->lineageRelationships && \is_array($this->lineageRelationships)) {
-                $n = 0;
-                foreach ($this->lineageRelationships as $item) {
-                    $res['LineageRelationships'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->lineageRelationships)) {
+                $res['LineageRelationships'] = [];
+                $n1 = 0;
+                foreach ($this->lineageRelationships as $item1) {
+                    $res['LineageRelationships'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -68,29 +72,33 @@ class pagingInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pagingInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LineageRelationships'])) {
             if (!empty($map['LineageRelationships'])) {
                 $model->lineageRelationships = [];
-                $n = 0;
-                foreach ($map['LineageRelationships'] as $item) {
-                    $model->lineageRelationships[$n++] = null !== $item ? LineageRelationship::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LineageRelationships'] as $item1) {
+                    $model->lineageRelationships[$n1] = LineageRelationship::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanResponseBody\dataQualityScan;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanResponseBody\dataQualityScan\computeResource\runtime;
-use AlibabaCloud\Tea\Model;
 
 class computeResource extends Model
 {
     /**
-     * @example Prod
-     *
      * @var string
      */
     public $envType;
 
     /**
-     * @example polardb_to_holo
-     *
      * @var string
      */
     public $name;
@@ -33,38 +29,48 @@ class computeResource extends Model
         'runtime' => 'Runtime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->runtime) {
+            $this->runtime->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->runtime) {
-            $res['Runtime'] = null !== $this->runtime ? $this->runtime->toMap() : null;
+            $res['Runtime'] = null !== $this->runtime ? $this->runtime->toArray($noStream) : $this->runtime;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return computeResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Runtime'])) {
             $model->runtime = runtime::fromMap($map['Runtime']);
         }

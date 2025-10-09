@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobMetricsResponseBody\pagingInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDIJobMetricsResponseBody\pagingInfo\jobMetrics\seriesList;
-use AlibabaCloud\Tea\Model;
 
 class jobMetrics extends Model
 {
     /**
-     * @description The name of the metric.
-     *
-     * @example JobDelay
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The metric data.
-     *
      * @var seriesList[]
      */
     public $seriesList;
@@ -29,20 +23,28 @@ class jobMetrics extends Model
         'seriesList' => 'SeriesList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->seriesList)) {
+            Model::validateArray($this->seriesList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->seriesList) {
-            $res['SeriesList'] = [];
-            if (null !== $this->seriesList && \is_array($this->seriesList)) {
-                $n = 0;
-                foreach ($this->seriesList as $item) {
-                    $res['SeriesList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->seriesList)) {
+                $res['SeriesList'] = [];
+                $n1 = 0;
+                foreach ($this->seriesList as $item1) {
+                    $res['SeriesList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class jobMetrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobMetrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SeriesList'])) {
             if (!empty($map['SeriesList'])) {
                 $model->seriesList = [];
-                $n = 0;
-                foreach ($map['SeriesList'] as $item) {
-                    $model->seriesList[$n++] = null !== $item ? seriesList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SeriesList'] as $item1) {
+                    $model->seriesList[$n1] = seriesList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

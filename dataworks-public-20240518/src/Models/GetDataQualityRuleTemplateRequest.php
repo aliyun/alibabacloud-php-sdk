@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataQualityRuleTemplateRequest extends Model
 {
     /**
-     * @description The code for the template.
-     *
-     * This parameter is required.
-     *
-     * @example USER_DEFINED:123
-     *
      * @var string
      */
     public $code;
@@ -22,9 +16,12 @@ class GetDataQualityRuleTemplateRequest extends Model
         'code' => 'Code',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
@@ -34,11 +31,11 @@ class GetDataQualityRuleTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataQualityRuleTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupResponseBody\resourceGroup;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class spec extends Model
 {
     /**
-     * @description The number of resources in the resource group.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @description The number of compute units (CUs) in the resource group.
-     *
-     * @example 2CU
-     *
      * @var string
      */
     public $standard;
@@ -30,14 +22,18 @@ class spec extends Model
         'standard' => 'Standard',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+
         if (null !== $this->standard) {
             $res['Standard'] = $this->standard;
         }
@@ -45,17 +41,18 @@ class spec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+
         if (isset($map['Standard'])) {
             $model->standard = $map['Standard'];
         }
