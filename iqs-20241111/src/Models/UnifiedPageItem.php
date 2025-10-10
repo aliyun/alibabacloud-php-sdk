@@ -56,6 +56,11 @@ class UnifiedPageItem extends Model
     /**
      * @var string
      */
+    public $richMainBody;
+
+    /**
+     * @var string
+     */
     public $snippet;
 
     /**
@@ -77,6 +82,7 @@ class UnifiedPageItem extends Model
         'markdownText' => 'markdownText',
         'publishedTime' => 'publishedTime',
         'rerankScore' => 'rerankScore',
+        'richMainBody' => 'richMainBody',
         'snippet' => 'snippet',
         'summary' => 'summary',
         'title' => 'title',
@@ -134,6 +140,10 @@ class UnifiedPageItem extends Model
 
         if (null !== $this->rerankScore) {
             $res['rerankScore'] = $this->rerankScore;
+        }
+
+        if (null !== $this->richMainBody) {
+            $res['richMainBody'] = $this->richMainBody;
         }
 
         if (null !== $this->snippet) {
@@ -200,6 +210,10 @@ class UnifiedPageItem extends Model
 
         if (isset($map['rerankScore'])) {
             $model->rerankScore = $map['rerankScore'];
+        }
+
+        if (isset($map['richMainBody'])) {
+            $model->richMainBody = $map['richMainBody'];
         }
 
         if (isset($map['snippet'])) {
