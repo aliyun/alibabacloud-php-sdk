@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\AbortAndRollbackChangeOrderRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\AbortAndRollbackChangeOrderResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\AbortChangeOrderRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\AbortChangeOrderResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\BatchRestartApplicationsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\BatchRestartApplicationsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BatchStartApplicationsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BatchStartApplicationsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BatchStopApplicationsRequest;
@@ -462,6 +464,71 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->abortChangeOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量重启应用.
+     *
+     * @param request - BatchRestartApplicationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchRestartApplicationsResponse
+     *
+     * @param BatchRestartApplicationsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchRestartApplicationsResponse
+     */
+    public function batchRestartApplicationsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appIds) {
+            @$query['AppIds'] = $request->appIds;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchRestartApplications',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/sam/app/batchRestartApplications',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchRestartApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量重启应用.
+     *
+     * @param request - BatchRestartApplicationsRequest
+     *
+     * @returns BatchRestartApplicationsResponse
+     *
+     * @param BatchRestartApplicationsRequest $request
+     *
+     * @return BatchRestartApplicationsResponse
+     */
+    public function batchRestartApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchRestartApplicationsWithOptions($request, $headers, $runtime);
     }
 
     /**
