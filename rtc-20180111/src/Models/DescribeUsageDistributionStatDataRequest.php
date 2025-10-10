@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUsageDistributionStatDataRequest extends Model
 {
     /**
-     * @description APP ID
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1615910399
-     *
      * @var int
      */
     public $endDate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1615824000
-     *
      * @var int
      */
     public $startDate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example CHANNEL_ONLINE
-     *
      * @var string
      */
     public $statDim;
@@ -50,20 +34,26 @@ class DescribeUsageDistributionStatDataRequest extends Model
         'statDim' => 'StatDim',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
+
         if (null !== $this->statDim) {
             $res['StatDim'] = $this->statDim;
         }
@@ -71,23 +61,26 @@ class DescribeUsageDistributionStatDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUsageDistributionStatDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
+
         if (isset($map['StatDim'])) {
             $model->statDim = $map['StatDim'];
         }

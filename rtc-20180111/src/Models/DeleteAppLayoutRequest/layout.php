@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppLayoutRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class layout extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 167466539798442****
-     *
      * @var string
      */
     public $layoutId;
@@ -20,9 +16,12 @@ class layout extends Model
         'layoutId' => 'LayoutId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layoutId) {
@@ -32,11 +31,11 @@ class layout extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return layout
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

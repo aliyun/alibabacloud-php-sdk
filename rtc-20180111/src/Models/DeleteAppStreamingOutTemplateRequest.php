@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateRequest\streamingOutTemplate;
-use AlibabaCloud\Tea\Model;
 
 class DeleteAppStreamingOutTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example wv7N****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var streamingOutTemplate
      */
     public $streamingOutTemplate;
@@ -29,32 +23,40 @@ class DeleteAppStreamingOutTemplateRequest extends Model
         'streamingOutTemplate' => 'StreamingOutTemplate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->streamingOutTemplate) {
+            $this->streamingOutTemplate->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->streamingOutTemplate) {
-            $res['StreamingOutTemplate'] = null !== $this->streamingOutTemplate ? $this->streamingOutTemplate->toMap() : null;
+            $res['StreamingOutTemplate'] = null !== $this->streamingOutTemplate ? $this->streamingOutTemplate->toArray($noStream) : $this->streamingOutTemplate;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAppStreamingOutTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['StreamingOutTemplate'])) {
             $model->streamingOutTemplate = streamingOutTemplate::fromMap($map['StreamingOutTemplate']);
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveTerminalsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example yourAppId
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example yourChannelId
-     *
      * @var string
      */
     public $channelId;
@@ -32,10 +24,6 @@ class RemoveTerminalsRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1811xxxx
-     *
      * @var string[]
      */
     public $terminalIds;
@@ -46,47 +34,71 @@ class RemoveTerminalsRequest extends Model
         'terminalIds' => 'TerminalIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->terminalIds)) {
+            Model::validateArray($this->terminalIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->terminalIds) {
-            $res['TerminalIds'] = $this->terminalIds;
+            if (\is_array($this->terminalIds)) {
+                $res['TerminalIds'] = [];
+                $n1 = 0;
+                foreach ($this->terminalIds as $item1) {
+                    $res['TerminalIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveTerminalsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['TerminalIds'])) {
             if (!empty($map['TerminalIds'])) {
-                $model->terminalIds = $map['TerminalIds'];
+                $model->terminalIds = [];
+                $n1 = 0;
+                foreach ($map['TerminalIds'] as $item1) {
+                    $model->terminalIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

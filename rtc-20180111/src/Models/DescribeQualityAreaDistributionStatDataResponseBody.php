@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeQualityAreaDistributionStatDataResponseBody\qualityStatDataList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeQualityAreaDistributionStatDataResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeQualityAreaDistributionStatDataResponseBody extends Model
     public $qualityStatDataList;
 
     /**
-     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
-     *
      * @var string
      */
     public $requestId;
@@ -25,20 +23,28 @@ class DescribeQualityAreaDistributionStatDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->qualityStatDataList)) {
+            Model::validateArray($this->qualityStatDataList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qualityStatDataList) {
-            $res['QualityStatDataList'] = [];
-            if (null !== $this->qualityStatDataList && \is_array($this->qualityStatDataList)) {
-                $n = 0;
-                foreach ($this->qualityStatDataList as $item) {
-                    $res['QualityStatDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qualityStatDataList)) {
+                $res['QualityStatDataList'] = [];
+                $n1 = 0;
+                foreach ($this->qualityStatDataList as $item1) {
+                    $res['QualityStatDataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class DescribeQualityAreaDistributionStatDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeQualityAreaDistributionStatDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QualityStatDataList'])) {
             if (!empty($map['QualityStatDataList'])) {
                 $model->qualityStatDataList = [];
-                $n = 0;
-                foreach ($map['QualityStatDataList'] as $item) {
-                    $model->qualityStatDataList[$n++] = null !== $item ? qualityStatDataList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QualityStatDataList'] as $item1) {
+                    $model->qualityStatDataList[$n1] = qualityStatDataList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

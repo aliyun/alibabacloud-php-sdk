@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakChannelCntDataResponseBody\peakChannelCntDataPerInterval;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRtcPeakChannelCntDataResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeRtcPeakChannelCntDataResponseBody extends Model
     public $peakChannelCntDataPerInterval;
 
     /**
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class DescribeRtcPeakChannelCntDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->peakChannelCntDataPerInterval) {
+            $this->peakChannelCntDataPerInterval->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->peakChannelCntDataPerInterval) {
-            $res['PeakChannelCntDataPerInterval'] = null !== $this->peakChannelCntDataPerInterval ? $this->peakChannelCntDataPerInterval->toMap() : null;
+            $res['PeakChannelCntDataPerInterval'] = null !== $this->peakChannelCntDataPerInterval ? $this->peakChannelCntDataPerInterval->toArray($noStream) : $this->peakChannelCntDataPerInterval;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeRtcPeakChannelCntDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRtcPeakChannelCntDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeakChannelCntDataPerInterval'])) {
             $model->peakChannelCntDataPerInterval = peakChannelCntDataPerInterval::fromMap($map['PeakChannelCntDataPerInterval']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

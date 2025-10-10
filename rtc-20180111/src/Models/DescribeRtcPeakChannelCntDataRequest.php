@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRtcPeakChannelCntDataRequest extends Model
 {
     /**
-     * @example yourAppId
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @example 2018-01-29T00:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 3600
-     *
      * @var string
      */
     public $interval;
@@ -35,15 +29,11 @@ class DescribeRtcPeakChannelCntDataRequest extends Model
     public $ownerId;
 
     /**
-     * @example CN
-     *
      * @var string
      */
     public $serviceArea;
 
     /**
-     * @example 2018-01-29T00:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -56,26 +46,34 @@ class DescribeRtcPeakChannelCntDataRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->serviceArea) {
             $res['ServiceArea'] = $this->serviceArea;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -83,29 +81,34 @@ class DescribeRtcPeakChannelCntDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRtcPeakChannelCntDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ServiceArea'])) {
             $model->serviceArea = $map['ServiceArea'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

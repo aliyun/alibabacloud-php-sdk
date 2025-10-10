@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcDurationDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcDurationDataResponseBody\durationDataPerInterval\durationModule;
-use AlibabaCloud\Tea\Model;
 
 class durationDataPerInterval extends Model
 {
@@ -17,17 +17,24 @@ class durationDataPerInterval extends Model
         'durationModule' => 'DurationModule',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->durationModule)) {
+            Model::validateArray($this->durationModule);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->durationModule) {
-            $res['DurationModule'] = [];
-            if (null !== $this->durationModule && \is_array($this->durationModule)) {
-                $n = 0;
-                foreach ($this->durationModule as $item) {
-                    $res['DurationModule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->durationModule)) {
+                $res['DurationModule'] = [];
+                $n1 = 0;
+                foreach ($this->durationModule as $item1) {
+                    $res['DurationModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class durationDataPerInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return durationDataPerInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DurationModule'])) {
             if (!empty($map['DurationModule'])) {
                 $model->durationModule = [];
-                $n = 0;
-                foreach ($map['DurationModule'] as $item) {
-                    $model->durationModule[$n++] = null !== $item ? durationModule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DurationModule'] as $item1) {
+                    $model->durationModule[$n1] = durationModule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

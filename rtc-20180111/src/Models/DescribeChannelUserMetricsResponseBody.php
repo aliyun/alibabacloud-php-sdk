@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserMetricsResponseBody\metricDatas;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserMetricsResponseBody\overallData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeChannelUserMetricsResponseBody extends Model
 {
@@ -21,8 +21,6 @@ class DescribeChannelUserMetricsResponseBody extends Model
     public $overallData;
 
     /**
-     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
-     *
      * @var string
      */
     public $requestId;
@@ -32,23 +30,35 @@ class DescribeChannelUserMetricsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metricDatas)) {
+            Model::validateArray($this->metricDatas);
+        }
+        if (null !== $this->overallData) {
+            $this->overallData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricDatas) {
-            $res['MetricDatas'] = [];
-            if (null !== $this->metricDatas && \is_array($this->metricDatas)) {
-                $n = 0;
-                foreach ($this->metricDatas as $item) {
-                    $res['MetricDatas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metricDatas)) {
+                $res['MetricDatas'] = [];
+                $n1 = 0;
+                foreach ($this->metricDatas as $item1) {
+                    $res['MetricDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->overallData) {
-            $res['OverallData'] = null !== $this->overallData ? $this->overallData->toMap() : null;
+            $res['OverallData'] = null !== $this->overallData ? $this->overallData->toArray($noStream) : $this->overallData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,26 +66,29 @@ class DescribeChannelUserMetricsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeChannelUserMetricsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricDatas'])) {
             if (!empty($map['MetricDatas'])) {
                 $model->metricDatas = [];
-                $n = 0;
-                foreach ($map['MetricDatas'] as $item) {
-                    $model->metricDatas[$n++] = null !== $item ? metricDatas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetricDatas'] as $item1) {
+                    $model->metricDatas[$n1] = metricDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OverallData'])) {
             $model->overallData = overallData::fromMap($map['OverallData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

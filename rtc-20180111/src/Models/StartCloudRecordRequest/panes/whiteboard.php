@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\panes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class whiteboard extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $whiteboardId;
@@ -18,9 +16,12 @@ class whiteboard extends Model
         'whiteboardId' => 'WhiteboardId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->whiteboardId) {
@@ -30,11 +31,11 @@ class whiteboard extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return whiteboard
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

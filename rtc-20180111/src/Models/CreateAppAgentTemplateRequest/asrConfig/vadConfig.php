@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppAgentTemplateRequest\asrConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vadConfig extends Model
 {
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $interruptSpeechDuration;
@@ -18,9 +16,12 @@ class vadConfig extends Model
         'interruptSpeechDuration' => 'InterruptSpeechDuration',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->interruptSpeechDuration) {
@@ -30,11 +31,11 @@ class vadConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vadConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

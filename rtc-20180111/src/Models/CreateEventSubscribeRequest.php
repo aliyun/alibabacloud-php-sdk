@@ -4,56 +4,36 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEventSubscribeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 9qb1****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example http://****.com/callback
-     *
      * @var string
      */
     public $callbackUrl;
 
     /**
-     * @example 123333
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ChannelEvent
-     *
      * @var string[]
      */
     public $events;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $needCallbackAuth;
@@ -64,15 +44,11 @@ class CreateEventSubscribeRequest extends Model
     public $ownerId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $role;
 
     /**
-     * @example user1
-     *
      * @var string[]
      */
     public $users;
@@ -88,79 +64,128 @@ class CreateEventSubscribeRequest extends Model
         'users' => 'Users',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->events) {
-            $res['Events'] = $this->events;
+            if (\is_array($this->events)) {
+                $res['Events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['Events'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->needCallbackAuth) {
             $res['NeedCallbackAuth'] = $this->needCallbackAuth;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->users) {
-            $res['Users'] = $this->users;
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEventSubscribeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
-                $model->events = $map['Events'];
+                $model->events = [];
+                $n1 = 0;
+                foreach ($map['Events'] as $item1) {
+                    $model->events[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NeedCallbackAuth'])) {
             $model->needCallbackAuth = $map['NeedCallbackAuth'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
-                $model->users = $map['Users'];
+                $model->users = [];
+                $n1 = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

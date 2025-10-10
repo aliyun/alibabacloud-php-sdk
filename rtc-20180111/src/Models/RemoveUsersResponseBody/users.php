@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class users extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @example Success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 1811****
-     *
      * @var string
      */
     public $userId;
@@ -34,17 +28,22 @@ class users extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -52,20 +51,22 @@ class users extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return users
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

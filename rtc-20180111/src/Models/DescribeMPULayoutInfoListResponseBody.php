@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListResponseBody\layouts;
-use AlibabaCloud\Tea\Model;
 
 class DescribeMPULayoutInfoListResponseBody extends Model
 {
@@ -15,22 +15,16 @@ class DescribeMPULayoutInfoListResponseBody extends Model
     public $layouts;
 
     /**
-     * @example 760bad53276431c499e30dc36f6b26be
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalNum;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalPage;
@@ -41,20 +35,29 @@ class DescribeMPULayoutInfoListResponseBody extends Model
         'totalPage' => 'TotalPage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->layouts) {
+            $this->layouts->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layouts) {
-            $res['Layouts'] = null !== $this->layouts ? $this->layouts->toMap() : null;
+            $res['Layouts'] = null !== $this->layouts ? $this->layouts->toArray($noStream) : $this->layouts;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
+
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
         }
@@ -62,23 +65,26 @@ class DescribeMPULayoutInfoListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMPULayoutInfoListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Layouts'])) {
             $model->layouts = layouts::fromMap($map['Layouts']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
+
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
         }

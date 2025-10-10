@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUsageAreaDistributionStatDataResponseBody\usageAreaStatList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUsageAreaDistributionStatDataResponseBody extends Model
 {
     /**
-     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
-     *
      * @var string
      */
     public $requestId;
@@ -25,20 +23,28 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
         'usageAreaStatList' => 'UsageAreaStatList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->usageAreaStatList)) {
+            Model::validateArray($this->usageAreaStatList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->usageAreaStatList) {
-            $res['UsageAreaStatList'] = [];
-            if (null !== $this->usageAreaStatList && \is_array($this->usageAreaStatList)) {
-                $n = 0;
-                foreach ($this->usageAreaStatList as $item) {
-                    $res['UsageAreaStatList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->usageAreaStatList)) {
+                $res['UsageAreaStatList'] = [];
+                $n1 = 0;
+                foreach ($this->usageAreaStatList as $item1) {
+                    $res['UsageAreaStatList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -46,23 +52,25 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUsageAreaDistributionStatDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UsageAreaStatList'])) {
             if (!empty($map['UsageAreaStatList'])) {
                 $model->usageAreaStatList = [];
-                $n = 0;
-                foreach ($map['UsageAreaStatList'] as $item) {
-                    $model->usageAreaStatList[$n++] = null !== $item ? usageAreaStatList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UsageAreaStatList'] as $item1) {
+                    $model->usageAreaStatList[$n1] = usageAreaStatList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rtcConfig extends Model
 {
@@ -14,10 +14,6 @@ class rtcConfig extends Model
     public $targetUserIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 423341
-     *
      * @var string
      */
     public $userId;
@@ -32,17 +28,32 @@ class rtcConfig extends Model
         'userInactivityTimeout' => 'UserInactivityTimeout',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->targetUserIds)) {
+            Model::validateArray($this->targetUserIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetUserIds) {
-            $res['TargetUserIds'] = $this->targetUserIds;
+            if (\is_array($this->targetUserIds)) {
+                $res['TargetUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->targetUserIds as $item1) {
+                    $res['TargetUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userInactivityTimeout) {
             $res['UserInactivityTimeout'] = $this->userInactivityTimeout;
         }
@@ -50,22 +61,29 @@ class rtcConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rtcConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TargetUserIds'])) {
             if (!empty($map['TargetUserIds'])) {
-                $model->targetUserIds = $map['TargetUserIds'];
+                $model->targetUserIds = [];
+                $n1 = 0;
+                foreach ($map['TargetUserIds'] as $item1) {
+                    $model->targetUserIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserInactivityTimeout'])) {
             $model->userInactivityTimeout = $map['UserInactivityTimeout'];
         }

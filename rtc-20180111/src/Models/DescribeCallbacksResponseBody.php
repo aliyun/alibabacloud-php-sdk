@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallbacksResponseBody\callbacks;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCallbacksResponseBody extends Model
 {
@@ -15,10 +15,6 @@ class DescribeCallbacksResponseBody extends Model
     public $callbacks;
 
     /**
-     * @description Id of the request
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +23,28 @@ class DescribeCallbacksResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->callbacks)) {
+            Model::validateArray($this->callbacks);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callbacks) {
-            $res['Callbacks'] = [];
-            if (null !== $this->callbacks && \is_array($this->callbacks)) {
-                $n = 0;
-                foreach ($this->callbacks as $item) {
-                    $res['Callbacks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->callbacks)) {
+                $res['Callbacks'] = [];
+                $n1 = 0;
+                foreach ($this->callbacks as $item1) {
+                    $res['Callbacks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +52,25 @@ class DescribeCallbacksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCallbacksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Callbacks'])) {
             if (!empty($map['Callbacks'])) {
                 $model->callbacks = [];
-                $n = 0;
-                foreach ($map['Callbacks'] as $item) {
-                    $model->callbacks[$n++] = null !== $item ? callbacks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Callbacks'] as $item1) {
+                    $model->callbacks[$n1] = callbacks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

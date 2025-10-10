@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserDetailResponseBody\factorList\relatedEventDatas;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserDetailResponseBody\factorList\relatedMetricDatas;
-use AlibabaCloud\Tea\Model;
 
 class factorList extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $factorId;
 
     /**
-     * @example LOCAL
-     *
      * @var string
      */
     public $faultSource;
@@ -40,32 +36,46 @@ class factorList extends Model
         'relatedMetricDatas' => 'RelatedMetricDatas',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->relatedEventDatas)) {
+            Model::validateArray($this->relatedEventDatas);
+        }
+        if (\is_array($this->relatedMetricDatas)) {
+            Model::validateArray($this->relatedMetricDatas);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->factorId) {
             $res['FactorId'] = $this->factorId;
         }
+
         if (null !== $this->faultSource) {
             $res['FaultSource'] = $this->faultSource;
         }
+
         if (null !== $this->relatedEventDatas) {
-            $res['RelatedEventDatas'] = [];
-            if (null !== $this->relatedEventDatas && \is_array($this->relatedEventDatas)) {
-                $n = 0;
-                foreach ($this->relatedEventDatas as $item) {
-                    $res['RelatedEventDatas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->relatedEventDatas)) {
+                $res['RelatedEventDatas'] = [];
+                $n1 = 0;
+                foreach ($this->relatedEventDatas as $item1) {
+                    $res['RelatedEventDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->relatedMetricDatas) {
-            $res['RelatedMetricDatas'] = [];
-            if (null !== $this->relatedMetricDatas && \is_array($this->relatedMetricDatas)) {
-                $n = 0;
-                foreach ($this->relatedMetricDatas as $item) {
-                    $res['RelatedMetricDatas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->relatedMetricDatas)) {
+                $res['RelatedMetricDatas'] = [];
+                $n1 = 0;
+                foreach ($this->relatedMetricDatas as $item1) {
+                    $res['RelatedMetricDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,35 +83,40 @@ class factorList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return factorList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FactorId'])) {
             $model->factorId = $map['FactorId'];
         }
+
         if (isset($map['FaultSource'])) {
             $model->faultSource = $map['FaultSource'];
         }
+
         if (isset($map['RelatedEventDatas'])) {
             if (!empty($map['RelatedEventDatas'])) {
                 $model->relatedEventDatas = [];
-                $n = 0;
-                foreach ($map['RelatedEventDatas'] as $item) {
-                    $model->relatedEventDatas[$n++] = null !== $item ? relatedEventDatas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RelatedEventDatas'] as $item1) {
+                    $model->relatedEventDatas[$n1] = relatedEventDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RelatedMetricDatas'])) {
             if (!empty($map['RelatedMetricDatas'])) {
                 $model->relatedMetricDatas = [];
-                $n = 0;
-                foreach ($map['RelatedMetricDatas'] as $item) {
-                    $model->relatedMetricDatas[$n++] = null !== $item ? relatedMetricDatas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RelatedMetricDatas'] as $item1) {
+                    $model->relatedMetricDatas[$n1] = relatedMetricDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

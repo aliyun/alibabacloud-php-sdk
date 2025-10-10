@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\singleStreamingRecord;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\singleStreamingRecord\transcodingParameters\audio;
-use AlibabaCloud\Tea\Model;
 
 class transcodingParameters extends Model
 {
@@ -23,14 +23,21 @@ class transcodingParameters extends Model
         'container' => 'Container',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->audio) {
+            $this->audio->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audio) {
-            $res['Audio'] = null !== $this->audio ? $this->audio->toMap() : null;
+            $res['Audio'] = null !== $this->audio ? $this->audio->toArray($noStream) : $this->audio;
         }
+
         if (null !== $this->container) {
             $res['Container'] = $this->container;
         }
@@ -38,17 +45,18 @@ class transcodingParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transcodingParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Audio'])) {
             $model->audio = audio::fromMap($map['Audio']);
         }
+
         if (isset($map['Container'])) {
             $model->container = $map['Container'];
         }

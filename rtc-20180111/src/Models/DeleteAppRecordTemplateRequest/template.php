@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class template extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2xh6****
-     *
      * @var string
      */
     public $templateId;
@@ -20,9 +16,12 @@ class template extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -32,11 +31,11 @@ class template extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return template
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

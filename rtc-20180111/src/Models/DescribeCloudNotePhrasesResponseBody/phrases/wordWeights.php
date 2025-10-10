@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotePhrasesResponseBody\phrases;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class wordWeights extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $weight;
 
     /**
-     * @example 苹果
-     *
      * @var string
      */
     public $word;
@@ -26,14 +22,18 @@ class wordWeights extends Model
         'word' => 'Word',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
+
         if (null !== $this->word) {
             $res['Word'] = $this->word;
         }
@@ -41,17 +41,18 @@ class wordWeights extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return wordWeights
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }
+
         if (isset($map['Word'])) {
             $model->word = $map['Word'];
         }

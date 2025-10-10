@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\singleStreamingRecord;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class specifiedStreams extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $ids;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $streamType;
 
     /**
-     * @example white
-     *
      * @var string
      */
     public $type;
@@ -34,17 +28,32 @@ class specifiedStreams extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ids)) {
+            Model::validateArray($this->ids);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+            if (\is_array($this->ids)) {
+                $res['Ids'] = [];
+                $n1 = 0;
+                foreach ($this->ids as $item1) {
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->streamType) {
             $res['StreamType'] = $this->streamType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -52,22 +61,29 @@ class specifiedStreams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specifiedStreams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = $map['Ids'];
+                $model->ids = [];
+                $n1 = 0;
+                foreach ($map['Ids'] as $item1) {
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['StreamType'])) {
             $model->streamType = $map['StreamType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

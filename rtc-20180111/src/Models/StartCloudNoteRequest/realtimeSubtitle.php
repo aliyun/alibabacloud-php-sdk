@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\realtimeSubtitle\translation;
-use AlibabaCloud\Tea\Model;
 
 class realtimeSubtitle extends Model
 {
@@ -23,32 +23,40 @@ class realtimeSubtitle extends Model
         'translation' => 'Translation',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->translation) {
+            $this->translation->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->translation) {
-            $res['Translation'] = null !== $this->translation ? $this->translation->toMap() : null;
+            $res['Translation'] = null !== $this->translation ? $this->translation->toArray($noStream) : $this->translation;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return realtimeSubtitle
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['Translation'])) {
             $model->translation = translation::fromMap($map['Translation']);
         }

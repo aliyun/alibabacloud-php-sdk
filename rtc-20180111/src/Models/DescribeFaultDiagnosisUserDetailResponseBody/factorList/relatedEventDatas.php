@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserDetailResponseBody\factorList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserDetailResponseBody\factorList\relatedEventDatas\eventDataItems;
-use AlibabaCloud\Tea\Model;
 
 class relatedEventDatas extends Model
 {
@@ -15,15 +15,11 @@ class relatedEventDatas extends Model
     public $eventDataItems;
 
     /**
-     * @example SENDER
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @example 0a497933****
-     *
      * @var string
      */
     public $userId;
@@ -33,23 +29,32 @@ class relatedEventDatas extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->eventDataItems)) {
+            Model::validateArray($this->eventDataItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventDataItems) {
-            $res['EventDataItems'] = [];
-            if (null !== $this->eventDataItems && \is_array($this->eventDataItems)) {
-                $n = 0;
-                foreach ($this->eventDataItems as $item) {
-                    $res['EventDataItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eventDataItems)) {
+                $res['EventDataItems'] = [];
+                $n1 = 0;
+                foreach ($this->eventDataItems as $item1) {
+                    $res['EventDataItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -57,26 +62,29 @@ class relatedEventDatas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedEventDatas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventDataItems'])) {
             if (!empty($map['EventDataItems'])) {
                 $model->eventDataItems = [];
-                $n = 0;
-                foreach ($map['EventDataItems'] as $item) {
-                    $model->eventDataItems[$n++] = null !== $item ? eventDataItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EventDataItems'] as $item1) {
+                    $model->eventDataItems[$n1] = eventDataItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

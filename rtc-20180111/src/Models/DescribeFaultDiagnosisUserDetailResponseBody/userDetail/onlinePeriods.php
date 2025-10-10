@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserDetailResponseBody\userDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class onlinePeriods extends Model
 {
     /**
-     * @example 1620957919
-     *
      * @var int
      */
     public $joinTs;
 
     /**
-     * @example 1620958150
-     *
      * @var int
      */
     public $leaveTs;
@@ -26,14 +22,18 @@ class onlinePeriods extends Model
         'leaveTs' => 'LeaveTs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->joinTs) {
             $res['JoinTs'] = $this->joinTs;
         }
+
         if (null !== $this->leaveTs) {
             $res['LeaveTs'] = $this->leaveTs;
         }
@@ -41,17 +41,18 @@ class onlinePeriods extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return onlinePeriods
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JoinTs'])) {
             $model->joinTs = $map['JoinTs'];
         }
+
         if (isset($map['LeaveTs'])) {
             $model->leaveTs = $map['LeaveTs'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisFactorDistributionStatResponseBody\statList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
 {
     /**
-     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
-     *
      * @var string
      */
     public $requestId;
@@ -25,20 +23,28 @@ class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
         'statList' => 'StatList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->statList)) {
+            Model::validateArray($this->statList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->statList) {
-            $res['StatList'] = [];
-            if (null !== $this->statList && \is_array($this->statList)) {
-                $n = 0;
-                foreach ($this->statList as $item) {
-                    $res['StatList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statList)) {
+                $res['StatList'] = [];
+                $n1 = 0;
+                foreach ($this->statList as $item1) {
+                    $res['StatList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -46,23 +52,25 @@ class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeFaultDiagnosisFactorDistributionStatResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StatList'])) {
             if (!empty($map['StatList'])) {
                 $model->statList = [];
-                $n = 0;
-                foreach ($map['StatList'] as $item) {
-                    $model->statList[$n++] = null !== $item ? statList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StatList'] as $item1) {
+                    $model->statList[$n1] = statList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

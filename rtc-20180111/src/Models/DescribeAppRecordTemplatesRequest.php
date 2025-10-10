@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppRecordTemplatesRequest\condition;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAppRecordTemplatesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ac7N****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
@@ -31,15 +25,11 @@ class DescribeAppRecordTemplatesRequest extends Model
     public $condition;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -51,23 +41,33 @@ class DescribeAppRecordTemplatesRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->condition) {
+            $this->condition->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->condition) {
-            $res['Condition'] = null !== $this->condition ? $this->condition->toMap() : null;
+            $res['Condition'] = null !== $this->condition ? $this->condition->toArray($noStream) : $this->condition;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -75,26 +75,30 @@ class DescribeAppRecordTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAppRecordTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Condition'])) {
             $model->condition = condition::fromMap($map['Condition']);
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\singleStreamingRecord\specifiedStreams;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\singleStreamingRecord\transcodingParameters;
-use AlibabaCloud\Tea\Model;
 
 class singleStreamingRecord extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var specifiedStreams[]
      */
     public $specifiedStreams;
@@ -26,44 +24,57 @@ class singleStreamingRecord extends Model
         'transcodingParameters' => 'TranscodingParameters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->specifiedStreams)) {
+            Model::validateArray($this->specifiedStreams);
+        }
+        if (null !== $this->transcodingParameters) {
+            $this->transcodingParameters->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->specifiedStreams) {
-            $res['SpecifiedStreams'] = [];
-            if (null !== $this->specifiedStreams && \is_array($this->specifiedStreams)) {
-                $n = 0;
-                foreach ($this->specifiedStreams as $item) {
-                    $res['SpecifiedStreams'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->specifiedStreams)) {
+                $res['SpecifiedStreams'] = [];
+                $n1 = 0;
+                foreach ($this->specifiedStreams as $item1) {
+                    $res['SpecifiedStreams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->transcodingParameters) {
-            $res['TranscodingParameters'] = null !== $this->transcodingParameters ? $this->transcodingParameters->toMap() : null;
+            $res['TranscodingParameters'] = null !== $this->transcodingParameters ? $this->transcodingParameters->toArray($noStream) : $this->transcodingParameters;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return singleStreamingRecord
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpecifiedStreams'])) {
             if (!empty($map['SpecifiedStreams'])) {
                 $model->specifiedStreams = [];
-                $n = 0;
-                foreach ($map['SpecifiedStreams'] as $item) {
-                    $model->specifiedStreams[$n++] = null !== $item ? specifiedStreams::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpecifiedStreams'] as $item1) {
+                    $model->specifiedStreams[$n1] = specifiedStreams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TranscodingParameters'])) {
             $model->transcodingParameters = transcodingParameters::fromMap($map['TranscodingParameters']);
         }

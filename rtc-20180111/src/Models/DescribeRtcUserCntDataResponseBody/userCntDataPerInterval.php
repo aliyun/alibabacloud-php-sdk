@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserCntDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserCntDataResponseBody\userCntDataPerInterval\userCntModule;
-use AlibabaCloud\Tea\Model;
 
 class userCntDataPerInterval extends Model
 {
@@ -17,17 +17,24 @@ class userCntDataPerInterval extends Model
         'userCntModule' => 'UserCntModule',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userCntModule)) {
+            Model::validateArray($this->userCntModule);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userCntModule) {
-            $res['UserCntModule'] = [];
-            if (null !== $this->userCntModule && \is_array($this->userCntModule)) {
-                $n = 0;
-                foreach ($this->userCntModule as $item) {
-                    $res['UserCntModule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userCntModule)) {
+                $res['UserCntModule'] = [];
+                $n1 = 0;
+                foreach ($this->userCntModule as $item1) {
+                    $res['UserCntModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class userCntDataPerInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userCntDataPerInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserCntModule'])) {
             if (!empty($map['UserCntModule'])) {
                 $model->userCntModule = [];
-                $n = 0;
-                foreach ($map['UserCntModule'] as $item) {
-                    $model->userCntModule[$n++] = null !== $item ? userCntModule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserCntModule'] as $item1) {
+                    $model->userCntModule[$n1] = userCntModule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

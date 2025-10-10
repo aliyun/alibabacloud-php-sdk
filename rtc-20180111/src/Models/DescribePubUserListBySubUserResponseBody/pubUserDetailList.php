@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribePubUserListBySubUserResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribePubUserListBySubUserResponseBody\pubUserDetailList\onlinePeriods;
-use AlibabaCloud\Tea\Model;
 
 class pubUserDetailList extends Model
 {
@@ -15,43 +15,31 @@ class pubUserDetailList extends Model
     public $callIdList;
 
     /**
-     * @example NATIVE
-     *
      * @var string
      */
     public $clientType;
 
     /**
-     * @example 1614936817
-     *
      * @var int
      */
     public $createdTs;
 
     /**
-     * @example 1614936817
-     *
      * @var int
      */
     public $destroyedTs;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @example 浙江省-杭州市
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @example 4G
-     *
      * @var string
      */
     public $network;
@@ -62,8 +50,6 @@ class pubUserDetailList extends Model
     public $networkList;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $onlineDuration;
@@ -74,8 +60,6 @@ class pubUserDetailList extends Model
     public $onlinePeriods;
 
     /**
-     * @example iOS
-     *
      * @var string
      */
     public $os;
@@ -91,8 +75,6 @@ class pubUserDetailList extends Model
     public $roles;
 
     /**
-     * @example 1.0.0
-     *
      * @var string
      */
     public $sdkVersion;
@@ -103,15 +85,11 @@ class pubUserDetailList extends Model
     public $sdkVersionList;
 
     /**
-     * @example testuserid
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @example 旁路转推
-     *
      * @var string
      */
     public $userIdAlias;
@@ -135,65 +113,138 @@ class pubUserDetailList extends Model
         'userIdAlias' => 'UserIdAlias',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->callIdList)) {
+            Model::validateArray($this->callIdList);
+        }
+        if (\is_array($this->networkList)) {
+            Model::validateArray($this->networkList);
+        }
+        if (\is_array($this->onlinePeriods)) {
+            Model::validateArray($this->onlinePeriods);
+        }
+        if (\is_array($this->osList)) {
+            Model::validateArray($this->osList);
+        }
+        if (\is_array($this->roles)) {
+            Model::validateArray($this->roles);
+        }
+        if (\is_array($this->sdkVersionList)) {
+            Model::validateArray($this->sdkVersionList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callIdList) {
-            $res['CallIdList'] = $this->callIdList;
-        }
-        if (null !== $this->clientType) {
-            $res['ClientType'] = $this->clientType;
-        }
-        if (null !== $this->createdTs) {
-            $res['CreatedTs'] = $this->createdTs;
-        }
-        if (null !== $this->destroyedTs) {
-            $res['DestroyedTs'] = $this->destroyedTs;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
-        }
-        if (null !== $this->network) {
-            $res['Network'] = $this->network;
-        }
-        if (null !== $this->networkList) {
-            $res['NetworkList'] = $this->networkList;
-        }
-        if (null !== $this->onlineDuration) {
-            $res['OnlineDuration'] = $this->onlineDuration;
-        }
-        if (null !== $this->onlinePeriods) {
-            $res['OnlinePeriods'] = [];
-            if (null !== $this->onlinePeriods && \is_array($this->onlinePeriods)) {
-                $n = 0;
-                foreach ($this->onlinePeriods as $item) {
-                    $res['OnlinePeriods'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->callIdList)) {
+                $res['CallIdList'] = [];
+                $n1 = 0;
+                foreach ($this->callIdList as $item1) {
+                    $res['CallIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->clientType) {
+            $res['ClientType'] = $this->clientType;
+        }
+
+        if (null !== $this->createdTs) {
+            $res['CreatedTs'] = $this->createdTs;
+        }
+
+        if (null !== $this->destroyedTs) {
+            $res['DestroyedTs'] = $this->destroyedTs;
+        }
+
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
+
+        if (null !== $this->network) {
+            $res['Network'] = $this->network;
+        }
+
+        if (null !== $this->networkList) {
+            if (\is_array($this->networkList)) {
+                $res['NetworkList'] = [];
+                $n1 = 0;
+                foreach ($this->networkList as $item1) {
+                    $res['NetworkList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->onlineDuration) {
+            $res['OnlineDuration'] = $this->onlineDuration;
+        }
+
+        if (null !== $this->onlinePeriods) {
+            if (\is_array($this->onlinePeriods)) {
+                $res['OnlinePeriods'] = [];
+                $n1 = 0;
+                foreach ($this->onlinePeriods as $item1) {
+                    $res['OnlinePeriods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->os) {
             $res['Os'] = $this->os;
         }
+
         if (null !== $this->osList) {
-            $res['OsList'] = $this->osList;
+            if (\is_array($this->osList)) {
+                $res['OsList'] = [];
+                $n1 = 0;
+                foreach ($this->osList as $item1) {
+                    $res['OsList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->roles) {
-            $res['Roles'] = $this->roles;
+            if (\is_array($this->roles)) {
+                $res['Roles'] = [];
+                $n1 = 0;
+                foreach ($this->roles as $item1) {
+                    $res['Roles'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->sdkVersion) {
             $res['SdkVersion'] = $this->sdkVersion;
         }
+
         if (null !== $this->sdkVersionList) {
-            $res['SdkVersionList'] = $this->sdkVersionList;
+            if (\is_array($this->sdkVersionList)) {
+                $res['SdkVersionList'] = [];
+                $n1 = 0;
+                foreach ($this->sdkVersionList as $item1) {
+                    $res['SdkVersionList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userIdAlias) {
             $res['UserIdAlias'] = $this->userIdAlias;
         }
@@ -201,78 +252,120 @@ class pubUserDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pubUserDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallIdList'])) {
             if (!empty($map['CallIdList'])) {
-                $model->callIdList = $map['CallIdList'];
-            }
-        }
-        if (isset($map['ClientType'])) {
-            $model->clientType = $map['ClientType'];
-        }
-        if (isset($map['CreatedTs'])) {
-            $model->createdTs = $map['CreatedTs'];
-        }
-        if (isset($map['DestroyedTs'])) {
-            $model->destroyedTs = $map['DestroyedTs'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
-        }
-        if (isset($map['Network'])) {
-            $model->network = $map['Network'];
-        }
-        if (isset($map['NetworkList'])) {
-            if (!empty($map['NetworkList'])) {
-                $model->networkList = $map['NetworkList'];
-            }
-        }
-        if (isset($map['OnlineDuration'])) {
-            $model->onlineDuration = $map['OnlineDuration'];
-        }
-        if (isset($map['OnlinePeriods'])) {
-            if (!empty($map['OnlinePeriods'])) {
-                $model->onlinePeriods = [];
-                $n = 0;
-                foreach ($map['OnlinePeriods'] as $item) {
-                    $model->onlinePeriods[$n++] = null !== $item ? onlinePeriods::fromMap($item) : $item;
+                $model->callIdList = [];
+                $n1 = 0;
+                foreach ($map['CallIdList'] as $item1) {
+                    $model->callIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['ClientType'])) {
+            $model->clientType = $map['ClientType'];
+        }
+
+        if (isset($map['CreatedTs'])) {
+            $model->createdTs = $map['CreatedTs'];
+        }
+
+        if (isset($map['DestroyedTs'])) {
+            $model->destroyedTs = $map['DestroyedTs'];
+        }
+
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
+
+        if (isset($map['Network'])) {
+            $model->network = $map['Network'];
+        }
+
+        if (isset($map['NetworkList'])) {
+            if (!empty($map['NetworkList'])) {
+                $model->networkList = [];
+                $n1 = 0;
+                foreach ($map['NetworkList'] as $item1) {
+                    $model->networkList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['OnlineDuration'])) {
+            $model->onlineDuration = $map['OnlineDuration'];
+        }
+
+        if (isset($map['OnlinePeriods'])) {
+            if (!empty($map['OnlinePeriods'])) {
+                $model->onlinePeriods = [];
+                $n1 = 0;
+                foreach ($map['OnlinePeriods'] as $item1) {
+                    $model->onlinePeriods[$n1] = onlinePeriods::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
         }
+
         if (isset($map['OsList'])) {
             if (!empty($map['OsList'])) {
-                $model->osList = $map['OsList'];
+                $model->osList = [];
+                $n1 = 0;
+                foreach ($map['OsList'] as $item1) {
+                    $model->osList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
-                $model->roles = $map['Roles'];
+                $model->roles = [];
+                $n1 = 0;
+                foreach ($map['Roles'] as $item1) {
+                    $model->roles[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SdkVersion'])) {
             $model->sdkVersion = $map['SdkVersion'];
         }
+
         if (isset($map['SdkVersionList'])) {
             if (!empty($map['SdkVersionList'])) {
-                $model->sdkVersionList = $map['SdkVersionList'];
+                $model->sdkVersionList = [];
+                $n1 = 0;
+                foreach ($map['SdkVersionList'] as $item1) {
+                    $model->sdkVersionList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserIdAlias'])) {
             $model->userIdAlias = $map['UserIdAlias'];
         }

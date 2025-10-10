@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody\channelMetricInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRtcChannelMetricResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeRtcChannelMetricResponseBody extends Model
     public $channelMetricInfo;
 
     /**
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class DescribeRtcChannelMetricResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->channelMetricInfo) {
+            $this->channelMetricInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelMetricInfo) {
-            $res['ChannelMetricInfo'] = null !== $this->channelMetricInfo ? $this->channelMetricInfo->toMap() : null;
+            $res['ChannelMetricInfo'] = null !== $this->channelMetricInfo ? $this->channelMetricInfo->toArray($noStream) : $this->channelMetricInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeRtcChannelMetricResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRtcChannelMetricResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelMetricInfo'])) {
             $model->channelMetricInfo = channelMetricInfo::fromMap($map['ChannelMetricInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

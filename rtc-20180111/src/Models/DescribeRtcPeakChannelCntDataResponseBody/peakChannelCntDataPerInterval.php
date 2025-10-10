@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakChannelCntDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakChannelCntDataResponseBody\peakChannelCntDataPerInterval\peakChannelCntModule;
-use AlibabaCloud\Tea\Model;
 
 class peakChannelCntDataPerInterval extends Model
 {
@@ -17,17 +17,24 @@ class peakChannelCntDataPerInterval extends Model
         'peakChannelCntModule' => 'PeakChannelCntModule',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->peakChannelCntModule)) {
+            Model::validateArray($this->peakChannelCntModule);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->peakChannelCntModule) {
-            $res['PeakChannelCntModule'] = [];
-            if (null !== $this->peakChannelCntModule && \is_array($this->peakChannelCntModule)) {
-                $n = 0;
-                foreach ($this->peakChannelCntModule as $item) {
-                    $res['PeakChannelCntModule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->peakChannelCntModule)) {
+                $res['PeakChannelCntModule'] = [];
+                $n1 = 0;
+                foreach ($this->peakChannelCntModule as $item1) {
+                    $res['PeakChannelCntModule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class peakChannelCntDataPerInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return peakChannelCntDataPerInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeakChannelCntModule'])) {
             if (!empty($map['PeakChannelCntModule'])) {
                 $model->peakChannelCntModule = [];
-                $n = 0;
-                foreach ($map['PeakChannelCntModule'] as $item) {
-                    $model->peakChannelCntModule[$n++] = null !== $item ? peakChannelCntModule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PeakChannelCntModule'] as $item1) {
+                    $model->peakChannelCntModule[$n1] = peakChannelCntModule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

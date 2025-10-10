@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponseBody\terminals\terminal;
-use AlibabaCloud\Tea\Model;
 
 class terminals extends Model
 {
@@ -17,17 +17,24 @@ class terminals extends Model
         'terminal' => 'Terminal',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->terminal)) {
+            Model::validateArray($this->terminal);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->terminal) {
-            $res['Terminal'] = [];
-            if (null !== $this->terminal && \is_array($this->terminal)) {
-                $n = 0;
-                foreach ($this->terminal as $item) {
-                    $res['Terminal'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->terminal)) {
+                $res['Terminal'] = [];
+                $n1 = 0;
+                foreach ($this->terminal as $item1) {
+                    $res['Terminal'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class terminals extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return terminals
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Terminal'])) {
             if (!empty($map['Terminal'])) {
                 $model->terminal = [];
-                $n = 0;
-                foreach ($map['Terminal'] as $item) {
-                    $model->terminal[$n++] = null !== $item ? terminal::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Terminal'] as $item1) {
+                    $model->terminal[$n1] = terminal::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

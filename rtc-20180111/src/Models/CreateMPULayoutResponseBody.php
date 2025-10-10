@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMPULayoutResponseBody extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $layoutId;
 
     /**
-     * @example 760bad53276431c499e30dc36f6b26be
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CreateMPULayoutResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateMPULayoutResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMPULayoutResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

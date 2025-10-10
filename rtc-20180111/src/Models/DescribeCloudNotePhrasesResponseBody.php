@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotePhrasesResponseBody\phrases;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudNotePhrasesResponseBody extends Model
 {
@@ -15,24 +15,16 @@ class DescribeCloudNotePhrasesResponseBody extends Model
     public $phrases;
 
     /**
-     * @description Id of the request。
-     *
-     * @example 3A26E1E3-3CBB-599E-AD68-CB78F5A42FA1
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalNum;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalPage;
@@ -43,26 +35,36 @@ class DescribeCloudNotePhrasesResponseBody extends Model
         'totalPage' => 'TotalPage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->phrases)) {
+            Model::validateArray($this->phrases);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->phrases) {
-            $res['Phrases'] = [];
-            if (null !== $this->phrases && \is_array($this->phrases)) {
-                $n = 0;
-                foreach ($this->phrases as $item) {
-                    $res['Phrases'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->phrases)) {
+                $res['Phrases'] = [];
+                $n1 = 0;
+                foreach ($this->phrases as $item1) {
+                    $res['Phrases'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
+
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
         }
@@ -70,29 +72,33 @@ class DescribeCloudNotePhrasesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudNotePhrasesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Phrases'])) {
             if (!empty($map['Phrases'])) {
                 $model->phrases = [];
-                $n = 0;
-                foreach ($map['Phrases'] as $item) {
-                    $model->phrases[$n++] = null !== $item ? phrases::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Phrases'] as $item1) {
+                    $model->phrases[$n1] = phrases::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
+
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
         }

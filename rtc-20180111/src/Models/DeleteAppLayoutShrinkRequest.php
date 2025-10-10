@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAppLayoutShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ac7N****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
@@ -34,17 +28,22 @@ class DeleteAppLayoutShrinkRequest extends Model
         'layoutShrink' => 'Layout',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->layoutShrink) {
             $res['Layout'] = $this->layoutShrink;
         }
@@ -52,20 +51,22 @@ class DeleteAppLayoutShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAppLayoutShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Layout'])) {
             $model->layoutShrink = $map['Layout'];
         }

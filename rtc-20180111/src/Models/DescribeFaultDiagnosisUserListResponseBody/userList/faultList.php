@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisUserListResponseBody\userList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class faultList extends Model
 {
     /**
-     * @example JOIN_SLOW
-     *
      * @var string
      */
     public $faultType;
@@ -18,9 +16,12 @@ class faultList extends Model
         'faultType' => 'FaultType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faultType) {
@@ -30,11 +31,11 @@ class faultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return faultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateCloudNotePhrasesRequest\phrase;
-use AlibabaCloud\Tea\Model;
 
 class CreateCloudNotePhrasesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ac7N****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var phrase
      */
     public $phrase;
@@ -29,32 +23,40 @@ class CreateCloudNotePhrasesRequest extends Model
         'phrase' => 'Phrase',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->phrase) {
+            $this->phrase->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->phrase) {
-            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
+            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toArray($noStream) : $this->phrase;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCloudNotePhrasesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Phrase'])) {
             $model->phrase = phrase::fromMap($map['Phrase']);
         }

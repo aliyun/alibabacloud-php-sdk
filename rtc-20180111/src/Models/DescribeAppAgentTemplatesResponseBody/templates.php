@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\agentSilenceConfig;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\ambientSoundConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\asrConfig;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\backChannelConfig;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\interruptConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\llmConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\ttsConfig;
-use AlibabaCloud\Tea\Model;
 
 class templates extends Model
 {
@@ -18,41 +21,46 @@ class templates extends Model
     public $agentSilenceConfig;
 
     /**
+     * @var ambientSoundConfig
+     */
+    public $ambientSoundConfig;
+
+    /**
      * @var asrConfig
      */
     public $asrConfig;
 
     /**
-     * @example 1
-     *
+     * @var backChannelConfig
+     */
+    public $backChannelConfig;
+
+    /**
      * @var int
      */
     public $chatMode;
 
     /**
-     * @example 2020-09-04T06:22:15Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example 你好，机器人。
-     *
      * @var string
      */
     public $greeting;
 
     /**
-     * @example wv7N****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 1
-     *
+     * @var interruptConfig
+     */
+    public $interruptConfig;
+
+    /**
      * @var int
      */
     public $interruptMode;
@@ -63,8 +71,6 @@ class templates extends Model
     public $llmConfig;
 
     /**
-     * @example 测试
-     *
      * @var string
      */
     public $name;
@@ -75,18 +81,19 @@ class templates extends Model
     public $ttsConfig;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
     protected $_name = [
         'agentSilenceConfig' => 'AgentSilenceConfig',
+        'ambientSoundConfig' => 'AmbientSoundConfig',
         'asrConfig' => 'AsrConfig',
+        'backChannelConfig' => 'BackChannelConfig',
         'chatMode' => 'ChatMode',
         'createTime' => 'CreateTime',
         'greeting' => 'Greeting',
         'id' => 'Id',
+        'interruptConfig' => 'InterruptConfig',
         'interruptMode' => 'InterruptMode',
         'llmConfig' => 'LlmConfig',
         'name' => 'Name',
@@ -94,41 +101,87 @@ class templates extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->agentSilenceConfig) {
+            $this->agentSilenceConfig->validate();
+        }
+        if (null !== $this->ambientSoundConfig) {
+            $this->ambientSoundConfig->validate();
+        }
+        if (null !== $this->asrConfig) {
+            $this->asrConfig->validate();
+        }
+        if (null !== $this->backChannelConfig) {
+            $this->backChannelConfig->validate();
+        }
+        if (null !== $this->interruptConfig) {
+            $this->interruptConfig->validate();
+        }
+        if (null !== $this->llmConfig) {
+            $this->llmConfig->validate();
+        }
+        if (null !== $this->ttsConfig) {
+            $this->ttsConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentSilenceConfig) {
-            $res['AgentSilenceConfig'] = null !== $this->agentSilenceConfig ? $this->agentSilenceConfig->toMap() : null;
+            $res['AgentSilenceConfig'] = null !== $this->agentSilenceConfig ? $this->agentSilenceConfig->toArray($noStream) : $this->agentSilenceConfig;
         }
+
+        if (null !== $this->ambientSoundConfig) {
+            $res['AmbientSoundConfig'] = null !== $this->ambientSoundConfig ? $this->ambientSoundConfig->toArray($noStream) : $this->ambientSoundConfig;
+        }
+
         if (null !== $this->asrConfig) {
-            $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toMap() : null;
+            $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toArray($noStream) : $this->asrConfig;
         }
+
+        if (null !== $this->backChannelConfig) {
+            $res['BackChannelConfig'] = null !== $this->backChannelConfig ? $this->backChannelConfig->toArray($noStream) : $this->backChannelConfig;
+        }
+
         if (null !== $this->chatMode) {
             $res['ChatMode'] = $this->chatMode;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
+        if (null !== $this->interruptConfig) {
+            $res['InterruptConfig'] = null !== $this->interruptConfig ? $this->interruptConfig->toArray($noStream) : $this->interruptConfig;
+        }
+
         if (null !== $this->interruptMode) {
             $res['InterruptMode'] = $this->interruptMode;
         }
+
         if (null !== $this->llmConfig) {
-            $res['LlmConfig'] = null !== $this->llmConfig ? $this->llmConfig->toMap() : null;
+            $res['LlmConfig'] = null !== $this->llmConfig ? $this->llmConfig->toArray($noStream) : $this->llmConfig;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ttsConfig) {
-            $res['TtsConfig'] = null !== $this->ttsConfig ? $this->ttsConfig->toMap() : null;
+            $res['TtsConfig'] = null !== $this->ttsConfig ? $this->ttsConfig->toArray($noStream) : $this->ttsConfig;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -136,44 +189,66 @@ class templates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentSilenceConfig'])) {
             $model->agentSilenceConfig = agentSilenceConfig::fromMap($map['AgentSilenceConfig']);
         }
+
+        if (isset($map['AmbientSoundConfig'])) {
+            $model->ambientSoundConfig = ambientSoundConfig::fromMap($map['AmbientSoundConfig']);
+        }
+
         if (isset($map['AsrConfig'])) {
             $model->asrConfig = asrConfig::fromMap($map['AsrConfig']);
         }
+
+        if (isset($map['BackChannelConfig'])) {
+            $model->backChannelConfig = backChannelConfig::fromMap($map['BackChannelConfig']);
+        }
+
         if (isset($map['ChatMode'])) {
             $model->chatMode = $map['ChatMode'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
+        if (isset($map['InterruptConfig'])) {
+            $model->interruptConfig = interruptConfig::fromMap($map['InterruptConfig']);
+        }
+
         if (isset($map['InterruptMode'])) {
             $model->interruptMode = $map['InterruptMode'];
         }
+
         if (isset($map['LlmConfig'])) {
             $model->llmConfig = llmConfig::fromMap($map['LlmConfig']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['TtsConfig'])) {
             $model->ttsConfig = ttsConfig::fromMap($map['TtsConfig']);
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
