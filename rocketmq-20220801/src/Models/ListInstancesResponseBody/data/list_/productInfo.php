@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class productInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $capacityType;
+
+    /**
      * @var bool
      */
     public $traceOn;
     protected $_name = [
+        'capacityType' => 'capacityType',
         'traceOn' => 'traceOn',
     ];
 
@@ -24,6 +30,10 @@ class productInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->capacityType) {
+            $res['capacityType'] = $this->capacityType;
+        }
+
         if (null !== $this->traceOn) {
             $res['traceOn'] = $this->traceOn;
         }
@@ -39,6 +49,10 @@ class productInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['capacityType'])) {
+            $model->capacityType = $map['capacityType'];
+        }
+
         if (isset($map['traceOn'])) {
             $model->traceOn = $map['traceOn'];
         }

@@ -14,6 +14,11 @@ class productInfo extends Model
     public $autoScaling;
 
     /**
+     * @var string
+     */
+    public $capacityType;
+
+    /**
      * @var int
      */
     public $messageRetentionTime;
@@ -22,6 +27,11 @@ class productInfo extends Model
      * @var string
      */
     public $msgProcessSpec;
+
+    /**
+     * @var int
+     */
+    public $provisionedCapacity;
 
     /**
      * @var float
@@ -39,8 +49,10 @@ class productInfo extends Model
     public $storageSecretKey;
     protected $_name = [
         'autoScaling' => 'autoScaling',
+        'capacityType' => 'capacityType',
         'messageRetentionTime' => 'messageRetentionTime',
         'msgProcessSpec' => 'msgProcessSpec',
+        'provisionedCapacity' => 'provisionedCapacity',
         'sendReceiveRatio' => 'sendReceiveRatio',
         'storageEncryption' => 'storageEncryption',
         'storageSecretKey' => 'storageSecretKey',
@@ -58,12 +70,20 @@ class productInfo extends Model
             $res['autoScaling'] = $this->autoScaling;
         }
 
+        if (null !== $this->capacityType) {
+            $res['capacityType'] = $this->capacityType;
+        }
+
         if (null !== $this->messageRetentionTime) {
             $res['messageRetentionTime'] = $this->messageRetentionTime;
         }
 
         if (null !== $this->msgProcessSpec) {
             $res['msgProcessSpec'] = $this->msgProcessSpec;
+        }
+
+        if (null !== $this->provisionedCapacity) {
+            $res['provisionedCapacity'] = $this->provisionedCapacity;
         }
 
         if (null !== $this->sendReceiveRatio) {
@@ -93,12 +113,20 @@ class productInfo extends Model
             $model->autoScaling = $map['autoScaling'];
         }
 
+        if (isset($map['capacityType'])) {
+            $model->capacityType = $map['capacityType'];
+        }
+
         if (isset($map['messageRetentionTime'])) {
             $model->messageRetentionTime = $map['messageRetentionTime'];
         }
 
         if (isset($map['msgProcessSpec'])) {
             $model->msgProcessSpec = $map['msgProcessSpec'];
+        }
+
+        if (isset($map['provisionedCapacity'])) {
+            $model->provisionedCapacity = $map['provisionedCapacity'];
         }
 
         if (isset($map['sendReceiveRatio'])) {
