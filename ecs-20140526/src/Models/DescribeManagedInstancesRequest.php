@@ -30,6 +30,11 @@ class DescribeManagedInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @var string
+     */
+    public $machineId;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -93,6 +98,7 @@ class DescribeManagedInstancesRequest extends Model
         'instanceId' => 'InstanceId',
         'instanceIp' => 'InstanceIp',
         'instanceName' => 'InstanceName',
+        'machineId' => 'MachineId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'osType' => 'OsType',
@@ -142,6 +148,10 @@ class DescribeManagedInstancesRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->machineId) {
+            $res['MachineId'] = $this->machineId;
         }
 
         if (null !== $this->maxResults) {
@@ -231,6 +241,10 @@ class DescribeManagedInstancesRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['MachineId'])) {
+            $model->machineId = $map['MachineId'];
         }
 
         if (isset($map['MaxResults'])) {

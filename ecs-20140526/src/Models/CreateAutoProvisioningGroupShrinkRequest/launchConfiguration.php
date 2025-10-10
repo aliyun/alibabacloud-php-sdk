@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrin
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\arn;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\cpuOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\dataDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration\schedulerOptions;
@@ -180,6 +181,11 @@ class launchConfiguration extends Model
     public $autoRenewPeriod;
 
     /**
+     * @var cpuOptions
+     */
+    public $cpuOptions;
+
+    /**
      * @var imageOptions
      */
     public $imageOptions;
@@ -242,6 +248,7 @@ class launchConfiguration extends Model
         'userData' => 'UserData',
         'autoRenew' => 'AutoRenew',
         'autoRenewPeriod' => 'AutoRenewPeriod',
+        'cpuOptions' => 'CpuOptions',
         'imageOptions' => 'ImageOptions',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
@@ -269,6 +276,9 @@ class launchConfiguration extends Model
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
+        }
+        if (null !== $this->cpuOptions) {
+            $this->cpuOptions->validate();
         }
         if (null !== $this->imageOptions) {
             $this->imageOptions->validate();
@@ -447,6 +457,10 @@ class launchConfiguration extends Model
 
         if (null !== $this->autoRenewPeriod) {
             $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
+        }
+
+        if (null !== $this->cpuOptions) {
+            $res['CpuOptions'] = null !== $this->cpuOptions ? $this->cpuOptions->toArray($noStream) : $this->cpuOptions;
         }
 
         if (null !== $this->imageOptions) {
@@ -649,6 +663,10 @@ class launchConfiguration extends Model
 
         if (isset($map['AutoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['AutoRenewPeriod'];
+        }
+
+        if (isset($map['CpuOptions'])) {
+            $model->cpuOptions = cpuOptions::fromMap($map['CpuOptions']);
         }
 
         if (isset($map['ImageOptions'])) {
