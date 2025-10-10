@@ -32,8 +32,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\CreateEdgeMachineRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\CreateEdgeMachineResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateRequest;
@@ -54,8 +52,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterShrinkRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\DeleteEdgeMachineRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\DeleteEdgeMachineResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeletePolicyInstanceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeletePolicyInstanceResponse;
@@ -101,11 +97,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterVulsResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachineActiveProcessResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachineModelsResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachinesRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachinesResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachineTunnelConfigDetailResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsForRegionRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsForRegionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEventsRequest;
@@ -136,8 +127,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserClusterNamespacesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserPermissionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserQuotaResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\EdgeClusterAddEdgeMachineResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterAddonInstanceResponse;
@@ -177,8 +166,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterAddonRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterAddonResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest;
@@ -211,8 +198,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\RunClusterInspectRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RunClusterInspectResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
-use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScanClusterVulsResponse;
@@ -1861,75 +1846,6 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the CreateEdgeMachine operation to activate a cloud-native box.
-     *
-     * @param request - CreateEdgeMachineRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateEdgeMachineResponse
-     *
-     * @param CreateEdgeMachineRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateEdgeMachineResponse
-     */
-    public function createEdgeMachineWithOptions($request, $headers, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->hostname) {
-            @$body['hostname'] = $request->hostname;
-        }
-
-        if (null !== $request->model) {
-            @$body['model'] = $request->model;
-        }
-
-        if (null !== $request->sn) {
-            @$body['sn'] = $request->sn;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'CreateEdgeMachine',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/edge_machines',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateEdgeMachineResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * You can call the CreateEdgeMachine operation to activate a cloud-native box.
-     *
-     * @param request - CreateEdgeMachineRequest
-     *
-     * @returns CreateEdgeMachineResponse
-     *
-     * @param CreateEdgeMachineRequest $request
-     *
-     * @return CreateEdgeMachineResponse
-     */
-    public function createEdgeMachine($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createEdgeMachineWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * You can call the CreateKubernetesTrigger operation to create a trigger for an application.
      *
      * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
@@ -2595,69 +2511,6 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->deleteClusterNodesWithOptions($ClusterId, $request, $headers, $runtime);
-    }
-
-    /**
-     * You can call the DeleteEdgeMachine operation to delete a cloud-native box.
-     *
-     * @param request - DeleteEdgeMachineRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteEdgeMachineResponse
-     *
-     * @param string                   $edgeMachineid
-     * @param DeleteEdgeMachineRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteEdgeMachineResponse
-     */
-    public function deleteEdgeMachineWithOptions($edgeMachineid, $request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->force) {
-            @$query['force'] = $request->force;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DeleteEdgeMachine',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/edge_machines/%5Bedge_machineid%5D',
-            'method' => 'DELETE',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'none',
-        ]);
-
-        return DeleteEdgeMachineResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * You can call the DeleteEdgeMachine operation to delete a cloud-native box.
-     *
-     * @param request - DeleteEdgeMachineRequest
-     *
-     * @returns DeleteEdgeMachineResponse
-     *
-     * @param string                   $edgeMachineid
-     * @param DeleteEdgeMachineRequest $request
-     *
-     * @return DeleteEdgeMachineResponse
-     */
-    public function deleteEdgeMachine($edgeMachineid, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteEdgeMachineWithOptions($edgeMachineid, $request, $headers, $runtime);
     }
 
     /**
@@ -4477,242 +4330,6 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
-     *
-     * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeMachineActiveProcessResponse
-     *
-     * @param string         $edgeMachineid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeEdgeMachineActiveProcessResponse
-     */
-    public function describeEdgeMachineActiveProcessWithOptions($edgeMachineid, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action' => 'DescribeEdgeMachineActiveProcess',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/edge_machines/%5Bedge_machineid%5D/activeprocess',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeEdgeMachineActiveProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
-     *
-     * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
-     *
-     * @returns DescribeEdgeMachineActiveProcessResponse
-     *
-     * @param string $edgeMachineid
-     *
-     * @return DescribeEdgeMachineActiveProcessResponse
-     */
-    public function describeEdgeMachineActiveProcess($edgeMachineid)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeEdgeMachineActiveProcessWithOptions($edgeMachineid, $headers, $runtime);
-    }
-
-    /**
-     * You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeMachineModelsResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeEdgeMachineModelsResponse
-     */
-    public function describeEdgeMachineModelsWithOptions($headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action' => 'DescribeEdgeMachineModels',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/edge_machines/models',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeEdgeMachineModelsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
-     *
-     * @returns DescribeEdgeMachineModelsResponse
-     *
-     * @return DescribeEdgeMachineModelsResponse
-     */
-    public function describeEdgeMachineModels()
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeEdgeMachineModelsWithOptions($headers, $runtime);
-    }
-
-    /**
-     * You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeMachineTunnelConfigDetailResponse
-     *
-     * @param string         $edgeMachineid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeEdgeMachineTunnelConfigDetailResponse
-     */
-    public function describeEdgeMachineTunnelConfigDetailWithOptions($edgeMachineid, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action' => 'DescribeEdgeMachineTunnelConfigDetail',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/edge_machines/%5Bedge_machineid%5D/tunnelconfig',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeEdgeMachineTunnelConfigDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
-     *
-     * @returns DescribeEdgeMachineTunnelConfigDetailResponse
-     *
-     * @param string $edgeMachineid
-     *
-     * @return DescribeEdgeMachineTunnelConfigDetailResponse
-     */
-    public function describeEdgeMachineTunnelConfigDetail($edgeMachineid)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeEdgeMachineTunnelConfigDetailWithOptions($edgeMachineid, $headers, $runtime);
-    }
-
-    /**
-     * You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
-     *
-     * @param request - DescribeEdgeMachinesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeMachinesResponse
-     *
-     * @param DescribeEdgeMachinesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeEdgeMachinesResponse
-     */
-    public function describeEdgeMachinesWithOptions($request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->hostname) {
-            @$query['hostname'] = $request->hostname;
-        }
-
-        if (null !== $request->lifeState) {
-            @$query['life_state'] = $request->lifeState;
-        }
-
-        if (null !== $request->model) {
-            @$query['model'] = $request->model;
-        }
-
-        if (null !== $request->onlineState) {
-            @$query['online_state'] = $request->onlineState;
-        }
-
-        if (null !== $request->pageNumber) {
-            @$query['page_number'] = $request->pageNumber;
-        }
-
-        if (null !== $request->pageSize) {
-            @$query['page_size'] = $request->pageSize;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeEdgeMachines',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/edge_machines',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeEdgeMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
-     *
-     * @param request - DescribeEdgeMachinesRequest
-     *
-     * @returns DescribeEdgeMachinesResponse
-     *
-     * @param DescribeEdgeMachinesRequest $request
-     *
-     * @return DescribeEdgeMachinesResponse
-     */
-    public function describeEdgeMachines($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeEdgeMachinesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * Queries the detailed information about a type of events, including the severity level, status, and time. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
      *
      * @param request - DescribeEventsRequest
@@ -5910,84 +5527,6 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->describeUserQuotaWithOptions($headers, $runtime);
-    }
-
-    /**
-     * You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
-     *
-     * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
-     *
-     * @param request - EdgeClusterAddEdgeMachineRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EdgeClusterAddEdgeMachineResponse
-     *
-     * @param string                           $clusterid
-     * @param string                           $edgeMachineid
-     * @param EdgeClusterAddEdgeMachineRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return EdgeClusterAddEdgeMachineResponse
-     */
-    public function edgeClusterAddEdgeMachineWithOptions($clusterid, $edgeMachineid, $request, $headers, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->expired) {
-            @$body['expired'] = $request->expired;
-        }
-
-        if (null !== $request->nodepoolId) {
-            @$body['nodepool_id'] = $request->nodepoolId;
-        }
-
-        if (null !== $request->options) {
-            @$body['options'] = $request->options;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'EdgeClusterAddEdgeMachine',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/clusters/%5Bclusterid%5D/attachedgemachine/%5Bedge_machineid%5D',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return EdgeClusterAddEdgeMachineResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
-     *
-     * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
-     *
-     * @param request - EdgeClusterAddEdgeMachineRequest
-     *
-     * @returns EdgeClusterAddEdgeMachineResponse
-     *
-     * @param string                           $clusterid
-     * @param string                           $edgeMachineid
-     * @param EdgeClusterAddEdgeMachineRequest $request
-     *
-     * @return EdgeClusterAddEdgeMachineResponse
-     */
-    public function edgeClusterAddEdgeMachine($clusterid, $edgeMachineid, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->edgeClusterAddEdgeMachineWithOptions($clusterid, $edgeMachineid, $request, $headers, $runtime);
     }
 
     /**
@@ -7608,74 +7147,6 @@ class CS extends OpenApiClient
     }
 
     /**
-     * This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
-     *
-     * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
-     *
-     * @param request - ModifyClusterConfigurationRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyClusterConfigurationResponse
-     *
-     * @param string                            $ClusterId
-     * @param ModifyClusterConfigurationRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyClusterConfigurationResponse
-     */
-    public function modifyClusterConfigurationWithOptions($ClusterId, $request, $headers, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->customizeConfig) {
-            @$body['customize_config'] = $request->customizeConfig;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'ModifyClusterConfiguration',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '/configuration',
-            'method' => 'PUT',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'none',
-        ]);
-
-        return ModifyClusterConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
-     *
-     * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
-     *
-     * @param request - ModifyClusterConfigurationRequest
-     *
-     * @returns ModifyClusterConfigurationResponse
-     *
-     * @param string                            $ClusterId
-     * @param ModifyClusterConfigurationRequest $request
-     *
-     * @return ModifyClusterConfigurationResponse
-     */
-    public function modifyClusterConfiguration($ClusterId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->modifyClusterConfigurationWithOptions($ClusterId, $request, $headers, $runtime);
-    }
-
-    /**
      * You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
      *
      * @param request - ModifyClusterNodePoolRequest
@@ -8836,146 +8307,6 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->runClusterInspectWithOptions($clusterId, $request, $headers, $runtime);
-    }
-
-    /**
-     * 扩容Kubernetes集群.
-     *
-     * @deprecated OpenAPI ScaleCluster is deprecated
-     *
-     * @param request - ScaleClusterRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ScaleClusterResponse
-     *
-     * @param string              $ClusterId
-     * @param ScaleClusterRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ScaleClusterResponse
-     */
-    public function scaleClusterWithOptions($ClusterId, $request, $headers, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->cloudMonitorFlags) {
-            @$body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
-        }
-
-        if (null !== $request->count) {
-            @$body['count'] = $request->count;
-        }
-
-        if (null !== $request->cpuPolicy) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
-        }
-
-        if (null !== $request->disableRollback) {
-            @$body['disable_rollback'] = $request->disableRollback;
-        }
-
-        if (null !== $request->keyPair) {
-            @$body['key_pair'] = $request->keyPair;
-        }
-
-        if (null !== $request->loginPassword) {
-            @$body['login_password'] = $request->loginPassword;
-        }
-
-        if (null !== $request->tags) {
-            @$body['tags'] = $request->tags;
-        }
-
-        if (null !== $request->taints) {
-            @$body['taints'] = $request->taints;
-        }
-
-        if (null !== $request->vswitchIds) {
-            @$body['vswitch_ids'] = $request->vswitchIds;
-        }
-
-        if (null !== $request->workerAutoRenew) {
-            @$body['worker_auto_renew'] = $request->workerAutoRenew;
-        }
-
-        if (null !== $request->workerAutoRenewPeriod) {
-            @$body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
-        }
-
-        if (null !== $request->workerDataDisk) {
-            @$body['worker_data_disk'] = $request->workerDataDisk;
-        }
-
-        if (null !== $request->workerDataDisks) {
-            @$body['worker_data_disks'] = $request->workerDataDisks;
-        }
-
-        if (null !== $request->workerInstanceChargeType) {
-            @$body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
-        }
-
-        if (null !== $request->workerInstanceTypes) {
-            @$body['worker_instance_types'] = $request->workerInstanceTypes;
-        }
-
-        if (null !== $request->workerPeriod) {
-            @$body['worker_period'] = $request->workerPeriod;
-        }
-
-        if (null !== $request->workerPeriodUnit) {
-            @$body['worker_period_unit'] = $request->workerPeriodUnit;
-        }
-
-        if (null !== $request->workerSystemDiskCategory) {
-            @$body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
-        }
-
-        if (null !== $request->workerSystemDiskSize) {
-            @$body['worker_system_disk_size'] = $request->workerSystemDiskSize;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'ScaleCluster',
-            'version' => '2015-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/clusters/' . Url::percentEncode($ClusterId) . '',
-            'method' => 'PUT',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return ScaleClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * 扩容Kubernetes集群.
-     *
-     * @deprecated OpenAPI ScaleCluster is deprecated
-     *
-     * @param request - ScaleClusterRequest
-     *
-     * @returns ScaleClusterResponse
-     *
-     * @param string              $ClusterId
-     * @param ScaleClusterRequest $request
-     *
-     * @return ScaleClusterResponse
-     */
-    public function scaleCluster($ClusterId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->scaleClusterWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**

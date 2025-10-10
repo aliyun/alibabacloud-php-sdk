@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstancePatterns;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup\privatePoolOptions;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup\resourcePoolOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup\spotPriceLimit;
 use AlibabaCloud\SDK\CS\V20151215\Models\Tag;
 
@@ -129,6 +130,11 @@ class scalingGroup extends Model
     public $rdsInstances;
 
     /**
+     * @var resourcePoolOptions
+     */
+    public $resourcePoolOptions;
+
+    /**
      * @var string
      */
     public $scalingPolicy;
@@ -236,6 +242,7 @@ class scalingGroup extends Model
         'platform' => 'platform',
         'privatePoolOptions' => 'private_pool_options',
         'rdsInstances' => 'rds_instances',
+        'resourcePoolOptions' => 'resource_pool_options',
         'scalingPolicy' => 'scaling_policy',
         'securityGroupIds' => 'security_group_ids',
         'spotInstancePools' => 'spot_instance_pools',
@@ -271,6 +278,9 @@ class scalingGroup extends Model
         }
         if (\is_array($this->rdsInstances)) {
             Model::validateArray($this->rdsInstances);
+        }
+        if (null !== $this->resourcePoolOptions) {
+            $this->resourcePoolOptions->validate();
         }
         if (\is_array($this->securityGroupIds)) {
             Model::validateArray($this->securityGroupIds);
@@ -411,6 +421,10 @@ class scalingGroup extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->resourcePoolOptions) {
+            $res['resource_pool_options'] = null !== $this->resourcePoolOptions ? $this->resourcePoolOptions->toArray($noStream) : $this->resourcePoolOptions;
         }
 
         if (null !== $this->scalingPolicy) {
@@ -645,6 +659,10 @@ class scalingGroup extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['resource_pool_options'])) {
+            $model->resourcePoolOptions = resourcePoolOptions::fromMap($map['resource_pool_options']);
         }
 
         if (isset($map['scaling_policy'])) {

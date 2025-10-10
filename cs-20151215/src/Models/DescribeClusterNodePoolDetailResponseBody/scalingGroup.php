@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResp
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup\privatePoolOptions;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup\resourcePoolOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup\spotPriceLimit;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstanceMetadataOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstancePatterns;
@@ -155,6 +156,11 @@ class scalingGroup extends Model
     public $rdsInstances;
 
     /**
+     * @var resourcePoolOptions
+     */
+    public $resourcePoolOptions;
+
+    /**
      * @var string
      */
     public $scalingGroupId;
@@ -287,6 +293,7 @@ class scalingGroup extends Model
         'ramPolicy' => 'ram_policy',
         'ramRoleName' => 'ram_role_name',
         'rdsInstances' => 'rds_instances',
+        'resourcePoolOptions' => 'resource_pool_options',
         'scalingGroupId' => 'scaling_group_id',
         'scalingPolicy' => 'scaling_policy',
         'securityGroupId' => 'security_group_id',
@@ -329,6 +336,9 @@ class scalingGroup extends Model
         }
         if (\is_array($this->rdsInstances)) {
             Model::validateArray($this->rdsInstances);
+        }
+        if (null !== $this->resourcePoolOptions) {
+            $this->resourcePoolOptions->validate();
         }
         if (\is_array($this->securityGroupIds)) {
             Model::validateArray($this->securityGroupIds);
@@ -489,6 +499,10 @@ class scalingGroup extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->resourcePoolOptions) {
+            $res['resource_pool_options'] = null !== $this->resourcePoolOptions ? $this->resourcePoolOptions->toArray($noStream) : $this->resourcePoolOptions;
         }
 
         if (null !== $this->scalingGroupId) {
@@ -759,6 +773,10 @@ class scalingGroup extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['resource_pool_options'])) {
+            $model->resourcePoolOptions = resourcePoolOptions::fromMap($map['resource_pool_options']);
         }
 
         if (isset($map['scaling_group_id'])) {
