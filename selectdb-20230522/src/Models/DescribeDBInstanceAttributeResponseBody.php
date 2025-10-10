@@ -122,6 +122,11 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $secGroupConnValid;
+
+    /**
      * @var bool
      */
     public $serverless;
@@ -183,6 +188,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'requestId' => 'RequestId',
         'resourceCpu' => 'ResourceCpu',
         'resourceGroupId' => 'ResourceGroupId',
+        'secGroupConnValid' => 'SecGroupConnValid',
         'serverless' => 'Serverless',
         'status' => 'Status',
         'storageSize' => 'StorageSize',
@@ -320,6 +326,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->secGroupConnValid) {
+            $res['SecGroupConnValid'] = $this->secGroupConnValid;
         }
 
         if (null !== $this->serverless) {
@@ -479,6 +489,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SecGroupConnValid'])) {
+            $model->secGroupConnValid = $map['SecGroupConnValid'];
         }
 
         if (isset($map['Serverless'])) {
