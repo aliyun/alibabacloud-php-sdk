@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -319,6 +321,10 @@ class IQS extends OpenApiClient
             @$query['returnMarkdownText'] = $request->returnMarkdownText;
         }
 
+        if (null !== $request->returnRichMainBody) {
+            @$query['returnRichMainBody'] = $request->returnRichMainBody;
+        }
+
         if (null !== $request->returnSummary) {
             @$query['returnSummary'] = $request->returnSummary;
         }
@@ -505,6 +511,62 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->globalSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 页面读取.
+     *
+     * @param request - ReadPageBasicRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadPageBasicResponse
+     *
+     * @param ReadPageBasicRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ReadPageBasicResponse
+     */
+    public function readPageBasicWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadPageBasic',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/readpage/basic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadPageBasicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 页面读取.
+     *
+     * @param request - ReadPageBasicRequest
+     *
+     * @returns ReadPageBasicResponse
+     *
+     * @param ReadPageBasicRequest $request
+     *
+     * @return ReadPageBasicResponse
+     */
+    public function readPageBasic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->readPageBasicWithOptions($request, $headers, $runtime);
     }
 
     /**

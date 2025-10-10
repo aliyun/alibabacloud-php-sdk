@@ -41,6 +41,11 @@ class GenericSearchRequest extends Model
     /**
      * @var bool
      */
+    public $returnRichMainBody;
+
+    /**
+     * @var bool
+     */
     public $returnSummary;
 
     /**
@@ -59,6 +64,7 @@ class GenericSearchRequest extends Model
         'query' => 'query',
         'returnMainText' => 'returnMainText',
         'returnMarkdownText' => 'returnMarkdownText',
+        'returnRichMainBody' => 'returnRichMainBody',
         'returnSummary' => 'returnSummary',
         'sessionId' => 'sessionId',
         'timeRange' => 'timeRange',
@@ -94,6 +100,10 @@ class GenericSearchRequest extends Model
 
         if (null !== $this->returnMarkdownText) {
             $res['returnMarkdownText'] = $this->returnMarkdownText;
+        }
+
+        if (null !== $this->returnRichMainBody) {
+            $res['returnRichMainBody'] = $this->returnRichMainBody;
         }
 
         if (null !== $this->returnSummary) {
@@ -141,6 +151,10 @@ class GenericSearchRequest extends Model
 
         if (isset($map['returnMarkdownText'])) {
             $model->returnMarkdownText = $map['returnMarkdownText'];
+        }
+
+        if (isset($map['returnRichMainBody'])) {
+            $model->returnRichMainBody = $map['returnRichMainBody'];
         }
 
         if (isset($map['returnSummary'])) {

@@ -26,11 +26,17 @@ class RequestContents extends Model
     /**
      * @var bool
      */
+    public $richMainBody;
+
+    /**
+     * @var bool
+     */
     public $summary;
     protected $_name = [
         'mainText' => 'mainText',
         'markdownText' => 'markdownText',
         'rerankScore' => 'rerankScore',
+        'richMainBody' => 'richMainBody',
         'summary' => 'summary',
     ];
 
@@ -52,6 +58,10 @@ class RequestContents extends Model
 
         if (null !== $this->rerankScore) {
             $res['rerankScore'] = $this->rerankScore;
+        }
+
+        if (null !== $this->richMainBody) {
+            $res['richMainBody'] = $this->richMainBody;
         }
 
         if (null !== $this->summary) {
@@ -79,6 +89,10 @@ class RequestContents extends Model
 
         if (isset($map['rerankScore'])) {
             $model->rerankScore = $map['rerankScore'];
+        }
+
+        if (isset($map['richMainBody'])) {
+            $model->richMainBody = $map['richMainBody'];
         }
 
         if (isset($map['summary'])) {
