@@ -79,6 +79,11 @@ class ScorePageItem extends Model
     public $publishTime;
 
     /**
+     * @var string
+     */
+    public $richMainBody;
+
+    /**
      * @var float
      */
     public $score;
@@ -117,6 +122,7 @@ class ScorePageItem extends Model
         'mime' => 'mime',
         'pageMap' => 'pageMap',
         'publishTime' => 'publishTime',
+        'richMainBody' => 'richMainBody',
         'score' => 'score',
         'siteLabel' => 'siteLabel',
         'snippet' => 'snippet',
@@ -204,6 +210,10 @@ class ScorePageItem extends Model
 
         if (null !== $this->publishTime) {
             $res['publishTime'] = $this->publishTime;
+        }
+
+        if (null !== $this->richMainBody) {
+            $res['richMainBody'] = $this->richMainBody;
         }
 
         if (null !== $this->score) {
@@ -303,6 +313,10 @@ class ScorePageItem extends Model
 
         if (isset($map['publishTime'])) {
             $model->publishTime = $map['publishTime'];
+        }
+
+        if (isset($map['richMainBody'])) {
+            $model->richMainBody = $map['richMainBody'];
         }
 
         if (isset($map['score'])) {
