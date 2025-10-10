@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenEmasServiceRequest extends Model
 {
@@ -16,9 +16,12 @@ class OpenEmasServiceRequest extends Model
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
@@ -28,11 +31,11 @@ class OpenEmasServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenEmasServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

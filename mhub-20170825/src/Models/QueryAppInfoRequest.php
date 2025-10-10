@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryAppInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $appKey;
@@ -20,9 +16,12 @@ class QueryAppInfoRequest extends Model
         'appKey' => 'AppKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
@@ -32,11 +31,11 @@ class QueryAppInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryAppInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

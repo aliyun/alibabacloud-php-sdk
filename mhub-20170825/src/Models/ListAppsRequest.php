@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAppsRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $osType;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $page;
 
     /**
-     * @example 20
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $productId;
@@ -44,20 +34,26 @@ class ListAppsRequest extends Model
         'productId' => 'ProductId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
@@ -65,23 +61,26 @@ class ListAppsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAppsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }

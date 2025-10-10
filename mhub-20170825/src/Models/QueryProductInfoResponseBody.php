@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\QueryProductInfoResponseBody\productInfo;
-use AlibabaCloud\Tea\Model;
 
 class QueryProductInfoResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class QueryProductInfoResponseBody extends Model
     public $productInfo;
 
     /**
-     * @example 126D4DDD-05A5-49B1-B18C-39C4A929BFB2
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class QueryProductInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->productInfo) {
+            $this->productInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productInfo) {
-            $res['ProductInfo'] = null !== $this->productInfo ? $this->productInfo->toMap() : null;
+            $res['ProductInfo'] = null !== $this->productInfo ? $this->productInfo->toArray($noStream) : $this->productInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class QueryProductInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryProductInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductInfo'])) {
             $model->productInfo = productInfo::fromMap($map['ProductInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

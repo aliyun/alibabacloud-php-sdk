@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateProductResponseBody extends Model
 {
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $productId;
 
     /**
-     * @example 126D4DDD-05A5-49B1-B18C-39C4A929BFB2
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CreateProductResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateProductResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateProductResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

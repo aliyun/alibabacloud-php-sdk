@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\QueryAppSecurityInfoResponseBody\appSecurityInfo;
-use AlibabaCloud\Tea\Model;
 
 class QueryAppSecurityInfoResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class QueryAppSecurityInfoResponseBody extends Model
     public $appSecurityInfo;
 
     /**
-     * @example 126D4DDD-05A5-49B1-B18C-39C4A929BFB2
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class QueryAppSecurityInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->appSecurityInfo) {
+            $this->appSecurityInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appSecurityInfo) {
-            $res['AppSecurityInfo'] = null !== $this->appSecurityInfo ? $this->appSecurityInfo->toMap() : null;
+            $res['AppSecurityInfo'] = null !== $this->appSecurityInfo ? $this->appSecurityInfo->toArray($noStream) : $this->appSecurityInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class QueryAppSecurityInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryAppSecurityInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppSecurityInfo'])) {
             $model->appSecurityInfo = appSecurityInfo::fromMap($map['AppSecurityInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

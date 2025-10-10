@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models\ListProductsResponseBody\productInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class productInfo extends Model
 {
     /**
-     * @example 2020-12-16T06:25:52Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $description;
@@ -28,8 +24,6 @@ class productInfo extends Model
     public $encodedIcon;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $industryId;
@@ -40,22 +34,16 @@ class productInfo extends Model
     public $name;
 
     /**
-     * @example iOS
-     *
      * @var string
      */
     public $platforms;
 
     /**
-     * @example 1234
-     *
      * @var int
      */
     public $productId;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $readonly;
@@ -70,32 +58,42 @@ class productInfo extends Model
         'readonly' => 'Readonly',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->encodedIcon) {
             $res['EncodedIcon'] = $this->encodedIcon;
         }
+
         if (null !== $this->industryId) {
             $res['IndustryId'] = $this->industryId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->platforms) {
             $res['Platforms'] = $this->platforms;
         }
+
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
+
         if (null !== $this->readonly) {
             $res['Readonly'] = $this->readonly;
         }
@@ -103,35 +101,42 @@ class productInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return productInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EncodedIcon'])) {
             $model->encodedIcon = $map['EncodedIcon'];
         }
+
         if (isset($map['IndustryId'])) {
             $model->industryId = $map['IndustryId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Platforms'])) {
             $model->platforms = $map['Platforms'];
         }
+
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }
+
         if (isset($map['Readonly'])) {
             $model->readonly = $map['Readonly'];
         }

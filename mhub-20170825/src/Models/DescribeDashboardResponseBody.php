@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDashboardResponseBody extends Model
 {
     /**
-     * @example {
-     * "success":true,
-     * "model":{
-     * "perfMonthCount":0,
-     * "compatibilityMonthCount":0,
-     * "perfLastMonthCount":0,
-     * "compatibilityLastMonthCount":0,
-     * "automationMonthCount":0,
-     * "automationLastMonthCount":0
-     * }
-     * }
-     *
      * @var string
      */
     public $model;
 
     /**
-     * @example 4CC30A8F-787C-55CA-87A6-7D1BED56067E
-     *
      * @var string
      */
     public $requestId;
@@ -36,14 +22,18 @@ class DescribeDashboardResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,17 +41,18 @@ class DescribeDashboardResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDashboardResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

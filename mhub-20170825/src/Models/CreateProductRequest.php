@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateProductRequest extends Model
 {
     /**
-     * @example AAA
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
@@ -26,14 +22,18 @@ class CreateProductRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class CreateProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

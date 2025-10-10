@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models\QueryAppSecurityInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\QueryAppSecurityInfoResponseBody\appSecurityInfo\extConfig;
-use AlibabaCloud\Tea\Model;
 
 class appSecurityInfo extends Model
 {
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $appKey;
 
     /**
-     * @example abc123abc123
-     *
      * @var string
      */
     public $appSecret;
@@ -33,38 +29,48 @@ class appSecurityInfo extends Model
         'extConfig' => 'ExtConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->extConfig) {
+            $this->extConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->appSecret) {
             $res['AppSecret'] = $this->appSecret;
         }
+
         if (null !== $this->extConfig) {
-            $res['ExtConfig'] = null !== $this->extConfig ? $this->extConfig->toMap() : null;
+            $res['ExtConfig'] = null !== $this->extConfig ? $this->extConfig->toArray($noStream) : $this->extConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appSecurityInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['AppSecret'])) {
             $model->appSecret = $map['AppSecret'];
         }
+
         if (isset($map['ExtConfig'])) {
             $model->extConfig = extConfig::fromMap($map['ExtConfig']);
         }

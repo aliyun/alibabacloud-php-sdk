@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\ListAppsResponseBody\appInfos;
-use AlibabaCloud\Tea\Model;
 
 class ListAppsResponseBody extends Model
 {
@@ -15,22 +15,16 @@ class ListAppsResponseBody extends Model
     public $appInfos;
 
     /**
-     * @example 126D4DDD-05A5-49B1-B18C-39C4A929BFB2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $total;
 
     /**
-     * @example enabled
-     *
      * @var string
      */
     public $ubsmsStatus;
@@ -41,20 +35,29 @@ class ListAppsResponseBody extends Model
         'ubsmsStatus' => 'UbsmsStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->appInfos) {
+            $this->appInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInfos) {
-            $res['AppInfos'] = null !== $this->appInfos ? $this->appInfos->toMap() : null;
+            $res['AppInfos'] = null !== $this->appInfos ? $this->appInfos->toArray($noStream) : $this->appInfos;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
+
         if (null !== $this->ubsmsStatus) {
             $res['UbsmsStatus'] = $this->ubsmsStatus;
         }
@@ -62,23 +65,26 @@ class ListAppsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAppsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInfos'])) {
             $model->appInfos = appInfos::fromMap($map['AppInfos']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
+
         if (isset($map['UbsmsStatus'])) {
             $model->ubsmsStatus = $map['UbsmsStatus'];
         }

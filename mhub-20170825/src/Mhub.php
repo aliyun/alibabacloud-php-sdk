@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\CreateProductRequest;
@@ -32,11 +31,10 @@ use AlibabaCloud\SDK\Mhub\V20170825\Models\QueryAppSecurityInfoRequest;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\QueryAppSecurityInfoResponse;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\QueryProductInfoRequest;
 use AlibabaCloud\SDK\Mhub\V20170825\Models\QueryProductInfoResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Mhub extends OpenApiClient
 {
@@ -61,49 +59,62 @@ class Mhub extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param CreateAppRequest $request CreateAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAppResponse
      */
     public function createAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bundleId)) {
-            $query['BundleId'] = $request->bundleId;
+        if (null !== $request->bundleId) {
+            @$query['BundleId'] = $request->bundleId;
         }
-        if (!Utils::isUnset($request->encodedIcon)) {
-            $query['EncodedIcon'] = $request->encodedIcon;
+
+        if (null !== $request->encodedIcon) {
+            @$query['EncodedIcon'] = $request->encodedIcon;
         }
-        if (!Utils::isUnset($request->industryId)) {
-            $query['IndustryId'] = $request->industryId;
+
+        if (null !== $request->industryId) {
+            @$query['IndustryId'] = $request->industryId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->packageName)) {
-            $query['PackageName'] = $request->packageName;
+
+        if (null !== $request->packageName) {
+            @$query['PackageName'] = $request->packageName;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateApp',
@@ -116,17 +127,18 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateAppRequest $request CreateAppRequest
+     * @param request - CreateAppRequest
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     *
+     * @return CreateAppResponse
      */
     public function createApp($request)
     {
@@ -136,23 +148,30 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param CreateProductRequest $request CreateProductRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateProductResponse CreateProductResponse
+     * @returns CreateProductResponse
+     *
+     * @param CreateProductRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProductResponse
      */
     public function createProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateProduct',
@@ -165,17 +184,18 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateProductRequest $request CreateProductRequest
+     * @param request - CreateProductRequest
      *
-     * @return CreateProductResponse CreateProductResponse
+     * @returns CreateProductResponse
+     *
+     * @param CreateProductRequest $request
+     *
+     * @return CreateProductResponse
      */
     public function createProduct($request)
     {
@@ -185,20 +205,26 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppRequest $request DeleteAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppResponse DeleteAppResponse
+     * @returns DeleteAppResponse
+     *
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAppResponse
      */
     public function deleteAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteApp',
@@ -211,17 +237,18 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteAppRequest $request DeleteAppRequest
+     * @param request - DeleteAppRequest
      *
-     * @return DeleteAppResponse DeleteAppResponse
+     * @returns DeleteAppResponse
+     *
+     * @param DeleteAppRequest $request
+     *
+     * @return DeleteAppResponse
      */
     public function deleteApp($request)
     {
@@ -231,20 +258,26 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param DeleteProductRequest $request DeleteProductRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteProductResponse DeleteProductResponse
+     * @returns DeleteProductResponse
+     *
+     * @param DeleteProductRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProductResponse
      */
     public function deleteProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteProduct',
@@ -257,17 +290,18 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteProductRequest $request DeleteProductRequest
+     * @param request - DeleteProductRequest
      *
-     * @return DeleteProductResponse DeleteProductResponse
+     * @returns DeleteProductResponse
+     *
+     * @param DeleteProductRequest $request
+     *
+     * @return DeleteProductResponse
      */
     public function deleteProduct($request)
     {
@@ -277,43 +311,56 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @summary 获取emas dashboard
-     *  *
-     * @param DescribeDashboardRequest $request DescribeDashboardRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取emas dashboard.
      *
-     * @return DescribeDashboardResponse DescribeDashboardResponse
+     * @param request - DescribeDashboardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDashboardResponse
+     *
+     * @param DescribeDashboardRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDashboardResponse
      */
     public function describeDashboardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->appVersion)) {
-            $query['AppVersion'] = $request->appVersion;
+
+        if (null !== $request->appVersion) {
+            @$query['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->proxyAction)) {
-            $query['ProxyAction'] = $request->proxyAction;
+
+        if (null !== $request->proxyAction) {
+            @$query['ProxyAction'] = $request->proxyAction;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDashboard',
@@ -326,19 +373,20 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDashboardResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取emas dashboard
-     *  *
-     * @param DescribeDashboardRequest $request DescribeDashboardRequest
+     * 获取emas dashboard.
      *
-     * @return DescribeDashboardResponse DescribeDashboardResponse
+     * @param request - DescribeDashboardRequest
+     *
+     * @returns DescribeDashboardResponse
+     *
+     * @param DescribeDashboardRequest $request
+     *
+     * @return DescribeDashboardResponse
      */
     public function describeDashboard($request)
     {
@@ -348,31 +396,40 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @summary 展示用户应用列表
-     *  *
-     * @param ListAppsRequest $request ListAppsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 展示用户应用列表.
      *
-     * @return ListAppsResponse ListAppsResponse
+     * @param request - ListAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppsResponse
+     *
+     * @param ListAppsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListAppsResponse
      */
     public function listAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->osType)) {
-            $query['OsType'] = $request->osType;
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApps',
@@ -385,19 +442,20 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAppsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 展示用户应用列表
-     *  *
-     * @param ListAppsRequest $request ListAppsRequest
+     * 展示用户应用列表.
      *
-     * @return ListAppsResponse ListAppsResponse
+     * @param request - ListAppsRequest
+     *
+     * @returns ListAppsResponse
+     *
+     * @param ListAppsRequest $request
+     *
+     * @return ListAppsResponse
      */
     public function listApps($request)
     {
@@ -407,29 +465,52 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param ListProductsRequest $request ListProductsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 分页获取产品(在基座中表达为项目)列表.
      *
-     * @return ListProductsResponse ListProductsResponse
+     * @param request - ListProductsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductsResponse
+     *
+     * @param ListProductsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProductsResponse
      */
     public function listProductsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->productName)) {
-            $query['ProductName'] = $request->productName;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->simple)) {
-            $query['Simple'] = $request->simple;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->productName) {
+            @$query['ProductName'] = $request->productName;
         }
+
+        if (null !== $request->searchKeyWord) {
+            @$query['SearchKeyWord'] = $request->searchKeyWord;
+        }
+
+        if (null !== $request->simple) {
+            @$query['Simple'] = $request->simple;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListProducts',
@@ -442,17 +523,20 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProductsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListProductsRequest $request ListProductsRequest
+     * 分页获取产品(在基座中表达为项目)列表.
      *
-     * @return ListProductsResponse ListProductsResponse
+     * @param request - ListProductsRequest
+     *
+     * @returns ListProductsResponse
+     *
+     * @param ListProductsRequest $request
+     *
+     * @return ListProductsResponse
      */
     public function listProducts($request)
     {
@@ -462,35 +546,46 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppRequest $request ModifyAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyAppResponse ModifyAppResponse
+     * @returns ModifyAppResponse
+     *
+     * @param ModifyAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ModifyAppResponse
      */
     public function modifyAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->bundleId)) {
-            $query['BundleId'] = $request->bundleId;
+
+        if (null !== $request->bundleId) {
+            @$query['BundleId'] = $request->bundleId;
         }
-        if (!Utils::isUnset($request->encodedIcon)) {
-            $query['EncodedIcon'] = $request->encodedIcon;
+
+        if (null !== $request->encodedIcon) {
+            @$query['EncodedIcon'] = $request->encodedIcon;
         }
-        if (!Utils::isUnset($request->industryId)) {
-            $query['IndustryId'] = $request->industryId;
+
+        if (null !== $request->industryId) {
+            @$query['IndustryId'] = $request->industryId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->packageName)) {
-            $query['PackageName'] = $request->packageName;
+
+        if (null !== $request->packageName) {
+            @$query['PackageName'] = $request->packageName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyApp',
@@ -503,17 +598,18 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyAppRequest $request ModifyAppRequest
+     * @param request - ModifyAppRequest
      *
-     * @return ModifyAppResponse ModifyAppResponse
+     * @returns ModifyAppResponse
+     *
+     * @param ModifyAppRequest $request
+     *
+     * @return ModifyAppResponse
      */
     public function modifyApp($request)
     {
@@ -523,26 +619,34 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param ModifyProductRequest $request ModifyProductRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyProductResponse ModifyProductResponse
+     * @returns ModifyProductResponse
+     *
+     * @param ModifyProductRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyProductResponse
      */
     public function modifyProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyProduct',
@@ -555,17 +659,18 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyProductRequest $request ModifyProductRequest
+     * @param request - ModifyProductRequest
      *
-     * @return ModifyProductResponse ModifyProductResponse
+     * @returns ModifyProductResponse
+     *
+     * @param ModifyProductRequest $request
+     *
+     * @return ModifyProductResponse
      */
     public function modifyProduct($request)
     {
@@ -575,20 +680,26 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param OpenEmasServiceRequest $request OpenEmasServiceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - OpenEmasServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return OpenEmasServiceResponse OpenEmasServiceResponse
+     * @returns OpenEmasServiceResponse
+     *
+     * @param OpenEmasServiceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OpenEmasServiceResponse
      */
     public function openEmasServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'OpenEmasService',
@@ -601,17 +712,18 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OpenEmasServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenEmasServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenEmasServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param OpenEmasServiceRequest $request OpenEmasServiceRequest
+     * @param request - OpenEmasServiceRequest
      *
-     * @return OpenEmasServiceResponse OpenEmasServiceResponse
+     * @returns OpenEmasServiceResponse
+     *
+     * @param OpenEmasServiceRequest $request
+     *
+     * @return OpenEmasServiceResponse
      */
     public function openEmasService($request)
     {
@@ -621,20 +733,26 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param QueryAppInfoRequest $request QueryAppInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryAppInfoResponse QueryAppInfoResponse
+     * @returns QueryAppInfoResponse
+     *
+     * @param QueryAppInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryAppInfoResponse
      */
     public function queryAppInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryAppInfo',
@@ -647,17 +765,18 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryAppInfoRequest $request QueryAppInfoRequest
+     * @param request - QueryAppInfoRequest
      *
-     * @return QueryAppInfoResponse QueryAppInfoResponse
+     * @returns QueryAppInfoResponse
+     *
+     * @param QueryAppInfoRequest $request
+     *
+     * @return QueryAppInfoResponse
      */
     public function queryAppInfo($request)
     {
@@ -667,22 +786,28 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @summary 查询应用对应的安全字段
-     *  *
-     * @param QueryAppSecurityInfoRequest $request QueryAppSecurityInfoRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询应用对应的安全字段.
      *
-     * @return QueryAppSecurityInfoResponse QueryAppSecurityInfoResponse
+     * @param request - QueryAppSecurityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAppSecurityInfoResponse
+     *
+     * @param QueryAppSecurityInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryAppSecurityInfoResponse
      */
     public function queryAppSecurityInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryAppSecurityInfo',
@@ -695,19 +820,20 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryAppSecurityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryAppSecurityInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryAppSecurityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询应用对应的安全字段
-     *  *
-     * @param QueryAppSecurityInfoRequest $request QueryAppSecurityInfoRequest
+     * 查询应用对应的安全字段.
      *
-     * @return QueryAppSecurityInfoResponse QueryAppSecurityInfoResponse
+     * @param request - QueryAppSecurityInfoRequest
+     *
+     * @returns QueryAppSecurityInfoResponse
+     *
+     * @param QueryAppSecurityInfoRequest $request
+     *
+     * @return QueryAppSecurityInfoResponse
      */
     public function queryAppSecurityInfo($request)
     {
@@ -717,20 +843,28 @@ class Mhub extends OpenApiClient
     }
 
     /**
-     * @param QueryProductInfoRequest $request QueryProductInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询基座的Product信息.
      *
-     * @return QueryProductInfoResponse QueryProductInfoResponse
+     * @param request - QueryProductInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryProductInfoResponse
+     *
+     * @param QueryProductInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryProductInfoResponse
      */
     public function queryProductInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryProductInfo',
@@ -743,17 +877,20 @@ class Mhub extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryProductInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryProductInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryProductInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryProductInfoRequest $request QueryProductInfoRequest
+     * 查询基座的Product信息.
      *
-     * @return QueryProductInfoResponse QueryProductInfoResponse
+     * @param request - QueryProductInfoRequest
+     *
+     * @returns QueryProductInfoResponse
+     *
+     * @param QueryProductInfoRequest $request
+     *
+     * @return QueryProductInfoResponse
      */
     public function queryProductInfo($request)
     {

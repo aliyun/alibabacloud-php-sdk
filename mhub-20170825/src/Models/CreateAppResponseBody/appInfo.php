@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models\CreateAppResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appInfo extends Model
 {
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $appKey;
 
     /**
-     * @example com.test.ios
-     *
      * @var string
      */
     public $bundleId;
 
     /**
-     * @example 2020-12-16T06:25:52Z
-     *
      * @var string
      */
     public $createTime;
@@ -35,8 +29,6 @@ class appInfo extends Model
     public $description;
 
     /**
-     * @example 2020-12-16T06:25:52Z
-     *
      * @var string
      */
     public $modifyTime;
@@ -47,22 +39,16 @@ class appInfo extends Model
     public $name;
 
     /**
-     * @example com.test.android
-     *
      * @var string
      */
     public $packageName;
 
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $productId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
@@ -78,35 +64,46 @@ class appInfo extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
         }
+
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -114,38 +111,46 @@ class appInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
         }
+
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

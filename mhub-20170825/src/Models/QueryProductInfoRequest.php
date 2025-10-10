@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryProductInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $productId;
@@ -20,9 +16,12 @@ class QueryProductInfoRequest extends Model
         'productId' => 'ProductId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productId) {
@@ -32,11 +31,11 @@ class QueryProductInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryProductInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

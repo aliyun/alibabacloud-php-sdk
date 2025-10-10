@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mhub\V20170825\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyProductRequest extends Model
 {
@@ -14,17 +14,11 @@ class ModifyProductRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $productId;
@@ -34,17 +28,22 @@ class ModifyProductRequest extends Model
         'productId' => 'ProductId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
@@ -52,20 +51,22 @@ class ModifyProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }
