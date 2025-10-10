@@ -71,6 +71,11 @@ class DescribeAuditLogsRequest extends Model
     /**
      * @var string
      */
+    public $logSource;
+
+    /**
+     * @var string
+     */
     public $memberAccount;
 
     /**
@@ -102,6 +107,11 @@ class DescribeAuditLogsRequest extends Model
      * @var int
      */
     public $productId;
+
+    /**
+     * @var bool
+     */
+    public $ruleAggQuery;
 
     /**
      * @var string
@@ -145,6 +155,7 @@ class DescribeAuditLogsRequest extends Model
         'ipType' => 'IpType',
         'lang' => 'Lang',
         'loadWhiteList' => 'LoadWhiteList',
+        'logSource' => 'LogSource',
         'memberAccount' => 'MemberAccount',
         'message' => 'Message',
         'operateType' => 'OperateType',
@@ -152,6 +163,7 @@ class DescribeAuditLogsRequest extends Model
         'pageSize' => 'PageSize',
         'productCode' => 'ProductCode',
         'productId' => 'ProductId',
+        'ruleAggQuery' => 'RuleAggQuery',
         'ruleCategory' => 'RuleCategory',
         'ruleID' => 'RuleID',
         'ruleName' => 'RuleName',
@@ -216,6 +228,10 @@ class DescribeAuditLogsRequest extends Model
             $res['LoadWhiteList'] = $this->loadWhiteList;
         }
 
+        if (null !== $this->logSource) {
+            $res['LogSource'] = $this->logSource;
+        }
+
         if (null !== $this->memberAccount) {
             $res['MemberAccount'] = $this->memberAccount;
         }
@@ -242,6 +258,10 @@ class DescribeAuditLogsRequest extends Model
 
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
+        }
+
+        if (null !== $this->ruleAggQuery) {
+            $res['RuleAggQuery'] = $this->ruleAggQuery;
         }
 
         if (null !== $this->ruleCategory) {
@@ -327,6 +347,10 @@ class DescribeAuditLogsRequest extends Model
             $model->loadWhiteList = $map['LoadWhiteList'];
         }
 
+        if (isset($map['LogSource'])) {
+            $model->logSource = $map['LogSource'];
+        }
+
         if (isset($map['MemberAccount'])) {
             $model->memberAccount = $map['MemberAccount'];
         }
@@ -353,6 +377,10 @@ class DescribeAuditLogsRequest extends Model
 
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
+        }
+
+        if (isset($map['RuleAggQuery'])) {
+            $model->ruleAggQuery = $map['RuleAggQuery'];
         }
 
         if (isset($map['RuleCategory'])) {

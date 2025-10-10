@@ -71,6 +71,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $instanceAuditStatus;
+
+    /**
+     * @var string
+     */
     public $instanceDescription;
 
     /**
@@ -82,6 +87,11 @@ class items extends Model
      * @var string
      */
     public $ipType;
+
+    /**
+     * @var string
+     */
+    public $logSource;
 
     /**
      * @var int
@@ -185,9 +195,11 @@ class items extends Model
         'executeStatus' => 'ExecuteStatus',
         'executeTime' => 'ExecuteTime',
         'inWhiteList' => 'InWhiteList',
+        'instanceAuditStatus' => 'InstanceAuditStatus',
         'instanceDescription' => 'InstanceDescription',
         'instanceName' => 'InstanceName',
         'ipType' => 'IpType',
+        'logSource' => 'LogSource',
         'logTime' => 'LogTime',
         'memberAccount' => 'MemberAccount',
         'message' => 'Message',
@@ -264,6 +276,10 @@ class items extends Model
             $res['InWhiteList'] = $this->inWhiteList;
         }
 
+        if (null !== $this->instanceAuditStatus) {
+            $res['InstanceAuditStatus'] = $this->instanceAuditStatus;
+        }
+
         if (null !== $this->instanceDescription) {
             $res['InstanceDescription'] = $this->instanceDescription;
         }
@@ -274,6 +290,10 @@ class items extends Model
 
         if (null !== $this->ipType) {
             $res['IpType'] = $this->ipType;
+        }
+
+        if (null !== $this->logSource) {
+            $res['LogSource'] = $this->logSource;
         }
 
         if (null !== $this->logTime) {
@@ -407,6 +427,10 @@ class items extends Model
             $model->inWhiteList = $map['InWhiteList'];
         }
 
+        if (isset($map['InstanceAuditStatus'])) {
+            $model->instanceAuditStatus = $map['InstanceAuditStatus'];
+        }
+
         if (isset($map['InstanceDescription'])) {
             $model->instanceDescription = $map['InstanceDescription'];
         }
@@ -417,6 +441,10 @@ class items extends Model
 
         if (isset($map['IpType'])) {
             $model->ipType = $map['IpType'];
+        }
+
+        if (isset($map['LogSource'])) {
+            $model->logSource = $map['LogSource'];
         }
 
         if (isset($map['LogTime'])) {

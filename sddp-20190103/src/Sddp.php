@@ -904,6 +904,10 @@ class Sddp extends OpenApiClient
             @$query['LoadWhiteList'] = $request->loadWhiteList;
         }
 
+        if (null !== $request->logSource) {
+            @$query['LogSource'] = $request->logSource;
+        }
+
         if (null !== $request->memberAccount) {
             @$query['MemberAccount'] = $request->memberAccount;
         }
@@ -930,6 +934,10 @@ class Sddp extends OpenApiClient
 
         if (null !== $request->productId) {
             @$query['ProductId'] = $request->productId;
+        }
+
+        if (null !== $request->ruleAggQuery) {
+            @$query['RuleAggQuery'] = $request->ruleAggQuery;
         }
 
         if (null !== $request->ruleCategory) {
