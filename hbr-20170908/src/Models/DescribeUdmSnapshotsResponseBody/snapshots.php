@@ -22,6 +22,21 @@ class snapshots extends Model
     /**
      * @var string
      */
+    public $archiveErrorMessage;
+
+    /**
+     * @var string
+     */
+    public $archiveStatus;
+
+    /**
+     * @var int
+     */
+    public $archiveTriggerTime;
+
+    /**
+     * @var string
+     */
     public $backupType;
 
     /**
@@ -136,6 +151,9 @@ class snapshots extends Model
     protected $_name = [
         'actualBytes' => 'ActualBytes',
         'advancedRetentionType' => 'AdvancedRetentionType',
+        'archiveErrorMessage' => 'ArchiveErrorMessage',
+        'archiveStatus' => 'ArchiveStatus',
+        'archiveTriggerTime' => 'ArchiveTriggerTime',
         'backupType' => 'BackupType',
         'bytesTotal' => 'BytesTotal',
         'canBeDeleted' => 'CanBeDeleted',
@@ -178,6 +196,18 @@ class snapshots extends Model
 
         if (null !== $this->advancedRetentionType) {
             $res['AdvancedRetentionType'] = $this->advancedRetentionType;
+        }
+
+        if (null !== $this->archiveErrorMessage) {
+            $res['ArchiveErrorMessage'] = $this->archiveErrorMessage;
+        }
+
+        if (null !== $this->archiveStatus) {
+            $res['ArchiveStatus'] = $this->archiveStatus;
+        }
+
+        if (null !== $this->archiveTriggerTime) {
+            $res['ArchiveTriggerTime'] = $this->archiveTriggerTime;
         }
 
         if (null !== $this->backupType) {
@@ -289,6 +319,18 @@ class snapshots extends Model
 
         if (isset($map['AdvancedRetentionType'])) {
             $model->advancedRetentionType = $map['AdvancedRetentionType'];
+        }
+
+        if (isset($map['ArchiveErrorMessage'])) {
+            $model->archiveErrorMessage = $map['ArchiveErrorMessage'];
+        }
+
+        if (isset($map['ArchiveStatus'])) {
+            $model->archiveStatus = $map['ArchiveStatus'];
+        }
+
+        if (isset($map['ArchiveTriggerTime'])) {
+            $model->archiveTriggerTime = $map['ArchiveTriggerTime'];
         }
 
         if (isset($map['BackupType'])) {
