@@ -94,6 +94,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $publicIp;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -152,6 +157,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'maxQPM' => 'MaxQPM',
         'modelName' => 'ModelName',
         'payType' => 'PayType',
+        'publicIp' => 'PublicIp',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'runType' => 'RunType',
@@ -256,6 +262,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->publicIp) {
+            $res['PublicIp'] = $this->publicIp;
         }
 
         if (null !== $this->regionId) {
@@ -388,6 +398,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['PublicIp'])) {
+            $model->publicIp = $map['PublicIp'];
         }
 
         if (isset($map['RegionId'])) {

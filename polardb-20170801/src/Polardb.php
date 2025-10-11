@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AddFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddFirewallRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelCronJobPolicyServerlessRequest;
@@ -39,6 +41,11 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateColdStorageInstanceRequest;
@@ -77,6 +84,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationEndpointAddressRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupRequest;
@@ -131,6 +142,13 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClustersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClustersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableCrossRegionsRequest;
@@ -342,6 +360,13 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterDescriptionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationWhitelistRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationWhitelistResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyRequest;
@@ -878,6 +903,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addSQLRateLimitingRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 挂载PolarFS到PolarDB应用.
+     *
+     * @param request - AttachApplicationPolarFSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachApplicationPolarFSResponse
+     *
+     * @param AttachApplicationPolarFSRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AttachApplicationPolarFSResponse
+     */
+    public function attachApplicationPolarFSWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->polarFSAccessKeyId) {
+            @$query['PolarFSAccessKeyId'] = $request->polarFSAccessKeyId;
+        }
+
+        if (null !== $request->polarFSAccessKeySecret) {
+            @$query['PolarFSAccessKeySecret'] = $request->polarFSAccessKeySecret;
+        }
+
+        if (null !== $request->polarFSInstanceId) {
+            @$query['PolarFSInstanceId'] = $request->polarFSInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachApplicationPolarFS',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachApplicationPolarFSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 挂载PolarFS到PolarDB应用.
+     *
+     * @param request - AttachApplicationPolarFSRequest
+     *
+     * @returns AttachApplicationPolarFSResponse
+     *
+     * @param AttachApplicationPolarFSRequest $request
+     *
+     * @return AttachApplicationPolarFSResponse
+     */
+    public function attachApplicationPolarFS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachApplicationPolarFSWithOptions($request, $runtime);
     }
 
     /**
@@ -1949,6 +2043,198 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createActivationCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建PolarDB应用.
+     *
+     * @param tmpReq - CreateApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationResponse
+     *
+     * @param CreateApplicationRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateApplicationResponse
+     */
+    public function createApplicationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateApplicationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->components) {
+            $request->componentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        }
+
+        if (null !== $tmpReq->endpoints) {
+            $request->endpointsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->endpoints, 'Endpoints', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->architecture) {
+            @$query['Architecture'] = $request->architecture;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->componentsShrink) {
+            @$query['Components'] = $request->componentsShrink;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->endpointsShrink) {
+            @$query['Endpoints'] = $request->endpointsShrink;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->polarFSInstanceId) {
+            @$query['PolarFSInstanceId'] = $request->polarFSInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplication',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建PolarDB应用.
+     *
+     * @param request - CreateApplicationRequest
+     *
+     * @returns CreateApplicationResponse
+     *
+     * @param CreateApplicationRequest $request
+     *
+     * @return CreateApplicationResponse
+     */
+    public function createApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建PolarDB应用终端节点地址
+     *
+     * @param request - CreateApplicationEndpointAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationEndpointAddressResponse
+     *
+     * @param CreateApplicationEndpointAddressRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateApplicationEndpointAddressResponse
+     */
+    public function createApplicationEndpointAddressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
+        }
+
+        if (null !== $request->netType) {
+            @$query['NetType'] = $request->netType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationEndpointAddress',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建PolarDB应用终端节点地址
+     *
+     * @param request - CreateApplicationEndpointAddressRequest
+     *
+     * @returns CreateApplicationEndpointAddressResponse
+     *
+     * @param CreateApplicationEndpointAddressRequest $request
+     *
+     * @return CreateApplicationEndpointAddressResponse
+     */
+    public function createApplicationEndpointAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationEndpointAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -3948,6 +4234,63 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 删除AI集群实例.
+     *
+     * @param request - DeleteAIDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAIDBClusterResponse
+     *
+     * @param DeleteAIDBClusterRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAIDBClusterResponse
+     */
+    public function deleteAIDBClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAIDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAIDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除AI集群实例.
+     *
+     * @param request - DeleteAIDBClusterRequest
+     *
+     * @returns DeleteAIDBClusterResponse
+     *
+     * @param DeleteAIDBClusterRequest $request
+     *
+     * @return DeleteAIDBClusterResponse
+     */
+    public function deleteAIDBCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAIDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a database account for a PolarDB cluster.
      *
      * @remarks
@@ -4085,6 +4428,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarDB应用终端地址
+     *
+     * @param request - DeleteApplicationEndpointAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationEndpointAddressResponse
+     *
+     * @param DeleteApplicationEndpointAddressRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteApplicationEndpointAddressResponse
+     */
+    public function deleteApplicationEndpointAddressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
+        }
+
+        if (null !== $request->netType) {
+            @$query['NetType'] = $request->netType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplicationEndpointAddress',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarDB应用终端地址
+     *
+     * @param request - DeleteApplicationEndpointAddressRequest
+     *
+     * @returns DeleteApplicationEndpointAddressResponse
+     *
+     * @param DeleteApplicationEndpointAddressRequest $request
+     *
+     * @return DeleteApplicationEndpointAddressResponse
+     */
+    public function deleteApplicationEndpointAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationEndpointAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -6227,6 +6635,203 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取应用详情.
+     *
+     * @param request - DescribeApplicationAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationAttributeResponse
+     *
+     * @param DescribeApplicationAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeApplicationAttributeResponse
+     */
+    public function describeApplicationAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用详情.
+     *
+     * @param request - DescribeApplicationAttributeRequest
+     *
+     * @returns DescribeApplicationAttributeResponse
+     *
+     * @param DescribeApplicationAttributeRequest $request
+     *
+     * @return DescribeApplicationAttributeResponse
+     */
+    public function describeApplicationAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取应用组件参数.
+     *
+     * @param tmpReq - DescribeApplicationParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationParametersResponse
+     *
+     * @param DescribeApplicationParametersRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeApplicationParametersResponse
+     */
+    public function describeApplicationParametersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeApplicationParametersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->componentIdList) {
+            $request->componentIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->componentIdList, 'ComponentIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->componentIdListShrink) {
+            @$query['ComponentIdList'] = $request->componentIdListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationParameters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用组件参数.
+     *
+     * @param request - DescribeApplicationParametersRequest
+     *
+     * @returns DescribeApplicationParametersResponse
+     *
+     * @param DescribeApplicationParametersRequest $request
+     *
+     * @return DescribeApplicationParametersResponse
+     */
+    public function describeApplicationParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取当前地域所有PolarDB实例的应用列表.
+     *
+     * @param request - DescribeApplicationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationsResponse
+     *
+     * @param DescribeApplicationsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeApplicationsResponse
+     */
+    public function describeApplicationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationIds) {
+            @$query['ApplicationIds'] = $request->applicationIds;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplications',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取当前地域所有PolarDB实例的应用列表.
+     *
+     * @param request - DescribeApplicationsRequest
+     *
+     * @returns DescribeApplicationsResponse
+     *
+     * @param DescribeApplicationsRequest $request
+     *
+     * @return DescribeApplicationsResponse
+     */
+    public function describeApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationsWithOptions($request, $runtime);
     }
 
     /**
@@ -15246,6 +15851,219 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改应用描述.
+     *
+     * @param request - ModifyApplicationDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyApplicationDescriptionResponse
+     *
+     * @param ModifyApplicationDescriptionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyApplicationDescriptionResponse
+     */
+    public function modifyApplicationDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyApplicationDescription',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyApplicationDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用描述.
+     *
+     * @param request - ModifyApplicationDescriptionRequest
+     *
+     * @returns ModifyApplicationDescriptionResponse
+     *
+     * @param ModifyApplicationDescriptionRequest $request
+     *
+     * @return ModifyApplicationDescriptionResponse
+     */
+    public function modifyApplicationDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApplicationDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改PolarDB应用参数.
+     *
+     * @param tmpReq - ModifyApplicationParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyApplicationParameterResponse
+     *
+     * @param ModifyApplicationParameterRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyApplicationParameterResponse
+     */
+    public function modifyApplicationParameterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyApplicationParameterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->parameterName) {
+            @$query['ParameterName'] = $request->parameterName;
+        }
+
+        if (null !== $request->parameterValue) {
+            @$query['ParameterValue'] = $request->parameterValue;
+        }
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyApplicationParameter',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyApplicationParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改PolarDB应用参数.
+     *
+     * @param request - ModifyApplicationParameterRequest
+     *
+     * @returns ModifyApplicationParameterResponse
+     *
+     * @param ModifyApplicationParameterRequest $request
+     *
+     * @return ModifyApplicationParameterResponse
+     */
+    public function modifyApplicationParameter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApplicationParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改应用白名单.
+     *
+     * @param request - ModifyApplicationWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyApplicationWhitelistResponse
+     *
+     * @param ModifyApplicationWhitelistRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyApplicationWhitelistResponse
+     */
+    public function modifyApplicationWhitelistWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->componentId) {
+            @$query['ComponentId'] = $request->componentId;
+        }
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
+        }
+
+        if (null !== $request->securityGroups) {
+            @$query['SecurityGroups'] = $request->securityGroups;
+        }
+
+        if (null !== $request->securityIPArrayName) {
+            @$query['SecurityIPArrayName'] = $request->securityIPArrayName;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyApplicationWhitelist',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyApplicationWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用白名单.
+     *
+     * @param request - ModifyApplicationWhitelistRequest
+     *
+     * @returns ModifyApplicationWhitelistResponse
+     *
+     * @param ModifyApplicationWhitelistRequest $request
+     *
+     * @return ModifyApplicationWhitelistResponse
+     */
+    public function modifyApplicationWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApplicationWhitelistWithOptions($request, $runtime);
     }
 
     /**
