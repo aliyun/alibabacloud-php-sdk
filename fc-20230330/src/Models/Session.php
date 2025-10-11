@@ -29,6 +29,11 @@ class Session extends Model
     public $lastModifiedTime;
 
     /**
+     * @var NASConfig
+     */
+    public $nasConfig;
+
+    /**
      * @var string
      */
     public $qualifier;
@@ -62,6 +67,7 @@ class Session extends Model
         'createdTime' => 'createdTime',
         'functionName' => 'functionName',
         'lastModifiedTime' => 'lastModifiedTime',
+        'nasConfig' => 'nasConfig',
         'qualifier' => 'qualifier',
         'sessionAffinityType' => 'sessionAffinityType',
         'sessionId' => 'sessionId',
@@ -72,6 +78,9 @@ class Session extends Model
 
     public function validate()
     {
+        if (null !== $this->nasConfig) {
+            $this->nasConfig->validate();
+        }
         parent::validate();
     }
 
@@ -92,6 +101,10 @@ class Session extends Model
 
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
+        }
+
+        if (null !== $this->nasConfig) {
+            $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
         }
 
         if (null !== $this->qualifier) {
@@ -143,6 +156,10 @@ class Session extends Model
 
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
+        }
+
+        if (isset($map['nasConfig'])) {
+            $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
         }
 
         if (isset($map['qualifier'])) {

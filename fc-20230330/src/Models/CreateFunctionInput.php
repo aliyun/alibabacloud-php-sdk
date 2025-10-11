@@ -39,6 +39,11 @@ class CreateFunctionInput extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $disableInjectCredentials;
+
+    /**
      * @var bool
      */
     public $disableOndemand;
@@ -124,6 +129,11 @@ class CreateFunctionInput extends Model
     public $ossMountConfig;
 
     /**
+     * @var PolarFsConfig
+     */
+    public $polarFsConfig;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -174,6 +184,7 @@ class CreateFunctionInput extends Model
         'customDNS' => 'customDNS',
         'customRuntimeConfig' => 'customRuntimeConfig',
         'description' => 'description',
+        'disableInjectCredentials' => 'disableInjectCredentials',
         'disableOndemand' => 'disableOndemand',
         'diskSize' => 'diskSize',
         'enableLongLiving' => 'enableLongLiving',
@@ -191,6 +202,7 @@ class CreateFunctionInput extends Model
         'memorySize' => 'memorySize',
         'nasConfig' => 'nasConfig',
         'ossMountConfig' => 'ossMountConfig',
+        'polarFsConfig' => 'polarFsConfig',
         'resourceGroupId' => 'resourceGroupId',
         'role' => 'role',
         'runtime' => 'runtime',
@@ -237,6 +249,9 @@ class CreateFunctionInput extends Model
         if (null !== $this->ossMountConfig) {
             $this->ossMountConfig->validate();
         }
+        if (null !== $this->polarFsConfig) {
+            $this->polarFsConfig->validate();
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -274,6 +289,10 @@ class CreateFunctionInput extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->disableInjectCredentials) {
+            $res['disableInjectCredentials'] = $this->disableInjectCredentials;
         }
 
         if (null !== $this->disableOndemand) {
@@ -356,6 +375,10 @@ class CreateFunctionInput extends Model
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
         }
 
+        if (null !== $this->polarFsConfig) {
+            $res['polarFsConfig'] = null !== $this->polarFsConfig ? $this->polarFsConfig->toArray($noStream) : $this->polarFsConfig;
+        }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
@@ -432,6 +455,10 @@ class CreateFunctionInput extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['disableInjectCredentials'])) {
+            $model->disableInjectCredentials = $map['disableInjectCredentials'];
         }
 
         if (isset($map['disableOndemand'])) {
@@ -512,6 +539,10 @@ class CreateFunctionInput extends Model
 
         if (isset($map['ossMountConfig'])) {
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
+        }
+
+        if (isset($map['polarFsConfig'])) {
+            $model->polarFsConfig = PolarFsConfig::fromMap($map['polarFsConfig']);
         }
 
         if (isset($map['resourceGroupId'])) {
