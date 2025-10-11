@@ -14206,6 +14206,10 @@ class AiMiaoBi extends OpenApiClient
             $request->miniDocsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->miniDocs, 'MiniDocs', 'json');
         }
 
+        if (null !== $tmpReq->outlineList) {
+            $request->outlineListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outlineList, 'OutlineList', 'json');
+        }
+
         if (null !== $tmpReq->outlines) {
             $request->outlinesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outlines, 'Outlines', 'json');
         }
@@ -14251,6 +14255,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['MiniDocs'] = $request->miniDocsShrink;
         }
 
+        if (null !== $request->outlineListShrink) {
+            @$body['OutlineList'] = $request->outlineListShrink;
+        }
+
         if (null !== $request->outlinesShrink) {
             @$body['Outlines'] = $request->outlinesShrink;
         }
@@ -14269,6 +14277,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->sessionId) {
             @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->sourceTraceMethod) {
+            @$body['SourceTraceMethod'] = $request->sourceTraceMethod;
         }
 
         if (null !== $request->step) {
@@ -14363,6 +14375,10 @@ class AiMiaoBi extends OpenApiClient
             $request->miniDocsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->miniDocs, 'MiniDocs', 'json');
         }
 
+        if (null !== $tmpReq->outlineList) {
+            $request->outlineListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outlineList, 'OutlineList', 'json');
+        }
+
         if (null !== $tmpReq->outlines) {
             $request->outlinesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outlines, 'Outlines', 'json');
         }
@@ -14408,6 +14424,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['MiniDocs'] = $request->miniDocsShrink;
         }
 
+        if (null !== $request->outlineListShrink) {
+            @$body['OutlineList'] = $request->outlineListShrink;
+        }
+
         if (null !== $request->outlinesShrink) {
             @$body['Outlines'] = $request->outlinesShrink;
         }
@@ -14426,6 +14446,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->sessionId) {
             @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->sourceTraceMethod) {
+            @$body['SourceTraceMethod'] = $request->sourceTraceMethod;
         }
 
         if (null !== $request->step) {

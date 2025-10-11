@@ -5,7 +5,10 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingV2ResponseBody\payload;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateTraceability;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\OutlineSearchResult;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWritingV2ResponseBody\payload\output\articles;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\WritingOutline;
 
 class output extends Model
 {
@@ -15,9 +18,19 @@ class output extends Model
     public $articles;
 
     /**
+     * @var GenerateTraceability
+     */
+    public $generateTraceability;
+
+    /**
      * @var string[]
      */
     public $miniDoc;
+
+    /**
+     * @var WritingOutline[]
+     */
+    public $outlines;
 
     /**
      * @var string
@@ -25,14 +38,28 @@ class output extends Model
     public $searchQuery;
 
     /**
+     * @var OutlineSearchResult
+     */
+    public $searchResult;
+
+    /**
      * @var string
      */
     public $text;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
         'articles' => 'Articles',
+        'generateTraceability' => 'GenerateTraceability',
         'miniDoc' => 'MiniDoc',
+        'outlines' => 'Outlines',
         'searchQuery' => 'SearchQuery',
+        'searchResult' => 'SearchResult',
         'text' => 'Text',
+        'title' => 'Title',
     ];
 
     public function validate()
@@ -40,8 +67,17 @@ class output extends Model
         if (\is_array($this->articles)) {
             Model::validateArray($this->articles);
         }
+        if (null !== $this->generateTraceability) {
+            $this->generateTraceability->validate();
+        }
         if (\is_array($this->miniDoc)) {
             Model::validateArray($this->miniDoc);
+        }
+        if (\is_array($this->outlines)) {
+            Model::validateArray($this->outlines);
+        }
+        if (null !== $this->searchResult) {
+            $this->searchResult->validate();
         }
         parent::validate();
     }
@@ -60,6 +96,10 @@ class output extends Model
             }
         }
 
+        if (null !== $this->generateTraceability) {
+            $res['GenerateTraceability'] = null !== $this->generateTraceability ? $this->generateTraceability->toArray($noStream) : $this->generateTraceability;
+        }
+
         if (null !== $this->miniDoc) {
             if (\is_array($this->miniDoc)) {
                 $res['MiniDoc'] = [];
@@ -71,12 +111,31 @@ class output extends Model
             }
         }
 
+        if (null !== $this->outlines) {
+            if (\is_array($this->outlines)) {
+                $res['Outlines'] = [];
+                $n1 = 0;
+                foreach ($this->outlines as $item1) {
+                    $res['Outlines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->searchQuery) {
             $res['SearchQuery'] = $this->searchQuery;
         }
 
+        if (null !== $this->searchResult) {
+            $res['SearchResult'] = null !== $this->searchResult ? $this->searchResult->toArray($noStream) : $this->searchResult;
+        }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -101,6 +160,10 @@ class output extends Model
             }
         }
 
+        if (isset($map['GenerateTraceability'])) {
+            $model->generateTraceability = GenerateTraceability::fromMap($map['GenerateTraceability']);
+        }
+
         if (isset($map['MiniDoc'])) {
             if (!empty($map['MiniDoc'])) {
                 $model->miniDoc = [];
@@ -112,12 +175,31 @@ class output extends Model
             }
         }
 
+        if (isset($map['Outlines'])) {
+            if (!empty($map['Outlines'])) {
+                $model->outlines = [];
+                $n1 = 0;
+                foreach ($map['Outlines'] as $item1) {
+                    $model->outlines[$n1] = WritingOutline::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['SearchQuery'])) {
             $model->searchQuery = $map['SearchQuery'];
         }
 
+        if (isset($map['SearchResult'])) {
+            $model->searchResult = OutlineSearchResult::fromMap($map['SearchResult']);
+        }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

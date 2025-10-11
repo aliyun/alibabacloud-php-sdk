@@ -46,6 +46,11 @@ class RunWritingV2ShrinkRequest extends Model
     /**
      * @var string
      */
+    public $outlineListShrink;
+
+    /**
+     * @var string
+     */
     public $outlinesShrink;
 
     /**
@@ -67,6 +72,11 @@ class RunWritingV2ShrinkRequest extends Model
      * @var string
      */
     public $sessionId;
+
+    /**
+     * @var string
+     */
+    public $sourceTraceMethod;
 
     /**
      * @var string
@@ -115,11 +125,13 @@ class RunWritingV2ShrinkRequest extends Model
         'keywordsShrink' => 'Keywords',
         'language' => 'Language',
         'miniDocsShrink' => 'MiniDocs',
+        'outlineListShrink' => 'OutlineList',
         'outlinesShrink' => 'Outlines',
         'prompt' => 'Prompt',
         'promptMode' => 'PromptMode',
         'searchSourcesShrink' => 'SearchSources',
         'sessionId' => 'SessionId',
+        'sourceTraceMethod' => 'SourceTraceMethod',
         'step' => 'Step',
         'summarizationShrink' => 'Summarization',
         'taskId' => 'TaskId',
@@ -166,6 +178,10 @@ class RunWritingV2ShrinkRequest extends Model
             $res['MiniDocs'] = $this->miniDocsShrink;
         }
 
+        if (null !== $this->outlineListShrink) {
+            $res['OutlineList'] = $this->outlineListShrink;
+        }
+
         if (null !== $this->outlinesShrink) {
             $res['Outlines'] = $this->outlinesShrink;
         }
@@ -184,6 +200,10 @@ class RunWritingV2ShrinkRequest extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->sourceTraceMethod) {
+            $res['SourceTraceMethod'] = $this->sourceTraceMethod;
         }
 
         if (null !== $this->step) {
@@ -257,6 +277,10 @@ class RunWritingV2ShrinkRequest extends Model
             $model->miniDocsShrink = $map['MiniDocs'];
         }
 
+        if (isset($map['OutlineList'])) {
+            $model->outlineListShrink = $map['OutlineList'];
+        }
+
         if (isset($map['Outlines'])) {
             $model->outlinesShrink = $map['Outlines'];
         }
@@ -275,6 +299,10 @@ class RunWritingV2ShrinkRequest extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['SourceTraceMethod'])) {
+            $model->sourceTraceMethod = $map['SourceTraceMethod'];
         }
 
         if (isset($map['Step'])) {

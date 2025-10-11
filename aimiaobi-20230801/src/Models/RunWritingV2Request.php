@@ -49,6 +49,11 @@ class RunWritingV2Request extends Model
     public $miniDocs;
 
     /**
+     * @var WritingOutline[]
+     */
+    public $outlineList;
+
+    /**
      * @var outlines[]
      */
     public $outlines;
@@ -72,6 +77,11 @@ class RunWritingV2Request extends Model
      * @var string
      */
     public $sessionId;
+
+    /**
+     * @var string
+     */
+    public $sourceTraceMethod;
 
     /**
      * @var string
@@ -120,11 +130,13 @@ class RunWritingV2Request extends Model
         'keywords' => 'Keywords',
         'language' => 'Language',
         'miniDocs' => 'MiniDocs',
+        'outlineList' => 'OutlineList',
         'outlines' => 'Outlines',
         'prompt' => 'Prompt',
         'promptMode' => 'PromptMode',
         'searchSources' => 'SearchSources',
         'sessionId' => 'SessionId',
+        'sourceTraceMethod' => 'SourceTraceMethod',
         'step' => 'Step',
         'summarization' => 'Summarization',
         'taskId' => 'TaskId',
@@ -145,6 +157,9 @@ class RunWritingV2Request extends Model
         }
         if (\is_array($this->miniDocs)) {
             Model::validateArray($this->miniDocs);
+        }
+        if (\is_array($this->outlineList)) {
+            Model::validateArray($this->outlineList);
         }
         if (\is_array($this->outlines)) {
             Model::validateArray($this->outlines);
@@ -213,6 +228,17 @@ class RunWritingV2Request extends Model
             }
         }
 
+        if (null !== $this->outlineList) {
+            if (\is_array($this->outlineList)) {
+                $res['OutlineList'] = [];
+                $n1 = 0;
+                foreach ($this->outlineList as $item1) {
+                    $res['OutlineList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->outlines) {
             if (\is_array($this->outlines)) {
                 $res['Outlines'] = [];
@@ -245,6 +271,10 @@ class RunWritingV2Request extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->sourceTraceMethod) {
+            $res['SourceTraceMethod'] = $this->sourceTraceMethod;
         }
 
         if (null !== $this->step) {
@@ -351,6 +381,17 @@ class RunWritingV2Request extends Model
             }
         }
 
+        if (isset($map['OutlineList'])) {
+            if (!empty($map['OutlineList'])) {
+                $model->outlineList = [];
+                $n1 = 0;
+                foreach ($map['OutlineList'] as $item1) {
+                    $model->outlineList[$n1] = WritingOutline::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Outlines'])) {
             if (!empty($map['Outlines'])) {
                 $model->outlines = [];
@@ -383,6 +424,10 @@ class RunWritingV2Request extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['SourceTraceMethod'])) {
+            $model->sourceTraceMethod = $map['SourceTraceMethod'];
         }
 
         if (isset($map['Step'])) {
