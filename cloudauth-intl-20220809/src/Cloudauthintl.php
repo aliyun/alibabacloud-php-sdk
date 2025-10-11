@@ -36,6 +36,9 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlStreamAdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlStreamRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlStreamResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceGroupRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceGroupResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceRecordRequest;
@@ -1235,6 +1238,179 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deepfakeDetectIntlWithOptions($request, $runtime);
+    }
+
+    /**
+     * deepfake文件流api.
+     *
+     * @param Request - DeepfakeDetectIntlStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeepfakeDetectIntlStreamResponse
+     *
+     * @param DeepfakeDetectIntlStreamRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeepfakeDetectIntlStreamResponse
+     */
+    public function deepfakeDetectIntlStreamWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->faceBase64) {
+            @$body['FaceBase64'] = $request->faceBase64;
+        }
+
+        if (null !== $request->faceFile) {
+            @$body['FaceFile'] = $request->faceFile;
+        }
+
+        if (null !== $request->faceInputType) {
+            @$body['FaceInputType'] = $request->faceInputType;
+        }
+
+        if (null !== $request->faceUrl) {
+            @$body['FaceUrl'] = $request->faceUrl;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$body['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$body['SceneCode'] = $request->sceneCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeepfakeDetectIntlStream',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeepfakeDetectIntlStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * deepfake文件流api.
+     *
+     * @param Request - DeepfakeDetectIntlStreamRequest
+     *
+     * @returns DeepfakeDetectIntlStreamResponse
+     *
+     * @param DeepfakeDetectIntlStreamRequest $request
+     *
+     * @return DeepfakeDetectIntlStreamResponse
+     */
+    public function deepfakeDetectIntlStream($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deepfakeDetectIntlStreamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeepfakeDetectIntlStreamAdvanceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeepfakeDetectIntlStreamResponse
+     */
+    public function deepfakeDetectIntlStreamAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $deepfakeDetectIntlStreamReq = new DeepfakeDetectIntlStreamRequest([]);
+        Utils::convert($request, $deepfakeDetectIntlStreamReq);
+        if (null !== $request->faceFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->faceFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $deepfakeDetectIntlStreamReq->faceFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->deepfakeDetectIntlStreamWithOptions($deepfakeDetectIntlStreamReq, $runtime);
     }
 
     /**
