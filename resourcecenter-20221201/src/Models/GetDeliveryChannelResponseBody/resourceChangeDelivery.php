@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetDeliveryChannelResponseB
 class resourceChangeDelivery extends Model
 {
     /**
+     * @var string
+     */
+    public $enabled;
+
+    /**
      * @var slsProperties
      */
     public $slsProperties;
@@ -24,6 +29,7 @@ class resourceChangeDelivery extends Model
      */
     public $targetType;
     protected $_name = [
+        'enabled' => 'Enabled',
         'slsProperties' => 'SlsProperties',
         'targetArn' => 'TargetArn',
         'targetType' => 'TargetType',
@@ -40,6 +46,10 @@ class resourceChangeDelivery extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
+
         if (null !== $this->slsProperties) {
             $res['SlsProperties'] = null !== $this->slsProperties ? $this->slsProperties->toArray($noStream) : $this->slsProperties;
         }
@@ -63,6 +73,10 @@ class resourceChangeDelivery extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
+
         if (isset($map['SlsProperties'])) {
             $model->slsProperties = slsProperties::fromMap($map['SlsProperties']);
         }

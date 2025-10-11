@@ -20,6 +20,11 @@ class resourceSnapshotDelivery extends Model
     public $deliveryTime;
 
     /**
+     * @var string
+     */
+    public $enabled;
+
+    /**
      * @var slsProperties
      */
     public $slsProperties;
@@ -36,6 +41,7 @@ class resourceSnapshotDelivery extends Model
     protected $_name = [
         'customExpression' => 'CustomExpression',
         'deliveryTime' => 'DeliveryTime',
+        'enabled' => 'Enabled',
         'slsProperties' => 'SlsProperties',
         'targetArn' => 'TargetArn',
         'targetType' => 'TargetType',
@@ -58,6 +64,10 @@ class resourceSnapshotDelivery extends Model
 
         if (null !== $this->deliveryTime) {
             $res['DeliveryTime'] = $this->deliveryTime;
+        }
+
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
 
         if (null !== $this->slsProperties) {
@@ -89,6 +99,10 @@ class resourceSnapshotDelivery extends Model
 
         if (isset($map['DeliveryTime'])) {
             $model->deliveryTime = $map['DeliveryTime'];
+        }
+
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
         }
 
         if (isset($map['SlsProperties'])) {
