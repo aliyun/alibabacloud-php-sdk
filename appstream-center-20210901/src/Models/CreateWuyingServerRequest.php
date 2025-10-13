@@ -25,6 +25,11 @@ class CreateWuyingServerRequest extends Model
     public $autoRenew;
 
     /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
      * @var string
      */
     public $bizRegionId;
@@ -48,6 +53,11 @@ class CreateWuyingServerRequest extends Model
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $networkStrategyType;
 
     /**
      * @var string
@@ -112,11 +122,13 @@ class CreateWuyingServerRequest extends Model
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
+        'bandwidth' => 'Bandwidth',
         'bizRegionId' => 'BizRegionId',
         'chargeType' => 'ChargeType',
         'dataDisk' => 'DataDisk',
         'idempotenceToken' => 'IdempotenceToken',
         'imageId' => 'ImageId',
+        'networkStrategyType' => 'NetworkStrategyType',
         'officeSiteId' => 'OfficeSiteId',
         'password' => 'Password',
         'period' => 'Period',
@@ -157,6 +169,10 @@ class CreateWuyingServerRequest extends Model
             $res['AutoRenew'] = $this->autoRenew;
         }
 
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
@@ -182,6 +198,10 @@ class CreateWuyingServerRequest extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->networkStrategyType) {
+            $res['NetworkStrategyType'] = $this->networkStrategyType;
         }
 
         if (null !== $this->officeSiteId) {
@@ -262,6 +282,10 @@ class CreateWuyingServerRequest extends Model
             $model->autoRenew = $map['AutoRenew'];
         }
 
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
@@ -287,6 +311,10 @@ class CreateWuyingServerRequest extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['NetworkStrategyType'])) {
+            $model->networkStrategyType = $map['NetworkStrategyType'];
         }
 
         if (isset($map['OfficeSiteId'])) {

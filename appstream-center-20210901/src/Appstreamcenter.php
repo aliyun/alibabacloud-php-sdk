@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
@@ -598,6 +600,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['AutoRenew'] = $request->autoRenew;
         }
 
+        if (null !== $request->bandwidth) {
+            @$body['Bandwidth'] = $request->bandwidth;
+        }
+
         if (null !== $request->bizRegionId) {
             @$body['BizRegionId'] = $request->bizRegionId;
         }
@@ -617,6 +623,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->imageId) {
             @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->networkStrategyType) {
+            @$body['NetworkStrategyType'] = $request->networkStrategyType;
         }
 
         if (null !== $request->officeSiteId) {
@@ -898,6 +908,67 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteWuyingServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询无影工作站EIP信息.
+     *
+     * @param request - DescribeWuyingServerEipInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWuyingServerEipInfoResponse
+     *
+     * @param DescribeWuyingServerEipInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeWuyingServerEipInfoResponse
+     */
+    public function describeWuyingServerEipInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->isp) {
+            @$body['Isp'] = $request->isp;
+        }
+
+        if (null !== $request->wuyingServerId) {
+            @$body['WuyingServerId'] = $request->wuyingServerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWuyingServerEipInfo',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWuyingServerEipInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询无影工作站EIP信息.
+     *
+     * @param request - DescribeWuyingServerEipInfoRequest
+     *
+     * @returns DescribeWuyingServerEipInfoResponse
+     *
+     * @param DescribeWuyingServerEipInfoRequest $request
+     *
+     * @return DescribeWuyingServerEipInfoResponse
+     */
+    public function describeWuyingServerEipInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWuyingServerEipInfoWithOptions($request, $runtime);
     }
 
     /**
