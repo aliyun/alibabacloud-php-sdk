@@ -76,6 +76,11 @@ class ListQuotasRequest extends Model
     /**
      * @var string
      */
+    public $versions;
+
+    /**
+     * @var string
+     */
     public $workspaceIds;
 
     /**
@@ -96,6 +101,7 @@ class ListQuotasRequest extends Model
         'sortBy' => 'SortBy',
         'statuses' => 'Statuses',
         'verbose' => 'Verbose',
+        'versions' => 'Versions',
         'workspaceIds' => 'WorkspaceIds',
         'workspaceName' => 'WorkspaceName',
     ];
@@ -158,6 +164,10 @@ class ListQuotasRequest extends Model
 
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
+        }
+
+        if (null !== $this->versions) {
+            $res['Versions'] = $this->versions;
         }
 
         if (null !== $this->workspaceIds) {
@@ -229,6 +239,10 @@ class ListQuotasRequest extends Model
 
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
+        }
+
+        if (isset($map['Versions'])) {
+            $model->versions = $map['Versions'];
         }
 
         if (isset($map['WorkspaceIds'])) {

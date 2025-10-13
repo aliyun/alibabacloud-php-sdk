@@ -21,6 +21,11 @@ class ListNodesRequest extends Model
     /**
      * @var string
      */
+    public $cliqueID;
+
+    /**
+     * @var string
+     */
     public $filterByQuotaId;
 
     /**
@@ -32,6 +37,11 @@ class ListNodesRequest extends Model
      * @var string
      */
     public $GPUType;
+
+    /**
+     * @var string
+     */
+    public $hyperNode;
 
     /**
      * @var string
@@ -62,6 +72,11 @@ class ListNodesRequest extends Model
      * @var string
      */
     public $order;
+
+    /**
+     * @var string
+     */
+    public $orderInstanceIds;
 
     /**
      * @var string
@@ -110,15 +125,18 @@ class ListNodesRequest extends Model
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
         'availabilityZone' => 'AvailabilityZone',
+        'cliqueID' => 'CliqueID',
         'filterByQuotaId' => 'FilterByQuotaId',
         'filterByResourceGroupIds' => 'FilterByResourceGroupIds',
         'GPUType' => 'GPUType',
+        'hyperNode' => 'HyperNode',
         'hyperZone' => 'HyperZone',
         'machineGroupIds' => 'MachineGroupIds',
         'nodeNames' => 'NodeNames',
         'nodeStatuses' => 'NodeStatuses',
         'nodeTypes' => 'NodeTypes',
         'order' => 'Order',
+        'orderInstanceIds' => 'OrderInstanceIds',
         'orderStatuses' => 'OrderStatuses',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -146,6 +164,10 @@ class ListNodesRequest extends Model
             $res['AvailabilityZone'] = $this->availabilityZone;
         }
 
+        if (null !== $this->cliqueID) {
+            $res['CliqueID'] = $this->cliqueID;
+        }
+
         if (null !== $this->filterByQuotaId) {
             $res['FilterByQuotaId'] = $this->filterByQuotaId;
         }
@@ -156,6 +178,10 @@ class ListNodesRequest extends Model
 
         if (null !== $this->GPUType) {
             $res['GPUType'] = $this->GPUType;
+        }
+
+        if (null !== $this->hyperNode) {
+            $res['HyperNode'] = $this->hyperNode;
         }
 
         if (null !== $this->hyperZone) {
@@ -180,6 +206,10 @@ class ListNodesRequest extends Model
 
         if (null !== $this->order) {
             $res['Order'] = $this->order;
+        }
+
+        if (null !== $this->orderInstanceIds) {
+            $res['OrderInstanceIds'] = $this->orderInstanceIds;
         }
 
         if (null !== $this->orderStatuses) {
@@ -237,6 +267,10 @@ class ListNodesRequest extends Model
             $model->availabilityZone = $map['AvailabilityZone'];
         }
 
+        if (isset($map['CliqueID'])) {
+            $model->cliqueID = $map['CliqueID'];
+        }
+
         if (isset($map['FilterByQuotaId'])) {
             $model->filterByQuotaId = $map['FilterByQuotaId'];
         }
@@ -247,6 +281,10 @@ class ListNodesRequest extends Model
 
         if (isset($map['GPUType'])) {
             $model->GPUType = $map['GPUType'];
+        }
+
+        if (isset($map['HyperNode'])) {
+            $model->hyperNode = $map['HyperNode'];
         }
 
         if (isset($map['HyperZone'])) {
@@ -271,6 +309,10 @@ class ListNodesRequest extends Model
 
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
+        }
+
+        if (isset($map['OrderInstanceIds'])) {
+            $model->orderInstanceIds = $map['OrderInstanceIds'];
         }
 
         if (isset($map['OrderStatuses'])) {

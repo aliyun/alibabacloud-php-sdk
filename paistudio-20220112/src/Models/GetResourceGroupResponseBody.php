@@ -77,6 +77,11 @@ class GetResourceGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $version;
+
+    /**
+     * @var string
+     */
     public $workspaceID;
     protected $_name = [
         'clusterID' => 'ClusterID',
@@ -92,6 +97,7 @@ class GetResourceGroupResponseBody extends Model
         'supportRDMA' => 'SupportRDMA',
         'tags' => 'Tags',
         'userVpc' => 'UserVpc',
+        'version' => 'Version',
         'workspaceID' => 'WorkspaceID',
     ];
 
@@ -168,6 +174,10 @@ class GetResourceGroupResponseBody extends Model
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         if (null !== $this->workspaceID) {
             $res['WorkspaceID'] = $this->workspaceID;
         }
@@ -240,6 +250,10 @@ class GetResourceGroupResponseBody extends Model
 
         if (isset($map['UserVpc'])) {
             $model->userVpc = UserVpc::fromMap($map['UserVpc']);
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         if (isset($map['WorkspaceID'])) {

@@ -38,6 +38,11 @@ class CreateResourceGroupRequest extends Model
      * @var UserVpc
      */
     public $userVpc;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'computingResourceProvider' => 'ComputingResourceProvider',
         'description' => 'Description',
@@ -45,6 +50,7 @@ class CreateResourceGroupRequest extends Model
         'resourceType' => 'ResourceType',
         'tag' => 'Tag',
         'userVpc' => 'UserVpc',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -92,6 +98,10 @@ class CreateResourceGroupRequest extends Model
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -132,6 +142,10 @@ class CreateResourceGroupRequest extends Model
 
         if (isset($map['UserVpc'])) {
             $model->userVpc = UserVpc::fromMap($map['UserVpc']);
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

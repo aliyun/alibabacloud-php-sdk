@@ -557,6 +557,10 @@ class PaiStudio extends OpenApiClient
             @$body['UserVpc'] = $request->userVpc;
         }
 
+        if (null !== $request->version) {
+            @$body['Version'] = $request->version;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -2338,6 +2342,10 @@ class PaiStudio extends OpenApiClient
             @$query['AvailabilityZone'] = $request->availabilityZone;
         }
 
+        if (null !== $request->cliqueID) {
+            @$query['CliqueID'] = $request->cliqueID;
+        }
+
         if (null !== $request->filterByQuotaId) {
             @$query['FilterByQuotaId'] = $request->filterByQuotaId;
         }
@@ -2348,6 +2356,10 @@ class PaiStudio extends OpenApiClient
 
         if (null !== $request->GPUType) {
             @$query['GPUType'] = $request->GPUType;
+        }
+
+        if (null !== $request->hyperNode) {
+            @$query['HyperNode'] = $request->hyperNode;
         }
 
         if (null !== $request->hyperZone) {
@@ -2372,6 +2384,10 @@ class PaiStudio extends OpenApiClient
 
         if (null !== $request->order) {
             @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->orderInstanceIds) {
+            @$query['OrderInstanceIds'] = $request->orderInstanceIds;
         }
 
         if (null !== $request->orderStatuses) {
@@ -2654,6 +2670,10 @@ class PaiStudio extends OpenApiClient
             @$query['Verbose'] = $request->verbose;
         }
 
+        if (null !== $request->versions) {
+            @$query['Versions'] = $request->versions;
+        }
+
         if (null !== $request->workspaceIds) {
             @$query['WorkspaceIds'] = $request->workspaceIds;
         }
@@ -2872,6 +2892,10 @@ class PaiStudio extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->versions) {
+            @$query['Versions'] = $request->versions;
         }
 
         $req = new OpenApiRequest([

@@ -34,6 +34,11 @@ class Quota extends Model
     public $gmtModifiedTime;
 
     /**
+     * @var string[]
+     */
+    public $hyperZones;
+
+    /**
      * @var Label[]
      */
     public $labels;
@@ -109,6 +114,11 @@ class Quota extends Model
     public $subQuotas;
 
     /**
+     * @var string
+     */
+    public $version;
+
+    /**
      * @var WorkspaceIdName[]
      */
     public $workspaces;
@@ -118,6 +128,7 @@ class Quota extends Model
         'description' => 'Description',
         'gmtCreatedTime' => 'GmtCreatedTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
+        'hyperZones' => 'HyperZones',
         'labels' => 'Labels',
         'latestOperationId' => 'LatestOperationId',
         'min' => 'Min',
@@ -133,11 +144,15 @@ class Quota extends Model
         'resourceType' => 'ResourceType',
         'status' => 'Status',
         'subQuotas' => 'SubQuotas',
+        'version' => 'Version',
         'workspaces' => 'Workspaces',
     ];
 
     public function validate()
     {
+        if (\is_array($this->hyperZones)) {
+            Model::validateArray($this->hyperZones);
+        }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
         }
@@ -183,6 +198,17 @@ class Quota extends Model
 
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
+        }
+
+        if (null !== $this->hyperZones) {
+            if (\is_array($this->hyperZones)) {
+                $res['HyperZones'] = [];
+                $n1 = 0;
+                foreach ($this->hyperZones as $item1) {
+                    $res['HyperZones'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->labels) {
@@ -266,6 +292,10 @@ class Quota extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         if (null !== $this->workspaces) {
             if (\is_array($this->workspaces)) {
                 $res['Workspaces'] = [];
@@ -306,6 +336,17 @@ class Quota extends Model
 
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
+        }
+
+        if (isset($map['HyperZones'])) {
+            if (!empty($map['HyperZones'])) {
+                $model->hyperZones = [];
+                $n1 = 0;
+                foreach ($map['HyperZones'] as $item1) {
+                    $model->hyperZones[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Labels'])) {
@@ -387,6 +428,10 @@ class Quota extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         if (isset($map['Workspaces'])) {

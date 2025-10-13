@@ -62,6 +62,11 @@ class ListResourceGroupsRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $versions;
     protected $_name = [
         'computingResourceProvider' => 'ComputingResourceProvider',
         'hasResource' => 'HasResource',
@@ -74,6 +79,7 @@ class ListResourceGroupsRequest extends Model
         'showAll' => 'ShowAll',
         'sortBy' => 'SortBy',
         'status' => 'Status',
+        'versions' => 'Versions',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class ListResourceGroupsRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->versions) {
+            $res['Versions'] = $this->versions;
         }
 
         return $res;
@@ -181,6 +191,10 @@ class ListResourceGroupsRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Versions'])) {
+            $model->versions = $map['Versions'];
         }
 
         return $model;

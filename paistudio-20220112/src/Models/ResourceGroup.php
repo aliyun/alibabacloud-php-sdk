@@ -46,6 +46,11 @@ class ResourceGroup extends Model
     /**
      * @var string
      */
+    public $version;
+
+    /**
+     * @var string
+     */
     public $workspaceID;
     protected $_name = [
         'creatorID' => 'CreatorID',
@@ -55,6 +60,7 @@ class ResourceGroup extends Model
         'nodeCount' => 'NodeCount',
         'resourceGroupID' => 'ResourceGroupID',
         'userVpc' => 'UserVpc',
+        'version' => 'Version',
         'workspaceID' => 'WorkspaceID',
     ];
 
@@ -95,6 +101,10 @@ class ResourceGroup extends Model
 
         if (null !== $this->userVpc) {
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         if (null !== $this->workspaceID) {
@@ -138,6 +148,10 @@ class ResourceGroup extends Model
 
         if (isset($map['UserVpc'])) {
             $model->userVpc = UserVpc::fromMap($map['UserVpc']);
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         if (isset($map['WorkspaceID'])) {
