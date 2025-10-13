@@ -19,6 +19,11 @@ class entityGroup extends Model
     public $clusterId;
 
     /**
+     * @var bool
+     */
+    public $disablePolicyShare;
+
+    /**
      * @var string
      */
     public $entityGroupId;
@@ -30,6 +35,7 @@ class entityGroup extends Model
     protected $_name = [
         'clusterEntityType' => 'clusterEntityType',
         'clusterId' => 'clusterId',
+        'disablePolicyShare' => 'disablePolicyShare',
         'entityGroupId' => 'entityGroupId',
         'vpcId' => 'vpcId',
     ];
@@ -48,6 +54,10 @@ class entityGroup extends Model
 
         if (null !== $this->clusterId) {
             $res['clusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->disablePolicyShare) {
+            $res['disablePolicyShare'] = $this->disablePolicyShare;
         }
 
         if (null !== $this->entityGroupId) {
@@ -75,6 +85,10 @@ class entityGroup extends Model
 
         if (isset($map['clusterId'])) {
             $model->clusterId = $map['clusterId'];
+        }
+
+        if (isset($map['disablePolicyShare'])) {
+            $model->disablePolicyShare = $map['disablePolicyShare'];
         }
 
         if (isset($map['entityGroupId'])) {

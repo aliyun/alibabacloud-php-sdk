@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AddonMeta;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AddonMeta\environments\commonSchemaRefs;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AddonMeta\environments\dependencies;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AddonMeta\environments\policies;
 
 class environments extends Model
 {
+    /**
+     * @var commonSchemaRefs[]
+     */
+    public $commonSchemaRefs;
+
     /**
      * @var dependencies
      */
@@ -45,6 +51,7 @@ class environments extends Model
      */
     public $policyType;
     protected $_name = [
+        'commonSchemaRefs' => 'commonSchemaRefs',
         'dependencies' => 'dependencies',
         'description' => 'description',
         'enable' => 'enable',
@@ -56,6 +63,9 @@ class environments extends Model
 
     public function validate()
     {
+        if (\is_array($this->commonSchemaRefs)) {
+            Model::validateArray($this->commonSchemaRefs);
+        }
         if (null !== $this->dependencies) {
             $this->dependencies->validate();
         }
@@ -68,6 +78,17 @@ class environments extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->commonSchemaRefs) {
+            if (\is_array($this->commonSchemaRefs)) {
+                $res['commonSchemaRefs'] = [];
+                $n1 = 0;
+                foreach ($this->commonSchemaRefs as $item1) {
+                    $res['commonSchemaRefs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->dependencies) {
             $res['dependencies'] = null !== $this->dependencies ? $this->dependencies->toArray($noStream) : $this->dependencies;
         }
@@ -107,6 +128,17 @@ class environments extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['commonSchemaRefs'])) {
+            if (!empty($map['commonSchemaRefs'])) {
+                $model->commonSchemaRefs = [];
+                $n1 = 0;
+                foreach ($map['commonSchemaRefs'] as $item1) {
+                    $model->commonSchemaRefs[$n1] = commonSchemaRefs::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['dependencies'])) {
             $model->dependencies = dependencies::fromMap($map['dependencies']);
         }
