@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMcpServerRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentRequest;
@@ -50,12 +52,14 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewaySecurityGroupRuleRespons
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeployMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerResponse;
@@ -70,6 +74,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyResponse;
@@ -80,6 +85,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsRequest;
@@ -95,6 +102,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpServersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpServersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginsRequest;
@@ -114,6 +123,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\RemoveConsumerAuthorizationRuleRespon
 use AlibabaCloud\SDK\APIG\V20240327\Models\RestartGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UnDeployMcpServerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UninstallPluginResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleRequest;
@@ -134,6 +145,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyRequest;
@@ -924,6 +937,10 @@ class APIG extends OpenApiClient
             @$body['chargeType'] = $request->chargeType;
         }
 
+        if (null !== $request->gatewayEdition) {
+            @$body['gatewayEdition'] = $request->gatewayEdition;
+        }
+
         if (null !== $request->gatewayType) {
             @$body['gatewayType'] = $request->gatewayType;
         }
@@ -1043,6 +1060,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->enableAuth) {
             @$body['enableAuth'] = $request->enableAuth;
+        }
+
+        if (null !== $request->firstByteTimeout) {
+            @$body['firstByteTimeout'] = $request->firstByteTimeout;
         }
 
         if (null !== $request->ingressConfig) {
@@ -1267,6 +1288,107 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createHttpApiRouteWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建MCP server.
+     *
+     * @param request - CreateMcpServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMcpServerResponse
+     *
+     * @param CreateMcpServerRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateMcpServerResponse
+     */
+    public function createMcpServerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assembledSources) {
+            @$body['assembledSources'] = $request->assembledSources;
+        }
+
+        if (null !== $request->backendConfig) {
+            @$body['backendConfig'] = $request->backendConfig;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->domainIds) {
+            @$body['domainIds'] = $request->domainIds;
+        }
+
+        if (null !== $request->exposedUriPath) {
+            @$body['exposedUriPath'] = $request->exposedUriPath;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->match) {
+            @$body['match'] = $request->match;
+        }
+
+        if (null !== $request->mcpStatisticsEnable) {
+            @$body['mcpStatisticsEnable'] = $request->mcpStatisticsEnable;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMcpServer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建MCP server.
+     *
+     * @param request - CreateMcpServerRequest
+     *
+     * @returns CreateMcpServerResponse
+     *
+     * @param CreateMcpServerRequest $request
+     *
+     * @return CreateMcpServerResponse
+     */
+    public function createMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMcpServerWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2068,6 +2190,57 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 删除MCP server.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMcpServerResponse
+     *
+     * @param string         $mcpServerId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMcpServerResponse
+     */
+    public function deleteMcpServerWithOptions($mcpServerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMcpServer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers/' . Url::percentEncode($mcpServerId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除MCP server.
+     *
+     * @returns DeleteMcpServerResponse
+     *
+     * @param string $mcpServerId
+     *
+     * @return DeleteMcpServerResponse
+     */
+    public function deleteMcpServer($mcpServerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMcpServerWithOptions($mcpServerId, $headers, $runtime);
+    }
+
+    /**
      * 删除挂载规则API.
      *
      * @param headers - map
@@ -2340,6 +2513,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deployHttpApiWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 发布MCP server.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeployMcpServerResponse
+     *
+     * @param string         $mcpServerId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeployMcpServerResponse
+     */
+    public function deployMcpServerWithOptions($mcpServerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeployMcpServer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers/' . Url::percentEncode($mcpServerId) . '/deploy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeployMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布MCP server.
+     *
+     * @returns DeployMcpServerResponse
+     *
+     * @param string $mcpServerId
+     *
+     * @return DeployMcpServerResponse
+     */
+    public function deployMcpServer($mcpServerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deployMcpServerWithOptions($mcpServerId, $headers, $runtime);
     }
 
     /**
@@ -2942,6 +3166,57 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 获取MCP server.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMcpServerResponse
+     *
+     * @param string         $mcpServerId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMcpServerResponse
+     */
+    public function getMcpServerWithOptions($mcpServerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMcpServer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers/' . Url::percentEncode($mcpServerId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取MCP server.
+     *
+     * @returns GetMcpServerResponse
+     *
+     * @param string $mcpServerId
+     *
+     * @return GetMcpServerResponse
+     */
+    public function getMcpServer($mcpServerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMcpServerWithOptions($mcpServerId, $headers, $runtime);
+    }
+
+    /**
      * GetPluginAttachment。
      *
      * @param headers - map
@@ -3300,6 +3575,10 @@ class APIG extends OpenApiClient
             @$body['dryRun'] = $request->dryRun;
         }
 
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
         if (null !== $request->mcpRouteId) {
             @$body['mcpRouteId'] = $request->mcpRouteId;
         }
@@ -3372,6 +3651,71 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->importHttpApiWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * InstallPlugin.
+     *
+     * @param request - InstallPluginRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallPluginResponse
+     *
+     * @param InstallPluginRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InstallPluginResponse
+     */
+    public function installPluginWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->gatewayIds) {
+            @$body['gatewayIds'] = $request->gatewayIds;
+        }
+
+        if (null !== $request->pluginClassId) {
+            @$body['pluginClassId'] = $request->pluginClassId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InstallPlugin',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugins/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * InstallPlugin.
+     *
+     * @param request - InstallPluginRequest
+     *
+     * @returns InstallPluginResponse
+     *
+     * @param InstallPluginRequest $request
+     *
+     * @return InstallPluginResponse
+     */
+    public function installPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->installPluginWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3741,6 +4085,10 @@ class APIG extends OpenApiClient
             @$query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
         }
 
+        if (null !== $request->enableAuth) {
+            @$query['enableAuth'] = $request->enableAuth;
+        }
+
         if (null !== $request->forDeploy) {
             @$query['forDeploy'] = $request->forDeploy;
         }
@@ -4062,6 +4410,91 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listHttpApisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取MCP server列表.
+     *
+     * @param request - ListMcpServersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcpServersResponse
+     *
+     * @param ListMcpServersRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListMcpServersResponse
+     */
+    public function listMcpServersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->createFromTypes) {
+            @$query['createFromTypes'] = $request->createFromTypes;
+        }
+
+        if (null !== $request->deployStatuses) {
+            @$query['deployStatuses'] = $request->deployStatuses;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMcpServers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcpServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取MCP server列表.
+     *
+     * @param request - ListMcpServersRequest
+     *
+     * @returns ListMcpServersResponse
+     *
+     * @param ListMcpServersRequest $request
+     *
+     * @return ListMcpServersResponse
+     */
+    public function listMcpServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMcpServersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4830,6 +5263,57 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 取消发布MCP server.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnDeployMcpServerResponse
+     *
+     * @param string         $mcpServerId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return UnDeployMcpServerResponse
+     */
+    public function unDeployMcpServerWithOptions($mcpServerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'UnDeployMcpServer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers/' . Url::percentEncode($mcpServerId) . '/undeploy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UnDeployMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消发布MCP server.
+     *
+     * @returns UnDeployMcpServerResponse
+     *
+     * @param string $mcpServerId
+     *
+     * @return UnDeployMcpServerResponse
+     */
+    public function unDeployMcpServer($mcpServerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unDeployMcpServerWithOptions($mcpServerId, $headers, $runtime);
+    }
+
+    /**
      * Unpublishes an HTTP API.
      *
      * @param request - UndeployHttpApiRequest
@@ -4902,6 +5386,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->undeployHttpApiWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
+     * UninstallPlugin.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallPluginResponse
+     *
+     * @param string         $pluginId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return UninstallPluginResponse
+     */
+    public function uninstallPluginWithOptions($pluginId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'UninstallPlugin',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugins/' . Url::percentEncode($pluginId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UninstallPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UninstallPlugin.
+     *
+     * @returns UninstallPluginResponse
+     *
+     * @param string $pluginId
+     *
+     * @return UninstallPluginResponse
+     */
+    public function uninstallPlugin($pluginId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uninstallPluginWithOptions($pluginId, $headers, $runtime);
     }
 
     /**
@@ -5490,6 +6025,10 @@ class APIG extends OpenApiClient
             @$body['enableAuth'] = $request->enableAuth;
         }
 
+        if (null !== $request->firstByteTimeout) {
+            @$body['firstByteTimeout'] = $request->firstByteTimeout;
+        }
+
         if (null !== $request->ingressConfig) {
             @$body['ingressConfig'] = $request->ingressConfig;
         }
@@ -5705,6 +6244,101 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateHttpApiRouteWithOptions($httpApiId, $routeId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新MCP server.
+     *
+     * @param request - UpdateMcpServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMcpServerResponse
+     *
+     * @param string                 $mcpServerId
+     * @param UpdateMcpServerRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateMcpServerResponse
+     */
+    public function updateMcpServerWithOptions($mcpServerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assembledSources) {
+            @$body['assembledSources'] = $request->assembledSources;
+        }
+
+        if (null !== $request->backendConfig) {
+            @$body['backendConfig'] = $request->backendConfig;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->domainIds) {
+            @$body['domainIds'] = $request->domainIds;
+        }
+
+        if (null !== $request->exposedUriPath) {
+            @$body['exposedUriPath'] = $request->exposedUriPath;
+        }
+
+        if (null !== $request->match) {
+            @$body['match'] = $request->match;
+        }
+
+        if (null !== $request->mcpStatisticsEnable) {
+            @$body['mcpStatisticsEnable'] = $request->mcpStatisticsEnable;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMcpServer',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/mcp-servers/' . Url::percentEncode($mcpServerId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新MCP server.
+     *
+     * @param request - UpdateMcpServerRequest
+     *
+     * @returns UpdateMcpServerResponse
+     *
+     * @param string                 $mcpServerId
+     * @param UpdateMcpServerRequest $request
+     *
+     * @return UpdateMcpServerResponse
+     */
+    public function updateMcpServer($mcpServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMcpServerWithOptions($mcpServerId, $request, $headers, $runtime);
     }
 
     /**

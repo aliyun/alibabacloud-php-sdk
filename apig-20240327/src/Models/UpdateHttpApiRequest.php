@@ -45,6 +45,11 @@ class UpdateHttpApiRequest extends Model
     public $enableAuth;
 
     /**
+     * @var int
+     */
+    public $firstByteTimeout;
+
+    /**
      * @var ingressConfig
      */
     public $ingressConfig;
@@ -76,6 +81,7 @@ class UpdateHttpApiRequest extends Model
         'deployConfigs' => 'deployConfigs',
         'description' => 'description',
         'enableAuth' => 'enableAuth',
+        'firstByteTimeout' => 'firstByteTimeout',
         'ingressConfig' => 'ingressConfig',
         'onlyChangeConfig' => 'onlyChangeConfig',
         'protocols' => 'protocols',
@@ -159,6 +165,10 @@ class UpdateHttpApiRequest extends Model
 
         if (null !== $this->enableAuth) {
             $res['enableAuth'] = $this->enableAuth;
+        }
+
+        if (null !== $this->firstByteTimeout) {
+            $res['firstByteTimeout'] = $this->firstByteTimeout;
         }
 
         if (null !== $this->ingressConfig) {
@@ -246,6 +256,10 @@ class UpdateHttpApiRequest extends Model
 
         if (isset($map['enableAuth'])) {
             $model->enableAuth = $map['enableAuth'];
+        }
+
+        if (isset($map['firstByteTimeout'])) {
+            $model->firstByteTimeout = $map['firstByteTimeout'];
         }
 
         if (isset($map['ingressConfig'])) {

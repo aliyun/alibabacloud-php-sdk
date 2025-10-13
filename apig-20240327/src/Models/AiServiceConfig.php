@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\bedrockServiceConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\paiEASServiceConfig;
 
 class AiServiceConfig extends Model
 {
@@ -19,9 +21,19 @@ class AiServiceConfig extends Model
     public $apiKeys;
 
     /**
+     * @var bedrockServiceConfig
+     */
+    public $bedrockServiceConfig;
+
+    /**
      * @var bool
      */
     public $enableHealthCheck;
+
+    /**
+     * @var paiEASServiceConfig
+     */
+    public $paiEASServiceConfig;
 
     /**
      * @var string[]
@@ -35,7 +47,9 @@ class AiServiceConfig extends Model
     protected $_name = [
         'address' => 'address',
         'apiKeys' => 'apiKeys',
+        'bedrockServiceConfig' => 'bedrockServiceConfig',
         'enableHealthCheck' => 'enableHealthCheck',
+        'paiEASServiceConfig' => 'paiEASServiceConfig',
         'protocols' => 'protocols',
         'provider' => 'provider',
     ];
@@ -44,6 +58,12 @@ class AiServiceConfig extends Model
     {
         if (\is_array($this->apiKeys)) {
             Model::validateArray($this->apiKeys);
+        }
+        if (null !== $this->bedrockServiceConfig) {
+            $this->bedrockServiceConfig->validate();
+        }
+        if (null !== $this->paiEASServiceConfig) {
+            $this->paiEASServiceConfig->validate();
         }
         if (\is_array($this->protocols)) {
             Model::validateArray($this->protocols);
@@ -69,8 +89,16 @@ class AiServiceConfig extends Model
             }
         }
 
+        if (null !== $this->bedrockServiceConfig) {
+            $res['bedrockServiceConfig'] = null !== $this->bedrockServiceConfig ? $this->bedrockServiceConfig->toArray($noStream) : $this->bedrockServiceConfig;
+        }
+
         if (null !== $this->enableHealthCheck) {
             $res['enableHealthCheck'] = $this->enableHealthCheck;
+        }
+
+        if (null !== $this->paiEASServiceConfig) {
+            $res['paiEASServiceConfig'] = null !== $this->paiEASServiceConfig ? $this->paiEASServiceConfig->toArray($noStream) : $this->paiEASServiceConfig;
         }
 
         if (null !== $this->protocols) {
@@ -114,8 +142,16 @@ class AiServiceConfig extends Model
             }
         }
 
+        if (isset($map['bedrockServiceConfig'])) {
+            $model->bedrockServiceConfig = bedrockServiceConfig::fromMap($map['bedrockServiceConfig']);
+        }
+
         if (isset($map['enableHealthCheck'])) {
             $model->enableHealthCheck = $map['enableHealthCheck'];
+        }
+
+        if (isset($map['paiEASServiceConfig'])) {
+            $model->paiEASServiceConfig = paiEASServiceConfig::fromMap($map['paiEASServiceConfig']);
         }
 
         if (isset($map['protocols'])) {

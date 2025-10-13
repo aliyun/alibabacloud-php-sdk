@@ -38,6 +38,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $gatewayEdition;
+
+    /**
+     * @var string
+     */
     public $gatewayId;
 
     /**
@@ -129,6 +134,7 @@ class items extends Model
         'createFrom' => 'createFrom',
         'createTimestamp' => 'createTimestamp',
         'expireTimestamp' => 'expireTimestamp',
+        'gatewayEdition' => 'gatewayEdition',
         'gatewayId' => 'gatewayId',
         'gatewayType' => 'gatewayType',
         'legacy' => 'legacy',
@@ -192,6 +198,10 @@ class items extends Model
 
         if (null !== $this->expireTimestamp) {
             $res['expireTimestamp'] = $this->expireTimestamp;
+        }
+
+        if (null !== $this->gatewayEdition) {
+            $res['gatewayEdition'] = $this->gatewayEdition;
         }
 
         if (null !== $this->gatewayId) {
@@ -319,6 +329,10 @@ class items extends Model
 
         if (isset($map['expireTimestamp'])) {
             $model->expireTimestamp = $map['expireTimestamp'];
+        }
+
+        if (isset($map['gatewayEdition'])) {
+            $model->gatewayEdition = $map['gatewayEdition'];
         }
 
         if (isset($map['gatewayId'])) {

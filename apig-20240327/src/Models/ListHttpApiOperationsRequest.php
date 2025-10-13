@@ -16,6 +16,11 @@ class ListHttpApiOperationsRequest extends Model
     /**
      * @var bool
      */
+    public $enableAuth;
+
+    /**
+     * @var bool
+     */
     public $forDeploy;
 
     /**
@@ -69,6 +74,7 @@ class ListHttpApiOperationsRequest extends Model
     public $withPluginAttachmentByPluginId;
     protected $_name = [
         'consumerAuthorizationRuleId' => 'consumerAuthorizationRuleId',
+        'enableAuth' => 'enableAuth',
         'forDeploy' => 'forDeploy',
         'gatewayId' => 'gatewayId',
         'method' => 'method',
@@ -92,6 +98,10 @@ class ListHttpApiOperationsRequest extends Model
         $res = [];
         if (null !== $this->consumerAuthorizationRuleId) {
             $res['consumerAuthorizationRuleId'] = $this->consumerAuthorizationRuleId;
+        }
+
+        if (null !== $this->enableAuth) {
+            $res['enableAuth'] = $this->enableAuth;
         }
 
         if (null !== $this->forDeploy) {
@@ -151,6 +161,10 @@ class ListHttpApiOperationsRequest extends Model
         $model = new self();
         if (isset($map['consumerAuthorizationRuleId'])) {
             $model->consumerAuthorizationRuleId = $map['consumerAuthorizationRuleId'];
+        }
+
+        if (isset($map['enableAuth'])) {
+            $model->enableAuth = $map['enableAuth'];
         }
 
         if (isset($map['forDeploy'])) {

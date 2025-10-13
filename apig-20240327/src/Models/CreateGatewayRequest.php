@@ -20,6 +20,11 @@ class CreateGatewayRequest extends Model
     /**
      * @var string
      */
+    public $gatewayEdition;
+
+    /**
+     * @var string
+     */
     public $gatewayType;
 
     /**
@@ -63,6 +68,7 @@ class CreateGatewayRequest extends Model
     public $zoneConfig;
     protected $_name = [
         'chargeType' => 'chargeType',
+        'gatewayEdition' => 'gatewayEdition',
         'gatewayType' => 'gatewayType',
         'logConfig' => 'logConfig',
         'name' => 'name',
@@ -96,6 +102,10 @@ class CreateGatewayRequest extends Model
         $res = [];
         if (null !== $this->chargeType) {
             $res['chargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->gatewayEdition) {
+            $res['gatewayEdition'] = $this->gatewayEdition;
         }
 
         if (null !== $this->gatewayType) {
@@ -154,6 +164,10 @@ class CreateGatewayRequest extends Model
         $model = new self();
         if (isset($map['chargeType'])) {
             $model->chargeType = $map['chargeType'];
+        }
+
+        if (isset($map['gatewayEdition'])) {
+            $model->gatewayEdition = $map['gatewayEdition'];
         }
 
         if (isset($map['gatewayType'])) {

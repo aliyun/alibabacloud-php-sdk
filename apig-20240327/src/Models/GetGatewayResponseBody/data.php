@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\environments;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\loadBalancers;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\maintenancePeriod;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\securityGroup;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\tags;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\vpc;
@@ -43,6 +44,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $gatewayEdition;
+
+    /**
+     * @var string
+     */
     public $gatewayId;
 
     /**
@@ -59,6 +65,11 @@ class data extends Model
      * @var loadBalancers[]
      */
     public $loadBalancers;
+
+    /**
+     * @var maintenancePeriod
+     */
+    public $maintenancePeriod;
 
     /**
      * @var string
@@ -130,10 +141,12 @@ class data extends Model
         'createTimestamp' => 'createTimestamp',
         'environments' => 'environments',
         'expireTimestamp' => 'expireTimestamp',
+        'gatewayEdition' => 'gatewayEdition',
         'gatewayId' => 'gatewayId',
         'gatewayType' => 'gatewayType',
         'isp' => 'isp',
         'loadBalancers' => 'loadBalancers',
+        'maintenancePeriod' => 'maintenancePeriod',
         'name' => 'name',
         'replicas' => 'replicas',
         'resourceGroupId' => 'resourceGroupId',
@@ -156,6 +169,9 @@ class data extends Model
         }
         if (\is_array($this->loadBalancers)) {
             Model::validateArray($this->loadBalancers);
+        }
+        if (null !== $this->maintenancePeriod) {
+            $this->maintenancePeriod->validate();
         }
         if (null !== $this->securityGroup) {
             $this->securityGroup->validate();
@@ -205,6 +221,10 @@ class data extends Model
             $res['expireTimestamp'] = $this->expireTimestamp;
         }
 
+        if (null !== $this->gatewayEdition) {
+            $res['gatewayEdition'] = $this->gatewayEdition;
+        }
+
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
@@ -226,6 +246,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->maintenancePeriod) {
+            $res['maintenancePeriod'] = null !== $this->maintenancePeriod ? $this->maintenancePeriod->toArray($noStream) : $this->maintenancePeriod;
         }
 
         if (null !== $this->name) {
@@ -332,6 +356,10 @@ class data extends Model
             $model->expireTimestamp = $map['expireTimestamp'];
         }
 
+        if (isset($map['gatewayEdition'])) {
+            $model->gatewayEdition = $map['gatewayEdition'];
+        }
+
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
@@ -353,6 +381,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['maintenancePeriod'])) {
+            $model->maintenancePeriod = maintenancePeriod::fromMap($map['maintenancePeriod']);
         }
 
         if (isset($map['name'])) {

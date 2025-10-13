@@ -10,7 +10,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest\specOssConfig;
 class ImportHttpApiRequest extends Model
 {
     /**
-     * @var HttpApiDeployConfig
+     * @var HttpApiDeployConfig[]
      */
     public $deployConfigs;
 
@@ -23,6 +23,11 @@ class ImportHttpApiRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $gatewayId;
 
     /**
      * @var string
@@ -72,6 +77,7 @@ class ImportHttpApiRequest extends Model
         'deployConfigs' => 'deployConfigs',
         'description' => 'description',
         'dryRun' => 'dryRun',
+        'gatewayId' => 'gatewayId',
         'mcpRouteId' => 'mcpRouteId',
         'name' => 'name',
         'resourceGroupId' => 'resourceGroupId',
@@ -85,8 +91,8 @@ class ImportHttpApiRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->deployConfigs) {
-            $this->deployConfigs->validate();
+        if (\is_array($this->deployConfigs)) {
+            Model::validateArray($this->deployConfigs);
         }
         if (null !== $this->specOssConfig) {
             $this->specOssConfig->validate();
@@ -101,7 +107,14 @@ class ImportHttpApiRequest extends Model
     {
         $res = [];
         if (null !== $this->deployConfigs) {
-            $res['deployConfigs'] = null !== $this->deployConfigs ? $this->deployConfigs->toArray($noStream) : $this->deployConfigs;
+            if (\is_array($this->deployConfigs)) {
+                $res['deployConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->deployConfigs as $item1) {
+                    $res['deployConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->description) {
@@ -110,6 +123,10 @@ class ImportHttpApiRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
         }
 
         if (null !== $this->mcpRouteId) {
@@ -160,7 +177,14 @@ class ImportHttpApiRequest extends Model
     {
         $model = new self();
         if (isset($map['deployConfigs'])) {
-            $model->deployConfigs = HttpApiDeployConfig::fromMap($map['deployConfigs']);
+            if (!empty($map['deployConfigs'])) {
+                $model->deployConfigs = [];
+                $n1 = 0;
+                foreach ($map['deployConfigs'] as $item1) {
+                    $model->deployConfigs[$n1] = HttpApiDeployConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['description'])) {
@@ -169,6 +193,10 @@ class ImportHttpApiRequest extends Model
 
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
+        }
+
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
         }
 
         if (isset($map['mcpRouteId'])) {

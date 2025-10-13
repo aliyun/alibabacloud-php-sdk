@@ -5,21 +5,22 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiFallbackConfig\serviceConfigs;
 
 class aiFallbackConfig extends Model
 {
     /**
-     * @var string[]
+     * @var serviceConfigs[]
      */
-    public $serviceIds;
+    public $serviceConfigs;
     protected $_name = [
-        'serviceIds' => 'serviceIds',
+        'serviceConfigs' => 'serviceConfigs',
     ];
 
     public function validate()
     {
-        if (\is_array($this->serviceIds)) {
-            Model::validateArray($this->serviceIds);
+        if (\is_array($this->serviceConfigs)) {
+            Model::validateArray($this->serviceConfigs);
         }
         parent::validate();
     }
@@ -27,12 +28,12 @@ class aiFallbackConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->serviceIds) {
-            if (\is_array($this->serviceIds)) {
-                $res['serviceIds'] = [];
+        if (null !== $this->serviceConfigs) {
+            if (\is_array($this->serviceConfigs)) {
+                $res['serviceConfigs'] = [];
                 $n1 = 0;
-                foreach ($this->serviceIds as $item1) {
-                    $res['serviceIds'][$n1] = $item1;
+                foreach ($this->serviceConfigs as $item1) {
+                    $res['serviceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -49,12 +50,12 @@ class aiFallbackConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['serviceIds'])) {
-            if (!empty($map['serviceIds'])) {
-                $model->serviceIds = [];
+        if (isset($map['serviceConfigs'])) {
+            if (!empty($map['serviceConfigs'])) {
+                $model->serviceConfigs = [];
                 $n1 = 0;
-                foreach ($map['serviceIds'] as $item1) {
-                    $model->serviceIds[$n1] = $item1;
+                foreach ($map['serviceConfigs'] as $item1) {
+                    $model->serviceConfigs[$n1] = serviceConfigs::fromMap($item1);
                     ++$n1;
                 }
             }

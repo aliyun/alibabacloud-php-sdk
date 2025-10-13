@@ -55,7 +55,7 @@ class Service extends Model
     public $healthStatus;
 
     /**
-     * @var LabelDetail
+     * @var LabelDetail[]
      */
     public $labelDetails;
 
@@ -68,6 +68,11 @@ class Service extends Model
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var string[]
+     */
+    public $outlierEndpoints;
 
     /**
      * @var ports[]
@@ -121,6 +126,7 @@ class Service extends Model
         'labelDetails' => 'labelDetails',
         'name' => 'name',
         'namespace' => 'namespace',
+        'outlierEndpoints' => 'outlierEndpoints',
         'ports' => 'ports',
         'protocol' => 'protocol',
         'qualifier' => 'qualifier',
@@ -145,8 +151,11 @@ class Service extends Model
         if (null !== $this->healthCheck) {
             $this->healthCheck->validate();
         }
-        if (null !== $this->labelDetails) {
-            $this->labelDetails->validate();
+        if (\is_array($this->labelDetails)) {
+            Model::validateArray($this->labelDetails);
+        }
+        if (\is_array($this->outlierEndpoints)) {
+            Model::validateArray($this->outlierEndpoints);
         }
         if (\is_array($this->ports)) {
             Model::validateArray($this->ports);
@@ -204,7 +213,14 @@ class Service extends Model
         }
 
         if (null !== $this->labelDetails) {
-            $res['labelDetails'] = null !== $this->labelDetails ? $this->labelDetails->toArray($noStream) : $this->labelDetails;
+            if (\is_array($this->labelDetails)) {
+                $res['labelDetails'] = [];
+                $n1 = 0;
+                foreach ($this->labelDetails as $item1) {
+                    $res['labelDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->name) {
@@ -213,6 +229,17 @@ class Service extends Model
 
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->outlierEndpoints) {
+            if (\is_array($this->outlierEndpoints)) {
+                $res['outlierEndpoints'] = [];
+                $n1 = 0;
+                foreach ($this->outlierEndpoints as $item1) {
+                    $res['outlierEndpoints'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ports) {
@@ -316,7 +343,14 @@ class Service extends Model
         }
 
         if (isset($map['labelDetails'])) {
-            $model->labelDetails = LabelDetail::fromMap($map['labelDetails']);
+            if (!empty($map['labelDetails'])) {
+                $model->labelDetails = [];
+                $n1 = 0;
+                foreach ($map['labelDetails'] as $item1) {
+                    $model->labelDetails[$n1] = LabelDetail::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['name'])) {
@@ -325,6 +359,17 @@ class Service extends Model
 
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
+        }
+
+        if (isset($map['outlierEndpoints'])) {
+            if (!empty($map['outlierEndpoints'])) {
+                $model->outlierEndpoints = [];
+                $n1 = 0;
+                foreach ($map['outlierEndpoints'] as $item1) {
+                    $model->outlierEndpoints[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ports'])) {
