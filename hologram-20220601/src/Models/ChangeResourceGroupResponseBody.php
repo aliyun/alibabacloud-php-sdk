@@ -4,42 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeResourceGroupResponseBody extends Model
 {
     /**
-     * @description The returned data.
-     *
-     * Valid values:
-     *
-     *   true
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   false
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example true
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @description Id of the request
-     *
-     * @example AB71198A-2DB1-511B-AE4D-690BAA97F076
-     *
      * @var string
      */
     public $requestId;
@@ -48,14 +22,18 @@ class ChangeResourceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,17 +41,18 @@ class ChangeResourceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeResourceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

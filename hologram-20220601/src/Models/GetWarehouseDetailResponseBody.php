@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetWarehouseDetailResponseBody\warehouseDetail;
-use AlibabaCloud\Tea\Model;
 
 class GetWarehouseDetailResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D3AE84AB-0873-5FC7-A4C4-8CF869D2FA70
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The returned values.
-     *
      * @var warehouseDetail
      */
     public $warehouseDetail;
@@ -29,32 +23,40 @@ class GetWarehouseDetailResponseBody extends Model
         'warehouseDetail' => 'WarehouseDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->warehouseDetail) {
+            $this->warehouseDetail->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->warehouseDetail) {
-            $res['WarehouseDetail'] = null !== $this->warehouseDetail ? $this->warehouseDetail->toMap() : null;
+            $res['WarehouseDetail'] = null !== $this->warehouseDetail ? $this->warehouseDetail->toArray($noStream) : $this->warehouseDetail;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWarehouseDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WarehouseDetail'])) {
             $model->warehouseDetail = warehouseDetail::fromMap($map['WarehouseDetail']);
         }

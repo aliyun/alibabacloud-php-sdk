@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponseBody\instance;
-use AlibabaCloud\Tea\Model;
 
 class GetInstanceResponseBody extends Model
 {
     /**
-     * @description The error code that is returned if the request failed.
-     *
-     * @example 404
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
-     * @example Internal server error.
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
-     * @description The information about the instance.
-     *
      * @var instance
      */
     public $instance;
 
     /**
-     * @description The request ID.
-     *
-     * @example 865A02C2-B374-5DD4-9B34-0CA15DA1AEBD
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The request result, which indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -69,26 +47,37 @@ class GetInstanceResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instance) {
+            $this->instance->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->instance) {
-            $res['Instance'] = null !== $this->instance ? $this->instance->toMap() : null;
+            $res['Instance'] = null !== $this->instance ? $this->instance->toArray($noStream) : $this->instance;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -96,29 +85,34 @@ class GetInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Instance'])) {
             $model->instance = instance::fromMap($map['Instance']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

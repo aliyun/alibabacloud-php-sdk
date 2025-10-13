@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseRequest;
@@ -18,9 +18,13 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableSSLResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableSSLResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetCertificateAttributeResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetRootCertificateResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetWarehouseDetailResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataResponse;
@@ -33,6 +37,7 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\RenameHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RenameHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RenewInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RenewSSLCertificateResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RestartHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RestartHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RestartInstanceResponse;
@@ -50,11 +55,10 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNetworkTypeRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNetworkTypeResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Hologram extends OpenApiClient
 {
@@ -79,38 +83,47 @@ class Hologram extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Updates a resource group.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates a resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['instanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $body['newResourceGroupId'] = $request->newResourceGroupId;
+
+        if (null !== $request->newResourceGroupId) {
+            @$body['newResourceGroupId'] = $request->newResourceGroupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ChangeResourceGroup',
@@ -123,19 +136,20 @@ class Hologram extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a resource group.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Updates a resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -146,54 +160,63 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Creates a virtual warehouse.
-     *  *
-     * @param string                     $instanceId
-     * @param CreateHoloWarehouseRequest $request    CreateHoloWarehouseRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * Creates a virtual warehouse.
      *
-     * @return CreateHoloWarehouseResponse CreateHoloWarehouseResponse
+     * @param request - CreateHoloWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHoloWarehouseResponse
+     *
+     * @param string                     $instanceId
+     * @param CreateHoloWarehouseRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateHoloWarehouseResponse
      */
     public function createHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cpu)) {
-            $body['cpu'] = $request->cpu;
+        if (null !== $request->cpu) {
+            @$body['cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateHoloWarehouse',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/createHoloWarehouse',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/createHoloWarehouse',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a virtual warehouse.
-     *  *
-     * @param string                     $instanceId
-     * @param CreateHoloWarehouseRequest $request    CreateHoloWarehouseRequest
+     * Creates a virtual warehouse.
      *
-     * @return CreateHoloWarehouseResponse CreateHoloWarehouseResponse
+     * @param request - CreateHoloWarehouseRequest
+     *
+     * @returns CreateHoloWarehouseResponse
+     *
+     * @param string                     $instanceId
+     * @param CreateHoloWarehouseRequest $request
+     *
+     * @return CreateHoloWarehouseResponse
      */
     public function createHoloWarehouse($instanceId, $request)
     {
@@ -204,9 +227,10 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Hologres instance.
-     *  *
-     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * Creates a Hologres instance.
+     *
+     * @remarks
+     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
      * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
      * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
      * <!---->
@@ -225,80 +249,106 @@ class Hologram extends OpenApiClient
      *        eu-central-1: eu-central-1a
      *        us-east-1: us-east-1a
      *        us-west-1: us-west-1b
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $body['autoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$body['autoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $body['autoRenew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$body['autoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['chargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$body['chargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->coldStorageSize)) {
-            $body['coldStorageSize'] = $request->coldStorageSize;
+
+        if (null !== $request->coldStorageSize) {
+            @$body['coldStorageSize'] = $request->coldStorageSize;
         }
-        if (!Utils::isUnset($request->cpu)) {
-            $body['cpu'] = $request->cpu;
+
+        if (null !== $request->cpu) {
+            @$body['cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $body['duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$body['duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->enableServerlessComputing)) {
-            $body['enableServerlessComputing'] = $request->enableServerlessComputing;
+
+        if (null !== $request->enableServerlessComputing) {
+            @$body['enableServerlessComputing'] = $request->enableServerlessComputing;
         }
-        if (!Utils::isUnset($request->gatewayCount)) {
-            $body['gatewayCount'] = $request->gatewayCount;
+
+        if (null !== $request->gatewayCount) {
+            @$body['gatewayCount'] = $request->gatewayCount;
         }
-        if (!Utils::isUnset($request->initialDatabases)) {
-            $body['initialDatabases'] = $request->initialDatabases;
+
+        if (null !== $request->initialDatabases) {
+            @$body['initialDatabases'] = $request->initialDatabases;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['instanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$body['instanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['instanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['instanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->leaderInstanceId)) {
-            $body['leaderInstanceId'] = $request->leaderInstanceId;
+
+        if (null !== $request->leaderInstanceId) {
+            @$body['leaderInstanceId'] = $request->leaderInstanceId;
         }
-        if (!Utils::isUnset($request->pricingCycle)) {
-            $body['pricingCycle'] = $request->pricingCycle;
+
+        if (null !== $request->pricingCycle) {
+            @$body['pricingCycle'] = $request->pricingCycle;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['regionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['regionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->storageSize)) {
-            $body['storageSize'] = $request->storageSize;
+
+        if (null !== $request->storageSize) {
+            @$body['storageSize'] = $request->storageSize;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $body['storageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$body['storageType'] = $request->storageType;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $body['vSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$body['vSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['vpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['vpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['zoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['zoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateInstance',
@@ -311,17 +361,15 @@ class Hologram extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Hologres instance.
-     *  *
-     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * Creates a Hologres instance.
+     *
+     * @remarks
+     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
      * *   For more information about the billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/developer-reference/api-hologram-2022-06-01-createinstance).
      * *   When you purchase a Hologres instance, you must specify the region and zone in which the Hologres instance resides. A region may correspond to multiple zones. Example:
      * <!---->
@@ -340,10 +388,14 @@ class Hologram extends OpenApiClient
      *        eu-central-1: eu-central-1a
      *        us-east-1: us-east-1a
      *        us-west-1: us-west-1b
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -354,51 +406,59 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a virtual warehouse.
-     *  *
-     * @param string                     $instanceId
-     * @param DeleteHoloWarehouseRequest $request    DeleteHoloWarehouseRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * Deletes a virtual warehouse.
      *
-     * @return DeleteHoloWarehouseResponse DeleteHoloWarehouseResponse
+     * @param request - DeleteHoloWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHoloWarehouseResponse
+     *
+     * @param string                     $instanceId
+     * @param DeleteHoloWarehouseRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteHoloWarehouseResponse
      */
     public function deleteHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteHoloWarehouse',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/deleteHoloWarehouse',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/deleteHoloWarehouse',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a virtual warehouse.
-     *  *
-     * @param string                     $instanceId
-     * @param DeleteHoloWarehouseRequest $request    DeleteHoloWarehouseRequest
+     * Deletes a virtual warehouse.
      *
-     * @return DeleteHoloWarehouseResponse DeleteHoloWarehouseResponse
+     * @param request - DeleteHoloWarehouseRequest
+     *
+     * @returns DeleteHoloWarehouseResponse
+     *
+     * @param string                     $instanceId
+     * @param DeleteHoloWarehouseRequest $request
+     *
+     * @return DeleteHoloWarehouseResponse
      */
     public function deleteHoloWarehouse($instanceId, $request)
     {
@@ -409,59 +469,69 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Hologres instance.
-     *  *
-     * @description > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
+     * Deletes a Hologres instance.
+     *
+     * @remarks
+     * > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
      * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
      * *   You can delete only pay-as-you-go instances.
-     *  *
-     * @param string                $instanceId
-     * @param DeleteInstanceRequest $request    DeleteInstanceRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param request - DeleteInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param string                $instanceId
+     * @param DeleteInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteInstance',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/delete',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/delete',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Hologres instance.
-     *  *
-     * @description > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
+     * Deletes a Hologres instance.
+     *
+     * @remarks
+     * > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
      * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
      * *   You can delete only pay-as-you-go instances.
-     *  *
-     * @param string                $instanceId
-     * @param DeleteInstanceRequest $request    DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param request - DeleteInstanceRequest
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param string                $instanceId
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($instanceId, $request)
     {
@@ -472,51 +542,59 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Disables data lake acceleration.
-     *  *
-     * @param string                   $instanceId
-     * @param DisableHiveAccessRequest $request    DisableHiveAccessRequest
-     * @param string[]                 $headers    map
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * Disables data lake acceleration.
      *
-     * @return DisableHiveAccessResponse DisableHiveAccessResponse
+     * @param request - DisableHiveAccessRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableHiveAccessResponse
+     *
+     * @param string                   $instanceId
+     * @param DisableHiveAccessRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DisableHiveAccessResponse
      */
     public function disableHiveAccessWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableHiveAccess',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/disableHiveAccess',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/disableHiveAccess',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableHiveAccessResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables data lake acceleration.
-     *  *
-     * @param string                   $instanceId
-     * @param DisableHiveAccessRequest $request    DisableHiveAccessRequest
+     * Disables data lake acceleration.
      *
-     * @return DisableHiveAccessResponse DisableHiveAccessResponse
+     * @param request - DisableHiveAccessRequest
+     *
+     * @returns DisableHiveAccessResponse
+     *
+     * @param string                   $instanceId
+     * @param DisableHiveAccessRequest $request
+     *
+     * @return DisableHiveAccessResponse
      */
     public function disableHiveAccess($instanceId, $request)
     {
@@ -527,51 +605,110 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Enables data lake acceleration.
-     *  *
-     * @param string                  $instanceId
-     * @param EnableHiveAccessRequest $request    EnableHiveAccessRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * 关闭SSL.
      *
-     * @return EnableHiveAccessResponse EnableHiveAccessResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSSLResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableSSLResponse
      */
-    public function enableHiveAccessWithOptions($instanceId, $request, $headers, $runtime)
+    public function disableSSLWithOptions($instanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action' => 'EnableHiveAccess',
+            'action' => 'DisableSSL',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/enableHiveAccess',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/disableSSL',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableHiveAccessResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables data lake acceleration.
-     *  *
-     * @param string                  $instanceId
-     * @param EnableHiveAccessRequest $request    EnableHiveAccessRequest
+     * 关闭SSL.
      *
-     * @return EnableHiveAccessResponse EnableHiveAccessResponse
+     * @returns DisableSSLResponse
+     *
+     * @param string $instanceId
+     *
+     * @return DisableSSLResponse
+     */
+    public function disableSSL($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableSSLWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * Enables data lake acceleration.
+     *
+     * @param request - EnableHiveAccessRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableHiveAccessResponse
+     *
+     * @param string                  $instanceId
+     * @param EnableHiveAccessRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EnableHiveAccessResponse
+     */
+    public function enableHiveAccessWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableHiveAccess',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/enableHiveAccess',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables data lake acceleration.
+     *
+     * @param request - EnableHiveAccessRequest
+     *
+     * @returns EnableHiveAccessResponse
+     *
+     * @param string                  $instanceId
+     * @param EnableHiveAccessRequest $request
+     *
+     * @return EnableHiveAccessResponse
      */
     public function enableHiveAccess($instanceId, $request)
     {
@@ -582,13 +719,120 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the details of an instance.
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * 打开SSL.
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSSLResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableSSLResponse
+     */
+    public function enableSSLWithOptions($instanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'EnableSSL',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/enableSSL',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 打开SSL.
+     *
+     * @returns EnableSSLResponse
+     *
+     * @param string $instanceId
+     *
+     * @return EnableSSLResponse
+     */
+    public function enableSSL($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableSSLWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 获得证书信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCertificateAttributeResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCertificateAttributeResponse
+     */
+    public function getCertificateAttributeWithOptions($instanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCertificateAttribute',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/certificateAttribute',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCertificateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获得证书信息.
+     *
+     * @returns GetCertificateAttributeResponse
+     *
+     * @param string $instanceId
+     *
+     * @return GetCertificateAttributeResponse
+     */
+    public function getCertificateAttribute($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCertificateAttributeWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * Obtains the details of an instance.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetInstanceResponse
      */
     public function getInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -599,26 +843,25 @@ class Hologram extends OpenApiClient
             'action' => 'GetInstance',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of an instance.
-     *  *
+     * Obtains the details of an instance.
+     *
+     * @returns GetInstanceResponse
+     *
      * @param string $instanceId
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @return GetInstanceResponse
      */
     public function getInstance($instanceId)
     {
@@ -629,13 +872,69 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Queries details of a virtual warehouse instance.
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * 获得根证书.
      *
-     * @return GetWarehouseDetailResponse GetWarehouseDetailResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRootCertificateResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRootCertificateResponse
+     */
+    public function getRootCertificateWithOptions($instanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetRootCertificate',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/rootCertificate',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRootCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获得根证书.
+     *
+     * @returns GetRootCertificateResponse
+     *
+     * @param string $instanceId
+     *
+     * @return GetRootCertificateResponse
+     */
+    public function getRootCertificate($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRootCertificateWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * Queries details of a virtual warehouse instance.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWarehouseDetailResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWarehouseDetailResponse
      */
     public function getWarehouseDetailWithOptions($instanceId, $headers, $runtime)
     {
@@ -646,26 +945,25 @@ class Hologram extends OpenApiClient
             'action' => 'GetWarehouseDetail',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/getWarehouseDetail',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/getWarehouseDetail',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetWarehouseDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWarehouseDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWarehouseDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details of a virtual warehouse instance.
-     *  *
+     * Queries details of a virtual warehouse instance.
+     *
+     * @returns GetWarehouseDetailResponse
+     *
      * @param string $instanceId
      *
-     * @return GetWarehouseDetailResponse GetWarehouseDetailResponse
+     * @return GetWarehouseDetailResponse
      */
     public function getWarehouseDetail($instanceId)
     {
@@ -676,27 +974,35 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
-     *  *
-     * @param ListBackupDataRequest $request ListBackupDataRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
      *
-     * @return ListBackupDataResponse ListBackupDataResponse
+     * @param request - ListBackupDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBackupDataResponse
+     *
+     * @param ListBackupDataRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListBackupDataResponse
      */
     public function listBackupDataWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupType)) {
-            $query['backupType'] = $request->backupType;
+        if (null !== $request->backupType) {
+            @$query['backupType'] = $request->backupType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['instanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBackupData',
@@ -709,19 +1015,20 @@ class Hologram extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListBackupDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListBackupDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListBackupDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
-     *  *
-     * @param ListBackupDataRequest $request ListBackupDataRequest
+     * Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
      *
-     * @return ListBackupDataResponse ListBackupDataResponse
+     * @param request - ListBackupDataRequest
+     *
+     * @returns ListBackupDataResponse
+     *
+     * @param ListBackupDataRequest $request
+     *
+     * @return ListBackupDataResponse
      */
     public function listBackupData($request)
     {
@@ -732,30 +1039,39 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of instances.
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of instances.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cmsInstanceType)) {
-            $body['cmsInstanceType'] = $request->cmsInstanceType;
+        if (null !== $request->cmsInstanceType) {
+            @$body['cmsInstanceType'] = $request->cmsInstanceType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListInstances',
@@ -768,19 +1084,20 @@ class Hologram extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of instances.
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * Queries a list of instances.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -791,13 +1108,18 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of virtual warehouse instances.
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * Queries the list of virtual warehouse instances.
      *
-     * @return ListWarehousesResponse ListWarehousesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWarehousesResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListWarehousesResponse
      */
     public function listWarehousesWithOptions($instanceId, $headers, $runtime)
     {
@@ -808,26 +1130,25 @@ class Hologram extends OpenApiClient
             'action' => 'ListWarehouses',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/listWarehouses',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/listWarehouses',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListWarehousesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWarehousesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWarehousesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of virtual warehouse instances.
-     *  *
+     * Queries the list of virtual warehouse instances.
+     *
+     * @returns ListWarehousesResponse
+     *
      * @param string $instanceId
      *
-     * @return ListWarehousesResponse ListWarehousesResponse
+     * @return ListWarehousesResponse
      */
     public function listWarehouses($instanceId)
     {
@@ -838,51 +1159,59 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Triggers shard rebalancing for a virtual warehouse.
-     *  *
-     * @param string                        $instanceId
-     * @param RebalanceHoloWarehouseRequest $request    RebalanceHoloWarehouseRequest
-     * @param string[]                      $headers    map
-     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
+     * Triggers shard rebalancing for a virtual warehouse.
      *
-     * @return RebalanceHoloWarehouseResponse RebalanceHoloWarehouseResponse
+     * @param request - RebalanceHoloWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RebalanceHoloWarehouseResponse
+     *
+     * @param string                        $instanceId
+     * @param RebalanceHoloWarehouseRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RebalanceHoloWarehouseResponse
      */
     public function rebalanceHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RebalanceHoloWarehouse',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/rebalanceHoloWarehouse',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/rebalanceHoloWarehouse',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RebalanceHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RebalanceHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return RebalanceHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Triggers shard rebalancing for a virtual warehouse.
-     *  *
-     * @param string                        $instanceId
-     * @param RebalanceHoloWarehouseRequest $request    RebalanceHoloWarehouseRequest
+     * Triggers shard rebalancing for a virtual warehouse.
      *
-     * @return RebalanceHoloWarehouseResponse RebalanceHoloWarehouseResponse
+     * @param request - RebalanceHoloWarehouseRequest
+     *
+     * @returns RebalanceHoloWarehouseResponse
+     *
+     * @param string                        $instanceId
+     * @param RebalanceHoloWarehouseRequest $request
+     *
+     * @return RebalanceHoloWarehouseResponse
      */
     public function rebalanceHoloWarehouse($instanceId, $request)
     {
@@ -893,54 +1222,63 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Renames a virtual warehouse.
-     *  *
-     * @param string                     $instanceId
-     * @param RenameHoloWarehouseRequest $request    RenameHoloWarehouseRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * Renames a virtual warehouse.
      *
-     * @return RenameHoloWarehouseResponse RenameHoloWarehouseResponse
+     * @param request - RenameHoloWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenameHoloWarehouseResponse
+     *
+     * @param string                     $instanceId
+     * @param RenameHoloWarehouseRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RenameHoloWarehouseResponse
      */
     public function renameHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->newWarehouseName)) {
-            $body['newWarehouseName'] = $request->newWarehouseName;
+
+        if (null !== $request->newWarehouseName) {
+            @$body['newWarehouseName'] = $request->newWarehouseName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RenameHoloWarehouse',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/renameHoloWarehouse',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/renameHoloWarehouse',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RenameHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenameHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenameHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Renames a virtual warehouse.
-     *  *
-     * @param string                     $instanceId
-     * @param RenameHoloWarehouseRequest $request    RenameHoloWarehouseRequest
+     * Renames a virtual warehouse.
      *
-     * @return RenameHoloWarehouseResponse RenameHoloWarehouseResponse
+     * @param request - RenameHoloWarehouseRequest
+     *
+     * @returns RenameHoloWarehouseResponse
+     *
+     * @param string                     $instanceId
+     * @param RenameHoloWarehouseRequest $request
+     *
+     * @return RenameHoloWarehouseResponse
      */
     public function renameHoloWarehouse($instanceId, $request)
     {
@@ -951,64 +1289,75 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
-     *  *
-     * @description >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
+     *
+     * @remarks
+     * >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
      * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
      * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
      * *   You can renew only subscription instances.
-     *  *
-     * @param string               $instanceId
-     * @param RenewInstanceRequest $request    RenewInstanceRequest
-     * @param string[]             $headers    map
-     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @param request - RenewInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewInstanceResponse
+     *
+     * @param string               $instanceId
+     * @param RenewInstanceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstanceWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $body['autoRenew'] = $request->autoRenew;
+        if (null !== $request->autoRenew) {
+            @$body['autoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $body['duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$body['duration'] = $request->duration;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RenewInstance',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/renew',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/renew',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenewInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
-     *  *
-     * @description >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
+     *
+     * @remarks
+     * >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
      * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
      * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
      * *   You can renew only subscription instances.
-     *  *
-     * @param string               $instanceId
-     * @param RenewInstanceRequest $request    RenewInstanceRequest
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @param request - RenewInstanceRequest
+     *
+     * @returns RenewInstanceResponse
+     *
+     * @param string               $instanceId
+     * @param RenewInstanceRequest $request
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstance($instanceId, $request)
     {
@@ -1019,51 +1368,110 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Restarts a virtual warehouse.
-     *  *
-     * @param string                      $instanceId
-     * @param RestartHoloWarehouseRequest $request    RestartHoloWarehouseRequest
-     * @param string[]                    $headers    map
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     * 更新证书.
      *
-     * @return RestartHoloWarehouseResponse RestartHoloWarehouseResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewSSLCertificateResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RenewSSLCertificateResponse
      */
-    public function restartHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    public function renewSSLCertificateWithOptions($instanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action' => 'RestartHoloWarehouse',
+            'action' => 'RenewSSLCertificate',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/restartHoloWarehouse',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/renewSSLCertificate',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestartHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenewSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Restarts a virtual warehouse.
-     *  *
-     * @param string                      $instanceId
-     * @param RestartHoloWarehouseRequest $request    RestartHoloWarehouseRequest
+     * 更新证书.
      *
-     * @return RestartHoloWarehouseResponse RestartHoloWarehouseResponse
+     * @returns RenewSSLCertificateResponse
+     *
+     * @param string $instanceId
+     *
+     * @return RenewSSLCertificateResponse
+     */
+    public function renewSSLCertificate($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->renewSSLCertificateWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * Restarts a virtual warehouse.
+     *
+     * @param request - RestartHoloWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartHoloWarehouseResponse
+     *
+     * @param string                      $instanceId
+     * @param RestartHoloWarehouseRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RestartHoloWarehouseResponse
+     */
+    public function restartHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RestartHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/restartHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts a virtual warehouse.
+     *
+     * @param request - RestartHoloWarehouseRequest
+     *
+     * @returns RestartHoloWarehouseResponse
+     *
+     * @param string                      $instanceId
+     * @param RestartHoloWarehouseRequest $request
+     *
+     * @return RestartHoloWarehouseResponse
      */
     public function restartHoloWarehouse($instanceId, $request)
     {
@@ -1074,13 +1482,18 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Restarts an instance.
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * Restarts an instance.
      *
-     * @return RestartInstanceResponse RestartInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartInstanceResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RestartInstanceResponse
      */
     public function restartInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -1091,26 +1504,25 @@ class Hologram extends OpenApiClient
             'action' => 'RestartInstance',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/restart',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/restart',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Restarts an instance.
-     *  *
+     * Restarts an instance.
+     *
+     * @returns RestartInstanceResponse
+     *
      * @param string $instanceId
      *
-     * @return RestartInstanceResponse RestartInstanceResponse
+     * @return RestartInstanceResponse
      */
     public function restartInstance($instanceId)
     {
@@ -1121,51 +1533,59 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Resumes a virtual warehouse.
-     *  *
-     * @param string                     $instanceId
-     * @param ResumeHoloWarehouseRequest $request    ResumeHoloWarehouseRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * Resumes a virtual warehouse.
      *
-     * @return ResumeHoloWarehouseResponse ResumeHoloWarehouseResponse
+     * @param request - ResumeHoloWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeHoloWarehouseResponse
+     *
+     * @param string                     $instanceId
+     * @param ResumeHoloWarehouseRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ResumeHoloWarehouseResponse
      */
     public function resumeHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ResumeHoloWarehouse',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/resumeHoloWarehouse',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/resumeHoloWarehouse',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResumeHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Resumes a virtual warehouse.
-     *  *
-     * @param string                     $instanceId
-     * @param ResumeHoloWarehouseRequest $request    ResumeHoloWarehouseRequest
+     * Resumes a virtual warehouse.
      *
-     * @return ResumeHoloWarehouseResponse ResumeHoloWarehouseResponse
+     * @param request - ResumeHoloWarehouseRequest
+     *
+     * @returns ResumeHoloWarehouseResponse
+     *
+     * @param string                     $instanceId
+     * @param ResumeHoloWarehouseRequest $request
+     *
+     * @return ResumeHoloWarehouseResponse
      */
     public function resumeHoloWarehouse($instanceId, $request)
     {
@@ -1176,13 +1596,18 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Resumes an instance.
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * Resumes an instance.
      *
-     * @return ResumeInstanceResponse ResumeInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeInstanceResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ResumeInstanceResponse
      */
     public function resumeInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -1193,26 +1618,25 @@ class Hologram extends OpenApiClient
             'action' => 'ResumeInstance',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/resume',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/resume',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Resumes an instance.
-     *  *
+     * Resumes an instance.
+     *
+     * @returns ResumeInstanceResponse
+     *
      * @param string $instanceId
      *
-     * @return ResumeInstanceResponse ResumeInstanceResponse
+     * @return ResumeInstanceResponse
      */
     public function resumeInstance($instanceId)
     {
@@ -1223,54 +1647,63 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Scales in or out a virtual warehouse.
-     *  *
-     * @param string                    $instanceId
-     * @param ScaleHoloWarehouseRequest $request    ScaleHoloWarehouseRequest
-     * @param string[]                  $headers    map
-     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
+     * Scales in or out a virtual warehouse.
      *
-     * @return ScaleHoloWarehouseResponse ScaleHoloWarehouseResponse
+     * @param request - ScaleHoloWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScaleHoloWarehouseResponse
+     *
+     * @param string                    $instanceId
+     * @param ScaleHoloWarehouseRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ScaleHoloWarehouseResponse
      */
     public function scaleHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cpu)) {
-            $body['cpu'] = $request->cpu;
+        if (null !== $request->cpu) {
+            @$body['cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ScaleHoloWarehouse',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/scaleHoloWarehouse',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/scaleHoloWarehouse',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ScaleHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ScaleHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ScaleHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Scales in or out a virtual warehouse.
-     *  *
-     * @param string                    $instanceId
-     * @param ScaleHoloWarehouseRequest $request    ScaleHoloWarehouseRequest
+     * Scales in or out a virtual warehouse.
      *
-     * @return ScaleHoloWarehouseResponse ScaleHoloWarehouseResponse
+     * @param request - ScaleHoloWarehouseRequest
+     *
+     * @returns ScaleHoloWarehouseResponse
+     *
+     * @param string                    $instanceId
+     * @param ScaleHoloWarehouseRequest $request
+     *
+     * @return ScaleHoloWarehouseResponse
      */
     public function scaleHoloWarehouse($instanceId, $request)
     {
@@ -1281,74 +1714,89 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Changes the specifications and storage space of a Hologres instance.
-     *  *
-     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * Changes the specifications and storage space of a Hologres instance.
+     *
+     * @remarks
+     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
      * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
      * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
-     *  *
-     * @param string               $instanceId
-     * @param ScaleInstanceRequest $request    ScaleInstanceRequest
-     * @param string[]             $headers    map
-     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ScaleInstanceResponse ScaleInstanceResponse
+     * @param request - ScaleInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScaleInstanceResponse
+     *
+     * @param string               $instanceId
+     * @param ScaleInstanceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ScaleInstanceResponse
      */
     public function scaleInstanceWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->coldStorageSize)) {
-            $body['coldStorageSize'] = $request->coldStorageSize;
+        if (null !== $request->coldStorageSize) {
+            @$body['coldStorageSize'] = $request->coldStorageSize;
         }
-        if (!Utils::isUnset($request->cpu)) {
-            $body['cpu'] = $request->cpu;
+
+        if (null !== $request->cpu) {
+            @$body['cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->enableServerlessComputing)) {
-            $body['enableServerlessComputing'] = $request->enableServerlessComputing;
+
+        if (null !== $request->enableServerlessComputing) {
+            @$body['enableServerlessComputing'] = $request->enableServerlessComputing;
         }
-        if (!Utils::isUnset($request->gatewayCount)) {
-            $body['gatewayCount'] = $request->gatewayCount;
+
+        if (null !== $request->gatewayCount) {
+            @$body['gatewayCount'] = $request->gatewayCount;
         }
-        if (!Utils::isUnset($request->scaleType)) {
-            $body['scaleType'] = $request->scaleType;
+
+        if (null !== $request->scaleType) {
+            @$body['scaleType'] = $request->scaleType;
         }
-        if (!Utils::isUnset($request->storageSize)) {
-            $body['storageSize'] = $request->storageSize;
+
+        if (null !== $request->storageSize) {
+            @$body['storageSize'] = $request->storageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ScaleInstance',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/scale',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/scale',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ScaleInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ScaleInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ScaleInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the specifications and storage space of a Hologres instance.
-     *  *
-     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * Changes the specifications and storage space of a Hologres instance.
+     *
+     * @remarks
+     * > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
      * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
      * *   During the change of computing resource specifications of a Hologres instance, the instance is unavailable. During the change of storage resource specifications of a Hologres instance, the instance can work normally. Do not frequently change instance specifications. For more information, see [Upgrade or downgrade instance specifications](https://www.alibabacloud.com/help/en/hologres/product-overview/upgrade-or-downgrade-instance-specifications).
-     *  *
-     * @param string               $instanceId
-     * @param ScaleInstanceRequest $request    ScaleInstanceRequest
      *
-     * @return ScaleInstanceResponse ScaleInstanceResponse
+     * @param request - ScaleInstanceRequest
+     *
+     * @returns ScaleInstanceResponse
+     *
+     * @param string               $instanceId
+     * @param ScaleInstanceRequest $request
+     *
+     * @return ScaleInstanceResponse
      */
     public function scaleInstance($instanceId, $request)
     {
@@ -1359,13 +1807,18 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Stops an instance.
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * Stops an instance.
      *
-     * @return StopInstanceResponse StopInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopInstanceResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopInstanceResponse
      */
     public function stopInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -1376,26 +1829,25 @@ class Hologram extends OpenApiClient
             'action' => 'StopInstance',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/stop',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/stop',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops an instance.
-     *  *
+     * Stops an instance.
+     *
+     * @returns StopInstanceResponse
+     *
      * @param string $instanceId
      *
-     * @return StopInstanceResponse StopInstanceResponse
+     * @return StopInstanceResponse
      */
     public function stopInstance($instanceId)
     {
@@ -1406,51 +1858,59 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Suspends a virtual warehouse.
-     *  *
-     * @param string                      $instanceId
-     * @param SuspendHoloWarehouseRequest $request    SuspendHoloWarehouseRequest
-     * @param string[]                    $headers    map
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     * Suspends a virtual warehouse.
      *
-     * @return SuspendHoloWarehouseResponse SuspendHoloWarehouseResponse
+     * @param request - SuspendHoloWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SuspendHoloWarehouseResponse
+     *
+     * @param string                      $instanceId
+     * @param SuspendHoloWarehouseRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SuspendHoloWarehouseResponse
      */
     public function suspendHoloWarehouseWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SuspendHoloWarehouse',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/suspendHoloWarehouse',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/suspendHoloWarehouse',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SuspendHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Suspends a virtual warehouse.
-     *  *
-     * @param string                      $instanceId
-     * @param SuspendHoloWarehouseRequest $request    SuspendHoloWarehouseRequest
+     * Suspends a virtual warehouse.
      *
-     * @return SuspendHoloWarehouseResponse SuspendHoloWarehouseResponse
+     * @param request - SuspendHoloWarehouseRequest
+     *
+     * @returns SuspendHoloWarehouseResponse
+     *
+     * @param string                      $instanceId
+     * @param SuspendHoloWarehouseRequest $request
+     *
+     * @return SuspendHoloWarehouseResponse
      */
     public function suspendHoloWarehouse($instanceId, $request)
     {
@@ -1461,51 +1921,59 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name of an instance.
-     *  *
-     * @param string                    $instanceId
-     * @param UpdateInstanceNameRequest $request    UpdateInstanceNameRequest
-     * @param string[]                  $headers    map
-     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
+     * Changes the name of an instance.
      *
-     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
+     * @param request - UpdateInstanceNameRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceNameResponse
+     *
+     * @param string                    $instanceId
+     * @param UpdateInstanceNameRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateInstanceNameResponse
      */
     public function updateInstanceNameWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['instanceName'] = $request->instanceName;
+        if (null !== $request->instanceName) {
+            @$body['instanceName'] = $request->instanceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateInstanceName',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/instanceName',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/instanceName',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the name of an instance.
-     *  *
-     * @param string                    $instanceId
-     * @param UpdateInstanceNameRequest $request    UpdateInstanceNameRequest
+     * Changes the name of an instance.
      *
-     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
+     * @param request - UpdateInstanceNameRequest
+     *
+     * @returns UpdateInstanceNameResponse
+     *
+     * @param string                    $instanceId
+     * @param UpdateInstanceNameRequest $request
+     *
+     * @return UpdateInstanceNameResponse
      */
     public function updateInstanceName($instanceId, $request)
     {
@@ -1516,66 +1984,79 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the network configuration of an instance.
-     *  *
-     * @param string                           $instanceId
-     * @param UpdateInstanceNetworkTypeRequest $request    UpdateInstanceNetworkTypeRequest
-     * @param string[]                         $headers    map
-     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
+     * Modifies the network configuration of an instance.
      *
-     * @return UpdateInstanceNetworkTypeResponse UpdateInstanceNetworkTypeResponse
+     * @param request - UpdateInstanceNetworkTypeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceNetworkTypeResponse
+     *
+     * @param string                           $instanceId
+     * @param UpdateInstanceNetworkTypeRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateInstanceNetworkTypeResponse
      */
     public function updateInstanceNetworkTypeWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->anyTunnelToSingleTunnel)) {
-            $body['anyTunnelToSingleTunnel'] = $request->anyTunnelToSingleTunnel;
+        if (null !== $request->anyTunnelToSingleTunnel) {
+            @$body['anyTunnelToSingleTunnel'] = $request->anyTunnelToSingleTunnel;
         }
-        if (!Utils::isUnset($request->networkTypes)) {
-            $body['networkTypes'] = $request->networkTypes;
+
+        if (null !== $request->networkTypes) {
+            @$body['networkTypes'] = $request->networkTypes;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $body['vSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$body['vSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['vpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['vpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vpcOwnerId)) {
-            $body['vpcOwnerId'] = $request->vpcOwnerId;
+
+        if (null !== $request->vpcOwnerId) {
+            @$body['vpcOwnerId'] = $request->vpcOwnerId;
         }
-        if (!Utils::isUnset($request->vpcRegionId)) {
-            $body['vpcRegionId'] = $request->vpcRegionId;
+
+        if (null !== $request->vpcRegionId) {
+            @$body['vpcRegionId'] = $request->vpcRegionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateInstanceNetworkType',
             'version' => '2022-06-01',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/network',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/network',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceNetworkTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the network configuration of an instance.
-     *  *
-     * @param string                           $instanceId
-     * @param UpdateInstanceNetworkTypeRequest $request    UpdateInstanceNetworkTypeRequest
+     * Modifies the network configuration of an instance.
      *
-     * @return UpdateInstanceNetworkTypeResponse UpdateInstanceNetworkTypeResponse
+     * @param request - UpdateInstanceNetworkTypeRequest
+     *
+     * @returns UpdateInstanceNetworkTypeResponse
+     *
+     * @param string                           $instanceId
+     * @param UpdateInstanceNetworkTypeRequest $request
+     *
+     * @return UpdateInstanceNetworkTypeResponse
      */
     public function updateInstanceNetworkType($instanceId, $request)
     {

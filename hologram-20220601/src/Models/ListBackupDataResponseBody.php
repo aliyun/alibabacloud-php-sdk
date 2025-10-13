@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataResponseBody\backupDataList;
-use AlibabaCloud\Tea\Model;
 
 class ListBackupDataResponseBody extends Model
 {
     /**
-     * @description The backups.
-     *
      * @var backupDataList[]
      */
     public $backupDataList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4AA0C48F-B5BB-5FF9-A43B-6B91E0715D46
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListBackupDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->backupDataList)) {
+            Model::validateArray($this->backupDataList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupDataList) {
-            $res['BackupDataList'] = [];
-            if (null !== $this->backupDataList && \is_array($this->backupDataList)) {
-                $n = 0;
-                foreach ($this->backupDataList as $item) {
-                    $res['BackupDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backupDataList)) {
+                $res['BackupDataList'] = [];
+                $n1 = 0;
+                foreach ($this->backupDataList as $item1) {
+                    $res['BackupDataList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListBackupDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListBackupDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupDataList'])) {
             if (!empty($map['BackupDataList'])) {
                 $model->backupDataList = [];
-                $n = 0;
-                foreach ($map['BackupDataList'] as $item) {
-                    $model->backupDataList[$n++] = null !== $item ? backupDataList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BackupDataList'] as $item1) {
+                    $model->backupDataList[$n1] = backupDataList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

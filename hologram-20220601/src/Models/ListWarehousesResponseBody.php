@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehousesResponseBody\warehouseList;
-use AlibabaCloud\Tea\Model;
 
 class ListWarehousesResponseBody extends Model
 {
     /**
-     * @description The list of virtual warehouse instances.
-     *
      * @var warehouseList[]
      */
     public $warehouseList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 819A7F0F-2951-540F-BD94-6A41ECF0281F
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListWarehousesResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->warehouseList)) {
+            Model::validateArray($this->warehouseList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->warehouseList) {
-            $res['WarehouseList'] = [];
-            if (null !== $this->warehouseList && \is_array($this->warehouseList)) {
-                $n = 0;
-                foreach ($this->warehouseList as $item) {
-                    $res['WarehouseList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->warehouseList)) {
+                $res['WarehouseList'] = [];
+                $n1 = 0;
+                foreach ($this->warehouseList as $item1) {
+                    $res['WarehouseList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListWarehousesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWarehousesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WarehouseList'])) {
             if (!empty($map['WarehouseList'])) {
                 $model->warehouseList = [];
-                $n = 0;
-                foreach ($map['WarehouseList'] as $item) {
-                    $model->warehouseList[$n++] = null !== $item ? warehouseList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WarehouseList'] as $item1) {
+                    $model->warehouseList[$n1] = warehouseList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

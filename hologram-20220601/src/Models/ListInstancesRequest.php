@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class ListInstancesRequest extends Model
 {
     /**
-     * @example standard
-     *
      * @var string
      */
     public $cmsInstanceType;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmvscak73zmby
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tags to add to the resource.
-     *
      * @var tag[]
      */
     public $tag;
@@ -37,23 +29,32 @@ class ListInstancesRequest extends Model
         'tag' => 'tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cmsInstanceType) {
             $res['cmsInstanceType'] = $this->cmsInstanceType;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tag) {
-            $res['tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,26 +62,29 @@ class ListInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cmsInstanceType'])) {
             $model->cmsInstanceType = $map['cmsInstanceType'];
         }
+
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['tag'])) {
             if (!empty($map['tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

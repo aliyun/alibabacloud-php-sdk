@@ -4,54 +4,31 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The error code returned.
-     *
-     * @example InvalidVpcOrVSwitch.NotAvailable
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The instance ID.
-     *
-     * @example hgpostcn-cn-xxxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The error details.
-     *
-     * @example Vpc is not available
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The order ID.
-     *
-     * @example 217523224780172
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description Indicates whether the instance was created.
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var string
      */
     public $success;
@@ -63,23 +40,30 @@ class data extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -87,26 +71,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

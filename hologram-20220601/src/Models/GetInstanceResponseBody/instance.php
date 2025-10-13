@@ -4,546 +4,158 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponseBody\instance\endpoints;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponseBody\instance\tags;
-use AlibabaCloud\Tea\Model;
 
 class instance extends Model
 {
     /**
-     * @description Indicates whether auto-renewal is enabled.
-     *
-     * Valid values:
-     *
-     *   true
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   false
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example true
-     *
      * @var string
      */
     public $autoRenewal;
 
     /**
-     * @description The cold storage capacity of the instance. Unit: GB. Standard SSD is used for hot storage, and HDD is used for cold storage.
-     *
-     * @example 800
-     *
      * @var int
      */
     public $coldStorage;
 
     /**
-     * @description The commodity code.
-     *
-     * Valid values:
-     *
-     *   hologram_maxcomputeAccelerate_public_cn
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * China site/Lakehouse Acceleration Edition
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   hologram_combo_public_cn
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * China site/Subscription
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   hologram_prepay_public_intl
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * International site/Subscription
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   hologram_storage_dp_cn
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * China site/Storage plan
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   hologram_postpay_public_cn
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * China site/Pay-as-you-go
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   hologram_postpay_public_intl
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * International site/Pay-as-you-go
-     *
-     * <!-- -->
-     *
-     *   hologram_maxcomputeAccelerate_public_intl
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * International site/Lakehouse Acceleration Edition
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   hologram_cu_dp_cn
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * China site/Compute plan
-     *
-     * <!-- -->
-     *
-     * @example hologram_combo_public_cn
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description The number of compute nodes. In a typical configuration, a node has 16 CPU cores and 32 GB of memory.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $computeNodeCount;
 
     /**
-     * @description The number of CPU cores.
-     *
-     * @example 32
-     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description The time when the instance was created.
-     *
-     * @example 2021-02-03T13:06:06Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The amount of data that can be stored in the disk of the Standard storage class. Unit: GB.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $disk;
 
     /**
-     * @description Indicates whether data lake acceleration is enabled.
-     *
-     * @example true
-     *
      * @var string
      */
     public $enableHiveAccess;
 
     /**
-     * @description EnableServerless
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableServerless;
 
     /**
-     * @description The list of endpoints.
-     *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
-     * @description The expiration time. This parameter is invalid for pay-as-you-go instances.
-     *
-     * @example 2021-02-03T13:06:06Z
-     *
      * @var string
      */
     public $expirationTime;
 
     /**
-     * @description The number of gateway nodes.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $gatewayCount;
 
     /**
-     * @description The number of CPU cores of the gateway. Unit: core.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $gatewayCpu;
 
     /**
-     * @description The size of memory resources of the gateway. Unit: GB.
-     *
-     * @example 16
-     *
      * @var int
      */
     public $gatewayMemory;
 
     /**
-     * @description The billing method of the instance.
-     *
-     * Valid values:
-     *
-     *   PostPaid
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * pay-as-you-go
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   PrePaid
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * subscription
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     * @example PrePaid
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description The instance ID.
-     *
-     * @example hgpostcn-cn-tl32s6cgw00b
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The instance name. The instance name must be 2 to 64 characters in length.
-     *
-     * @example test
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The owner of the instance.
-     *
-     * @example 12345678900000
-     *
      * @var string
      */
     public $instanceOwner;
 
     /**
-     * @description The status of the instance.
-     *
-     * Valid values:
-     *
-     *   Creating
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   Running
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   Suspended
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   Allocating
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example Running
-     *
      * @var string
      */
     public $instanceStatus;
 
     /**
-     * @description The type of the instance.
-     *
-     * Valid values:
-     *
-     *   Follower
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * read-only secondary instance
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   Standard
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * normal instance
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     * @example Standard
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The ID of the primary instance.
-     *
-     * @example hgpostcn-cn-i7m2ncd6w002
-     *
      * @var string
      */
     public $leaderInstanceId;
 
     /**
-     * @description The memory size. Unit: GB.
-     *
-     * @example 128
-     *
      * @var int
      */
     public $memory;
 
     /**
-     * @description The ID of the region in which the instance resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description Disaster recovery instance role.
-     * Active: Primary disaster recovery instance.
-     * Passive: Disaster tolerance instance.
-     * PreActive: Primary disaster recovery instance not yet in final state.
-     *
-     * @example Active
-     *
      * @var string
      */
     public $replicaRole;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-aekzuq7hpybze2i
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The storage type.
-     *
-     *   redundant: 3 copies
-     *   local: single copy
-     *
-     * @example redundant
-     *
      * @var string
      */
     public $storageType;
 
     /**
-     * @description The reason for the suspension.
-     *
-     * Valid values:
-     *
-     *   Indebet
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * The instance has an overdue payment
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   Manual
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * The instance is manually suspended
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   Overdue
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * The instance has expired
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     * @example Manual
-     *
      * @var string
      */
     public $suspendReason;
 
     /**
-     * @description The instance tag.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The instance version.
-     *
-     * @example r1.3.37
-     *
      * @var string
      */
     public $version;
 
     /**
-     * @description The ID of the zone where the instance resides.
-     *
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
@@ -580,110 +192,150 @@ class instance extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenewal) {
             $res['AutoRenewal'] = $this->autoRenewal;
         }
+
         if (null !== $this->coldStorage) {
             $res['ColdStorage'] = $this->coldStorage;
         }
+
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->computeNodeCount) {
             $res['ComputeNodeCount'] = $this->computeNodeCount;
         }
+
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->disk) {
             $res['Disk'] = $this->disk;
         }
+
         if (null !== $this->enableHiveAccess) {
             $res['EnableHiveAccess'] = $this->enableHiveAccess;
         }
+
         if (null !== $this->enableServerless) {
             $res['EnableServerless'] = $this->enableServerless;
         }
+
         if (null !== $this->endpoints) {
-            $res['Endpoints'] = [];
-            if (null !== $this->endpoints && \is_array($this->endpoints)) {
-                $n = 0;
-                foreach ($this->endpoints as $item) {
-                    $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->endpoints)) {
+                $res['Endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['Endpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->expirationTime) {
             $res['ExpirationTime'] = $this->expirationTime;
         }
+
         if (null !== $this->gatewayCount) {
             $res['GatewayCount'] = $this->gatewayCount;
         }
+
         if (null !== $this->gatewayCpu) {
             $res['GatewayCpu'] = $this->gatewayCpu;
         }
+
         if (null !== $this->gatewayMemory) {
             $res['GatewayMemory'] = $this->gatewayMemory;
         }
+
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->instanceOwner) {
             $res['InstanceOwner'] = $this->instanceOwner;
         }
+
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->leaderInstanceId) {
             $res['LeaderInstanceId'] = $this->leaderInstanceId;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->replicaRole) {
             $res['ReplicaRole'] = $this->replicaRole;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
+
         if (null !== $this->suspendReason) {
             $res['SuspendReason'] = $this->suspendReason;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -691,113 +343,144 @@ class instance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenewal'])) {
             $model->autoRenewal = $map['AutoRenewal'];
         }
+
         if (isset($map['ColdStorage'])) {
             $model->coldStorage = $map['ColdStorage'];
         }
+
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['ComputeNodeCount'])) {
             $model->computeNodeCount = $map['ComputeNodeCount'];
         }
+
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Disk'])) {
             $model->disk = $map['Disk'];
         }
+
         if (isset($map['EnableHiveAccess'])) {
             $model->enableHiveAccess = $map['EnableHiveAccess'];
         }
+
         if (isset($map['EnableServerless'])) {
             $model->enableServerless = $map['EnableServerless'];
         }
+
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n = 0;
-                foreach ($map['Endpoints'] as $item) {
-                    $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Endpoints'] as $item1) {
+                    $model->endpoints[$n1] = endpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ExpirationTime'])) {
             $model->expirationTime = $map['ExpirationTime'];
         }
+
         if (isset($map['GatewayCount'])) {
             $model->gatewayCount = $map['GatewayCount'];
         }
+
         if (isset($map['GatewayCpu'])) {
             $model->gatewayCpu = $map['GatewayCpu'];
         }
+
         if (isset($map['GatewayMemory'])) {
             $model->gatewayMemory = $map['GatewayMemory'];
         }
+
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['InstanceOwner'])) {
             $model->instanceOwner = $map['InstanceOwner'];
         }
+
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['LeaderInstanceId'])) {
             $model->leaderInstanceId = $map['LeaderInstanceId'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ReplicaRole'])) {
             $model->replicaRole = $map['ReplicaRole'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }
+
         if (isset($map['SuspendReason'])) {
             $model->suspendReason = $map['SuspendReason'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

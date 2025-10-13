@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RenewInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to enable monthly auto-renewal. The default value is false. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * >  If you enable auto-renewal for an instance for which auto-renewal is enabled, an error is reported.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description The renewal duration. Unit: month.
-     *
-     * This parameter is required.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $duration;
@@ -37,14 +22,18 @@ class RenewInstanceRequest extends Model
         'duration' => 'duration',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenew) {
             $res['autoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
         }
@@ -52,17 +41,18 @@ class RenewInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoRenew'])) {
             $model->autoRenew = $map['autoRenew'];
         }
+
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];
         }

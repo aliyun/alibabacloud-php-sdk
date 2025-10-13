@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateHoloWarehouseRequest extends Model
 {
     /**
-     * @description The specifications of the virtual warehouse. The number of vCPUs must be an integer multiple of 16 CPUs. Minimum value: 16.
-     *
-     * This parameter is required.
-     *
-     * @example 32
-     *
      * @var string
      */
     public $cpu;
 
     /**
-     * @description The name of the virtual warehouse.
-     *
-     * This parameter is required.
-     *
-     * @example my_warehouse
-     *
      * @var string
      */
     public $name;
@@ -34,14 +22,18 @@ class CreateHoloWarehouseRequest extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -49,17 +41,18 @@ class CreateHoloWarehouseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateHoloWarehouseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

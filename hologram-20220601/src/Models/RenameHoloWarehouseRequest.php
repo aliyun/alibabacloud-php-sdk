@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RenameHoloWarehouseRequest extends Model
 {
     /**
-     * @description The original name of the virtual warehouse.
-     *
-     * This parameter is required.
-     *
-     * @example my_warehouse
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The new name of the virtual warehouse.
-     *
-     * This parameter is required.
-     *
-     * @example new_name
-     *
      * @var string
      */
     public $newWarehouseName;
@@ -34,14 +22,18 @@ class RenameHoloWarehouseRequest extends Model
         'newWarehouseName' => 'newWarehouseName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->newWarehouseName) {
             $res['newWarehouseName'] = $this->newWarehouseName;
         }
@@ -49,17 +41,18 @@ class RenameHoloWarehouseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenameHoloWarehouseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['newWarehouseName'])) {
             $model->newWarehouseName = $map['newWarehouseName'];
         }

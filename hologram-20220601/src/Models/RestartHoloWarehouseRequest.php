@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestartHoloWarehouseRequest extends Model
 {
     /**
-     * @description The name of the virtual warehouse.
-     *
-     * This parameter is required.
-     *
-     * @example my_warehouse
-     *
      * @var string
      */
     public $name;
@@ -22,9 +16,12 @@ class RestartHoloWarehouseRequest extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -34,11 +31,11 @@ class RestartHoloWarehouseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestartHoloWarehouseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

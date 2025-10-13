@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceNameRequest extends Model
 {
     /**
-     * @description The new name of the instance. The name must be 2 to 64 characters in length.
-     *
-     * @example new_name
-     *
      * @var string
      */
     public $instanceName;
@@ -20,9 +16,12 @@ class UpdateInstanceNameRequest extends Model
         'instanceName' => 'instanceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceName) {
@@ -32,11 +31,11 @@ class UpdateInstanceNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

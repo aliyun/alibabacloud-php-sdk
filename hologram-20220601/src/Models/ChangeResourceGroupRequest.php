@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example hgprecn-cn-zvp25ysv3006
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description new resource group id
-     *
-     * @example rg-acfmxwerqwerasfd
-     *
      * @var string
      */
     public $newResourceGroupId;
@@ -30,14 +22,18 @@ class ChangeResourceGroupRequest extends Model
         'newResourceGroupId' => 'newResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->newResourceGroupId) {
             $res['newResourceGroupId'] = $this->newResourceGroupId;
         }
@@ -45,17 +41,18 @@ class ChangeResourceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['newResourceGroupId'])) {
             $model->newResourceGroupId = $map['newResourceGroupId'];
         }

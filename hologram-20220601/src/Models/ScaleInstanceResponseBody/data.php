@@ -4,60 +4,26 @@
 
 namespace AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The error code returned.
-     *
-     * @example InvalidScaleType.Unsupported
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The error details.
-     *
-     * @example null
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the order.
-     *
-     * @example 219183853450000
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description Indicates whether the change to specifications was successful.
-     *
-     * Valid values:
-     *
-     *   true
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   false
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -68,20 +34,26 @@ class data extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -89,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
