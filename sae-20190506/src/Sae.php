@@ -3407,6 +3407,10 @@ class Sae extends OpenApiClient
             @$query['AcrAssumeRoleArn'] = $request->acrAssumeRoleArn;
         }
 
+        if (null !== $request->albIngressReadinessGate) {
+            @$query['AlbIngressReadinessGate'] = $request->albIngressReadinessGate;
+        }
+
         if (null !== $request->appId) {
             @$query['AppId'] = $request->appId;
         }

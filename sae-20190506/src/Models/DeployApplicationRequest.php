@@ -21,6 +21,11 @@ class DeployApplicationRequest extends Model
     /**
      * @var string
      */
+    public $albIngressReadinessGate;
+
+    /**
+     * @var string
+     */
     public $appId;
 
     /**
@@ -395,6 +400,7 @@ class DeployApplicationRequest extends Model
     protected $_name = [
         'acrAssumeRoleArn' => 'AcrAssumeRoleArn',
         'acrInstanceId' => 'AcrInstanceId',
+        'albIngressReadinessGate' => 'AlbIngressReadinessGate',
         'appId' => 'AppId',
         'associateEip' => 'AssociateEip',
         'autoEnableApplicationScalingRule' => 'AutoEnableApplicationScalingRule',
@@ -492,6 +498,10 @@ class DeployApplicationRequest extends Model
 
         if (null !== $this->acrInstanceId) {
             $res['AcrInstanceId'] = $this->acrInstanceId;
+        }
+
+        if (null !== $this->albIngressReadinessGate) {
+            $res['AlbIngressReadinessGate'] = $this->albIngressReadinessGate;
         }
 
         if (null !== $this->appId) {
@@ -825,6 +835,10 @@ class DeployApplicationRequest extends Model
 
         if (isset($map['AcrInstanceId'])) {
             $model->acrInstanceId = $map['AcrInstanceId'];
+        }
+
+        if (isset($map['AlbIngressReadinessGate'])) {
+            $model->albIngressReadinessGate = $map['AlbIngressReadinessGate'];
         }
 
         if (isset($map['AppId'])) {

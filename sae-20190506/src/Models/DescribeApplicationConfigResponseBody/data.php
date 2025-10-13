@@ -29,6 +29,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $albIngressReadinessGate;
+
+    /**
+     * @var string
+     */
     public $appDescription;
 
     /**
@@ -483,6 +488,7 @@ class data extends Model
     protected $_name = [
         'acrAssumeRoleArn' => 'AcrAssumeRoleArn',
         'acrInstanceId' => 'AcrInstanceId',
+        'albIngressReadinessGate' => 'AlbIngressReadinessGate',
         'appDescription' => 'AppDescription',
         'appId' => 'AppId',
         'appName' => 'AppName',
@@ -617,6 +623,10 @@ class data extends Model
 
         if (null !== $this->acrInstanceId) {
             $res['AcrInstanceId'] = $this->acrInstanceId;
+        }
+
+        if (null !== $this->albIngressReadinessGate) {
+            $res['AlbIngressReadinessGate'] = $this->albIngressReadinessGate;
         }
 
         if (null !== $this->appDescription) {
@@ -1061,6 +1071,10 @@ class data extends Model
 
         if (isset($map['AcrInstanceId'])) {
             $model->acrInstanceId = $map['AcrInstanceId'];
+        }
+
+        if (isset($map['AlbIngressReadinessGate'])) {
+            $model->albIngressReadinessGate = $map['AlbIngressReadinessGate'];
         }
 
         if (isset($map['AppDescription'])) {
