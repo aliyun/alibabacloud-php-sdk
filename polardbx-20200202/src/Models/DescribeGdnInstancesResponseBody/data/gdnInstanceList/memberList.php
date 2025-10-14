@@ -31,6 +31,11 @@ class memberList extends Model
     /**
      * @var string
      */
+    public $dataSyncStatus;
+
+    /**
+     * @var string
+     */
     public $dnNodeClassCode;
 
     /**
@@ -62,6 +67,11 @@ class memberList extends Model
      * @var string
      */
     public $primaryZone;
+
+    /**
+     * @var string
+     */
+    public $readWriteStatus;
 
     /**
      * @var string
@@ -107,6 +117,7 @@ class memberList extends Model
         'cnNodeClassCode' => 'CnNodeClassCode',
         'cnNodeCount' => 'CnNodeCount',
         'commodityCode' => 'CommodityCode',
+        'dataSyncStatus' => 'DataSyncStatus',
         'dnNodeClassCode' => 'DnNodeClassCode',
         'dnNodeCount' => 'DnNodeCount',
         'expireTime' => 'ExpireTime',
@@ -114,6 +125,7 @@ class memberList extends Model
         'memberName' => 'MemberName',
         'payType' => 'PayType',
         'primaryZone' => 'PrimaryZone',
+        'readWriteStatus' => 'ReadWriteStatus',
         'regionId' => 'RegionId',
         'role' => 'Role',
         'secondaryZone' => 'SecondaryZone',
@@ -148,6 +160,10 @@ class memberList extends Model
             $res['CommodityCode'] = $this->commodityCode;
         }
 
+        if (null !== $this->dataSyncStatus) {
+            $res['DataSyncStatus'] = $this->dataSyncStatus;
+        }
+
         if (null !== $this->dnNodeClassCode) {
             $res['DnNodeClassCode'] = $this->dnNodeClassCode;
         }
@@ -174,6 +190,10 @@ class memberList extends Model
 
         if (null !== $this->primaryZone) {
             $res['PrimaryZone'] = $this->primaryZone;
+        }
+
+        if (null !== $this->readWriteStatus) {
+            $res['ReadWriteStatus'] = $this->readWriteStatus;
         }
 
         if (null !== $this->regionId) {
@@ -235,6 +255,10 @@ class memberList extends Model
             $model->commodityCode = $map['CommodityCode'];
         }
 
+        if (isset($map['DataSyncStatus'])) {
+            $model->dataSyncStatus = $map['DataSyncStatus'];
+        }
+
         if (isset($map['DnNodeClassCode'])) {
             $model->dnNodeClassCode = $map['DnNodeClassCode'];
         }
@@ -261,6 +285,10 @@ class memberList extends Model
 
         if (isset($map['PrimaryZone'])) {
             $model->primaryZone = $map['PrimaryZone'];
+        }
+
+        if (isset($map['ReadWriteStatus'])) {
+            $model->readWriteStatus = $map['ReadWriteStatus'];
         }
 
         if (isset($map['RegionId'])) {

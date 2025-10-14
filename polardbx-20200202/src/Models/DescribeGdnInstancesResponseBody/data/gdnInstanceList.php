@@ -22,6 +22,11 @@ class gdnInstanceList extends Model
     /**
      * @var string
      */
+    public $gdnMode;
+
+    /**
+     * @var string
+     */
     public $gmtCreated;
 
     /**
@@ -37,6 +42,21 @@ class gdnInstanceList extends Model
     /**
      * @var string
      */
+    public $rplConflictStrategy;
+
+    /**
+     * @var string
+     */
+    public $rplDmlStrategy;
+
+    /**
+     * @var bool
+     */
+    public $rplSyncDdl;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -46,9 +66,13 @@ class gdnInstanceList extends Model
     protected $_name = [
         'description' => 'Description',
         'gdnInstanceName' => 'GdnInstanceName',
+        'gdnMode' => 'GdnMode',
         'gmtCreated' => 'GmtCreated',
         'memberList' => 'MemberList',
         'mysqlVersion' => 'MysqlVersion',
+        'rplConflictStrategy' => 'RplConflictStrategy',
+        'rplDmlStrategy' => 'RplDmlStrategy',
+        'rplSyncDdl' => 'RplSyncDdl',
         'status' => 'Status',
         'switchHistory' => 'SwitchHistory',
     ];
@@ -72,6 +96,10 @@ class gdnInstanceList extends Model
             $res['GdnInstanceName'] = $this->gdnInstanceName;
         }
 
+        if (null !== $this->gdnMode) {
+            $res['GdnMode'] = $this->gdnMode;
+        }
+
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
         }
@@ -89,6 +117,18 @@ class gdnInstanceList extends Model
 
         if (null !== $this->mysqlVersion) {
             $res['MysqlVersion'] = $this->mysqlVersion;
+        }
+
+        if (null !== $this->rplConflictStrategy) {
+            $res['RplConflictStrategy'] = $this->rplConflictStrategy;
+        }
+
+        if (null !== $this->rplDmlStrategy) {
+            $res['RplDmlStrategy'] = $this->rplDmlStrategy;
+        }
+
+        if (null !== $this->rplSyncDdl) {
+            $res['RplSyncDdl'] = $this->rplSyncDdl;
         }
 
         if (null !== $this->status) {
@@ -118,6 +158,10 @@ class gdnInstanceList extends Model
             $model->gdnInstanceName = $map['GdnInstanceName'];
         }
 
+        if (isset($map['GdnMode'])) {
+            $model->gdnMode = $map['GdnMode'];
+        }
+
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
         }
@@ -135,6 +179,18 @@ class gdnInstanceList extends Model
 
         if (isset($map['MysqlVersion'])) {
             $model->mysqlVersion = $map['MysqlVersion'];
+        }
+
+        if (isset($map['RplConflictStrategy'])) {
+            $model->rplConflictStrategy = $map['RplConflictStrategy'];
+        }
+
+        if (isset($map['RplDmlStrategy'])) {
+            $model->rplDmlStrategy = $map['RplDmlStrategy'];
+        }
+
+        if (isset($map['RplSyncDdl'])) {
+            $model->rplSyncDdl = $map['RplSyncDdl'];
         }
 
         if (isset($map['Status'])) {

@@ -11,29 +11,59 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateColdDataVolumeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateColdDataVolumeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\AttachColumnarInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\AttachColumnarInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckCloudResourceAuthorizedRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckCloudResourceAuthorizedResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckSqlAuditSlsStatusRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckSqlAuditSlsStatusResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CloseEngineMigrationRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CloseEngineMigrationResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ConfirmNoConnectionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ConfirmNoConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateBackupResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateCustomEndpointRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateCustomEndpointResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDataImportTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDataImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceShrinkRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSQLEvaluateTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSQLEvaluateTaskResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStoragePoolRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStoragePoolResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStructureImportTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStructureImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateTransformOperationRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateTransformOperationResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteCustomEndpointRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteCustomEndpointResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteDBResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteEvaluateAndImportTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteEvaluateAndImportTaskResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationMaintainConfRequest;
@@ -44,6 +74,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationTasksReque
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeArchiveTableListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeArchiveTableListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAvailableCrossRegionsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAvailableCrossRegionsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetListRequest;
@@ -52,12 +84,28 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBinaryLogListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBinaryLogListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCdcClassListRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCdcClassListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCdcInfoRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCdcInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCdcVersionListRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCdcVersionListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCharacterSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCharacterSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColdDataBasicInfoRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColdDataBasicInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColumnarClassListRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColumnarClassListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColumnarInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColumnarInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColumnarVersionListRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColumnarVersionListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeComponentPropetiesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeComponentPropetiesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCustomEndpointListRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCustomEndpointListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDataImportTaskInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDataImportTaskInfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceConfigRequest;
@@ -80,35 +128,69 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEnabledCrossRegionsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEnabledCrossRegionsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEvaluateAndImportTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEvaluateAndImportTaskResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEvaluateAndImportTasksRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEvaluateAndImportTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterGroupsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterGroupsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDataNodesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDataNodesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRdsVpcsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRdsVpcsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRdsVswitchesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRdsVswitchesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRplInspectionTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeRplInspectionTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeShowStorageInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeShowStorageInfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSlowLogRecordsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSqlAuditInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSqlAuditInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSqlFlashbackTaskListRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSqlFlashbackTaskListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeStoragePoolInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeStoragePoolInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeStructureImportTaskInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeStructureImportTaskInfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTransformStatusRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTransformStatusResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableRightsSeparationRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableRightsSeparationResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableSqlAuditRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DisableSqlAuditResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableRightsSeparationRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableRightsSeparationResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableSqlAuditRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableSqlAuditResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\MigrateDBInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\MigrateDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyAccountPrivilegeRequest;
@@ -117,6 +199,14 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationMaintainConf
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationMaintainConfResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyActiveOperationTasksResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCdcClassRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCdcClassResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyColumnarClassRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyColumnarClassResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCustomEndpointNetRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCustomEndpointNetResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCustomEndpointRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyCustomEndpointResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDatabaseDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDatabaseDescriptionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceClassRequest;
@@ -127,18 +217,40 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceConnectionStringR
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceConnectionStringResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceDescriptionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceMaintainTimeRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceMaintainTimeResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceVipRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceVipResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyEngineMigrationRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyEngineMigrationResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\PreCheckSqlFlashbackTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\PreCheckSqlFlashbackTaskResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RefreshImportMetaRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RefreshImportMetaResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseColdDataVolumeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseColdDataVolumeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRestrictRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRestrictResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\SkipCurrentStepRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\SkipCurrentStepResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\StartSwitchDatabaseRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\StartSwitchDatabaseResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\StopDataImportTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\StopDataImportTaskResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\SubmitSqlFlashbackTaskRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\SubmitSqlFlashbackTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SwitchDBInstanceHARequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SwitchDBInstanceHAResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SwitchGdnMemberRoleRequest;
@@ -155,6 +267,10 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateDBInstanceTDERequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateDBInstanceTDEResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdatePolarDBXInstanceNodeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdatePolarDBXInstanceNodeResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeCDCVersionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeCDCVersionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeColumnarVersionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeColumnarVersionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeDBInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeDBInstanceKernelVersionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -455,6 +571,63 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param request - AttachColumnarInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachColumnarInstanceResponse
+     *
+     * @param AttachColumnarInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AttachColumnarInstanceResponse
+     */
+    public function attachColumnarInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachColumnarInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachColumnarInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - AttachColumnarInstanceRequest
+     *
+     * @returns AttachColumnarInstanceResponse
+     *
+     * @param AttachColumnarInstanceRequest $request
+     *
+     * @return AttachColumnarInstanceResponse
+     */
+    public function attachColumnarInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachColumnarInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * 取消主动运维任务
      *
      * @param request - CancelActiveOperationTasksRequest
@@ -638,6 +811,189 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param request - CheckSqlAuditSlsStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSqlAuditSlsStatusResponse
+     *
+     * @param CheckSqlAuditSlsStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckSqlAuditSlsStatusResponse
+     */
+    public function checkSqlAuditSlsStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckSqlAuditSlsStatus',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckSqlAuditSlsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CheckSqlAuditSlsStatusRequest
+     *
+     * @returns CheckSqlAuditSlsStatusResponse
+     *
+     * @param CheckSqlAuditSlsStatusRequest $request
+     *
+     * @return CheckSqlAuditSlsStatusResponse
+     */
+    public function checkSqlAuditSlsStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkSqlAuditSlsStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消实例迁移.
+     *
+     * @param request - CloseEngineMigrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseEngineMigrationResponse
+     *
+     * @param CloseEngineMigrationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CloseEngineMigrationResponse
+     */
+    public function closeEngineMigrationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->continueEnableBinlog) {
+            @$query['ContinueEnableBinlog'] = $request->continueEnableBinlog;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloseEngineMigration',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloseEngineMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消实例迁移.
+     *
+     * @param request - CloseEngineMigrationRequest
+     *
+     * @returns CloseEngineMigrationResponse
+     *
+     * @param CloseEngineMigrationRequest $request
+     *
+     * @return CloseEngineMigrationResponse
+     */
+    public function closeEngineMigration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeEngineMigrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 回滚切换时确认无连接.
+     *
+     * @param request - ConfirmNoConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfirmNoConnectionResponse
+     *
+     * @param ConfirmNoConnectionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ConfirmNoConnectionResponse
+     */
+    public function confirmNoConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfirmNoConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfirmNoConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 回滚切换时确认无连接.
+     *
+     * @param request - ConfirmNoConnectionRequest
+     *
+     * @returns ConfirmNoConnectionResponse
+     *
+     * @param ConfirmNoConnectionRequest $request
+     *
+     * @return ConfirmNoConnectionResponse
+     */
+    public function confirmNoConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmNoConnectionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -781,6 +1137,91 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建自定义endpoint.
+     *
+     * @param request - CreateCustomEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomEndpointResponse
+     *
+     * @param CreateCustomEndpointRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateCustomEndpointResponse
+     */
+    public function createCustomEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nodeAutoEnter) {
+            @$query['NodeAutoEnter'] = $request->nodeAutoEnter;
+        }
+
+        if (null !== $request->nodeIds) {
+            @$query['NodeIds'] = $request->nodeIds;
+        }
+
+        if (null !== $request->nodeRole) {
+            @$query['NodeRole'] = $request->nodeRole;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomEndpoint',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义endpoint.
+     *
+     * @param request - CreateCustomEndpointRequest
+     *
+     * @returns CreateCustomEndpointResponse
+     *
+     * @param CreateCustomEndpointRequest $request
+     *
+     * @return CreateCustomEndpointResponse
+     */
+    public function createCustomEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -1048,6 +1489,518 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 创建评估升级的数据迁移任务
+     *
+     * @param request - CreateDataImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataImportTaskResponse
+     *
+     * @param CreateDataImportTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataImportTaskResponse
+     */
+    public function createDataImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->dstDb) {
+            @$query['DstDb'] = $request->dstDb;
+        }
+
+        if (null !== $request->dstPassword) {
+            @$query['DstPassword'] = $request->dstPassword;
+        }
+
+        if (null !== $request->dstResId) {
+            @$query['DstResId'] = $request->dstResId;
+        }
+
+        if (null !== $request->dstUserName) {
+            @$query['DstUserName'] = $request->dstUserName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        if (null !== $request->srcDb) {
+            @$query['SrcDb'] = $request->srcDb;
+        }
+
+        if (null !== $request->srcPassword) {
+            @$query['SrcPassword'] = $request->srcPassword;
+        }
+
+        if (null !== $request->srcResId) {
+            @$query['SrcResId'] = $request->srcResId;
+        }
+
+        if (null !== $request->srcUserName) {
+            @$query['SrcUserName'] = $request->srcUserName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataImportTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建评估升级的数据迁移任务
+     *
+     * @param request - CreateDataImportTaskRequest
+     *
+     * @returns CreateDataImportTaskResponse
+     *
+     * @param CreateDataImportTaskRequest $request
+     *
+     * @return CreateDataImportTaskResponse
+     */
+    public function createDataImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建GDN实例.
+     *
+     * @param request - CreateGdnInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGdnInstanceResponse
+     *
+     * @param CreateGdnInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateGdnInstanceResponse
+     */
+    public function createGdnInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->gdnMode) {
+            @$query['GdnMode'] = $request->gdnMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->rplConflictStrategy) {
+            @$query['RplConflictStrategy'] = $request->rplConflictStrategy;
+        }
+
+        if (null !== $request->rplDmlStrategy) {
+            @$query['RplDmlStrategy'] = $request->rplDmlStrategy;
+        }
+
+        if (null !== $request->rplSyncDdl) {
+            @$query['RplSyncDdl'] = $request->rplSyncDdl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGdnInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGdnInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建GDN实例.
+     *
+     * @param request - CreateGdnInstanceRequest
+     *
+     * @returns CreateGdnInstanceResponse
+     *
+     * @param CreateGdnInstanceRequest $request
+     *
+     * @return CreateGdnInstanceResponse
+     */
+    public function createGdnInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGdnInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建评估预检任务
+     *
+     * @param request - CreateRplInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRplInspectionTaskResponse
+     *
+     * @param CreateRplInspectionTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateRplInspectionTaskResponse
+     */
+    public function createRplInspectionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dstDb) {
+            @$query['DstDb'] = $request->dstDb;
+        }
+
+        if (null !== $request->dstPassword) {
+            @$query['DstPassword'] = $request->dstPassword;
+        }
+
+        if (null !== $request->dstResId) {
+            @$query['DstResId'] = $request->dstResId;
+        }
+
+        if (null !== $request->dstUserName) {
+            @$query['DstUserName'] = $request->dstUserName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        if (null !== $request->srcPassword) {
+            @$query['SrcPassword'] = $request->srcPassword;
+        }
+
+        if (null !== $request->srcUserName) {
+            @$query['SrcUserName'] = $request->srcUserName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRplInspectionTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRplInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建评估预检任务
+     *
+     * @param request - CreateRplInspectionTaskRequest
+     *
+     * @returns CreateRplInspectionTaskResponse
+     *
+     * @param CreateRplInspectionTaskRequest $request
+     *
+     * @return CreateRplInspectionTaskResponse
+     */
+    public function createRplInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRplInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建评估升级的兼容性评估任务
+     *
+     * @param request - CreateSQLEvaluateTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSQLEvaluateTaskResponse
+     *
+     * @param CreateSQLEvaluateTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateSQLEvaluateTaskResponse
+     */
+    public function createSQLEvaluateTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->dstDb) {
+            @$query['DstDb'] = $request->dstDb;
+        }
+
+        if (null !== $request->dstPassword) {
+            @$query['DstPassword'] = $request->dstPassword;
+        }
+
+        if (null !== $request->dstResId) {
+            @$query['DstResId'] = $request->dstResId;
+        }
+
+        if (null !== $request->dstUserName) {
+            @$query['DstUserName'] = $request->dstUserName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskDesc) {
+            @$query['SlinkTaskDesc'] = $request->slinkTaskDesc;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        if (null !== $request->srcDb) {
+            @$query['SrcDb'] = $request->srcDb;
+        }
+
+        if (null !== $request->srcPassword) {
+            @$query['SrcPassword'] = $request->srcPassword;
+        }
+
+        if (null !== $request->srcResId) {
+            @$query['SrcResId'] = $request->srcResId;
+        }
+
+        if (null !== $request->srcResType) {
+            @$query['SrcResType'] = $request->srcResType;
+        }
+
+        if (null !== $request->srcUserName) {
+            @$query['SrcUserName'] = $request->srcUserName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSQLEvaluateTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSQLEvaluateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建评估升级的兼容性评估任务
+     *
+     * @param request - CreateSQLEvaluateTaskRequest
+     *
+     * @returns CreateSQLEvaluateTaskResponse
+     *
+     * @param CreateSQLEvaluateTaskRequest $request
+     *
+     * @return CreateSQLEvaluateTaskResponse
+     */
+    public function createSQLEvaluateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSQLEvaluateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建 PolarDB-X 存储资源池.
+     *
+     * @param request - CreateStoragePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStoragePoolResponse
+     *
+     * @param CreateStoragePoolRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateStoragePoolResponse
+     */
+    public function createStoragePoolWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->storagePoolDNList) {
+            @$query['StoragePoolDNList'] = $request->storagePoolDNList;
+        }
+
+        if (null !== $request->storagePoolName) {
+            @$query['StoragePoolName'] = $request->storagePoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStoragePool',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStoragePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 PolarDB-X 存储资源池.
+     *
+     * @param request - CreateStoragePoolRequest
+     *
+     * @returns CreateStoragePoolResponse
+     *
+     * @param CreateStoragePoolRequest $request
+     *
+     * @return CreateStoragePoolResponse
+     */
+    public function createStoragePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStoragePoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建评估升级的结构迁移任务
+     *
+     * @param request - CreateStructureImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStructureImportTaskResponse
+     *
+     * @param CreateStructureImportTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateStructureImportTaskResponse
+     */
+    public function createStructureImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStructureImportTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStructureImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建评估升级的结构迁移任务
+     *
+     * @param request - CreateStructureImportTaskRequest
+     *
+     * @returns CreateStructureImportTaskResponse
+     *
+     * @param CreateStructureImportTaskRequest $request
+     *
+     * @return CreateStructureImportTaskResponse
+     */
+    public function createStructureImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStructureImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - CreateSuperAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1117,6 +2070,71 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 创建标准版迁移到企业版的操作任务
+     *
+     * @param request - CreateTransformOperationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTransformOperationResponse
+     *
+     * @param CreateTransformOperationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateTransformOperationResponse
+     */
+    public function createTransformOperationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTransformOperation',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTransformOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建标准版迁移到企业版的操作任务
+     *
+     * @param request - CreateTransformOperationRequest
+     *
+     * @returns CreateTransformOperationResponse
+     *
+     * @param CreateTransformOperationRequest $request
+     *
+     * @return CreateTransformOperationResponse
+     */
+    public function createTransformOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTransformOperationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1183,6 +2201,71 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除自定义endpoint.
+     *
+     * @param request - DeleteCustomEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomEndpointResponse
+     *
+     * @param DeleteCustomEndpointRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteCustomEndpointResponse
+     */
+    public function deleteCustomEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customEndpointId) {
+            @$query['CustomEndpointId'] = $request->customEndpointId;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomEndpoint',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义endpoint.
+     *
+     * @param request - DeleteCustomEndpointRequest
+     *
+     * @returns DeleteCustomEndpointResponse
+     *
+     * @param DeleteCustomEndpointRequest $request
+     *
+     * @return DeleteCustomEndpointResponse
+     */
+    public function deleteCustomEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -1301,6 +2384,128 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除评估导入任务
+     *
+     * @param request - DeleteEvaluateAndImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEvaluateAndImportTaskResponse
+     *
+     * @param DeleteEvaluateAndImportTaskRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteEvaluateAndImportTaskResponse
+     */
+    public function deleteEvaluateAndImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEvaluateAndImportTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEvaluateAndImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除评估导入任务
+     *
+     * @param request - DeleteEvaluateAndImportTaskRequest
+     *
+     * @returns DeleteEvaluateAndImportTaskResponse
+     *
+     * @param DeleteEvaluateAndImportTaskRequest $request
+     *
+     * @return DeleteEvaluateAndImportTaskResponse
+     */
+    public function deleteEvaluateAndImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEvaluateAndImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除GDN实例.
+     *
+     * @param request - DeleteGdnInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGdnInstanceResponse
+     *
+     * @param DeleteGdnInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteGdnInstanceResponse
+     */
+    public function deleteGdnInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gdnInstanceName) {
+            @$query['GdnInstanceName'] = $request->gdnInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGdnInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGdnInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除GDN实例.
+     *
+     * @param request - DeleteGdnInstanceRequest
+     *
+     * @returns DeleteGdnInstanceResponse
+     *
+     * @param DeleteGdnInstanceRequest $request
+     *
+     * @return DeleteGdnInstanceResponse
+     */
+    public function deleteGdnInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGdnInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1613,6 +2818,67 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 获取已开启跨地域备份的地域
+     *
+     * @param request - DescribeAvailableCrossRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAvailableCrossRegionsResponse
+     *
+     * @param DescribeAvailableCrossRegionsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeAvailableCrossRegionsResponse
+     */
+    public function describeAvailableCrossRegionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAvailableCrossRegions',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAvailableCrossRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取已开启跨地域备份的地域
+     *
+     * @param request - DescribeAvailableCrossRegionsRequest
+     *
+     * @returns DescribeAvailableCrossRegionsResponse
+     *
+     * @param DescribeAvailableCrossRegionsRequest $request
+     *
+     * @return DescribeAvailableCrossRegionsResponse
+     */
+    public function describeAvailableCrossRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableCrossRegionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1865,6 +3131,71 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询多流规格列表.
+     *
+     * @param request - DescribeCdcClassListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCdcClassListResponse
+     *
+     * @param DescribeCdcClassListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeCdcClassListResponse
+     */
+    public function describeCdcClassListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCdcClassList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCdcClassListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多流规格列表.
+     *
+     * @param request - DescribeCdcClassListRequest
+     *
+     * @returns DescribeCdcClassListResponse
+     *
+     * @param DescribeCdcClassListRequest $request
+     *
+     * @return DescribeCdcClassListResponse
+     */
+    public function describeCdcClassList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdcClassListWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询CDC信息.
      *
      * @param request - DescribeCdcInfoRequest
@@ -1923,6 +3254,67 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdcInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取CDC版本列表.
+     *
+     * @param request - DescribeCdcVersionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCdcVersionListResponse
+     *
+     * @param DescribeCdcVersionListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCdcVersionListResponse
+     */
+    public function describeCdcVersionListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCdcVersionList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCdcVersionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取CDC版本列表.
+     *
+     * @param request - DescribeCdcVersionListRequest
+     *
+     * @returns DescribeCdcVersionListResponse
+     *
+     * @param DescribeCdcVersionListRequest $request
+     *
+     * @return DescribeCdcVersionListResponse
+     */
+    public function describeCdcVersionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdcVersionListWithOptions($request, $runtime);
     }
 
     /**
@@ -2033,6 +3425,327 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeColdDataBasicInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询列存规格列表.
+     *
+     * @param request - DescribeColumnarClassListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeColumnarClassListResponse
+     *
+     * @param DescribeColumnarClassListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeColumnarClassListResponse
+     */
+    public function describeColumnarClassListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeColumnarClassList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeColumnarClassListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询列存规格列表.
+     *
+     * @param request - DescribeColumnarClassListRequest
+     *
+     * @returns DescribeColumnarClassListResponse
+     *
+     * @param DescribeColumnarClassListRequest $request
+     *
+     * @return DescribeColumnarClassListResponse
+     */
+    public function describeColumnarClassList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeColumnarClassListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Columnar信息.
+     *
+     * @param request - DescribeColumnarInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeColumnarInfoResponse
+     *
+     * @param DescribeColumnarInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeColumnarInfoResponse
+     */
+    public function describeColumnarInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeColumnarInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeColumnarInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Columnar信息.
+     *
+     * @param request - DescribeColumnarInfoRequest
+     *
+     * @returns DescribeColumnarInfoResponse
+     *
+     * @param DescribeColumnarInfoRequest $request
+     *
+     * @return DescribeColumnarInfoResponse
+     */
+    public function describeColumnarInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeColumnarInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Columnar版本列表.
+     *
+     * @param request - DescribeColumnarVersionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeColumnarVersionListResponse
+     *
+     * @param DescribeColumnarVersionListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeColumnarVersionListResponse
+     */
+    public function describeColumnarVersionListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeColumnarVersionList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeColumnarVersionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Columnar版本列表.
+     *
+     * @param request - DescribeColumnarVersionListRequest
+     *
+     * @returns DescribeColumnarVersionListResponse
+     *
+     * @param DescribeColumnarVersionListRequest $request
+     *
+     * @return DescribeColumnarVersionListResponse
+     */
+    public function describeColumnarVersionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeColumnarVersionListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PolarDB-X 实例指定组件的属性列表.
+     *
+     * @param request - DescribeComponentPropetiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComponentPropetiesResponse
+     *
+     * @param DescribeComponentPropetiesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeComponentPropetiesResponse
+     */
+    public function describeComponentPropetiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
+        }
+
+        if (null !== $request->componentName) {
+            @$query['ComponentName'] = $request->componentName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComponentPropeties',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComponentPropetiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarDB-X 实例指定组件的属性列表.
+     *
+     * @param request - DescribeComponentPropetiesRequest
+     *
+     * @returns DescribeComponentPropetiesResponse
+     *
+     * @param DescribeComponentPropetiesRequest $request
+     *
+     * @return DescribeComponentPropetiesResponse
+     */
+    public function describeComponentPropeties($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComponentPropetiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询自定义连接信息.
+     *
+     * @param request - DescribeCustomEndpointListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomEndpointListResponse
+     *
+     * @param DescribeCustomEndpointListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeCustomEndpointListResponse
+     */
+    public function describeCustomEndpointListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->checkDeleteCN) {
+            @$query['CheckDeleteCN'] = $request->checkDeleteCN;
+        }
+
+        if (null !== $request->customEndpointIds) {
+            @$query['CustomEndpointIds'] = $request->customEndpointIds;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCustomEndpointList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCustomEndpointListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自定义连接信息.
+     *
+     * @param request - DescribeCustomEndpointListRequest
+     *
+     * @returns DescribeCustomEndpointListResponse
+     *
+     * @param DescribeCustomEndpointListRequest $request
+     *
+     * @return DescribeCustomEndpointListResponse
+     */
+    public function describeCustomEndpointList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomEndpointListWithOptions($request, $runtime);
     }
 
     /**
@@ -2649,6 +4362,83 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 导入任务详情.
+     *
+     * @param request - DescribeDataImportTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataImportTaskInfoResponse
+     *
+     * @param DescribeDataImportTaskInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDataImportTaskInfoResponse
+     */
+    public function describeDataImportTaskInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->failPageNumber) {
+            @$query['FailPageNumber'] = $request->failPageNumber;
+        }
+
+        if (null !== $request->failPageSize) {
+            @$query['FailPageSize'] = $request->failPageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        if (null !== $request->successPageNumber) {
+            @$query['SuccessPageNumber'] = $request->successPageNumber;
+        }
+
+        if (null !== $request->successPageSize) {
+            @$query['SuccessPageSize'] = $request->successPageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataImportTaskInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataImportTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入任务详情.
+     *
+     * @param request - DescribeDataImportTaskInfoRequest
+     *
+     * @returns DescribeDataImportTaskInfoResponse
+     *
+     * @param DescribeDataImportTaskInfoRequest $request
+     *
+     * @return DescribeDataImportTaskInfoResponse
+     */
+    public function describeDataImportTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataImportTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DescribeDbListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2768,6 +4558,193 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDistributeTableListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取已开启跨地域备份的地域
+     *
+     * @param request - DescribeEnabledCrossRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEnabledCrossRegionsResponse
+     *
+     * @param DescribeEnabledCrossRegionsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeEnabledCrossRegionsResponse
+     */
+    public function describeEnabledCrossRegionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEnabledCrossRegions',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEnabledCrossRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取已开启跨地域备份的地域
+     *
+     * @param request - DescribeEnabledCrossRegionsRequest
+     *
+     * @returns DescribeEnabledCrossRegionsResponse
+     *
+     * @param DescribeEnabledCrossRegionsRequest $request
+     *
+     * @return DescribeEnabledCrossRegionsResponse
+     */
+    public function describeEnabledCrossRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnabledCrossRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询单个评估迁移任务详情.
+     *
+     * @param request - DescribeEvaluateAndImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEvaluateAndImportTaskResponse
+     *
+     * @param DescribeEvaluateAndImportTaskRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeEvaluateAndImportTaskResponse
+     */
+    public function describeEvaluateAndImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEvaluateAndImportTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEvaluateAndImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单个评估迁移任务详情.
+     *
+     * @param request - DescribeEvaluateAndImportTaskRequest
+     *
+     * @returns DescribeEvaluateAndImportTaskResponse
+     *
+     * @param DescribeEvaluateAndImportTaskRequest $request
+     *
+     * @return DescribeEvaluateAndImportTaskResponse
+     */
+    public function describeEvaluateAndImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEvaluateAndImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 请求评估导入任务列表.
+     *
+     * @param request - DescribeEvaluateAndImportTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEvaluateAndImportTasksResponse
+     *
+     * @param DescribeEvaluateAndImportTasksRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeEvaluateAndImportTasksResponse
+     */
+    public function describeEvaluateAndImportTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEvaluateAndImportTasks',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEvaluateAndImportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 请求评估导入任务列表.
+     *
+     * @param request - DescribeEvaluateAndImportTasksRequest
+     *
+     * @returns DescribeEvaluateAndImportTasksResponse
+     *
+     * @param DescribeEvaluateAndImportTasksRequest $request
+     *
+     * @return DescribeEvaluateAndImportTasksResponse
+     */
+    public function describeEvaluateAndImportTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEvaluateAndImportTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -2966,6 +4943,59 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询参数模版列表.
+     *
+     * @param request - DescribeParameterGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeParameterGroupsResponse
+     *
+     * @param DescribeParameterGroupsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeParameterGroupsResponse
+     */
+    public function describeParameterGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeParameterGroups',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeParameterGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询参数模版列表.
+     *
+     * @param request - DescribeParameterGroupsRequest
+     *
+     * @returns DescribeParameterGroupsResponse
+     *
+     * @param DescribeParameterGroupsRequest $request
+     *
+     * @return DescribeParameterGroupsResponse
+     */
+    public function describeParameterGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DescribeParameterTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3092,6 +5122,201 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询数据节点列表.
+     *
+     * @param request - DescribePolarxDataNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarxDataNodesResponse
+     *
+     * @param DescribePolarxDataNodesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePolarxDataNodesResponse
+     */
+    public function describePolarxDataNodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarxDataNodes',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarxDataNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据节点列表.
+     *
+     * @param request - DescribePolarxDataNodesRequest
+     *
+     * @returns DescribePolarxDataNodesResponse
+     *
+     * @param DescribePolarxDataNodesRequest $request
+     *
+     * @return DescribePolarxDataNodesResponse
+     */
+    public function describePolarxDataNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarxDataNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeRdsVpcsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRdsVpcsResponse
+     *
+     * @param DescribeRdsVpcsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRdsVpcsResponse
+     */
+    public function describeRdsVpcsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRdsVpcs',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRdsVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeRdsVpcsRequest
+     *
+     * @returns DescribeRdsVpcsResponse
+     *
+     * @param DescribeRdsVpcsRequest $request
+     *
+     * @return DescribeRdsVpcsResponse
+     */
+    public function describeRdsVpcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsVpcsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Vswitch信息.
+     *
+     * @param request - DescribeRdsVswitchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRdsVswitchesResponse
+     *
+     * @param DescribeRdsVswitchesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRdsVswitchesResponse
+     */
+    public function describeRdsVswitchesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRdsVswitches',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRdsVswitchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Vswitch信息.
+     *
+     * @param request - DescribeRdsVswitchesRequest
+     *
+     * @returns DescribeRdsVswitchesResponse
+     *
+     * @param DescribeRdsVswitchesRequest $request
+     *
+     * @return DescribeRdsVswitchesResponse
+     */
+    public function describeRdsVswitches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsVswitchesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3129,6 +5354,83 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($runtime);
+    }
+
+    /**
+     * 查询预检任务结果.
+     *
+     * @param request - DescribeRplInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRplInspectionTaskResponse
+     *
+     * @param DescribeRplInspectionTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRplInspectionTaskResponse
+     */
+    public function describeRplInspectionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->failPageNumber) {
+            @$query['FailPageNumber'] = $request->failPageNumber;
+        }
+
+        if (null !== $request->failPageSize) {
+            @$query['FailPageSize'] = $request->failPageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        if (null !== $request->successPageNumber) {
+            @$query['SuccessPageNumber'] = $request->successPageNumber;
+        }
+
+        if (null !== $request->successPageSize) {
+            @$query['SuccessPageSize'] = $request->successPageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRplInspectionTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRplInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询预检任务结果.
+     *
+     * @param request - DescribeRplInspectionTaskRequest
+     *
+     * @returns DescribeRplInspectionTaskResponse
+     *
+     * @param DescribeRplInspectionTaskRequest $request
+     *
+     * @return DescribeRplInspectionTaskResponse
+     */
+    public function describeRplInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRplInspectionTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3262,6 +5564,71 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询 PolarDB-X 存储节点信息.
+     *
+     * @param request - DescribeShowStorageInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeShowStorageInfoResponse
+     *
+     * @param DescribeShowStorageInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeShowStorageInfoResponse
+     */
+    public function describeShowStorageInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeShowStorageInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeShowStorageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 PolarDB-X 存储节点信息.
+     *
+     * @param request - DescribeShowStorageInfoRequest
+     *
+     * @returns DescribeShowStorageInfoResponse
+     *
+     * @param DescribeShowStorageInfoRequest $request
+     *
+     * @return DescribeShowStorageInfoResponse
+     */
+    public function describeShowStorageInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeShowStorageInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * 慢SQL明细.
      *
      * @param request - DescribeSlowLogRecordsRequest
@@ -3348,6 +5715,258 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlowLogRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeSqlAuditInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSqlAuditInfoResponse
+     *
+     * @param DescribeSqlAuditInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeSqlAuditInfoResponse
+     */
+    public function describeSqlAuditInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->auditAccountName) {
+            @$query['AuditAccountName'] = $request->auditAccountName;
+        }
+
+        if (null !== $request->auditAccountPassword) {
+            @$query['AuditAccountPassword'] = $request->auditAccountPassword;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSqlAuditInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSqlAuditInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeSqlAuditInfoRequest
+     *
+     * @returns DescribeSqlAuditInfoResponse
+     *
+     * @param DescribeSqlAuditInfoRequest $request
+     *
+     * @return DescribeSqlAuditInfoResponse
+     */
+    public function describeSqlAuditInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSqlAuditInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * SQL闪回任务列表查询.
+     *
+     * @param request - DescribeSqlFlashbackTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSqlFlashbackTaskListResponse
+     *
+     * @param DescribeSqlFlashbackTaskListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSqlFlashbackTaskListResponse
+     */
+    public function describeSqlFlashbackTaskListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->polardbxInstanceId) {
+            @$query['PolardbxInstanceId'] = $request->polardbxInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSqlFlashbackTaskList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSqlFlashbackTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SQL闪回任务列表查询.
+     *
+     * @param request - DescribeSqlFlashbackTaskListRequest
+     *
+     * @returns DescribeSqlFlashbackTaskListResponse
+     *
+     * @param DescribeSqlFlashbackTaskListRequest $request
+     *
+     * @return DescribeSqlFlashbackTaskListResponse
+     */
+    public function describeSqlFlashbackTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSqlFlashbackTaskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询 PolarDB-X 存储资源池信息.
+     *
+     * @param request - DescribeStoragePoolInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeStoragePoolInfoResponse
+     *
+     * @param DescribeStoragePoolInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeStoragePoolInfoResponse
+     */
+    public function describeStoragePoolInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeStoragePoolInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeStoragePoolInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 PolarDB-X 存储资源池信息.
+     *
+     * @param request - DescribeStoragePoolInfoRequest
+     *
+     * @returns DescribeStoragePoolInfoResponse
+     *
+     * @param DescribeStoragePoolInfoRequest $request
+     *
+     * @return DescribeStoragePoolInfoResponse
+     */
+    public function describeStoragePoolInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStoragePoolInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询结构迁移任务结果.
+     *
+     * @param request - DescribeStructureImportTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeStructureImportTaskInfoResponse
+     *
+     * @param DescribeStructureImportTaskInfoRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeStructureImportTaskInfoResponse
+     */
+    public function describeStructureImportTaskInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeStructureImportTaskInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeStructureImportTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询结构迁移任务结果.
+     *
+     * @param request - DescribeStructureImportTaskInfoRequest
+     *
+     * @returns DescribeStructureImportTaskInfoResponse
+     *
+     * @param DescribeStructureImportTaskInfoRequest $request
+     *
+     * @return DescribeStructureImportTaskInfoResponse
+     */
+    public function describeStructureImportTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStructureImportTaskInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -3505,6 +6124,71 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询标准版迁移到企业版的任务状态
+     *
+     * @param request - DescribeTransformStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTransformStatusResponse
+     *
+     * @param DescribeTransformStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeTransformStatusResponse
+     */
+    public function describeTransformStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->queryReport) {
+            @$query['QueryReport'] = $request->queryReport;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTransformStatus',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTransformStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询标准版迁移到企业版的任务状态
+     *
+     * @param request - DescribeTransformStatusRequest
+     *
+     * @returns DescribeTransformStatusResponse
+     *
+     * @param DescribeTransformStatusRequest $request
+     *
+     * @return DescribeTransformStatusResponse
+     */
+    public function describeTransformStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTransformStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DescribeUserEncryptionKeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3627,6 +6311,71 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param request - DisableSqlAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSqlAuditResponse
+     *
+     * @param DisableSqlAuditRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DisableSqlAuditResponse
+     */
+    public function disableSqlAuditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->auditAccountName) {
+            @$query['AuditAccountName'] = $request->auditAccountName;
+        }
+
+        if (null !== $request->auditAccountPassword) {
+            @$query['AuditAccountPassword'] = $request->auditAccountPassword;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableSqlAudit',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableSqlAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DisableSqlAuditRequest
+     *
+     * @returns DisableSqlAuditResponse
+     *
+     * @param DisableSqlAuditRequest $request
+     *
+     * @return DisableSqlAuditResponse
+     */
+    public function disableSqlAudit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableSqlAuditWithOptions($request, $runtime);
+    }
+
+    /**
      * 开启三权分立.
      *
      * @param request - EnableRightsSeparationRequest
@@ -3712,6 +6461,75 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param request - EnableSqlAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSqlAuditResponse
+     *
+     * @param EnableSqlAuditRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return EnableSqlAuditResponse
+     */
+    public function enableSqlAuditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->auditAccountName) {
+            @$query['AuditAccountName'] = $request->auditAccountName;
+        }
+
+        if (null !== $request->auditAccountPassword) {
+            @$query['AuditAccountPassword'] = $request->auditAccountPassword;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->expireAfterDays) {
+            @$query['ExpireAfterDays'] = $request->expireAfterDays;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableSqlAudit',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSqlAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - EnableSqlAuditRequest
+     *
+     * @returns EnableSqlAuditResponse
+     *
+     * @param EnableSqlAuditRequest $request
+     *
+     * @return EnableSqlAuditResponse
+     */
+    public function enableSqlAudit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableSqlAuditWithOptions($request, $runtime);
+    }
+
+    /**
      * 查标签接口.
      *
      * @param request - ListTagResourcesRequest
@@ -3782,6 +6600,91 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - MigrateDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MigrateDBInstanceResponse
+     *
+     * @param MigrateDBInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MigrateDBInstanceResponse
+     */
+    public function migrateDBInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->primaryZoneId) {
+            @$query['PrimaryZoneId'] = $request->primaryZoneId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->secondaryZoneId) {
+            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
+        }
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
+        }
+
+        if (null !== $request->tertiaryZoneId) {
+            @$query['TertiaryZoneId'] = $request->tertiaryZoneId;
+        }
+
+        if (null !== $request->topologyType) {
+            @$query['TopologyType'] = $request->topologyType;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vswitchId) {
+            @$query['VswitchId'] = $request->vswitchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MigrateDBInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MigrateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - MigrateDBInstanceRequest
+     *
+     * @returns MigrateDBInstanceResponse
+     *
+     * @param MigrateDBInstanceRequest $request
+     *
+     * @return MigrateDBInstanceResponse
+     */
+    public function migrateDBInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->migrateDBInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -4046,6 +6949,322 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * CDC变配.
+     *
+     * @remarks
+     *
+     * @param request - ModifyCdcClassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCdcClassResponse
+     *
+     * @param ModifyCdcClassRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyCdcClassResponse
+     */
+    public function modifyCdcClassWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->CDCNodeCount) {
+            @$query['CDCNodeCount'] = $request->CDCNodeCount;
+        }
+
+        if (null !== $request->cdcClass) {
+            @$query['CdcClass'] = $request->cdcClass;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCdcClass',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCdcClassResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CDC变配.
+     *
+     * @remarks
+     *
+     * @param request - ModifyCdcClassRequest
+     *
+     * @returns ModifyCdcClassResponse
+     *
+     * @param ModifyCdcClassRequest $request
+     *
+     * @return ModifyCdcClassResponse
+     */
+    public function modifyCdcClass($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCdcClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * Columnar变配.
+     *
+     * @remarks
+     *
+     * @param request - ModifyColumnarClassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyColumnarClassResponse
+     *
+     * @param ModifyColumnarClassRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyColumnarClassResponse
+     */
+    public function modifyColumnarClassWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->columnarClass) {
+            @$query['ColumnarClass'] = $request->columnarClass;
+        }
+
+        if (null !== $request->columnarNodeCount) {
+            @$query['ColumnarNodeCount'] = $request->columnarNodeCount;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyColumnarClass',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyColumnarClassResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Columnar变配.
+     *
+     * @remarks
+     *
+     * @param request - ModifyColumnarClassRequest
+     *
+     * @returns ModifyColumnarClassResponse
+     *
+     * @param ModifyColumnarClassRequest $request
+     *
+     * @return ModifyColumnarClassResponse
+     */
+    public function modifyColumnarClass($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyColumnarClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修复自定连接基本信息.
+     *
+     * @param request - ModifyCustomEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCustomEndpointResponse
+     *
+     * @param ModifyCustomEndpointRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyCustomEndpointResponse
+     */
+    public function modifyCustomEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customEndpointId) {
+            @$query['CustomEndpointId'] = $request->customEndpointId;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nodeAutoEnter) {
+            @$query['NodeAutoEnter'] = $request->nodeAutoEnter;
+        }
+
+        if (null !== $request->nodeIds) {
+            @$query['NodeIds'] = $request->nodeIds;
+        }
+
+        if (null !== $request->nodeRole) {
+            @$query['NodeRole'] = $request->nodeRole;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCustomEndpoint',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCustomEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修复自定连接基本信息.
+     *
+     * @param request - ModifyCustomEndpointRequest
+     *
+     * @returns ModifyCustomEndpointResponse
+     *
+     * @param ModifyCustomEndpointRequest $request
+     *
+     * @return ModifyCustomEndpointResponse
+     */
+    public function modifyCustomEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修复自定连接的网络信息.
+     *
+     * @param request - ModifyCustomEndpointNetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCustomEndpointNetResponse
+     *
+     * @param ModifyCustomEndpointNetRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyCustomEndpointNetResponse
+     */
+    public function modifyCustomEndpointNetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connPrefix) {
+            @$query['ConnPrefix'] = $request->connPrefix;
+        }
+
+        if (null !== $request->customEndpointId) {
+            @$query['CustomEndpointId'] = $request->customEndpointId;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCustomEndpointNet',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCustomEndpointNetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修复自定连接的网络信息.
+     *
+     * @param request - ModifyCustomEndpointNetRequest
+     *
+     * @returns ModifyCustomEndpointNetResponse
+     *
+     * @param ModifyCustomEndpointNetRequest $request
+     *
+     * @return ModifyCustomEndpointNetResponse
+     */
+    public function modifyCustomEndpointNet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomEndpointNetWithOptions($request, $runtime);
     }
 
     /**
@@ -4345,6 +7564,140 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param request - ModifyDBInstanceMaintainTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceMaintainTimeResponse
+     *
+     * @param ModifyDBInstanceMaintainTimeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyDBInstanceMaintainTimeResponse
+     */
+    public function modifyDBInstanceMaintainTimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->maintainTime) {
+            @$query['MaintainTime'] = $request->maintainTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBInstanceMaintainTime',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ModifyDBInstanceMaintainTimeRequest
+     *
+     * @returns ModifyDBInstanceMaintainTimeResponse
+     *
+     * @param ModifyDBInstanceMaintainTimeRequest $request
+     *
+     * @return ModifyDBInstanceMaintainTimeResponse
+     */
+    public function modifyDBInstanceMaintainTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceMaintainTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @remarks
+     *
+     * @param request - ModifyDBInstanceVipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceVipResponse
+     *
+     * @param ModifyDBInstanceVipRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDBInstanceVipResponse
+     */
+    public function modifyDBInstanceVipWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBInstanceVip',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBInstanceVipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @remarks
+     *
+     * @param request - ModifyDBInstanceVipRequest
+     *
+     * @returns ModifyDBInstanceVipResponse
+     *
+     * @param ModifyDBInstanceVipRequest $request
+     *
+     * @return ModifyDBInstanceVipResponse
+     */
+    public function modifyDBInstanceVip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceVipWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ModifyDatabaseDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4407,6 +7760,87 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDatabaseDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * ModifyEngineMigration.
+     *
+     * @remarks
+     *
+     * @param request - ModifyEngineMigrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyEngineMigrationResponse
+     *
+     * @param ModifyEngineMigrationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyEngineMigrationResponse
+     */
+    public function modifyEngineMigrationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionStrings) {
+            @$query['ConnectionStrings'] = $request->connectionStrings;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->newMasterDBInstanceName) {
+            @$query['NewMasterDBInstanceName'] = $request->newMasterDBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceDBInstanceName) {
+            @$query['SourceDBInstanceName'] = $request->sourceDBInstanceName;
+        }
+
+        if (null !== $request->swapConnectionString) {
+            @$query['SwapConnectionString'] = $request->swapConnectionString;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyEngineMigration',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyEngineMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ModifyEngineMigration.
+     *
+     * @remarks
+     *
+     * @param request - ModifyEngineMigrationRequest
+     *
+     * @returns ModifyEngineMigrationResponse
+     *
+     * @param ModifyEngineMigrationRequest $request
+     *
+     * @return ModifyEngineMigrationResponse
+     */
+    public function modifyEngineMigration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyEngineMigrationWithOptions($request, $runtime);
     }
 
     /**
@@ -4549,6 +7983,144 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * SQL闪回任务预检
+     *
+     * @param request - PreCheckSqlFlashbackTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreCheckSqlFlashbackTaskResponse
+     *
+     * @param PreCheckSqlFlashbackTaskRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return PreCheckSqlFlashbackTaskResponse
+     */
+    public function preCheckSqlFlashbackTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->polardbxInstanceId) {
+            @$query['PolardbxInstanceId'] = $request->polardbxInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PreCheckSqlFlashbackTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PreCheckSqlFlashbackTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SQL闪回任务预检
+     *
+     * @param request - PreCheckSqlFlashbackTaskRequest
+     *
+     * @returns PreCheckSqlFlashbackTaskResponse
+     *
+     * @param PreCheckSqlFlashbackTaskRequest $request
+     *
+     * @return PreCheckSqlFlashbackTaskResponse
+     */
+    public function preCheckSqlFlashbackTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preCheckSqlFlashbackTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 刷新评估升级任务的导入元数据.
+     *
+     * @param request - RefreshImportMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshImportMetaResponse
+     *
+     * @param RefreshImportMetaRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RefreshImportMetaResponse
+     */
+    public function refreshImportMetaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshImportMeta',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshImportMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 刷新评估升级任务的导入元数据.
+     *
+     * @param request - RefreshImportMetaRequest
+     *
+     * @returns RefreshImportMetaResponse
+     *
+     * @param RefreshImportMetaRequest $request
+     *
+     * @return RefreshImportMetaResponse
+     */
+    public function refreshImportMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshImportMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -4747,6 +8319,83 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @remarks
+     *
+     * @param request - ResetAccountPasswordRestrictRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetAccountPasswordRestrictResponse
+     *
+     * @param ResetAccountPasswordRestrictRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ResetAccountPasswordRestrictResponse
+     */
+    public function resetAccountPasswordRestrictWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityAccountName) {
+            @$query['SecurityAccountName'] = $request->securityAccountName;
+        }
+
+        if (null !== $request->securityAccountPassword) {
+            @$query['SecurityAccountPassword'] = $request->securityAccountPassword;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetAccountPasswordRestrict',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetAccountPasswordRestrictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @remarks
+     *
+     * @param request - ResetAccountPasswordRestrictRequest
+     *
+     * @returns ResetAccountPasswordRestrictResponse
+     *
+     * @param ResetAccountPasswordRestrictRequest $request
+     *
+     * @return ResetAccountPasswordRestrictResponse
+     */
+    public function resetAccountPasswordRestrict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetAccountPasswordRestrictWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - RestartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4801,6 +8450,391 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重启数据导入任务
+     *
+     * @param request - RestartDataImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartDataImportTaskResponse
+     *
+     * @param RestartDataImportTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RestartDataImportTaskResponse
+     */
+    public function restartDataImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartDataImportTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartDataImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重启数据导入任务
+     *
+     * @param request - RestartDataImportTaskRequest
+     *
+     * @returns RestartDataImportTaskResponse
+     *
+     * @param RestartDataImportTaskRequest $request
+     *
+     * @return RestartDataImportTaskResponse
+     */
+    public function restartDataImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 跳过评估迁移的当前步骤.
+     *
+     * @param request - SkipCurrentStepRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SkipCurrentStepResponse
+     *
+     * @param SkipCurrentStepRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SkipCurrentStepResponse
+     */
+    public function skipCurrentStepWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentStep) {
+            @$query['CurrentStep'] = $request->currentStep;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SkipCurrentStep',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SkipCurrentStepResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 跳过评估迁移的当前步骤.
+     *
+     * @param request - SkipCurrentStepRequest
+     *
+     * @returns SkipCurrentStepResponse
+     *
+     * @param SkipCurrentStepRequest $request
+     *
+     * @return SkipCurrentStepResponse
+     */
+    public function skipCurrentStep($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->skipCurrentStepWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开始评估迁移切换.
+     *
+     * @param request - StartSwitchDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartSwitchDatabaseResponse
+     *
+     * @param StartSwitchDatabaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartSwitchDatabaseResponse
+     */
+    public function startSwitchDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->dstMainConnectString) {
+            @$query['DstMainConnectString'] = $request->dstMainConnectString;
+        }
+
+        if (null !== $request->dstMainPort) {
+            @$query['DstMainPort'] = $request->dstMainPort;
+        }
+
+        if (null !== $request->isModifyEndpoint) {
+            @$query['IsModifyEndpoint'] = $request->isModifyEndpoint;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        if (null !== $request->srcMainConnectString) {
+            @$query['SrcMainConnectString'] = $request->srcMainConnectString;
+        }
+
+        if (null !== $request->srcMainPort) {
+            @$query['SrcMainPort'] = $request->srcMainPort;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartSwitchDatabase',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartSwitchDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开始评估迁移切换.
+     *
+     * @param request - StartSwitchDatabaseRequest
+     *
+     * @returns StartSwitchDatabaseResponse
+     *
+     * @param StartSwitchDatabaseRequest $request
+     *
+     * @return StartSwitchDatabaseResponse
+     */
+    public function startSwitchDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startSwitchDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 暂停数据导入任务
+     *
+     * @param request - StopDataImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopDataImportTaskResponse
+     *
+     * @param StopDataImportTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopDataImportTaskResponse
+     */
+    public function stopDataImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->slinkTaskId) {
+            @$query['SlinkTaskId'] = $request->slinkTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopDataImportTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopDataImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停数据导入任务
+     *
+     * @param request - StopDataImportTaskRequest
+     *
+     * @returns StopDataImportTaskResponse
+     *
+     * @param StopDataImportTaskRequest $request
+     *
+     * @return StopDataImportTaskResponse
+     */
+    public function stopDataImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交SQL闪回任务
+     *
+     * @param request - SubmitSqlFlashbackTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSqlFlashbackTaskResponse
+     *
+     * @param SubmitSqlFlashbackTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitSqlFlashbackTaskResponse
+     */
+    public function submitSqlFlashbackTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->polardbxInstanceId) {
+            @$query['PolardbxInstanceId'] = $request->polardbxInstanceId;
+        }
+
+        if (null !== $request->recallRestoreType) {
+            @$query['RecallRestoreType'] = $request->recallRestoreType;
+        }
+
+        if (null !== $request->recallType) {
+            @$query['RecallType'] = $request->recallType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sqlPk) {
+            @$query['SqlPk'] = $request->sqlPk;
+        }
+
+        if (null !== $request->sqlType) {
+            @$query['SqlType'] = $request->sqlType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSqlFlashbackTask',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSqlFlashbackTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交SQL闪回任务
+     *
+     * @param request - SubmitSqlFlashbackTaskRequest
+     *
+     * @returns SubmitSqlFlashbackTaskResponse
+     *
+     * @param SubmitSqlFlashbackTaskRequest $request
+     *
+     * @return SubmitSqlFlashbackTaskResponse
+     */
+    public function submitSqlFlashbackTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSqlFlashbackTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -5437,6 +9471,156 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePolarDBXInstanceNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 升级CDC版本.
+     *
+     * @param request - UpgradeCDCVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeCDCVersionResponse
+     *
+     * @param UpgradeCDCVersionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpgradeCDCVersionResponse
+     */
+    public function upgradeCDCVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cdcDbVersion) {
+            @$query['CdcDbVersion'] = $request->cdcDbVersion;
+        }
+
+        if (null !== $request->cdcMinorVersion) {
+            @$query['CdcMinorVersion'] = $request->cdcMinorVersion;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeCDCVersion',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeCDCVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 升级CDC版本.
+     *
+     * @param request - UpgradeCDCVersionRequest
+     *
+     * @returns UpgradeCDCVersionResponse
+     *
+     * @param UpgradeCDCVersionRequest $request
+     *
+     * @return UpgradeCDCVersionResponse
+     */
+    public function upgradeCDCVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeCDCVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 升级Columnar版本.
+     *
+     * @param request - UpgradeColumnarVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeColumnarVersionResponse
+     *
+     * @param UpgradeColumnarVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeColumnarVersionResponse
+     */
+    public function upgradeColumnarVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->columnarVersion) {
+            @$query['ColumnarVersion'] = $request->columnarVersion;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeColumnarVersion',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeColumnarVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 升级Columnar版本.
+     *
+     * @param request - UpgradeColumnarVersionRequest
+     *
+     * @returns UpgradeColumnarVersionResponse
+     *
+     * @param UpgradeColumnarVersionRequest $request
+     *
+     * @return UpgradeColumnarVersionResponse
+     */
+    public function upgradeColumnarVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeColumnarVersionWithOptions($request, $runtime);
     }
 
     /**
