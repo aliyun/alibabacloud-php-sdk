@@ -21,7 +21,17 @@ class ListWafManagedRulesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $language;
+
+    /**
+     * @var string
+     */
+    public $managedRulesetShrink;
 
     /**
      * @var int
@@ -50,7 +60,9 @@ class ListWafManagedRulesShrinkRequest extends Model
     protected $_name = [
         'attackType' => 'AttackType',
         'id' => 'Id',
+        'instanceId' => 'InstanceId',
         'language' => 'Language',
+        'managedRulesetShrink' => 'ManagedRuleset',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'protectionLevel' => 'ProtectionLevel',
@@ -74,8 +86,16 @@ class ListWafManagedRulesShrinkRequest extends Model
             $res['Id'] = $this->id;
         }
 
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->managedRulesetShrink) {
+            $res['ManagedRuleset'] = $this->managedRulesetShrink;
         }
 
         if (null !== $this->pageNumber) {
@@ -117,8 +137,16 @@ class ListWafManagedRulesShrinkRequest extends Model
             $model->id = $map['Id'];
         }
 
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['ManagedRuleset'])) {
+            $model->managedRulesetShrink = $map['ManagedRuleset'];
         }
 
         if (isset($map['PageNumber'])) {

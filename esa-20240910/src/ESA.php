@@ -1500,6 +1500,14 @@ class ESA extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->planNameEn) {
+            @$query['PlanNameEn'] = $request->planNameEn;
+        }
+
         if (null !== $request->siteId) {
             @$query['SiteId'] = $request->siteId;
         }
@@ -1507,6 +1515,10 @@ class ESA extends OpenApiClient
         $body = [];
         if (null !== $request->expressionsShrink) {
             @$body['Expressions'] = $request->expressionsShrink;
+        }
+
+        if (null !== $request->kind) {
+            @$body['Kind'] = $request->kind;
         }
 
         if (null !== $request->phase) {
@@ -2942,7 +2954,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增HTTP入站请求头规则.
+     * Adds the configuration of modifying HTTP request headers for a website.
      *
      * @param tmpReq - CreateHttpIncomingRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3011,7 +3023,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增HTTP入站请求头规则.
+     * Adds the configuration of modifying HTTP request headers for a website.
      *
      * @param Request - CreateHttpIncomingRequestHeaderModificationRuleRequest
      *
@@ -3029,7 +3041,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增HTTP入站响应头规则.
+     * Adds the configuration of modifying HTTP response headers for a website.
      *
      * @param tmpReq - CreateHttpIncomingResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3098,7 +3110,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增HTTP入站响应头规则.
+     * Adds the configuration of modifying HTTP response headers for a website.
      *
      * @param Request - CreateHttpIncomingResponseHeaderModificationRuleRequest
      *
@@ -4693,7 +4705,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 发布Routine某版本代码
+     * Release the version of the function code in proportion to the specified environment.
+     *
+     * @remarks
+     * ## [](#)Request description
+     * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
+     * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
      *
      * @param tmpReq - CreateRoutineCodeDeploymentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4750,7 +4767,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 发布Routine某版本代码
+     * Release the version of the function code in proportion to the specified environment.
+     *
+     * @remarks
+     * ## [](#)Request description
+     * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
+     * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
      *
      * @param Request - CreateRoutineCodeDeploymentRequest
      *
@@ -6955,7 +6977,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除HTTP入站请求头规则.
+     * Deletes the configuration of modifying incoming HTTP request headers for a website.
      *
      * @param Request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6998,7 +7020,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除HTTP入站请求头规则.
+     * Deletes the configuration of modifying incoming HTTP request headers for a website.
      *
      * @param Request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
      *
@@ -7016,7 +7038,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除HTTP入站响应头规则.
+     * Deletes the configuration of modifying HTTP response headers for a website.
      *
      * @param Request - DeleteHttpIncomingResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7059,7 +7081,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除HTTP入站响应头规则.
+     * Deletes the configuration of modifying HTTP response headers for a website.
      *
      * @param Request - DeleteHttpIncomingResponseHeaderModificationRuleRequest
      *
@@ -10047,17 +10069,17 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取时序数据.
+     * Query traffic analysis time series data.
      *
      * @remarks
-     *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
-     * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
-     *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
-     *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
-     *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
-     *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
-     *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
-     * *   Data analysis may be sampled due to a large number of visits during the query period.
+     * - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
+     * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
+     *   * For a span of 3 hours or less, it returns 1-minute granularity data.
+     *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
+     *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
+     *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
+     *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
+     * - Due to the high number of accesses during the query period, the data analysis may be sampled.
      *
      * @param tmpReq - DescribeSiteTimeSeriesDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10118,17 +10140,17 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取时序数据.
+     * Query traffic analysis time series data.
      *
      * @remarks
-     *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify StartTime and EndTime, the request returns the data collected within the specified time range.
-     * *   The time interval at which data is returned varies according to the span of StartTime and EndTime.
-     *     *   If Time span ≤ 3 hours, the data is returned at a 1-minute interval.
-     *     *   If 3 hours < Time span ≤ 12 hours, the data is returned at a 5-minute interval.
-     *     *   If 12 hours < Time span ≤ 24 hours, the data is returned at a 15-minute interval.
-     *     *   If 1 day < Time span ≤ 10 days, the data is returned at an hourly interval.
-     *     *   If 10 days < Time span ≤ 31 days, the data is returned at a daily interval.
-     * *   Data analysis may be sampled due to a large number of visits during the query period.
+     * - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
+     * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
+     *   * For a span of 3 hours or less, it returns 1-minute granularity data.
+     *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
+     *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
+     *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
+     *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
+     * - Due to the high number of accesses during the query period, the data analysis may be sampled.
      *
      * @param Request - DescribeSiteTimeSeriesDataRequest
      *
@@ -11792,7 +11814,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP入站请求头规则详情.
+     * Queries the configuration details of an HTTP request header modification rule for a website.
      *
      * @param Request - GetHttpIncomingRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11827,7 +11849,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP入站请求头规则详情.
+     * Queries the configuration details of an HTTP request header modification rule for a website.
      *
      * @param Request - GetHttpIncomingRequestHeaderModificationRuleRequest
      *
@@ -11845,7 +11867,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP入站响应头规则.
+     * Queries the configuration details of an incoming HTTP response header modification rule for a website.
      *
      * @param Request - GetHttpIncomingResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11880,7 +11902,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP入站响应头规则.
+     * Queries the configuration details of an incoming HTTP response header modification rule for a website.
      *
      * @param Request - GetHttpIncomingResponseHeaderModificationRuleRequest
      *
@@ -13285,7 +13307,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询Routine某版本代码
+     * Queries information about a code version of a routine.
      *
      * @param Request - GetRoutineCodeVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13328,7 +13350,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询Routine某版本代码
+     * Queries information about a code version of a routine.
      *
      * @param Request - GetRoutineCodeVersionRequest
      *
@@ -15645,7 +15667,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP入站请求头规则列表.
+     * Queries the configuration details of an incoming HTTP request header modification rule for a website.
      *
      * @param Request - ListHttpIncomingRequestHeaderModificationRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15680,7 +15702,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP入站请求头规则列表.
+     * Queries the configuration details of an incoming HTTP request header modification rule for a website.
      *
      * @param Request - ListHttpIncomingRequestHeaderModificationRulesRequest
      *
@@ -15698,7 +15720,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP入站响应头规则列表.
+     * Queries the configurations of an incoming HTTP response header modification rule for a website.
      *
      * @param Request - ListHttpIncomingResponseHeaderModificationRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15733,7 +15755,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP入站响应头规则列表.
+     * Queries the configurations of an incoming HTTP response header modification rule for a website.
      *
      * @param Request - ListHttpIncomingResponseHeaderModificationRulesRequest
      *
@@ -18080,6 +18102,10 @@ class ESA extends OpenApiClient
         $tmpReq->validate();
         $request = new ListWafManagedRulesShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->managedRuleset) {
+            $request->managedRulesetShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->managedRuleset, 'ManagedRuleset', 'json');
+        }
+
         if (null !== $tmpReq->queryArgs) {
             $request->queryArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
         }
@@ -18093,8 +18119,16 @@ class ESA extends OpenApiClient
             @$query['Id'] = $request->id;
         }
 
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         if (null !== $request->language) {
             @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->managedRulesetShrink) {
+            @$query['ManagedRuleset'] = $request->managedRulesetShrink;
         }
 
         if (null !== $request->pageNumber) {
@@ -18407,6 +18441,10 @@ class ESA extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         if (null !== $request->phase) {
             @$query['Phase'] = $request->phase;
         }
@@ -18472,6 +18510,10 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         if (null !== $request->phase) {
             @$query['Phase'] = $request->phase;
         }
@@ -20444,7 +20486,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 缓存保持变配.
+     * Cache Reserve Specification Change.
      *
      * @param Request - UpdateCacheReserveSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20495,7 +20537,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 缓存保持变配.
+     * Cache Reserve Specification Change.
      *
      * @param Request - UpdateCacheReserveSpecRequest
      *
@@ -21236,7 +21278,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTP入站请求头规则.
+     * Updates the HTTP incoming request header modification rule.
      *
      * @param tmpReq - UpdateHttpIncomingRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21305,7 +21347,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTP入站请求头规则.
+     * Updates the HTTP incoming request header modification rule.
      *
      * @param Request - UpdateHttpIncomingRequestHeaderModificationRuleRequest
      *
@@ -21323,7 +21365,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTP入站响应头规则.
+     * Updates the configuration of modifying HTTP response headers for a website.
      *
      * @param tmpReq - UpdateHttpIncomingResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21392,7 +21434,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTP入站响应头规则.
+     * Updates the configuration of modifying HTTP response headers for a website.
      *
      * @param Request - UpdateHttpIncomingResponseHeaderModificationRuleRequest
      *
@@ -23153,7 +23195,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改Routine描述信息.
+     * Modifies the description of a routine.
      *
      * @param Request - UpdateRoutineConfigDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23196,7 +23238,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改Routine描述信息.
+     * Modifies the description of a routine.
      *
      * @param Request - UpdateRoutineConfigDescriptionRequest
      *

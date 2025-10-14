@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesRequest\managedRuleset;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesRequest\queryArgs;
 
 class ListWafManagedRulesRequest extends Model
@@ -22,7 +23,17 @@ class ListWafManagedRulesRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $language;
+
+    /**
+     * @var managedRuleset
+     */
+    public $managedRuleset;
 
     /**
      * @var int
@@ -51,7 +62,9 @@ class ListWafManagedRulesRequest extends Model
     protected $_name = [
         'attackType' => 'AttackType',
         'id' => 'Id',
+        'instanceId' => 'InstanceId',
         'language' => 'Language',
+        'managedRuleset' => 'ManagedRuleset',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'protectionLevel' => 'ProtectionLevel',
@@ -61,6 +74,9 @@ class ListWafManagedRulesRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->managedRuleset) {
+            $this->managedRuleset->validate();
+        }
         if (null !== $this->queryArgs) {
             $this->queryArgs->validate();
         }
@@ -78,8 +94,16 @@ class ListWafManagedRulesRequest extends Model
             $res['Id'] = $this->id;
         }
 
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->managedRuleset) {
+            $res['ManagedRuleset'] = null !== $this->managedRuleset ? $this->managedRuleset->toArray($noStream) : $this->managedRuleset;
         }
 
         if (null !== $this->pageNumber) {
@@ -121,8 +145,16 @@ class ListWafManagedRulesRequest extends Model
             $model->id = $map['Id'];
         }
 
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['ManagedRuleset'])) {
+            $model->managedRuleset = managedRuleset::fromMap($map['ManagedRuleset']);
         }
 
         if (isset($map['PageNumber'])) {

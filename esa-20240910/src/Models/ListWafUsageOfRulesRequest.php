@@ -11,6 +11,11 @@ class ListWafUsageOfRulesRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $phase;
 
     /**
@@ -18,6 +23,7 @@ class ListWafUsageOfRulesRequest extends Model
      */
     public $siteId;
     protected $_name = [
+        'instanceId' => 'InstanceId',
         'phase' => 'Phase',
         'siteId' => 'SiteId',
     ];
@@ -30,6 +36,10 @@ class ListWafUsageOfRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
@@ -49,6 +59,10 @@ class ListWafUsageOfRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }

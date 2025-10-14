@@ -10,6 +10,16 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafUsageOfRulesResponseBody\sites;
 class ListWafUsageOfRulesResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $batchConfigUsage;
+
+    /**
+     * @var int
+     */
+    public $instanceUsage;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -19,6 +29,8 @@ class ListWafUsageOfRulesResponseBody extends Model
      */
     public $sites;
     protected $_name = [
+        'batchConfigUsage' => 'BatchConfigUsage',
+        'instanceUsage' => 'InstanceUsage',
         'requestId' => 'RequestId',
         'sites' => 'Sites',
     ];
@@ -34,6 +46,14 @@ class ListWafUsageOfRulesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->batchConfigUsage) {
+            $res['BatchConfigUsage'] = $this->batchConfigUsage;
+        }
+
+        if (null !== $this->instanceUsage) {
+            $res['InstanceUsage'] = $this->instanceUsage;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,6 +80,14 @@ class ListWafUsageOfRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BatchConfigUsage'])) {
+            $model->batchConfigUsage = $map['BatchConfigUsage'];
+        }
+
+        if (isset($map['InstanceUsage'])) {
+            $model->instanceUsage = $map['InstanceUsage'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
