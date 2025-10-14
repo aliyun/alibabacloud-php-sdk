@@ -11,6 +11,11 @@ class managedInfo extends Model
     /**
      * @var string
      */
+    public $eniId;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -18,6 +23,7 @@ class managedInfo extends Model
      */
     public $vswitchId;
     protected $_name = [
+        'eniId' => 'eniId',
         'securityGroupId' => 'securityGroupId',
         'vswitchId' => 'vswitchId',
     ];
@@ -30,6 +36,10 @@ class managedInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->eniId) {
+            $res['eniId'] = $this->eniId;
+        }
+
         if (null !== $this->securityGroupId) {
             $res['securityGroupId'] = $this->securityGroupId;
         }
@@ -49,6 +59,10 @@ class managedInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['eniId'])) {
+            $model->eniId = $map['eniId'];
+        }
+
         if (isset($map['securityGroupId'])) {
             $model->securityGroupId = $map['securityGroupId'];
         }
