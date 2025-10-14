@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class cardData extends Model
 {
     /**
-     * @var mixed[]
+     * @var mixed
      */
     public $cardParamMap;
     protected $_name = [
@@ -18,9 +18,6 @@ class cardData extends Model
 
     public function validate()
     {
-        if (\is_array($this->cardParamMap)) {
-            Model::validateArray($this->cardParamMap);
-        }
         parent::validate();
     }
 
@@ -28,12 +25,7 @@ class cardData extends Model
     {
         $res = [];
         if (null !== $this->cardParamMap) {
-            if (\is_array($this->cardParamMap)) {
-                $res['cardParamMap'] = [];
-                foreach ($this->cardParamMap as $key1 => $value1) {
-                    $res['cardParamMap'][$key1] = $value1;
-                }
-            }
+            $res['cardParamMap'] = $this->cardParamMap;
         }
 
         return $res;
@@ -48,12 +40,7 @@ class cardData extends Model
     {
         $model = new self();
         if (isset($map['cardParamMap'])) {
-            if (!empty($map['cardParamMap'])) {
-                $model->cardParamMap = [];
-                foreach ($map['cardParamMap'] as $key1 => $value1) {
-                    $model->cardParamMap[$key1] = $value1;
-                }
-            }
+            $model->cardParamMap = $map['cardParamMap'];
         }
 
         return $model;
