@@ -14,11 +14,17 @@ class data extends Model
     public $payAmount;
 
     /**
+     * @var int
+     */
+    public $payTime;
+
+    /**
      * @var string
      */
     public $transactionNo;
     protected $_name = [
         'payAmount' => 'pay_amount',
+        'payTime' => 'pay_time',
         'transactionNo' => 'transaction_no',
     ];
 
@@ -32,6 +38,10 @@ class data extends Model
         $res = [];
         if (null !== $this->payAmount) {
             $res['pay_amount'] = $this->payAmount;
+        }
+
+        if (null !== $this->payTime) {
+            $res['pay_time'] = $this->payTime;
         }
 
         if (null !== $this->transactionNo) {
@@ -51,6 +61,10 @@ class data extends Model
         $model = new self();
         if (isset($map['pay_amount'])) {
             $model->payAmount = $map['pay_amount'];
+        }
+
+        if (isset($map['pay_time'])) {
+            $model->payTime = $map['pay_time'];
         }
 
         if (isset($map['transaction_no'])) {
