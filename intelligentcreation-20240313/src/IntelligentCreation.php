@@ -24,12 +24,16 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetVideoClipTaskS
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchQueryIndividuationTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchQueryIndividuationTextResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchQueryIndividuationTextShrinkRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BuildAICoachScriptRecordRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BuildAICoachScriptRecordResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CloseAICoachTaskSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CloseAICoachTaskSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAgentRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAgentResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionRequest;
@@ -52,6 +56,10 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTrainTaskRequest
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTrainTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateVideoClipTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateVideoClipTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteAgentRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteAgentResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteAICoachScriptRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteAICoachScriptResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationProjectRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationProjectResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationTextRequest;
@@ -102,6 +110,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListTextThemesRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListTextThemesResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListVoiceModelsRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListVoiceModelsResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\OfflineAICoachScriptRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\OfflineAICoachScriptResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\OperateAvatarProjectRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\OperateAvatarProjectResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarProjectRequest;
@@ -116,6 +126,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoReques
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoShrinkRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryTextStreamResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ReleaseAgentRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ReleaseAgentResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SelectImageTaskResponse;
@@ -139,6 +151,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskReque
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\UpdateAgentRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\UpdateAgentResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -656,6 +670,67 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * 快速发布剧本.
+     *
+     * @param request - BuildAICoachScriptRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BuildAICoachScriptRecordResponse
+     *
+     * @param BuildAICoachScriptRecordRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BuildAICoachScriptRecordResponse
+     */
+    public function buildAICoachScriptRecordWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->scriptJsonUrl) {
+            @$body['scriptJsonUrl'] = $request->scriptJsonUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BuildAICoachScriptRecord',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/buildScriptRecord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BuildAICoachScriptRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 快速发布剧本.
+     *
+     * @param request - BuildAICoachScriptRecordRequest
+     *
+     * @returns BuildAICoachScriptRecordResponse
+     *
+     * @param BuildAICoachScriptRecordRequest $request
+     *
+     * @return BuildAICoachScriptRecordResponse
+     */
+    public function buildAICoachScriptRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->buildAICoachScriptRecordWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 检查会话状态
      *
      * @param request - CheckSessionRequest
@@ -994,6 +1069,95 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->createAICoachTaskSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * CreateAgent.
+     *
+     * @param request - CreateAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentIconUrl) {
+            @$body['agentIconUrl'] = $request->agentIconUrl;
+        }
+
+        if (null !== $request->agentName) {
+            @$body['agentName'] = $request->agentName;
+        }
+
+        if (null !== $request->agentScene) {
+            @$body['agentScene'] = $request->agentScene;
+        }
+
+        if (null !== $request->characterAgeStage) {
+            @$body['characterAgeStage'] = $request->characterAgeStage;
+        }
+
+        if (null !== $request->characterGender) {
+            @$body['characterGender'] = $request->characterGender;
+        }
+
+        if (null !== $request->characterName) {
+            @$body['characterName'] = $request->characterName;
+        }
+
+        if (null !== $request->extraDescription) {
+            @$body['extraDescription'] = $request->extraDescription;
+        }
+
+        if (null !== $request->industry) {
+            @$body['industry'] = $request->industry;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgent',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/agent/createAgent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateAgent.
+     *
+     * @param request - CreateAgentRequest
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $request
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAgentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1699,6 +1863,128 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->createVideoClipTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * DeleteAICoachScript.
+     *
+     * @param request - DeleteAICoachScriptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAICoachScriptResponse
+     *
+     * @param DeleteAICoachScriptRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAICoachScriptResponse
+     */
+    public function deleteAICoachScriptWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->scriptId) {
+            @$body['scriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAICoachScript',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/deleteAICoachScript',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAICoachScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteAICoachScript.
+     *
+     * @param request - DeleteAICoachScriptRequest
+     *
+     * @returns DeleteAICoachScriptResponse
+     *
+     * @param DeleteAICoachScriptRequest $request
+     *
+     * @return DeleteAICoachScriptResponse
+     */
+    public function deleteAICoachScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAICoachScriptWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * DeleteAgent.
+     *
+     * @param request - DeleteAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteAgentResponse
+     */
+    public function deleteAgentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgent',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/agent/deleteAgent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteAgent.
+     *
+     * @param request - DeleteAgentRequest
+     *
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     *
+     * @return DeleteAgentResponse
+     */
+    public function deleteAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAgentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2741,6 +3027,68 @@ class IntelligentCreation extends OpenApiClient
      *
      * @return InteractTextResponse
      */
+    public function interactTextWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InteractText',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/stream/interactText',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield InteractTextResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 营销文案互动问答.
+     *
+     * @param request - InteractTextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InteractTextResponse
+     *
+     * @param InteractTextRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InteractTextResponse
+     */
     public function interactTextWithOptions($request, $headers, $runtime)
     {
         $request->validate();
@@ -3499,6 +3847,67 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * 下线剧本.
+     *
+     * @param request - OfflineAICoachScriptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineAICoachScriptResponse
+     *
+     * @param OfflineAICoachScriptRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return OfflineAICoachScriptResponse
+     */
+    public function offlineAICoachScriptWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->scriptId) {
+            @$body['scriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OfflineAICoachScript',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/offlineAICoachScript',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflineAICoachScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下线剧本.
+     *
+     * @param request - OfflineAICoachScriptRequest
+     *
+     * @returns OfflineAICoachScriptResponse
+     *
+     * @param OfflineAICoachScriptRequest $request
+     *
+     * @return OfflineAICoachScriptResponse
+     */
+    public function offlineAICoachScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->offlineAICoachScriptWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 操作实时数字人项目.
      *
      * @param request - OperateAvatarProjectRequest
@@ -3908,6 +4317,52 @@ class IntelligentCreation extends OpenApiClient
      *
      * @return QueryTextStreamResponse
      */
+    public function queryTextStreamWithSSE($textId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'QueryTextStream',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/stream/queryTextStream/' . Url::percentEncode($textId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield QueryTextStreamResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 流式输出文案.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTextStreamResponse
+     *
+     * @param string         $textId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryTextStreamResponse
+     */
     public function queryTextStreamWithOptions($textId, $headers, $runtime)
     {
         $req = new OpenApiRequest([
@@ -3943,6 +4398,67 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->queryTextStreamWithOptions($textId, $headers, $runtime);
+    }
+
+    /**
+     * ReleaseAgent.
+     *
+     * @param request - ReleaseAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseAgentResponse
+     *
+     * @param ReleaseAgentRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ReleaseAgentResponse
+     */
+    public function releaseAgentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseAgent',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/agent/releaseAgent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ReleaseAgent.
+     *
+     * @param request - ReleaseAgentRequest
+     *
+     * @returns ReleaseAgentResponse
+     *
+     * @param ReleaseAgentRequest $request
+     *
+     * @return ReleaseAgentResponse
+     */
+    public function releaseAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->releaseAgentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4237,6 +4753,76 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->sendSdkMessageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 发送sdk流式消息.
+     *
+     * @param request - SendSdkStreamMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendSdkStreamMessageResponse
+     *
+     * @param SendSdkStreamMessageRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SendSdkStreamMessageResponse
+     */
+    public function sendSdkStreamMessageWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->data) {
+            @$body['data'] = $request->data;
+        }
+
+        if (null !== $request->header) {
+            @$body['header'] = $request->header;
+        }
+
+        if (null !== $request->moduleName) {
+            @$body['moduleName'] = $request->moduleName;
+        }
+
+        if (null !== $request->operationName) {
+            @$body['operationName'] = $request->operationName;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SendSdkStreamMessage',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/sdk/stream/sendMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield SendSdkStreamMessageResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
     }
 
     /**
@@ -4813,5 +5399,94 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->transferPortraitStyleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * UpdateAgent.
+     *
+     * @param request - UpdateAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentIconUrl) {
+            @$body['agentIconUrl'] = $request->agentIconUrl;
+        }
+
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentName) {
+            @$body['agentName'] = $request->agentName;
+        }
+
+        if (null !== $request->characterAgeStage) {
+            @$body['characterAgeStage'] = $request->characterAgeStage;
+        }
+
+        if (null !== $request->characterGender) {
+            @$body['characterGender'] = $request->characterGender;
+        }
+
+        if (null !== $request->characterName) {
+            @$body['characterName'] = $request->characterName;
+        }
+
+        if (null !== $request->extraDescription) {
+            @$body['extraDescription'] = $request->extraDescription;
+        }
+
+        if (null !== $request->industry) {
+            @$body['industry'] = $request->industry;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgent',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/agent/updateAgent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateAgent.
+     *
+     * @param request - UpdateAgentRequest
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $request
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAgentWithOptions($request, $headers, $runtime);
     }
 }

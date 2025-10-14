@@ -18,6 +18,11 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptRespon
 class GetAICoachScriptResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $agentId;
+
+    /**
      * @var bool
      */
     public $appendQuestionFlag;
@@ -203,10 +208,21 @@ class GetAICoachScriptResponseBody extends Model
     public $type;
 
     /**
+     * @var string
+     */
+    public $voiceId;
+
+    /**
+     * @var string
+     */
+    public $voiceLanguage;
+
+    /**
      * @var weights
      */
     public $weights;
     protected $_name = [
+        'agentId' => 'agentId',
         'appendQuestionFlag' => 'appendQuestionFlag',
         'assessmentScope' => 'assessmentScope',
         'checkCheatConfig' => 'checkCheatConfig',
@@ -244,6 +260,8 @@ class GetAICoachScriptResponseBody extends Model
         'studentThinkTimeFlag' => 'studentThinkTimeFlag',
         'studentThinkTimeLimit' => 'studentThinkTimeLimit',
         'type' => 'type',
+        'voiceId' => 'voiceId',
+        'voiceLanguage' => 'voiceLanguage',
         'weights' => 'weights',
     ];
 
@@ -288,6 +306,10 @@ class GetAICoachScriptResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['agentId'] = $this->agentId;
+        }
+
         if (null !== $this->appendQuestionFlag) {
             $res['appendQuestionFlag'] = $this->appendQuestionFlag;
         }
@@ -483,6 +505,14 @@ class GetAICoachScriptResponseBody extends Model
             $res['type'] = $this->type;
         }
 
+        if (null !== $this->voiceId) {
+            $res['voiceId'] = $this->voiceId;
+        }
+
+        if (null !== $this->voiceLanguage) {
+            $res['voiceLanguage'] = $this->voiceLanguage;
+        }
+
         if (null !== $this->weights) {
             $res['weights'] = null !== $this->weights ? $this->weights->toArray($noStream) : $this->weights;
         }
@@ -498,6 +528,10 @@ class GetAICoachScriptResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentId'])) {
+            $model->agentId = $map['agentId'];
+        }
+
         if (isset($map['appendQuestionFlag'])) {
             $model->appendQuestionFlag = $map['appendQuestionFlag'];
         }
@@ -691,6 +725,14 @@ class GetAICoachScriptResponseBody extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['voiceId'])) {
+            $model->voiceId = $map['voiceId'];
+        }
+
+        if (isset($map['voiceLanguage'])) {
+            $model->voiceLanguage = $map['voiceLanguage'];
         }
 
         if (isset($map['weights'])) {
