@@ -179,6 +179,10 @@ class Hologram extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->clusterCount) {
+            @$body['clusterCount'] = $request->clusterCount;
+        }
+
         if (null !== $request->cpu) {
             @$body['cpu'] = $request->cpu;
         }
@@ -1666,6 +1670,10 @@ class Hologram extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->clusterCount) {
+            @$body['clusterCount'] = $request->clusterCount;
+        }
+
         if (null !== $request->cpu) {
             @$body['cpu'] = $request->cpu;
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateHoloWarehouseRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $clusterCount;
+
+    /**
      * @var string
      */
     public $cpu;
@@ -18,6 +23,7 @@ class CreateHoloWarehouseRequest extends Model
      */
     public $name;
     protected $_name = [
+        'clusterCount' => 'clusterCount',
         'cpu' => 'cpu',
         'name' => 'name',
     ];
@@ -30,6 +36,10 @@ class CreateHoloWarehouseRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clusterCount) {
+            $res['clusterCount'] = $this->clusterCount;
+        }
+
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
         }
@@ -49,6 +59,10 @@ class CreateHoloWarehouseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clusterCount'])) {
+            $model->clusterCount = $map['clusterCount'];
+        }
+
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
         }

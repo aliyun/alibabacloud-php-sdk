@@ -12,6 +12,11 @@ class warehouseDetail extends Model
     /**
      * @var string
      */
+    public $autoElasticCpu;
+
+    /**
+     * @var string
+     */
     public $remainingCpu;
 
     /**
@@ -29,6 +34,7 @@ class warehouseDetail extends Model
      */
     public $warehouseList;
     protected $_name = [
+        'autoElasticCpu' => 'AutoElasticCpu',
         'remainingCpu' => 'RemainingCpu',
         'reservedCpu' => 'ReservedCpu',
         'timedElasticCpu' => 'TimedElasticCpu',
@@ -46,6 +52,10 @@ class warehouseDetail extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoElasticCpu) {
+            $res['AutoElasticCpu'] = $this->autoElasticCpu;
+        }
+
         if (null !== $this->remainingCpu) {
             $res['RemainingCpu'] = $this->remainingCpu;
         }
@@ -80,6 +90,10 @@ class warehouseDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoElasticCpu'])) {
+            $model->autoElasticCpu = $map['AutoElasticCpu'];
+        }
+
         if (isset($map['RemainingCpu'])) {
             $model->remainingCpu = $map['RemainingCpu'];
         }

@@ -9,6 +9,21 @@ use AlibabaCloud\Dara\Model;
 class warehouseList extends Model
 {
     /**
+     * @var string
+     */
+    public $autoScaleType;
+
+    /**
+     * @var string
+     */
+    public $clusterCount;
+
+    /**
+     * @var string
+     */
+    public $clusterCpu;
+
+    /**
      * @var int
      */
     public $cpu;
@@ -24,9 +39,24 @@ class warehouseList extends Model
     public $elasticCpu;
 
     /**
+     * @var string
+     */
+    public $elasticType;
+
+    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $initClusterCount;
+
+    /**
+     * @var string
+     */
+    public $maxClusterCount;
 
     /**
      * @var int
@@ -53,10 +83,16 @@ class warehouseList extends Model
      */
     public $status;
     protected $_name = [
+        'autoScaleType' => 'AutoScaleType',
+        'clusterCount' => 'ClusterCount',
+        'clusterCpu' => 'ClusterCpu',
         'cpu' => 'Cpu',
         'defaultWarehouse' => 'DefaultWarehouse',
         'elasticCpu' => 'ElasticCpu',
+        'elasticType' => 'ElasticType',
         'id' => 'Id',
+        'initClusterCount' => 'InitClusterCount',
+        'maxClusterCount' => 'MaxClusterCount',
         'mem' => 'Mem',
         'name' => 'Name',
         'nodeCount' => 'NodeCount',
@@ -72,6 +108,18 @@ class warehouseList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoScaleType) {
+            $res['AutoScaleType'] = $this->autoScaleType;
+        }
+
+        if (null !== $this->clusterCount) {
+            $res['ClusterCount'] = $this->clusterCount;
+        }
+
+        if (null !== $this->clusterCpu) {
+            $res['ClusterCpu'] = $this->clusterCpu;
+        }
+
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -84,8 +132,20 @@ class warehouseList extends Model
             $res['ElasticCpu'] = $this->elasticCpu;
         }
 
+        if (null !== $this->elasticType) {
+            $res['ElasticType'] = $this->elasticType;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->initClusterCount) {
+            $res['InitClusterCount'] = $this->initClusterCount;
+        }
+
+        if (null !== $this->maxClusterCount) {
+            $res['MaxClusterCount'] = $this->maxClusterCount;
         }
 
         if (null !== $this->mem) {
@@ -119,6 +179,18 @@ class warehouseList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoScaleType'])) {
+            $model->autoScaleType = $map['AutoScaleType'];
+        }
+
+        if (isset($map['ClusterCount'])) {
+            $model->clusterCount = $map['ClusterCount'];
+        }
+
+        if (isset($map['ClusterCpu'])) {
+            $model->clusterCpu = $map['ClusterCpu'];
+        }
+
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
@@ -131,8 +203,20 @@ class warehouseList extends Model
             $model->elasticCpu = $map['ElasticCpu'];
         }
 
+        if (isset($map['ElasticType'])) {
+            $model->elasticType = $map['ElasticType'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['InitClusterCount'])) {
+            $model->initClusterCount = $map['InitClusterCount'];
+        }
+
+        if (isset($map['MaxClusterCount'])) {
+            $model->maxClusterCount = $map['MaxClusterCount'];
         }
 
         if (isset($map['Mem'])) {
