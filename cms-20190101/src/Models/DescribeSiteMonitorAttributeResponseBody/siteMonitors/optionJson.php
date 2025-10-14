@@ -247,6 +247,11 @@ class optionJson extends Model
     public $retryDelay;
 
     /**
+     * @var int
+     */
+    public $safeLink;
+
+    /**
      * @var bool
      */
     public $screenShot;
@@ -351,6 +356,7 @@ class optionJson extends Model
         'responseContent' => 'response_content',
         'responseFormat' => 'response_format',
         'retryDelay' => 'retry_delay',
+        'safeLink' => 'safe_link',
         'screenShot' => 'screen_shot',
         'scrollEnd' => 'scroll_end',
         'steps' => 'steps',
@@ -592,6 +598,10 @@ class optionJson extends Model
             $res['retry_delay'] = $this->retryDelay;
         }
 
+        if (null !== $this->safeLink) {
+            $res['safe_link'] = $this->safeLink;
+        }
+
         if (null !== $this->screenShot) {
             $res['screen_shot'] = $this->screenShot;
         }
@@ -829,6 +839,10 @@ class optionJson extends Model
 
         if (isset($map['retry_delay'])) {
             $model->retryDelay = $map['retry_delay'];
+        }
+
+        if (isset($map['safe_link'])) {
+            $model->safeLink = $map['safe_link'];
         }
 
         if (isset($map['screen_shot'])) {
