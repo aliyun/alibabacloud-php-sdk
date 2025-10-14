@@ -365,6 +365,16 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksDeleteHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksDeleteRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksDeleteResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksDeleteShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksDeleteShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksModifyHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksModifyRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksModifyResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksModifyShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksModifyShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksQueryHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksQueryRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksQueryResponse;
@@ -8872,6 +8882,194 @@ class Aliding extends OpenApiClient
         $headers = new DeleteWorkspaceMembersHeaders([]);
 
         return $this->deleteWorkspaceMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除块元素.
+     *
+     * @param tmpReq - DocBlocksDeleteRequest
+     * @param tmpHeader - DocBlocksDeleteHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DocBlocksDeleteResponse
+     *
+     * @param DocBlocksDeleteRequest $tmpReq
+     * @param DocBlocksDeleteHeaders $tmpHeader
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DocBlocksDeleteResponse
+     */
+    public function docBlocksDeleteWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DocBlocksDeleteShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DocBlocksDeleteShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->blockId) {
+            @$body['BlockId'] = $request->blockId;
+        }
+
+        if (null !== $request->dentryUuid) {
+            @$body['DentryUuid'] = $request->dentryUuid;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DocBlocksDelete',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/docBlocksDelete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DocBlocksDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除块元素.
+     *
+     * @param request - DocBlocksDeleteRequest
+     *
+     * @returns DocBlocksDeleteResponse
+     *
+     * @param DocBlocksDeleteRequest $request
+     *
+     * @return DocBlocksDeleteResponse
+     */
+    public function docBlocksDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DocBlocksDeleteHeaders([]);
+
+        return $this->docBlocksDeleteWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新块元素.
+     *
+     * @param tmpReq - DocBlocksModifyRequest
+     * @param tmpHeader - DocBlocksModifyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DocBlocksModifyResponse
+     *
+     * @param DocBlocksModifyRequest $tmpReq
+     * @param DocBlocksModifyHeaders $tmpHeader
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DocBlocksModifyResponse
+     */
+    public function docBlocksModifyWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DocBlocksModifyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DocBlocksModifyShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->element) {
+            $request->elementShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->element, 'Element', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->blockId) {
+            @$body['BlockId'] = $request->blockId;
+        }
+
+        if (null !== $request->dentryUuid) {
+            @$body['DentryUuid'] = $request->dentryUuid;
+        }
+
+        if (null !== $request->elementShrink) {
+            @$body['Element'] = $request->elementShrink;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DocBlocksModify',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/docBlocksModify',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DocBlocksModifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新块元素.
+     *
+     * @param request - DocBlocksModifyRequest
+     *
+     * @returns DocBlocksModifyResponse
+     *
+     * @param DocBlocksModifyRequest $request
+     *
+     * @return DocBlocksModifyResponse
+     */
+    public function docBlocksModify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DocBlocksModifyHeaders([]);
+
+        return $this->docBlocksModifyWithOptions($request, $headers, $runtime);
     }
 
     /**

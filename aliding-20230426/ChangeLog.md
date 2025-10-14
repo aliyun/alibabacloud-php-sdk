@@ -1,3 +1,8 @@
+2025-10-14 Version: 2.37.0
+- Support API DocBlocksDelete.
+- Support API DocBlocksModify.
+
+
 2025-10-14 Version: 2.36.4
 - Generated php 2023-04-26 for aliding.
 
