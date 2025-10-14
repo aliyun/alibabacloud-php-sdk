@@ -16,6 +16,11 @@ class CreateCloudGtmInstanceConfigRequest extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -59,6 +64,7 @@ class CreateCloudGtmInstanceConfigRequest extends Model
     public $ttl;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'chargeType' => 'ChargeType',
         'clientToken' => 'ClientToken',
         'enableStatus' => 'EnableStatus',
         'instanceId' => 'InstanceId',
@@ -80,6 +86,10 @@ class CreateCloudGtmInstanceConfigRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
 
         if (null !== $this->clientToken) {
@@ -131,6 +141,10 @@ class CreateCloudGtmInstanceConfigRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
 
         if (isset($map['ClientToken'])) {

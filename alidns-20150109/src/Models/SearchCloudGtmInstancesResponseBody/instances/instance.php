@@ -11,6 +11,11 @@ class instance extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $commodityCode;
 
     /**
@@ -88,6 +93,7 @@ class instance extends Model
      */
     public $versionCode;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'commodityCode' => 'CommodityCode',
         'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
@@ -114,6 +120,10 @@ class instance extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
@@ -189,6 +199,10 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }

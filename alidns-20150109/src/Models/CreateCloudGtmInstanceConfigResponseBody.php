@@ -16,6 +16,11 @@ class CreateCloudGtmInstanceConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -24,6 +29,7 @@ class CreateCloudGtmInstanceConfigResponseBody extends Model
     public $success;
     protected $_name = [
         'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
         'requestId' => 'RequestId',
         'success' => 'Success',
     ];
@@ -38,6 +44,10 @@ class CreateCloudGtmInstanceConfigResponseBody extends Model
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->requestId) {
@@ -61,6 +71,10 @@ class CreateCloudGtmInstanceConfigResponseBody extends Model
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['RequestId'])) {

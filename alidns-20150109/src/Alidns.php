@@ -2255,6 +2255,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 创建gtm实例配置.
+     *
      * @param request - CreateCloudGtmInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2271,6 +2273,10 @@ class Alidns extends OpenApiClient
         $query = [];
         if (null !== $request->acceptLanguage) {
             @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
 
         if (null !== $request->clientToken) {
@@ -2328,6 +2334,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 创建gtm实例配置.
+     *
      * @param request - CreateCloudGtmInstanceConfigRequest
      *
      * @returns CreateCloudGtmInstanceConfigResponse
@@ -10782,6 +10790,10 @@ class Alidns extends OpenApiClient
             @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
 
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -12418,6 +12430,10 @@ class Alidns extends OpenApiClient
         $query = [];
         if (null !== $request->acceptLanguage) {
             @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
 
         if (null !== $request->clientToken) {

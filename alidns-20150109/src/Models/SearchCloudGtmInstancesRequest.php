@@ -16,6 +16,11 @@ class SearchCloudGtmInstancesRequest extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -39,6 +44,7 @@ class SearchCloudGtmInstancesRequest extends Model
     public $pageSize;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'chargeType' => 'ChargeType',
         'clientToken' => 'ClientToken',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -56,6 +62,10 @@ class SearchCloudGtmInstancesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
 
         if (null !== $this->clientToken) {
@@ -91,6 +101,10 @@ class SearchCloudGtmInstancesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
 
         if (isset($map['ClientToken'])) {
