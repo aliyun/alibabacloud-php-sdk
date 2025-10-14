@@ -152,6 +152,11 @@ class UpdateInstanceRequest extends Model
     public $spotSpec;
 
     /**
+     * @var bool
+     */
+    public $startInstance;
+
+    /**
      * @var userCommand
      */
     public $userCommand;
@@ -198,6 +203,7 @@ class UpdateInstanceRequest extends Model
         'priority' => 'Priority',
         'requestedResource' => 'RequestedResource',
         'spotSpec' => 'SpotSpec',
+        'startInstance' => 'StartInstance',
         'userCommand' => 'UserCommand',
         'userId' => 'UserId',
         'userVpc' => 'UserVpc',
@@ -372,6 +378,10 @@ class UpdateInstanceRequest extends Model
             $res['SpotSpec'] = null !== $this->spotSpec ? $this->spotSpec->toArray($noStream) : $this->spotSpec;
         }
 
+        if (null !== $this->startInstance) {
+            $res['StartInstance'] = $this->startInstance;
+        }
+
         if (null !== $this->userCommand) {
             $res['UserCommand'] = null !== $this->userCommand ? $this->userCommand->toArray($noStream) : $this->userCommand;
         }
@@ -524,6 +534,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['SpotSpec'])) {
             $model->spotSpec = spotSpec::fromMap($map['SpotSpec']);
+        }
+
+        if (isset($map['StartInstance'])) {
+            $model->startInstance = $map['StartInstance'];
         }
 
         if (isset($map['UserCommand'])) {

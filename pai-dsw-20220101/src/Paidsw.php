@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceLabelsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceSnapshotResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstancesRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstancesResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetIdleInstanceCullerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceEventsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceEventsResponse;
@@ -54,6 +56,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListSystemLogsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstancesRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstancesResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceLabelsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceLabelsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest;
@@ -746,6 +750,67 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->deleteInstanceSnapshotWithOptions($InstanceId, $SnapshotId, $headers, $runtime);
+    }
+
+    /**
+     * 批量删除实例.
+     *
+     * @param request - DeleteInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstancesResponse
+     *
+     * @param DeleteInstancesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteInstancesResponse
+     */
+    public function deleteInstancesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceIds) {
+            @$body['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstances',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/batch/instances/delete',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除实例.
+     *
+     * @param request - DeleteInstancesRequest
+     *
+     * @returns DeleteInstancesResponse
+     *
+     * @param DeleteInstancesRequest $request
+     *
+     * @return DeleteInstancesResponse
+     */
+    public function deleteInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteInstancesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2161,6 +2226,67 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * 批量停止实例.
+     *
+     * @param request - StopInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopInstancesResponse
+     *
+     * @param StopInstancesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StopInstancesResponse
+     */
+    public function stopInstancesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceIds) {
+            @$body['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopInstances',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/batch/instances/stop',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量停止实例.
+     *
+     * @param request - StopInstancesRequest
+     *
+     * @returns StopInstancesResponse
+     *
+     * @param StopInstancesRequest $request
+     *
+     * @return StopInstancesResponse
+     */
+    public function stopInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Updates the properties of a DSW instance.
      *
      * @param request - UpdateInstanceRequest
@@ -2286,6 +2412,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->spotSpec) {
             @$body['SpotSpec'] = $request->spotSpec;
+        }
+
+        if (null !== $request->startInstance) {
+            @$body['StartInstance'] = $request->startInstance;
         }
 
         if (null !== $request->userCommand) {
