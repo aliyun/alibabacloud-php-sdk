@@ -91,6 +91,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\RunAgentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunAgentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RunDialogAnalysisRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RunDialogAnalysisResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\SubmitChatQuestionRequest;
@@ -3395,6 +3397,124 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->runChatResultGenerationWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 流式获取外呼会话分析结果.
+     *
+     * @param Request - RunDialogAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDialogAnalysisResponse
+     *
+     * @param string                   $workspaceId
+     * @param RunDialogAnalysisRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RunDialogAnalysisResponse
+     */
+    public function runDialogAnalysisWithSSE($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunDialogAnalysis',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/dialog/stream/analysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunDialogAnalysisResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 流式获取外呼会话分析结果.
+     *
+     * @param Request - RunDialogAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDialogAnalysisResponse
+     *
+     * @param string                   $workspaceId
+     * @param RunDialogAnalysisRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RunDialogAnalysisResponse
+     */
+    public function runDialogAnalysisWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunDialogAnalysis',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/dialog/stream/analysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RunDialogAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 流式获取外呼会话分析结果.
+     *
+     * @param Request - RunDialogAnalysisRequest
+     *
+     * @returns RunDialogAnalysisResponse
+     *
+     * @param string                   $workspaceId
+     * @param RunDialogAnalysisRequest $request
+     *
+     * @return RunDialogAnalysisResponse
+     */
+    public function runDialogAnalysis($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runDialogAnalysisWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
