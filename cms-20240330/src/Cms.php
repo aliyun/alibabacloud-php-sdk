@@ -2527,6 +2527,10 @@ class Cms extends OpenApiClient
             @$query['addonName'] = $request->addonName;
         }
 
+        if (null !== $request->bindResourceId) {
+            @$query['bindResourceId'] = $request->bindResourceId;
+        }
+
         if (null !== $request->entityGroupIds) {
             @$query['entityGroupIds'] = $request->entityGroupIds;
         }

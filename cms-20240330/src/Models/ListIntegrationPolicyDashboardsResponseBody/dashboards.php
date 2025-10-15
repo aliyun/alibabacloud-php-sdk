@@ -16,6 +16,11 @@ class dashboards extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -39,6 +44,7 @@ class dashboards extends Model
     public $url;
     protected $_name = [
         'folderUid' => 'folderUid',
+        'name' => 'name',
         'region' => 'region',
         'tags' => 'tags',
         'title' => 'title',
@@ -59,6 +65,10 @@ class dashboards extends Model
         $res = [];
         if (null !== $this->folderUid) {
             $res['folderUid'] = $this->folderUid;
+        }
+
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         if (null !== $this->region) {
@@ -101,6 +111,10 @@ class dashboards extends Model
         $model = new self();
         if (isset($map['folderUid'])) {
             $model->folderUid = $map['folderUid'];
+        }
+
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         if (isset($map['region'])) {

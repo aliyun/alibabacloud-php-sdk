@@ -16,6 +16,11 @@ class ListIntegrationPoliciesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $bindResourceId;
+
+    /**
+     * @var string
+     */
     public $entityGroupIds;
 
     /**
@@ -74,6 +79,7 @@ class ListIntegrationPoliciesShrinkRequest extends Model
     public $workspace;
     protected $_name = [
         'addonName' => 'addonName',
+        'bindResourceId' => 'bindResourceId',
         'entityGroupIds' => 'entityGroupIds',
         'filterRegionIds' => 'filterRegionIds',
         'maxResults' => 'maxResults',
@@ -98,6 +104,10 @@ class ListIntegrationPoliciesShrinkRequest extends Model
         $res = [];
         if (null !== $this->addonName) {
             $res['addonName'] = $this->addonName;
+        }
+
+        if (null !== $this->bindResourceId) {
+            $res['bindResourceId'] = $this->bindResourceId;
         }
 
         if (null !== $this->entityGroupIds) {
@@ -161,6 +171,10 @@ class ListIntegrationPoliciesShrinkRequest extends Model
         $model = new self();
         if (isset($map['addonName'])) {
             $model->addonName = $map['addonName'];
+        }
+
+        if (isset($map['bindResourceId'])) {
+            $model->bindResourceId = $map['bindResourceId'];
         }
 
         if (isset($map['entityGroupIds'])) {
