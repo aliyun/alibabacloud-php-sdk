@@ -26,6 +26,11 @@ class GetConnectionTicketResponseBody extends Model
     public $appInstancePersistentId;
 
     /**
+     * @var string
+     */
+    public $avatarId;
+
+    /**
      * @var bindQueueInfo
      */
     public $bindQueueInfo;
@@ -44,6 +49,11 @@ class GetConnectionTicketResponseBody extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var int
+     */
+    public $nextPollIntervalMs;
 
     /**
      * @var string
@@ -93,10 +103,12 @@ class GetConnectionTicketResponseBody extends Model
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceId' => 'AppInstanceId',
         'appInstancePersistentId' => 'AppInstancePersistentId',
+        'avatarId' => 'AvatarId',
         'bindQueueInfo' => 'BindQueueInfo',
         'code' => 'Code',
         'loginToken' => 'LoginToken',
         'message' => 'Message',
+        'nextPollIntervalMs' => 'NextPollIntervalMs',
         'osType' => 'OsType',
         'policy' => 'Policy',
         'regionId' => 'RegionId',
@@ -134,6 +146,10 @@ class GetConnectionTicketResponseBody extends Model
             $res['AppInstancePersistentId'] = $this->appInstancePersistentId;
         }
 
+        if (null !== $this->avatarId) {
+            $res['AvatarId'] = $this->avatarId;
+        }
+
         if (null !== $this->bindQueueInfo) {
             $res['BindQueueInfo'] = null !== $this->bindQueueInfo ? $this->bindQueueInfo->toArray($noStream) : $this->bindQueueInfo;
         }
@@ -148,6 +164,10 @@ class GetConnectionTicketResponseBody extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->nextPollIntervalMs) {
+            $res['NextPollIntervalMs'] = $this->nextPollIntervalMs;
         }
 
         if (null !== $this->osType) {
@@ -209,6 +229,10 @@ class GetConnectionTicketResponseBody extends Model
             $model->appInstancePersistentId = $map['AppInstancePersistentId'];
         }
 
+        if (isset($map['AvatarId'])) {
+            $model->avatarId = $map['AvatarId'];
+        }
+
         if (isset($map['BindQueueInfo'])) {
             $model->bindQueueInfo = bindQueueInfo::fromMap($map['BindQueueInfo']);
         }
@@ -223,6 +247,10 @@ class GetConnectionTicketResponseBody extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['NextPollIntervalMs'])) {
+            $model->nextPollIntervalMs = $map['NextPollIntervalMs'];
         }
 
         if (isset($map['OsType'])) {
