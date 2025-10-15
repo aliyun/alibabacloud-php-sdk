@@ -11,8 +11,14 @@ class ListDomainsRequest extends Model
     /**
      * @var string
      */
+    public $brandId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
     protected $_name = [
+        'brandId' => 'BrandId',
         'instanceId' => 'InstanceId',
     ];
 
@@ -24,6 +30,10 @@ class ListDomainsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->brandId) {
+            $res['BrandId'] = $this->brandId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -39,6 +49,10 @@ class ListDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BrandId'])) {
+            $model->brandId = $map['BrandId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

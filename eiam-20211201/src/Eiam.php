@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddApplicationAccountToUserRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddApplicationAccountToUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUsersToGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUsersToGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUserToOrganizationalUnitsRequest;
@@ -17,14 +19,20 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToUsersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToUsersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationClientSecretResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationFederatedCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateFederatedCredentialProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateFederatedCredentialProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
@@ -33,20 +41,28 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateNetworkAccessEndpointRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateNetworkAccessEndpointResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateNetworkZoneRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateNetworkZoneResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationClientSecretResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationFederatedCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteFederatedCredentialProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteFederatedCredentialProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteIdentityProviderRequest;
@@ -55,6 +71,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteNetworkAccessEndpointRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteNetworkAccessEndpointResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteNetworkZoneRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteNetworkZoneResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitChildrenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitChildrenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitRequest;
@@ -65,16 +83,24 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationApiInvokeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationApiInvokeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationClientSecretResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationFederatedCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationProvisioningRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationProvisioningResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableFederatedCredentialProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableFederatedCredentialProviderResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderAuthnRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderAuthnResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderUdPullRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderUdPullResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectRequest;
@@ -85,22 +111,32 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationApiInvokeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationApiInvokeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationClientSecretResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationFederatedCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationProvisioningRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationProvisioningResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableFederatedCredentialProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableFederatedCredentialProviderResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderAuthnRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderAuthnResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderUdPullRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderUdPullResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationGrantScopeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationGrantScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationProvisioningConfigRequest;
@@ -111,12 +147,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationTemplateRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationTemplateResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainDnsChallengeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainDnsChallengeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetFederatedCredentialProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetFederatedCredentialProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetForgetPasswordConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetForgetPasswordConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetGroupRequest;
@@ -131,6 +171,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkZoneRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkZoneResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordComplexityConfigurationRequest;
@@ -147,16 +189,38 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationAccountsForUserRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationAccountsForUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationAccountsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationAccountsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationClientSecretsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationClientSecretsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsForProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsForProviderResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForGroupRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForNetworkAccessEndpointRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForNetworkAccessEndpointResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForNetworkZoneRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForNetworkZoneResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationSupportedProvisionProtocolTypesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationSupportedProvisionProtocolTypesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationTokensRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationTokensResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForApplicationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForNetworkZoneRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForNetworkZoneResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForUserRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainProxyTokensRequest;
@@ -166,12 +230,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamInstancesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamInstancesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamRegionsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListIdentityProvidersForNetworkAccessEndpointRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListIdentityProvidersForNetworkAccessEndpointResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListIdentityProvidersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListIdentityProvidersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListInstancesRequest;
@@ -183,6 +251,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkAccessEndpointsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkAccessEndpointsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkAccessPathsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkAccessPathsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkZonesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkZonesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitParentsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitParentsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsForApplicationRequest;
@@ -200,8 +270,12 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationClientSecretResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationAccountFromUserRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationAccountFromUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUsersFromGroupRequest;
@@ -246,10 +320,24 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationClientSecretExpirati
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationClientSecretExpirationTimeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainIcpNumberRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainIcpNumberResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateFederatedCredentialProviderDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateFederatedCredentialProviderDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateFederatedCredentialProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateFederatedCredentialProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateGroupDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateGroupDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateGroupRequest;
@@ -260,6 +348,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateInstanceDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateNetworkAccessEndpointNameRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateNetworkAccessEndpointNameResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateNetworkZoneDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateNetworkZoneDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateNetworkZoneRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateNetworkZoneResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitParentIdRequest;
@@ -309,6 +401,75 @@ class Eiam extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 在当前应用下给指定员工添加一个应用账号.
+     *
+     * @param request - AddApplicationAccountToUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddApplicationAccountToUserResponse
+     *
+     * @param AddApplicationAccountToUserRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddApplicationAccountToUserResponse
+     */
+    public function addApplicationAccountToUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationUsername) {
+            @$query['ApplicationUsername'] = $request->applicationUsername;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddApplicationAccountToUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddApplicationAccountToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 在当前应用下给指定员工添加一个应用账号.
+     *
+     * @param request - AddApplicationAccountToUserRequest
+     *
+     * @returns AddApplicationAccountToUserResponse
+     *
+     * @param AddApplicationAccountToUserRequest $request
+     *
+     * @return AddApplicationAccountToUserResponse
+     */
+    public function addApplicationAccountToUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addApplicationAccountToUserWithOptions($request, $runtime);
     }
 
     /**
@@ -789,6 +950,160 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 创建应用联邦凭证
+     *
+     * @param request - CreateApplicationFederatedCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationFederatedCredentialResponse
+     *
+     * @param CreateApplicationFederatedCredentialRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateApplicationFederatedCredentialResponse
+     */
+    public function createApplicationFederatedCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialName) {
+            @$query['ApplicationFederatedCredentialName'] = $request->applicationFederatedCredentialName;
+        }
+
+        if (null !== $request->applicationFederatedCredentialType) {
+            @$query['ApplicationFederatedCredentialType'] = $request->applicationFederatedCredentialType;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->attributeMappings) {
+            @$query['AttributeMappings'] = $request->attributeMappings;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->federatedCredentialProviderId) {
+            @$query['FederatedCredentialProviderId'] = $request->federatedCredentialProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->verificationCondition) {
+            @$query['VerificationCondition'] = $request->verificationCondition;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationFederatedCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationFederatedCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用联邦凭证
+     *
+     * @param request - CreateApplicationFederatedCredentialRequest
+     *
+     * @returns CreateApplicationFederatedCredentialResponse
+     *
+     * @param CreateApplicationFederatedCredentialRequest $request
+     *
+     * @return CreateApplicationFederatedCredentialResponse
+     */
+    public function createApplicationFederatedCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationFederatedCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建应用Token.
+     *
+     * @param request - CreateApplicationTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationTokenResponse
+     *
+     * @param CreateApplicationTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateApplicationTokenResponse
+     */
+    public function createApplicationTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTokenType) {
+            @$query['ApplicationTokenType'] = $request->applicationTokenType;
+        }
+
+        if (null !== $request->expirationTime) {
+            @$query['ExpirationTime'] = $request->expirationTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationToken',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用Token.
+     *
+     * @param request - CreateApplicationTokenRequest
+     *
+     * @returns CreateApplicationTokenResponse
+     *
+     * @param CreateApplicationTokenRequest $request
+     *
+     * @return CreateApplicationTokenResponse
+     */
+    public function createApplicationToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * Create Conditional Access Policy.
      *
      * @remarks
@@ -1011,6 +1326,91 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建联邦凭证提供方.
+     *
+     * @param request - CreateFederatedCredentialProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFederatedCredentialProviderResponse
+     *
+     * @param CreateFederatedCredentialProviderRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateFederatedCredentialProviderResponse
+     */
+    public function createFederatedCredentialProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->federatedCredentialProviderName) {
+            @$query['FederatedCredentialProviderName'] = $request->federatedCredentialProviderName;
+        }
+
+        if (null !== $request->federatedCredentialProviderType) {
+            @$query['FederatedCredentialProviderType'] = $request->federatedCredentialProviderType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+        }
+
+        if (null !== $request->oidcProviderConfig) {
+            @$query['OidcProviderConfig'] = $request->oidcProviderConfig;
+        }
+
+        if (null !== $request->pkcs7ProviderConfig) {
+            @$query['Pkcs7ProviderConfig'] = $request->pkcs7ProviderConfig;
+        }
+
+        if (null !== $request->privateCaProviderConfig) {
+            @$query['PrivateCaProviderConfig'] = $request->privateCaProviderConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFederatedCredentialProvider',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFederatedCredentialProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建联邦凭证提供方.
+     *
+     * @param request - CreateFederatedCredentialProviderRequest
+     *
+     * @returns CreateFederatedCredentialProviderResponse
+     *
+     * @param CreateFederatedCredentialProviderRequest $request
+     *
+     * @return CreateFederatedCredentialProviderResponse
+     */
+    public function createFederatedCredentialProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFederatedCredentialProviderWithOptions($request, $runtime);
     }
 
     /**
@@ -1338,6 +1738,91 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 创建网络区域对象
+     *
+     * @param request - CreateNetworkZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNetworkZoneResponse
+     *
+     * @param CreateNetworkZoneRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateNetworkZoneResponse
+     */
+    public function createNetworkZoneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ipv4Cidrs) {
+            @$query['Ipv4Cidrs'] = $request->ipv4Cidrs;
+        }
+
+        if (null !== $request->ipv6Cidrs) {
+            @$query['Ipv6Cidrs'] = $request->ipv6Cidrs;
+        }
+
+        if (null !== $request->networkZoneName) {
+            @$query['NetworkZoneName'] = $request->networkZoneName;
+        }
+
+        if (null !== $request->networkZoneType) {
+            @$query['NetworkZoneType'] = $request->networkZoneType;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNetworkZone',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNetworkZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建网络区域对象
+     *
+     * @param request - CreateNetworkZoneRequest
+     *
+     * @returns CreateNetworkZoneResponse
+     *
+     * @param CreateNetworkZoneRequest $request
+     *
+     * @return CreateNetworkZoneResponse
+     */
+    public function createNetworkZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkZoneWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - CreateOrganizationalUnitRequest
@@ -1660,6 +2145,136 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 删除应用联邦凭证
+     *
+     * @param request - DeleteApplicationFederatedCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationFederatedCredentialResponse
+     *
+     * @param DeleteApplicationFederatedCredentialRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DeleteApplicationFederatedCredentialResponse
+     */
+    public function deleteApplicationFederatedCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialId) {
+            @$query['ApplicationFederatedCredentialId'] = $request->applicationFederatedCredentialId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplicationFederatedCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationFederatedCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除应用联邦凭证
+     *
+     * @param request - DeleteApplicationFederatedCredentialRequest
+     *
+     * @returns DeleteApplicationFederatedCredentialResponse
+     *
+     * @param DeleteApplicationFederatedCredentialRequest $request
+     *
+     * @return DeleteApplicationFederatedCredentialResponse
+     */
+    public function deleteApplicationFederatedCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationFederatedCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除ApplicationToken.
+     *
+     * @param request - DeleteApplicationTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationTokenResponse
+     *
+     * @param DeleteApplicationTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteApplicationTokenResponse
+     */
+    public function deleteApplicationTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTokenId) {
+            @$query['ApplicationTokenId'] = $request->applicationTokenId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplicationToken',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除ApplicationToken.
+     *
+     * @param request - DeleteApplicationTokenRequest
+     *
+     * @returns DeleteApplicationTokenResponse
+     *
+     * @param DeleteApplicationTokenRequest $request
+     *
+     * @return DeleteApplicationTokenResponse
+     */
+    public function deleteApplicationToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete Conditional Access Policy.
      *
      * @remarks
@@ -1850,6 +2465,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除联邦凭证提供方.
+     *
+     * @param request - DeleteFederatedCredentialProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFederatedCredentialProviderResponse
+     *
+     * @param DeleteFederatedCredentialProviderRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteFederatedCredentialProviderResponse
+     */
+    public function deleteFederatedCredentialProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->federatedCredentialProviderId) {
+            @$query['FederatedCredentialProviderId'] = $request->federatedCredentialProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFederatedCredentialProvider',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFederatedCredentialProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除联邦凭证提供方.
+     *
+     * @param request - DeleteFederatedCredentialProviderRequest
+     *
+     * @returns DeleteFederatedCredentialProviderResponse
+     *
+     * @param DeleteFederatedCredentialProviderRequest $request
+     *
+     * @return DeleteFederatedCredentialProviderResponse
+     */
+    public function deleteFederatedCredentialProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFederatedCredentialProviderWithOptions($request, $runtime);
     }
 
     /**
@@ -2096,6 +2772,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNetworkAccessEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除网络区域对象
+     *
+     * @param request - DeleteNetworkZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNetworkZoneResponse
+     *
+     * @param DeleteNetworkZoneRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteNetworkZoneResponse
+     */
+    public function deleteNetworkZoneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->networkZoneId) {
+            @$query['NetworkZoneId'] = $request->networkZoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNetworkZone',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNetworkZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网络区域对象
+     *
+     * @param request - DeleteNetworkZoneRequest
+     *
+     * @returns DeleteNetworkZoneResponse
+     *
+     * @param DeleteNetworkZoneRequest $request
+     *
+     * @return DeleteNetworkZoneResponse
+     */
+    public function deleteNetworkZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkZoneWithOptions($request, $runtime);
     }
 
     /**
@@ -2475,6 +3212,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 禁用应用联邦凭证
+     *
+     * @param request - DisableApplicationFederatedCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableApplicationFederatedCredentialResponse
+     *
+     * @param DisableApplicationFederatedCredentialRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DisableApplicationFederatedCredentialResponse
+     */
+    public function disableApplicationFederatedCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialId) {
+            @$query['ApplicationFederatedCredentialId'] = $request->applicationFederatedCredentialId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableApplicationFederatedCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableApplicationFederatedCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用应用联邦凭证
+     *
+     * @param request - DisableApplicationFederatedCredentialRequest
+     *
+     * @returns DisableApplicationFederatedCredentialResponse
+     *
+     * @param DisableApplicationFederatedCredentialRequest $request
+     *
+     * @return DisableApplicationFederatedCredentialResponse
+     */
+    public function disableApplicationFederatedCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableApplicationFederatedCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
      * @param request - DisableApplicationProvisioningRequest
@@ -2594,6 +3396,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableApplicationSsoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用应用Token.
+     *
+     * @param request - DisableApplicationTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableApplicationTokenResponse
+     *
+     * @param DisableApplicationTokenRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisableApplicationTokenResponse
+     */
+    public function disableApplicationTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTokenId) {
+            @$query['ApplicationTokenId'] = $request->applicationTokenId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableApplicationToken',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableApplicationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用应用Token.
+     *
+     * @param request - DisableApplicationTokenRequest
+     *
+     * @returns DisableApplicationTokenResponse
+     *
+     * @param DisableApplicationTokenRequest $request
+     *
+     * @return DisableApplicationTokenResponse
+     */
+    public function disableApplicationToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableApplicationTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -2726,6 +3593,128 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用联邦凭证提供方.
+     *
+     * @param request - DisableFederatedCredentialProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableFederatedCredentialProviderResponse
+     *
+     * @param DisableFederatedCredentialProviderRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DisableFederatedCredentialProviderResponse
+     */
+    public function disableFederatedCredentialProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->federatedCredentialProviderId) {
+            @$query['FederatedCredentialProviderId'] = $request->federatedCredentialProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableFederatedCredentialProvider',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableFederatedCredentialProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用联邦凭证提供方.
+     *
+     * @param request - DisableFederatedCredentialProviderRequest
+     *
+     * @returns DisableFederatedCredentialProviderResponse
+     *
+     * @param DisableFederatedCredentialProviderRequest $request
+     *
+     * @return DisableFederatedCredentialProviderResponse
+     */
+    public function disableFederatedCredentialProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableFederatedCredentialProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用认证
+     *
+     * @param request - DisableIdentityProviderAuthnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableIdentityProviderAuthnResponse
+     *
+     * @param DisableIdentityProviderAuthnRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DisableIdentityProviderAuthnResponse
+     */
+    public function disableIdentityProviderAuthnWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableIdentityProviderAuthn',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableIdentityProviderAuthnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用认证
+     *
+     * @param request - DisableIdentityProviderAuthnRequest
+     *
+     * @returns DisableIdentityProviderAuthnResponse
+     *
+     * @param DisableIdentityProviderAuthnRequest $request
+     *
+     * @return DisableIdentityProviderAuthnResponse
+     */
+    public function disableIdentityProviderAuthn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableIdentityProviderAuthnWithOptions($request, $runtime);
     }
 
     /**
@@ -3095,6 +4084,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 启用应用联邦凭证
+     *
+     * @param request - EnableApplicationFederatedCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableApplicationFederatedCredentialResponse
+     *
+     * @param EnableApplicationFederatedCredentialRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return EnableApplicationFederatedCredentialResponse
+     */
+    public function enableApplicationFederatedCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialId) {
+            @$query['ApplicationFederatedCredentialId'] = $request->applicationFederatedCredentialId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableApplicationFederatedCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableApplicationFederatedCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用应用联邦凭证
+     *
+     * @param request - EnableApplicationFederatedCredentialRequest
+     *
+     * @returns EnableApplicationFederatedCredentialResponse
+     *
+     * @param EnableApplicationFederatedCredentialRequest $request
+     *
+     * @return EnableApplicationFederatedCredentialResponse
+     */
+    public function enableApplicationFederatedCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableApplicationFederatedCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
      * @param request - EnableApplicationProvisioningRequest
@@ -3214,6 +4268,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableApplicationSsoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用应用Token.
+     *
+     * @param request - EnableApplicationTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableApplicationTokenResponse
+     *
+     * @param EnableApplicationTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableApplicationTokenResponse
+     */
+    public function enableApplicationTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTokenId) {
+            @$query['ApplicationTokenId'] = $request->applicationTokenId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableApplicationToken',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableApplicationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用应用Token.
+     *
+     * @param request - EnableApplicationTokenRequest
+     *
+     * @returns EnableApplicationTokenResponse
+     *
+     * @param EnableApplicationTokenRequest $request
+     *
+     * @return EnableApplicationTokenResponse
+     */
+    public function enableApplicationToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableApplicationTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -3346,6 +4465,128 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用联邦凭证提供方.
+     *
+     * @param request - EnableFederatedCredentialProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableFederatedCredentialProviderResponse
+     *
+     * @param EnableFederatedCredentialProviderRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return EnableFederatedCredentialProviderResponse
+     */
+    public function enableFederatedCredentialProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->federatedCredentialProviderId) {
+            @$query['FederatedCredentialProviderId'] = $request->federatedCredentialProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableFederatedCredentialProvider',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableFederatedCredentialProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用联邦凭证提供方.
+     *
+     * @param request - EnableFederatedCredentialProviderRequest
+     *
+     * @returns EnableFederatedCredentialProviderResponse
+     *
+     * @param EnableFederatedCredentialProviderRequest $request
+     *
+     * @return EnableFederatedCredentialProviderResponse
+     */
+    public function enableFederatedCredentialProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableFederatedCredentialProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用认证
+     *
+     * @param request - EnableIdentityProviderAuthnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableIdentityProviderAuthnResponse
+     *
+     * @param EnableIdentityProviderAuthnRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return EnableIdentityProviderAuthnResponse
+     */
+    public function enableIdentityProviderAuthnWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableIdentityProviderAuthn',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableIdentityProviderAuthnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用认证
+     *
+     * @param request - EnableIdentityProviderAuthnRequest
+     *
+     * @returns EnableIdentityProviderAuthnResponse
+     *
+     * @param EnableIdentityProviderAuthnRequest $request
+     *
+     * @return EnableIdentityProviderAuthnResponse
+     */
+    public function enableIdentityProviderAuthn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableIdentityProviderAuthnWithOptions($request, $runtime);
     }
 
     /**
@@ -3586,6 +4827,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取应用联邦凭证
+     *
+     * @param request - GetApplicationFederatedCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApplicationFederatedCredentialResponse
+     *
+     * @param GetApplicationFederatedCredentialRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetApplicationFederatedCredentialResponse
+     */
+    public function getApplicationFederatedCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialId) {
+            @$query['ApplicationFederatedCredentialId'] = $request->applicationFederatedCredentialId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApplicationFederatedCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApplicationFederatedCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用联邦凭证
+     *
+     * @param request - GetApplicationFederatedCredentialRequest
+     *
+     * @returns GetApplicationFederatedCredentialResponse
+     *
+     * @param GetApplicationFederatedCredentialRequest $request
+     *
+     * @return GetApplicationFederatedCredentialResponse
+     */
+    public function getApplicationFederatedCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationFederatedCredentialWithOptions($request, $runtime);
     }
 
     /**
@@ -3833,6 +5139,63 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 获取应用模板信息.
+     *
+     * @param request - GetApplicationTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApplicationTemplateResponse
+     *
+     * @param GetApplicationTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetApplicationTemplateResponse
+     */
+    public function getApplicationTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationTemplateId) {
+            @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApplicationTemplate',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApplicationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用模板信息.
+     *
+     * @param request - GetApplicationTemplateRequest
+     *
+     * @returns GetApplicationTemplateResponse
+     *
+     * @param GetApplicationTemplateRequest $request
+     *
+     * @return GetApplicationTemplateResponse
+     */
+    public function getApplicationTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Get Conditional Access Policy.
      *
      * @remarks
@@ -4019,6 +5382,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDomainDnsChallengeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取联邦凭证提供方.
+     *
+     * @param request - GetFederatedCredentialProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFederatedCredentialProviderResponse
+     *
+     * @param GetFederatedCredentialProviderRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetFederatedCredentialProviderResponse
+     */
+    public function getFederatedCredentialProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->federatedCredentialProviderId) {
+            @$query['FederatedCredentialProviderId'] = $request->federatedCredentialProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetFederatedCredentialProvider',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFederatedCredentialProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取联邦凭证提供方.
+     *
+     * @param request - GetFederatedCredentialProviderRequest
+     *
+     * @returns GetFederatedCredentialProviderResponse
+     *
+     * @param GetFederatedCredentialProviderRequest $request
+     *
+     * @return GetFederatedCredentialProviderResponse
+     */
+    public function getFederatedCredentialProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFederatedCredentialProviderWithOptions($request, $runtime);
     }
 
     /**
@@ -4440,6 +5864,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNetworkAccessEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取网络区域对象
+     *
+     * @param request - GetNetworkZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNetworkZoneResponse
+     *
+     * @param GetNetworkZoneRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetNetworkZoneResponse
+     */
+    public function getNetworkZoneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->networkZoneId) {
+            @$query['NetworkZoneId'] = $request->networkZoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNetworkZone',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNetworkZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网络区域对象
+     *
+     * @param request - GetNetworkZoneRequest
+     *
+     * @returns GetNetworkZoneResponse
+     *
+     * @param GetNetworkZoneRequest $request
+     *
+     * @return GetNetworkZoneResponse
+     */
+    public function getNetworkZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNetworkZoneWithOptions($request, $runtime);
     }
 
     /**
@@ -4911,6 +6396,140 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 分页查询应用下的应用账户列表.
+     *
+     * @param request - ListApplicationAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationAccountsResponse
+     *
+     * @param ListApplicationAccountsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListApplicationAccountsResponse
+     */
+    public function listApplicationAccountsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationAccounts',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询应用下的应用账户列表.
+     *
+     * @param request - ListApplicationAccountsRequest
+     *
+     * @returns ListApplicationAccountsResponse
+     *
+     * @param ListApplicationAccountsRequest $request
+     *
+     * @return ListApplicationAccountsResponse
+     */
+    public function listApplicationAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询当前应用下指定用户的所有账号.
+     *
+     * @param request - ListApplicationAccountsForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationAccountsForUserResponse
+     *
+     * @param ListApplicationAccountsForUserRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListApplicationAccountsForUserResponse
+     */
+    public function listApplicationAccountsForUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationAccountsForUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationAccountsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前应用下指定用户的所有账号.
+     *
+     * @param request - ListApplicationAccountsForUserRequest
+     *
+     * @returns ListApplicationAccountsForUserResponse
+     *
+     * @param ListApplicationAccountsForUserRequest $request
+     *
+     * @return ListApplicationAccountsForUserResponse
+     */
+    public function listApplicationAccountsForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationAccountsForUserWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
      *
      * @param request - ListApplicationClientSecretsRequest
@@ -4969,6 +6588,282 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationClientSecretsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询应用联邦凭证列表.
+     *
+     * @param request - ListApplicationFederatedCredentialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationFederatedCredentialsResponse
+     *
+     * @param ListApplicationFederatedCredentialsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListApplicationFederatedCredentialsResponse
+     */
+    public function listApplicationFederatedCredentialsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialType) {
+            @$query['ApplicationFederatedCredentialType'] = $request->applicationFederatedCredentialType;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationFederatedCredentials',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationFederatedCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用联邦凭证列表.
+     *
+     * @param request - ListApplicationFederatedCredentialsRequest
+     *
+     * @returns ListApplicationFederatedCredentialsResponse
+     *
+     * @param ListApplicationFederatedCredentialsRequest $request
+     *
+     * @return ListApplicationFederatedCredentialsResponse
+     */
+    public function listApplicationFederatedCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationFederatedCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据联邦凭证提供方查询应用联邦凭证列表.
+     *
+     * @param request - ListApplicationFederatedCredentialsForProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationFederatedCredentialsForProviderResponse
+     *
+     * @param ListApplicationFederatedCredentialsForProviderRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return ListApplicationFederatedCredentialsForProviderResponse
+     */
+    public function listApplicationFederatedCredentialsForProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->federatedCredentialProviderId) {
+            @$query['FederatedCredentialProviderId'] = $request->federatedCredentialProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationFederatedCredentialsForProvider',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationFederatedCredentialsForProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据联邦凭证提供方查询应用联邦凭证列表.
+     *
+     * @param request - ListApplicationFederatedCredentialsForProviderRequest
+     *
+     * @returns ListApplicationFederatedCredentialsForProviderResponse
+     *
+     * @param ListApplicationFederatedCredentialsForProviderRequest $request
+     *
+     * @return ListApplicationFederatedCredentialsForProviderResponse
+     */
+    public function listApplicationFederatedCredentialsForProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationFederatedCredentialsForProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用支持账户同步类型列表.
+     *
+     * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationSupportedProvisionProtocolTypesResponse
+     *
+     * @param ListApplicationSupportedProvisionProtocolTypesRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return ListApplicationSupportedProvisionProtocolTypesResponse
+     */
+    public function listApplicationSupportedProvisionProtocolTypesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationSupportedProvisionProtocolTypes',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationSupportedProvisionProtocolTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用支持账户同步类型列表.
+     *
+     * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
+     *
+     * @returns ListApplicationSupportedProvisionProtocolTypesResponse
+     *
+     * @param ListApplicationSupportedProvisionProtocolTypesRequest $request
+     *
+     * @return ListApplicationSupportedProvisionProtocolTypesResponse
+     */
+    public function listApplicationSupportedProvisionProtocolTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationSupportedProvisionProtocolTypesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建应用Token.
+     *
+     * @param request - ListApplicationTokensRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationTokensResponse
+     *
+     * @param ListApplicationTokensRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListApplicationTokensResponse
+     */
+    public function listApplicationTokensWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTokenType) {
+            @$query['ApplicationTokenType'] = $request->applicationTokenType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationTokens',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationTokensResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用Token.
+     *
+     * @param request - ListApplicationTokensRequest
+     *
+     * @returns ListApplicationTokensResponse
+     *
+     * @param ListApplicationTokensRequest $request
+     *
+     * @return ListApplicationTokensResponse
+     */
+    public function listApplicationTokens($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationTokensWithOptions($request, $runtime);
     }
 
     /**
@@ -5062,6 +6957,221 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询一个EIAM组可访问的应用列表.
+     *
+     * @param request - ListApplicationsForGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationsForGroupResponse
+     *
+     * @param ListApplicationsForGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListApplicationsForGroupResponse
+     */
+    public function listApplicationsForGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationIds) {
+            @$query['ApplicationIds'] = $request->applicationIds;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationsForGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationsForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询一个EIAM组可访问的应用列表.
+     *
+     * @param request - ListApplicationsForGroupRequest
+     *
+     * @returns ListApplicationsForGroupResponse
+     *
+     * @param ListApplicationsForGroupRequest $request
+     *
+     * @return ListApplicationsForGroupResponse
+     */
+    public function listApplicationsForGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationsForGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取网络访问端点下的App信息。
+     *
+     * @param request - ListApplicationsForNetworkAccessEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationsForNetworkAccessEndpointResponse
+     *
+     * @param ListApplicationsForNetworkAccessEndpointRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return ListApplicationsForNetworkAccessEndpointResponse
+     */
+    public function listApplicationsForNetworkAccessEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationsForNetworkAccessEndpoint',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationsForNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网络访问端点下的App信息。
+     *
+     * @param request - ListApplicationsForNetworkAccessEndpointRequest
+     *
+     * @returns ListApplicationsForNetworkAccessEndpointResponse
+     *
+     * @param ListApplicationsForNetworkAccessEndpointRequest $request
+     *
+     * @return ListApplicationsForNetworkAccessEndpointResponse
+     */
+    public function listApplicationsForNetworkAccessEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationsForNetworkAccessEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取NetworkZone关联的应用列表.
+     *
+     * @param request - ListApplicationsForNetworkZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationsForNetworkZoneResponse
+     *
+     * @param ListApplicationsForNetworkZoneRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListApplicationsForNetworkZoneResponse
+     */
+    public function listApplicationsForNetworkZoneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->networkZoneId) {
+            @$query['NetworkZoneId'] = $request->networkZoneId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationsForNetworkZone',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationsForNetworkZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取NetworkZone关联的应用列表.
+     *
+     * @param request - ListApplicationsForNetworkZoneRequest
+     *
+     * @returns ListApplicationsForNetworkZoneResponse
+     *
+     * @param ListApplicationsForNetworkZoneRequest $request
+     *
+     * @return ListApplicationsForNetworkZoneResponse
+     */
+    public function listApplicationsForNetworkZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationsForNetworkZoneWithOptions($request, $runtime);
     }
 
     /**
@@ -5296,6 +7406,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 获取应用关联的条件访问策略列表.
+     *
+     * @param request - ListConditionalAccessPoliciesForApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConditionalAccessPoliciesForApplicationResponse
+     *
+     * @param ListConditionalAccessPoliciesForApplicationRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return ListConditionalAccessPoliciesForApplicationResponse
+     */
+    public function listConditionalAccessPoliciesForApplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConditionalAccessPoliciesForApplication',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConditionalAccessPoliciesForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用关联的条件访问策略列表.
+     *
+     * @param request - ListConditionalAccessPoliciesForApplicationRequest
+     *
+     * @returns ListConditionalAccessPoliciesForApplicationResponse
+     *
+     * @param ListConditionalAccessPoliciesForApplicationRequest $request
+     *
+     * @return ListConditionalAccessPoliciesForApplicationResponse
+     */
+    public function listConditionalAccessPoliciesForApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConditionalAccessPoliciesForApplicationWithOptions($request, $runtime);
+    }
+
+    /**
      * List Conditional Access Policies Associated with Network Areas.
      *
      * @remarks
@@ -5360,6 +7531,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConditionalAccessPoliciesForNetworkZoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户关联的条件访问策略列表.
+     *
+     * @param request - ListConditionalAccessPoliciesForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConditionalAccessPoliciesForUserResponse
+     *
+     * @param ListConditionalAccessPoliciesForUserRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListConditionalAccessPoliciesForUserResponse
+     */
+    public function listConditionalAccessPoliciesForUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConditionalAccessPoliciesForUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConditionalAccessPoliciesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户关联的条件访问策略列表.
+     *
+     * @param request - ListConditionalAccessPoliciesForUserRequest
+     *
+     * @returns ListConditionalAccessPoliciesForUserResponse
+     *
+     * @param ListConditionalAccessPoliciesForUserRequest $request
+     *
+     * @return ListConditionalAccessPoliciesForUserResponse
+     */
+    public function listConditionalAccessPoliciesForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConditionalAccessPoliciesForUserWithOptions($request, $runtime);
     }
 
     /**
@@ -5440,6 +7672,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -5583,6 +7819,83 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEiamRegionsWithOptions($runtime);
+    }
+
+    /**
+     * 查询联邦凭证提供方列表.
+     *
+     * @param request - ListFederatedCredentialProvidersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFederatedCredentialProvidersResponse
+     *
+     * @param ListFederatedCredentialProvidersRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListFederatedCredentialProvidersResponse
+     */
+    public function listFederatedCredentialProvidersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->federatedCredentialProviderName) {
+            @$query['FederatedCredentialProviderName'] = $request->federatedCredentialProviderName;
+        }
+
+        if (null !== $request->federatedCredentialProviderType) {
+            @$query['FederatedCredentialProviderType'] = $request->federatedCredentialProviderType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFederatedCredentialProviders',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFederatedCredentialProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询联邦凭证提供方列表.
+     *
+     * @param request - ListFederatedCredentialProvidersRequest
+     *
+     * @returns ListFederatedCredentialProvidersResponse
+     *
+     * @param ListFederatedCredentialProvidersRequest $request
+     *
+     * @return ListFederatedCredentialProvidersResponse
+     */
+    public function listFederatedCredentialProviders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFederatedCredentialProvidersWithOptions($request, $runtime);
     }
 
     /**
@@ -5871,6 +8184,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listIdentityProvidersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取网络端点下的IdP信息。
+     *
+     * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIdentityProvidersForNetworkAccessEndpointResponse
+     *
+     * @param ListIdentityProvidersForNetworkAccessEndpointRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return ListIdentityProvidersForNetworkAccessEndpointResponse
+     */
+    public function listIdentityProvidersForNetworkAccessEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIdentityProvidersForNetworkAccessEndpoint',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIdentityProvidersForNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网络端点下的IdP信息。
+     *
+     * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
+     *
+     * @returns ListIdentityProvidersForNetworkAccessEndpointResponse
+     *
+     * @param ListIdentityProvidersForNetworkAccessEndpointRequest $request
+     *
+     * @return ListIdentityProvidersForNetworkAccessEndpointResponse
+     */
+    public function listIdentityProvidersForNetworkAccessEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIdentityProvidersForNetworkAccessEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -6183,6 +8565,79 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNetworkAccessPathsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 网络区域对象列表.
+     *
+     * @param request - ListNetworkZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNetworkZonesResponse
+     *
+     * @param ListNetworkZonesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListNetworkZonesResponse
+     */
+    public function listNetworkZonesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->networkZoneIds) {
+            @$query['NetworkZoneIds'] = $request->networkZoneIds;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNetworkZones',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNetworkZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 网络区域对象列表.
+     *
+     * @param request - ListNetworkZonesRequest
+     *
+     * @returns ListNetworkZonesResponse
+     *
+     * @param ListNetworkZonesRequest $request
+     *
+     * @return ListNetworkZonesResponse
+     */
+    public function listNetworkZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNetworkZonesWithOptions($request, $runtime);
     }
 
     /**
@@ -6866,6 +9321,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 查询指定应用Token.
+     *
+     * @param request - ObtainApplicationTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ObtainApplicationTokenResponse
+     *
+     * @param ObtainApplicationTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ObtainApplicationTokenResponse
+     */
+    public function obtainApplicationTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTokenId) {
+            @$query['ApplicationTokenId'] = $request->applicationTokenId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ObtainApplicationToken',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ObtainApplicationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定应用Token.
+     *
+     * @param request - ObtainApplicationTokenRequest
+     *
+     * @returns ObtainApplicationTokenResponse
+     *
+     * @param ObtainApplicationTokenRequest $request
+     *
+     * @return ObtainApplicationTokenResponse
+     */
+    public function obtainApplicationToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->obtainApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
      *
      * @param request - ObtainDomainProxyTokenRequest
@@ -6928,6 +9448,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->obtainDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除一个当前应用下的指定员工的应用账号.
+     *
+     * @param request - RemoveApplicationAccountFromUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveApplicationAccountFromUserResponse
+     *
+     * @param RemoveApplicationAccountFromUserRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemoveApplicationAccountFromUserResponse
+     */
+    public function removeApplicationAccountFromUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationAccountId) {
+            @$query['ApplicationAccountId'] = $request->applicationAccountId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveApplicationAccountFromUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveApplicationAccountFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除一个当前应用下的指定员工的应用账号.
+     *
+     * @param request - RemoveApplicationAccountFromUserRequest
+     *
+     * @returns RemoveApplicationAccountFromUserResponse
+     *
+     * @param RemoveApplicationAccountFromUserRequest $request
+     *
+     * @return RemoveApplicationAccountFromUserResponse
+     */
+    public function removeApplicationAccountFromUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeApplicationAccountFromUserWithOptions($request, $runtime);
     }
 
     /**
@@ -8471,6 +11060,294 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 更新应用联邦凭证
+     *
+     * @param request - UpdateApplicationFederatedCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationFederatedCredentialResponse
+     *
+     * @param UpdateApplicationFederatedCredentialRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return UpdateApplicationFederatedCredentialResponse
+     */
+    public function updateApplicationFederatedCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialId) {
+            @$query['ApplicationFederatedCredentialId'] = $request->applicationFederatedCredentialId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->attributeMappings) {
+            @$query['AttributeMappings'] = $request->attributeMappings;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->verificationCondition) {
+            @$query['VerificationCondition'] = $request->verificationCondition;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationFederatedCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationFederatedCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新应用联邦凭证
+     *
+     * @param request - UpdateApplicationFederatedCredentialRequest
+     *
+     * @returns UpdateApplicationFederatedCredentialResponse
+     *
+     * @param UpdateApplicationFederatedCredentialRequest $request
+     *
+     * @return UpdateApplicationFederatedCredentialResponse
+     */
+    public function updateApplicationFederatedCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationFederatedCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新应用联邦凭证描述.
+     *
+     * @param request - UpdateApplicationFederatedCredentialDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationFederatedCredentialDescriptionResponse
+     *
+     * @param UpdateApplicationFederatedCredentialDescriptionRequest $request
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return UpdateApplicationFederatedCredentialDescriptionResponse
+     */
+    public function updateApplicationFederatedCredentialDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialId) {
+            @$query['ApplicationFederatedCredentialId'] = $request->applicationFederatedCredentialId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationFederatedCredentialDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationFederatedCredentialDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新应用联邦凭证描述.
+     *
+     * @param request - UpdateApplicationFederatedCredentialDescriptionRequest
+     *
+     * @returns UpdateApplicationFederatedCredentialDescriptionResponse
+     *
+     * @param UpdateApplicationFederatedCredentialDescriptionRequest $request
+     *
+     * @return UpdateApplicationFederatedCredentialDescriptionResponse
+     */
+    public function updateApplicationFederatedCredentialDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationFederatedCredentialDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新应用基本信息.
+     *
+     * @param request - UpdateApplicationInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationInfoResponse
+     *
+     * @param UpdateApplicationInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateApplicationInfoResponse
+     */
+    public function updateApplicationInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationName) {
+            @$query['ApplicationName'] = $request->applicationName;
+        }
+
+        if (null !== $request->applicationVisibility) {
+            @$query['ApplicationVisibility'] = $request->applicationVisibility;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logoUrl) {
+            @$query['LogoUrl'] = $request->logoUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationInfo',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新应用基本信息.
+     *
+     * @param request - UpdateApplicationInfoRequest
+     *
+     * @returns UpdateApplicationInfoResponse
+     *
+     * @param UpdateApplicationInfoRequest $request
+     *
+     * @return UpdateApplicationInfoResponse
+     */
+    public function updateApplicationInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新ApplicationToken过期时间.
+     *
+     * @param request - UpdateApplicationTokenExpirationTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationTokenExpirationTimeResponse
+     *
+     * @param UpdateApplicationTokenExpirationTimeRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return UpdateApplicationTokenExpirationTimeResponse
+     */
+    public function updateApplicationTokenExpirationTimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTokenId) {
+            @$query['ApplicationTokenId'] = $request->applicationTokenId;
+        }
+
+        if (null !== $request->expirationTime) {
+            @$query['ExpirationTime'] = $request->expirationTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationTokenExpirationTime',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationTokenExpirationTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新ApplicationToken过期时间.
+     *
+     * @param request - UpdateApplicationTokenExpirationTimeRequest
+     *
+     * @returns UpdateApplicationTokenExpirationTimeResponse
+     *
+     * @param UpdateApplicationTokenExpirationTimeRequest $request
+     *
+     * @return UpdateApplicationTokenExpirationTimeResponse
+     */
+    public function updateApplicationTokenExpirationTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationTokenExpirationTimeWithOptions($request, $runtime);
+    }
+
+    /**
      * Update Conditional Access Policy.
      *
      * @remarks
@@ -8634,6 +11511,217 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConditionalAccessPolicyDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新域名备案号。
+     *
+     * @param request - UpdateDomainIcpNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDomainIcpNumberResponse
+     *
+     * @param UpdateDomainIcpNumberRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDomainIcpNumberResponse
+     */
+    public function updateDomainIcpNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
+        }
+
+        if (null !== $request->icpNumber) {
+            @$query['IcpNumber'] = $request->icpNumber;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDomainIcpNumber',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDomainIcpNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新域名备案号。
+     *
+     * @param request - UpdateDomainIcpNumberRequest
+     *
+     * @returns UpdateDomainIcpNumberResponse
+     *
+     * @param UpdateDomainIcpNumberRequest $request
+     *
+     * @return UpdateDomainIcpNumberResponse
+     */
+    public function updateDomainIcpNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDomainIcpNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新联邦凭证提供方.
+     *
+     * @param request - UpdateFederatedCredentialProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFederatedCredentialProviderResponse
+     *
+     * @param UpdateFederatedCredentialProviderRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateFederatedCredentialProviderResponse
+     */
+    public function updateFederatedCredentialProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->federatedCredentialProviderId) {
+            @$query['FederatedCredentialProviderId'] = $request->federatedCredentialProviderId;
+        }
+
+        if (null !== $request->federatedCredentialProviderName) {
+            @$query['FederatedCredentialProviderName'] = $request->federatedCredentialProviderName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+        }
+
+        if (null !== $request->oidcProviderConfig) {
+            @$query['OidcProviderConfig'] = $request->oidcProviderConfig;
+        }
+
+        if (null !== $request->pkcs7ProviderConfig) {
+            @$query['Pkcs7ProviderConfig'] = $request->pkcs7ProviderConfig;
+        }
+
+        if (null !== $request->privateCaProviderConfig) {
+            @$query['PrivateCaProviderConfig'] = $request->privateCaProviderConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFederatedCredentialProvider',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFederatedCredentialProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新联邦凭证提供方.
+     *
+     * @param request - UpdateFederatedCredentialProviderRequest
+     *
+     * @returns UpdateFederatedCredentialProviderResponse
+     *
+     * @param UpdateFederatedCredentialProviderRequest $request
+     *
+     * @return UpdateFederatedCredentialProviderResponse
+     */
+    public function updateFederatedCredentialProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFederatedCredentialProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新联邦凭证提供方描述.
+     *
+     * @param request - UpdateFederatedCredentialProviderDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFederatedCredentialProviderDescriptionResponse
+     *
+     * @param UpdateFederatedCredentialProviderDescriptionRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return UpdateFederatedCredentialProviderDescriptionResponse
+     */
+    public function updateFederatedCredentialProviderDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->federatedCredentialProviderId) {
+            @$query['FederatedCredentialProviderId'] = $request->federatedCredentialProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFederatedCredentialProviderDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFederatedCredentialProviderDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新联邦凭证提供方描述.
+     *
+     * @param request - UpdateFederatedCredentialProviderDescriptionRequest
+     *
+     * @returns UpdateFederatedCredentialProviderDescriptionResponse
+     *
+     * @param UpdateFederatedCredentialProviderDescriptionRequest $request
+     *
+     * @return UpdateFederatedCredentialProviderDescriptionResponse
+     */
+    public function updateFederatedCredentialProviderDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFederatedCredentialProviderDescriptionWithOptions($request, $runtime);
     }
 
     /**
@@ -8991,6 +12079,156 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateNetworkAccessEndpointNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新网络区域对象
+     *
+     * @param request - UpdateNetworkZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNetworkZoneResponse
+     *
+     * @param UpdateNetworkZoneRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateNetworkZoneResponse
+     */
+    public function updateNetworkZoneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ipv4Cidrs) {
+            @$query['Ipv4Cidrs'] = $request->ipv4Cidrs;
+        }
+
+        if (null !== $request->ipv6Cidrs) {
+            @$query['Ipv6Cidrs'] = $request->ipv6Cidrs;
+        }
+
+        if (null !== $request->networkZoneId) {
+            @$query['NetworkZoneId'] = $request->networkZoneId;
+        }
+
+        if (null !== $request->networkZoneName) {
+            @$query['NetworkZoneName'] = $request->networkZoneName;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNetworkZone',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNetworkZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网络区域对象
+     *
+     * @param request - UpdateNetworkZoneRequest
+     *
+     * @returns UpdateNetworkZoneResponse
+     *
+     * @param UpdateNetworkZoneRequest $request
+     *
+     * @return UpdateNetworkZoneResponse
+     */
+    public function updateNetworkZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNetworkZoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新网络区域对象描述.
+     *
+     * @param request - UpdateNetworkZoneDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNetworkZoneDescriptionResponse
+     *
+     * @param UpdateNetworkZoneDescriptionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateNetworkZoneDescriptionResponse
+     */
+    public function updateNetworkZoneDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->networkZoneId) {
+            @$query['NetworkZoneId'] = $request->networkZoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNetworkZoneDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNetworkZoneDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网络区域对象描述.
+     *
+     * @param request - UpdateNetworkZoneDescriptionRequest
+     *
+     * @returns UpdateNetworkZoneDescriptionResponse
+     *
+     * @param UpdateNetworkZoneDescriptionRequest $request
+     *
+     * @return UpdateNetworkZoneDescriptionResponse
+     */
+    public function updateNetworkZoneDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNetworkZoneDescriptionWithOptions($request, $runtime);
     }
 
     /**

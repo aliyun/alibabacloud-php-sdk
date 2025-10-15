@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsResponseBody\domains\filin
 class domains extends Model
 {
     /**
+     * @var string
+     */
+    public $brandId;
+
+    /**
      * @var int
      */
     public $createTime;
@@ -54,6 +59,7 @@ class domains extends Model
      */
     public $updateTime;
     protected $_name = [
+        'brandId' => 'BrandId',
         'createTime' => 'CreateTime',
         'defaultDomain' => 'DefaultDomain',
         'domain' => 'Domain',
@@ -76,6 +82,10 @@ class domains extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->brandId) {
+            $res['BrandId'] = $this->brandId;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -123,6 +133,10 @@ class domains extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BrandId'])) {
+            $model->brandId = $map['BrandId'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
