@@ -9373,6 +9373,14 @@ class Sae extends OpenApiClient
             @$query['Memory'] = $request->memory;
         }
 
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
         if (null !== $request->autoEnableApplicationScalingRule) {
             @$query['autoEnableApplicationScalingRule'] = $request->autoEnableApplicationScalingRule;
         }

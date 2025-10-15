@@ -29,6 +29,16 @@ class RescaleApplicationVerticallyRequest extends Model
     public $memory;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
      * @var bool
      */
     public $autoEnableApplicationScalingRule;
@@ -47,6 +57,8 @@ class RescaleApplicationVerticallyRequest extends Model
         'cpu' => 'Cpu',
         'diskSize' => 'DiskSize',
         'memory' => 'Memory',
+        'resourceType' => 'ResourceType',
+        'vSwitchId' => 'VSwitchId',
         'autoEnableApplicationScalingRule' => 'autoEnableApplicationScalingRule',
         'minReadyInstanceRatio' => 'minReadyInstanceRatio',
         'minReadyInstances' => 'minReadyInstances',
@@ -74,6 +86,14 @@ class RescaleApplicationVerticallyRequest extends Model
 
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         if (null !== $this->autoEnableApplicationScalingRule) {
@@ -113,6 +133,14 @@ class RescaleApplicationVerticallyRequest extends Model
 
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         if (isset($map['autoEnableApplicationScalingRule'])) {
