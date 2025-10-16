@@ -14,15 +14,25 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateBrowserRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCodeInterpreterRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCodeInterpreterResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryEventRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryEventResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCodeInterpreterResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCodeInterpreterResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryEventRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryEventResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemorySessionRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemorySessionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimesRequest;
@@ -33,12 +43,22 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListBrowsersRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListBrowsersResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCodeInterpretersRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCodeInterpretersResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryEventRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryEventResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemorySessionsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemorySessionsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\RetrieveMemoryRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\RetrieveMemoryResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -329,6 +349,138 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * create memory store.
+     *
+     * @param request - CreateMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryResponse
+     *
+     * @param CreateMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateMemoryResponse
+     */
+    public function createMemoryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->longTtl) {
+            @$body['longTtl'] = $request->longTtl;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->shortTtl) {
+            @$body['shortTtl'] = $request->shortTtl;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemory',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * create memory store.
+     *
+     * @param request - CreateMemoryRequest
+     *
+     * @returns CreateMemoryResponse
+     *
+     * @param CreateMemoryRequest $request
+     *
+     * @return CreateMemoryResponse
+     */
+    public function createMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * create event.
+     *
+     * @param request - CreateMemoryEventRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryEventResponse
+     *
+     * @param string                   $memoryName
+     * @param CreateMemoryEventRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMemoryEventResponse
+     */
+    public function createMemoryEventWithOptions($memoryName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->events) {
+            @$body['events'] = $request->events;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemoryEvent',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '/events',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemoryEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * create event.
+     *
+     * @param request - CreateMemoryEventRequest
+     *
+     * @returns CreateMemoryEventResponse
+     *
+     * @param string                   $memoryName
+     * @param CreateMemoryEventRequest $request
+     *
+     * @return CreateMemoryEventResponse
+     */
+    public function createMemoryEvent($memoryName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryEventWithOptions($memoryName, $request, $headers, $runtime);
+    }
+
+    /**
      * 删除智能体运行时.
      *
      * @remarks
@@ -550,6 +702,57 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteCodeInterpreterWithOptions($codeInterpreterId, $headers, $runtime);
+    }
+
+    /**
+     * delete memory store.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param string         $memoryName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemoryWithOptions($memoryName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemory',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * delete memory store.
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param string $memoryName
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemory($memoryName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryWithOptions($memoryName, $headers, $runtime);
     }
 
     /**
@@ -786,6 +989,207 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->getCodeInterpreterWithOptions($codeInterpreterId, $headers, $runtime);
+    }
+
+    /**
+     * GetMemory.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryResponse
+     *
+     * @param string         $memoryName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMemoryResponse
+     */
+    public function getMemoryWithOptions($memoryName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemory',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetMemory.
+     *
+     * @returns GetMemoryResponse
+     *
+     * @param string $memoryName
+     *
+     * @return GetMemoryResponse
+     */
+    public function getMemory($memoryName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryWithOptions($memoryName, $headers, $runtime);
+    }
+
+    /**
+     * get event.
+     *
+     * @param request - GetMemoryEventRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryEventResponse
+     *
+     * @param string                $memoryName
+     * @param string                $sessionId
+     * @param string                $eventId
+     * @param GetMemoryEventRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetMemoryEventResponse
+     */
+    public function getMemoryEventWithOptions($memoryName, $sessionId, $eventId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
+        }
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryEvent',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '/sessions/' . Url::percentEncode($sessionId) . '/events/' . Url::percentEncode($eventId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * get event.
+     *
+     * @param request - GetMemoryEventRequest
+     *
+     * @returns GetMemoryEventResponse
+     *
+     * @param string                $memoryName
+     * @param string                $sessionId
+     * @param string                $eventId
+     * @param GetMemoryEventRequest $request
+     *
+     * @return GetMemoryEventResponse
+     */
+    public function getMemoryEvent($memoryName, $sessionId, $eventId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryEventWithOptions($memoryName, $sessionId, $eventId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取内存会话详情.
+     *
+     * @remarks
+     * 根据会话ID获取指定内存会话的详细信息，包括会话中的事件记录、时间戳等。用于查看和管理对话历史。
+     *
+     * @param request - GetMemorySessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemorySessionResponse
+     *
+     * @param string                  $memoryName
+     * @param string                  $sessionId
+     * @param GetMemorySessionRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMemorySessionResponse
+     */
+    public function getMemorySessionWithOptions($memoryName, $sessionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMemorySession',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '/sessions/' . Url::percentEncode($sessionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemorySessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取内存会话详情.
+     *
+     * @remarks
+     * 根据会话ID获取指定内存会话的详细信息，包括会话中的事件记录、时间戳等。用于查看和管理对话历史。
+     *
+     * @param request - GetMemorySessionRequest
+     *
+     * @returns GetMemorySessionResponse
+     *
+     * @param string                  $memoryName
+     * @param string                  $sessionId
+     * @param GetMemorySessionRequest $request
+     *
+     * @return GetMemorySessionResponse
+     */
+    public function getMemorySession($memoryName, $sessionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemorySessionWithOptions($memoryName, $sessionId, $request, $headers, $runtime);
     }
 
     /**
@@ -1162,6 +1566,233 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * ListMemory.
+     *
+     * @param request - ListMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoryResponse
+     *
+     * @param ListMemoryRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListMemoryResponse
+     */
+    public function listMemoryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->namePrefix) {
+            @$query['namePrefix'] = $request->namePrefix;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemory',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListMemory.
+     *
+     * @param request - ListMemoryRequest
+     *
+     * @returns ListMemoryResponse
+     *
+     * @param ListMemoryRequest $request
+     *
+     * @return ListMemoryResponse
+     */
+    public function listMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * list events.
+     *
+     * @param request - ListMemoryEventRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoryEventResponse
+     *
+     * @param string                 $memoryName
+     * @param string                 $sessionId
+     * @param ListMemoryEventRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListMemoryEventResponse
+     */
+    public function listMemoryEventWithOptions($memoryName, $sessionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemoryEvent',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '/sessions/' . Url::percentEncode($sessionId) . '/events',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemoryEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * list events.
+     *
+     * @param request - ListMemoryEventRequest
+     *
+     * @returns ListMemoryEventResponse
+     *
+     * @param string                 $memoryName
+     * @param string                 $sessionId
+     * @param ListMemoryEventRequest $request
+     *
+     * @return ListMemoryEventResponse
+     */
+    public function listMemoryEvent($memoryName, $sessionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoryEventWithOptions($memoryName, $sessionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出内存会话.
+     *
+     * @remarks
+     * 获取指定内存实例的所有会话列表，支持按时间范围过滤和分页查询。会话是AgentRun中用于存储对话历史和管理上下文的重要组件。
+     *
+     * @param request - ListMemorySessionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemorySessionsResponse
+     *
+     * @param string                    $memoryName
+     * @param ListMemorySessionsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMemorySessionsResponse
+     */
+    public function listMemorySessionsWithOptions($memoryName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemorySessions',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '/sessions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemorySessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出内存会话.
+     *
+     * @remarks
+     * 获取指定内存实例的所有会话列表，支持按时间范围过滤和分页查询。会话是AgentRun中用于存储对话历史和管理上下文的重要组件。
+     *
+     * @param request - ListMemorySessionsRequest
+     *
+     * @returns ListMemorySessionsResponse
+     *
+     * @param string                    $memoryName
+     * @param ListMemorySessionsRequest $request
+     *
+     * @return ListMemorySessionsResponse
+     */
+    public function listMemorySessions($memoryName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemorySessionsWithOptions($memoryName, $request, $headers, $runtime);
+    }
+
+    /**
      * 发布运行时版本.
      *
      * @remarks
@@ -1223,6 +1854,85 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->publishRuntimeVersionWithOptions($agentRuntimeId, $request, $headers, $runtime);
+    }
+
+    /**
+     * RetrieveMemory.
+     *
+     * @param request - RetrieveMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetrieveMemoryResponse
+     *
+     * @param string                $memoryName
+     * @param RetrieveMemoryRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RetrieveMemoryResponse
+     */
+    public function retrieveMemoryWithOptions($memoryName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->from) {
+            @$body['from'] = $request->from;
+        }
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->store) {
+            @$body['store'] = $request->store;
+        }
+
+        if (null !== $request->to) {
+            @$body['to'] = $request->to;
+        }
+
+        if (null !== $request->topk) {
+            @$body['topk'] = $request->topk;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RetrieveMemory',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '/records',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RetrieveMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * RetrieveMemory.
+     *
+     * @param request - RetrieveMemoryRequest
+     *
+     * @returns RetrieveMemoryResponse
+     *
+     * @param string                $memoryName
+     * @param RetrieveMemoryRequest $request
+     *
+     * @return RetrieveMemoryResponse
+     */
+    public function retrieveMemory($memoryName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->retrieveMemoryWithOptions($memoryName, $request, $headers, $runtime);
     }
 
     /**
@@ -1347,5 +2057,72 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Update Memory.
+     *
+     * @param request - UpdateMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param string              $memoryName
+     * @param UpdateMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemoryWithOptions($memoryName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->longTtl) {
+            @$query['longTtl'] = $request->longTtl;
+        }
+
+        if (null !== $request->shortTtl) {
+            @$query['shortTtl'] = $request->shortTtl;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemory',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/memories/' . Url::percentEncode($memoryName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update Memory.
+     *
+     * @param request - UpdateMemoryRequest
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param string              $memoryName
+     * @param UpdateMemoryRequest $request
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemory($memoryName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryWithOptions($memoryName, $request, $headers, $runtime);
     }
 }
