@@ -5,10 +5,21 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest\ackLabels;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest\tagList;
 
 class ModifyAddressBookRequest extends Model
 {
+    /**
+     * @var ackLabels[]
+     */
+    public $ackLabels;
+
+    /**
+     * @var string[]
+     */
+    public $ackNamespaces;
+
     /**
      * @var string
      */
@@ -59,6 +70,8 @@ class ModifyAddressBookRequest extends Model
      */
     public $tagRelation;
     protected $_name = [
+        'ackLabels' => 'AckLabels',
+        'ackNamespaces' => 'AckNamespaces',
         'addressList' => 'AddressList',
         'autoAddTagEcs' => 'AutoAddTagEcs',
         'description' => 'Description',
@@ -73,6 +86,12 @@ class ModifyAddressBookRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ackLabels)) {
+            Model::validateArray($this->ackLabels);
+        }
+        if (\is_array($this->ackNamespaces)) {
+            Model::validateArray($this->ackNamespaces);
+        }
         if (\is_array($this->tagList)) {
             Model::validateArray($this->tagList);
         }
@@ -82,6 +101,28 @@ class ModifyAddressBookRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ackLabels) {
+            if (\is_array($this->ackLabels)) {
+                $res['AckLabels'] = [];
+                $n1 = 0;
+                foreach ($this->ackLabels as $item1) {
+                    $res['AckLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ackNamespaces) {
+            if (\is_array($this->ackNamespaces)) {
+                $res['AckNamespaces'] = [];
+                $n1 = 0;
+                foreach ($this->ackNamespaces as $item1) {
+                    $res['AckNamespaces'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->addressList) {
             $res['AddressList'] = $this->addressList;
         }
@@ -140,6 +181,28 @@ class ModifyAddressBookRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AckLabels'])) {
+            if (!empty($map['AckLabels'])) {
+                $model->ackLabels = [];
+                $n1 = 0;
+                foreach ($map['AckLabels'] as $item1) {
+                    $model->ackLabels[$n1] = ackLabels::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AckNamespaces'])) {
+            if (!empty($map['AckNamespaces'])) {
+                $model->ackNamespaces = [];
+                $n1 = 0;
+                foreach ($map['AckNamespaces'] as $item1) {
+                    $model->ackNamespaces[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AddressList'])) {
             $model->addressList = $map['AddressList'];
         }

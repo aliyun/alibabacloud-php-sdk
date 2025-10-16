@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticResponseBody\generalInstanceSpecStatistic;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticResponseBody\resourceSpecStatistic;
 
 class DescribeAssetStatisticResponseBody extends Model
 {
+    /**
+     * @var generalInstanceSpecStatistic
+     */
+    public $generalInstanceSpecStatistic;
+
     /**
      * @var string
      */
@@ -19,12 +25,16 @@ class DescribeAssetStatisticResponseBody extends Model
      */
     public $resourceSpecStatistic;
     protected $_name = [
+        'generalInstanceSpecStatistic' => 'GeneralInstanceSpecStatistic',
         'requestId' => 'RequestId',
         'resourceSpecStatistic' => 'ResourceSpecStatistic',
     ];
 
     public function validate()
     {
+        if (null !== $this->generalInstanceSpecStatistic) {
+            $this->generalInstanceSpecStatistic->validate();
+        }
         if (null !== $this->resourceSpecStatistic) {
             $this->resourceSpecStatistic->validate();
         }
@@ -34,6 +44,10 @@ class DescribeAssetStatisticResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->generalInstanceSpecStatistic) {
+            $res['GeneralInstanceSpecStatistic'] = null !== $this->generalInstanceSpecStatistic ? $this->generalInstanceSpecStatistic->toArray($noStream) : $this->generalInstanceSpecStatistic;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -53,6 +67,10 @@ class DescribeAssetStatisticResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GeneralInstanceSpecStatistic'])) {
+            $model->generalInstanceSpecStatistic = generalInstanceSpecStatistic::fromMap($map['GeneralInstanceSpecStatistic']);
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

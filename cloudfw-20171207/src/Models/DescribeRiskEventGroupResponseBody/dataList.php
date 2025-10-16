@@ -105,6 +105,11 @@ class dataList extends Model
     /**
      * @var string[]
      */
+    public $srcIPTags;
+
+    /**
+     * @var string[]
+     */
     public $srcPrivateIPList;
 
     /**
@@ -145,6 +150,7 @@ class dataList extends Model
         'ruleSource' => 'RuleSource',
         'srcIP' => 'SrcIP',
         'srcIPTag' => 'SrcIPTag',
+        'srcIPTags' => 'SrcIPTags',
         'srcPrivateIPList' => 'SrcPrivateIPList',
         'tag' => 'Tag',
         'vpcDstInfo' => 'VpcDstInfo',
@@ -159,6 +165,9 @@ class dataList extends Model
         }
         if (\is_array($this->resourcePrivateIPList)) {
             Model::validateArray($this->resourcePrivateIPList);
+        }
+        if (\is_array($this->srcIPTags)) {
+            Model::validateArray($this->srcIPTags);
         }
         if (\is_array($this->srcPrivateIPList)) {
             Model::validateArray($this->srcPrivateIPList);
@@ -252,6 +261,17 @@ class dataList extends Model
 
         if (null !== $this->srcIPTag) {
             $res['SrcIPTag'] = $this->srcIPTag;
+        }
+
+        if (null !== $this->srcIPTags) {
+            if (\is_array($this->srcIPTags)) {
+                $res['SrcIPTags'] = [];
+                $n1 = 0;
+                foreach ($this->srcIPTags as $item1) {
+                    $res['SrcIPTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->srcPrivateIPList) {
@@ -369,6 +389,17 @@ class dataList extends Model
 
         if (isset($map['SrcIPTag'])) {
             $model->srcIPTag = $map['SrcIPTag'];
+        }
+
+        if (isset($map['SrcIPTags'])) {
+            if (!empty($map['SrcIPTags'])) {
+                $model->srcIPTags = [];
+                $n1 = 0;
+                foreach ($map['SrcIPTags'] as $item1) {
+                    $model->srcIPTags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SrcPrivateIPList'])) {

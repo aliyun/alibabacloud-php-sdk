@@ -19,10 +19,16 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyR
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchDeleteVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchDeleteVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAckClusterConnectorRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAckClusterConnectorResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAclCheckRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAclCheckResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallPreCheckRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallPreCheckResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSecurityProxyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSlsLogDispatchRequest;
@@ -40,6 +46,14 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallPrecheckRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallPrecheckResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallTaskRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallTaskResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAckClusterConnectorRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAckClusterConnectorResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAclBackupDataRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAclBackupDataResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyRequest;
@@ -54,6 +68,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteFirewallV2RoutePoliciesReque
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteFirewallV2RoutePoliciesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteIpsPrivateAssocRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteIpsPrivateAssocResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyBatchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyBatchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyRequest;
@@ -74,8 +90,40 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceRegionListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceRegionListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceTaskRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceTaskResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceVpcListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceVpcListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceVSwitchListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceVSwitchListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceZoneListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceZoneListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClusterConnectorRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClusterConnectorResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClusterConnectorsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClusterConnectorsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClusterNamespacesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClusterNamespacesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClusterPodLabelsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClusterPodLabelsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClustersRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAckClustersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclAppsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclAppsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclCheckQuotaRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclCheckQuotaResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclCheckRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclCheckResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclChecksRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclChecksResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeACLProtectTrendRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeACLProtectTrendResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclRuleCountRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclRuleCountResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclWhitelistRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclWhitelistResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAITrafficAnalysisStatusResponse;
@@ -87,8 +135,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeCfwRiskLevelSummaryRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeCfwRiskLevelSummaryResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeClearAuthInfoResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeCtrlInstanceMemberAccountsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDefaultIPSConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDefaultIPSConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDnsFirewallPolicyRequest;
@@ -99,31 +149,68 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskTypeRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskTypeResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallDropStatisticsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallTaskRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallTaskResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallVSwitchRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallVSwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRiskLevelsRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRiskLevelsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetDropTrafficTrendRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetDropTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenIpResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenPortRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenPortResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenServiceRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetOpenServiceResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventNameListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventNameListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventStatisticRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventStatisticResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeLogStoreInfoResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatAclPageStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatAclPageStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallDropTrafficTrendRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallDropTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallQuotaRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallQuotaResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallTrafficTrendRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallTrafficTrendResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNetworkInstanceListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNetworkInstanceListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNetworkInstanceRelationListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNetworkInstanceRelationListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNetworkTrafficTopRatioRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNetworkTrafficTopRatioResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOpenIpAccessSrcStatRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOpenIpAccessSrcStatResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingAssetListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingAssetListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainDetailRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainDetailResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingStatisticRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingStatisticResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingTagRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingTagResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePageDocumentsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePageDocumentsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedRequest;
@@ -132,6 +219,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficDetailReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficDetailResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficTotalRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficTotalResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserInternetStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserInternetStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserNatStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserNatStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsDomainNameListRequest;
@@ -140,11 +231,23 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsEndpointDetailRe
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsEndpointDetailResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsEndpointListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsEndpointListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRegionInfoRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRegionInfoResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeResourceTypeAutoEnableRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeResourceTypeAutoEnableResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventPayloadRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventPayloadResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventTopAttackAssetRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventTopAttackAssetResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskSecurityGroupDetailRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskSecurityGroupDetailResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSecurityModeRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSecurityModeResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSignatureLibVersionResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSlsAnalyzeOpenStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSlsAnalyzeOpenStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest;
@@ -156,18 +259,26 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2RouteListRequ
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2RouteListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallV2RoutePolicyListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallV2RoutePolicyListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUnprotectedVulnTrendRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUnprotectedVulnTrendResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAlarmConfigRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAlarmConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAssetIPTrafficInfoRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAssetIPTrafficInfoResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserBuyVersionRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserBuyVersionResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserIPSWhitelistRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserIPSWhitelistResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAccessDetailRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAccessDetailResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenDetailRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenDetailResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenSummaryListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenSummaryListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallDefaultIPSConfigRequest;
@@ -180,12 +291,16 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallSummaryInfoRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallSummaryInfoResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcListLiteRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcListLiteResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcZoneRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcZoneResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVulnerabilityProtectedListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVulnerabilityProtectedListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\EnableSdlProtectedAssetRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\EnableSdlProtectedAssetResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest;
@@ -202,6 +317,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyFirewallV2RoutePolicySwitchR
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyFirewallV2RoutePolicySwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyIpsRulesToDefaultRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyIpsRulesToDefaultResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyPositionRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyPositionResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyRequest;
@@ -212,6 +329,12 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPrivateDnsEndpointRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPrivateDnsEndpointResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifySensitiveSwitchRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifySensitiveSwitchResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifySlsDispatchStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifySlsDispatchStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyThreatIntelligenceSwitchRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyThreatIntelligenceSwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2ConfigurationRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2ConfigurationResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2RoutePolicyScopeRequest;
@@ -219,6 +342,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2RoutePolicyScope
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2RoutePolicyScopeShrinkRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserIPSWhitelistRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserIPSWhitelistResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserSlsLogStorageTimeRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserSlsLogStorageTimeResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallAclEngineModeRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallAclEngineModeResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenSwitchStatusRequest;
@@ -249,12 +376,22 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleasePostInstanceRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleasePostInstanceResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetNatFirewallRuleHitCountRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetNatFirewallRuleHitCountResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetRuleHitCountRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetRuleHitCountResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SwitchSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SwitchSecurityProxyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAckClusterConnectorRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAckClusterConnectorResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAclCheckDetailStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAclCheckDetailStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAITrafficAnalysisStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAITrafficAnalysisStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserInternetStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserInternetStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateSecurityProxyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateSecurityProxyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -320,6 +457,18 @@ class Cloudfw extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ackClusterConnectorId) {
+            @$query['AckClusterConnectorId'] = $request->ackClusterConnectorId;
+        }
+
+        if (null !== $request->ackLabels) {
+            @$query['AckLabels'] = $request->ackLabels;
+        }
+
+        if (null !== $request->ackNamespaces) {
+            @$query['AckNamespaces'] = $request->ackNamespaces;
+        }
+
         if (null !== $request->addressList) {
             @$query['AddressList'] = $request->addressList;
         }
@@ -940,6 +1089,160 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 创建ACK集群连接器.
+     *
+     * @param request - CreateAckClusterConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAckClusterConnectorResponse
+     *
+     * @param CreateAckClusterConnectorRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateAckClusterConnectorResponse
+     */
+    public function createAckClusterConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->connectorName) {
+            @$query['ConnectorName'] = $request->connectorName;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->primaryVswitchId) {
+            @$query['PrimaryVswitchId'] = $request->primaryVswitchId;
+        }
+
+        if (null !== $request->primaryVswitchIp) {
+            @$query['PrimaryVswitchIp'] = $request->primaryVswitchIp;
+        }
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
+        }
+
+        if (null !== $request->standbyVswitchId) {
+            @$query['StandbyVswitchId'] = $request->standbyVswitchId;
+        }
+
+        if (null !== $request->standbyVswitchIp) {
+            @$query['StandbyVswitchIp'] = $request->standbyVswitchIp;
+        }
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAckClusterConnector',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAckClusterConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建ACK集群连接器.
+     *
+     * @param request - CreateAckClusterConnectorRequest
+     *
+     * @returns CreateAckClusterConnectorResponse
+     *
+     * @param CreateAckClusterConnectorRequest $request
+     *
+     * @return CreateAckClusterConnectorResponse
+     */
+    public function createAckClusterConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAckClusterConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建ACL检查.
+     *
+     * @param request - CreateAclCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAclCheckResponse
+     *
+     * @param CreateAclCheckRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateAclCheckResponse
+     */
+    public function createAclCheckWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aclType) {
+            @$query['AclType'] = $request->aclType;
+        }
+
+        if (null !== $request->checkNames) {
+            @$query['CheckNames'] = $request->checkNames;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAclCheck',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAclCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建ACL检查.
+     *
+     * @param request - CreateAclCheckRequest
+     *
+     * @returns CreateAclCheckResponse
+     *
+     * @param CreateAclCheckRequest $request
+     *
+     * @return CreateAclCheckResponse
+     */
+    public function createAclCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAclCheckWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a file download task.
      *
      * @param request - CreateDownloadTaskRequest
@@ -1161,6 +1464,77 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNatFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建NAT防火墙预检查.
+     *
+     * @param request - CreateNatFirewallPreCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNatFirewallPreCheckResponse
+     *
+     * @param CreateNatFirewallPreCheckRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateNatFirewallPreCheckResponse
+     */
+    public function createNatFirewallPreCheckWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $body = [];
+        if (null !== $request->natGatewayId) {
+            @$body['NatGatewayId'] = $request->natGatewayId;
+        }
+
+        if (null !== $request->regionNo) {
+            @$body['RegionNo'] = $request->regionNo;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNatFirewallPreCheck',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNatFirewallPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建NAT防火墙预检查.
+     *
+     * @param request - CreateNatFirewallPreCheckRequest
+     *
+     * @returns CreateNatFirewallPreCheckResponse
+     *
+     * @param CreateNatFirewallPreCheckRequest $request
+     *
+     * @return CreateNatFirewallPreCheckResponse
+     */
+    public function createNatFirewallPreCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNatFirewallPreCheckWithOptions($request, $runtime);
     }
 
     /**
@@ -1976,6 +2350,278 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 创建VPC防火墙开墙前置任务
+     *
+     * @param request - CreateVpcFirewallPrecheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVpcFirewallPrecheckResponse
+     *
+     * @param CreateVpcFirewallPrecheckRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateVpcFirewallPrecheckResponse
+     */
+    public function createVpcFirewallPrecheckWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cenId) {
+            @$query['CenId'] = $request->cenId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->networkInstanceType) {
+            @$query['NetworkInstanceType'] = $request->networkInstanceType;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        if (null !== $request->transitRouterId) {
+            @$query['TransitRouterId'] = $request->transitRouterId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVpcFirewallPrecheck',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVpcFirewallPrecheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建VPC防火墙开墙前置任务
+     *
+     * @param request - CreateVpcFirewallPrecheckRequest
+     *
+     * @returns CreateVpcFirewallPrecheckResponse
+     *
+     * @param CreateVpcFirewallPrecheckRequest $request
+     *
+     * @return CreateVpcFirewallPrecheckResponse
+     */
+    public function createVpcFirewallPrecheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpcFirewallPrecheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建VPC防火墙资产同步任务
+     *
+     * @param request - CreateVpcFirewallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVpcFirewallTaskResponse
+     *
+     * @param CreateVpcFirewallTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateVpcFirewallTaskResponse
+     */
+    public function createVpcFirewallTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->taskAction) {
+            @$query['TaskAction'] = $request->taskAction;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVpcFirewallTask',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVpcFirewallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建VPC防火墙资产同步任务
+     *
+     * @param request - CreateVpcFirewallTaskRequest
+     *
+     * @returns CreateVpcFirewallTaskResponse
+     *
+     * @param CreateVpcFirewallTaskRequest $request
+     *
+     * @return CreateVpcFirewallTaskResponse
+     */
+    public function createVpcFirewallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpcFirewallTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除ACK集群连接器.
+     *
+     * @param request - DeleteAckClusterConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAckClusterConnectorResponse
+     *
+     * @param DeleteAckClusterConnectorRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteAckClusterConnectorResponse
+     */
+    public function deleteAckClusterConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAckClusterConnector',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAckClusterConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除ACK集群连接器.
+     *
+     * @param request - DeleteAckClusterConnectorRequest
+     *
+     * @returns DeleteAckClusterConnectorResponse
+     *
+     * @param DeleteAckClusterConnectorRequest $request
+     *
+     * @return DeleteAckClusterConnectorResponse
+     */
+    public function deleteAckClusterConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAckClusterConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除ACL备份.
+     *
+     * @param request - DeleteAclBackupDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAclBackupDataResponse
+     *
+     * @param DeleteAclBackupDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAclBackupDataResponse
+     */
+    public function deleteAclBackupDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backUpTime) {
+            @$query['BackUpTime'] = $request->backUpTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAclBackupData',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAclBackupDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除ACL备份.
+     *
+     * @param request - DeleteAclBackupDataRequest
+     *
+     * @returns DeleteAclBackupDataResponse
+     *
+     * @param DeleteAclBackupDataRequest $request
+     *
+     * @return DeleteAclBackupDataResponse
+     */
+    public function deleteAclBackupData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAclBackupDataWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an address book for access control.
      *
      * @remarks
@@ -2464,6 +3110,67 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteInstanceMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建IPS私网关联信息.
+     *
+     * @param request - DeleteIpsPrivateAssocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIpsPrivateAssocResponse
+     *
+     * @param DeleteIpsPrivateAssocRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteIpsPrivateAssocResponse
+     */
+    public function deleteIpsPrivateAssocWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteIpsPrivateAssoc',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteIpsPrivateAssocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建IPS私网关联信息.
+     *
+     * @param request - DeleteIpsPrivateAssocRequest
+     *
+     * @returns DeleteIpsPrivateAssocResponse
+     *
+     * @param DeleteIpsPrivateAssocRequest $request
+     *
+     * @return DeleteIpsPrivateAssocResponse
+     */
+    public function deleteIpsPrivateAssoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIpsPrivateAssocWithOptions($request, $runtime);
     }
 
     /**
@@ -3262,6 +3969,950 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 查询接入实例地域列表.
+     *
+     * @param request - DescribeAccessInstanceRegionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccessInstanceRegionListResponse
+     *
+     * @param DescribeAccessInstanceRegionListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeAccessInstanceRegionListResponse
+     */
+    public function describeAccessInstanceRegionListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAccessInstanceRegionList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAccessInstanceRegionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询接入实例地域列表.
+     *
+     * @param request - DescribeAccessInstanceRegionListRequest
+     *
+     * @returns DescribeAccessInstanceRegionListResponse
+     *
+     * @param DescribeAccessInstanceRegionListRequest $request
+     *
+     * @return DescribeAccessInstanceRegionListResponse
+     */
+    public function describeAccessInstanceRegionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessInstanceRegionListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询接入实例任务
+     *
+     * @param request - DescribeAccessInstanceTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccessInstanceTaskResponse
+     *
+     * @param DescribeAccessInstanceTaskRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeAccessInstanceTaskResponse
+     */
+    public function describeAccessInstanceTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAccessInstanceTask',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAccessInstanceTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询接入实例任务
+     *
+     * @param request - DescribeAccessInstanceTaskRequest
+     *
+     * @returns DescribeAccessInstanceTaskResponse
+     *
+     * @param DescribeAccessInstanceTaskRequest $request
+     *
+     * @return DescribeAccessInstanceTaskResponse
+     */
+    public function describeAccessInstanceTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessInstanceTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询接入实例的交换机列表.
+     *
+     * @param request - DescribeAccessInstanceVSwitchListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccessInstanceVSwitchListResponse
+     *
+     * @param DescribeAccessInstanceVSwitchListRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeAccessInstanceVSwitchListResponse
+     */
+    public function describeAccessInstanceVSwitchListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAccessInstanceVSwitchList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAccessInstanceVSwitchListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询接入实例的交换机列表.
+     *
+     * @param request - DescribeAccessInstanceVSwitchListRequest
+     *
+     * @returns DescribeAccessInstanceVSwitchListResponse
+     *
+     * @param DescribeAccessInstanceVSwitchListRequest $request
+     *
+     * @return DescribeAccessInstanceVSwitchListResponse
+     */
+    public function describeAccessInstanceVSwitchList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessInstanceVSwitchListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询接入实例VPC列表.
+     *
+     * @param request - DescribeAccessInstanceVpcListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccessInstanceVpcListResponse
+     *
+     * @param DescribeAccessInstanceVpcListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeAccessInstanceVpcListResponse
+     */
+    public function describeAccessInstanceVpcListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAccessInstanceVpcList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAccessInstanceVpcListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询接入实例VPC列表.
+     *
+     * @param request - DescribeAccessInstanceVpcListRequest
+     *
+     * @returns DescribeAccessInstanceVpcListResponse
+     *
+     * @param DescribeAccessInstanceVpcListRequest $request
+     *
+     * @return DescribeAccessInstanceVpcListResponse
+     */
+    public function describeAccessInstanceVpcList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessInstanceVpcListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询接入实例支持的可用区列表.
+     *
+     * @param request - DescribeAccessInstanceZoneListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccessInstanceZoneListResponse
+     *
+     * @param DescribeAccessInstanceZoneListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAccessInstanceZoneListResponse
+     */
+    public function describeAccessInstanceZoneListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAccessInstanceZoneList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAccessInstanceZoneListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询接入实例支持的可用区列表.
+     *
+     * @param request - DescribeAccessInstanceZoneListRequest
+     *
+     * @returns DescribeAccessInstanceZoneListResponse
+     *
+     * @param DescribeAccessInstanceZoneListRequest $request
+     *
+     * @return DescribeAccessInstanceZoneListResponse
+     */
+    public function describeAccessInstanceZoneList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessInstanceZoneListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指定ACK集群连接器.
+     *
+     * @param request - DescribeAckClusterConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAckClusterConnectorResponse
+     *
+     * @param DescribeAckClusterConnectorRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAckClusterConnectorResponse
+     */
+    public function describeAckClusterConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAckClusterConnector',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAckClusterConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定ACK集群连接器.
+     *
+     * @param request - DescribeAckClusterConnectorRequest
+     *
+     * @returns DescribeAckClusterConnectorResponse
+     *
+     * @param DescribeAckClusterConnectorRequest $request
+     *
+     * @return DescribeAckClusterConnectorResponse
+     */
+    public function describeAckClusterConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAckClusterConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量查询ACK集群连接器列表.
+     *
+     * @param request - DescribeAckClusterConnectorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAckClusterConnectorsResponse
+     *
+     * @param DescribeAckClusterConnectorsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAckClusterConnectorsResponse
+     */
+    public function describeAckClusterConnectorsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->connectorName) {
+            @$query['ConnectorName'] = $request->connectorName;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAckClusterConnectors',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAckClusterConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询ACK集群连接器列表.
+     *
+     * @param request - DescribeAckClusterConnectorsRequest
+     *
+     * @returns DescribeAckClusterConnectorsResponse
+     *
+     * @param DescribeAckClusterConnectorsRequest $request
+     *
+     * @return DescribeAckClusterConnectorsResponse
+     */
+    public function describeAckClusterConnectors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAckClusterConnectorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询阿里云K8S容器服务（ACK）集群命名空间.
+     *
+     * @param request - DescribeAckClusterNamespacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAckClusterNamespacesResponse
+     *
+     * @param DescribeAckClusterNamespacesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAckClusterNamespacesResponse
+     */
+    public function describeAckClusterNamespacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAckClusterNamespaces',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAckClusterNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询阿里云K8S容器服务（ACK）集群命名空间.
+     *
+     * @param request - DescribeAckClusterNamespacesRequest
+     *
+     * @returns DescribeAckClusterNamespacesResponse
+     *
+     * @param DescribeAckClusterNamespacesRequest $request
+     *
+     * @return DescribeAckClusterNamespacesResponse
+     */
+    public function describeAckClusterNamespaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAckClusterNamespacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询阿里云K8S容器服务（ACK）集群标签.
+     *
+     * @param request - DescribeAckClusterPodLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAckClusterPodLabelsResponse
+     *
+     * @param DescribeAckClusterPodLabelsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAckClusterPodLabelsResponse
+     */
+    public function describeAckClusterPodLabelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAckClusterPodLabels',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAckClusterPodLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询阿里云K8S容器服务（ACK）集群标签.
+     *
+     * @param request - DescribeAckClusterPodLabelsRequest
+     *
+     * @returns DescribeAckClusterPodLabelsResponse
+     *
+     * @param DescribeAckClusterPodLabelsRequest $request
+     *
+     * @return DescribeAckClusterPodLabelsResponse
+     */
+    public function describeAckClusterPodLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAckClusterPodLabelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询阿里云K8S容器服务（ACK）集群，查询符合条件的ACK集群（例如指定集群类型、集群规格）列表信息.
+     *
+     * @param request - DescribeAckClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAckClustersResponse
+     *
+     * @param DescribeAckClustersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAckClustersResponse
+     */
+    public function describeAckClustersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->clusterSpec) {
+            @$query['ClusterSpec'] = $request->clusterSpec;
+        }
+
+        if (null !== $request->connectorStatus) {
+            @$query['ConnectorStatus'] = $request->connectorStatus;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAckClusters',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAckClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询阿里云K8S容器服务（ACK）集群，查询符合条件的ACK集群（例如指定集群类型、集群规格）列表信息.
+     *
+     * @param request - DescribeAckClustersRequest
+     *
+     * @returns DescribeAckClustersResponse
+     *
+     * @param DescribeAckClustersRequest $request
+     *
+     * @return DescribeAckClustersResponse
+     */
+    public function describeAckClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAckClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量查询访问控制应用.
+     *
+     * @param request - DescribeAclAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAclAppsResponse
+     *
+     * @param DescribeAclAppsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeAclAppsResponse
+     */
+    public function describeAclAppsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAclApps',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAclAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询访问控制应用.
+     *
+     * @param request - DescribeAclAppsRequest
+     *
+     * @returns DescribeAclAppsResponse
+     *
+     * @param DescribeAclAppsRequest $request
+     *
+     * @return DescribeAclAppsResponse
+     */
+    public function describeAclApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAclAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询ACL检查详情.
+     *
+     * @param request - DescribeAclCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAclCheckResponse
+     *
+     * @param DescribeAclCheckRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeAclCheckResponse
+     */
+    public function describeAclCheckWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAclCheck',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAclCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询ACL检查详情.
+     *
+     * @param request - DescribeAclCheckRequest
+     *
+     * @returns DescribeAclCheckResponse
+     *
+     * @param DescribeAclCheckRequest $request
+     *
+     * @return DescribeAclCheckResponse
+     */
+    public function describeAclCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAclCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询NAT防火墙预检查结果.
+     *
+     * @param request - DescribeAclCheckQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAclCheckQuotaResponse
+     *
+     * @param DescribeAclCheckQuotaRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAclCheckQuotaResponse
+     */
+    public function describeAclCheckQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAclCheckQuota',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAclCheckQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询NAT防火墙预检查结果.
+     *
+     * @param request - DescribeAclCheckQuotaRequest
+     *
+     * @returns DescribeAclCheckQuotaResponse
+     *
+     * @param DescribeAclCheckQuotaRequest $request
+     *
+     * @return DescribeAclCheckQuotaResponse
+     */
+    public function describeAclCheckQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAclCheckQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量查询ACL检查条目.
+     *
+     * @param request - DescribeAclChecksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAclChecksResponse
+     *
+     * @param DescribeAclChecksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAclChecksResponse
+     */
+    public function describeAclChecksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAclChecks',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAclChecksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询ACL检查条目.
+     *
+     * @param request - DescribeAclChecksRequest
+     *
+     * @returns DescribeAclChecksResponse
+     *
+     * @param DescribeAclChecksRequest $request
+     *
+     * @return DescribeAclChecksResponse
+     */
+    public function describeAclChecks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAclChecksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取总ACL配置数.
+     *
+     * @param request - DescribeAclRuleCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAclRuleCountResponse
+     *
+     * @param DescribeAclRuleCountRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAclRuleCountResponse
+     */
+    public function describeAclRuleCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAclRuleCount',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAclRuleCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取总ACL配置数.
+     *
+     * @param request - DescribeAclRuleCountRequest
+     *
+     * @returns DescribeAclRuleCountResponse
+     *
+     * @param DescribeAclRuleCountRequest $request
+     *
+     * @return DescribeAclRuleCountResponse
+     */
+    public function describeAclRuleCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAclRuleCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取ACL白名单.
+     *
+     * @param request - DescribeAclWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAclWhitelistResponse
+     *
+     * @param DescribeAclWhitelistRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAclWhitelistResponse
+     */
+    public function describeAclWhitelistWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAclWhitelist',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAclWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取ACL白名单.
+     *
+     * @param request - DescribeAclWhitelistRequest
+     *
+     * @returns DescribeAclWhitelistResponse
+     *
+     * @param DescribeAclWhitelistRequest $request
+     *
+     * @return DescribeAclWhitelistResponse
+     */
+    public function describeAclWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAclWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details about an address book for an access control policy.
      *
      * @remarks
@@ -3671,6 +5322,50 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取清空授权信息.
+     *
+     * @param request - DescribeClearAuthInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClearAuthInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeClearAuthInfoResponse
+     */
+    public function describeClearAuthInfoWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeClearAuthInfo',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClearAuthInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取清空授权信息.
+     *
+     * @returns DescribeClearAuthInfoResponse
+     *
+     * @return DescribeClearAuthInfoResponse
+     */
+    public function describeClearAuthInfo()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClearAuthInfoWithOptions($runtime);
+    }
+
+    /**
      * Queries the details about all access control policies.
      *
      * @remarks
@@ -3787,6 +5482,50 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取成员账号列表.
+     *
+     * @param request - DescribeCtrlInstanceMemberAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCtrlInstanceMemberAccountsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeCtrlInstanceMemberAccountsResponse
+     */
+    public function describeCtrlInstanceMemberAccountsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeCtrlInstanceMemberAccounts',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCtrlInstanceMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取成员账号列表.
+     *
+     * @returns DescribeCtrlInstanceMemberAccountsResponse
+     *
+     * @return DescribeCtrlInstanceMemberAccountsResponse
+     */
+    public function describeCtrlInstanceMemberAccounts()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCtrlInstanceMemberAccountsWithOptions($runtime);
     }
 
     /**
@@ -4174,6 +5913,212 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取防火墙DROP数据统计
+     *
+     * @param request - DescribeFirewallDropStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFirewallDropStatisticsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeFirewallDropStatisticsResponse
+     */
+    public function describeFirewallDropStatisticsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeFirewallDropStatistics',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFirewallDropStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取防火墙DROP数据统计
+     *
+     * @returns DescribeFirewallDropStatisticsResponse
+     *
+     * @return DescribeFirewallDropStatisticsResponse
+     */
+    public function describeFirewallDropStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFirewallDropStatisticsWithOptions($runtime);
+    }
+
+    /**
+     * 获取防火墙任务
+     *
+     * @param request - DescribeFirewallTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFirewallTaskResponse
+     *
+     * @param DescribeFirewallTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeFirewallTaskResponse
+     */
+    public function describeFirewallTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->childInstanceId) {
+            @$query['ChildInstanceId'] = $request->childInstanceId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFirewallTask',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFirewallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取防火墙任务
+     *
+     * @param request - DescribeFirewallTaskRequest
+     *
+     * @returns DescribeFirewallTaskResponse
+     *
+     * @param DescribeFirewallTaskRequest $request
+     *
+     * @return DescribeFirewallTaskResponse
+     */
+    public function describeFirewallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFirewallTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取防火墙创建的交换机.
+     *
+     * @param request - DescribeFirewallVSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFirewallVSwitchResponse
+     *
+     * @param DescribeFirewallVSwitchRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeFirewallVSwitchResponse
+     */
+    public function describeFirewallVSwitchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->firewallId) {
+            @$query['FirewallId'] = $request->firewallId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vswitchId) {
+            @$query['VswitchId'] = $request->vswitchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFirewallVSwitch',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFirewallVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取防火墙创建的交换机.
+     *
+     * @param request - DescribeFirewallVSwitchRequest
+     *
+     * @returns DescribeFirewallVSwitchResponse
+     *
+     * @param DescribeFirewallVSwitchRequest $request
+     *
+     * @return DescribeFirewallVSwitchResponse
+     */
+    public function describeFirewallVSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFirewallVSwitchWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about members in Cloud Firewall.
      *
      * @remarks
@@ -4318,6 +6263,87 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取互联网方向删除会话趋势图.
+     *
+     * @param request - DescribeInternetDropTrafficTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInternetDropTrafficTrendResponse
+     *
+     * @param DescribeInternetDropTrafficTrendRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeInternetDropTrafficTrendResponse
+     */
+    public function describeInternetDropTrafficTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceCode) {
+            @$query['SourceCode'] = $request->sourceCode;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInternetDropTrafficTrend',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInternetDropTrafficTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取互联网方向删除会话趋势图.
+     *
+     * @param request - DescribeInternetDropTrafficTrendRequest
+     *
+     * @returns DescribeInternetDropTrafficTrendResponse
+     *
+     * @param DescribeInternetDropTrafficTrendRequest $request
+     *
+     * @return DescribeInternetDropTrafficTrendResponse
+     */
+    public function describeInternetDropTrafficTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInternetDropTrafficTrendWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the IP addresses that are open to the Internet.
      *
      * @param request - DescribeInternetOpenIpRequest
@@ -4420,6 +6446,208 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInternetOpenIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取互联网开放端口.
+     *
+     * @param request - DescribeInternetOpenPortRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInternetOpenPortResponse
+     *
+     * @param DescribeInternetOpenPortRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeInternetOpenPortResponse
+     */
+    public function describeInternetOpenPortWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->serviceNameFuzzy) {
+            @$query['ServiceNameFuzzy'] = $request->serviceNameFuzzy;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->suggestLevel) {
+            @$query['SuggestLevel'] = $request->suggestLevel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInternetOpenPort',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInternetOpenPortResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取互联网开放端口.
+     *
+     * @param request - DescribeInternetOpenPortRequest
+     *
+     * @returns DescribeInternetOpenPortResponse
+     *
+     * @param DescribeInternetOpenPortRequest $request
+     *
+     * @return DescribeInternetOpenPortResponse
+     */
+    public function describeInternetOpenPort($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInternetOpenPortWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取互联网开放服务
+     *
+     * @param request - DescribeInternetOpenServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInternetOpenServiceResponse
+     *
+     * @param DescribeInternetOpenServiceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeInternetOpenServiceResponse
+     */
+    public function describeInternetOpenServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->serviceNameFuzzy) {
+            @$query['ServiceNameFuzzy'] = $request->serviceNameFuzzy;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->suggestLevel) {
+            @$query['SuggestLevel'] = $request->suggestLevel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInternetOpenService',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInternetOpenServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取互联网开放服务
+     *
+     * @param request - DescribeInternetOpenServiceRequest
+     *
+     * @returns DescribeInternetOpenServiceResponse
+     *
+     * @param DescribeInternetOpenServiceRequest $request
+     *
+     * @return DescribeInternetOpenServiceResponse
+     */
+    public function describeInternetOpenService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInternetOpenServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -4630,6 +6858,152 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInvadeEventListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取漏洞名称列表.
+     *
+     * @param request - DescribeInvadeEventNameListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInvadeEventNameListResponse
+     *
+     * @param DescribeInvadeEventNameListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeInvadeEventNameListResponse
+     */
+    public function describeInvadeEventNameListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInvadeEventNameList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInvadeEventNameListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取漏洞名称列表.
+     *
+     * @param request - DescribeInvadeEventNameListRequest
+     *
+     * @returns DescribeInvadeEventNameListResponse
+     *
+     * @param DescribeInvadeEventNameListRequest $request
+     *
+     * @return DescribeInvadeEventNameListResponse
+     */
+    public function describeInvadeEventNameList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInvadeEventNameListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取漏洞事件统计
+     *
+     * @param request - DescribeInvadeEventStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInvadeEventStatisticResponse
+     *
+     * @param DescribeInvadeEventStatisticRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeInvadeEventStatisticResponse
+     */
+    public function describeInvadeEventStatisticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInvadeEventStatistic',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInvadeEventStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取漏洞事件统计
+     *
+     * @param request - DescribeInvadeEventStatisticRequest
+     *
+     * @returns DescribeInvadeEventStatisticResponse
+     *
+     * @param DescribeInvadeEventStatisticRequest $request
+     *
+     * @return DescribeInvadeEventStatisticResponse
+     */
+    public function describeInvadeEventStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInvadeEventStatisticWithOptions($request, $runtime);
     }
 
     /**
@@ -4845,6 +7219,59 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 概览页-nat防火墙拦截趋势
+     *
+     * @param request - DescribeNatFirewallDropTrafficTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNatFirewallDropTrafficTrendResponse
+     *
+     * @param DescribeNatFirewallDropTrafficTrendRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeNatFirewallDropTrafficTrendResponse
+     */
+    public function describeNatFirewallDropTrafficTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNatFirewallDropTrafficTrend',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNatFirewallDropTrafficTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 概览页-nat防火墙拦截趋势
+     *
+     * @param request - DescribeNatFirewallDropTrafficTrendRequest
+     *
+     * @returns DescribeNatFirewallDropTrafficTrendResponse
+     *
+     * @param DescribeNatFirewallDropTrafficTrendRequest $request
+     *
+     * @return DescribeNatFirewallDropTrafficTrendResponse
+     */
+    public function describeNatFirewallDropTrafficTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatFirewallDropTrafficTrendWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries details of NAT firewalls.
      *
      * @param request - DescribeNatFirewallListRequest
@@ -5017,6 +7444,59 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取NAT防火墙配额.
+     *
+     * @param request - DescribeNatFirewallQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNatFirewallQuotaResponse
+     *
+     * @param DescribeNatFirewallQuotaRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeNatFirewallQuotaResponse
+     */
+    public function describeNatFirewallQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNatFirewallQuota',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNatFirewallQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取NAT防火墙配额.
+     *
+     * @param request - DescribeNatFirewallQuotaRequest
+     *
+     * @returns DescribeNatFirewallQuotaResponse
+     *
+     * @param DescribeNatFirewallQuotaRequest $request
+     *
+     * @return DescribeNatFirewallQuotaResponse
+     */
+    public function describeNatFirewallQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatFirewallQuotaWithOptions($request, $runtime);
+    }
+
+    /**
      * 概览页-NAT流量趋势
      *
      * @param request - DescribeNatFirewallTrafficTrendRequest
@@ -5067,6 +7547,467 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNatFirewallTrafficTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取网络实例列表.
+     *
+     * @param request - DescribeNetworkInstanceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNetworkInstanceListResponse
+     *
+     * @param DescribeNetworkInstanceListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeNetworkInstanceListResponse
+     */
+    public function describeNetworkInstanceListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cenId) {
+            @$query['CenId'] = $request->cenId;
+        }
+
+        if (null !== $request->connectType) {
+            @$query['ConnectType'] = $request->connectType;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNetworkInstanceList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNetworkInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网络实例列表.
+     *
+     * @param request - DescribeNetworkInstanceListRequest
+     *
+     * @returns DescribeNetworkInstanceListResponse
+     *
+     * @param DescribeNetworkInstanceListRequest $request
+     *
+     * @return DescribeNetworkInstanceListResponse
+     */
+    public function describeNetworkInstanceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkInstanceListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取网络实例关系列表.
+     *
+     * @param request - DescribeNetworkInstanceRelationListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNetworkInstanceRelationListResponse
+     *
+     * @param DescribeNetworkInstanceRelationListRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeNetworkInstanceRelationListResponse
+     */
+    public function describeNetworkInstanceRelationListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectType) {
+            @$query['ConnectType'] = $request->connectType;
+        }
+
+        if (null !== $request->firewallConfigureStatus) {
+            @$query['FirewallConfigureStatus'] = $request->firewallConfigureStatus;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNetworkInstanceRelationList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNetworkInstanceRelationListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网络实例关系列表.
+     *
+     * @param request - DescribeNetworkInstanceRelationListRequest
+     *
+     * @returns DescribeNetworkInstanceRelationListResponse
+     *
+     * @param DescribeNetworkInstanceRelationListRequest $request
+     *
+     * @return DescribeNetworkInstanceRelationListResponse
+     */
+    public function describeNetworkInstanceRelationList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkInstanceRelationListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取网络流量TOP环比.
+     *
+     * @param request - DescribeNetworkTrafficTopRatioRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNetworkTrafficTopRatioResponse
+     *
+     * @param DescribeNetworkTrafficTopRatioRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeNetworkTrafficTopRatioResponse
+     */
+    public function describeNetworkTrafficTopRatioWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->assetIP) {
+            @$query['AssetIP'] = $request->assetIP;
+        }
+
+        if (null !== $request->assetRegion) {
+            @$query['AssetRegion'] = $request->assetRegion;
+        }
+
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
+        }
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
+        }
+
+        if (null !== $request->dstIP) {
+            @$query['DstIP'] = $request->dstIP;
+        }
+
+        if (null !== $request->dstPort) {
+            @$query['DstPort'] = $request->dstPort;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ipProperty) {
+            @$query['IpProperty'] = $request->ipProperty;
+        }
+
+        if (null !== $request->isp) {
+            @$query['Isp'] = $request->isp;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->location) {
+            @$query['Location'] = $request->location;
+        }
+
+        if (null !== $request->ruleResult) {
+            @$query['RuleResult'] = $request->ruleResult;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->sourceCode) {
+            @$query['SourceCode'] = $request->sourceCode;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->srcIP) {
+            @$query['SrcIP'] = $request->srcIP;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNetworkTrafficTopRatio',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNetworkTrafficTopRatioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网络流量TOP环比.
+     *
+     * @param request - DescribeNetworkTrafficTopRatioRequest
+     *
+     * @returns DescribeNetworkTrafficTopRatioResponse
+     *
+     * @param DescribeNetworkTrafficTopRatioRequest $request
+     *
+     * @return DescribeNetworkTrafficTopRatioResponse
+     */
+    public function describeNetworkTrafficTopRatio($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkTrafficTopRatioWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取公网IP通过的源状态
+     *
+     * @param request - DescribeOpenIpAccessSrcStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpenIpAccessSrcStatResponse
+     *
+     * @param DescribeOpenIpAccessSrcStatRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeOpenIpAccessSrcStatResponse
+     */
+    public function describeOpenIpAccessSrcStatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->dstIp) {
+            @$query['DstIp'] = $request->dstIp;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenIpAccessSrcStat',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOpenIpAccessSrcStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取公网IP通过的源状态
+     *
+     * @param request - DescribeOpenIpAccessSrcStatRequest
+     *
+     * @returns DescribeOpenIpAccessSrcStatResponse
+     *
+     * @param DescribeOpenIpAccessSrcStatRequest $request
+     *
+     * @return DescribeOpenIpAccessSrcStatResponse
+     */
+    public function describeOpenIpAccessSrcStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenIpAccessSrcStatWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取外联资产列表.
+     *
+     * @param request - DescribeOutgoingAssetListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOutgoingAssetListResponse
+     *
+     * @param DescribeOutgoingAssetListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeOutgoingAssetListResponse
+     */
+    public function describeOutgoingAssetListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetsRegion) {
+            @$query['AssetsRegion'] = $request->assetsRegion;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->IPType) {
+            @$query['IPType'] = $request->IPType;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->natGatewayId) {
+            @$query['NatGatewayId'] = $request->natGatewayId;
+        }
+
+        if (null !== $request->natGatewayName) {
+            @$query['NatGatewayName'] = $request->natGatewayName;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->privateIP) {
+            @$query['PrivateIP'] = $request->privateIP;
+        }
+
+        if (null !== $request->publicIP) {
+            @$query['PublicIP'] = $request->publicIP;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->securityRisk) {
+            @$query['SecurityRisk'] = $request->securityRisk;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOutgoingAssetList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOutgoingAssetListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取外联资产列表.
+     *
+     * @param request - DescribeOutgoingAssetListRequest
+     *
+     * @returns DescribeOutgoingAssetListResponse
+     *
+     * @param DescribeOutgoingAssetListRequest $request
+     *
+     * @return DescribeOutgoingAssetListResponse
+     */
+    public function describeOutgoingAssetList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOutgoingAssetListWithOptions($request, $runtime);
     }
 
     /**
@@ -5281,6 +8222,358 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOutgoingDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取外联域名详情.
+     *
+     * @param request - DescribeOutgoingDomainDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOutgoingDomainDetailResponse
+     *
+     * @param DescribeOutgoingDomainDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeOutgoingDomainDetailResponse
+     */
+    public function describeOutgoingDomainDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aclCoverage) {
+            @$query['AclCoverage'] = $request->aclCoverage;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->domainList) {
+            @$query['DomainList'] = $request->domainList;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->IPType) {
+            @$query['IPType'] = $request->IPType;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->natGatewayId) {
+            @$query['NatGatewayId'] = $request->natGatewayId;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->privateIP) {
+            @$query['PrivateIP'] = $request->privateIP;
+        }
+
+        if (null !== $request->publicIP) {
+            @$query['PublicIP'] = $request->publicIP;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->tagId) {
+            @$query['TagId'] = $request->tagId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOutgoingDomainDetail',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOutgoingDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取外联域名详情.
+     *
+     * @param request - DescribeOutgoingDomainDetailRequest
+     *
+     * @returns DescribeOutgoingDomainDetailResponse
+     *
+     * @param DescribeOutgoingDomainDetailRequest $request
+     *
+     * @return DescribeOutgoingDomainDetailResponse
+     */
+    public function describeOutgoingDomainDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOutgoingDomainDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取外联统计
+     *
+     * @param request - DescribeOutgoingStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOutgoingStatisticResponse
+     *
+     * @param DescribeOutgoingStatisticRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeOutgoingStatisticResponse
+     */
+    public function describeOutgoingStatisticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOutgoingStatistic',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOutgoingStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取外联统计
+     *
+     * @param request - DescribeOutgoingStatisticRequest
+     *
+     * @returns DescribeOutgoingStatisticResponse
+     *
+     * @param DescribeOutgoingStatisticRequest $request
+     *
+     * @return DescribeOutgoingStatisticResponse
+     */
+    public function describeOutgoingStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOutgoingStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取外联标签.
+     *
+     * @param request - DescribeOutgoingTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOutgoingTagResponse
+     *
+     * @param DescribeOutgoingTagRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeOutgoingTagResponse
+     */
+    public function describeOutgoingTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dstType) {
+            @$query['DstType'] = $request->dstType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->tagId) {
+            @$query['TagId'] = $request->tagId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOutgoingTag',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOutgoingTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取外联标签.
+     *
+     * @param request - DescribeOutgoingTagRequest
+     *
+     * @returns DescribeOutgoingTagResponse
+     *
+     * @param DescribeOutgoingTagRequest $request
+     *
+     * @return DescribeOutgoingTagResponse
+     */
+    public function describeOutgoingTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOutgoingTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文档.
+     *
+     * @param request - DescribePageDocumentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePageDocumentsResponse
+     *
+     * @param DescribePageDocumentsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePageDocumentsResponse
+     */
+    public function describePageDocumentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageName) {
+            @$query['PageName'] = $request->pageName;
+        }
+
+        if (null !== $request->sourceCode) {
+            @$query['SourceCode'] = $request->sourceCode;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->tabName) {
+            @$query['TabName'] = $request->tabName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePageDocuments',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePageDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文档.
+     *
+     * @param request - DescribePageDocumentsRequest
+     *
+     * @returns DescribePageDocumentsResponse
+     *
+     * @param DescribePageDocumentsRequest $request
+     *
+     * @return DescribePageDocumentsResponse
+     */
+    public function describePageDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePageDocumentsWithOptions($request, $runtime);
     }
 
     /**
@@ -5596,6 +8889,112 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * Queries the status of the Internet Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - DescribePostpayUserInternetStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePostpayUserInternetStatusResponse
+     *
+     * @param DescribePostpayUserInternetStatusRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribePostpayUserInternetStatusResponse
+     */
+    public function describePostpayUserInternetStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePostpayUserInternetStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePostpayUserInternetStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status of the Internet Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - DescribePostpayUserInternetStatusRequest
+     *
+     * @returns DescribePostpayUserInternetStatusResponse
+     *
+     * @param DescribePostpayUserInternetStatusRequest $request
+     *
+     * @return DescribePostpayUserInternetStatusResponse
+     */
+    public function describePostpayUserInternetStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePostpayUserInternetStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the status of the NAT Firewall feature in Cloud Firewall that use the pay-as-you-go billing method.
+     *
+     * @param request - DescribePostpayUserNatStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePostpayUserNatStatusResponse
+     *
+     * @param DescribePostpayUserNatStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribePostpayUserNatStatusResponse
+     */
+    public function describePostpayUserNatStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePostpayUserNatStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePostpayUserNatStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status of the NAT Firewall feature in Cloud Firewall that use the pay-as-you-go billing method.
+     *
+     * @param request - DescribePostpayUserNatStatusRequest
+     *
+     * @returns DescribePostpayUserNatStatusResponse
+     *
+     * @param DescribePostpayUserNatStatusRequest $request
+     *
+     * @return DescribePostpayUserNatStatusResponse
+     */
+    public function describePostpayUserNatStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePostpayUserNatStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries prefix lists.
      *
      * @param request - DescribePrefixListsRequest
@@ -5805,6 +9204,132 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePrivateDnsEndpointListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取地域信息.
+     *
+     * @param request - DescribeRegionInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionInfoResponse
+     *
+     * @param DescribeRegionInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeRegionInfoResponse
+     */
+    public function describeRegionInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceCode) {
+            @$query['SourceCode'] = $request->sourceCode;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegionInfo',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRegionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取地域信息.
+     *
+     * @param request - DescribeRegionInfoRequest
+     *
+     * @returns DescribeRegionInfoResponse
+     *
+     * @param DescribeRegionInfoRequest $request
+     *
+     * @return DescribeRegionInfoResponse
+     */
+    public function describeRegionInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资产类型默认引流
+     *
+     * @param request - DescribeResourceTypeAutoEnableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceTypeAutoEnableResponse
+     *
+     * @param DescribeResourceTypeAutoEnableRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResourceTypeAutoEnableResponse
+     */
+    public function describeResourceTypeAutoEnableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeResourceTypeAutoEnable',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeResourceTypeAutoEnableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资产类型默认引流
+     *
+     * @param request - DescribeResourceTypeAutoEnableRequest
+     *
+     * @returns DescribeResourceTypeAutoEnableResponse
+     *
+     * @param DescribeResourceTypeAutoEnableRequest $request
+     *
+     * @return DescribeResourceTypeAutoEnableResponse
+     */
+    public function describeResourceTypeAutoEnable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceTypeAutoEnableWithOptions($request, $runtime);
     }
 
     /**
@@ -6060,6 +9585,241 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取Top风险事件资产.
+     *
+     * @param request - DescribeRiskEventTopAttackAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRiskEventTopAttackAssetResponse
+     *
+     * @param DescribeRiskEventTopAttackAssetRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeRiskEventTopAttackAssetResponse
+     */
+    public function describeRiskEventTopAttackAssetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->attackApp) {
+            @$query['AttackApp'] = $request->attackApp;
+        }
+
+        if (null !== $request->attackType) {
+            @$query['AttackType'] = $request->attackType;
+        }
+
+        if (null !== $request->buyVersion) {
+            @$query['BuyVersion'] = $request->buyVersion;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRiskEventTopAttackAsset',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRiskEventTopAttackAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Top风险事件资产.
+     *
+     * @param request - DescribeRiskEventTopAttackAssetRequest
+     *
+     * @returns DescribeRiskEventTopAttackAssetResponse
+     *
+     * @param DescribeRiskEventTopAttackAssetRequest $request
+     *
+     * @return DescribeRiskEventTopAttackAssetResponse
+     */
+    public function describeRiskEventTopAttackAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRiskEventTopAttackAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取风险安全组详情.
+     *
+     * @param request - DescribeRiskSecurityGroupDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRiskSecurityGroupDetailResponse
+     *
+     * @param DescribeRiskSecurityGroupDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeRiskSecurityGroupDetailResponse
+     */
+    public function describeRiskSecurityGroupDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->ruleUuid) {
+            @$query['RuleUuid'] = $request->ruleUuid;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRiskSecurityGroupDetail',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRiskSecurityGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取风险安全组详情.
+     *
+     * @param request - DescribeRiskSecurityGroupDetailRequest
+     *
+     * @returns DescribeRiskSecurityGroupDetailResponse
+     *
+     * @param DescribeRiskSecurityGroupDetailRequest $request
+     *
+     * @return DescribeRiskSecurityGroupDetailResponse
+     */
+    public function describeRiskSecurityGroupDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRiskSecurityGroupDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安全模式.
+     *
+     * @param request - DescribeSecurityModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityModeResponse
+     *
+     * @param DescribeSecurityModeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeSecurityModeResponse
+     */
+    public function describeSecurityModeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSecurityMode',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSecurityModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安全模式.
+     *
+     * @param request - DescribeSecurityModeRequest
+     *
+     * @returns DescribeSecurityModeResponse
+     *
+     * @param DescribeSecurityModeRequest $request
+     *
+     * @return DescribeSecurityModeResponse
+     */
+    public function describeSecurityMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityModeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about signature library versions.
      *
      * @param request - DescribeSignatureLibVersionRequest
@@ -6101,6 +9861,63 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSignatureLibVersionWithOptions($runtime);
+    }
+
+    /**
+     * 获取SLS开启状态
+     *
+     * @param request - DescribeSlsAnalyzeOpenStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSlsAnalyzeOpenStatusResponse
+     *
+     * @param DescribeSlsAnalyzeOpenStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSlsAnalyzeOpenStatusResponse
+     */
+    public function describeSlsAnalyzeOpenStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSlsAnalyzeOpenStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSlsAnalyzeOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取SLS开启状态
+     *
+     * @param request - DescribeSlsAnalyzeOpenStatusRequest
+     *
+     * @returns DescribeSlsAnalyzeOpenStatusResponse
+     *
+     * @param DescribeSlsAnalyzeOpenStatusRequest $request
+     *
+     * @return DescribeSlsAnalyzeOpenStatusResponse
+     */
+    public function describeSlsAnalyzeOpenStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSlsAnalyzeOpenStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -6483,6 +10300,144 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取未保护漏洞趋势
+     *
+     * @param request - DescribeUnprotectedVulnTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUnprotectedVulnTrendResponse
+     *
+     * @param DescribeUnprotectedVulnTrendRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeUnprotectedVulnTrendResponse
+     */
+    public function describeUnprotectedVulnTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUnprotectedVulnTrend',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUnprotectedVulnTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取未保护漏洞趋势
+     *
+     * @param request - DescribeUnprotectedVulnTrendRequest
+     *
+     * @returns DescribeUnprotectedVulnTrendResponse
+     *
+     * @param DescribeUnprotectedVulnTrendRequest $request
+     *
+     * @return DescribeUnprotectedVulnTrendResponse
+     */
+    public function describeUnprotectedVulnTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUnprotectedVulnTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户告警配置.
+     *
+     * @param request - DescribeUserAlarmConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserAlarmConfigResponse
+     *
+     * @param DescribeUserAlarmConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeUserAlarmConfigResponse
+     */
+    public function describeUserAlarmConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUserAlarmConfig',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUserAlarmConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户告警配置.
+     *
+     * @param request - DescribeUserAlarmConfigRequest
+     *
+     * @returns DescribeUserAlarmConfigResponse
+     *
+     * @param DescribeUserAlarmConfigRequest $request
+     *
+     * @return DescribeUserAlarmConfigResponse
+     */
+    public function describeUserAlarmConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserAlarmConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
      *
      * @param request - DescribeUserAssetIPTrafficInfoRequest
@@ -6665,6 +10620,131 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserIPSWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取VPC防火墙通过详情.
+     *
+     * @param request - DescribeVpcFirewallAccessDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcFirewallAccessDetailResponse
+     *
+     * @param DescribeVpcFirewallAccessDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVpcFirewallAccessDetailResponse
+     */
+    public function describeVpcFirewallAccessDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetIP) {
+            @$query['AssetIP'] = $request->assetIP;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->IPProtocol) {
+            @$query['IPProtocol'] = $request->IPProtocol;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->peerAssetIP) {
+            @$query['PeerAssetIP'] = $request->peerAssetIP;
+        }
+
+        if (null !== $request->peerAssetInstanceId) {
+            @$query['PeerAssetInstanceId'] = $request->peerAssetInstanceId;
+        }
+
+        if (null !== $request->peerAssetInstanceName) {
+            @$query['PeerAssetInstanceName'] = $request->peerAssetInstanceName;
+        }
+
+        if (null !== $request->peerVpcId) {
+            @$query['PeerVpcId'] = $request->peerVpcId;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcFirewallAccessDetail',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcFirewallAccessDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取VPC防火墙通过详情.
+     *
+     * @param request - DescribeVpcFirewallAccessDetailRequest
+     *
+     * @returns DescribeVpcFirewallAccessDetailResponse
+     *
+     * @param DescribeVpcFirewallAccessDetailRequest $request
+     *
+     * @return DescribeVpcFirewallAccessDetailResponse
+     */
+    public function describeVpcFirewallAccessDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallAccessDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -6946,6 +11026,83 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVpcFirewallCenListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取VPC的CEN列表.
+     *
+     * @param request - DescribeVpcFirewallCenSummaryListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcFirewallCenSummaryListResponse
+     *
+     * @param DescribeVpcFirewallCenSummaryListRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeVpcFirewallCenSummaryListResponse
+     */
+    public function describeVpcFirewallCenSummaryListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->transitRouterType) {
+            @$query['TransitRouterType'] = $request->transitRouterType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcFirewallCenSummaryList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcFirewallCenSummaryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取VPC的CEN列表.
+     *
+     * @param request - DescribeVpcFirewallCenSummaryListRequest
+     *
+     * @returns DescribeVpcFirewallCenSummaryListResponse
+     *
+     * @param DescribeVpcFirewallCenSummaryListRequest $request
+     *
+     * @return DescribeVpcFirewallCenSummaryListResponse
+     */
+    public function describeVpcFirewallCenSummaryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallCenSummaryListWithOptions($request, $runtime);
     }
 
     /**
@@ -7467,6 +11624,71 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取VPC防火墙总结信息.
+     *
+     * @param request - DescribeVpcFirewallSummaryInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcFirewallSummaryInfoResponse
+     *
+     * @param DescribeVpcFirewallSummaryInfoRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeVpcFirewallSummaryInfoResponse
+     */
+    public function describeVpcFirewallSummaryInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->userType) {
+            @$query['UserType'] = $request->userType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcFirewallSummaryInfo',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcFirewallSummaryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取VPC防火墙总结信息.
+     *
+     * @param request - DescribeVpcFirewallSummaryInfoRequest
+     *
+     * @returns DescribeVpcFirewallSummaryInfoResponse
+     *
+     * @param DescribeVpcFirewallSummaryInfoRequest $request
+     *
+     * @return DescribeVpcFirewallSummaryInfoResponse
+     */
+    public function describeVpcFirewallSummaryInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallSummaryInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries virtual private clouds (VPCs).
      *
      * @param request - DescribeVpcListLiteRequest
@@ -7734,6 +11956,67 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 开启资产数据泄露保护.
+     *
+     * @param request - EnableSdlProtectedAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSdlProtectedAssetResponse
+     *
+     * @param EnableSdlProtectedAssetRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableSdlProtectedAssetResponse
+     */
+    public function enableSdlProtectedAssetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ipList) {
+            @$query['IpList'] = $request->ipList;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableSdlProtectedAsset',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSdlProtectedAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启资产数据泄露保护.
+     *
+     * @param request - EnableSdlProtectedAssetRequest
+     *
+     * @returns EnableSdlProtectedAssetResponse
+     *
+     * @param EnableSdlProtectedAssetRequest $request
+     *
+     * @return EnableSdlProtectedAssetResponse
+     */
+    public function enableSdlProtectedAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableSdlProtectedAssetWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the address book that is specified in an access control policy.
      *
      * @remarks
@@ -7755,6 +12038,14 @@ class Cloudfw extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ackLabels) {
+            @$query['AckLabels'] = $request->ackLabels;
+        }
+
+        if (null !== $request->ackNamespaces) {
+            @$query['AckNamespaces'] = $request->ackNamespaces;
+        }
+
         if (null !== $request->addressList) {
             @$query['AddressList'] = $request->addressList;
         }
@@ -8454,6 +12745,87 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 修改IPS规则为默认.
+     *
+     * @param request - ModifyIpsRulesToDefaultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyIpsRulesToDefaultResponse
+     *
+     * @param ModifyIpsRulesToDefaultRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyIpsRulesToDefaultResponse
+     */
+    public function modifyIpsRulesToDefaultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->attackApp) {
+            @$query['AttackApp'] = $request->attackApp;
+        }
+
+        if (null !== $request->firewallType) {
+            @$query['FirewallType'] = $request->firewallType;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
+        }
+
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyIpsRulesToDefault',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyIpsRulesToDefaultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改IPS规则为默认.
+     *
+     * @param request - ModifyIpsRulesToDefaultRequest
+     *
+     * @returns ModifyIpsRulesToDefaultResponse
+     *
+     * @param ModifyIpsRulesToDefaultRequest $request
+     *
+     * @return ModifyIpsRulesToDefaultResponse
+     */
+    public function modifyIpsRulesToDefault($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyIpsRulesToDefaultWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the configurations of an access control policy that is created for a NAT firewall.
      *
      * @remarks
@@ -8915,6 +13287,197 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 修改敏感数据开关.
+     *
+     * @param request - ModifySensitiveSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySensitiveSwitchResponse
+     *
+     * @param ModifySensitiveSwitchRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifySensitiveSwitchResponse
+     */
+    public function modifySensitiveSwitchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sensitiveCategory) {
+            @$query['SensitiveCategory'] = $request->sensitiveCategory;
+        }
+
+        if (null !== $request->switchStatus) {
+            @$query['SwitchStatus'] = $request->switchStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySensitiveSwitch',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySensitiveSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改敏感数据开关.
+     *
+     * @param request - ModifySensitiveSwitchRequest
+     *
+     * @returns ModifySensitiveSwitchResponse
+     *
+     * @param ModifySensitiveSwitchRequest $request
+     *
+     * @return ModifySensitiveSwitchResponse
+     */
+    public function modifySensitiveSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySensitiveSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改SLS投递.
+     *
+     * @param request - ModifySlsDispatchStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySlsDispatchStatusResponse
+     *
+     * @param ModifySlsDispatchStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifySlsDispatchStatusResponse
+     */
+    public function modifySlsDispatchStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dispatchValue) {
+            @$query['DispatchValue'] = $request->dispatchValue;
+        }
+
+        if (null !== $request->enableStatus) {
+            @$query['EnableStatus'] = $request->enableStatus;
+        }
+
+        if (null !== $request->filterKeys) {
+            @$query['FilterKeys'] = $request->filterKeys;
+        }
+
+        if (null !== $request->newRegionId) {
+            @$query['NewRegionId'] = $request->newRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySlsDispatchStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySlsDispatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改SLS投递.
+     *
+     * @param request - ModifySlsDispatchStatusRequest
+     *
+     * @returns ModifySlsDispatchStatusResponse
+     *
+     * @param ModifySlsDispatchStatusRequest $request
+     *
+     * @return ModifySlsDispatchStatusResponse
+     */
+    public function modifySlsDispatchStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySlsDispatchStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改威胁情报配置的信息.
+     *
+     * @param request - ModifyThreatIntelligenceSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyThreatIntelligenceSwitchResponse
+     *
+     * @param ModifyThreatIntelligenceSwitchRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyThreatIntelligenceSwitchResponse
+     */
+    public function modifyThreatIntelligenceSwitchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryList) {
+            @$query['CategoryList'] = $request->categoryList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyThreatIntelligenceSwitch',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyThreatIntelligenceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改威胁情报配置的信息.
+     *
+     * @param request - ModifyThreatIntelligenceSwitchRequest
+     *
+     * @returns ModifyThreatIntelligenceSwitchResponse
+     *
+     * @param ModifyThreatIntelligenceSwitchRequest $request
+     *
+     * @return ModifyThreatIntelligenceSwitchResponse
+     */
+    public function modifyThreatIntelligenceSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyThreatIntelligenceSwitchWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the configuration of a virtual private cloud (VPC) firewall that is created for a transit router.
      *
      * @param request - ModifyTrFirewallV2ConfigurationRequest
@@ -9149,6 +13712,132 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyUserIPSWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改用户日志存储时间.
+     *
+     * @param request - ModifyUserSlsLogStorageTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyUserSlsLogStorageTimeResponse
+     *
+     * @param ModifyUserSlsLogStorageTimeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyUserSlsLogStorageTimeResponse
+     */
+    public function modifyUserSlsLogStorageTimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->storageTime) {
+            @$query['StorageTime'] = $request->storageTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyUserSlsLogStorageTime',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyUserSlsLogStorageTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改用户日志存储时间.
+     *
+     * @param request - ModifyUserSlsLogStorageTimeRequest
+     *
+     * @returns ModifyUserSlsLogStorageTimeResponse
+     *
+     * @param ModifyUserSlsLogStorageTimeRequest $request
+     *
+     * @return ModifyUserSlsLogStorageTimeResponse
+     */
+    public function modifyUserSlsLogStorageTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserSlsLogStorageTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改VPC防火墙ACL引擎模式.
+     *
+     * @param request - ModifyVpcFirewallAclEngineModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyVpcFirewallAclEngineModeResponse
+     *
+     * @param ModifyVpcFirewallAclEngineModeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyVpcFirewallAclEngineModeResponse
+     */
+    public function modifyVpcFirewallAclEngineModeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->strictMode) {
+            @$query['StrictMode'] = $request->strictMode;
+        }
+
+        if (null !== $request->vpcFirewallId) {
+            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyVpcFirewallAclEngineMode',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyVpcFirewallAclEngineModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改VPC防火墙ACL引擎模式.
+     *
+     * @param request - ModifyVpcFirewallAclEngineModeRequest
+     *
+     * @returns ModifyVpcFirewallAclEngineModeResponse
+     *
+     * @param ModifyVpcFirewallAclEngineModeRequest $request
+     *
+     * @return ModifyVpcFirewallAclEngineModeResponse
+     */
+    public function modifyVpcFirewallAclEngineMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcFirewallAclEngineModeWithOptions($request, $runtime);
     }
 
     /**
@@ -10385,6 +15074,71 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 重置规则命中数.
+     *
+     * @param request - ResetRuleHitCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetRuleHitCountResponse
+     *
+     * @param ResetRuleHitCountRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResetRuleHitCountResponse
+     */
+    public function resetRuleHitCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aclUuid) {
+            @$query['AclUuid'] = $request->aclUuid;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetRuleHitCount',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetRuleHitCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置规则命中数.
+     *
+     * @param request - ResetRuleHitCountRequest
+     *
+     * @returns ResetRuleHitCountResponse
+     *
+     * @param ResetRuleHitCountRequest $request
+     *
+     * @return ResetRuleHitCountResponse
+     */
+    public function resetRuleHitCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetRuleHitCountWithOptions($request, $runtime);
+    }
+
+    /**
      * Clears the count on hits of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
      *
      * @remarks
@@ -10575,5 +15329,273 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAITrafficAnalysisStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改ACK集群连接器.
+     *
+     * @param request - UpdateAckClusterConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAckClusterConnectorResponse
+     *
+     * @param UpdateAckClusterConnectorRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateAckClusterConnectorResponse
+     */
+    public function updateAckClusterConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->connectorName) {
+            @$query['ConnectorName'] = $request->connectorName;
+        }
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAckClusterConnector',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAckClusterConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改ACK集群连接器.
+     *
+     * @param request - UpdateAckClusterConnectorRequest
+     *
+     * @returns UpdateAckClusterConnectorResponse
+     *
+     * @param UpdateAckClusterConnectorRequest $request
+     *
+     * @return UpdateAckClusterConnectorResponse
+     */
+    public function updateAckClusterConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAckClusterConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改ACL检查状态
+     *
+     * @param request - UpdateAclCheckDetailStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAclCheckDetailStatusResponse
+     *
+     * @param UpdateAclCheckDetailStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateAclCheckDetailStatusResponse
+     */
+    public function updateAclCheckDetailStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAclCheckDetailStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAclCheckDetailStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改ACL检查状态
+     *
+     * @param request - UpdateAclCheckDetailStatusRequest
+     *
+     * @returns UpdateAclCheckDetailStatusResponse
+     *
+     * @param UpdateAclCheckDetailStatusRequest $request
+     *
+     * @return UpdateAclCheckDetailStatusResponse
+     */
+    public function updateAclCheckDetailStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAclCheckDetailStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the status of the NAT firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - UpdatePostpayUserInternetStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePostpayUserInternetStatusResponse
+     *
+     * @param UpdatePostpayUserInternetStatusRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdatePostpayUserInternetStatusResponse
+     */
+    public function updatePostpayUserInternetStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->operate) {
+            @$query['Operate'] = $request->operate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePostpayUserInternetStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePostpayUserInternetStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the status of the NAT firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - UpdatePostpayUserInternetStatusRequest
+     *
+     * @returns UpdatePostpayUserInternetStatusResponse
+     *
+     * @param UpdatePostpayUserInternetStatusRequest $request
+     *
+     * @return UpdatePostpayUserInternetStatusResponse
+     */
+    public function updatePostpayUserInternetStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePostpayUserInternetStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新安全正向代理.
+     *
+     * @param request - UpdateSecurityProxyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecurityProxyResponse
+     *
+     * @param UpdateSecurityProxyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateSecurityProxyResponse
+     */
+    public function updateSecurityProxyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->proxyId) {
+            @$query['ProxyId'] = $request->proxyId;
+        }
+
+        if (null !== $request->proxyName) {
+            @$query['ProxyName'] = $request->proxyName;
+        }
+
+        if (null !== $request->strictMode) {
+            @$query['StrictMode'] = $request->strictMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSecurityProxy',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecurityProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新安全正向代理.
+     *
+     * @param request - UpdateSecurityProxyRequest
+     *
+     * @returns UpdateSecurityProxyResponse
+     *
+     * @param UpdateSecurityProxyRequest $request
+     *
+     * @return UpdateSecurityProxyResponse
+     */
+    public function updateSecurityProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityProxyWithOptions($request, $runtime);
     }
 }

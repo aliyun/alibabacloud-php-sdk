@@ -5,11 +5,32 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\ackLabels;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\addresses;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\tagList;
 
 class acls extends Model
 {
+    /**
+     * @var string
+     */
+    public $ackClusterConnectorId;
+
+    /**
+     * @var string
+     */
+    public $ackClusterConnectorName;
+
+    /**
+     * @var ackLabels[]
+     */
+    public $ackLabels;
+
+    /**
+     * @var string[]
+     */
+    public $ackNamespaces;
+
     /**
      * @var string[]
      */
@@ -56,6 +77,11 @@ class acls extends Model
     public $referenceCount;
 
     /**
+     * @var string
+     */
+    public $regionNo;
+
+    /**
      * @var tagList[]
      */
     public $tagList;
@@ -65,6 +91,10 @@ class acls extends Model
      */
     public $tagRelation;
     protected $_name = [
+        'ackClusterConnectorId' => 'AckClusterConnectorId',
+        'ackClusterConnectorName' => 'AckClusterConnectorName',
+        'ackLabels' => 'AckLabels',
+        'ackNamespaces' => 'AckNamespaces',
         'addressList' => 'AddressList',
         'addressListCount' => 'AddressListCount',
         'addresses' => 'Addresses',
@@ -74,12 +104,19 @@ class acls extends Model
         'groupType' => 'GroupType',
         'groupUuid' => 'GroupUuid',
         'referenceCount' => 'ReferenceCount',
+        'regionNo' => 'RegionNo',
         'tagList' => 'TagList',
         'tagRelation' => 'TagRelation',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ackLabels)) {
+            Model::validateArray($this->ackLabels);
+        }
+        if (\is_array($this->ackNamespaces)) {
+            Model::validateArray($this->ackNamespaces);
+        }
         if (\is_array($this->addressList)) {
             Model::validateArray($this->addressList);
         }
@@ -95,6 +132,36 @@ class acls extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ackClusterConnectorId) {
+            $res['AckClusterConnectorId'] = $this->ackClusterConnectorId;
+        }
+
+        if (null !== $this->ackClusterConnectorName) {
+            $res['AckClusterConnectorName'] = $this->ackClusterConnectorName;
+        }
+
+        if (null !== $this->ackLabels) {
+            if (\is_array($this->ackLabels)) {
+                $res['AckLabels'] = [];
+                $n1 = 0;
+                foreach ($this->ackLabels as $item1) {
+                    $res['AckLabels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ackNamespaces) {
+            if (\is_array($this->ackNamespaces)) {
+                $res['AckNamespaces'] = [];
+                $n1 = 0;
+                foreach ($this->ackNamespaces as $item1) {
+                    $res['AckNamespaces'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->addressList) {
             if (\is_array($this->addressList)) {
                 $res['AddressList'] = [];
@@ -145,6 +212,10 @@ class acls extends Model
             $res['ReferenceCount'] = $this->referenceCount;
         }
 
+        if (null !== $this->regionNo) {
+            $res['RegionNo'] = $this->regionNo;
+        }
+
         if (null !== $this->tagList) {
             if (\is_array($this->tagList)) {
                 $res['TagList'] = [];
@@ -171,6 +242,36 @@ class acls extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AckClusterConnectorId'])) {
+            $model->ackClusterConnectorId = $map['AckClusterConnectorId'];
+        }
+
+        if (isset($map['AckClusterConnectorName'])) {
+            $model->ackClusterConnectorName = $map['AckClusterConnectorName'];
+        }
+
+        if (isset($map['AckLabels'])) {
+            if (!empty($map['AckLabels'])) {
+                $model->ackLabels = [];
+                $n1 = 0;
+                foreach ($map['AckLabels'] as $item1) {
+                    $model->ackLabels[$n1] = ackLabels::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AckNamespaces'])) {
+            if (!empty($map['AckNamespaces'])) {
+                $model->ackNamespaces = [];
+                $n1 = 0;
+                foreach ($map['AckNamespaces'] as $item1) {
+                    $model->ackNamespaces[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AddressList'])) {
             if (!empty($map['AddressList'])) {
                 $model->addressList = [];
@@ -219,6 +320,10 @@ class acls extends Model
 
         if (isset($map['ReferenceCount'])) {
             $model->referenceCount = $map['ReferenceCount'];
+        }
+
+        if (isset($map['RegionNo'])) {
+            $model->regionNo = $map['RegionNo'];
         }
 
         if (isset($map['TagList'])) {

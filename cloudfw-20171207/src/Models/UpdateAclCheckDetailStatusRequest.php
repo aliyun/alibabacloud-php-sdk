@@ -1,0 +1,90 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class UpdateAclCheckDetailStatusRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @var string
+     */
+    public $uuid;
+    protected $_name = [
+        'lang' => 'Lang',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'uuid' => 'Uuid',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
+        }
+
+        return $model;
+    }
+}
