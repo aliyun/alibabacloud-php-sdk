@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupShri
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerRequest;
@@ -45,6 +47,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsRe
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodesRequest;
@@ -504,6 +508,95 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过实例创建镜像.
+     *
+     * @param request - CreateImageByInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageByInstanceResponse
+     *
+     * @param CreateImageByInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateImageByInstanceResponse
+     */
+    public function createImageByInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->autoCleanUserdata) {
+            @$body['AutoCleanUserdata'] = $request->autoCleanUserdata;
+        }
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->diskType) {
+            @$body['DiskType'] = $request->diskType;
+        }
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->subInstanceId) {
+            @$body['SubInstanceId'] = $request->subInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateImageByInstance',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateImageByInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过实例创建镜像.
+     *
+     * @param request - CreateImageByInstanceRequest
+     *
+     * @returns CreateImageByInstanceResponse
+     *
+     * @param CreateImageByInstanceRequest $request
+     *
+     * @return CreateImageByInstanceResponse
+     */
+    public function createImageByInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImageByInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1761,6 +1854,145 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBindInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列表显示镜像.
+     *
+     * @param request - ListImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImageResponse
+     *
+     * @param ListImageRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListImageResponse
+     */
+    public function listImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tagList) {
+            @$query['TagList'] = $request->tagList;
+        }
+
+        $body = [];
+        if (null !== $request->bizRegionIdList) {
+            @$body['BizRegionIdList'] = $request->bizRegionIdList;
+        }
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->bizTypeList) {
+            @$body['BizTypeList'] = $request->bizTypeList;
+        }
+
+        if (null !== $request->featureList) {
+            @$body['FeatureList'] = $request->featureList;
+        }
+
+        if (null !== $request->fotaVersion) {
+            @$body['FotaVersion'] = $request->fotaVersion;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->imageType) {
+            @$body['ImageType'] = $request->imageType;
+        }
+
+        if (null !== $request->languageType) {
+            @$body['LanguageType'] = $request->languageType;
+        }
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
+        }
+
+        if (null !== $request->packageType) {
+            @$body['PackageType'] = $request->packageType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->platformName) {
+            @$body['PlatformName'] = $request->platformName;
+        }
+
+        if (null !== $request->platformNameList) {
+            @$body['PlatformNameList'] = $request->platformNameList;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->productTypeList) {
+            @$body['ProductTypeList'] = $request->productTypeList;
+        }
+
+        if (null !== $request->protocolType) {
+            @$body['ProtocolType'] = $request->protocolType;
+        }
+
+        if (null !== $request->resourceInstanceType) {
+            @$body['ResourceInstanceType'] = $request->resourceInstanceType;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列表显示镜像.
+     *
+     * @param request - ListImageRequest
+     *
+     * @returns ListImageResponse
+     *
+     * @param ListImageRequest $request
+     *
+     * @return ListImageResponse
+     */
+    public function listImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImageWithOptions($request, $runtime);
     }
 
     /**
