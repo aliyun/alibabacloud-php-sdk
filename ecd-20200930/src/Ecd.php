@@ -448,6 +448,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyResourceCenterPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyResourceCenterPolicyResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifySecurityGroupAttributeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifySecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTemplateBaseInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTemplateBaseInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTemplateRequest;
@@ -4864,6 +4866,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->snapshotPolicyId) {
             @$query['SnapshotPolicyId'] = $request->snapshotPolicyId;
+        }
+
+        if (null !== $request->subnetId) {
+            @$query['SubnetId'] = $request->subnetId;
         }
 
         if (null !== $request->tag) {
@@ -19998,6 +20004,83 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyResourceCenterPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改办公网络维度安全组策略.
+     *
+     * @param request - ModifySecurityGroupAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySecurityGroupAttributeResponse
+     *
+     * @param ModifySecurityGroupAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifySecurityGroupAttributeResponse
+     */
+    public function modifySecurityGroupAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizeEgress) {
+            @$query['AuthorizeEgress'] = $request->authorizeEgress;
+        }
+
+        if (null !== $request->authorizeIngress) {
+            @$query['AuthorizeIngress'] = $request->authorizeIngress;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->revokeEgress) {
+            @$query['RevokeEgress'] = $request->revokeEgress;
+        }
+
+        if (null !== $request->revokeIngress) {
+            @$query['RevokeIngress'] = $request->revokeIngress;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySecurityGroupAttribute',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySecurityGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改办公网络维度安全组策略.
+     *
+     * @param request - ModifySecurityGroupAttributeRequest
+     *
+     * @returns ModifySecurityGroupAttributeResponse
+     *
+     * @param ModifySecurityGroupAttributeRequest $request
+     *
+     * @return ModifySecurityGroupAttributeResponse
+     */
+    public function modifySecurityGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySecurityGroupAttributeWithOptions($request, $runtime);
     }
 
     /**

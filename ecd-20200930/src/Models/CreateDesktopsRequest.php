@@ -165,6 +165,11 @@ class CreateDesktopsRequest extends Model
     public $snapshotPolicyId;
 
     /**
+     * @var string
+     */
+    public $subnetId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -234,6 +239,7 @@ class CreateDesktopsRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'savingPlanId' => 'SavingPlanId',
         'snapshotPolicyId' => 'SnapshotPolicyId',
+        'subnetId' => 'SubnetId',
         'tag' => 'Tag',
         'timerGroupId' => 'TimerGroupId',
         'userAssignMode' => 'UserAssignMode',
@@ -412,6 +418,10 @@ class CreateDesktopsRequest extends Model
 
         if (null !== $this->snapshotPolicyId) {
             $res['SnapshotPolicyId'] = $this->snapshotPolicyId;
+        }
+
+        if (null !== $this->subnetId) {
+            $res['SubnetId'] = $this->subnetId;
         }
 
         if (null !== $this->tag) {
@@ -610,6 +620,10 @@ class CreateDesktopsRequest extends Model
 
         if (isset($map['SnapshotPolicyId'])) {
             $model->snapshotPolicyId = $map['SnapshotPolicyId'];
+        }
+
+        if (isset($map['SubnetId'])) {
+            $model->subnetId = $map['SubnetId'];
         }
 
         if (isset($map['Tag'])) {
