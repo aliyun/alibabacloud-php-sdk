@@ -54,6 +54,11 @@ class SubmitDocParserJobShrinkRequest extends Model
     public $multimediaParametersShrink;
 
     /**
+     * @var bool
+     */
+    public $needHeaderFooter;
+
+    /**
      * @var string
      */
     public $option;
@@ -87,6 +92,7 @@ class SubmitDocParserJobShrinkRequest extends Model
         'LLMParamShrink' => 'LLMParam',
         'llmEnhancement' => 'LlmEnhancement',
         'multimediaParametersShrink' => 'MultimediaParameters',
+        'needHeaderFooter' => 'NeedHeaderFooter',
         'option' => 'Option',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
@@ -136,6 +142,10 @@ class SubmitDocParserJobShrinkRequest extends Model
 
         if (null !== $this->multimediaParametersShrink) {
             $res['MultimediaParameters'] = $this->multimediaParametersShrink;
+        }
+
+        if (null !== $this->needHeaderFooter) {
+            $res['NeedHeaderFooter'] = $this->needHeaderFooter;
         }
 
         if (null !== $this->option) {
@@ -203,6 +213,10 @@ class SubmitDocParserJobShrinkRequest extends Model
 
         if (isset($map['MultimediaParameters'])) {
             $model->multimediaParametersShrink = $map['MultimediaParameters'];
+        }
+
+        if (isset($map['NeedHeaderFooter'])) {
+            $model->needHeaderFooter = $map['NeedHeaderFooter'];
         }
 
         if (isset($map['Option'])) {

@@ -2013,6 +2013,10 @@ class Docmindapi extends OpenApiClient
             @$query['MultimediaParameters'] = $request->multimediaParametersShrink;
         }
 
+        if (null !== $request->needHeaderFooter) {
+            @$query['NeedHeaderFooter'] = $request->needHeaderFooter;
+        }
+
         if (null !== $request->option) {
             @$query['Option'] = $request->option;
         }

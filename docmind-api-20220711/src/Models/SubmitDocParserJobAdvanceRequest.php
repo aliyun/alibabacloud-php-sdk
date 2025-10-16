@@ -58,6 +58,11 @@ class SubmitDocParserJobAdvanceRequest extends Model
     public $multimediaParameters;
 
     /**
+     * @var bool
+     */
+    public $needHeaderFooter;
+
+    /**
      * @var string
      */
     public $option;
@@ -91,6 +96,7 @@ class SubmitDocParserJobAdvanceRequest extends Model
         'LLMParam' => 'LLMParam',
         'llmEnhancement' => 'LlmEnhancement',
         'multimediaParameters' => 'MultimediaParameters',
+        'needHeaderFooter' => 'NeedHeaderFooter',
         'option' => 'Option',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
@@ -149,6 +155,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
 
         if (null !== $this->multimediaParameters) {
             $res['MultimediaParameters'] = null !== $this->multimediaParameters ? $this->multimediaParameters->toArray($noStream) : $this->multimediaParameters;
+        }
+
+        if (null !== $this->needHeaderFooter) {
+            $res['NeedHeaderFooter'] = $this->needHeaderFooter;
         }
 
         if (null !== $this->option) {
@@ -216,6 +226,10 @@ class SubmitDocParserJobAdvanceRequest extends Model
 
         if (isset($map['MultimediaParameters'])) {
             $model->multimediaParameters = multimediaParameters::fromMap($map['MultimediaParameters']);
+        }
+
+        if (isset($map['NeedHeaderFooter'])) {
+            $model->needHeaderFooter = $map['NeedHeaderFooter'];
         }
 
         if (isset($map['Option'])) {
