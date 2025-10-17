@@ -18,12 +18,22 @@ class CreatePowerForecastJobRequest extends Model
     /**
      * @var string
      */
+    public $dataMode;
+
+    /**
+     * @var string
+     */
     public $deviceType;
 
     /**
      * @var int
      */
     public $duration;
+
+    /**
+     * @var string
+     */
+    public $forecastHorizon;
 
     /**
      * @var string
@@ -61,8 +71,10 @@ class CreatePowerForecastJobRequest extends Model
     public $timeZone;
     protected $_name = [
         'businessKey' => 'BusinessKey',
+        'dataMode' => 'DataMode',
         'deviceType' => 'DeviceType',
         'duration' => 'Duration',
+        'forecastHorizon' => 'ForecastHorizon',
         'freq' => 'Freq',
         'historyData' => 'HistoryData',
         'location' => 'Location',
@@ -90,12 +102,20 @@ class CreatePowerForecastJobRequest extends Model
             $res['BusinessKey'] = $this->businessKey;
         }
 
+        if (null !== $this->dataMode) {
+            $res['DataMode'] = $this->dataMode;
+        }
+
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
         }
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->forecastHorizon) {
+            $res['ForecastHorizon'] = $this->forecastHorizon;
         }
 
         if (null !== $this->freq) {
@@ -148,12 +168,20 @@ class CreatePowerForecastJobRequest extends Model
             $model->businessKey = $map['BusinessKey'];
         }
 
+        if (isset($map['DataMode'])) {
+            $model->dataMode = $map['DataMode'];
+        }
+
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['ForecastHorizon'])) {
+            $model->forecastHorizon = $map['ForecastHorizon'];
         }
 
         if (isset($map['Freq'])) {

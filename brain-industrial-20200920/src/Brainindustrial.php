@@ -361,12 +361,20 @@ class Brainindustrial extends OpenApiClient
             @$body['BusinessKey'] = $request->businessKey;
         }
 
+        if (null !== $request->dataMode) {
+            @$body['DataMode'] = $request->dataMode;
+        }
+
         if (null !== $request->deviceType) {
             @$body['DeviceType'] = $request->deviceType;
         }
 
         if (null !== $request->duration) {
             @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->forecastHorizon) {
+            @$body['ForecastHorizon'] = $request->forecastHorizon;
         }
 
         if (null !== $request->freq) {
@@ -464,12 +472,20 @@ class Brainindustrial extends OpenApiClient
             @$body['BusinessKey'] = $request->businessKey;
         }
 
+        if (null !== $request->dataMode) {
+            @$body['DataMode'] = $request->dataMode;
+        }
+
         if (null !== $request->deviceType) {
             @$body['DeviceType'] = $request->deviceType;
         }
 
         if (null !== $request->duration) {
             @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->forecastHorizon) {
+            @$body['ForecastHorizon'] = $request->forecastHorizon;
         }
 
         if (null !== $request->freq) {
@@ -559,12 +575,20 @@ class Brainindustrial extends OpenApiClient
             @$body['BusinessKey'] = $request->businessKey;
         }
 
+        if (null !== $request->dataMode) {
+            @$body['DataMode'] = $request->dataMode;
+        }
+
         if (null !== $request->deviceType) {
             @$body['DeviceType'] = $request->deviceType;
         }
 
         if (null !== $request->duration) {
             @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->forecastHorizon) {
+            @$body['ForecastHorizon'] = $request->forecastHorizon;
         }
 
         if (null !== $request->freq) {
@@ -670,12 +694,20 @@ class Brainindustrial extends OpenApiClient
             @$body['BusinessKey'] = $request->businessKey;
         }
 
+        if (null !== $request->dataMode) {
+            @$body['DataMode'] = $request->dataMode;
+        }
+
         if (null !== $request->deviceType) {
             @$body['DeviceType'] = $request->deviceType;
         }
 
         if (null !== $request->duration) {
             @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->forecastHorizon) {
+            @$body['ForecastHorizon'] = $request->forecastHorizon;
         }
 
         if (null !== $request->freq) {
