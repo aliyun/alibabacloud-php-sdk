@@ -61,7 +61,17 @@ class GetLogRequest extends Model
     /**
      * @var int
      */
+    public $scheduleTime;
+
+    /**
+     * @var int
+     */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $workerAddr;
     protected $_name = [
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
@@ -73,7 +83,9 @@ class GetLogRequest extends Model
         'logId' => 'LogId',
         'offset' => 'Offset',
         'reverse' => 'Reverse',
+        'scheduleTime' => 'ScheduleTime',
         'startTime' => 'StartTime',
+        'workerAddr' => 'WorkerAddr',
     ];
 
     public function validate()
@@ -124,8 +136,16 @@ class GetLogRequest extends Model
             $res['Reverse'] = $this->reverse;
         }
 
+        if (null !== $this->scheduleTime) {
+            $res['ScheduleTime'] = $this->scheduleTime;
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->workerAddr) {
+            $res['WorkerAddr'] = $this->workerAddr;
         }
 
         return $res;
@@ -179,8 +199,16 @@ class GetLogRequest extends Model
             $model->reverse = $map['Reverse'];
         }
 
+        if (isset($map['ScheduleTime'])) {
+            $model->scheduleTime = $map['ScheduleTime'];
+        }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['WorkerAddr'])) {
+            $model->workerAddr = $map['WorkerAddr'];
         }
 
         return $model;
