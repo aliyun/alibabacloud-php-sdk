@@ -88,12 +88,22 @@ class DescribeClusterResponseBody extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
 
     /**
      * @var string
@@ -115,8 +125,10 @@ class DescribeClusterResponseBody extends Model
         'operatingState' => 'OperatingState',
         'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
         'taskId' => 'TaskId',
         'updateTime' => 'UpdateTime',
+        'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
     ];
 
@@ -201,12 +213,20 @@ class DescribeClusterResponseBody extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         if (null !== $this->vpcId) {
@@ -291,12 +311,20 @@ class DescribeClusterResponseBody extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         if (isset($map['VpcId'])) {
