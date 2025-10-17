@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\singleStreamin
 class singleStreamingRecord extends Model
 {
     /**
+     * @var bool
+     */
+    public $avMerge;
+
+    /**
      * @var specifiedStreams[]
      */
     public $specifiedStreams;
@@ -20,6 +25,7 @@ class singleStreamingRecord extends Model
      */
     public $transcodingParameters;
     protected $_name = [
+        'avMerge' => 'AvMerge',
         'specifiedStreams' => 'SpecifiedStreams',
         'transcodingParameters' => 'TranscodingParameters',
     ];
@@ -38,6 +44,10 @@ class singleStreamingRecord extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->avMerge) {
+            $res['AvMerge'] = $this->avMerge;
+        }
+
         if (null !== $this->specifiedStreams) {
             if (\is_array($this->specifiedStreams)) {
                 $res['SpecifiedStreams'] = [];
@@ -64,6 +74,10 @@ class singleStreamingRecord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvMerge'])) {
+            $model->avMerge = $map['AvMerge'];
+        }
+
         if (isset($map['SpecifiedStreams'])) {
             if (!empty($map['SpecifiedStreams'])) {
                 $model->specifiedStreams = [];
