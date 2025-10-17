@@ -1152,6 +1152,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
+        }
+
         if (null !== $request->clientId) {
             @$query['ClientId'] = $request->clientId;
         }

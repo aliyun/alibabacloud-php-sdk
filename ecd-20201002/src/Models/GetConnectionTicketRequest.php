@@ -12,6 +12,11 @@ class GetConnectionTicketRequest extends Model
     /**
      * @var string
      */
+    public $accessType;
+
+    /**
+     * @var string
+     */
     public $clientId;
 
     /**
@@ -84,6 +89,7 @@ class GetConnectionTicketRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'accessType' => 'AccessType',
         'clientId' => 'ClientId',
         'clientOS' => 'ClientOS',
         'clientType' => 'ClientType',
@@ -112,6 +118,10 @@ class GetConnectionTicketRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
+        }
+
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
@@ -190,6 +200,10 @@ class GetConnectionTicketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessType'])) {
+            $model->accessType = $map['AccessType'];
+        }
+
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
