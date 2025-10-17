@@ -53,6 +53,10 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListCatalogsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListCatalogsResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobExecutorsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobExecutorsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsShrinkRequest;
@@ -76,6 +80,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersRequ
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSqlStatementContentsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSqlStatementContentsResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListTemplateRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListTemplateResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRequest;
@@ -2001,6 +2007,154 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 查看数据目录列表.
+     *
+     * @param request - ListCatalogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCatalogsResponse
+     *
+     * @param string              $workspaceId
+     * @param ListCatalogsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListCatalogsResponse
+     */
+    public function listCatalogsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environment) {
+            @$query['environment'] = $request->environment;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCatalogs',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/catalogs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看数据目录列表.
+     *
+     * @param request - ListCatalogsRequest
+     *
+     * @returns ListCatalogsResponse
+     *
+     * @param string              $workspaceId
+     * @param ListCatalogsRequest $request
+     *
+     * @return ListCatalogsResponse
+     */
+    public function listCatalogs($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCatalogsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出作业的executors.
+     *
+     * @param request - ListJobExecutorsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobExecutorsResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $jobRunId
+     * @param ListJobExecutorsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListJobExecutorsResponse
+     */
+    public function listJobExecutorsWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->executorType) {
+            @$query['executorType'] = $request->executorType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListJobExecutors',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/jobRuns/' . Url::percentEncode($jobRunId) . '/executors',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListJobExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出作业的executors.
+     *
+     * @param request - ListJobExecutorsRequest
+     *
+     * @returns ListJobExecutorsResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $jobRunId
+     * @param ListJobExecutorsRequest $request
+     *
+     * @return ListJobExecutorsResponse
+     */
+    public function listJobExecutors($workspaceId, $jobRunId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listJobExecutorsWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of Spark jobs.
      *
      * @param tmpReq - ListJobRunsRequest
@@ -2875,6 +3029,69 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listSqlStatementContentsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取任务模板列表.
+     *
+     * @param request - ListTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTemplateResponse
+     *
+     * @param string              $workspaceBizId
+     * @param ListTemplateRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTemplateResponse
+     */
+    public function listTemplateWithOptions($workspaceBizId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTemplate',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceBizId) . '/template/listing',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取任务模板列表.
+     *
+     * @param request - ListTemplateRequest
+     *
+     * @returns ListTemplateResponse
+     *
+     * @param string              $workspaceBizId
+     * @param ListTemplateRequest $request
+     *
+     * @return ListTemplateResponse
+     */
+    public function listTemplate($workspaceBizId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTemplateWithOptions($workspaceBizId, $request, $headers, $runtime);
     }
 
     /**
