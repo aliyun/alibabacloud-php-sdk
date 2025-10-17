@@ -390,12 +390,22 @@ class Chatbot extends OpenApiClient
             @$query['AgentKey'] = $request->agentKey;
         }
 
+        $body = [];
         if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sandBox) {
+            @$body['SandBox'] = $request->sandBox;
+        }
+
+        if (null !== $request->vendorParam) {
+            @$body['VendorParam'] = $request->vendorParam;
         }
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BeginSession',

@@ -17,9 +17,21 @@ class BeginSessionRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $sandBox;
+
+    /**
+     * @var string
+     */
+    public $vendorParam;
     protected $_name = [
         'agentKey' => 'AgentKey',
         'instanceId' => 'InstanceId',
+        'sandBox' => 'SandBox',
+        'vendorParam' => 'VendorParam',
     ];
 
     public function validate()
@@ -36,6 +48,14 @@ class BeginSessionRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->sandBox) {
+            $res['SandBox'] = $this->sandBox;
+        }
+
+        if (null !== $this->vendorParam) {
+            $res['VendorParam'] = $this->vendorParam;
         }
 
         return $res;
@@ -55,6 +75,14 @@ class BeginSessionRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['SandBox'])) {
+            $model->sandBox = $map['SandBox'];
+        }
+
+        if (isset($map['VendorParam'])) {
+            $model->vendorParam = $map['VendorParam'];
         }
 
         return $model;
