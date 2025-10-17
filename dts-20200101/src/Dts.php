@@ -168,6 +168,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\InitDtsRdsInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\InitDtsRdsInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ListDedicatedClusterRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ListDedicatedClusterResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ListJobStepRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ListJobStepResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyConsumerChannelRequest;
@@ -198,6 +200,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDynamicConfigRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDynamicConfigResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyGadInstanceNameRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyGadInstanceNameResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyJobStepCheckpointRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyJobStepCheckpointResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionObjectRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionObjectResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionRequest;
@@ -7565,6 +7569,75 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * 查询JobStep列表。
+     *
+     * @param Request - ListJobStepRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobStepResponse
+     *
+     * @param ListJobStepRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListJobStepResponse
+     */
+    public function listJobStepWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dtsJobId) {
+            @$query['DtsJobId'] = $request->dtsJobId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->zeroEtlJob) {
+            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListJobStep',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListJobStepResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询JobStep列表。
+     *
+     * @param Request - ListJobStepRequest
+     *
+     * @returns ListJobStepResponse
+     *
+     * @param ListJobStepRequest $request
+     *
+     * @return ListJobStepResponse
+     */
+    public function listJobStep($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listJobStepWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
      *
      * @remarks
@@ -8896,6 +8969,79 @@ class Dts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyGadInstanceNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改增量写入的位点。
+     *
+     * @param Request - ModifyJobStepCheckpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyJobStepCheckpointResponse
+     *
+     * @param ModifyJobStepCheckpointRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyJobStepCheckpointResponse
+     */
+    public function modifyJobStepCheckpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dtsJobId) {
+            @$query['DtsJobId'] = $request->dtsJobId;
+        }
+
+        if (null !== $request->jobStepId) {
+            @$query['JobStepId'] = $request->jobStepId;
+        }
+
+        if (null !== $request->newCheckPoint) {
+            @$query['NewCheckPoint'] = $request->newCheckPoint;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyJobStepCheckpoint',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyJobStepCheckpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改增量写入的位点。
+     *
+     * @param Request - ModifyJobStepCheckpointRequest
+     *
+     * @returns ModifyJobStepCheckpointResponse
+     *
+     * @param ModifyJobStepCheckpointRequest $request
+     *
+     * @return ModifyJobStepCheckpointResponse
+     */
+    public function modifyJobStepCheckpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyJobStepCheckpointWithOptions($request, $runtime);
     }
 
     /**
