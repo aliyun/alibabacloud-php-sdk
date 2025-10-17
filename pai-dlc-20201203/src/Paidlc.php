@@ -1580,6 +1580,10 @@ class Paidlc extends OpenApiClient
             @$query['DisplayName'] = $request->displayName;
         }
 
+        if (null !== $request->displayNameSearchMode) {
+            @$query['DisplayNameSearchMode'] = $request->displayNameSearchMode;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
         }

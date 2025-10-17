@@ -31,6 +31,11 @@ class ListJobsRequest extends Model
     /**
      * @var string
      */
+    public $displayNameSearchMode;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -137,6 +142,7 @@ class ListJobsRequest extends Model
         'businessUserId' => 'BusinessUserId',
         'caller' => 'Caller',
         'displayName' => 'DisplayName',
+        'displayNameSearchMode' => 'DisplayNameSearchMode',
         'endTime' => 'EndTime',
         'fromAllWorkspaces' => 'FromAllWorkspaces',
         'jobId' => 'JobId',
@@ -185,6 +191,10 @@ class ListJobsRequest extends Model
 
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->displayNameSearchMode) {
+            $res['DisplayNameSearchMode'] = $this->displayNameSearchMode;
         }
 
         if (null !== $this->endTime) {
@@ -301,6 +311,10 @@ class ListJobsRequest extends Model
 
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['DisplayNameSearchMode'])) {
+            $model->displayNameSearchMode = $map['DisplayNameSearchMode'];
         }
 
         if (isset($map['EndTime'])) {
