@@ -77,6 +77,11 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $relativeDBClusterId;
+
+    /**
+     * @var string
+     */
     public $runType;
 
     /**
@@ -122,6 +127,7 @@ class DBCluster extends Model
         'lockMode' => 'LockMode',
         'payType' => 'PayType',
         'regionId' => 'RegionId',
+        'relativeDBClusterId' => 'RelativeDBClusterId',
         'runType' => 'RunType',
         'storageSpace' => 'StorageSpace',
         'storageType' => 'StorageType',
@@ -192,6 +198,10 @@ class DBCluster extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->relativeDBClusterId) {
+            $res['RelativeDBClusterId'] = $this->relativeDBClusterId;
         }
 
         if (null !== $this->runType) {
@@ -283,6 +293,10 @@ class DBCluster extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['RelativeDBClusterId'])) {
+            $model->relativeDBClusterId = $map['RelativeDBClusterId'];
         }
 
         if (isset($map['RunType'])) {

@@ -17,6 +17,11 @@ class CreateDBNodesRequest extends Model
     /**
      * @var string
      */
+    public $cloudProvider;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -75,6 +80,7 @@ class CreateDBNodesRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'cloudProvider' => 'CloudProvider',
         'DBClusterId' => 'DBClusterId',
         'DBNode' => 'DBNode',
         'DBNodeType' => 'DBNodeType',
@@ -102,6 +108,10 @@ class CreateDBNodesRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->cloudProvider) {
+            $res['CloudProvider'] = $this->cloudProvider;
         }
 
         if (null !== $this->DBClusterId) {
@@ -172,6 +182,10 @@ class CreateDBNodesRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CloudProvider'])) {
+            $model->cloudProvider = $map['CloudProvider'];
         }
 
         if (isset($map['DBClusterId'])) {

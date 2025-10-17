@@ -23,10 +23,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckConnectionStringRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckConnectionStringResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckServiceLinkedRoleRequest;
@@ -39,6 +43,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ContinueDBClusterMigrationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ContinueDBClusterMigrationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressRequest;
@@ -54,8 +60,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateCronJobPolicyServerlessReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateCronJobPolicyServerlessResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterEndpointRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterEndpointResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterEndpointZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterEndpointZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBEndpointAddressRequest;
@@ -84,6 +94,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationEndpointAddressRequest;
@@ -94,8 +106,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterEndpointRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterEndpointResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterEndpointZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterEndpointZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBEndpointAddressRequest;
@@ -126,6 +142,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodeDetailsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodeDetailsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesRequest;
@@ -147,6 +165,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRespon
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
@@ -181,10 +201,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDasConfigRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDasConfigResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDbClusterAttributeZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDbClusterAttributeZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAuditLogCollectorRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAuditLogCollectorResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAvailableResourcesRequest;
@@ -195,6 +219,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEncryptionKeyRequ
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEncryptionKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEndpointsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEndpointsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEndpointsZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEndpointsZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterMigrationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterMigrationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterMonitorRequest;
@@ -215,10 +241,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterSSLRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterSSLResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClustersWithBackupsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClustersWithBackupsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClustersZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClustersZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterTDERequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterTDEResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterVersionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterVersionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterVersionZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterVersionZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInitializeVariableRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInitializeVariableResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInstancePerformanceRequest;
@@ -336,10 +366,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ExecuteCrossCloudOpenAPIRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ExecuteCrossCloudOpenAPIResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GenerateUpgradeReportForSyncCloneRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GenerateUpgradeReportForSyncCloneResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListOrdersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListOrdersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListTagResourcesForRegionRequest;
@@ -350,10 +384,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ManuallyStartDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ManuallyStartDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountDescriptionZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountDescriptionZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountLockStateRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountLockStateResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountPasswordRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountPasswordResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountPasswordZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountPasswordZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationMaintainConfRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationMaintainConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationTasksRequest;
@@ -365,6 +403,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionRespon
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationServerlessConfRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationServerlessConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationWhitelistRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationWhitelistResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAutoRenewAttributeRequest;
@@ -386,8 +426,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDeletionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDeletionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDescriptionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDescriptionZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDescriptionZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterEndpointRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterEndpointResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterEndpointZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterEndpointZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterMaintainTimeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterMaintainTimeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterMigrationEndpointRequest;
@@ -418,6 +462,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterVpcRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterVpcResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBDescriptionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBDescriptionZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBDescriptionZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeClassRequest;
@@ -472,16 +518,22 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBLinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBLinkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SwitchOverGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SwitchOverGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TagResourcesRequest;
@@ -496,6 +548,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateExtensionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateExtensionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionZonalRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionZonalResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1295,6 +1349,83 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 检查PolarDB账号名称.
+     *
+     * @param request - CheckAccountNameZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAccountNameZonalResponse
+     *
+     * @param CheckAccountNameZonalRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckAccountNameZonalResponse
+     */
+    public function checkAccountNameZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckAccountNameZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckAccountNameZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查PolarDB账号名称.
+     *
+     * @param request - CheckAccountNameZonalRequest
+     *
+     * @returns CheckAccountNameZonalResponse
+     *
+     * @param CheckAccountNameZonalRequest $request
+     *
+     * @return CheckAccountNameZonalResponse
+     */
+    public function checkAccountNameZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkAccountNameZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * 检查连接串.
      *
      * @param request - CheckConnectionStringRequest
@@ -1446,6 +1577,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkDBNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * 检查PolarDB边缘云数据库名.
+     *
+     * @param request - CheckDBNameZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDBNameZonalResponse
+     *
+     * @param CheckDBNameZonalRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CheckDBNameZonalResponse
+     */
+    public function checkDBNameZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckDBNameZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckDBNameZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查PolarDB边缘云数据库名.
+     *
+     * @param request - CheckDBNameZonalRequest
+     *
+     * @returns CheckDBNameZonalResponse
+     *
+     * @param CheckDBNameZonalRequest $request
+     *
+     * @return CheckDBNameZonalResponse
+     */
+    public function checkDBNameZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkDBNameZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -1957,6 +2165,115 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 创建边缘云账号.
+     *
+     * @param request - CreateAccountZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAccountZonalResponse
+     *
+     * @param CreateAccountZonalRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAccountZonalResponse
+     */
+    public function createAccountZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
+        }
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->accountPrivilege) {
+            @$query['AccountPrivilege'] = $request->accountPrivilege;
+        }
+
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->privForAllDB) {
+            @$query['PrivForAllDB'] = $request->privForAllDB;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAccountZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAccountZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建边缘云账号.
+     *
+     * @param request - CreateAccountZonalRequest
+     *
+     * @returns CreateAccountZonalResponse
+     *
+     * @param CreateAccountZonalRequest $request
+     *
+     * @return CreateAccountZonalResponse
+     */
+    public function createAccountZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAccountZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * Generates a lightweight license activation code.
      *
      * @param request - CreateActivationCodeRequest
@@ -2130,6 +2447,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->vSwitchId) {
             @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
 
         if (null !== $request->zoneId) {
@@ -2589,6 +2910,10 @@ class Polardb extends OpenApiClient
             @$query['CloneDataPoint'] = $request->cloneDataPoint;
         }
 
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
+        }
+
         if (null !== $request->clusterNetworkType) {
             @$query['ClusterNetworkType'] = $request->clusterNetworkType;
         }
@@ -2627,6 +2952,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->defaultTimeZone) {
             @$query['DefaultTimeZone'] = $request->defaultTimeZone;
+        }
+
+        if (null !== $request->ensRegionId) {
+            @$query['EnsRegionId'] = $request->ensRegionId;
         }
 
         if (null !== $request->GDNId) {
@@ -2886,6 +3215,10 @@ class Polardb extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
         if (null !== $request->polarSccTimeoutAction) {
             @$query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
         }
@@ -2944,6 +3277,119 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDBClusterEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 边缘云创建链接地址接口.
+     *
+     * @param request - CreateDBClusterEndpointZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDBClusterEndpointZonalResponse
+     *
+     * @param CreateDBClusterEndpointZonalRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateDBClusterEndpointZonalResponse
+     */
+    public function createDBClusterEndpointZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoAddNewNodes) {
+            @$query['AutoAddNewNodes'] = $request->autoAddNewNodes;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBEndpointDescription) {
+            @$query['DBEndpointDescription'] = $request->DBEndpointDescription;
+        }
+
+        if (null !== $request->endpointConfig) {
+            @$query['EndpointConfig'] = $request->endpointConfig;
+        }
+
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
+        }
+
+        if (null !== $request->nodes) {
+            @$query['Nodes'] = $request->nodes;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->polarSccTimeoutAction) {
+            @$query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
+        }
+
+        if (null !== $request->polarSccWaitTimeout) {
+            @$query['PolarSccWaitTimeout'] = $request->polarSccWaitTimeout;
+        }
+
+        if (null !== $request->readWriteMode) {
+            @$query['ReadWriteMode'] = $request->readWriteMode;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->sccMode) {
+            @$query['SccMode'] = $request->sccMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDBClusterEndpointZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDBClusterEndpointZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 边缘云创建链接地址接口.
+     *
+     * @param request - CreateDBClusterEndpointZonalRequest
+     *
+     * @returns CreateDBClusterEndpointZonalResponse
+     *
+     * @param CreateDBClusterEndpointZonalRequest $request
+     *
+     * @return CreateDBClusterEndpointZonalResponse
+     */
+    public function createDBClusterEndpointZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBClusterEndpointZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -3203,6 +3649,10 @@ class Polardb extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -3396,6 +3846,111 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建PolarDB边缘云数据库.
+     *
+     * @param request - CreateDatabaseZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatabaseZonalResponse
+     *
+     * @param CreateDatabaseZonalRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDatabaseZonalResponse
+     */
+    public function createDatabaseZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->accountPrivilege) {
+            @$query['AccountPrivilege'] = $request->accountPrivilege;
+        }
+
+        if (null !== $request->characterSetName) {
+            @$query['CharacterSetName'] = $request->characterSetName;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->collate) {
+            @$query['Collate'] = $request->collate;
+        }
+
+        if (null !== $request->ctype) {
+            @$query['Ctype'] = $request->ctype;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBDescription) {
+            @$query['DBDescription'] = $request->DBDescription;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDatabaseZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatabaseZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建PolarDB边缘云数据库.
+     *
+     * @param request - CreateDatabaseZonalRequest
+     *
+     * @returns CreateDatabaseZonalResponse
+     *
+     * @param CreateDatabaseZonalRequest $request
+     *
+     * @return CreateDatabaseZonalResponse
+     */
+    public function createDatabaseZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatabaseZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -4374,6 +4929,83 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 删除PolarDB边缘云集群账号.
+     *
+     * @param request - DeleteAccountZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAccountZonalResponse
+     *
+     * @param DeleteAccountZonalRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAccountZonalResponse
+     */
+    public function deleteAccountZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAccountZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAccountZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarDB边缘云集群账号.
+     *
+     * @param request - DeleteAccountZonalRequest
+     *
+     * @returns DeleteAccountZonalResponse
+     *
+     * @param DeleteAccountZonalRequest $request
+     *
+     * @return DeleteAccountZonalResponse
+     */
+    public function deleteAccountZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccountZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除PolarDB应用.
      *
      * @param request - DeleteApplicationRequest
@@ -4696,6 +5328,10 @@ class Polardb extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -4738,6 +5374,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBClusterEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarDB 边缘云集群的链接地址
+     *
+     * @param request - DeleteDBClusterEndpointZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDBClusterEndpointZonalResponse
+     *
+     * @param DeleteDBClusterEndpointZonalRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteDBClusterEndpointZonalResponse
+     */
+    public function deleteDBClusterEndpointZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBEndpointId) {
+            @$query['DBEndpointId'] = $request->DBEndpointId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDBClusterEndpointZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDBClusterEndpointZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarDB 边缘云集群的链接地址
+     *
+     * @param request - DeleteDBClusterEndpointZonalRequest
+     *
+     * @returns DeleteDBClusterEndpointZonalResponse
+     *
+     * @param DeleteDBClusterEndpointZonalRequest $request
+     *
+     * @return DeleteDBClusterEndpointZonalResponse
+     */
+    public function deleteDBClusterEndpointZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBClusterEndpointZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -4927,6 +5640,10 @@ class Polardb extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -5074,6 +5791,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarDB边缘云集群数据库.
+     *
+     * @param request - DeleteDatabaseZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatabaseZonalResponse
+     *
+     * @param DeleteDatabaseZonalRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDatabaseZonalResponse
+     */
+    public function deleteDatabaseZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDatabaseZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDatabaseZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarDB边缘云集群数据库.
+     *
+     * @param request - DeleteDatabaseZonalRequest
+     *
+     * @returns DeleteDatabaseZonalResponse
+     *
+     * @param DeleteDatabaseZonalRequest $request
+     *
+     * @return DeleteDatabaseZonalResponse
+     */
+    public function deleteDatabaseZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatabaseZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -6278,6 +7072,103 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询PolarDB边缘云集群列表.
+     *
+     * @param request - DescribeAccountsZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccountsZonalResponse
+     *
+     * @param DescribeAccountsZonalRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAccountsZonalResponse
+     */
+    public function describeAccountsZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAccountsZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAccountsZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarDB边缘云集群列表.
+     *
+     * @param request - DescribeAccountsZonalRequest
+     *
+     * @returns DescribeAccountsZonalResponse
+     *
+     * @param DescribeAccountsZonalRequest $request
+     *
+     * @return DescribeAccountsZonalResponse
+     */
+    public function describeAccountsZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccountsZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of an activation code.
      *
      * @param request - DescribeActivationCodeDetailsRequest
@@ -6762,6 +7653,63 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 获取应用serverless配置.
+     *
+     * @param request - DescribeApplicationServerlessConfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationServerlessConfResponse
+     *
+     * @param DescribeApplicationServerlessConfRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeApplicationServerlessConfResponse
+     */
+    public function describeApplicationServerlessConfWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationServerlessConf',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationServerlessConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用serverless配置.
+     *
+     * @param request - DescribeApplicationServerlessConfRequest
+     *
+     * @returns DescribeApplicationServerlessConfResponse
+     *
+     * @param DescribeApplicationServerlessConfRequest $request
+     *
+     * @return DescribeApplicationServerlessConfResponse
+     */
+    public function describeApplicationServerlessConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationServerlessConfWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取当前地域所有PolarDB实例的应用列表.
      *
      * @param request - DescribeApplicationsRequest
@@ -6851,6 +7799,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
+        }
+
         if (null !== $request->DBClusterIds) {
             @$query['DBClusterIds'] = $request->DBClusterIds;
         }
@@ -8487,6 +9439,10 @@ class Polardb extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -8529,6 +9485,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBClusterEndpointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PolarDB边缘集群的链接地址
+     *
+     * @param request - DescribeDBClusterEndpointsZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBClusterEndpointsZonalResponse
+     *
+     * @param DescribeDBClusterEndpointsZonalRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDBClusterEndpointsZonalResponse
+     */
+    public function describeDBClusterEndpointsZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBEndpointId) {
+            @$query['DBEndpointId'] = $request->DBEndpointId;
+        }
+
+        if (null !== $request->describeType) {
+            @$query['DescribeType'] = $request->describeType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBClusterEndpointsZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBClusterEndpointsZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarDB边缘集群的链接地址
+     *
+     * @param request - DescribeDBClusterEndpointsZonalRequest
+     *
+     * @returns DescribeDBClusterEndpointsZonalResponse
+     *
+     * @param DescribeDBClusterEndpointsZonalRequest $request
+     *
+     * @return DescribeDBClusterEndpointsZonalResponse
+     */
+    public function describeDBClusterEndpointsZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterEndpointsZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -9320,6 +10357,83 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * PolarDB边缘集群查询版本.
+     *
+     * @param request - DescribeDBClusterVersionZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBClusterVersionZonalResponse
+     *
+     * @param DescribeDBClusterVersionZonalRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBClusterVersionZonalResponse
+     */
+    public function describeDBClusterVersionZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->describeType) {
+            @$query['DescribeType'] = $request->describeType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBClusterVersionZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBClusterVersionZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * PolarDB边缘集群查询版本.
+     *
+     * @param request - DescribeDBClusterVersionZonalRequest
+     *
+     * @returns DescribeDBClusterVersionZonalResponse
+     *
+     * @param DescribeDBClusterVersionZonalRequest $request
+     *
+     * @return DescribeDBClusterVersionZonalResponse
+     */
+    public function describeDBClusterVersionZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterVersionZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
      *
      * @param request - DescribeDBClustersRequest
@@ -9559,6 +10673,155 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBClustersWithBackupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * MyBase中的PolarDB列表.
+     *
+     * @param request - DescribeDBClustersZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBClustersZonalResponse
+     *
+     * @param DescribeDBClustersZonalRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDBClustersZonalResponse
+     */
+    public function describeDBClustersZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
+        }
+
+        if (null !== $request->connectionString) {
+            @$query['ConnectionString'] = $request->connectionString;
+        }
+
+        if (null !== $request->DBClusterDescription) {
+            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        }
+
+        if (null !== $request->DBClusterIds) {
+            @$query['DBClusterIds'] = $request->DBClusterIds;
+        }
+
+        if (null !== $request->DBClusterStatus) {
+            @$query['DBClusterStatus'] = $request->DBClusterStatus;
+        }
+
+        if (null !== $request->DBNodeIds) {
+            @$query['DBNodeIds'] = $request->DBNodeIds;
+        }
+
+        if (null !== $request->DBType) {
+            @$query['DBType'] = $request->DBType;
+        }
+
+        if (null !== $request->DBVersion) {
+            @$query['DBVersion'] = $request->DBVersion;
+        }
+
+        if (null !== $request->describeType) {
+            @$query['DescribeType'] = $request->describeType;
+        }
+
+        if (null !== $request->expired) {
+            @$query['Expired'] = $request->expired;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->recentCreationInterval) {
+            @$query['RecentCreationInterval'] = $request->recentCreationInterval;
+        }
+
+        if (null !== $request->recentExpirationInterval) {
+            @$query['RecentExpirationInterval'] = $request->recentExpirationInterval;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBClustersZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBClustersZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * MyBase中的PolarDB列表.
+     *
+     * @param request - DescribeDBClustersZonalRequest
+     *
+     * @returns DescribeDBClustersZonalResponse
+     *
+     * @param DescribeDBClustersZonalRequest $request
+     *
+     * @return DescribeDBClustersZonalResponse
+     */
+    public function describeDBClustersZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClustersZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -10425,6 +11688,176 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDatabasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PolarDB边缘云数据库.
+     *
+     * @param request - DescribeDatabasesZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDatabasesZonalResponse
+     *
+     * @param DescribeDatabasesZonalRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDatabasesZonalResponse
+     */
+    public function describeDatabasesZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDatabasesZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDatabasesZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarDB边缘云数据库.
+     *
+     * @param request - DescribeDatabasesZonalRequest
+     *
+     * @returns DescribeDatabasesZonalResponse
+     *
+     * @param DescribeDatabasesZonalRequest $request
+     *
+     * @return DescribeDatabasesZonalResponse
+     */
+    public function describeDatabasesZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDatabasesZonalWithOptions($request, $runtime);
+    }
+
+    /**
+     * PolarDB的MyBase集群.
+     *
+     * @param request - DescribeDbClusterAttributeZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDbClusterAttributeZonalResponse
+     *
+     * @param DescribeDbClusterAttributeZonalRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDbClusterAttributeZonalResponse
+     */
+    public function describeDbClusterAttributeZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->describeType) {
+            @$query['DescribeType'] = $request->describeType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDbClusterAttributeZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDbClusterAttributeZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * PolarDB的MyBase集群.
+     *
+     * @param request - DescribeDbClusterAttributeZonalRequest
+     *
+     * @returns DescribeDbClusterAttributeZonalResponse
+     *
+     * @param DescribeDbClusterAttributeZonalRequest $request
+     *
+     * @return DescribeDbClusterAttributeZonalResponse
+     */
+    public function describeDbClusterAttributeZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDbClusterAttributeZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -14800,6 +16233,95 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 角色切换.
+     *
+     * @param request - FailoverDBClusterZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FailoverDBClusterZonalResponse
+     *
+     * @param FailoverDBClusterZonalRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return FailoverDBClusterZonalResponse
+     */
+    public function failoverDBClusterZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->rollBackForDisaster) {
+            @$query['RollBackForDisaster'] = $request->rollBackForDisaster;
+        }
+
+        if (null !== $request->targetDBNodeId) {
+            @$query['TargetDBNodeId'] = $request->targetDBNodeId;
+        }
+
+        if (null !== $request->targetZoneType) {
+            @$query['TargetZoneType'] = $request->targetZoneType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FailoverDBClusterZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FailoverDBClusterZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 角色切换.
+     *
+     * @param request - FailoverDBClusterZonalRequest
+     *
+     * @returns FailoverDBClusterZonalResponse
+     *
+     * @param FailoverDBClusterZonalRequest $request
+     *
+     * @return FailoverDBClusterZonalResponse
+     */
+    public function failoverDBClusterZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->failoverDBClusterZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * 生成校验报告.
      *
      * @param request - GenerateUpgradeReportForSyncCloneRequest
@@ -14997,6 +16519,95 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->grantAccountPrivilegeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改PolarDB边缘集群的账号权限.
+     *
+     * @param request - GrantAccountPrivilegeZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantAccountPrivilegeZonalResponse
+     *
+     * @param GrantAccountPrivilegeZonalRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GrantAccountPrivilegeZonalResponse
+     */
+    public function grantAccountPrivilegeZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->accountPrivilege) {
+            @$query['AccountPrivilege'] = $request->accountPrivilege;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GrantAccountPrivilegeZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GrantAccountPrivilegeZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改PolarDB边缘集群的账号权限.
+     *
+     * @param request - GrantAccountPrivilegeZonalRequest
+     *
+     * @returns GrantAccountPrivilegeZonalResponse
+     *
+     * @param GrantAccountPrivilegeZonalRequest $request
+     *
+     * @return GrantAccountPrivilegeZonalResponse
+     */
+    public function grantAccountPrivilegeZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantAccountPrivilegeZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -15494,6 +17105,91 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 修改PolarDB边缘云账号的描述.
+     *
+     * @param request - ModifyAccountDescriptionZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAccountDescriptionZonalResponse
+     *
+     * @param ModifyAccountDescriptionZonalRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyAccountDescriptionZonalResponse
+     */
+    public function modifyAccountDescriptionZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
+        }
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAccountDescriptionZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAccountDescriptionZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改PolarDB边缘云账号的描述.
+     *
+     * @param request - ModifyAccountDescriptionZonalRequest
+     *
+     * @returns ModifyAccountDescriptionZonalResponse
+     *
+     * @param ModifyAccountDescriptionZonalRequest $request
+     *
+     * @return ModifyAccountDescriptionZonalResponse
+     */
+    public function modifyAccountDescriptionZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountDescriptionZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ModifyAccountLockStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15657,6 +17353,95 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改PolarDB边缘的账号密码
+     *
+     * @param request - ModifyAccountPasswordZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAccountPasswordZonalResponse
+     *
+     * @param ModifyAccountPasswordZonalRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyAccountPasswordZonalResponse
+     */
+    public function modifyAccountPasswordZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->newAccountPassword) {
+            @$query['NewAccountPassword'] = $request->newAccountPassword;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->passwordType) {
+            @$query['PasswordType'] = $request->passwordType;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAccountPasswordZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAccountPasswordZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改PolarDB边缘的账号密码
+     *
+     * @param request - ModifyAccountPasswordZonalRequest
+     *
+     * @returns ModifyAccountPasswordZonalResponse
+     *
+     * @param ModifyAccountPasswordZonalRequest $request
+     *
+     * @return ModifyAccountPasswordZonalResponse
+     */
+    public function modifyAccountPasswordZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountPasswordZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -15990,6 +17775,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 修改应用serverless配置.
+     *
+     * @param request - ModifyApplicationServerlessConfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyApplicationServerlessConfResponse
+     *
+     * @param ModifyApplicationServerlessConfRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyApplicationServerlessConfResponse
+     */
+    public function modifyApplicationServerlessConfWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->serverlessConfList) {
+            @$query['ServerlessConfList'] = $request->serverlessConfList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyApplicationServerlessConf',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyApplicationServerlessConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用serverless配置.
+     *
+     * @param request - ModifyApplicationServerlessConfRequest
+     *
+     * @returns ModifyApplicationServerlessConfResponse
+     *
+     * @param ModifyApplicationServerlessConfRequest $request
+     *
+     * @return ModifyApplicationServerlessConfResponse
+     */
+    public function modifyApplicationServerlessConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApplicationServerlessConfWithOptions($request, $runtime);
+    }
+
+    /**
      * 修改应用白名单.
      *
      * @param request - ModifyApplicationWhitelistRequest
@@ -16083,6 +17929,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
+        }
+
         if (null !== $request->DBClusterIds) {
             @$query['DBClusterIds'] = $request->DBClusterIds;
         }
@@ -17053,6 +18903,87 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 修改集群描述.
+     *
+     * @param request - ModifyDBClusterDescriptionZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBClusterDescriptionZonalResponse
+     *
+     * @param ModifyDBClusterDescriptionZonalRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyDBClusterDescriptionZonalResponse
+     */
+    public function modifyDBClusterDescriptionZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterDescription) {
+            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBClusterDescriptionZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBClusterDescriptionZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改集群描述.
+     *
+     * @param request - ModifyDBClusterDescriptionZonalRequest
+     *
+     * @returns ModifyDBClusterDescriptionZonalResponse
+     *
+     * @param ModifyDBClusterDescriptionZonalRequest $request
+     *
+     * @return ModifyDBClusterDescriptionZonalResponse
+     */
+    public function modifyDBClusterDescriptionZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterDescriptionZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
      *
      * @param request - ModifyDBClusterEndpointRequest
@@ -17159,6 +19090,119 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBClusterEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * PolarDB边缘集群修改链接地址
+     *
+     * @param request - ModifyDBClusterEndpointZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBClusterEndpointZonalResponse
+     *
+     * @param ModifyDBClusterEndpointZonalRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyDBClusterEndpointZonalResponse
+     */
+    public function modifyDBClusterEndpointZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoAddNewNodes) {
+            @$query['AutoAddNewNodes'] = $request->autoAddNewNodes;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBEndpointDescription) {
+            @$query['DBEndpointDescription'] = $request->DBEndpointDescription;
+        }
+
+        if (null !== $request->DBEndpointId) {
+            @$query['DBEndpointId'] = $request->DBEndpointId;
+        }
+
+        if (null !== $request->endpointConfig) {
+            @$query['EndpointConfig'] = $request->endpointConfig;
+        }
+
+        if (null !== $request->nodes) {
+            @$query['Nodes'] = $request->nodes;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->polarSccTimeoutAction) {
+            @$query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
+        }
+
+        if (null !== $request->polarSccWaitTimeout) {
+            @$query['PolarSccWaitTimeout'] = $request->polarSccWaitTimeout;
+        }
+
+        if (null !== $request->readWriteMode) {
+            @$query['ReadWriteMode'] = $request->readWriteMode;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->sccMode) {
+            @$query['SccMode'] = $request->sccMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBClusterEndpointZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBClusterEndpointZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * PolarDB边缘集群修改链接地址
+     *
+     * @param request - ModifyDBClusterEndpointZonalRequest
+     *
+     * @returns ModifyDBClusterEndpointZonalResponse
+     *
+     * @param ModifyDBClusterEndpointZonalRequest $request
+     *
+     * @return ModifyDBClusterEndpointZonalResponse
+     */
+    public function modifyDBClusterEndpointZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterEndpointZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -18144,6 +20188,10 @@ class Polardb extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -18484,6 +20532,91 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 修改PolarDB边缘云集群数据库描述.
+     *
+     * @param request - ModifyDBDescriptionZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBDescriptionZonalResponse
+     *
+     * @param ModifyDBDescriptionZonalRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDBDescriptionZonalResponse
+     */
+    public function modifyDBDescriptionZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBDescription) {
+            @$query['DBDescription'] = $request->DBDescription;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBDescriptionZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBDescriptionZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改PolarDB边缘云集群数据库描述.
+     *
+     * @param request - ModifyDBDescriptionZonalRequest
+     *
+     * @returns ModifyDBDescriptionZonalResponse
+     *
+     * @param ModifyDBDescriptionZonalRequest $request
+     *
+     * @return ModifyDBDescriptionZonalResponse
+     */
+    public function modifyDBDescriptionZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBDescriptionZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
      *
      * @param request - ModifyDBEndpointAddressRequest
@@ -18599,6 +20732,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
         }
 
         if (null !== $request->DBClusterId) {
@@ -19032,6 +21169,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudProvider) {
+            @$query['CloudProvider'] = $request->cloudProvider;
         }
 
         if (null !== $request->DBClusterId) {
@@ -20793,6 +22934,91 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 重置PolarDB边缘集群账号.
+     *
+     * @param request - ResetAccountZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetAccountZonalResponse
+     *
+     * @param ResetAccountZonalRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResetAccountZonalResponse
+     */
+    public function resetAccountZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetAccountZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetAccountZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置PolarDB边缘集群账号.
+     *
+     * @param request - ResetAccountZonalRequest
+     *
+     * @returns ResetAccountZonalResponse
+     *
+     * @param ResetAccountZonalRequest $request
+     *
+     * @return ResetAccountZonalResponse
+     */
+    public function resetAccountZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetAccountZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * Rebuilds a secondary cluster in a Global Database Network (GDN).
      *
      * @param request - ResetGlobalDatabaseNetworkRequest
@@ -21044,6 +23270,87 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 重启poalrdb边缘云集群节点.
+     *
+     * @param request - RestartDBNodeZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartDBNodeZonalResponse
+     *
+     * @param RestartDBNodeZonalRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RestartDBNodeZonalResponse
+     */
+    public function restartDBNodeZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBNodeId) {
+            @$query['DBNodeId'] = $request->DBNodeId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartDBNodeZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartDBNodeZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重启poalrdb边缘云集群节点.
+     *
+     * @param request - RestartDBNodeZonalRequest
+     *
+     * @returns RestartDBNodeZonalResponse
+     *
+     * @param RestartDBNodeZonalRequest $request
+     *
+     * @return RestartDBNodeZonalResponse
+     */
+    public function restartDBNodeZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartDBNodeZonalWithOptions($request, $runtime);
+    }
+
+    /**
      * Restores PolarDB databases and tables.
      *
      * @param request - RestoreTableRequest
@@ -21211,6 +23518,91 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeAccountPrivilegeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 撤销账号权限.
+     *
+     * @param request - RevokeAccountPrivilegeZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeAccountPrivilegeZonalResponse
+     *
+     * @param RevokeAccountPrivilegeZonalRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RevokeAccountPrivilegeZonalResponse
+     */
+    public function revokeAccountPrivilegeZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeAccountPrivilegeZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeAccountPrivilegeZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 撤销账号权限.
+     *
+     * @param request - RevokeAccountPrivilegeZonalRequest
+     *
+     * @returns RevokeAccountPrivilegeZonalResponse
+     *
+     * @param RevokeAccountPrivilegeZonalRequest $request
+     *
+     * @return RevokeAccountPrivilegeZonalResponse
+     */
+    public function revokeAccountPrivilegeZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeAccountPrivilegeZonalWithOptions($request, $runtime);
     }
 
     /**
@@ -21890,5 +24282,114 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBClusterVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * PolarDB边缘云集群小版本升级.
+     *
+     * @param request - UpgradeDBClusterVersionZonalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeDBClusterVersionZonalResponse
+     *
+     * @param UpgradeDBClusterVersionZonalRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpgradeDBClusterVersionZonalResponse
+     */
+    public function upgradeDBClusterVersionZonalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fromTimeService) {
+            @$query['FromTimeService'] = $request->fromTimeService;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->plannedEndTime) {
+            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        }
+
+        if (null !== $request->plannedStartTime) {
+            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->targetDBRevisionVersionCode) {
+            @$query['TargetDBRevisionVersionCode'] = $request->targetDBRevisionVersionCode;
+        }
+
+        if (null !== $request->targetProxyRevisionVersionCode) {
+            @$query['TargetProxyRevisionVersionCode'] = $request->targetProxyRevisionVersionCode;
+        }
+
+        if (null !== $request->upgradeLabel) {
+            @$query['UpgradeLabel'] = $request->upgradeLabel;
+        }
+
+        if (null !== $request->upgradePolicy) {
+            @$query['UpgradePolicy'] = $request->upgradePolicy;
+        }
+
+        if (null !== $request->upgradeType) {
+            @$query['UpgradeType'] = $request->upgradeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeDBClusterVersionZonal',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeDBClusterVersionZonalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * PolarDB边缘云集群小版本升级.
+     *
+     * @param request - UpgradeDBClusterVersionZonalRequest
+     *
+     * @returns UpgradeDBClusterVersionZonalResponse
+     *
+     * @param UpgradeDBClusterVersionZonalRequest $request
+     *
+     * @return UpgradeDBClusterVersionZonalResponse
+     */
+    public function upgradeDBClusterVersionZonal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeDBClusterVersionZonalWithOptions($request, $runtime);
     }
 }

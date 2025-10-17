@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttribute
 
 use AlibabaCloud\Dara\Model;
 
-class volumes extends Model
+class childVolumes extends Model
 {
     /**
      * @var string

@@ -131,6 +131,11 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
+     * @var int
+     */
+    public $searchStorageUsed;
+
+    /**
      * @var string
      */
     public $serverlessType;
@@ -209,6 +214,7 @@ class DBCluster extends Model
         'regionId' => 'RegionId',
         'remoteMemorySize' => 'RemoteMemorySize',
         'resourceGroupId' => 'ResourceGroupId',
+        'searchStorageUsed' => 'SearchStorageUsed',
         'serverlessType' => 'ServerlessType',
         'storagePayType' => 'StoragePayType',
         'storageSpace' => 'StorageSpace',
@@ -330,6 +336,10 @@ class DBCluster extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->searchStorageUsed) {
+            $res['SearchStorageUsed'] = $this->searchStorageUsed;
         }
 
         if (null !== $this->serverlessType) {
@@ -481,6 +491,10 @@ class DBCluster extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SearchStorageUsed'])) {
+            $model->searchStorageUsed = $map['SearchStorageUsed'];
         }
 
         if (isset($map['ServerlessType'])) {

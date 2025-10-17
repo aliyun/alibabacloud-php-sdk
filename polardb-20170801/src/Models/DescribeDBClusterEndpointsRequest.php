@@ -36,6 +36,11 @@ class DescribeDBClusterEndpointsRequest extends Model
     /**
      * @var string
      */
+    public $polarFsInstanceId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -48,6 +53,7 @@ class DescribeDBClusterEndpointsRequest extends Model
         'describeType' => 'DescribeType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'polarFsInstanceId' => 'PolarFsInstanceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -78,6 +84,10 @@ class DescribeDBClusterEndpointsRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->polarFsInstanceId) {
+            $res['PolarFsInstanceId'] = $this->polarFsInstanceId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -117,6 +127,10 @@ class DescribeDBClusterEndpointsRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PolarFsInstanceId'])) {
+            $model->polarFsInstanceId = $map['PolarFsInstanceId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

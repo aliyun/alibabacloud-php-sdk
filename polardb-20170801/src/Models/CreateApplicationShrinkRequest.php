@@ -86,6 +86,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'applicationType' => 'ApplicationType',
@@ -103,6 +108,7 @@ class CreateApplicationShrinkRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
     ];
 
@@ -172,6 +178,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         if (null !== $this->zoneId) {
@@ -247,6 +257,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         if (isset($map['ZoneId'])) {

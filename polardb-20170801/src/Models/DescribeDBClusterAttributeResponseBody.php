@@ -261,6 +261,16 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $SQLSize;
 
     /**
+     * @var int
+     */
+    public $searchCompressStorageUsed;
+
+    /**
+     * @var int
+     */
+    public $searchStorageUsed;
+
+    /**
      * @var string
      */
     public $serverlessType;
@@ -390,6 +400,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'restoreType' => 'RestoreType',
         'rowCompression' => 'RowCompression',
         'SQLSize' => 'SQLSize',
+        'searchCompressStorageUsed' => 'SearchCompressStorageUsed',
+        'searchStorageUsed' => 'SearchStorageUsed',
         'serverlessType' => 'ServerlessType',
         'sourceDBCluster' => 'SourceDBCluster',
         'sourceRegionId' => 'SourceRegionId',
@@ -627,6 +639,14 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->SQLSize) {
             $res['SQLSize'] = $this->SQLSize;
+        }
+
+        if (null !== $this->searchCompressStorageUsed) {
+            $res['SearchCompressStorageUsed'] = $this->searchCompressStorageUsed;
+        }
+
+        if (null !== $this->searchStorageUsed) {
+            $res['SearchStorageUsed'] = $this->searchStorageUsed;
         }
 
         if (null !== $this->serverlessType) {
@@ -916,6 +936,14 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (isset($map['SQLSize'])) {
             $model->SQLSize = $map['SQLSize'];
+        }
+
+        if (isset($map['SearchCompressStorageUsed'])) {
+            $model->searchCompressStorageUsed = $map['SearchCompressStorageUsed'];
+        }
+
+        if (isset($map['SearchStorageUsed'])) {
+            $model->searchStorageUsed = $map['SearchStorageUsed'];
         }
 
         if (isset($map['ServerlessType'])) {

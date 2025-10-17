@@ -31,6 +31,11 @@ class DeleteDBClusterEndpointRequest extends Model
     /**
      * @var string
      */
+    public $polarFsInstanceId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -42,6 +47,7 @@ class DeleteDBClusterEndpointRequest extends Model
         'DBEndpointId' => 'DBEndpointId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'polarFsInstanceId' => 'PolarFsInstanceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -68,6 +74,10 @@ class DeleteDBClusterEndpointRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->polarFsInstanceId) {
+            $res['PolarFsInstanceId'] = $this->polarFsInstanceId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -103,6 +113,10 @@ class DeleteDBClusterEndpointRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PolarFsInstanceId'])) {
+            $model->polarFsInstanceId = $map['PolarFsInstanceId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

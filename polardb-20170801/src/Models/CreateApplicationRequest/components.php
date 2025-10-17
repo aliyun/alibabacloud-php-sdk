@@ -31,6 +31,16 @@ class components extends Model
     /**
      * @var string
      */
+    public $scaleMax;
+
+    /**
+     * @var string
+     */
+    public $scaleMin;
+
+    /**
+     * @var string
+     */
     public $securityGroups;
 
     /**
@@ -52,6 +62,8 @@ class components extends Model
         'componentMaxReplica' => 'ComponentMaxReplica',
         'componentReplica' => 'ComponentReplica',
         'componentType' => 'ComponentType',
+        'scaleMax' => 'ScaleMax',
+        'scaleMin' => 'ScaleMin',
         'securityGroups' => 'SecurityGroups',
         'securityIPArrayName' => 'SecurityIPArrayName',
         'securityIPList' => 'SecurityIPList',
@@ -80,6 +92,14 @@ class components extends Model
 
         if (null !== $this->componentType) {
             $res['ComponentType'] = $this->componentType;
+        }
+
+        if (null !== $this->scaleMax) {
+            $res['ScaleMax'] = $this->scaleMax;
+        }
+
+        if (null !== $this->scaleMin) {
+            $res['ScaleMin'] = $this->scaleMin;
         }
 
         if (null !== $this->securityGroups) {
@@ -123,6 +143,14 @@ class components extends Model
 
         if (isset($map['ComponentType'])) {
             $model->componentType = $map['ComponentType'];
+        }
+
+        if (isset($map['ScaleMax'])) {
+            $model->scaleMax = $map['ScaleMax'];
+        }
+
+        if (isset($map['ScaleMin'])) {
+            $model->scaleMin = $map['ScaleMin'];
         }
 
         if (isset($map['SecurityGroups'])) {

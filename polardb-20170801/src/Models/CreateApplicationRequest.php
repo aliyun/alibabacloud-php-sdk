@@ -88,6 +88,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'applicationType' => 'ApplicationType',
@@ -105,6 +110,7 @@ class CreateApplicationRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
     ];
 
@@ -196,6 +202,10 @@ class CreateApplicationRequest extends Model
             $res['VSwitchId'] = $this->vSwitchId;
         }
 
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -283,6 +293,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         if (isset($map['ZoneId'])) {

@@ -56,6 +56,11 @@ class CreateDBClusterEndpointRequest extends Model
     /**
      * @var string
      */
+    public $polarFsInstanceId;
+
+    /**
+     * @var string
+     */
     public $polarSccTimeoutAction;
 
     /**
@@ -92,6 +97,7 @@ class CreateDBClusterEndpointRequest extends Model
         'nodes' => 'Nodes',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'polarFsInstanceId' => 'PolarFsInstanceId',
         'polarSccTimeoutAction' => 'PolarSccTimeoutAction',
         'polarSccWaitTimeout' => 'PolarSccWaitTimeout',
         'readWriteMode' => 'ReadWriteMode',
@@ -142,6 +148,10 @@ class CreateDBClusterEndpointRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->polarFsInstanceId) {
+            $res['PolarFsInstanceId'] = $this->polarFsInstanceId;
         }
 
         if (null !== $this->polarSccTimeoutAction) {
@@ -213,6 +223,10 @@ class CreateDBClusterEndpointRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PolarFsInstanceId'])) {
+            $model->polarFsInstanceId = $map['PolarFsInstanceId'];
         }
 
         if (isset($map['PolarSccTimeoutAction'])) {

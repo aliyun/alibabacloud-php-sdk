@@ -11,6 +11,11 @@ class DescribeAutoRenewAttributeRequest extends Model
     /**
      * @var string
      */
+    public $cloudProvider;
+
+    /**
+     * @var string
+     */
     public $DBClusterIds;
 
     /**
@@ -53,6 +58,7 @@ class DescribeAutoRenewAttributeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'cloudProvider' => 'CloudProvider',
         'DBClusterIds' => 'DBClusterIds',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -72,6 +78,10 @@ class DescribeAutoRenewAttributeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudProvider) {
+            $res['CloudProvider'] = $this->cloudProvider;
+        }
+
         if (null !== $this->DBClusterIds) {
             $res['DBClusterIds'] = $this->DBClusterIds;
         }
@@ -119,6 +129,10 @@ class DescribeAutoRenewAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudProvider'])) {
+            $model->cloudProvider = $map['CloudProvider'];
+        }
+
         if (isset($map['DBClusterIds'])) {
             $model->DBClusterIds = $map['DBClusterIds'];
         }

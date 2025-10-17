@@ -110,6 +110,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $serverlessType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -156,6 +161,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'requestId' => 'RequestId',
         'securityGroups' => 'SecurityGroups',
         'securityIPArrays' => 'SecurityIPArrays',
+        'serverlessType' => 'ServerlessType',
         'status' => 'Status',
         'upgradeAvailable' => 'UpgradeAvailable',
         'VPCId' => 'VPCId',
@@ -286,6 +292,10 @@ class DescribeApplicationAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->serverlessType) {
+            $res['ServerlessType'] = $this->serverlessType;
         }
 
         if (null !== $this->status) {
@@ -425,6 +435,10 @@ class DescribeApplicationAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ServerlessType'])) {
+            $model->serverlessType = $map['ServerlessType'];
         }
 
         if (isset($map['Status'])) {

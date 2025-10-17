@@ -5,10 +5,15 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\DBNodes\volumes;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\DBNodes\childVolumes;
 
 class DBNodes extends Model
 {
+    /**
+     * @var childVolumes[]
+     */
+    public $childVolumes;
+
     /**
      * @var string
      */
@@ -65,15 +70,11 @@ class DBNodes extends Model
     public $vSwitchId;
 
     /**
-     * @var volumes[]
-     */
-    public $volumes;
-
-    /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'childVolumes' => 'ChildVolumes',
         'cpuCores' => 'CpuCores',
         'DBNodeClass' => 'DBNodeClass',
         'DBNodeDescription' => 'DBNodeDescription',
@@ -85,14 +86,13 @@ class DBNodes extends Model
         'VNodeId' => 'VNodeId',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
-        'volumes' => 'Volumes',
         'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->volumes)) {
-            Model::validateArray($this->volumes);
+        if (\is_array($this->childVolumes)) {
+            Model::validateArray($this->childVolumes);
         }
         parent::validate();
     }
@@ -100,6 +100,17 @@ class DBNodes extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->childVolumes) {
+            if (\is_array($this->childVolumes)) {
+                $res['ChildVolumes'] = [];
+                $n1 = 0;
+                foreach ($this->childVolumes as $item1) {
+                    $res['ChildVolumes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->cpuCores) {
             $res['CpuCores'] = $this->cpuCores;
         }
@@ -144,17 +155,6 @@ class DBNodes extends Model
             $res['VSwitchId'] = $this->vSwitchId;
         }
 
-        if (null !== $this->volumes) {
-            if (\is_array($this->volumes)) {
-                $res['Volumes'] = [];
-                $n1 = 0;
-                foreach ($this->volumes as $item1) {
-                    $res['Volumes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -170,6 +170,17 @@ class DBNodes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChildVolumes'])) {
+            if (!empty($map['ChildVolumes'])) {
+                $model->childVolumes = [];
+                $n1 = 0;
+                foreach ($map['ChildVolumes'] as $item1) {
+                    $model->childVolumes[$n1] = childVolumes::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CpuCores'])) {
             $model->cpuCores = $map['CpuCores'];
         }
@@ -212,17 +223,6 @@ class DBNodes extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
-        }
-
-        if (isset($map['Volumes'])) {
-            if (!empty($map['Volumes'])) {
-                $model->volumes = [];
-                $n1 = 0;
-                foreach ($map['Volumes'] as $item1) {
-                    $model->volumes[$n1] = volumes::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['ZoneId'])) {

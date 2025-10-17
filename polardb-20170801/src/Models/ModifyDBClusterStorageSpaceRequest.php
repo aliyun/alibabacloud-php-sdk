@@ -16,6 +16,11 @@ class ModifyDBClusterStorageSpaceRequest extends Model
     /**
      * @var string
      */
+    public $cloudProvider;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -59,6 +64,7 @@ class ModifyDBClusterStorageSpaceRequest extends Model
     public $subCategory;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'cloudProvider' => 'CloudProvider',
         'DBClusterId' => 'DBClusterId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -80,6 +86,10 @@ class ModifyDBClusterStorageSpaceRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->cloudProvider) {
+            $res['CloudProvider'] = $this->cloudProvider;
         }
 
         if (null !== $this->DBClusterId) {
@@ -131,6 +141,10 @@ class ModifyDBClusterStorageSpaceRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CloudProvider'])) {
+            $model->cloudProvider = $map['CloudProvider'];
         }
 
         if (isset($map['DBClusterId'])) {

@@ -16,6 +16,11 @@ class DeleteDBNodesRequest extends Model
     /**
      * @var string
      */
+    public $cloudProvider;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -49,6 +54,7 @@ class DeleteDBNodesRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'cloudProvider' => 'CloudProvider',
         'DBClusterId' => 'DBClusterId',
         'DBNodeId' => 'DBNodeId',
         'DBNodeType' => 'DBNodeType',
@@ -71,6 +77,10 @@ class DeleteDBNodesRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->cloudProvider) {
+            $res['CloudProvider'] = $this->cloudProvider;
         }
 
         if (null !== $this->DBClusterId) {
@@ -121,6 +131,10 @@ class DeleteDBNodesRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CloudProvider'])) {
+            $model->cloudProvider = $map['CloudProvider'];
         }
 
         if (isset($map['DBClusterId'])) {

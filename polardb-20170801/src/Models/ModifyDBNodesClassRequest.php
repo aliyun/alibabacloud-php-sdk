@@ -17,6 +17,11 @@ class ModifyDBNodesClassRequest extends Model
     /**
      * @var string
      */
+    public $cloudProvider;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -70,6 +75,7 @@ class ModifyDBNodesClassRequest extends Model
     public $subCategory;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'cloudProvider' => 'CloudProvider',
         'DBClusterId' => 'DBClusterId',
         'DBNode' => 'DBNode',
         'modifyType' => 'ModifyType',
@@ -96,6 +102,10 @@ class ModifyDBNodesClassRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->cloudProvider) {
+            $res['CloudProvider'] = $this->cloudProvider;
         }
 
         if (null !== $this->DBClusterId) {
@@ -162,6 +172,10 @@ class ModifyDBNodesClassRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CloudProvider'])) {
+            $model->cloudProvider = $map['CloudProvider'];
         }
 
         if (isset($map['DBClusterId'])) {

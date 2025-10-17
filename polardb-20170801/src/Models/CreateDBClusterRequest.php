@@ -47,6 +47,11 @@ class CreateDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $cloudProvider;
+
+    /**
+     * @var string
+     */
     public $clusterNetworkType;
 
     /**
@@ -93,6 +98,11 @@ class CreateDBClusterRequest extends Model
      * @var string
      */
     public $defaultTimeZone;
+
+    /**
+     * @var string
+     */
+    public $ensRegionId;
 
     /**
      * @var string
@@ -311,6 +321,7 @@ class CreateDBClusterRequest extends Model
         'burstingEnabled' => 'BurstingEnabled',
         'clientToken' => 'ClientToken',
         'cloneDataPoint' => 'CloneDataPoint',
+        'cloudProvider' => 'CloudProvider',
         'clusterNetworkType' => 'ClusterNetworkType',
         'creationCategory' => 'CreationCategory',
         'creationOption' => 'CreationOption',
@@ -321,6 +332,7 @@ class CreateDBClusterRequest extends Model
         'DBType' => 'DBType',
         'DBVersion' => 'DBVersion',
         'defaultTimeZone' => 'DefaultTimeZone',
+        'ensRegionId' => 'EnsRegionId',
         'GDNId' => 'GDNId',
         'hotStandbyCluster' => 'HotStandbyCluster',
         'loosePolarLogBin' => 'LoosePolarLogBin',
@@ -404,6 +416,10 @@ class CreateDBClusterRequest extends Model
             $res['CloneDataPoint'] = $this->cloneDataPoint;
         }
 
+        if (null !== $this->cloudProvider) {
+            $res['CloudProvider'] = $this->cloudProvider;
+        }
+
         if (null !== $this->clusterNetworkType) {
             $res['ClusterNetworkType'] = $this->clusterNetworkType;
         }
@@ -442,6 +458,10 @@ class CreateDBClusterRequest extends Model
 
         if (null !== $this->defaultTimeZone) {
             $res['DefaultTimeZone'] = $this->defaultTimeZone;
+        }
+
+        if (null !== $this->ensRegionId) {
+            $res['EnsRegionId'] = $this->ensRegionId;
         }
 
         if (null !== $this->GDNId) {
@@ -658,6 +678,10 @@ class CreateDBClusterRequest extends Model
             $model->cloneDataPoint = $map['CloneDataPoint'];
         }
 
+        if (isset($map['CloudProvider'])) {
+            $model->cloudProvider = $map['CloudProvider'];
+        }
+
         if (isset($map['ClusterNetworkType'])) {
             $model->clusterNetworkType = $map['ClusterNetworkType'];
         }
@@ -696,6 +720,10 @@ class CreateDBClusterRequest extends Model
 
         if (isset($map['DefaultTimeZone'])) {
             $model->defaultTimeZone = $map['DefaultTimeZone'];
+        }
+
+        if (isset($map['EnsRegionId'])) {
+            $model->ensRegionId = $map['EnsRegionId'];
         }
 
         if (isset($map['GDNId'])) {
