@@ -754,7 +754,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 凭证识别查询.
+     * Credential Recognition Query.
+     *
+     * @remarks
+     * After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
      *
      * @param Request - CredentialGetResultIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -793,7 +796,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 凭证识别查询.
+     * Credential Recognition Query.
+     *
+     * @remarks
+     * After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
      *
      * @param Request - CredentialGetResultIntlRequest
      *
@@ -896,7 +902,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 凭证识别提交.
+     * Credential Recognition Submission.
+     *
+     * @remarks
+     * Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
      *
      * @param Request - CredentialSubmitIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -965,7 +974,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 凭证识别提交.
+     * Credential Recognition Submission.
+     *
+     * @remarks
+     * Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
      *
      * @param Request - CredentialSubmitIntlRequest
      *
@@ -1241,7 +1253,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * deepfake文件流api.
+     * deepfake file stream API.
+     *
+     * @remarks
+     * Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
      *
      * @param Request - DeepfakeDetectIntlStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1304,7 +1319,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * deepfake文件流api.
+     * deepfake file stream API.
+     *
+     * @remarks
+     * Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
      *
      * @param Request - DeepfakeDetectIntlStreamRequest
      *
@@ -1707,6 +1725,11 @@ class Cloudauthintl extends OpenApiClient
     public function docOcrMaxWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->ocrValueStandard) {
+            @$query['OcrValueStandard'] = $request->ocrValueStandard;
+        }
+
         $body = [];
         if (null !== $request->docPage) {
             @$body['DocPage'] = $request->docPage;
@@ -1761,6 +1784,7 @@ class Cloudauthintl extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1983,7 +2007,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸交叉比对.
+     * Face Cross Comparison.
      *
      * @param Request - FaceCrossCompareIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2062,7 +2086,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸交叉比对.
+     * Face Cross Comparison.
      *
      * @param Request - FaceCrossCompareIntlRequest
      *
@@ -3232,7 +3256,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 查询人脸记录.
+     * Query Face Records.
      *
      * @param Request - QueryFaceRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3299,7 +3323,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 查询人脸记录.
+     * Query Face Records.
      *
      * @param Request - QueryFaceRecordRequest
      *
@@ -3317,7 +3341,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 获取临时token.
+     * Get Temporary Token.
      *
      * @param Request - TempAccessTokenIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3356,7 +3380,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 获取临时token.
+     * Get Temporary Token.
      *
      * @param Request - TempAccessTokenIntlRequest
      *
@@ -3374,7 +3398,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 获取文件临时地址
+     * Get Temporary File URL.
      *
      * @param Request - TempOssUrlIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3413,7 +3437,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 获取文件临时地址
+     * Get Temporary File URL.
      *
      * @param Request - TempOssUrlIntlRequest
      *

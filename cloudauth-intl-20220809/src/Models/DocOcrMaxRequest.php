@@ -56,6 +56,11 @@ class DocOcrMaxRequest extends Model
     /**
      * @var string
      */
+    public $ocrValueStandard;
+
+    /**
+     * @var string
+     */
     public $productCode;
 
     /**
@@ -82,6 +87,7 @@ class DocOcrMaxRequest extends Model
         'merchantBizId' => 'MerchantBizId',
         'merchantUserId' => 'MerchantUserId',
         'ocrModel' => 'OcrModel',
+        'ocrValueStandard' => 'OcrValueStandard',
         'productCode' => 'ProductCode',
         'prompt' => 'Prompt',
         'sceneCode' => 'SceneCode',
@@ -130,6 +136,10 @@ class DocOcrMaxRequest extends Model
 
         if (null !== $this->ocrModel) {
             $res['OcrModel'] = $this->ocrModel;
+        }
+
+        if (null !== $this->ocrValueStandard) {
+            $res['OcrValueStandard'] = $this->ocrValueStandard;
         }
 
         if (null !== $this->productCode) {
@@ -193,6 +203,10 @@ class DocOcrMaxRequest extends Model
 
         if (isset($map['OcrModel'])) {
             $model->ocrModel = $map['OcrModel'];
+        }
+
+        if (isset($map['OcrValueStandard'])) {
+            $model->ocrValueStandard = $map['OcrValueStandard'];
         }
 
         if (isset($map['ProductCode'])) {
