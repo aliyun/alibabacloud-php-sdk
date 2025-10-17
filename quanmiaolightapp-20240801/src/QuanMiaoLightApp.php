@@ -3418,6 +3418,10 @@ class QuanMiaoLightApp extends OpenApiClient
             @$body['splitInterval'] = $request->splitInterval;
         }
 
+        if (null !== $request->splitType) {
+            @$body['splitType'] = $request->splitType;
+        }
+
         if (null !== $request->taskId) {
             @$body['taskId'] = $request->taskId;
         }
@@ -3577,6 +3581,10 @@ class QuanMiaoLightApp extends OpenApiClient
 
         if (null !== $request->splitInterval) {
             @$body['splitInterval'] = $request->splitInterval;
+        }
+
+        if (null !== $request->splitType) {
+            @$body['splitType'] = $request->splitType;
         }
 
         if (null !== $request->taskId) {
@@ -4061,6 +4069,10 @@ class QuanMiaoLightApp extends OpenApiClient
 
         if (null !== $request->splitInterval) {
             @$body['splitInterval'] = $request->splitInterval;
+        }
+
+        if (null !== $request->splitType) {
+            @$body['splitType'] = $request->splitType;
         }
 
         if (null !== $request->textProcessTasksShrink) {

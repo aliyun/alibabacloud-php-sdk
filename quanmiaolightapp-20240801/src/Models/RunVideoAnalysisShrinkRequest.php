@@ -71,6 +71,11 @@ class RunVideoAnalysisShrinkRequest extends Model
     /**
      * @var string
      */
+    public $splitType;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -125,6 +130,7 @@ class RunVideoAnalysisShrinkRequest extends Model
         'originalSessionId' => 'originalSessionId',
         'snapshotInterval' => 'snapshotInterval',
         'splitInterval' => 'splitInterval',
+        'splitType' => 'splitType',
         'taskId' => 'taskId',
         'textProcessTasksShrink' => 'textProcessTasks',
         'videoCaptionInfoShrink' => 'videoCaptionInfo',
@@ -190,6 +196,10 @@ class RunVideoAnalysisShrinkRequest extends Model
 
         if (null !== $this->splitInterval) {
             $res['splitInterval'] = $this->splitInterval;
+        }
+
+        if (null !== $this->splitType) {
+            $res['splitType'] = $this->splitType;
         }
 
         if (null !== $this->taskId) {
@@ -285,6 +295,10 @@ class RunVideoAnalysisShrinkRequest extends Model
 
         if (isset($map['splitInterval'])) {
             $model->splitInterval = $map['splitInterval'];
+        }
+
+        if (isset($map['splitType'])) {
+            $model->splitType = $map['splitType'];
         }
 
         if (isset($map['taskId'])) {

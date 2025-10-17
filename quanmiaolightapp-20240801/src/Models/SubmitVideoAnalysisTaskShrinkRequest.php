@@ -71,6 +71,11 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $splitType;
+
+    /**
+     * @var string
+     */
     public $textProcessTasksShrink;
 
     /**
@@ -120,6 +125,7 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
         'modelId' => 'modelId',
         'snapshotInterval' => 'snapshotInterval',
         'splitInterval' => 'splitInterval',
+        'splitType' => 'splitType',
         'textProcessTasksShrink' => 'textProcessTasks',
         'videoCaptionInfoShrink' => 'videoCaptionInfo',
         'videoExtraInfo' => 'videoExtraInfo',
@@ -184,6 +190,10 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
 
         if (null !== $this->splitInterval) {
             $res['splitInterval'] = $this->splitInterval;
+        }
+
+        if (null !== $this->splitType) {
+            $res['splitType'] = $this->splitType;
         }
 
         if (null !== $this->textProcessTasksShrink) {
@@ -275,6 +285,10 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
 
         if (isset($map['splitInterval'])) {
             $model->splitInterval = $map['splitInterval'];
+        }
+
+        if (isset($map['splitType'])) {
+            $model->splitType = $map['splitType'];
         }
 
         if (isset($map['textProcessTasks'])) {
