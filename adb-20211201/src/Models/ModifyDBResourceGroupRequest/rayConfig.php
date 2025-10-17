@@ -5,10 +5,17 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\rayConfig\appConfig;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\rayConfig\storageMounts;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\rayConfig\workerGroups;
 
 class rayConfig extends Model
 {
+    /**
+     * @var appConfig
+     */
+    public $appConfig;
+
     /**
      * @var string
      */
@@ -40,21 +47,34 @@ class rayConfig extends Model
     public $headSpecType;
 
     /**
+     * @var storageMounts[]
+     */
+    public $storageMounts;
+
+    /**
      * @var workerGroups[]
      */
     public $workerGroups;
     protected $_name = [
+        'appConfig' => 'AppConfig',
         'category' => 'Category',
         'enableUserEni' => 'EnableUserEni',
         'headAllocateUnit' => 'HeadAllocateUnit',
         'headDiskCapacity' => 'HeadDiskCapacity',
         'headSpec' => 'HeadSpec',
         'headSpecType' => 'HeadSpecType',
+        'storageMounts' => 'StorageMounts',
         'workerGroups' => 'WorkerGroups',
     ];
 
     public function validate()
     {
+        if (null !== $this->appConfig) {
+            $this->appConfig->validate();
+        }
+        if (\is_array($this->storageMounts)) {
+            Model::validateArray($this->storageMounts);
+        }
         if (\is_array($this->workerGroups)) {
             Model::validateArray($this->workerGroups);
         }
@@ -64,6 +84,10 @@ class rayConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appConfig) {
+            $res['AppConfig'] = null !== $this->appConfig ? $this->appConfig->toArray($noStream) : $this->appConfig;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -88,6 +112,17 @@ class rayConfig extends Model
             $res['HeadSpecType'] = $this->headSpecType;
         }
 
+        if (null !== $this->storageMounts) {
+            if (\is_array($this->storageMounts)) {
+                $res['StorageMounts'] = [];
+                $n1 = 0;
+                foreach ($this->storageMounts as $item1) {
+                    $res['StorageMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->workerGroups) {
             if (\is_array($this->workerGroups)) {
                 $res['WorkerGroups'] = [];
@@ -110,6 +145,10 @@ class rayConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppConfig'])) {
+            $model->appConfig = appConfig::fromMap($map['AppConfig']);
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -132,6 +171,17 @@ class rayConfig extends Model
 
         if (isset($map['HeadSpecType'])) {
             $model->headSpecType = $map['HeadSpecType'];
+        }
+
+        if (isset($map['StorageMounts'])) {
+            if (!empty($map['StorageMounts'])) {
+                $model->storageMounts = [];
+                $n1 = 0;
+                foreach ($map['StorageMounts'] as $item1) {
+                    $model->storageMounts[$n1] = storageMounts::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['WorkerGroups'])) {

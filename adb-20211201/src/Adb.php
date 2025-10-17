@@ -45,6 +45,9 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsKafkaHudiJobShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobShrinkRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsWebhookRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsWebhookResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsWebhookShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterRequest;
@@ -57,6 +60,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateLakeStorageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateLakeStorageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateLakeStorageShrinkRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateMaterializedViewRecommendRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateMaterializedViewRecommendResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateOssSubDirectoryRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateOssSubDirectoryResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreatePerformanceViewRequest;
@@ -70,6 +75,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsDatasoureRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsDatasoureResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsJobRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsJobResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsWebhookRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsWebhookResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteBackupsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteBackupsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteDBClusterRequest;
@@ -360,6 +367,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsOptimizationStrategyRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsOptimizationStrategyResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsOptimizationTasksRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsOptimizationTasksResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsWebhookRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsWebhookResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListLakeStoragesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListLakeStoragesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListResultExportJobHistoryRequest;
@@ -427,6 +436,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyEssdCacheConfigRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyEssdCacheConfigResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyLakeCacheSizeRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyLakeCacheSizeResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyMaterializedViewRecommendRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyMaterializedViewRecommendResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyMaterializedViewRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyMaterializedViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewShrinkRequest;
@@ -462,6 +475,9 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindAccountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindDBResourceGroupWithUserRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindDBResourceGroupWithUserResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateApsWebhookRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateApsWebhookResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateApsWebhookShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageShrinkRequest;
@@ -2223,6 +2239,81 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * CreateApsWebhook.
+     *
+     * @param tmpReq - CreateApsWebhookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApsWebhookResponse
+     *
+     * @param CreateApsWebhookRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateApsWebhookResponse
+     */
+    public function createApsWebhookWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateApsWebhookShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->webhook) {
+            $request->webhookShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->webhook, 'Webhook', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->DBClusterId) {
+            @$body['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->jobType) {
+            @$body['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->webhookShrink) {
+            @$body['Webhook'] = $request->webhookShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApsWebhook',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApsWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateApsWebhook.
+     *
+     * @param request - CreateApsWebhookRequest
+     *
+     * @returns CreateApsWebhookResponse
+     *
+     * @param CreateApsWebhookRequest $request
+     *
+     * @return CreateApsWebhookResponse
+     */
+    public function createApsWebhook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApsWebhookWithOptions($request, $runtime);
+    }
+
+    /**
      * 手动创建备份集.
      *
      * @param request - CreateBackupRequest
@@ -2808,6 +2899,119 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 创建物化视图自动推荐任务
+     *
+     * @param request - CreateMaterializedViewRecommendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMaterializedViewRecommendResponse
+     *
+     * @param CreateMaterializedViewRecommendRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateMaterializedViewRecommendResponse
+     */
+    public function createMaterializedViewRecommendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->minRewriteQueryCount) {
+            @$query['MinRewriteQueryCount'] = $request->minRewriteQueryCount;
+        }
+
+        if (null !== $request->minRewriteQueryPattern) {
+            @$query['MinRewriteQueryPattern'] = $request->minRewriteQueryPattern;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scanQueriesRange) {
+            @$query['ScanQueriesRange'] = $request->scanQueriesRange;
+        }
+
+        if (null !== $request->schedulingDay) {
+            @$query['SchedulingDay'] = $request->schedulingDay;
+        }
+
+        if (null !== $request->schedulingPolicy) {
+            @$query['SchedulingPolicy'] = $request->schedulingPolicy;
+        }
+
+        if (null !== $request->slowQueryThreshold) {
+            @$query['SlowQueryThreshold'] = $request->slowQueryThreshold;
+        }
+
+        if (null !== $request->specifiedTime) {
+            @$query['SpecifiedTime'] = $request->specifiedTime;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMaterializedViewRecommend',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMaterializedViewRecommendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建物化视图自动推荐任务
+     *
+     * @param request - CreateMaterializedViewRecommendRequest
+     *
+     * @returns CreateMaterializedViewRecommendResponse
+     *
+     * @param CreateMaterializedViewRecommendRequest $request
+     *
+     * @return CreateMaterializedViewRecommendResponse
+     */
+    public function createMaterializedViewRecommend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMaterializedViewRecommendWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an Object Storage Service (OSS) subdirectory.
      *
      * @remarks
@@ -3271,6 +3475,71 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteApsJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteApsWebhook.
+     *
+     * @param request - DeleteApsWebhookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApsWebhookResponse
+     *
+     * @param DeleteApsWebhookRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteApsWebhookResponse
+     */
+    public function deleteApsWebhookWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->DBClusterId) {
+            @$body['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->webhookId) {
+            @$body['WebhookId'] = $request->webhookId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApsWebhook',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApsWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteApsWebhook.
+     *
+     * @param request - DeleteApsWebhookRequest
+     *
+     * @returns DeleteApsWebhookResponse
+     *
+     * @param DeleteApsWebhookRequest $request
+     *
+     * @return DeleteApsWebhookResponse
+     */
+    public function deleteApsWebhook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApsWebhookWithOptions($request, $runtime);
     }
 
     /**
@@ -14579,6 +14848,71 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * ListApsWebhook.
+     *
+     * @param request - ListApsWebhookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApsWebhookResponse
+     *
+     * @param ListApsWebhookRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListApsWebhookResponse
+     */
+    public function listApsWebhookWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->DBClusterId) {
+            @$body['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->jobType) {
+            @$body['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListApsWebhook',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApsWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListApsWebhook.
+     *
+     * @param request - ListApsWebhookRequest
+     *
+     * @returns ListApsWebhookResponse
+     *
+     * @param ListApsWebhookRequest $request
+     *
+     * @return ListApsWebhookResponse
+     */
+    public function listApsWebhook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApsWebhookWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of lake storages.
      *
      * @param request - ListLakeStoragesRequest
@@ -17084,6 +17418,224 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * 修改物化视图.
+     *
+     * @param request - ModifyMaterializedViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMaterializedViewResponse
+     *
+     * @param ModifyMaterializedViewRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyMaterializedViewResponse
+     */
+    public function modifyMaterializedViewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->enableDelayAlert) {
+            @$query['EnableDelayAlert'] = $request->enableDelayAlert;
+        }
+
+        if (null !== $request->enableFailureAlert) {
+            @$query['EnableFailureAlert'] = $request->enableFailureAlert;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->latencyTolerance) {
+            @$query['LatencyTolerance'] = $request->latencyTolerance;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->queryWrite) {
+            @$query['QueryWrite'] = $request->queryWrite;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->viewName) {
+            @$query['ViewName'] = $request->viewName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyMaterializedView',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyMaterializedViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改物化视图.
+     *
+     * @param request - ModifyMaterializedViewRequest
+     *
+     * @returns ModifyMaterializedViewResponse
+     *
+     * @param ModifyMaterializedViewRequest $request
+     *
+     * @return ModifyMaterializedViewResponse
+     */
+    public function modifyMaterializedView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMaterializedViewWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改物化视图自动推荐任务
+     *
+     * @param request - ModifyMaterializedViewRecommendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMaterializedViewRecommendResponse
+     *
+     * @param ModifyMaterializedViewRecommendRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyMaterializedViewRecommendResponse
+     */
+    public function modifyMaterializedViewRecommendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->minRewriteQueryCount) {
+            @$query['MinRewriteQueryCount'] = $request->minRewriteQueryCount;
+        }
+
+        if (null !== $request->minRewriteQueryPattern) {
+            @$query['MinRewriteQueryPattern'] = $request->minRewriteQueryPattern;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->scanQueriesRange) {
+            @$query['ScanQueriesRange'] = $request->scanQueriesRange;
+        }
+
+        if (null !== $request->schedulingDay) {
+            @$query['SchedulingDay'] = $request->schedulingDay;
+        }
+
+        if (null !== $request->schedulingPolicy) {
+            @$query['SchedulingPolicy'] = $request->schedulingPolicy;
+        }
+
+        if (null !== $request->slowQueryThreshold) {
+            @$query['SlowQueryThreshold'] = $request->slowQueryThreshold;
+        }
+
+        if (null !== $request->specifiedTime) {
+            @$query['SpecifiedTime'] = $request->specifiedTime;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyMaterializedViewRecommend',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyMaterializedViewRecommendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改物化视图自动推荐任务
+     *
+     * @param request - ModifyMaterializedViewRecommendRequest
+     *
+     * @returns ModifyMaterializedViewRecommendResponse
+     *
+     * @param ModifyMaterializedViewRecommendRequest $request
+     *
+     * @return ModifyMaterializedViewRecommendResponse
+     */
+    public function modifyMaterializedViewRecommend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMaterializedViewRecommendWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the information about a custom monitoring view.
      *
      * @param tmpReq - ModifyPerformanceViewRequest
@@ -18355,6 +18907,77 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindDBResourceGroupWithUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * UpdateApsWebhook.
+     *
+     * @param tmpReq - UpdateApsWebhookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApsWebhookResponse
+     *
+     * @param UpdateApsWebhookRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateApsWebhookResponse
+     */
+    public function updateApsWebhookWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateApsWebhookShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->webhook) {
+            $request->webhookShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->webhook, 'Webhook', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->DBClusterId) {
+            @$body['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->webhookShrink) {
+            @$body['Webhook'] = $request->webhookShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApsWebhook',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApsWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateApsWebhook.
+     *
+     * @param request - UpdateApsWebhookRequest
+     *
+     * @returns UpdateApsWebhookResponse
+     *
+     * @param UpdateApsWebhookRequest $request
+     *
+     * @return UpdateApsWebhookResponse
+     */
+    public function updateApsWebhook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApsWebhookWithOptions($request, $runtime);
     }
 
     /**
