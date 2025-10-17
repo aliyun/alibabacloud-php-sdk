@@ -12,6 +12,11 @@ class sessions extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $clientIp;
 
     /**
@@ -38,6 +43,11 @@ class sessions extends Model
      * @var string
      */
     public $desktopId;
+
+    /**
+     * @var string
+     */
+    public $directoryType;
 
     /**
      * @var int
@@ -109,12 +119,14 @@ class sessions extends Model
      */
     public $totalConnectionDuration;
     protected $_name = [
+        'accountType' => 'AccountType',
         'clientIp' => 'ClientIp',
         'clientOS' => 'ClientOS',
         'clientVersion' => 'ClientVersion',
         'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupName' => 'DesktopGroupName',
         'desktopId' => 'DesktopId',
+        'directoryType' => 'DirectoryType',
         'endUserApplyCoordinateTime' => 'EndUserApplyCoordinateTime',
         'endUserId' => 'EndUserId',
         'lastSessionEndTime' => 'LastSessionEndTime',
@@ -142,6 +154,10 @@ class sessions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
@@ -164,6 +180,10 @@ class sessions extends Model
 
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
+        }
+
+        if (null !== $this->directoryType) {
+            $res['DirectoryType'] = $this->directoryType;
         }
 
         if (null !== $this->endUserApplyCoordinateTime) {
@@ -233,6 +253,10 @@ class sessions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
@@ -255,6 +279,10 @@ class sessions extends Model
 
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
+        }
+
+        if (isset($map['DirectoryType'])) {
+            $model->directoryType = $map['DirectoryType'];
         }
 
         if (isset($map['EndUserApplyCoordinateTime'])) {
