@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\importImageOptions\diskDeviceMappings;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\importImageOptions\features;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\importImageOptions\importImageTags;
 
 class importImageOptions extends Model
 {
@@ -21,6 +22,11 @@ class importImageOptions extends Model
     public $bootMode;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var diskDeviceMappings[]
      */
     public $diskDeviceMappings;
@@ -29,6 +35,16 @@ class importImageOptions extends Model
      * @var features
      */
     public $features;
+
+    /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
+     * @var importImageTags[]
+     */
+    public $importImageTags;
 
     /**
      * @var string
@@ -49,15 +65,30 @@ class importImageOptions extends Model
      * @var bool
      */
     public $retainImportedImage;
+
+    /**
+     * @var string
+     */
+    public $retentionStrategy;
+
+    /**
+     * @var string
+     */
+    public $roleName;
     protected $_name = [
         'architecture' => 'Architecture',
         'bootMode' => 'BootMode',
+        'description' => 'Description',
         'diskDeviceMappings' => 'DiskDeviceMappings',
         'features' => 'Features',
+        'imageName' => 'ImageName',
+        'importImageTags' => 'ImportImageTags',
         'licenseType' => 'LicenseType',
         'OSType' => 'OSType',
         'platform' => 'Platform',
         'retainImportedImage' => 'RetainImportedImage',
+        'retentionStrategy' => 'RetentionStrategy',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()
@@ -67,6 +98,9 @@ class importImageOptions extends Model
         }
         if (null !== $this->features) {
             $this->features->validate();
+        }
+        if (\is_array($this->importImageTags)) {
+            Model::validateArray($this->importImageTags);
         }
         parent::validate();
     }
@@ -80,6 +114,10 @@ class importImageOptions extends Model
 
         if (null !== $this->bootMode) {
             $res['BootMode'] = $this->bootMode;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->diskDeviceMappings) {
@@ -97,6 +135,21 @@ class importImageOptions extends Model
             $res['Features'] = null !== $this->features ? $this->features->toArray($noStream) : $this->features;
         }
 
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
+        }
+
+        if (null !== $this->importImageTags) {
+            if (\is_array($this->importImageTags)) {
+                $res['ImportImageTags'] = [];
+                $n1 = 0;
+                foreach ($this->importImageTags as $item1) {
+                    $res['ImportImageTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->licenseType) {
             $res['LicenseType'] = $this->licenseType;
         }
@@ -111,6 +164,14 @@ class importImageOptions extends Model
 
         if (null !== $this->retainImportedImage) {
             $res['RetainImportedImage'] = $this->retainImportedImage;
+        }
+
+        if (null !== $this->retentionStrategy) {
+            $res['RetentionStrategy'] = $this->retentionStrategy;
+        }
+
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
 
         return $res;
@@ -132,6 +193,10 @@ class importImageOptions extends Model
             $model->bootMode = $map['BootMode'];
         }
 
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
         if (isset($map['DiskDeviceMappings'])) {
             if (!empty($map['DiskDeviceMappings'])) {
                 $model->diskDeviceMappings = [];
@@ -145,6 +210,21 @@ class importImageOptions extends Model
 
         if (isset($map['Features'])) {
             $model->features = features::fromMap($map['Features']);
+        }
+
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
+        }
+
+        if (isset($map['ImportImageTags'])) {
+            if (!empty($map['ImportImageTags'])) {
+                $model->importImageTags = [];
+                $n1 = 0;
+                foreach ($map['ImportImageTags'] as $item1) {
+                    $model->importImageTags[$n1] = importImageTags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['LicenseType'])) {
@@ -161,6 +241,14 @@ class importImageOptions extends Model
 
         if (isset($map['RetainImportedImage'])) {
             $model->retainImportedImage = $map['RetainImportedImage'];
+        }
+
+        if (isset($map['RetentionStrategy'])) {
+            $model->retentionStrategy = $map['RetentionStrategy'];
+        }
+
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
 
         return $model;

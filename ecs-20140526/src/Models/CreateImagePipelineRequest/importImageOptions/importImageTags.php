@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\impor
 
 use AlibabaCloud\Dara\Model;
 
-class features extends Model
+class importImageTags extends Model
 {
     /**
      * @var string
      */
-    public $imdsSupport;
+    public $key;
 
     /**
      * @var string
      */
-    public $nvmeSupport;
+    public $value;
     protected $_name = [
-        'imdsSupport' => 'ImdsSupport',
-        'nvmeSupport' => 'NvmeSupport',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class features extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->imdsSupport) {
-            $res['ImdsSupport'] = $this->imdsSupport;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
-        if (null !== $this->nvmeSupport) {
-            $res['NvmeSupport'] = $this->nvmeSupport;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class features extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImdsSupport'])) {
-            $model->imdsSupport = $map['ImdsSupport'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
-        if (isset($map['NvmeSupport'])) {
-            $model->nvmeSupport = $map['NvmeSupport'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -31909,13 +31909,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Modifies instance network configurations.
+     * Modifies the network bandwidth weight of an instance.
      *
      * @remarks
-     * When you call this operation, take note of the following item:
+     * When you call this operation, note that:
      * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
      * *   You can modify only one attribute at a time. If you modify multiple attributes, call this operation multiple times.
-     * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. The instance types that are supported. You can query the instance type list (DescribeInstanceTypes).
+     * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. You can use the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query whether the current instance type supports bandwidth weights and the supported bandwidth weights.
      *
      * @param request - ModifyInstanceNetworkOptionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31970,13 +31970,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Modifies instance network configurations.
+     * Modifies the network bandwidth weight of an instance.
      *
      * @remarks
-     * When you call this operation, take note of the following item:
+     * When you call this operation, note that:
      * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
      * *   You can modify only one attribute at a time. If you modify multiple attributes, call this operation multiple times.
-     * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. The instance types that are supported. You can query the instance type list (DescribeInstanceTypes).
+     * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. You can use the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query whether the current instance type supports bandwidth weights and the supported bandwidth weights.
      *
      * @param request - ModifyInstanceNetworkOptionsRequest
      *
