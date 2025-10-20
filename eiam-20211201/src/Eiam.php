@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainProxyTokenRequest;
@@ -55,6 +57,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainProxyTokenRequest;
@@ -93,6 +97,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenRequest;
@@ -121,6 +127,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenRequest;
@@ -149,6 +157,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationTemplateRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationTemplateResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainDnsChallengeRequest;
@@ -169,6 +179,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceLicenseRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceLicenseResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetLoginRedirectApplicationForBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetLoginRedirectApplicationForBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkZoneRequest;
@@ -215,6 +227,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationSupportedProvisionProt
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationSupportedProvisionProtocolTypesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationTokensRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationTokensResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForNetworkZoneRequest;
@@ -302,6 +316,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetForgetPasswordConfigurationRequest
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetForgetPasswordConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetLoginRedirectApplicationForBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetLoginRedirectApplicationForBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordExpirationConfigurationRequest;
@@ -328,10 +344,14 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainIcpNumberRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainIcpNumberResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateFederatedCredentialProviderDescriptionRequest;
@@ -1101,6 +1121,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建品牌.
+     *
+     * @param request - CreateBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBrandResponse
+     *
+     * @param CreateBrandRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateBrandResponse
+     */
+    public function createBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandName) {
+            @$query['BrandName'] = $request->brandName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建品牌.
+     *
+     * @param request - CreateBrandRequest
+     *
+     * @returns CreateBrandResponse
+     *
+     * @param CreateBrandRequest $request
+     *
+     * @return CreateBrandResponse
+     */
+    public function createBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBrandWithOptions($request, $runtime);
     }
 
     /**
@@ -2272,6 +2353,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除品牌.
+     *
+     * @param request - DeleteBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBrandResponse
+     *
+     * @param DeleteBrandRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteBrandResponse
+     */
+    public function deleteBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除品牌.
+     *
+     * @param request - DeleteBrandRequest
+     *
+     * @returns DeleteBrandResponse
+     *
+     * @param DeleteBrandRequest $request
+     *
+     * @return DeleteBrandResponse
+     */
+    public function deleteBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBrandWithOptions($request, $runtime);
     }
 
     /**
@@ -3464,6 +3606,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 禁用品牌.
+     *
+     * @param request - DisableBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableBrandResponse
+     *
+     * @param DisableBrandRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DisableBrandResponse
+     */
+    public function disableBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用品牌.
+     *
+     * @param request - DisableBrandRequest
+     *
+     * @returns DisableBrandResponse
+     *
+     * @param DisableBrandRequest $request
+     *
+     * @return DisableBrandResponse
+     */
+    public function disableBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableBrandWithOptions($request, $runtime);
+    }
+
+    /**
      * Disable Conditional Access Policy.
      *
      * @remarks
@@ -4336,6 +4539,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 启用品牌.
+     *
+     * @param request - EnableBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableBrandResponse
+     *
+     * @param EnableBrandRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return EnableBrandResponse
+     */
+    public function enableBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用品牌.
+     *
+     * @param request - EnableBrandRequest
+     *
+     * @returns EnableBrandResponse
+     *
+     * @param EnableBrandRequest $request
+     *
+     * @return EnableBrandResponse
+     */
+    public function enableBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableBrandWithOptions($request, $runtime);
+    }
+
+    /**
      * Enable Conditional Access Policy.
      *
      * @remarks
@@ -5196,6 +5460,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 获取品牌详情.
+     *
+     * @param request - GetBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBrandResponse
+     *
+     * @param GetBrandRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetBrandResponse
+     */
+    public function getBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取品牌详情.
+     *
+     * @param request - GetBrandRequest
+     *
+     * @returns GetBrandResponse
+     *
+     * @param GetBrandRequest $request
+     *
+     * @return GetBrandResponse
+     */
+    public function getBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBrandWithOptions($request, $runtime);
+    }
+
+    /**
      * Get Conditional Access Policy.
      *
      * @remarks
@@ -5803,6 +6128,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取品牌登录后跳转应用.
+     *
+     * @param request - GetLoginRedirectApplicationForBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLoginRedirectApplicationForBrandResponse
+     *
+     * @param GetLoginRedirectApplicationForBrandRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetLoginRedirectApplicationForBrandResponse
+     */
+    public function getLoginRedirectApplicationForBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLoginRedirectApplicationForBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLoginRedirectApplicationForBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取品牌登录后跳转应用.
+     *
+     * @param request - GetLoginRedirectApplicationForBrandRequest
+     *
+     * @returns GetLoginRedirectApplicationForBrandResponse
+     *
+     * @param GetLoginRedirectApplicationForBrandRequest $request
+     *
+     * @return GetLoginRedirectApplicationForBrandResponse
+     */
+    public function getLoginRedirectApplicationForBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLoginRedirectApplicationForBrandWithOptions($request, $runtime);
     }
 
     /**
@@ -7328,6 +7714,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取品牌列表.
+     *
+     * @param request - ListBrandsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBrandsResponse
+     *
+     * @param ListBrandsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListBrandsResponse
+     */
+    public function listBrandsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBrands',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBrandsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取品牌列表.
+     *
+     * @param request - ListBrandsRequest
+     *
+     * @returns ListBrandsResponse
+     *
+     * @param ListBrandsRequest $request
+     *
+     * @return ListBrandsResponse
+     */
+    public function listBrands($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBrandsWithOptions($request, $runtime);
     }
 
     /**
@@ -10443,6 +10898,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 为品牌设置登录后跳转应用.
+     *
+     * @param request - SetLoginRedirectApplicationForBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetLoginRedirectApplicationForBrandResponse
+     *
+     * @param SetLoginRedirectApplicationForBrandRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return SetLoginRedirectApplicationForBrandResponse
+     */
+    public function setLoginRedirectApplicationForBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetLoginRedirectApplicationForBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetLoginRedirectApplicationForBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为品牌设置登录后跳转应用.
+     *
+     * @param request - SetLoginRedirectApplicationForBrandRequest
+     *
+     * @returns SetLoginRedirectApplicationForBrandResponse
+     *
+     * @param SetLoginRedirectApplicationForBrandRequest $request
+     *
+     * @return SetLoginRedirectApplicationForBrandResponse
+     */
+    public function setLoginRedirectApplicationForBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setLoginRedirectApplicationForBrandWithOptions($request, $runtime);
+    }
+
+    /**
      * Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
      * @param request - SetPasswordComplexityConfigurationRequest
@@ -11348,6 +11868,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 修改品牌.
+     *
+     * @param request - UpdateBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBrandResponse
+     *
+     * @param UpdateBrandRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateBrandResponse
+     */
+    public function updateBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->brandName) {
+            @$query['BrandName'] = $request->brandName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改品牌.
+     *
+     * @param request - UpdateBrandRequest
+     *
+     * @returns UpdateBrandResponse
+     *
+     * @param UpdateBrandRequest $request
+     *
+     * @return UpdateBrandResponse
+     */
+    public function updateBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBrandWithOptions($request, $runtime);
+    }
+
+    /**
      * Update Conditional Access Policy.
      *
      * @remarks
@@ -11511,6 +12096,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConditionalAccessPolicyDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改域名关联的品牌。
+     *
+     * @param request - UpdateDomainBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDomainBrandResponse
+     *
+     * @param UpdateDomainBrandRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateDomainBrandResponse
+     */
+    public function updateDomainBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDomainBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDomainBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改域名关联的品牌。
+     *
+     * @param request - UpdateDomainBrandRequest
+     *
+     * @returns UpdateDomainBrandResponse
+     *
+     * @param UpdateDomainBrandRequest $request
+     *
+     * @return UpdateDomainBrandResponse
+     */
+    public function updateDomainBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDomainBrandWithOptions($request, $runtime);
     }
 
     /**
