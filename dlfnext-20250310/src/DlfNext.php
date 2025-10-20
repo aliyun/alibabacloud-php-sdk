@@ -83,6 +83,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergSnapshotsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergSnapshotsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergTableDetailsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergTableDetailsResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPermissionsRequest;
@@ -3140,6 +3142,81 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listPartitionSummariesWithOptions($catalogId, $database, $table, $request, $headers, $runtime);
+    }
+
+    /**
+     * listPartitions.
+     *
+     * @param request - ListPartitionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPartitionsResponse
+     *
+     * @param string                $catalogId
+     * @param string                $database
+     * @param string                $table
+     * @param ListPartitionsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListPartitionsResponse
+     */
+    public function listPartitionsWithOptions($catalogId, $database, $table, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->pageToken) {
+            @$query['pageToken'] = $request->pageToken;
+        }
+
+        if (null !== $request->partitionNamePattern) {
+            @$query['partitionNamePattern'] = $request->partitionNamePattern;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPartitions',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '/partitions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * listPartitions.
+     *
+     * @param request - ListPartitionsRequest
+     *
+     * @returns ListPartitionsResponse
+     *
+     * @param string                $catalogId
+     * @param string                $database
+     * @param string                $table
+     * @param ListPartitionsRequest $request
+     *
+     * @return ListPartitionsResponse
+     */
+    public function listPartitions($catalogId, $database, $table, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPartitionsWithOptions($catalogId, $database, $table, $request, $headers, $runtime);
     }
 
     /**
