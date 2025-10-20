@@ -17,6 +17,16 @@ class compareList extends Model
     /**
      * @var string
      */
+    public $baseUnit;
+
+    /**
+     * @var string
+     */
+    public $displayUnit;
+
+    /**
+     * @var string
+     */
     public $oper;
 
     /**
@@ -40,6 +50,8 @@ class compareList extends Model
     public $yoyTimeValue;
     protected $_name = [
         'aggregate' => 'aggregate',
+        'baseUnit' => 'baseUnit',
+        'displayUnit' => 'displayUnit',
         'oper' => 'oper',
         'value' => 'value',
         'valueLevelList' => 'valueLevelList',
@@ -60,6 +72,14 @@ class compareList extends Model
         $res = [];
         if (null !== $this->aggregate) {
             $res['aggregate'] = $this->aggregate;
+        }
+
+        if (null !== $this->baseUnit) {
+            $res['baseUnit'] = $this->baseUnit;
+        }
+
+        if (null !== $this->displayUnit) {
+            $res['displayUnit'] = $this->displayUnit;
         }
 
         if (null !== $this->oper) {
@@ -102,6 +122,14 @@ class compareList extends Model
         $model = new self();
         if (isset($map['aggregate'])) {
             $model->aggregate = $map['aggregate'];
+        }
+
+        if (isset($map['baseUnit'])) {
+            $model->baseUnit = $map['baseUnit'];
+        }
+
+        if (isset($map['displayUnit'])) {
+            $model->displayUnit = $map['displayUnit'];
         }
 
         if (isset($map['oper'])) {

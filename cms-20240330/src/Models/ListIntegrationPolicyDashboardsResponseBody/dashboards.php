@@ -11,6 +11,11 @@ class dashboards extends Model
     /**
      * @var string
      */
+    public $engine;
+
+    /**
+     * @var string
+     */
     public $folderUid;
 
     /**
@@ -43,6 +48,7 @@ class dashboards extends Model
      */
     public $url;
     protected $_name = [
+        'engine' => 'engine',
         'folderUid' => 'folderUid',
         'name' => 'name',
         'region' => 'region',
@@ -63,6 +69,10 @@ class dashboards extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->engine) {
+            $res['engine'] = $this->engine;
+        }
+
         if (null !== $this->folderUid) {
             $res['folderUid'] = $this->folderUid;
         }
@@ -109,6 +119,10 @@ class dashboards extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['engine'])) {
+            $model->engine = $map['engine'];
+        }
+
         if (isset($map['folderUid'])) {
             $model->folderUid = $map['folderUid'];
         }

@@ -2712,6 +2712,10 @@ class Cms extends OpenApiClient
             @$query['addonName'] = $request->addonName;
         }
 
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
+        }
+
         if (null !== $request->scene) {
             @$query['scene'] = $request->scene;
         }
