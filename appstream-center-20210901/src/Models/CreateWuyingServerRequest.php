@@ -92,6 +92,11 @@ class CreateWuyingServerRequest extends Model
     /**
      * @var string
      */
+    public $serverPortRange;
+
+    /**
+     * @var string
+     */
     public $systemDiskCategory;
 
     /**
@@ -135,6 +140,7 @@ class CreateWuyingServerRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
         'serverInstanceType' => 'ServerInstanceType',
+        'serverPortRange' => 'ServerPortRange',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
         'systemDiskSize' => 'SystemDiskSize',
@@ -226,6 +232,10 @@ class CreateWuyingServerRequest extends Model
 
         if (null !== $this->serverInstanceType) {
             $res['ServerInstanceType'] = $this->serverInstanceType;
+        }
+
+        if (null !== $this->serverPortRange) {
+            $res['ServerPortRange'] = $this->serverPortRange;
         }
 
         if (null !== $this->systemDiskCategory) {
@@ -339,6 +349,10 @@ class CreateWuyingServerRequest extends Model
 
         if (isset($map['ServerInstanceType'])) {
             $model->serverInstanceType = $map['ServerInstanceType'];
+        }
+
+        if (isset($map['ServerPortRange'])) {
+            $model->serverPortRange = $map['ServerPortRange'];
         }
 
         if (isset($map['SystemDiskCategory'])) {

@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequ
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoRequest;
@@ -91,6 +93,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RestartWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RestartWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartTaskForDistributeImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartTaskForDistributeImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StopWuyingServerRequest;
@@ -746,6 +750,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['ServerInstanceType'] = $request->serverInstanceType;
         }
 
+        if (null !== $request->serverPortRange) {
+            @$body['ServerPortRange'] = $request->serverPortRange;
+        }
+
         if (null !== $request->systemDiskCategory) {
             @$body['SystemDiskCategory'] = $request->systemDiskCategory;
         }
@@ -944,6 +952,59 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DeleteImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteImageResponse
+     *
+     * @param DeleteImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteImageResponse
+     */
+    public function deleteImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteImageRequest
+     *
+     * @returns DeleteImageResponse
+     *
+     * @param DeleteImageRequest $request
+     *
+     * @return DeleteImageResponse
+     */
+    public function deleteImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteImageWithOptions($request, $runtime);
     }
 
     /**
@@ -3445,6 +3506,79 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartWuyingServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - StartTaskForDistributeImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartTaskForDistributeImageResponse
+     *
+     * @param StartTaskForDistributeImageRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StartTaskForDistributeImageResponse
+     */
+    public function startTaskForDistributeImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->destinationRegionList) {
+            @$body['DestinationRegionList'] = $request->destinationRegionList;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->retryType) {
+            @$body['RetryType'] = $request->retryType;
+        }
+
+        if (null !== $request->sourceRegion) {
+            @$body['SourceRegion'] = $request->sourceRegion;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartTaskForDistributeImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartTaskForDistributeImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - StartTaskForDistributeImageRequest
+     *
+     * @returns StartTaskForDistributeImageResponse
+     *
+     * @param StartTaskForDistributeImageRequest $request
+     *
+     * @return StartTaskForDistributeImageResponse
+     */
+    public function startTaskForDistributeImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startTaskForDistributeImageWithOptions($request, $runtime);
     }
 
     /**
