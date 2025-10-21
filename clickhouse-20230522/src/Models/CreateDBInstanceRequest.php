@@ -85,7 +85,7 @@ class CreateDBInstanceRequest extends Model
     public $sourceDBInstanceId;
 
     /**
-     * @var string
+     * @var int
      */
     public $storageQuota;
 

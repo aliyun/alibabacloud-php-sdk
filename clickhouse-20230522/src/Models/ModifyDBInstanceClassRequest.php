@@ -44,7 +44,7 @@ class ModifyDBInstanceClassRequest extends Model
     public $scaleMin;
 
     /**
-     * @var string
+     * @var int
      */
     public $storageQuota;
 

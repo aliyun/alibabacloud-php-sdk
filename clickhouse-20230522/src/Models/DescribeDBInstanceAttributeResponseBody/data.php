@@ -34,6 +34,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $clickObserveServiceStatus;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -200,6 +205,7 @@ class data extends Model
         'bid' => 'Bid',
         'category' => 'Category',
         'chargeType' => 'ChargeType',
+        'clickObserveServiceStatus' => 'ClickObserveServiceStatus',
         'createTime' => 'CreateTime',
         'DBInstanceId' => 'DBInstanceId',
         'deletionProtection' => 'DeletionProtection',
@@ -266,6 +272,10 @@ class data extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->clickObserveServiceStatus) {
+            $res['ClickObserveServiceStatus'] = $this->clickObserveServiceStatus;
         }
 
         if (null !== $this->createTime) {
@@ -446,6 +456,10 @@ class data extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['ClickObserveServiceStatus'])) {
+            $model->clickObserveServiceStatus = $map['ClickObserveServiceStatus'];
         }
 
         if (isset($map['CreateTime'])) {
