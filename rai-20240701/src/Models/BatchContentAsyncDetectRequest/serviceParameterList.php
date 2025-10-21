@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\RAI\V20240701\Models\BatchContentAsyncDetectRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serviceParameterList extends Model
 {
     /**
-     * @example "XXXXXXXX"
-     *
      * @var string
      */
     public $content;
@@ -20,9 +18,10 @@ class serviceParameterList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
@@ -32,11 +31,11 @@ class serviceParameterList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceParameterList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

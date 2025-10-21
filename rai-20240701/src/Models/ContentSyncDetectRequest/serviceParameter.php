@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\RAI\V20240701\Models\ContentSyncDetectRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serviceParameter extends Model
 {
@@ -18,9 +18,10 @@ class serviceParameter extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
@@ -30,11 +31,11 @@ class serviceParameter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceParameter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

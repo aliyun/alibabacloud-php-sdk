@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\RAI\V20240701\Models\GetContentDetectResultResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class detectResultList extends Model
 {
@@ -14,37 +14,36 @@ class detectResultList extends Model
     public $riskInfo;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $riskResult;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'riskInfo'   => 'RiskInfo',
+        'riskInfo' => 'RiskInfo',
         'riskResult' => 'RiskResult',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->riskInfo) {
             $res['RiskInfo'] = $this->riskInfo;
         }
+
         if (null !== $this->riskResult) {
             $res['RiskResult'] = $this->riskResult;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,20 +51,22 @@ class detectResultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detectResultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RiskInfo'])) {
             $model->riskInfo = $map['RiskInfo'];
         }
+
         if (isset($map['RiskResult'])) {
             $model->riskResult = $map['RiskResult'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
