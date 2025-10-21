@@ -12,28 +12,32 @@ class JobStatus extends Model
      * @var string
      */
     public $currentJobStatus;
+
     /**
      * @var JobFailure
      */
     public $failure;
+
     /**
      * @var int
      */
     public $healthScore;
+
     /**
      * @var string
      */
     public $riskLevel;
+
     /**
      * @var JobStatusRunning
      */
     public $running;
     protected $_name = [
         'currentJobStatus' => 'currentJobStatus',
-        'failure'          => 'failure',
-        'healthScore'      => 'healthScore',
-        'riskLevel'        => 'riskLevel',
-        'running'          => 'running',
+        'failure' => 'failure',
+        'healthScore' => 'healthScore',
+        'riskLevel' => 'riskLevel',
+        'running' => 'running',
     ];
 
     public function validate()

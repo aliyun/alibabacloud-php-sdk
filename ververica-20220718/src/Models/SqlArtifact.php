@@ -12,13 +12,14 @@ class SqlArtifact extends Model
      * @var string[]
      */
     public $additionalDependencies;
+
     /**
      * @var string
      */
     public $sqlScript;
     protected $_name = [
         'additionalDependencies' => 'additionalDependencies',
-        'sqlScript'              => 'sqlScript',
+        'sqlScript' => 'sqlScript',
     ];
 
     public function validate()
@@ -35,9 +36,10 @@ class SqlArtifact extends Model
         if (null !== $this->additionalDependencies) {
             if (\is_array($this->additionalDependencies)) {
                 $res['additionalDependencies'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->additionalDependencies as $item1) {
-                    $res['additionalDependencies'][$n1++] = $item1;
+                    $res['additionalDependencies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,9 +62,10 @@ class SqlArtifact extends Model
         if (isset($map['additionalDependencies'])) {
             if (!empty($map['additionalDependencies'])) {
                 $model->additionalDependencies = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['additionalDependencies'] as $item1) {
-                    $model->additionalDependencies[$n1++] = $item1;
+                    $model->additionalDependencies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

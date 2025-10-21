@@ -12,18 +12,20 @@ class StartJobRequestBody extends Model
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var BriefResourceSetting
      */
     public $resourceSettingSpec;
+
     /**
      * @var DeploymentRestoreStrategy
      */
     public $restoreStrategy;
     protected $_name = [
-        'deploymentId'        => 'deploymentId',
+        'deploymentId' => 'deploymentId',
         'resourceSettingSpec' => 'resourceSettingSpec',
-        'restoreStrategy'     => 'restoreStrategy',
+        'restoreStrategy' => 'restoreStrategy',
     ];
 
     public function validate()

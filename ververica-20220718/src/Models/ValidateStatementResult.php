@@ -12,12 +12,13 @@ class ValidateStatementResult extends Model
      * @var ValidationErrorDetails
      */
     public $errorDetails;
+
     /**
      * @var string
      */
     public $validationResult;
     protected $_name = [
-        'errorDetails'     => 'errorDetails',
+        'errorDetails' => 'errorDetails',
         'validationResult' => 'validationResult',
     ];
 

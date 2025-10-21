@@ -12,73 +12,86 @@ class ScheduledPlanExecutedInfo extends Model
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $jobResourceUpgradingId;
+
     /**
      * @var string
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $modifierName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $originJobId;
+
     /**
      * @var ScheduledPlanExecutedStatus
      */
     public $status;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'createdAt'              => 'createdAt',
-        'creator'                => 'creator',
-        'creatorName'            => 'creatorName',
-        'deploymentId'           => 'deploymentId',
+        'createdAt' => 'createdAt',
+        'creator' => 'creator',
+        'creatorName' => 'creatorName',
+        'deploymentId' => 'deploymentId',
         'jobResourceUpgradingId' => 'jobResourceUpgradingId',
-        'modifiedAt'             => 'modifiedAt',
-        'modifier'               => 'modifier',
-        'modifierName'           => 'modifierName',
-        'name'                   => 'name',
-        'namespace'              => 'namespace',
-        'origin'                 => 'origin',
-        'originJobId'            => 'originJobId',
-        'status'                 => 'status',
-        'workspace'              => 'workspace',
+        'modifiedAt' => 'modifiedAt',
+        'modifier' => 'modifier',
+        'modifierName' => 'modifierName',
+        'name' => 'name',
+        'namespace' => 'namespace',
+        'origin' => 'origin',
+        'originJobId' => 'originJobId',
+        'status' => 'status',
+        'workspace' => 'workspace',
     ];
 
     public function validate()

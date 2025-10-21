@@ -12,23 +12,26 @@ class DeploymentRestoreStrategy extends Model
      * @var bool
      */
     public $allowNonRestoredState;
+
     /**
      * @var int
      */
     public $jobStartTimeInMs;
+
     /**
      * @var string
      */
     public $kind;
+
     /**
      * @var string
      */
     public $savepointId;
     protected $_name = [
         'allowNonRestoredState' => 'allowNonRestoredState',
-        'jobStartTimeInMs'      => 'jobStartTimeInMs',
-        'kind'                  => 'kind',
-        'savepointId'           => 'savepointId',
+        'jobStartTimeInMs' => 'jobStartTimeInMs',
+        'kind' => 'kind',
+        'savepointId' => 'savepointId',
     ];
 
     public function validate()

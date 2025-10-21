@@ -12,12 +12,13 @@ class CreateDeploymentTargetRequest extends Model
      * @var ResourceSpec
      */
     public $body;
+
     /**
      * @var string
      */
     public $deploymentTargetName;
     protected $_name = [
-        'body'                 => 'body',
+        'body' => 'body',
         'deploymentTargetName' => 'deploymentTargetName',
     ];
 

@@ -12,17 +12,19 @@ class CreateSavepointRequest extends Model
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $nativeFormat;
     protected $_name = [
         'deploymentId' => 'deploymentId',
-        'description'  => 'description',
+        'description' => 'description',
         'nativeFormat' => 'nativeFormat',
     ];
 

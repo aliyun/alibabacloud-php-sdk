@@ -12,28 +12,32 @@ class JobStartParameters extends Model
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var LocalVariable[]
      */
     public $localVariables;
+
     /**
      * @var string
      */
     public $resourceQueueName;
+
     /**
      * @var DeploymentRestoreStrategy
      */
     public $restoreStrategy;
     protected $_name = [
-        'deploymentId'      => 'deploymentId',
-        'jobId'             => 'jobId',
-        'localVariables'    => 'localVariables',
+        'deploymentId' => 'deploymentId',
+        'jobId' => 'jobId',
+        'localVariables' => 'localVariables',
         'resourceQueueName' => 'resourceQueueName',
-        'restoreStrategy'   => 'restoreStrategy',
+        'restoreStrategy' => 'restoreStrategy',
     ];
 
     public function validate()
@@ -61,9 +65,10 @@ class JobStartParameters extends Model
         if (null !== $this->localVariables) {
             if (\is_array($this->localVariables)) {
                 $res['localVariables'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->localVariables as $item1) {
-                    $res['localVariables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['localVariables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,9 +103,10 @@ class JobStartParameters extends Model
         if (isset($map['localVariables'])) {
             if (!empty($map['localVariables'])) {
                 $model->localVariables = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['localVariables'] as $item1) {
-                    $model->localVariables[$n1++] = LocalVariable::fromMap($item1);
+                    $model->localVariables[$n1] = LocalVariable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

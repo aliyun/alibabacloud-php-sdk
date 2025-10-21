@@ -12,33 +12,38 @@ class DeleteCustomConnectorResponseBody extends Model
      * @var TableMeta[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'         => 'data',
-        'errorCode'    => 'errorCode',
+        'data' => 'data',
+        'errorCode' => 'errorCode',
         'errorMessage' => 'errorMessage',
-        'httpCode'     => 'httpCode',
-        'requestId'    => 'requestId',
-        'success'      => 'success',
+        'httpCode' => 'httpCode',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()
@@ -55,9 +60,10 @@ class DeleteCustomConnectorResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,9 +102,10 @@ class DeleteCustomConnectorResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
-                    $model->data[$n1++] = TableMeta::fromMap($item1);
+                    $model->data[$n1] = TableMeta::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

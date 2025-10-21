@@ -12,17 +12,19 @@ class EditableNamespace extends Model
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'namespace'   => 'Namespace',
-        'role'        => 'Role',
+        'namespace' => 'Namespace',
+        'role' => 'Role',
         'workspaceId' => 'WorkspaceId',
     ];
 

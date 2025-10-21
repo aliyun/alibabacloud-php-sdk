@@ -12,28 +12,32 @@ class AsyncDraftDeployResult extends Model
      * @var ValidateStatementResult
      */
     public $artifactValidationDetail;
+
     /**
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $ticketStatus;
     protected $_name = [
         'artifactValidationDetail' => 'artifactValidationDetail',
-        'deploymentId'             => 'deploymentId',
-        'message'                  => 'message',
-        'success'                  => 'success',
-        'ticketStatus'             => 'ticketStatus',
+        'deploymentId' => 'deploymentId',
+        'message' => 'message',
+        'success' => 'success',
+        'ticketStatus' => 'ticketStatus',
     ];
 
     public function validate()

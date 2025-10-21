@@ -12,33 +12,38 @@ class Node extends Model
      * @var string
      */
     public $catalogName;
+
     /**
      * @var string
      */
     public $connector;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isTemporary;
+
     /**
      * @var LineageTable[]
      */
     public $tables;
     protected $_name = [
-        'catalogName'  => 'catalogName',
-        'connector'    => 'connector',
+        'catalogName' => 'catalogName',
+        'connector' => 'connector',
         'databaseName' => 'databaseName',
-        'id'           => 'id',
-        'isTemporary'  => 'isTemporary',
-        'tables'       => 'tables',
+        'id' => 'id',
+        'isTemporary' => 'isTemporary',
+        'tables' => 'tables',
     ];
 
     public function validate()
@@ -75,9 +80,10 @@ class Node extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
-                    $res['tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,9 +122,10 @@ class Node extends Model
         if (isset($map['tables'])) {
             if (!empty($map['tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['tables'] as $item1) {
-                    $model->tables[$n1++] = LineageTable::fromMap($item1);
+                    $model->tables[$n1] = LineageTable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

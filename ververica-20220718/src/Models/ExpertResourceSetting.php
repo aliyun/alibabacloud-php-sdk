@@ -12,13 +12,14 @@ class ExpertResourceSetting extends Model
      * @var BasicResourceSettingSpec
      */
     public $jobmanagerResourceSettingSpec;
+
     /**
      * @var string
      */
     public $resourcePlan;
     protected $_name = [
         'jobmanagerResourceSettingSpec' => 'jobmanagerResourceSettingSpec',
-        'resourcePlan'                  => 'resourcePlan',
+        'resourcePlan' => 'resourcePlan',
     ];
 
     public function validate()

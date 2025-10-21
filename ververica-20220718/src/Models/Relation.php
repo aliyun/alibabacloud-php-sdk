@@ -12,18 +12,20 @@ class Relation extends Model
      * @var string
      */
     public $destination;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $source;
     protected $_name = [
         'destination' => 'destination',
-        'jobId'       => 'jobId',
-        'source'      => 'source',
+        'jobId' => 'jobId',
+        'source' => 'source',
     ];
 
     public function validate()

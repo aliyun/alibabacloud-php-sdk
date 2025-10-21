@@ -12,12 +12,13 @@ class EngineVersionMetadataIndex extends Model
      * @var string
      */
     public $defaultEngineVersion;
+
     /**
      * @var EngineVersionMetadata[]
      */
     public $engineVersionMetadata;
     protected $_name = [
-        'defaultEngineVersion'  => 'defaultEngineVersion',
+        'defaultEngineVersion' => 'defaultEngineVersion',
         'engineVersionMetadata' => 'engineVersionMetadata',
     ];
 
@@ -39,9 +40,10 @@ class EngineVersionMetadataIndex extends Model
         if (null !== $this->engineVersionMetadata) {
             if (\is_array($this->engineVersionMetadata)) {
                 $res['engineVersionMetadata'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->engineVersionMetadata as $item1) {
-                    $res['engineVersionMetadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['engineVersionMetadata'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,9 +66,10 @@ class EngineVersionMetadataIndex extends Model
         if (isset($map['engineVersionMetadata'])) {
             if (!empty($map['engineVersionMetadata'])) {
                 $model->engineVersionMetadata = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['engineVersionMetadata'] as $item1) {
-                    $model->engineVersionMetadata[$n1++] = EngineVersionMetadata::fromMap($item1);
+                    $model->engineVersionMetadata[$n1] = EngineVersionMetadata::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

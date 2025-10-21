@@ -12,13 +12,14 @@ class JobStatusRunning extends Model
      * @var int
      */
     public $observedFlinkJobRestarts;
+
     /**
      * @var string
      */
     public $observedFlinkJobStatus;
     protected $_name = [
         'observedFlinkJobRestarts' => 'observedFlinkJobRestarts',
-        'observedFlinkJobStatus'   => 'observedFlinkJobStatus',
+        'observedFlinkJobStatus' => 'observedFlinkJobStatus',
     ];
 
     public function validate()

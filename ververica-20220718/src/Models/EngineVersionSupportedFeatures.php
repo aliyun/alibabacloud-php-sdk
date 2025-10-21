@@ -12,13 +12,14 @@ class EngineVersionSupportedFeatures extends Model
      * @var bool
      */
     public $supportNativeSavepoint;
+
     /**
      * @var bool
      */
     public $useForSqlDeployments;
     protected $_name = [
         'supportNativeSavepoint' => 'supportNativeSavepoint',
-        'useForSqlDeployments'   => 'useForSqlDeployments',
+        'useForSqlDeployments' => 'useForSqlDeployments',
     ];
 
     public function validate()

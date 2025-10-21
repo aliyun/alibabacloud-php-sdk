@@ -12,33 +12,38 @@ class UpdateDeploymentTargetResponseBody extends Model
      * @var DeploymentTarget
      */
     public $data;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'         => 'data',
-        'errorCode'    => 'errorCode',
+        'data' => 'data',
+        'errorCode' => 'errorCode',
         'errorMessage' => 'errorMessage',
-        'httpCode'     => 'httpCode',
-        'requestId'    => 'requestId',
-        'success'      => 'success',
+        'httpCode' => 'httpCode',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()

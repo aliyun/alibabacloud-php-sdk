@@ -12,13 +12,14 @@ class LogReservePolicy extends Model
      * @var int
      */
     public $expirationDays;
+
     /**
      * @var bool
      */
     public $openHistory;
     protected $_name = [
         'expirationDays' => 'expirationDays',
-        'openHistory'    => 'openHistory',
+        'openHistory' => 'openHistory',
     ];
 
     public function validate()

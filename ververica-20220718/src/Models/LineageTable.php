@@ -12,28 +12,32 @@ class LineageTable extends Model
      * @var LineageColumn[]
      */
     public $columns;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var mixed[]
      */
     public $properties;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var mixed[]
      */
     public $with;
     protected $_name = [
-        'columns'    => 'columns',
-        'id'         => 'id',
+        'columns' => 'columns',
+        'id' => 'id',
         'properties' => 'properties',
-        'tableName'  => 'tableName',
-        'with'       => 'with',
+        'tableName' => 'tableName',
+        'with' => 'with',
     ];
 
     public function validate()
@@ -56,9 +60,10 @@ class LineageTable extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,9 +108,10 @@ class LineageTable extends Model
         if (isset($map['columns'])) {
             if (!empty($map['columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['columns'] as $item1) {
-                    $model->columns[$n1++] = LineageColumn::fromMap($item1);
+                    $model->columns[$n1] = LineageColumn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

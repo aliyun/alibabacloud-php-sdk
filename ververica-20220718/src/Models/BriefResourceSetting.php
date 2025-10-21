@@ -12,17 +12,19 @@ class BriefResourceSetting extends Model
      * @var BatchResourceSetting
      */
     public $batchResourceSetting;
+
     /**
      * @var mixed[]
      */
     public $flinkConf;
+
     /**
      * @var StreamingResourceSetting
      */
     public $streamingResourceSetting;
     protected $_name = [
-        'batchResourceSetting'     => 'batchResourceSetting',
-        'flinkConf'                => 'flinkConf',
+        'batchResourceSetting' => 'batchResourceSetting',
+        'flinkConf' => 'flinkConf',
         'streamingResourceSetting' => 'streamingResourceSetting',
     ];
 

@@ -12,23 +12,26 @@ class Variable extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $kind;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'description' => 'description',
-        'kind'        => 'kind',
-        'name'        => 'name',
-        'value'       => 'value',
+        'kind' => 'kind',
+        'name' => 'name',
+        'value' => 'value',
     ];
 
     public function validate()

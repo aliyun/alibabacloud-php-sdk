@@ -12,18 +12,20 @@ class HotUpdateJobFailureInfo extends Model
      * @var string
      */
     public $failureSeverity;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $reason;
     protected $_name = [
         'failureSeverity' => 'failureSeverity',
-        'message'         => 'message',
-        'reason'          => 'reason',
+        'message' => 'message',
+        'reason' => 'reason',
     ];
 
     public function validate()

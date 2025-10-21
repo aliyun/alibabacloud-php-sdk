@@ -12,17 +12,19 @@ class AsyncResourcePlanOperationResult extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $plan;
+
     /**
      * @var string
      */
     public $ticketStatus;
     protected $_name = [
-        'message'      => 'message',
-        'plan'         => 'plan',
+        'message' => 'message',
+        'plan' => 'plan',
         'ticketStatus' => 'ticketStatus',
     ];
 

@@ -12,38 +12,44 @@ class PeriodicSchedulingPolicy extends Model
      * @var bool
      */
     public $isFinished;
+
     /**
      * @var int
      */
     public $onlyOnceTriggerTime;
+
     /**
      * @var bool
      */
     public $onlyOnceTriggerTimeIsExpired;
+
     /**
      * @var string
      */
     public $periodicSchedulingLevel;
+
     /**
      * @var int[]
      */
     public $periodicSchedulingValues;
+
     /**
      * @var int
      */
     public $periodicTriggerTime;
+
     /**
      * @var BriefResourceSetting
      */
     public $resourceSetting;
     protected $_name = [
-        'isFinished'                   => 'isFinished',
-        'onlyOnceTriggerTime'          => 'onlyOnceTriggerTime',
+        'isFinished' => 'isFinished',
+        'onlyOnceTriggerTime' => 'onlyOnceTriggerTime',
         'onlyOnceTriggerTimeIsExpired' => 'onlyOnceTriggerTimeIsExpired',
-        'periodicSchedulingLevel'      => 'periodicSchedulingLevel',
-        'periodicSchedulingValues'     => 'periodicSchedulingValues',
-        'periodicTriggerTime'          => 'periodicTriggerTime',
-        'resourceSetting'              => 'resourceSetting',
+        'periodicSchedulingLevel' => 'periodicSchedulingLevel',
+        'periodicSchedulingValues' => 'periodicSchedulingValues',
+        'periodicTriggerTime' => 'periodicTriggerTime',
+        'resourceSetting' => 'resourceSetting',
     ];
 
     public function validate()
@@ -79,9 +85,10 @@ class PeriodicSchedulingPolicy extends Model
         if (null !== $this->periodicSchedulingValues) {
             if (\is_array($this->periodicSchedulingValues)) {
                 $res['periodicSchedulingValues'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->periodicSchedulingValues as $item1) {
-                    $res['periodicSchedulingValues'][$n1++] = $item1;
+                    $res['periodicSchedulingValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,9 +131,10 @@ class PeriodicSchedulingPolicy extends Model
         if (isset($map['periodicSchedulingValues'])) {
             if (!empty($map['periodicSchedulingValues'])) {
                 $model->periodicSchedulingValues = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['periodicSchedulingValues'] as $item1) {
-                    $model->periodicSchedulingValues[$n1++] = $item1;
+                    $model->periodicSchedulingValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -12,28 +12,32 @@ class Lock extends Model
      * @var string
      */
     public $holderId;
+
     /**
      * @var string
      */
     public $holderName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'holderId'   => 'holderId',
+        'holderId' => 'holderId',
         'holderName' => 'holderName',
-        'id'         => 'id',
-        'namespace'  => 'namespace',
-        'workspace'  => 'workspace',
+        'id' => 'id',
+        'namespace' => 'namespace',
+        'workspace' => 'workspace',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class JobDiagnosisSymptom extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $recommendation;
     protected $_name = [
-        'description'    => 'description',
-        'name'           => 'name',
+        'description' => 'description',
+        'name' => 'name',
         'recommendation' => 'recommendation',
     ];
 

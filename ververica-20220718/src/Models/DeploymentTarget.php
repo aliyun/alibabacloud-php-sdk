@@ -12,18 +12,20 @@ class DeploymentTarget extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var ResourceQuota
      */
     public $quota;
     protected $_name = [
-        'name'      => 'name',
+        'name' => 'name',
         'namespace' => 'namespace',
-        'quota'     => 'quota',
+        'quota' => 'quota',
     ];
 
     public function validate()

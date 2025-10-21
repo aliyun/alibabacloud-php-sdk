@@ -12,17 +12,19 @@ class SubFolder extends Model
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $parentId;
     protected $_name = [
         'folderId' => 'folderId',
-        'name'     => 'name',
+        'name' => 'name',
         'parentId' => 'parentId',
     ];
 

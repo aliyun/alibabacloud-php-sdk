@@ -12,13 +12,26 @@ class PrimaryKey extends Model
      * @var string[]
      */
     public $columns;
+
     /**
      * @var string
      */
     public $constraintName;
+
+    /**
+     * @var string
+     */
+    public $constraintType;
+
+    /**
+     * @var bool
+     */
+    public $enforced;
     protected $_name = [
-        'columns'        => 'columns',
+        'columns' => 'columns',
         'constraintName' => 'constraintName',
+        'constraintType' => 'constraintType',
+        'enforced' => 'enforced',
     ];
 
     public function validate()
@@ -35,15 +48,24 @@ class PrimaryKey extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['columns'][$n1++] = $item1;
+                    $res['columns'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (null !== $this->constraintName) {
             $res['constraintName'] = $this->constraintName;
+        }
+
+        if (null !== $this->constraintType) {
+            $res['constraintType'] = $this->constraintType;
+        }
+
+        if (null !== $this->enforced) {
+            $res['enforced'] = $this->enforced;
         }
 
         return $res;
@@ -60,15 +82,24 @@ class PrimaryKey extends Model
         if (isset($map['columns'])) {
             if (!empty($map['columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['columns'] as $item1) {
-                    $model->columns[$n1++] = $item1;
+                    $model->columns[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (isset($map['constraintName'])) {
             $model->constraintName = $map['constraintName'];
+        }
+
+        if (isset($map['constraintType'])) {
+            $model->constraintType = $map['constraintType'];
+        }
+
+        if (isset($map['enforced'])) {
+            $model->enforced = $map['enforced'];
         }
 
         return $model;

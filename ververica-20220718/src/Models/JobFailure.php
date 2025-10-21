@@ -12,18 +12,20 @@ class JobFailure extends Model
      * @var int
      */
     public $failedAt;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $reason;
     protected $_name = [
         'failedAt' => 'failedAt',
-        'message'  => 'message',
-        'reason'   => 'reason',
+        'message' => 'message',
+        'reason' => 'reason',
     ];
 
     public function validate()

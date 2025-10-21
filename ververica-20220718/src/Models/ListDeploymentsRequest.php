@@ -12,53 +12,62 @@ class ListDeploymentsRequest extends Model
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $executionMode;
+
     /**
      * @var string
      */
     public $labelKey;
+
     /**
      * @var string
      */
     public $labelValueArray;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'creator'         => 'creator',
-        'executionMode'   => 'executionMode',
-        'labelKey'        => 'labelKey',
+        'creator' => 'creator',
+        'executionMode' => 'executionMode',
+        'labelKey' => 'labelKey',
         'labelValueArray' => 'labelValueArray',
-        'modifier'        => 'modifier',
-        'name'            => 'name',
-        'pageIndex'       => 'pageIndex',
-        'pageSize'        => 'pageSize',
-        'sortName'        => 'sortName',
-        'status'          => 'status',
+        'modifier' => 'modifier',
+        'name' => 'name',
+        'pageIndex' => 'pageIndex',
+        'pageSize' => 'pageSize',
+        'sortName' => 'sortName',
+        'status' => 'status',
     ];
 
     public function validate()

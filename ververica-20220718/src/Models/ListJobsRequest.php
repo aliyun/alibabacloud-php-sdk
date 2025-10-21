@@ -12,23 +12,26 @@ class ListJobsRequest extends Model
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortName;
     protected $_name = [
         'deploymentId' => 'deploymentId',
-        'pageIndex'    => 'pageIndex',
-        'pageSize'     => 'pageSize',
-        'sortName'     => 'sortName',
+        'pageIndex' => 'pageIndex',
+        'pageSize' => 'pageSize',
+        'sortName' => 'sortName',
     ];
 
     public function validate()

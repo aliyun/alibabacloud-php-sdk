@@ -12,13 +12,14 @@ class ListScheduledPlanExecutedHistoryRequest extends Model
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $origin;
     protected $_name = [
         'deploymentId' => 'deploymentId',
-        'origin'       => 'origin',
+        'origin' => 'origin',
     ];
 
     public function validate()

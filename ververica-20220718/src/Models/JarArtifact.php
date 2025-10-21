@@ -12,23 +12,26 @@ class JarArtifact extends Model
      * @var string[]
      */
     public $additionalDependencies;
+
     /**
      * @var string
      */
     public $entryClass;
+
     /**
      * @var string
      */
     public $jarUri;
+
     /**
      * @var string
      */
     public $mainArgs;
     protected $_name = [
         'additionalDependencies' => 'additionalDependencies',
-        'entryClass'             => 'entryClass',
-        'jarUri'                 => 'jarUri',
-        'mainArgs'               => 'mainArgs',
+        'entryClass' => 'entryClass',
+        'jarUri' => 'jarUri',
+        'mainArgs' => 'mainArgs',
     ];
 
     public function validate()
@@ -45,9 +48,10 @@ class JarArtifact extends Model
         if (null !== $this->additionalDependencies) {
             if (\is_array($this->additionalDependencies)) {
                 $res['additionalDependencies'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->additionalDependencies as $item1) {
-                    $res['additionalDependencies'][$n1++] = $item1;
+                    $res['additionalDependencies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,9 +82,10 @@ class JarArtifact extends Model
         if (isset($map['additionalDependencies'])) {
             if (!empty($map['additionalDependencies'])) {
                 $model->additionalDependencies = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['additionalDependencies'] as $item1) {
-                    $model->additionalDependencies[$n1++] = $item1;
+                    $model->additionalDependencies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

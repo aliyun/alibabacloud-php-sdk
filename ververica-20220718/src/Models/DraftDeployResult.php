@@ -12,23 +12,26 @@ class DraftDeployResult extends Model
      * @var ValidateStatementResult
      */
     public $artifactValidationDetail;
+
     /**
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'artifactValidationDetail' => 'artifactValidationDetail',
-        'deploymentId'             => 'deploymentId',
-        'message'                  => 'message',
-        'success'                  => 'success',
+        'deploymentId' => 'deploymentId',
+        'message' => 'message',
+        'success' => 'success',
     ];
 
     public function validate()

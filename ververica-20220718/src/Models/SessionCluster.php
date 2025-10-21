@@ -12,88 +12,104 @@ class SessionCluster extends Model
      * @var BasicResourceSetting
      */
     public $basicResourceSetting;
+
     /**
      * @var int
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $deploymentTargetName;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var mixed[]
      */
     public $flinkConf;
+
     /**
      * @var mixed[]
      */
     public $labels;
+
     /**
      * @var Logging
      */
     public $logging;
+
     /**
      * @var int
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $modifierName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $sessionClusterId;
+
     /**
      * @var SessionClusterStatus
      */
     public $status;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
         'basicResourceSetting' => 'basicResourceSetting',
-        'createdAt'            => 'createdAt',
-        'creator'              => 'creator',
-        'creatorName'          => 'creatorName',
+        'createdAt' => 'createdAt',
+        'creator' => 'creator',
+        'creatorName' => 'creatorName',
         'deploymentTargetName' => 'deploymentTargetName',
-        'engineVersion'        => 'engineVersion',
-        'flinkConf'            => 'flinkConf',
-        'labels'               => 'labels',
-        'logging'              => 'logging',
-        'modifiedAt'           => 'modifiedAt',
-        'modifier'             => 'modifier',
-        'modifierName'         => 'modifierName',
-        'name'                 => 'name',
-        'namespace'            => 'namespace',
-        'sessionClusterId'     => 'sessionClusterId',
-        'status'               => 'status',
-        'workspace'            => 'workspace',
+        'engineVersion' => 'engineVersion',
+        'flinkConf' => 'flinkConf',
+        'labels' => 'labels',
+        'logging' => 'logging',
+        'modifiedAt' => 'modifiedAt',
+        'modifier' => 'modifier',
+        'modifierName' => 'modifierName',
+        'name' => 'name',
+        'namespace' => 'namespace',
+        'sessionClusterId' => 'sessionClusterId',
+        'status' => 'status',
+        'workspace' => 'workspace',
     ];
 
     public function validate()

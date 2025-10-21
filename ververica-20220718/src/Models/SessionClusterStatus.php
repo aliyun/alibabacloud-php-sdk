@@ -12,18 +12,20 @@ class SessionClusterStatus extends Model
      * @var string
      */
     public $currentSessionClusterStatus;
+
     /**
      * @var SessionClusterFailureInfo
      */
     public $failure;
+
     /**
      * @var SessionClusterRunningInfo
      */
     public $running;
     protected $_name = [
         'currentSessionClusterStatus' => 'currentSessionClusterStatus',
-        'failure'                     => 'failure',
-        'running'                     => 'running',
+        'failure' => 'failure',
+        'running' => 'running',
     ];
 
     public function validate()

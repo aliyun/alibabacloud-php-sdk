@@ -12,13 +12,14 @@ class GetLatestJobStartLogHeaders extends Model
      * @var string[]
      */
     public $commonHeaders;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
         'commonHeaders' => 'commonHeaders',
-        'workspace'     => 'workspace',
+        'workspace' => 'workspace',
     ];
 
     public function validate()

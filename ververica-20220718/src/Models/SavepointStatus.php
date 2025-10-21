@@ -12,13 +12,14 @@ class SavepointStatus extends Model
      * @var SavepointFailure
      */
     public $failure;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
         'failure' => 'failure',
-        'state'   => 'state',
+        'state' => 'state',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class JobInfo extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var mixed[]
      */
     public $properties;
     protected $_name = [
-        'id'         => 'id',
+        'id' => 'id',
         'properties' => 'properties',
     ];
 

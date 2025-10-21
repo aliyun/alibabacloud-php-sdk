@@ -12,17 +12,19 @@ class Database extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var mixed[]
      */
     public $properties;
     protected $_name = [
-        'comment'    => 'comment',
-        'name'       => 'name',
+        'comment' => 'comment',
+        'name' => 'name',
         'properties' => 'properties',
     ];
 

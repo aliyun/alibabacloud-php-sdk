@@ -12,12 +12,13 @@ class MetadataInfo extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var bool
      */
     public $virtual;
     protected $_name = [
-        'key'     => 'key',
+        'key' => 'key',
         'virtual' => 'virtual',
     ];
 

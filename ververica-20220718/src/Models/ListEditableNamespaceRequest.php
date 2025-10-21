@@ -12,27 +12,31 @@ class ListEditableNamespaceRequest extends Model
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $pageIndex;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'namespace'   => 'namespace',
-        'pageIndex'   => 'pageIndex',
-        'pageSize'    => 'pageSize',
-        'regionId'    => 'regionId',
+        'namespace' => 'namespace',
+        'pageIndex' => 'pageIndex',
+        'pageSize' => 'pageSize',
+        'regionId' => 'regionId',
         'workspaceId' => 'workspaceId',
     ];
 

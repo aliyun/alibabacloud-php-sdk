@@ -12,18 +12,20 @@ class TableMeta extends Model
      * @var string
      */
     public $catalogName;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'catalogName'  => 'catalogName',
+        'catalogName' => 'catalogName',
         'databaseName' => 'databaseName',
-        'tableName'    => 'tableName',
+        'tableName' => 'tableName',
     ];
 
     public function validate()

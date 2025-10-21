@@ -12,23 +12,26 @@ class ListSavepointsRequest extends Model
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'deploymentId' => 'deploymentId',
-        'jobId'        => 'jobId',
-        'pageIndex'    => 'pageIndex',
-        'pageSize'     => 'pageSize',
+        'jobId' => 'jobId',
+        'pageIndex' => 'pageIndex',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

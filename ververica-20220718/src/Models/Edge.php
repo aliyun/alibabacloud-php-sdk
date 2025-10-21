@@ -12,13 +12,14 @@ class Edge extends Model
      * @var Relation[]
      */
     public $columnLineage;
+
     /**
      * @var Relation[]
      */
     public $tableLineage;
     protected $_name = [
         'columnLineage' => 'columnLineage',
-        'tableLineage'  => 'tableLineage',
+        'tableLineage' => 'tableLineage',
     ];
 
     public function validate()
@@ -38,9 +39,10 @@ class Edge extends Model
         if (null !== $this->columnLineage) {
             if (\is_array($this->columnLineage)) {
                 $res['columnLineage'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->columnLineage as $item1) {
-                    $res['columnLineage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['columnLineage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,9 +50,10 @@ class Edge extends Model
         if (null !== $this->tableLineage) {
             if (\is_array($this->tableLineage)) {
                 $res['tableLineage'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->tableLineage as $item1) {
-                    $res['tableLineage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tableLineage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,9 +72,10 @@ class Edge extends Model
         if (isset($map['columnLineage'])) {
             if (!empty($map['columnLineage'])) {
                 $model->columnLineage = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['columnLineage'] as $item1) {
-                    $model->columnLineage[$n1++] = Relation::fromMap($item1);
+                    $model->columnLineage[$n1] = Relation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -79,9 +83,10 @@ class Edge extends Model
         if (isset($map['tableLineage'])) {
             if (!empty($map['tableLineage'])) {
                 $model->tableLineage = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['tableLineage'] as $item1) {
-                    $model->tableLineage[$n1++] = Relation::fromMap($item1);
+                    $model->tableLineage[$n1] = Relation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

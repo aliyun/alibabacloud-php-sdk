@@ -12,12 +12,13 @@ class HotUpdateJobParams extends Model
      * @var RescaleJobParam
      */
     public $rescaleJobParam;
+
     /**
      * @var UpdateJobConfigParam
      */
     public $updateJobConfigParam;
     protected $_name = [
-        'rescaleJobParam'      => 'rescaleJobParam',
+        'rescaleJobParam' => 'rescaleJobParam',
         'updateJobConfigParam' => 'updateJobConfigParam',
     ];
 

@@ -12,28 +12,32 @@ class UpdateUdfArtifactResult extends Model
      * @var UdfClass[]
      */
     public $collidingClasses;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var UdfClass[]
      */
     public $missingClasses;
+
     /**
      * @var UdfArtifact
      */
     public $udfArtifact;
+
     /**
      * @var bool
      */
     public $updateSuccess;
     protected $_name = [
         'collidingClasses' => 'collidingClasses',
-        'message'          => 'message',
-        'missingClasses'   => 'missingClasses',
-        'udfArtifact'      => 'udfArtifact',
-        'updateSuccess'    => 'updateSuccess',
+        'message' => 'message',
+        'missingClasses' => 'missingClasses',
+        'udfArtifact' => 'udfArtifact',
+        'updateSuccess' => 'updateSuccess',
     ];
 
     public function validate()
@@ -56,9 +60,10 @@ class UpdateUdfArtifactResult extends Model
         if (null !== $this->collidingClasses) {
             if (\is_array($this->collidingClasses)) {
                 $res['collidingClasses'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->collidingClasses as $item1) {
-                    $res['collidingClasses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['collidingClasses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,9 +75,10 @@ class UpdateUdfArtifactResult extends Model
         if (null !== $this->missingClasses) {
             if (\is_array($this->missingClasses)) {
                 $res['missingClasses'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->missingClasses as $item1) {
-                    $res['missingClasses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['missingClasses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,9 +105,10 @@ class UpdateUdfArtifactResult extends Model
         if (isset($map['collidingClasses'])) {
             if (!empty($map['collidingClasses'])) {
                 $model->collidingClasses = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['collidingClasses'] as $item1) {
-                    $model->collidingClasses[$n1++] = UdfClass::fromMap($item1);
+                    $model->collidingClasses[$n1] = UdfClass::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -113,9 +120,10 @@ class UpdateUdfArtifactResult extends Model
         if (isset($map['missingClasses'])) {
             if (!empty($map['missingClasses'])) {
                 $model->missingClasses = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['missingClasses'] as $item1) {
-                    $model->missingClasses[$n1++] = UdfClass::fromMap($item1);
+                    $model->missingClasses[$n1] = UdfClass::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

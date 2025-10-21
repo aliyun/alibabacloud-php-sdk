@@ -12,78 +12,92 @@ class ScheduledPlan extends Model
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $modifierName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var PeriodicSchedulingPolicy[]
      */
     public $periodicSchedulingPolicies;
+
     /**
      * @var string
      */
     public $scheduledPlanId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var bool
      */
     public $updatedByUser;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'createdAt'                  => 'createdAt',
-        'creator'                    => 'creator',
-        'creatorName'                => 'creatorName',
-        'deploymentId'               => 'deploymentId',
-        'modifiedAt'                 => 'modifiedAt',
-        'modifier'                   => 'modifier',
-        'modifierName'               => 'modifierName',
-        'name'                       => 'name',
-        'namespace'                  => 'namespace',
-        'origin'                     => 'origin',
+        'createdAt' => 'createdAt',
+        'creator' => 'creator',
+        'creatorName' => 'creatorName',
+        'deploymentId' => 'deploymentId',
+        'modifiedAt' => 'modifiedAt',
+        'modifier' => 'modifier',
+        'modifierName' => 'modifierName',
+        'name' => 'name',
+        'namespace' => 'namespace',
+        'origin' => 'origin',
         'periodicSchedulingPolicies' => 'periodicSchedulingPolicies',
-        'scheduledPlanId'            => 'scheduledPlanId',
-        'status'                     => 'status',
-        'updatedByUser'              => 'updatedByUser',
-        'workspace'                  => 'workspace',
+        'scheduledPlanId' => 'scheduledPlanId',
+        'status' => 'status',
+        'updatedByUser' => 'updatedByUser',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -140,9 +154,10 @@ class ScheduledPlan extends Model
         if (null !== $this->periodicSchedulingPolicies) {
             if (\is_array($this->periodicSchedulingPolicies)) {
                 $res['periodicSchedulingPolicies'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->periodicSchedulingPolicies as $item1) {
-                    $res['periodicSchedulingPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['periodicSchedulingPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -217,9 +232,10 @@ class ScheduledPlan extends Model
         if (isset($map['periodicSchedulingPolicies'])) {
             if (!empty($map['periodicSchedulingPolicies'])) {
                 $model->periodicSchedulingPolicies = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['periodicSchedulingPolicies'] as $item1) {
-                    $model->periodicSchedulingPolicies[$n1++] = PeriodicSchedulingPolicy::fromMap($item1);
+                    $model->periodicSchedulingPolicies[$n1] = PeriodicSchedulingPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

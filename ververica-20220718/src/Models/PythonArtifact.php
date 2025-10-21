@@ -12,33 +12,38 @@ class PythonArtifact extends Model
      * @var string[]
      */
     public $additionalDependencies;
+
     /**
      * @var string[]
      */
     public $additionalPythonArchives;
+
     /**
      * @var string[]
      */
     public $additionalPythonLibraries;
+
     /**
      * @var string
      */
     public $entryModule;
+
     /**
      * @var string
      */
     public $mainArgs;
+
     /**
      * @var string
      */
     public $pythonArtifactUri;
     protected $_name = [
-        'additionalDependencies'    => 'additionalDependencies',
-        'additionalPythonArchives'  => 'additionalPythonArchives',
+        'additionalDependencies' => 'additionalDependencies',
+        'additionalPythonArchives' => 'additionalPythonArchives',
         'additionalPythonLibraries' => 'additionalPythonLibraries',
-        'entryModule'               => 'entryModule',
-        'mainArgs'                  => 'mainArgs',
-        'pythonArtifactUri'         => 'pythonArtifactUri',
+        'entryModule' => 'entryModule',
+        'mainArgs' => 'mainArgs',
+        'pythonArtifactUri' => 'pythonArtifactUri',
     ];
 
     public function validate()
@@ -61,9 +66,10 @@ class PythonArtifact extends Model
         if (null !== $this->additionalDependencies) {
             if (\is_array($this->additionalDependencies)) {
                 $res['additionalDependencies'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->additionalDependencies as $item1) {
-                    $res['additionalDependencies'][$n1++] = $item1;
+                    $res['additionalDependencies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,9 +77,10 @@ class PythonArtifact extends Model
         if (null !== $this->additionalPythonArchives) {
             if (\is_array($this->additionalPythonArchives)) {
                 $res['additionalPythonArchives'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->additionalPythonArchives as $item1) {
-                    $res['additionalPythonArchives'][$n1++] = $item1;
+                    $res['additionalPythonArchives'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,9 +88,10 @@ class PythonArtifact extends Model
         if (null !== $this->additionalPythonLibraries) {
             if (\is_array($this->additionalPythonLibraries)) {
                 $res['additionalPythonLibraries'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->additionalPythonLibraries as $item1) {
-                    $res['additionalPythonLibraries'][$n1++] = $item1;
+                    $res['additionalPythonLibraries'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,9 +122,10 @@ class PythonArtifact extends Model
         if (isset($map['additionalDependencies'])) {
             if (!empty($map['additionalDependencies'])) {
                 $model->additionalDependencies = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['additionalDependencies'] as $item1) {
-                    $model->additionalDependencies[$n1++] = $item1;
+                    $model->additionalDependencies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,9 +133,10 @@ class PythonArtifact extends Model
         if (isset($map['additionalPythonArchives'])) {
             if (!empty($map['additionalPythonArchives'])) {
                 $model->additionalPythonArchives = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['additionalPythonArchives'] as $item1) {
-                    $model->additionalPythonArchives[$n1++] = $item1;
+                    $model->additionalPythonArchives[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,9 +144,10 @@ class PythonArtifact extends Model
         if (isset($map['additionalPythonLibraries'])) {
             if (!empty($map['additionalPythonLibraries'])) {
                 $model->additionalPythonLibraries = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['additionalPythonLibraries'] as $item1) {
-                    $model->additionalPythonLibraries[$n1++] = $item1;
+                    $model->additionalPythonLibraries[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

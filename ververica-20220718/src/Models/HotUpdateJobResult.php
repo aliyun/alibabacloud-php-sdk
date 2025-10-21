@@ -12,27 +12,31 @@ class HotUpdateJobResult extends Model
      * @var HotUpdateJobParams
      */
     public $hotUpdateParams;
+
     /**
      * @var string
      */
     public $jobHotUpdateId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var HotUpdateJobStatus
      */
     public $status;
+
     /**
      * @var BriefResourceSetting
      */
     public $targetResourceSetting;
     protected $_name = [
-        'hotUpdateParams'       => 'hotUpdateParams',
-        'jobHotUpdateId'        => 'jobHotUpdateId',
-        'jobId'                 => 'jobId',
-        'status'                => 'status',
+        'hotUpdateParams' => 'hotUpdateParams',
+        'jobHotUpdateId' => 'jobHotUpdateId',
+        'jobId' => 'jobId',
+        'status' => 'status',
         'targetResourceSetting' => 'targetResourceSetting',
     ];
 

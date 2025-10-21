@@ -12,12 +12,13 @@ class BasicResourceSettingSpec extends Model
      * @var float
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $memory;
     protected $_name = [
-        'cpu'    => 'cpu',
+        'cpu' => 'cpu',
         'memory' => 'memory',
     ];
 

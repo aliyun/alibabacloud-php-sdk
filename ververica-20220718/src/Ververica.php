@@ -8,6 +8,9 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ApplyScheduledPlanHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ApplyScheduledPlanResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CancelSqlPreviewHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CancelSqlPreviewRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CancelSqlPreviewResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftResponse;
@@ -17,6 +20,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetV2Headers;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetV2Request;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentTargetV2Response;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateFolderHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateFolderRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateFolderResponse;
@@ -71,6 +77,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\DeployDeploymentDraftAsyncRespon
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ExecuteSqlStatementHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ExecuteSqlStatementRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ExecuteSqlStatementResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlPreviewResultsHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlPreviewResultsRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlPreviewResultsResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\FlinkApiProxyHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\FlinkApiProxyRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\FlinkApiProxyResponse;
@@ -184,6 +193,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSessionClusterHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSessionClusterResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftResponse;
@@ -193,6 +205,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetV2Headers;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetV2Request;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentTargetV2Response;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateFolderHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateFolderRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateFolderResponse;
@@ -258,6 +273,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - ApplyScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ApplyScheduledPlanResponse
      *
      * @param string                    $namespace_
@@ -282,21 +298,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ApplyScheduledPlan',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '%3Aapply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyScheduledPlan',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '%3Aapply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApplyScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -318,11 +331,92 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * 取消调试.
+     *
+     * @param request - CancelSqlPreviewRequest
+     * @param headers - CancelSqlPreviewHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelSqlPreviewResponse
+     *
+     * @param string                  $namespace_
+     * @param CancelSqlPreviewRequest $request
+     * @param CancelSqlPreviewHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CancelSqlPreviewResponse
+     */
+    public function cancelSqlPreviewWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->queryId) {
+            @$query['queryId'] = $request->queryId;
+        }
+
+        if (null !== $request->sessionClusterName) {
+            @$query['sessionClusterName'] = $request->sessionClusterName;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelSqlPreview',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-preview/cancel',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelSqlPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消调试.
+     *
+     * @param request - CancelSqlPreviewRequest
+     *
+     * @returns CancelSqlPreviewResponse
+     *
+     * @param string                  $namespace_
+     * @param CancelSqlPreviewRequest $request
+     *
+     * @return CancelSqlPreviewResponse
+     */
+    public function cancelSqlPreview($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CancelSqlPreviewHeaders([]);
+
+        return $this->cancelSqlPreviewWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a deployment.
      *
      * @param request - CreateDeploymentRequest
      * @param headers - CreateDeploymentHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDeploymentResponse
      *
      * @param string                  $namespace_
@@ -346,30 +440,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDeployment',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDeployment',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a deployment.
      *
      * @param request - CreateDeploymentRequest
+     *
      * @returns CreateDeploymentResponse
      *
      * @param string                  $namespace_
@@ -391,6 +483,7 @@ class Ververica extends OpenApiClient
      * @param request - CreateDeploymentDraftRequest
      * @param headers - CreateDeploymentDraftHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDeploymentDraftResponse
      *
      * @param string                       $namespace_
@@ -414,30 +507,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDeploymentDraft',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDeploymentDraft',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDeploymentDraftResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * create a deploymentDraft.
      *
      * @param request - CreateDeploymentDraftRequest
+     *
      * @returns CreateDeploymentDraftResponse
      *
      * @param string                       $namespace_
@@ -459,6 +550,7 @@ class Ververica extends OpenApiClient
      * @param request - CreateDeploymentTargetRequest
      * @param headers - CreateDeploymentTargetHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDeploymentTargetResponse
      *
      * @param string                        $namespace_
@@ -487,31 +579,29 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($request->body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDeploymentTarget',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDeploymentTarget',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDeploymentTargetResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建deploymentTarget.
      *
      * @param request - CreateDeploymentTargetRequest
+     *
      * @returns CreateDeploymentTargetResponse
      *
      * @param string                        $namespace_
@@ -528,11 +618,85 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * 创建部署目标V2.
+     *
+     * @param request - CreateDeploymentTargetV2Request
+     * @param headers - CreateDeploymentTargetV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDeploymentTargetV2Response
+     *
+     * @param string                          $namespace_
+     * @param CreateDeploymentTargetV2Request $request
+     * @param CreateDeploymentTargetV2Headers $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDeploymentTargetV2Response
+     */
+    public function createDeploymentTargetV2WithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deploymentTargetName) {
+            @$query['deploymentTargetName'] = $request->deploymentTargetName;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDeploymentTargetV2',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets/support-elastic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDeploymentTargetV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建部署目标V2.
+     *
+     * @param request - CreateDeploymentTargetV2Request
+     *
+     * @returns CreateDeploymentTargetV2Response
+     *
+     * @param string                          $namespace_
+     * @param CreateDeploymentTargetV2Request $request
+     *
+     * @return CreateDeploymentTargetV2Response
+     */
+    public function createDeploymentTargetV2($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateDeploymentTargetV2Headers([]);
+
+        return $this->createDeploymentTargetV2WithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
      * create a folder.
      *
      * @param request - CreateFolderRequest
      * @param headers - CreateFolderHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFolderResponse
      *
      * @param string              $namespace_
@@ -556,30 +720,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFolder',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateFolder',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * create a folder.
      *
      * @param request - CreateFolderRequest
+     *
      * @returns CreateFolderResponse
      *
      * @param string              $namespace_
@@ -601,6 +763,7 @@ class Ververica extends OpenApiClient
      * @param request - CreateMemberRequest
      * @param headers - CreateMemberHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMemberResponse
      *
      * @param string              $namespace_
@@ -624,30 +787,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMember',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMember',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Adds a user to a namespace as a member and grants permissions to the user.
      *
      * @param request - CreateMemberRequest
+     *
      * @returns CreateMemberResponse
      *
      * @param string              $namespace_
@@ -669,6 +830,7 @@ class Ververica extends OpenApiClient
      * @param request - CreateSavepointRequest
      * @param headers - CreateSavepointHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSavepointResponse
      *
      * @param string                 $namespace_
@@ -705,30 +867,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSavepoint',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSavepoint',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSavepointResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a savepoint.
      *
      * @param request - CreateSavepointRequest
+     *
      * @returns CreateSavepointResponse
      *
      * @param string                 $namespace_
@@ -750,6 +910,7 @@ class Ververica extends OpenApiClient
      * @param request - CreateScheduledPlanRequest
      * @param headers - CreateScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateScheduledPlanResponse
      *
      * @param string                     $namespace_
@@ -773,30 +934,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateScheduledPlan',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateScheduledPlan',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建定时执行计划.
      *
      * @param request - CreateScheduledPlanRequest
+     *
      * @returns CreateScheduledPlanResponse
      *
      * @param string                     $namespace_
@@ -818,6 +977,7 @@ class Ververica extends OpenApiClient
      * @param request - CreateSessionClusterRequest
      * @param headers - CreateSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSessionClusterResponse
      *
      * @param string                      $namespace_
@@ -841,30 +1001,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSessionCluster',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSessionCluster',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建session集群.
      *
      * @param request - CreateSessionClusterRequest
+     *
      * @returns CreateSessionClusterResponse
      *
      * @param string                      $namespace_
@@ -886,6 +1044,7 @@ class Ververica extends OpenApiClient
      * @param request - CreateUdfArtifactRequest
      * @param headers - CreateUdfArtifactHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateUdfArtifactResponse
      *
      * @param string                   $namespace_
@@ -909,30 +1068,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateUdfArtifact',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateUdfArtifact',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUdfArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
      *
      * @param request - CreateUdfArtifactRequest
+     *
      * @returns CreateUdfArtifactResponse
      *
      * @param string                   $namespace_
@@ -954,6 +1111,7 @@ class Ververica extends OpenApiClient
      * @param request - CreateVariableRequest
      * @param headers - CreateVariableHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVariableResponse
      *
      * @param string                $namespace_
@@ -977,30 +1135,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVariable',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateVariable',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVariableResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a variable.
      *
      * @param request - CreateVariableRequest
+     *
      * @returns CreateVariableResponse
      *
      * @param string                $namespace_
@@ -1021,6 +1177,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteCustomConnectorHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCustomConnectorResponse
      *
      * @param string                       $namespace_
@@ -1045,21 +1202,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomConnector',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors/' . Url::percentEncode($connectorName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteCustomConnector',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors/' . Url::percentEncode($connectorName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCustomConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomConnectorResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1085,6 +1239,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteDeploymentHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDeploymentResponse
      *
      * @param string                  $namespace_
@@ -1109,21 +1264,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDeployment',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDeployment',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1149,6 +1301,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteDeploymentDraftHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDeploymentDraftResponse
      *
      * @param string                       $namespace_
@@ -1173,21 +1326,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDeploymentDraft',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDeploymentDraft',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDeploymentDraftResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1213,6 +1363,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteDeploymentTargetHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDeploymentTargetResponse
      *
      * @param string                        $namespace_
@@ -1237,21 +1388,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDeploymentTarget',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets/' . Url::percentEncode($deploymentTargetName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDeploymentTarget',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets/' . Url::percentEncode($deploymentTargetName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDeploymentTargetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1277,6 +1425,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteFolderHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFolderResponse
      *
      * @param string              $namespace_
@@ -1301,21 +1450,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteFolder',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder/' . Url::percentEncode($folderId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFolder',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder/' . Url::percentEncode($folderId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1341,6 +1487,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteJobHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteJobResponse
      *
      * @param string           $namespace_
@@ -1365,21 +1512,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteJob',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteJob',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1405,6 +1549,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteMemberHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMemberResponse
      *
      * @param string              $namespace_
@@ -1429,21 +1574,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteMember',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members/' . Url::percentEncode($member) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMember',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members/' . Url::percentEncode($member) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1469,6 +1611,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteSavepointHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSavepointResponse
      *
      * @param string                 $namespace_
@@ -1493,21 +1636,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteSavepoint',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints/' . Url::percentEncode($savepointId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSavepoint',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints/' . Url::percentEncode($savepointId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSavepointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1533,6 +1673,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteScheduledPlanResponse
      *
      * @param string                     $namespace_
@@ -1557,21 +1698,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteScheduledPlan',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteScheduledPlan',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1597,6 +1735,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSessionClusterResponse
      *
      * @param string                      $namespace_
@@ -1621,21 +1760,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteSessionCluster',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSessionCluster',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1661,6 +1797,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteUdfArtifactHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteUdfArtifactResponse
      *
      * @param string                   $namespace_
@@ -1685,21 +1822,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteUdfArtifact',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/' . Url::percentEncode($udfArtifactName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteUdfArtifact',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/' . Url::percentEncode($udfArtifactName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUdfArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1726,6 +1860,7 @@ class Ververica extends OpenApiClient
      * @param request - DeleteUdfFunctionRequest
      * @param headers - DeleteUdfFunctionHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteUdfFunctionResponse
      *
      * @param string                   $namespace_
@@ -1759,30 +1894,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUdfFunction',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/function/' . Url::percentEncode($functionName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteUdfFunction',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/function/' . Url::percentEncode($functionName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUdfFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUdfFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUdfFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes an existing user-defined function (UDF) from a Realtime Compute for Apache Flink workspace.
      *
      * @param request - DeleteUdfFunctionRequest
+     *
      * @returns DeleteUdfFunctionResponse
      *
      * @param string                   $namespace_
@@ -1804,6 +1937,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - DeleteVariableHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVariableResponse
      *
      * @param string                $namespace_
@@ -1828,21 +1962,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteVariable',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables/' . Url::percentEncode($name) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteVariable',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVariableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVariableResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1869,6 +2000,7 @@ class Ververica extends OpenApiClient
      * @param request - DeployDeploymentDraftAsyncRequest
      * @param headers - DeployDeploymentDraftAsyncHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeployDeploymentDraftAsyncResponse
      *
      * @param string                            $namespace_
@@ -1892,30 +2024,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'DeployDeploymentDraftAsync',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/async-deploy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeployDeploymentDraftAsync',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/async-deploy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeployDeploymentDraftAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeployDeploymentDraftAsyncResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeployDeploymentDraftAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * deploy deploymentDraft async.
      *
      * @param request - DeployDeploymentDraftAsyncRequest
+     *
      * @returns DeployDeploymentDraftAsyncResponse
      *
      * @param string                            $namespace_
@@ -1937,6 +2067,7 @@ class Ververica extends OpenApiClient
      * @param request - ExecuteSqlStatementRequest
      * @param headers - ExecuteSqlStatementHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteSqlStatementResponse
      *
      * @param string                     $namespace_
@@ -1960,30 +2091,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteSqlStatement',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-statement/execute',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExecuteSqlStatement',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-statement/execute',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteSqlStatementResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 执行sql语句.
      *
      * @param request - ExecuteSqlStatementRequest
+     *
      * @returns ExecuteSqlStatementResponse
      *
      * @param string                     $namespace_
@@ -2000,11 +2129,92 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * 获取调试结果.
+     *
+     * @param request - FetchSqlPreviewResultsRequest
+     * @param headers - FetchSqlPreviewResultsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchSqlPreviewResultsResponse
+     *
+     * @param string                        $namespace_
+     * @param FetchSqlPreviewResultsRequest $request
+     * @param FetchSqlPreviewResultsHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return FetchSqlPreviewResultsResponse
+     */
+    public function fetchSqlPreviewResultsWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->queryId) {
+            @$query['queryId'] = $request->queryId;
+        }
+
+        if (null !== $request->sessionClusterName) {
+            @$query['sessionClusterName'] = $request->sessionClusterName;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FetchSqlPreviewResults',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-preview/fetchResults',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return FetchSqlPreviewResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取调试结果.
+     *
+     * @param request - FetchSqlPreviewResultsRequest
+     *
+     * @returns FetchSqlPreviewResultsResponse
+     *
+     * @param string                        $namespace_
+     * @param FetchSqlPreviewResultsRequest $request
+     *
+     * @return FetchSqlPreviewResultsResponse
+     */
+    public function fetchSqlPreviewResults($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FetchSqlPreviewResultsHeaders([]);
+
+        return $this->fetchSqlPreviewResultsWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
      * Provides a Flink request proxy.
      *
      * @param request - FlinkApiProxyRequest
      * @param headers - FlinkApiProxyHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns FlinkApiProxyResponse
      *
      * @param FlinkApiProxyRequest $request
@@ -2044,30 +2254,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FlinkApiProxy',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/flink-ui/v2/proxy',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FlinkApiProxy',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/flink-ui/v2/proxy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FlinkApiProxyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FlinkApiProxyResponse::fromMap($this->execute($params, $req, $runtime));
+        return FlinkApiProxyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Provides a Flink request proxy.
      *
      * @param request - FlinkApiProxyRequest
+     *
      * @returns FlinkApiProxyResponse
      *
      * @param FlinkApiProxyRequest $request
@@ -2088,6 +2296,7 @@ class Ververica extends OpenApiClient
      * @param request - GenerateResourcePlanWithFlinkConfAsyncRequest
      * @param headers - GenerateResourcePlanWithFlinkConfAsyncHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateResourcePlanWithFlinkConfAsyncResponse
      *
      * @param string                                        $namespace_
@@ -2112,30 +2321,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateResourcePlanWithFlinkConfAsync',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/resource-plan%3AasyncGenerate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenerateResourcePlanWithFlinkConfAsync',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/resource-plan%3AasyncGenerate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateResourcePlanWithFlinkConfAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateResourcePlanWithFlinkConfAsyncResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateResourcePlanWithFlinkConfAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
      *
      * @param request - GenerateResourcePlanWithFlinkConfAsyncRequest
+     *
      * @returns GenerateResourcePlanWithFlinkConfAsyncResponse
      *
      * @param string                                        $namespace_
@@ -2158,6 +2365,7 @@ class Ververica extends OpenApiClient
      * @param request - GetAppliedScheduledPlanRequest
      * @param headers - GetAppliedScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAppliedScheduledPlanResponse
      *
      * @param string                         $namespace_
@@ -2186,30 +2394,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAppliedScheduledPlan',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans%3AgetExecutedScheduledPlan',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAppliedScheduledPlan',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans%3AgetExecutedScheduledPlan',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAppliedScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAppliedScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAppliedScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取应用中的执行定时计划.
      *
      * @param request - GetAppliedScheduledPlanRequest
+     *
      * @returns GetAppliedScheduledPlanResponse
      *
      * @param string                         $namespace_
@@ -2231,6 +2437,7 @@ class Ververica extends OpenApiClient
      * @param request - GetCatalogsRequest
      * @param headers - GetCatalogsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCatalogsResponse
      *
      * @param string             $namespace_
@@ -2259,30 +2466,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCatalogs',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCatalogs',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCatalogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取catalog.
      *
      * @param request - GetCatalogsRequest
+     *
      * @returns GetCatalogsResponse
      *
      * @param string             $namespace_
@@ -2304,6 +2509,7 @@ class Ververica extends OpenApiClient
      * @param request - GetDatabasesRequest
      * @param headers - GetDatabasesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDatabasesResponse
      *
      * @param string              $namespace_
@@ -2333,30 +2539,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDatabases',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs/' . Url::percentEncode($catalogName) . '/databases',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDatabases',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs/' . Url::percentEncode($catalogName) . '/databases',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取database.
      *
      * @param request - GetDatabasesRequest
+     *
      * @returns GetDatabasesResponse
      *
      * @param string              $namespace_
@@ -2378,6 +2582,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetDeployDeploymentDraftResultHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeployDeploymentDraftResultResponse
      *
      * @param string                                $namespace_
@@ -2402,21 +2607,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetDeployDeploymentDraftResult',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/tickets/' . Url::percentEncode($ticketId) . '/async-deploy',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeployDeploymentDraftResult',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/tickets/' . Url::percentEncode($ticketId) . '/async-deploy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDeployDeploymentDraftResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDeployDeploymentDraftResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDeployDeploymentDraftResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2442,6 +2644,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetDeploymentHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeploymentResponse
      *
      * @param string               $namespace_
@@ -2466,21 +2669,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetDeployment',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeployment',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2506,6 +2706,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetDeploymentDraftHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeploymentDraftResponse
      *
      * @param string                    $namespace_
@@ -2530,21 +2731,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetDeploymentDraft',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeploymentDraft',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDeploymentDraftResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2571,6 +2769,7 @@ class Ververica extends OpenApiClient
      * @param request - GetDeploymentDraftLockRequest
      * @param headers - GetDeploymentDraftLockHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeploymentDraftLockResponse
      *
      * @param string                        $namespace_
@@ -2599,30 +2798,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeploymentDraftLock',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/getLock',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeploymentDraftLock',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/getLock',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDeploymentDraftLockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDeploymentDraftLockResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDeploymentDraftLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * get deploymentDraft lock.
      *
      * @param request - GetDeploymentDraftLockRequest
+     *
      * @returns GetDeploymentDraftLockResponse
      *
      * @param string                        $namespace_
@@ -2644,6 +2841,7 @@ class Ververica extends OpenApiClient
      * @param request - GetEventsRequest
      * @param headers - GetEventsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetEventsResponse
      *
      * @param string           $namespace_
@@ -2680,30 +2878,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetEvents',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/events',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetEvents',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/events',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取运行事件.
      *
      * @param request - GetEventsRequest
+     *
      * @returns GetEventsResponse
      *
      * @param string           $namespace_
@@ -2725,6 +2921,7 @@ class Ververica extends OpenApiClient
      * @param request - GetFolderRequest
      * @param headers - GetFolderHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFolderResponse
      *
      * @param string           $namespace_
@@ -2753,30 +2950,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFolder',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFolder',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * get a folder.
      *
      * @param request - GetFolderRequest
+     *
      * @returns GetFolderResponse
      *
      * @param string           $namespace_
@@ -2797,6 +2992,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetGenerateResourcePlanResultHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetGenerateResourcePlanResultResponse
      *
      * @param string                               $namespace_
@@ -2821,21 +3017,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetGenerateResourcePlanResult',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/tickets/' . Url::percentEncode($ticketId) . '/resource-plan%3AasyncGenerate',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetGenerateResourcePlanResult',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/tickets/' . Url::percentEncode($ticketId) . '/resource-plan%3AasyncGenerate',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetGenerateResourcePlanResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetGenerateResourcePlanResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetGenerateResourcePlanResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2861,6 +3054,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetHotUpdateJobResultHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotUpdateJobResultResponse
      *
      * @param string                       $namespace_
@@ -2885,21 +3079,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetHotUpdateJobResult',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/hot-updates/' . Url::percentEncode($jobHotUpdateId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHotUpdateJobResult',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/hot-updates/' . Url::percentEncode($jobHotUpdateId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotUpdateJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotUpdateJobResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotUpdateJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2925,6 +3116,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetJobHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetJobResponse
      *
      * @param string         $namespace_
@@ -2949,21 +3141,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetJob',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetJob',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2989,6 +3178,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetJobDiagnosisHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetJobDiagnosisResponse
      *
      * @param string                 $namespace_
@@ -3014,21 +3204,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetJobDiagnosis',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/jobs/' . Url::percentEncode($jobId) . '/job-diagnoses/lite',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetJobDiagnosis',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/jobs/' . Url::percentEncode($jobId) . '/job-diagnoses/lite',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobDiagnosisResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3055,6 +3242,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetLatestJobStartLogHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetLatestJobStartLogResponse
      *
      * @param string                      $namespace_
@@ -3079,21 +3267,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetLatestJobStartLog',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/latest_jobmanager_start_log',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLatestJobStartLog',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/latest_jobmanager_start_log',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLatestJobStartLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLatestJobStartLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLatestJobStartLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3120,6 +3305,7 @@ class Ververica extends OpenApiClient
      * @param request - GetLineageInfoRequest
      * @param headers - GetLineageInfoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetLineageInfoResponse
      *
      * @param GetLineageInfoRequest $request
@@ -3142,30 +3328,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'GetLineageInfo',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/meta/v2/lineage',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLineageInfo',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/meta/v2/lineage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLineageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLineageInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLineageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains the lineage information of a deployment.
      *
      * @param request - GetLineageInfoRequest
+     *
      * @returns GetLineageInfoResponse
      *
      * @param GetLineageInfoRequest $request
@@ -3185,6 +3369,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetMemberHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMemberResponse
      *
      * @param string           $namespace_
@@ -3209,21 +3394,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetMember',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members/' . Url::percentEncode($member) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMember',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members/' . Url::percentEncode($member) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3249,6 +3431,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetSavepointHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSavepointResponse
      *
      * @param string              $namespace_
@@ -3273,21 +3456,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetSavepoint',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints/' . Url::percentEncode($savepointId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSavepoint',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints/' . Url::percentEncode($savepointId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSavepointResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3313,6 +3493,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - GetSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSessionClusterResponse
      *
      * @param string                   $namespace_
@@ -3337,21 +3518,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetSessionCluster',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSessionCluster',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3378,6 +3556,7 @@ class Ververica extends OpenApiClient
      * @param request - GetTablesRequest
      * @param headers - GetTablesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTablesResponse
      *
      * @param string           $namespace_
@@ -3408,30 +3587,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTables',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs/' . Url::percentEncode($catalogName) . '/databases/' . Url::percentEncode($databaseName) . '/tables',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTables',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs/' . Url::percentEncode($catalogName) . '/databases/' . Url::percentEncode($databaseName) . '/tables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取table.
      *
      * @param request - GetTablesRequest
+     *
      * @returns GetTablesResponse
      *
      * @param string           $namespace_
@@ -3455,6 +3632,7 @@ class Ververica extends OpenApiClient
      * @param request - GetUdfArtifactsRequest
      * @param headers - GetUdfArtifactsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUdfArtifactsResponse
      *
      * @param string                 $namespace_
@@ -3483,30 +3661,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUdfArtifacts',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUdfArtifacts',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUdfArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUdfArtifactsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUdfArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains the details of the JAR or Python file that corresponds to the user-defined function (UDF) that you upload and create.
      *
      * @param request - GetUdfArtifactsRequest
+     *
      * @returns GetUdfArtifactsResponse
      *
      * @param string                 $namespace_
@@ -3527,6 +3703,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - HotUpdateJobHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HotUpdateJobResponse
      *
      * @param string              $namespace_
@@ -3551,21 +3728,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'HotUpdateJob',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '%3AhotUpdate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'HotUpdateJob',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '%3AhotUpdate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return HotUpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return HotUpdateJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return HotUpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3591,6 +3765,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - ListCustomConnectorsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCustomConnectorsResponse
      *
      * @param string                      $namespace_
@@ -3614,21 +3789,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ListCustomConnectors',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCustomConnectors',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCustomConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCustomConnectorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCustomConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3654,6 +3826,7 @@ class Ververica extends OpenApiClient
      * @param request - ListDeploymentDraftsRequest
      * @param headers - ListDeploymentDraftsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDeploymentDraftsResponse
      *
      * @param string                      $namespace_
@@ -3686,30 +3859,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeploymentDrafts',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDeploymentDrafts',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDeploymentDraftsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDeploymentDraftsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDeploymentDraftsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * list deploymentDrafts.
      *
      * @param request - ListDeploymentDraftsRequest
+     *
      * @returns ListDeploymentDraftsResponse
      *
      * @param string                      $namespace_
@@ -3731,6 +3902,7 @@ class Ververica extends OpenApiClient
      * @param request - ListDeploymentTargetsRequest
      * @param headers - ListDeploymentTargetsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDeploymentTargetsResponse
      *
      * @param string                       $namespace_
@@ -3763,30 +3935,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeploymentTargets',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDeploymentTargets',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDeploymentTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDeploymentTargetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDeploymentTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
      *
      * @param request - ListDeploymentTargetsRequest
+     *
      * @returns ListDeploymentTargetsResponse
      *
      * @param string                       $namespace_
@@ -3808,6 +3978,7 @@ class Ververica extends OpenApiClient
      * @param request - ListDeploymentsRequest
      * @param headers - ListDeploymentsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDeploymentsResponse
      *
      * @param string                 $namespace_
@@ -3872,30 +4043,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeployments',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDeployments',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDeploymentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains information about all deployments.
      *
      * @param request - ListDeploymentsRequest
+     *
      * @returns ListDeploymentsResponse
      *
      * @param string                 $namespace_
@@ -3917,6 +4086,7 @@ class Ververica extends OpenApiClient
      * @param request - ListEditableNamespaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEditableNamespaceResponse
      *
      * @param ListEditableNamespaceRequest $request
@@ -3951,30 +4121,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEditableNamespace',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/editable',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEditableNamespace',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gateway/v2/namespaces/editable',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEditableNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEditableNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEditableNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列出有编辑权限的项目空间。
      *
      * @param request - ListEditableNamespaceRequest
+     *
      * @returns ListEditableNamespaceResponse
      *
      * @param ListEditableNamespaceRequest $request
@@ -3994,6 +4162,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - ListEngineVersionMetadataHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEngineVersionMetadataResponse
      *
      * @param ListEngineVersionMetadataHeaders $headers
@@ -4016,21 +4185,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ListEngineVersionMetadata',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/engine-version-meta.json',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEngineVersionMetadata',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/engine-version-meta.json',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEngineVersionMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEngineVersionMetadataResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEngineVersionMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4054,6 +4220,7 @@ class Ververica extends OpenApiClient
      * @param request - ListJobsRequest
      * @param headers - ListJobsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListJobsResponse
      *
      * @param string          $namespace_
@@ -4094,30 +4261,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobs',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListJobs',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about all jobs in a deployment.
      *
      * @param request - ListJobsRequest
+     *
      * @returns ListJobsResponse
      *
      * @param string          $namespace_
@@ -4139,6 +4304,7 @@ class Ververica extends OpenApiClient
      * @param request - ListMembersRequest
      * @param headers - ListMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMembersResponse
      *
      * @param string             $namespace_
@@ -4171,30 +4337,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMembers',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMembers',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the mappings between the ID and permissions of a member in a specific namespace.
      *
      * @param request - ListMembersRequest
+     *
      * @returns ListMembersResponse
      *
      * @param string             $namespace_
@@ -4216,6 +4380,7 @@ class Ververica extends OpenApiClient
      * @param request - ListSavepointsRequest
      * @param headers - ListSavepointsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSavepointsResponse
      *
      * @param string                $namespace_
@@ -4256,30 +4421,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSavepoints',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSavepoints',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSavepointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSavepointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSavepointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains a list of savepoints or checkpoints.
      *
      * @param request - ListSavepointsRequest
+     *
      * @returns ListSavepointsResponse
      *
      * @param string                $namespace_
@@ -4301,6 +4464,7 @@ class Ververica extends OpenApiClient
      * @param request - ListScheduledPlanRequest
      * @param headers - ListScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListScheduledPlanResponse
      *
      * @param string                   $namespace_
@@ -4337,30 +4501,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScheduledPlan',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListScheduledPlan',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列表定时执行计划.
      *
      * @param request - ListScheduledPlanRequest
+     *
      * @returns ListScheduledPlanResponse
      *
      * @param string                   $namespace_
@@ -4382,6 +4544,7 @@ class Ververica extends OpenApiClient
      * @param request - ListScheduledPlanExecutedHistoryRequest
      * @param headers - ListScheduledPlanExecutedHistoryHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListScheduledPlanExecutedHistoryResponse
      *
      * @param string                                  $namespace_
@@ -4414,30 +4577,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScheduledPlanExecutedHistory',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/job-resource-upgradings',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListScheduledPlanExecutedHistory',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/job-resource-upgradings',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListScheduledPlanExecutedHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListScheduledPlanExecutedHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListScheduledPlanExecutedHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取作业资源变更历史.
      *
      * @param request - ListScheduledPlanExecutedHistoryRequest
+     *
      * @returns ListScheduledPlanExecutedHistoryResponse
      *
      * @param string                                  $namespace_
@@ -4458,6 +4619,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - ListSessionClustersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSessionClustersResponse
      *
      * @param string                     $namespace_
@@ -4481,21 +4643,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ListSessionClusters',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSessionClusters',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSessionClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSessionClustersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSessionClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4521,6 +4680,7 @@ class Ververica extends OpenApiClient
      * @param request - ListVariablesRequest
      * @param headers - ListVariablesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVariablesResponse
      *
      * @param string               $namespace_
@@ -4553,30 +4713,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVariables',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListVariables',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVariablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains a list of variables.
      *
      * @param request - ListVariablesRequest
+     *
      * @returns ListVariablesResponse
      *
      * @param string               $namespace_
@@ -4598,6 +4756,7 @@ class Ververica extends OpenApiClient
      * @param request - RegisterCustomConnectorRequest
      * @param headers - RegisterCustomConnectorHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterCustomConnectorResponse
      *
      * @param string                         $namespace_
@@ -4626,30 +4785,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterCustomConnector',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors%3Aregister',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RegisterCustomConnector',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors%3Aregister',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RegisterCustomConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterCustomConnectorResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterCustomConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Registers a custom connector in a namespace. The registered custom connector can be used in SQL statements.
      *
      * @param request - RegisterCustomConnectorRequest
+     *
      * @returns RegisterCustomConnectorResponse
      *
      * @param string                         $namespace_
@@ -4671,6 +4828,7 @@ class Ververica extends OpenApiClient
      * @param request - RegisterUdfFunctionRequest
      * @param headers - RegisterUdfFunctionHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterUdfFunctionResponse
      *
      * @param string                     $namespace_
@@ -4707,30 +4865,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterUdfFunction',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/function%3AregisterUdfFunction',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RegisterUdfFunction',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/function%3AregisterUdfFunction',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RegisterUdfFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterUdfFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterUdfFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Registers specific or all of the user-defined functions (UDFs) that are parsed from the JAR files. The registered functions can be used in SQL statements.
      *
      * @param request - RegisterUdfFunctionRequest
+     *
      * @returns RegisterUdfFunctionResponse
      *
      * @param string                     $namespace_
@@ -4746,8 +4902,6 @@ class Ververica extends OpenApiClient
         return $this->registerUdfFunctionWithOptions($namespace_, $request, $headers, $runtime);
     }
 
-    // Deprecated
-
     /**
      * Creates and starts a job.
      *
@@ -4756,6 +4910,7 @@ class Ververica extends OpenApiClient
      * @param request - StartJobRequest
      * @param headers - StartJobHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartJobResponse
      *
      * @param string          $namespace_
@@ -4779,34 +4934,31 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'StartJob',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartJob',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * Creates and starts a job.
      *
      * @deprecated OpenAPI StartJob is deprecated
      *
      * @param request - StartJobRequest
+     *
      * @returns StartJobResponse
      *
      * @param string          $namespace_
@@ -4828,6 +4980,7 @@ class Ververica extends OpenApiClient
      * @param request - StartJobWithParamsRequest
      * @param headers - StartJobWithParamsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartJobWithParamsResponse
      *
      * @param string                    $namespace_
@@ -4851,30 +5004,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'StartJobWithParams',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs%3Astart',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartJobWithParams',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs%3Astart',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartJobWithParamsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartJobWithParamsResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartJobWithParamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Starts a job.
      *
      * @param request - StartJobWithParamsRequest
+     *
      * @returns StartJobWithParamsResponse
      *
      * @param string                    $namespace_
@@ -4895,6 +5046,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - StartSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartSessionClusterResponse
      *
      * @param string                     $namespace_
@@ -4919,21 +5071,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'StartSessionCluster',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '%3Astart',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartSessionCluster',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '%3Astart',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4959,6 +5108,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - StopApplyScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopApplyScheduledPlanResponse
      *
      * @param string                        $namespace_
@@ -4983,21 +5133,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'StopApplyScheduledPlan',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '%3Astop',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopApplyScheduledPlan',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '%3Astop',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopApplyScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5024,6 +5171,7 @@ class Ververica extends OpenApiClient
      * @param request - StopJobRequest
      * @param headers - StopJobHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopJobResponse
      *
      * @param string         $namespace_
@@ -5048,30 +5196,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'StopJob',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '%3Astop',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopJob',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '%3Astop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Stops a job.
      *
      * @param request - StopJobRequest
+     *
      * @returns StopJobResponse
      *
      * @param string         $namespace_
@@ -5093,6 +5239,7 @@ class Ververica extends OpenApiClient
      *
      * @param headers - StopSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopSessionClusterResponse
      *
      * @param string                    $namespace_
@@ -5117,21 +5264,18 @@ class Ververica extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'StopSessionCluster',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '%3Astop',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopSessionCluster',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '%3Astop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5153,11 +5297,85 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * 提交sql调试.
+     *
+     * @param request - SubmitSqlPreviewRequest
+     * @param headers - SubmitSqlPreviewHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSqlPreviewResponse
+     *
+     * @param string                  $namespace_
+     * @param SubmitSqlPreviewRequest $request
+     * @param SubmitSqlPreviewHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitSqlPreviewResponse
+     */
+    public function submitSqlPreviewWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sessionClusterName) {
+            @$query['sessionClusterName'] = $request->sessionClusterName;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSqlPreview',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-preview/submit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSqlPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交sql调试.
+     *
+     * @param request - SubmitSqlPreviewRequest
+     *
+     * @returns SubmitSqlPreviewResponse
+     *
+     * @param string                  $namespace_
+     * @param SubmitSqlPreviewRequest $request
+     *
+     * @return SubmitSqlPreviewResponse
+     */
+    public function submitSqlPreview($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SubmitSqlPreviewHeaders([]);
+
+        return $this->submitSqlPreviewWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates information about a deployment.
      *
      * @param request - UpdateDeploymentRequest
      * @param headers - UpdateDeploymentHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDeploymentResponse
      *
      * @param string                  $namespace_
@@ -5182,30 +5400,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDeployment',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDeployment',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates information about a deployment.
      *
      * @param request - UpdateDeploymentRequest
+     *
      * @returns UpdateDeploymentResponse
      *
      * @param string                  $namespace_
@@ -5228,6 +5444,7 @@ class Ververica extends OpenApiClient
      * @param request - UpdateDeploymentDraftRequest
      * @param headers - UpdateDeploymentDraftHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDeploymentDraftResponse
      *
      * @param string                       $namespace_
@@ -5252,30 +5469,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDeploymentDraft',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDeploymentDraft',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDeploymentDraftResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * update a deploymentDraft.
      *
      * @param request - UpdateDeploymentDraftRequest
+     *
      * @returns UpdateDeploymentDraftResponse
      *
      * @param string                       $namespace_
@@ -5298,6 +5513,7 @@ class Ververica extends OpenApiClient
      * @param request - UpdateDeploymentTargetRequest
      * @param headers - UpdateDeploymentTargetHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDeploymentTargetResponse
      *
      * @param string                        $namespace_
@@ -5322,30 +5538,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDeploymentTarget',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets/' . Url::percentEncode($deploymentTargetName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDeploymentTarget',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets/' . Url::percentEncode($deploymentTargetName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDeploymentTargetResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改deploymentTarget.
      *
      * @param request - UpdateDeploymentTargetRequest
+     *
      * @returns UpdateDeploymentTargetResponse
      *
      * @param string                        $namespace_
@@ -5363,11 +5577,81 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * 更新部署目标.
+     *
+     * @param request - UpdateDeploymentTargetV2Request
+     * @param headers - UpdateDeploymentTargetV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDeploymentTargetV2Response
+     *
+     * @param string                          $namespace_
+     * @param string                          $deploymentTargetName
+     * @param UpdateDeploymentTargetV2Request $request
+     * @param UpdateDeploymentTargetV2Headers $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateDeploymentTargetV2Response
+     */
+    public function updateDeploymentTargetV2WithOptions($namespace_, $deploymentTargetName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDeploymentTargetV2',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets/support-elastic/' . Url::percentEncode($deploymentTargetName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDeploymentTargetV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新部署目标.
+     *
+     * @param request - UpdateDeploymentTargetV2Request
+     *
+     * @returns UpdateDeploymentTargetV2Response
+     *
+     * @param string                          $namespace_
+     * @param string                          $deploymentTargetName
+     * @param UpdateDeploymentTargetV2Request $request
+     *
+     * @return UpdateDeploymentTargetV2Response
+     */
+    public function updateDeploymentTargetV2($namespace_, $deploymentTargetName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateDeploymentTargetV2Headers([]);
+
+        return $this->updateDeploymentTargetV2WithOptions($namespace_, $deploymentTargetName, $request, $headers, $runtime);
+    }
+
+    /**
      * update a folder.
      *
      * @param request - UpdateFolderRequest
      * @param headers - UpdateFolderHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFolderResponse
      *
      * @param string              $namespace_
@@ -5392,30 +5676,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFolder',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder/' . Url::percentEncode($folderId) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFolder',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder/' . Url::percentEncode($folderId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * update a folder.
      *
      * @param request - UpdateFolderRequest
+     *
      * @returns UpdateFolderResponse
      *
      * @param string              $namespace_
@@ -5438,6 +5720,7 @@ class Ververica extends OpenApiClient
      * @param request - UpdateMemberRequest
      * @param headers - UpdateMemberHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateMemberResponse
      *
      * @param string              $namespace_
@@ -5461,30 +5744,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMember',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMember',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates the permissions of one or more members in a specific namespace.
      *
      * @param request - UpdateMemberRequest
+     *
      * @returns UpdateMemberResponse
      *
      * @param string              $namespace_
@@ -5506,6 +5787,7 @@ class Ververica extends OpenApiClient
      * @param request - UpdateScheduledPlanRequest
      * @param headers - UpdateScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateScheduledPlanResponse
      *
      * @param string                     $namespace_
@@ -5530,30 +5812,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateScheduledPlan',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateScheduledPlan',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新定时执行计划.
      *
      * @param request - UpdateScheduledPlanRequest
+     *
      * @returns UpdateScheduledPlanResponse
      *
      * @param string                     $namespace_
@@ -5576,6 +5856,7 @@ class Ververica extends OpenApiClient
      * @param request - UpdateSessionClusterRequest
      * @param headers - UpdateSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSessionClusterResponse
      *
      * @param string                      $namespace_
@@ -5600,30 +5881,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSessionCluster',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSessionCluster',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新session集群.
      *
      * @param request - UpdateSessionClusterRequest
+     *
      * @returns UpdateSessionClusterResponse
      *
      * @param string                      $namespace_
@@ -5646,6 +5925,7 @@ class Ververica extends OpenApiClient
      * @param request - UpdateUdfArtifactRequest
      * @param headers - UpdateUdfArtifactHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUdfArtifactResponse
      *
      * @param string                   $namespace_
@@ -5670,30 +5950,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUdfArtifact',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/' . Url::percentEncode($udfArtifactName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateUdfArtifact',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/' . Url::percentEncode($udfArtifactName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUdfArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates the JAR file of the user-defined function (UDF) that you create.
      *
      * @param request - UpdateUdfArtifactRequest
+     *
      * @returns UpdateUdfArtifactResponse
      *
      * @param string                   $namespace_
@@ -5716,6 +5994,7 @@ class Ververica extends OpenApiClient
      * @param request - UpdateVariableRequest
      * @param headers - UpdateVariableHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVariableResponse
      *
      * @param string                $namespace_
@@ -5740,30 +6019,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVariable',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables/' . Url::percentEncode($name) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateVariable',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables/' . Url::percentEncode($name) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVariableResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新秘钥.
      *
      * @param request - UpdateVariableRequest
+     *
      * @returns UpdateVariableResponse
      *
      * @param string                $namespace_
@@ -5786,6 +6063,7 @@ class Ververica extends OpenApiClient
      * @param request - ValidateSqlStatementRequest
      * @param headers - ValidateSqlStatementHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ValidateSqlStatementResponse
      *
      * @param string                      $namespace_
@@ -5809,30 +6087,28 @@ class Ververica extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ValidateSqlStatement',
-            'version'     => '2022-07-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-statement/validate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ValidateSqlStatement',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-statement/validate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ValidateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValidateSqlStatementResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValidateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Verifies the code of an SQL deployment.
      *
      * @param request - ValidateSqlStatementRequest
+     *
      * @returns ValidateSqlStatementResponse
      *
      * @param string                      $namespace_

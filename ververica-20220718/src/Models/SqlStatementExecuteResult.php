@@ -12,18 +12,20 @@ class SqlStatementExecuteResult extends Model
      * @var ErrorDetails
      */
     public $errorDetails;
+
     /**
      * @var bool
      */
     public $executeSuccess;
+
     /**
      * @var string
      */
     public $statement;
     protected $_name = [
-        'errorDetails'   => 'errorDetails',
+        'errorDetails' => 'errorDetails',
         'executeSuccess' => 'executeSuccess',
-        'statement'      => 'statement',
+        'statement' => 'statement',
     ];
 
     public function validate()

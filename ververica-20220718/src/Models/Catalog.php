@@ -9,20 +9,30 @@ use AlibabaCloud\Dara\Model;
 class Catalog extends Model
 {
     /**
+     * @var string[]
+     */
+    public $extensionConf;
+
+    /**
      * @var string
      */
     public $name;
+
     /**
      * @var mixed[]
      */
     public $properties;
     protected $_name = [
-        'name'       => 'name',
+        'extensionConf' => 'extensionConf',
+        'name' => 'name',
         'properties' => 'properties',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extensionConf)) {
+            Model::validateArray($this->extensionConf);
+        }
         if (\is_array($this->properties)) {
             Model::validateArray($this->properties);
         }
@@ -32,6 +42,15 @@ class Catalog extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extensionConf) {
+            if (\is_array($this->extensionConf)) {
+                $res['extensionConf'] = [];
+                foreach ($this->extensionConf as $key1 => $value1) {
+                    $res['extensionConf'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -56,6 +75,15 @@ class Catalog extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['extensionConf'])) {
+            if (!empty($map['extensionConf'])) {
+                $model->extensionConf = [];
+                foreach ($map['extensionConf'] as $key1 => $value1) {
+                    $model->extensionConf[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

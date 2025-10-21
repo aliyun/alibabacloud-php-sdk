@@ -12,18 +12,20 @@ class SessionClusterRunningInfo extends Model
      * @var int
      */
     public $lastUpdateTime;
+
     /**
      * @var string[]
      */
     public $referenceDeploymentIds;
+
     /**
      * @var int
      */
     public $startedAt;
     protected $_name = [
-        'lastUpdateTime'         => 'lastUpdateTime',
+        'lastUpdateTime' => 'lastUpdateTime',
         'referenceDeploymentIds' => 'referenceDeploymentIds',
-        'startedAt'              => 'startedAt',
+        'startedAt' => 'startedAt',
     ];
 
     public function validate()
@@ -44,9 +46,10 @@ class SessionClusterRunningInfo extends Model
         if (null !== $this->referenceDeploymentIds) {
             if (\is_array($this->referenceDeploymentIds)) {
                 $res['referenceDeploymentIds'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->referenceDeploymentIds as $item1) {
-                    $res['referenceDeploymentIds'][$n1++] = $item1;
+                    $res['referenceDeploymentIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,9 +76,10 @@ class SessionClusterRunningInfo extends Model
         if (isset($map['referenceDeploymentIds'])) {
             if (!empty($map['referenceDeploymentIds'])) {
                 $model->referenceDeploymentIds = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['referenceDeploymentIds'] as $item1) {
-                    $model->referenceDeploymentIds[$n1++] = $item1;
+                    $model->referenceDeploymentIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

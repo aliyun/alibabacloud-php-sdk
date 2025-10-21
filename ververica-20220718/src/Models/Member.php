@@ -12,13 +12,14 @@ class Member extends Model
      * @var string
      */
     public $member;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
         'member' => 'member',
-        'role'   => 'role',
+        'role' => 'role',
     ];
 
     public function validate()

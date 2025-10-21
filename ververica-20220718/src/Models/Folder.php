@@ -12,43 +12,50 @@ class Folder extends Model
      * @var int
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var int
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var SubFolder[]
      */
     public $subFolder;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'createdAt'  => 'createdAt',
-        'folderId'   => 'folderId',
+        'createdAt' => 'createdAt',
+        'folderId' => 'folderId',
         'modifiedAt' => 'modifiedAt',
-        'name'       => 'name',
-        'namespace'  => 'namespace',
-        'parentId'   => 'parentId',
-        'subFolder'  => 'subFolder',
-        'workspace'  => 'workspace',
+        'name' => 'name',
+        'namespace' => 'namespace',
+        'parentId' => 'parentId',
+        'subFolder' => 'subFolder',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -89,9 +96,10 @@ class Folder extends Model
         if (null !== $this->subFolder) {
             if (\is_array($this->subFolder)) {
                 $res['subFolder'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->subFolder as $item1) {
-                    $res['subFolder'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['subFolder'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,9 +146,10 @@ class Folder extends Model
         if (isset($map['subFolder'])) {
             if (!empty($map['subFolder'])) {
                 $model->subFolder = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['subFolder'] as $item1) {
-                    $model->subFolder[$n1++] = SubFolder::fromMap($item1);
+                    $model->subFolder[$n1] = SubFolder::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

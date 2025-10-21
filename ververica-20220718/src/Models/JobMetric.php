@@ -12,12 +12,13 @@ class JobMetric extends Model
      * @var float
      */
     public $totalCpu;
+
     /**
      * @var int
      */
     public $totalMemoryByte;
     protected $_name = [
-        'totalCpu'        => 'totalCpu',
+        'totalCpu' => 'totalCpu',
         'totalMemoryByte' => 'totalMemoryByte',
     ];
 

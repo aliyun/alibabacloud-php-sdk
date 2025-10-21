@@ -12,12 +12,13 @@ class DeleteUdfFunctionRequest extends Model
      * @var string
      */
     public $className;
+
     /**
      * @var string
      */
     public $udfArtifactName;
     protected $_name = [
-        'className'       => 'className',
+        'className' => 'className',
         'udfArtifactName' => 'udfArtifactName',
     ];
 

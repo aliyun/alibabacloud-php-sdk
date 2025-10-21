@@ -12,33 +12,38 @@ class ErrorDetails extends Model
      * @var string
      */
     public $columnNumber;
+
     /**
      * @var string
      */
     public $endColumnNumber;
+
     /**
      * @var string
      */
     public $endLineNumber;
+
     /**
      * @var string[]
      */
     public $invalidflinkConf;
+
     /**
      * @var string
      */
     public $lineNumber;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
-        'columnNumber'     => 'columnNumber',
-        'endColumnNumber'  => 'endColumnNumber',
-        'endLineNumber'    => 'endLineNumber',
+        'columnNumber' => 'columnNumber',
+        'endColumnNumber' => 'endColumnNumber',
+        'endLineNumber' => 'endLineNumber',
         'invalidflinkConf' => 'invalidflinkConf',
-        'lineNumber'       => 'lineNumber',
-        'message'          => 'message',
+        'lineNumber' => 'lineNumber',
+        'message' => 'message',
     ];
 
     public function validate()
@@ -67,9 +72,10 @@ class ErrorDetails extends Model
         if (null !== $this->invalidflinkConf) {
             if (\is_array($this->invalidflinkConf)) {
                 $res['invalidflinkConf'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->invalidflinkConf as $item1) {
-                    $res['invalidflinkConf'][$n1++] = $item1;
+                    $res['invalidflinkConf'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,9 +114,10 @@ class ErrorDetails extends Model
         if (isset($map['invalidflinkConf'])) {
             if (!empty($map['invalidflinkConf'])) {
                 $model->invalidflinkConf = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['invalidflinkConf'] as $item1) {
-                    $model->invalidflinkConf[$n1++] = $item1;
+                    $model->invalidflinkConf[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

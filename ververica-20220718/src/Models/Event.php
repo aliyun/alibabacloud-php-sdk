@@ -12,43 +12,50 @@ class Event extends Model
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventName;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'createdAt'    => 'createdAt',
+        'createdAt' => 'createdAt',
         'deploymentId' => 'deploymentId',
-        'eventId'      => 'eventId',
-        'eventName'    => 'eventName',
-        'jobId'        => 'jobId',
-        'message'      => 'message',
-        'namespace'    => 'namespace',
-        'workspace'    => 'workspace',
+        'eventId' => 'eventId',
+        'eventName' => 'eventName',
+        'jobId' => 'jobId',
+        'message' => 'message',
+        'namespace' => 'namespace',
+        'workspace' => 'workspace',
     ];
 
     public function validate()

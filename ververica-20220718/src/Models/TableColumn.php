@@ -12,28 +12,38 @@ class TableColumn extends Model
      * @var string
      */
     public $expression;
+
+    /**
+     * @var string
+     */
+    public $logicalType;
+
     /**
      * @var MetadataInfo
      */
     public $metadataInfo;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $nullable;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'expression'   => 'expression',
+        'expression' => 'expression',
+        'logicalType' => 'logicalType',
         'metadataInfo' => 'metadataInfo',
-        'name'         => 'name',
-        'nullable'     => 'nullable',
-        'type'         => 'type',
+        'name' => 'name',
+        'nullable' => 'nullable',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -49,6 +59,10 @@ class TableColumn extends Model
         $res = [];
         if (null !== $this->expression) {
             $res['expression'] = $this->expression;
+        }
+
+        if (null !== $this->logicalType) {
+            $res['logicalType'] = $this->logicalType;
         }
 
         if (null !== $this->metadataInfo) {
@@ -80,6 +94,10 @@ class TableColumn extends Model
         $model = new self();
         if (isset($map['expression'])) {
             $model->expression = $map['expression'];
+        }
+
+        if (isset($map['logicalType'])) {
+            $model->logicalType = $map['logicalType'];
         }
 
         if (isset($map['metadataInfo'])) {

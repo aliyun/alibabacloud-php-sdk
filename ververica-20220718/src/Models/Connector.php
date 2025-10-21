@@ -12,63 +12,74 @@ class Connector extends Model
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string[]
      */
     public $dependencies;
+
     /**
      * @var bool
      */
     public $lookup;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $modifierName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var Property[]
      */
     public $properties;
+
     /**
      * @var bool
      */
     public $sink;
+
     /**
      * @var bool
      */
     public $source;
+
     /**
      * @var string[]
      */
     public $supportedFormats;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'creator'          => 'creator',
-        'creatorName'      => 'creatorName',
-        'dependencies'     => 'dependencies',
-        'lookup'           => 'lookup',
-        'modifier'         => 'modifier',
-        'modifierName'     => 'modifierName',
-        'name'             => 'name',
-        'properties'       => 'properties',
-        'sink'             => 'sink',
-        'source'           => 'source',
+        'creator' => 'creator',
+        'creatorName' => 'creatorName',
+        'dependencies' => 'dependencies',
+        'lookup' => 'lookup',
+        'modifier' => 'modifier',
+        'modifierName' => 'modifierName',
+        'name' => 'name',
+        'properties' => 'properties',
+        'sink' => 'sink',
+        'source' => 'source',
         'supportedFormats' => 'supportedFormats',
-        'type'             => 'type',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -99,9 +110,10 @@ class Connector extends Model
         if (null !== $this->dependencies) {
             if (\is_array($this->dependencies)) {
                 $res['dependencies'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->dependencies as $item1) {
-                    $res['dependencies'][$n1++] = $item1;
+                    $res['dependencies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -125,9 +137,10 @@ class Connector extends Model
         if (null !== $this->properties) {
             if (\is_array($this->properties)) {
                 $res['properties'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->properties as $item1) {
-                    $res['properties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['properties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,9 +156,10 @@ class Connector extends Model
         if (null !== $this->supportedFormats) {
             if (\is_array($this->supportedFormats)) {
                 $res['supportedFormats'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->supportedFormats as $item1) {
-                    $res['supportedFormats'][$n1++] = $item1;
+                    $res['supportedFormats'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -176,9 +190,10 @@ class Connector extends Model
         if (isset($map['dependencies'])) {
             if (!empty($map['dependencies'])) {
                 $model->dependencies = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['dependencies'] as $item1) {
-                    $model->dependencies[$n1++] = $item1;
+                    $model->dependencies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,9 +217,10 @@ class Connector extends Model
         if (isset($map['properties'])) {
             if (!empty($map['properties'])) {
                 $model->properties = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['properties'] as $item1) {
-                    $model->properties[$n1++] = Property::fromMap($item1);
+                    $model->properties[$n1] = Property::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -220,9 +236,10 @@ class Connector extends Model
         if (isset($map['supportedFormats'])) {
             if (!empty($map['supportedFormats'])) {
                 $model->supportedFormats = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['supportedFormats'] as $item1) {
-                    $model->supportedFormats[$n1++] = $item1;
+                    $model->supportedFormats[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

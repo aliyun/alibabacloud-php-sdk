@@ -12,13 +12,20 @@ class WatermarkSpec extends Model
      * @var string
      */
     public $column;
+
     /**
      * @var string
      */
     public $watermarkExpression;
+
+    /**
+     * @var string
+     */
+    public $watermarkType;
     protected $_name = [
-        'column'              => 'column',
+        'column' => 'column',
         'watermarkExpression' => 'watermarkExpression',
+        'watermarkType' => 'watermarkType',
     ];
 
     public function validate()
@@ -35,6 +42,10 @@ class WatermarkSpec extends Model
 
         if (null !== $this->watermarkExpression) {
             $res['watermarkExpression'] = $this->watermarkExpression;
+        }
+
+        if (null !== $this->watermarkType) {
+            $res['watermarkType'] = $this->watermarkType;
         }
 
         return $res;
@@ -54,6 +65,10 @@ class WatermarkSpec extends Model
 
         if (isset($map['watermarkExpression'])) {
             $model->watermarkExpression = $map['watermarkExpression'];
+        }
+
+        if (isset($map['watermarkType'])) {
+            $model->watermarkType = $map['watermarkType'];
         }
 
         return $model;

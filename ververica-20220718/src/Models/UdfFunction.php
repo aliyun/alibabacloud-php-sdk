@@ -12,17 +12,19 @@ class UdfFunction extends Model
      * @var string
      */
     public $className;
+
     /**
      * @var string
      */
     public $functionName;
+
     /**
      * @var string
      */
     public $udfArtifactName;
     protected $_name = [
-        'className'       => 'className',
-        'functionName'    => 'functionName',
+        'className' => 'className',
+        'functionName' => 'functionName',
         'udfArtifactName' => 'udfArtifactName',
     ];
 

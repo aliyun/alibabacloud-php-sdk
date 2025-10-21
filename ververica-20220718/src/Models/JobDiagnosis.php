@@ -12,33 +12,38 @@ class JobDiagnosis extends Model
      * @var string
      */
     public $diagnoseId;
+
     /**
      * @var int
      */
     public $diagnoseTime;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $riskLevel;
+
     /**
      * @var JobDiagnosisSymptoms
      */
     public $symptoms;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'diagnoseId'   => 'diagnoseId',
+        'diagnoseId' => 'diagnoseId',
         'diagnoseTime' => 'diagnoseTime',
-        'namespace'    => 'namespace',
-        'riskLevel'    => 'riskLevel',
-        'symptoms'     => 'symptoms',
-        'workspace'    => 'workspace',
+        'namespace' => 'namespace',
+        'riskLevel' => 'riskLevel',
+        'symptoms' => 'symptoms',
+        'workspace' => 'workspace',
     ];
 
     public function validate()

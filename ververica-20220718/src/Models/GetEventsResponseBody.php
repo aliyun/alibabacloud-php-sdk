@@ -12,48 +12,56 @@ class GetEventsResponseBody extends Model
      * @var Event[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalSize;
     protected $_name = [
-        'data'         => 'data',
-        'errorCode'    => 'errorCode',
+        'data' => 'data',
+        'errorCode' => 'errorCode',
         'errorMessage' => 'errorMessage',
-        'httpCode'     => 'httpCode',
-        'pageIndex'    => 'pageIndex',
-        'pageSize'     => 'pageSize',
-        'requestId'    => 'requestId',
-        'success'      => 'success',
-        'totalSize'    => 'totalSize',
+        'httpCode' => 'httpCode',
+        'pageIndex' => 'pageIndex',
+        'pageSize' => 'pageSize',
+        'requestId' => 'requestId',
+        'success' => 'success',
+        'totalSize' => 'totalSize',
     ];
 
     public function validate()
@@ -70,9 +78,10 @@ class GetEventsResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,9 +132,10 @@ class GetEventsResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
-                    $model->data[$n1++] = Event::fromMap($item1);
+                    $model->data[$n1] = Event::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

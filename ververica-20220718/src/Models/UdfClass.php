@@ -12,22 +12,25 @@ class UdfClass extends Model
      * @var string
      */
     public $className;
+
     /**
      * @var string
      */
     public $classType;
+
     /**
      * @var string[]
      */
     public $functionNames;
+
     /**
      * @var string
      */
     public $udfArtifactName;
     protected $_name = [
-        'className'       => 'className',
-        'classType'       => 'classType',
-        'functionNames'   => 'functionNames',
+        'className' => 'className',
+        'classType' => 'classType',
+        'functionNames' => 'functionNames',
         'udfArtifactName' => 'udfArtifactName',
     ];
 
@@ -53,9 +56,10 @@ class UdfClass extends Model
         if (null !== $this->functionNames) {
             if (\is_array($this->functionNames)) {
                 $res['functionNames'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->functionNames as $item1) {
-                    $res['functionNames'][$n1++] = $item1;
+                    $res['functionNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,9 +90,10 @@ class UdfClass extends Model
         if (isset($map['functionNames'])) {
             if (!empty($map['functionNames'])) {
                 $model->functionNames = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['functionNames'] as $item1) {
-                    $model->functionNames[$n1++] = $item1;
+                    $model->functionNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -12,6 +12,7 @@ class ScheduledPlanExecutedStatus extends Model
      * @var string
      */
     public $restartType;
+
     /**
      * @var string
      */

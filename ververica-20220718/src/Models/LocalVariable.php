@@ -12,12 +12,13 @@ class LocalVariable extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'name'  => 'name',
+        'name' => 'name',
         'value' => 'value',
     ];
 

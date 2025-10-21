@@ -12,6 +12,7 @@ class BriefDeploymentTarget extends Model
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */

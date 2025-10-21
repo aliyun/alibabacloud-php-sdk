@@ -12,19 +12,29 @@ class ResourceQuota extends Model
      * @var ResourceSpec
      */
     public $limit;
+
+    /**
+     * @var ResourceSpec
+     */
+    public $request;
+
     /**
      * @var ResourceSpec
      */
     public $used;
     protected $_name = [
         'limit' => 'limit',
-        'used'  => 'used',
+        'request' => 'request',
+        'used' => 'used',
     ];
 
     public function validate()
     {
         if (null !== $this->limit) {
             $this->limit->validate();
+        }
+        if (null !== $this->request) {
+            $this->request->validate();
         }
         if (null !== $this->used) {
             $this->used->validate();
@@ -37,6 +47,10 @@ class ResourceQuota extends Model
         $res = [];
         if (null !== $this->limit) {
             $res['limit'] = null !== $this->limit ? $this->limit->toArray($noStream) : $this->limit;
+        }
+
+        if (null !== $this->request) {
+            $res['request'] = null !== $this->request ? $this->request->toArray($noStream) : $this->request;
         }
 
         if (null !== $this->used) {
@@ -56,6 +70,10 @@ class ResourceQuota extends Model
         $model = new self();
         if (isset($map['limit'])) {
             $model->limit = ResourceSpec::fromMap($map['limit']);
+        }
+
+        if (isset($map['request'])) {
+            $model->request = ResourceSpec::fromMap($map['request']);
         }
 
         if (isset($map['used'])) {

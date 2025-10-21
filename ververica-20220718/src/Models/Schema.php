@@ -12,17 +12,19 @@ class Schema extends Model
      * @var TableColumn[]
      */
     public $columns;
+
     /**
      * @var PrimaryKey
      */
     public $primaryKey;
+
     /**
      * @var WatermarkSpec[]
      */
     public $watermarkSpecs;
     protected $_name = [
-        'columns'        => 'columns',
-        'primaryKey'     => 'primaryKey',
+        'columns' => 'columns',
+        'primaryKey' => 'primaryKey',
         'watermarkSpecs' => 'watermarkSpecs',
     ];
 
@@ -46,9 +48,10 @@ class Schema extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
-                    $res['columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -60,9 +63,10 @@ class Schema extends Model
         if (null !== $this->watermarkSpecs) {
             if (\is_array($this->watermarkSpecs)) {
                 $res['watermarkSpecs'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->watermarkSpecs as $item1) {
-                    $res['watermarkSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['watermarkSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,9 +85,10 @@ class Schema extends Model
         if (isset($map['columns'])) {
             if (!empty($map['columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['columns'] as $item1) {
-                    $model->columns[$n1++] = TableColumn::fromMap($item1);
+                    $model->columns[$n1] = TableColumn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -95,9 +100,10 @@ class Schema extends Model
         if (isset($map['watermarkSpecs'])) {
             if (!empty($map['watermarkSpecs'])) {
                 $model->watermarkSpecs = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['watermarkSpecs'] as $item1) {
-                    $model->watermarkSpecs[$n1++] = WatermarkSpec::fromMap($item1);
+                    $model->watermarkSpecs[$n1] = WatermarkSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

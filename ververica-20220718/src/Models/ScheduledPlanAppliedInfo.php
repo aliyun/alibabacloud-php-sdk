@@ -12,53 +12,62 @@ class ScheduledPlanAppliedInfo extends Model
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $expectedState;
+
     /**
      * @var string
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $modifierName;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $scheduledPlanId;
+
     /**
      * @var string
      */
     public $scheduledPlanName;
+
     /**
      * @var string
      */
     public $statusState;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'deploymentId'      => 'deploymentId',
-        'expectedState'     => 'expectedState',
-        'modifiedAt'        => 'modifiedAt',
-        'modifier'          => 'modifier',
-        'modifierName'      => 'modifierName',
-        'namespace'         => 'namespace',
-        'scheduledPlanId'   => 'scheduledPlanId',
+        'deploymentId' => 'deploymentId',
+        'expectedState' => 'expectedState',
+        'modifiedAt' => 'modifiedAt',
+        'modifier' => 'modifier',
+        'modifierName' => 'modifierName',
+        'namespace' => 'namespace',
+        'scheduledPlanId' => 'scheduledPlanId',
         'scheduledPlanName' => 'scheduledPlanName',
-        'statusState'       => 'statusState',
-        'workspace'         => 'workspace',
+        'statusState' => 'statusState',
+        'workspace' => 'workspace',
     ];
 
     public function validate()

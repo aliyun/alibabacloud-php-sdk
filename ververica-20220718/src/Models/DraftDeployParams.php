@@ -12,18 +12,20 @@ class DraftDeployParams extends Model
      * @var string
      */
     public $deploymentDraftId;
+
     /**
      * @var BriefDeploymentTarget
      */
     public $deploymentTarget;
+
     /**
      * @var bool
      */
     public $skipValidate;
     protected $_name = [
         'deploymentDraftId' => 'deploymentDraftId',
-        'deploymentTarget'  => 'deploymentTarget',
-        'skipValidate'      => 'skipValidate',
+        'deploymentTarget' => 'deploymentTarget',
+        'skipValidate' => 'skipValidate',
     ];
 
     public function validate()

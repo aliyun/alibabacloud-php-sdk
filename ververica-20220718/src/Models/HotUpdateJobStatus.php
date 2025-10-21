@@ -12,18 +12,20 @@ class HotUpdateJobStatus extends Model
      * @var HotUpdateJobFailureInfo
      */
     public $failure;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'failure'   => 'failure',
+        'failure' => 'failure',
         'requestId' => 'requestId',
-        'status'    => 'status',
+        'status' => 'status',
     ];
 
     public function validate()

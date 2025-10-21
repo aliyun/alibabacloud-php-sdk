@@ -12,62 +12,73 @@ class Savepoint extends Model
      * @var int
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var bool
      */
     public $nativeFormat;
+
     /**
      * @var string
      */
     public $savepointId;
+
     /**
      * @var string
      */
     public $savepointLocation;
+
     /**
      * @var string
      */
     public $savepointOrigin;
+
     /**
      * @var SavepointStatus
      */
     public $status;
+
     /**
      * @var bool
      */
     public $stopWithDrainEnabled;
     protected $_name = [
-        'createdAt'            => 'createdAt',
-        'deploymentId'         => 'deploymentId',
-        'description'          => 'description',
-        'jobId'                => 'jobId',
-        'modifiedAt'           => 'modifiedAt',
-        'namespace'            => 'namespace',
-        'nativeFormat'         => 'nativeFormat',
-        'savepointId'          => 'savepointId',
-        'savepointLocation'    => 'savepointLocation',
-        'savepointOrigin'      => 'savepointOrigin',
-        'status'               => 'status',
+        'createdAt' => 'createdAt',
+        'deploymentId' => 'deploymentId',
+        'description' => 'description',
+        'jobId' => 'jobId',
+        'modifiedAt' => 'modifiedAt',
+        'namespace' => 'namespace',
+        'nativeFormat' => 'nativeFormat',
+        'savepointId' => 'savepointId',
+        'savepointLocation' => 'savepointLocation',
+        'savepointOrigin' => 'savepointOrigin',
+        'status' => 'status',
         'stopWithDrainEnabled' => 'stopWithDrainEnabled',
     ];
 

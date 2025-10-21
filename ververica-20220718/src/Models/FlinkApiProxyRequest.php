@@ -12,22 +12,25 @@ class FlinkApiProxyRequest extends Model
      * @var string
      */
     public $flinkApiPath;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'flinkApiPath' => 'flinkApiPath',
-        'namespace'    => 'namespace',
-        'resourceId'   => 'resourceId',
+        'namespace' => 'namespace',
+        'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
     ];
 

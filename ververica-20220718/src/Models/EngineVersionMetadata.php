@@ -12,18 +12,20 @@ class EngineVersionMetadata extends Model
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var EngineVersionSupportedFeatures
      */
     public $features;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'engineVersion' => 'engineVersion',
-        'features'      => 'features',
-        'status'        => 'status',
+        'features' => 'features',
+        'status' => 'status',
     ];
 
     public function validate()

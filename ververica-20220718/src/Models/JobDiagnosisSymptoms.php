@@ -12,32 +12,37 @@ class JobDiagnosisSymptoms extends Model
      * @var JobDiagnosisSymptom
      */
     public $autopilot;
+
     /**
      * @var JobDiagnosisSymptom[]
      */
     public $others;
+
     /**
      * @var JobDiagnosisSymptom[]
      */
     public $runtime;
+
     /**
      * @var JobDiagnosisSymptom[]
      */
     public $startup;
+
     /**
      * @var JobDiagnosisSymptom[]
      */
     public $state;
+
     /**
      * @var JobDiagnosisSymptom[]
      */
     public $troubleshooting;
     protected $_name = [
-        'autopilot'       => 'autopilot',
-        'others'          => 'others',
-        'runtime'         => 'runtime',
-        'startup'         => 'startup',
-        'state'           => 'state',
+        'autopilot' => 'autopilot',
+        'others' => 'others',
+        'runtime' => 'runtime',
+        'startup' => 'startup',
+        'state' => 'state',
         'troubleshooting' => 'troubleshooting',
     ];
 
@@ -74,9 +79,10 @@ class JobDiagnosisSymptoms extends Model
         if (null !== $this->others) {
             if (\is_array($this->others)) {
                 $res['others'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->others as $item1) {
-                    $res['others'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['others'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,9 +90,10 @@ class JobDiagnosisSymptoms extends Model
         if (null !== $this->runtime) {
             if (\is_array($this->runtime)) {
                 $res['runtime'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->runtime as $item1) {
-                    $res['runtime'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['runtime'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,9 +101,10 @@ class JobDiagnosisSymptoms extends Model
         if (null !== $this->startup) {
             if (\is_array($this->startup)) {
                 $res['startup'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->startup as $item1) {
-                    $res['startup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['startup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,9 +112,10 @@ class JobDiagnosisSymptoms extends Model
         if (null !== $this->state) {
             if (\is_array($this->state)) {
                 $res['state'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->state as $item1) {
-                    $res['state'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['state'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,9 +123,10 @@ class JobDiagnosisSymptoms extends Model
         if (null !== $this->troubleshooting) {
             if (\is_array($this->troubleshooting)) {
                 $res['troubleshooting'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->troubleshooting as $item1) {
-                    $res['troubleshooting'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['troubleshooting'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,9 +149,10 @@ class JobDiagnosisSymptoms extends Model
         if (isset($map['others'])) {
             if (!empty($map['others'])) {
                 $model->others = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['others'] as $item1) {
-                    $model->others[$n1++] = JobDiagnosisSymptom::fromMap($item1);
+                    $model->others[$n1] = JobDiagnosisSymptom::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -149,9 +160,10 @@ class JobDiagnosisSymptoms extends Model
         if (isset($map['runtime'])) {
             if (!empty($map['runtime'])) {
                 $model->runtime = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['runtime'] as $item1) {
-                    $model->runtime[$n1++] = JobDiagnosisSymptom::fromMap($item1);
+                    $model->runtime[$n1] = JobDiagnosisSymptom::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -159,9 +171,10 @@ class JobDiagnosisSymptoms extends Model
         if (isset($map['startup'])) {
             if (!empty($map['startup'])) {
                 $model->startup = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['startup'] as $item1) {
-                    $model->startup[$n1++] = JobDiagnosisSymptom::fromMap($item1);
+                    $model->startup[$n1] = JobDiagnosisSymptom::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -169,9 +182,10 @@ class JobDiagnosisSymptoms extends Model
         if (isset($map['state'])) {
             if (!empty($map['state'])) {
                 $model->state = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['state'] as $item1) {
-                    $model->state[$n1++] = JobDiagnosisSymptom::fromMap($item1);
+                    $model->state[$n1] = JobDiagnosisSymptom::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -179,9 +193,10 @@ class JobDiagnosisSymptoms extends Model
         if (isset($map['troubleshooting'])) {
             if (!empty($map['troubleshooting'])) {
                 $model->troubleshooting = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['troubleshooting'] as $item1) {
-                    $model->troubleshooting[$n1++] = JobDiagnosisSymptom::fromMap($item1);
+                    $model->troubleshooting[$n1] = JobDiagnosisSymptom::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

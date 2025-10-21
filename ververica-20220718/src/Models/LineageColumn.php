@@ -12,53 +12,62 @@ class LineageColumn extends Model
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $columnNativeType;
+
     /**
      * @var string
      */
     public $columnType;
+
     /**
      * @var int
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var int
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var bool
      */
     public $nullable;
     protected $_name = [
-        'columnName'       => 'columnName',
+        'columnName' => 'columnName',
         'columnNativeType' => 'columnNativeType',
-        'columnType'       => 'columnType',
-        'createdAt'        => 'createdAt',
-        'creator'          => 'creator',
-        'description'      => 'description',
-        'id'               => 'id',
-        'modifiedAt'       => 'modifiedAt',
-        'modifier'         => 'modifier',
-        'nullable'         => 'nullable',
+        'columnType' => 'columnType',
+        'createdAt' => 'createdAt',
+        'creator' => 'creator',
+        'description' => 'description',
+        'id' => 'id',
+        'modifiedAt' => 'modifiedAt',
+        'modifier' => 'modifier',
+        'nullable' => 'nullable',
     ];
 
     public function validate()

@@ -12,123 +12,146 @@ class Deployment extends Model
      * @var Artifact
      */
     public $artifact;
+
     /**
      * @var BatchResourceSetting
      */
     public $batchResourceSetting;
+
     /**
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var bool
      */
     public $deploymentHasChanged;
+
     /**
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var BriefDeploymentTarget
      */
     public $deploymentTarget;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $executionMode;
+
     /**
      * @var mixed[]
      */
     public $flinkConf;
+
     /**
      * @var JobSummary
      */
     public $jobSummary;
+
     /**
      * @var mixed[]
      */
     public $labels;
+
     /**
      * @var LocalVariable[]
      */
     public $localVariables;
+
     /**
      * @var Logging
      */
     public $logging;
+
     /**
      * @var string
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $modifierName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $referencedDeploymentDraftId;
+
     /**
      * @var StreamingResourceSetting
      */
     public $streamingResourceSetting;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'artifact'                    => 'artifact',
-        'batchResourceSetting'        => 'batchResourceSetting',
-        'createdAt'                   => 'createdAt',
-        'creator'                     => 'creator',
-        'creatorName'                 => 'creatorName',
-        'deploymentHasChanged'        => 'deploymentHasChanged',
-        'deploymentId'                => 'deploymentId',
-        'deploymentTarget'            => 'deploymentTarget',
-        'description'                 => 'description',
-        'engineVersion'               => 'engineVersion',
-        'executionMode'               => 'executionMode',
-        'flinkConf'                   => 'flinkConf',
-        'jobSummary'                  => 'jobSummary',
-        'labels'                      => 'labels',
-        'localVariables'              => 'localVariables',
-        'logging'                     => 'logging',
-        'modifiedAt'                  => 'modifiedAt',
-        'modifier'                    => 'modifier',
-        'modifierName'                => 'modifierName',
-        'name'                        => 'name',
-        'namespace'                   => 'namespace',
+        'artifact' => 'artifact',
+        'batchResourceSetting' => 'batchResourceSetting',
+        'createdAt' => 'createdAt',
+        'creator' => 'creator',
+        'creatorName' => 'creatorName',
+        'deploymentHasChanged' => 'deploymentHasChanged',
+        'deploymentId' => 'deploymentId',
+        'deploymentTarget' => 'deploymentTarget',
+        'description' => 'description',
+        'engineVersion' => 'engineVersion',
+        'executionMode' => 'executionMode',
+        'flinkConf' => 'flinkConf',
+        'jobSummary' => 'jobSummary',
+        'labels' => 'labels',
+        'localVariables' => 'localVariables',
+        'logging' => 'logging',
+        'modifiedAt' => 'modifiedAt',
+        'modifier' => 'modifier',
+        'modifierName' => 'modifierName',
+        'name' => 'name',
+        'namespace' => 'namespace',
         'referencedDeploymentDraftId' => 'referencedDeploymentDraftId',
-        'streamingResourceSetting'    => 'streamingResourceSetting',
-        'workspace'                   => 'workspace',
+        'streamingResourceSetting' => 'streamingResourceSetting',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -235,9 +258,10 @@ class Deployment extends Model
         if (null !== $this->localVariables) {
             if (\is_array($this->localVariables)) {
                 $res['localVariables'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->localVariables as $item1) {
-                    $res['localVariables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['localVariables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -358,9 +382,10 @@ class Deployment extends Model
         if (isset($map['localVariables'])) {
             if (!empty($map['localVariables'])) {
                 $model->localVariables = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['localVariables'] as $item1) {
-                    $model->localVariables[$n1++] = LocalVariable::fromMap($item1);
+                    $model->localVariables[$n1] = LocalVariable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

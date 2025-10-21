@@ -12,18 +12,20 @@ class ListScheduledPlanRequest extends Model
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'deploymentId' => 'deploymentId',
-        'pageIndex'    => 'pageIndex',
-        'pageSize'     => 'pageSize',
+        'pageIndex' => 'pageIndex',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

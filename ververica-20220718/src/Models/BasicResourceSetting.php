@@ -12,17 +12,19 @@ class BasicResourceSetting extends Model
      * @var BasicResourceSettingSpec
      */
     public $jobmanagerResourceSettingSpec;
+
     /**
      * @var int
      */
     public $parallelism;
+
     /**
      * @var BasicResourceSettingSpec
      */
     public $taskmanagerResourceSettingSpec;
     protected $_name = [
-        'jobmanagerResourceSettingSpec'  => 'jobmanagerResourceSettingSpec',
-        'parallelism'                    => 'parallelism',
+        'jobmanagerResourceSettingSpec' => 'jobmanagerResourceSettingSpec',
+        'parallelism' => 'parallelism',
         'taskmanagerResourceSettingSpec' => 'taskmanagerResourceSettingSpec',
     ];
 

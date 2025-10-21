@@ -12,13 +12,14 @@ class Log4jLogger extends Model
      * @var string
      */
     public $loggerLevel;
+
     /**
      * @var string
      */
     public $loggerName;
     protected $_name = [
         'loggerLevel' => 'loggerLevel',
-        'loggerName'  => 'loggerName',
+        'loggerName' => 'loggerName',
     ];
 
     public function validate()

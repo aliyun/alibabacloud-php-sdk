@@ -12,13 +12,14 @@ class BatchResourceSetting extends Model
      * @var BasicResourceSetting
      */
     public $basicResourceSetting;
+
     /**
      * @var int
      */
     public $maxSlot;
     protected $_name = [
         'basicResourceSetting' => 'basicResourceSetting',
-        'maxSlot'              => 'maxSlot',
+        'maxSlot' => 'maxSlot',
     ];
 
     public function validate()

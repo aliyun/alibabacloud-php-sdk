@@ -12,23 +12,26 @@ class CreateUdfArtifactResult extends Model
      * @var UdfClass[]
      */
     public $collidingClasses;
+
     /**
      * @var bool
      */
     public $createSuccess;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var UdfArtifact
      */
     public $udfArtifact;
     protected $_name = [
         'collidingClasses' => 'collidingClasses',
-        'createSuccess'    => 'createSuccess',
-        'message'          => 'message',
-        'udfArtifact'      => 'udfArtifact',
+        'createSuccess' => 'createSuccess',
+        'message' => 'message',
+        'udfArtifact' => 'udfArtifact',
     ];
 
     public function validate()
@@ -48,9 +51,10 @@ class CreateUdfArtifactResult extends Model
         if (null !== $this->collidingClasses) {
             if (\is_array($this->collidingClasses)) {
                 $res['collidingClasses'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->collidingClasses as $item1) {
-                    $res['collidingClasses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['collidingClasses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,9 +85,10 @@ class CreateUdfArtifactResult extends Model
         if (isset($map['collidingClasses'])) {
             if (!empty($map['collidingClasses'])) {
                 $model->collidingClasses = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['collidingClasses'] as $item1) {
-                    $model->collidingClasses[$n1++] = UdfClass::fromMap($item1);
+                    $model->collidingClasses[$n1] = UdfClass::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

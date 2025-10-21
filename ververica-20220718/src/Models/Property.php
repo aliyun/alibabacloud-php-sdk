@@ -12,33 +12,38 @@ class Property extends Model
      * @var string
      */
     public $defaultValue;
+
     /**
      * @var bool
      */
     public $definesFormat;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var bool
      */
     public $required;
+
     /**
      * @var bool
      */
     public $sensitive;
     protected $_name = [
-        'defaultValue'  => 'defaultValue',
+        'defaultValue' => 'defaultValue',
         'definesFormat' => 'definesFormat',
-        'description'   => 'description',
-        'key'           => 'key',
-        'required'      => 'required',
-        'sensitive'     => 'sensitive',
+        'description' => 'description',
+        'key' => 'key',
+        'required' => 'required',
+        'sensitive' => 'sensitive',
     ];
 
     public function validate()

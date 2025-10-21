@@ -12,17 +12,19 @@ class DeleteUdfArtifactResult extends Model
      * @var bool
      */
     public $deleteSuccess;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var UdfClass[]
      */
     public $referencedClasses;
     protected $_name = [
-        'deleteSuccess'     => 'deleteSuccess',
-        'message'           => 'message',
+        'deleteSuccess' => 'deleteSuccess',
+        'message' => 'message',
         'referencedClasses' => 'referencedClasses',
     ];
 
@@ -48,9 +50,10 @@ class DeleteUdfArtifactResult extends Model
         if (null !== $this->referencedClasses) {
             if (\is_array($this->referencedClasses)) {
                 $res['referencedClasses'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->referencedClasses as $item1) {
-                    $res['referencedClasses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['referencedClasses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,9 +80,10 @@ class DeleteUdfArtifactResult extends Model
         if (isset($map['referencedClasses'])) {
             if (!empty($map['referencedClasses'])) {
                 $model->referencedClasses = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['referencedClasses'] as $item1) {
-                    $model->referencedClasses[$n1++] = UdfClass::fromMap($item1);
+                    $model->referencedClasses[$n1] = UdfClass::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

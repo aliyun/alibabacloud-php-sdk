@@ -12,22 +12,25 @@ class SqlStatementValidationResult extends Model
      * @var ErrorDetails
      */
     public $errorDetails;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $validationResult;
     protected $_name = [
-        'errorDetails'     => 'errorDetails',
-        'message'          => 'message',
-        'success'          => 'success',
+        'errorDetails' => 'errorDetails',
+        'message' => 'message',
+        'success' => 'success',
         'validationResult' => 'validationResult',
     ];
 

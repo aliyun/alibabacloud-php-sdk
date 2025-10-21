@@ -12,18 +12,20 @@ class StreamingResourceSetting extends Model
      * @var BasicResourceSetting
      */
     public $basicResourceSetting;
+
     /**
      * @var ExpertResourceSetting
      */
     public $expertResourceSetting;
+
     /**
      * @var string
      */
     public $resourceSettingMode;
     protected $_name = [
-        'basicResourceSetting'  => 'basicResourceSetting',
+        'basicResourceSetting' => 'basicResourceSetting',
         'expertResourceSetting' => 'expertResourceSetting',
-        'resourceSettingMode'   => 'resourceSettingMode',
+        'resourceSettingMode' => 'resourceSettingMode',
     ];
 
     public function validate()

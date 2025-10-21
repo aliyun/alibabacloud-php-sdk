@@ -12,23 +12,26 @@ class Artifact extends Model
      * @var JarArtifact
      */
     public $jarArtifact;
+
     /**
      * @var string
      */
     public $kind;
+
     /**
      * @var PythonArtifact
      */
     public $pythonArtifact;
+
     /**
      * @var SqlArtifact
      */
     public $sqlArtifact;
     protected $_name = [
-        'jarArtifact'    => 'jarArtifact',
-        'kind'           => 'kind',
+        'jarArtifact' => 'jarArtifact',
+        'kind' => 'kind',
         'pythonArtifact' => 'pythonArtifact',
-        'sqlArtifact'    => 'sqlArtifact',
+        'sqlArtifact' => 'sqlArtifact',
     ];
 
     public function validate()

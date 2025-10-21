@@ -12,28 +12,32 @@ class SqlStatementWithContext extends Model
      * @var string[]
      */
     public $additionalDependencies;
+
     /**
      * @var bool
      */
     public $batchMode;
+
     /**
      * @var mixed[]
      */
     public $flinkConfiguration;
+
     /**
      * @var string
      */
     public $statement;
+
     /**
      * @var string
      */
     public $versionName;
     protected $_name = [
         'additionalDependencies' => 'additionalDependencies',
-        'batchMode'              => 'batchMode',
-        'flinkConfiguration'     => 'flinkConfiguration',
-        'statement'              => 'statement',
-        'versionName'            => 'versionName',
+        'batchMode' => 'batchMode',
+        'flinkConfiguration' => 'flinkConfiguration',
+        'statement' => 'statement',
+        'versionName' => 'versionName',
     ];
 
     public function validate()
@@ -53,9 +57,10 @@ class SqlStatementWithContext extends Model
         if (null !== $this->additionalDependencies) {
             if (\is_array($this->additionalDependencies)) {
                 $res['additionalDependencies'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->additionalDependencies as $item1) {
-                    $res['additionalDependencies'][$n1++] = $item1;
+                    $res['additionalDependencies'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,9 +100,10 @@ class SqlStatementWithContext extends Model
         if (isset($map['additionalDependencies'])) {
             if (!empty($map['additionalDependencies'])) {
                 $model->additionalDependencies = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['additionalDependencies'] as $item1) {
-                    $model->additionalDependencies[$n1++] = $item1;
+                    $model->additionalDependencies[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

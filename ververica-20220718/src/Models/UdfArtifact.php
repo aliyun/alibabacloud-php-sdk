@@ -12,48 +12,56 @@ class UdfArtifact extends Model
      * @var string
      */
     public $artifactType;
+
     /**
      * @var int
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string[]
      */
     public $dependencyJarUris;
+
     /**
      * @var string
      */
     public $jarUrl;
+
     /**
      * @var int
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var UdfClass[]
      */
     public $udfClasses;
     protected $_name = [
-        'artifactType'      => 'artifactType',
-        'createdAt'         => 'createdAt',
-        'creator'           => 'creator',
+        'artifactType' => 'artifactType',
+        'createdAt' => 'createdAt',
+        'creator' => 'creator',
         'dependencyJarUris' => 'dependencyJarUris',
-        'jarUrl'            => 'jarUrl',
-        'modifiedAt'        => 'modifiedAt',
-        'name'              => 'name',
-        'namespace'         => 'namespace',
-        'udfClasses'        => 'udfClasses',
+        'jarUrl' => 'jarUrl',
+        'modifiedAt' => 'modifiedAt',
+        'name' => 'name',
+        'namespace' => 'namespace',
+        'udfClasses' => 'udfClasses',
     ];
 
     public function validate()
@@ -85,9 +93,10 @@ class UdfArtifact extends Model
         if (null !== $this->dependencyJarUris) {
             if (\is_array($this->dependencyJarUris)) {
                 $res['dependencyJarUris'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->dependencyJarUris as $item1) {
-                    $res['dependencyJarUris'][$n1++] = $item1;
+                    $res['dependencyJarUris'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,9 +120,10 @@ class UdfArtifact extends Model
         if (null !== $this->udfClasses) {
             if (\is_array($this->udfClasses)) {
                 $res['udfClasses'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->udfClasses as $item1) {
-                    $res['udfClasses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['udfClasses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,9 +154,10 @@ class UdfArtifact extends Model
         if (isset($map['dependencyJarUris'])) {
             if (!empty($map['dependencyJarUris'])) {
                 $model->dependencyJarUris = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['dependencyJarUris'] as $item1) {
-                    $model->dependencyJarUris[$n1++] = $item1;
+                    $model->dependencyJarUris[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -170,9 +181,10 @@ class UdfArtifact extends Model
         if (isset($map['udfClasses'])) {
             if (!empty($map['udfClasses'])) {
                 $model->udfClasses = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['udfClasses'] as $item1) {
-                    $model->udfClasses[$n1++] = UdfClass::fromMap($item1);
+                    $model->udfClasses[$n1] = UdfClass::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

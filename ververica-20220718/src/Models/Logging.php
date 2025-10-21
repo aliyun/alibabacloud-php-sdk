@@ -12,23 +12,26 @@ class Logging extends Model
      * @var string
      */
     public $log4j2ConfigurationTemplate;
+
     /**
      * @var Log4jLogger[]
      */
     public $log4jLoggers;
+
     /**
      * @var LogReservePolicy
      */
     public $logReservePolicy;
+
     /**
      * @var string
      */
     public $loggingProfile;
     protected $_name = [
         'log4j2ConfigurationTemplate' => 'log4j2ConfigurationTemplate',
-        'log4jLoggers'                => 'log4jLoggers',
-        'logReservePolicy'            => 'logReservePolicy',
-        'loggingProfile'              => 'loggingProfile',
+        'log4jLoggers' => 'log4jLoggers',
+        'logReservePolicy' => 'logReservePolicy',
+        'loggingProfile' => 'loggingProfile',
     ];
 
     public function validate()
@@ -52,9 +55,10 @@ class Logging extends Model
         if (null !== $this->log4jLoggers) {
             if (\is_array($this->log4jLoggers)) {
                 $res['log4jLoggers'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->log4jLoggers as $item1) {
-                    $res['log4jLoggers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['log4jLoggers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,9 +89,10 @@ class Logging extends Model
         if (isset($map['log4jLoggers'])) {
             if (!empty($map['log4jLoggers'])) {
                 $model->log4jLoggers = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['log4jLoggers'] as $item1) {
-                    $model->log4jLoggers[$n1++] = Log4jLogger::fromMap($item1);
+                    $model->log4jLoggers[$n1] = Log4jLogger::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

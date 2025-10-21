@@ -12,13 +12,14 @@ class ListDeploymentDraftsRequest extends Model
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'pageIndex' => 'pageIndex',
-        'pageSize'  => 'pageSize',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

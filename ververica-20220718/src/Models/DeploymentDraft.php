@@ -12,93 +12,110 @@ class DeploymentDraft extends Model
      * @var Artifact
      */
     public $artifact;
+
     /**
      * @var int
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $deploymentDraftId;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $executionMode;
+
     /**
      * @var mixed[]
      */
     public $labels;
+
     /**
      * @var LocalVariable[]
      */
     public $localVariables;
+
     /**
      * @var Lock
      */
     public $lock;
+
     /**
      * @var int
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $modifierName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $referencedDeploymentId;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'artifact'               => 'artifact',
-        'createdAt'              => 'createdAt',
-        'creator'                => 'creator',
-        'creatorName'            => 'creatorName',
-        'deploymentDraftId'      => 'deploymentDraftId',
-        'engineVersion'          => 'engineVersion',
-        'executionMode'          => 'executionMode',
-        'labels'                 => 'labels',
-        'localVariables'         => 'localVariables',
-        'lock'                   => 'lock',
-        'modifiedAt'             => 'modifiedAt',
-        'modifier'               => 'modifier',
-        'modifierName'           => 'modifierName',
-        'name'                   => 'name',
-        'namespace'              => 'namespace',
-        'parentId'               => 'parentId',
+        'artifact' => 'artifact',
+        'createdAt' => 'createdAt',
+        'creator' => 'creator',
+        'creatorName' => 'creatorName',
+        'deploymentDraftId' => 'deploymentDraftId',
+        'engineVersion' => 'engineVersion',
+        'executionMode' => 'executionMode',
+        'labels' => 'labels',
+        'localVariables' => 'localVariables',
+        'lock' => 'lock',
+        'modifiedAt' => 'modifiedAt',
+        'modifier' => 'modifier',
+        'modifierName' => 'modifierName',
+        'name' => 'name',
+        'namespace' => 'namespace',
+        'parentId' => 'parentId',
         'referencedDeploymentId' => 'referencedDeploymentId',
-        'workspace'              => 'workspace',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -161,9 +178,10 @@ class DeploymentDraft extends Model
         if (null !== $this->localVariables) {
             if (\is_array($this->localVariables)) {
                 $res['localVariables'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->localVariables as $item1) {
-                    $res['localVariables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['localVariables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -255,9 +273,10 @@ class DeploymentDraft extends Model
         if (isset($map['localVariables'])) {
             if (!empty($map['localVariables'])) {
                 $model->localVariables = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['localVariables'] as $item1) {
-                    $model->localVariables[$n1++] = LocalVariable::fromMap($item1);
+                    $model->localVariables[$n1] = LocalVariable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

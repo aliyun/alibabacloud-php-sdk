@@ -12,38 +12,44 @@ class UpdateVariableResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var Variable
      */
     public $data;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'accessDeniedDetail',
-        'data'               => 'data',
-        'errorCode'          => 'errorCode',
-        'errorMessage'       => 'errorMessage',
-        'httpCode'           => 'httpCode',
-        'requestId'          => 'requestId',
-        'success'            => 'success',
+        'data' => 'data',
+        'errorCode' => 'errorCode',
+        'errorMessage' => 'errorMessage',
+        'httpCode' => 'httpCode',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()

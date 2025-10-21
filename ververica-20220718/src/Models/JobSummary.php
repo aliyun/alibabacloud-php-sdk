@@ -12,33 +12,38 @@ class JobSummary extends Model
      * @var int
      */
     public $cancelled;
+
     /**
      * @var int
      */
     public $cancelling;
+
     /**
      * @var int
      */
     public $failed;
+
     /**
      * @var int
      */
     public $finished;
+
     /**
      * @var int
      */
     public $running;
+
     /**
      * @var int
      */
     public $starting;
     protected $_name = [
-        'cancelled'  => 'cancelled',
+        'cancelled' => 'cancelled',
         'cancelling' => 'cancelling',
-        'failed'     => 'failed',
-        'finished'   => 'finished',
-        'running'    => 'running',
-        'starting'   => 'starting',
+        'failed' => 'failed',
+        'finished' => 'finished',
+        'running' => 'running',
+        'starting' => 'starting',
     ];
 
     public function validate()

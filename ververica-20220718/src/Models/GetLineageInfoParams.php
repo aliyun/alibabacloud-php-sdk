@@ -12,43 +12,50 @@ class GetLineageInfoParams extends Model
      * @var int
      */
     public $depth;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $idType;
+
     /**
      * @var bool
      */
     public $isColumnLevel;
+
     /**
      * @var bool
      */
     public $isTemporary;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'depth'         => 'depth',
-        'direction'     => 'direction',
-        'id'            => 'id',
-        'idType'        => 'idType',
+        'depth' => 'depth',
+        'direction' => 'direction',
+        'id' => 'id',
+        'idType' => 'idType',
         'isColumnLevel' => 'isColumnLevel',
-        'isTemporary'   => 'isTemporary',
-        'namespace'     => 'namespace',
-        'workspace'     => 'workspace',
+        'isTemporary' => 'isTemporary',
+        'namespace' => 'namespace',
+        'workspace' => 'workspace',
     ];
 
     public function validate()

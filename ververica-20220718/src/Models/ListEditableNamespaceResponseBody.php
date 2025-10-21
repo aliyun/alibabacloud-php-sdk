@@ -13,33 +13,38 @@ class ListEditableNamespaceResponseBody extends Model
      * @var data
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'      => 'data',
-        'httpCode'  => 'httpCode',
-        'message'   => 'message',
-        'reason'    => 'reason',
+        'data' => 'data',
+        'httpCode' => 'httpCode',
+        'message' => 'message',
+        'reason' => 'reason',
         'requestId' => 'requestId',
-        'success'   => 'success',
+        'success' => 'success',
     ];
 
     public function validate()

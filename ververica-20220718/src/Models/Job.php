@@ -12,133 +12,158 @@ class Job extends Model
      * @var Artifact
      */
     public $artifact;
+
     /**
      * @var BatchResourceSetting
      */
     public $batchResourceSetting;
+
     /**
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $deploymentId;
+
     /**
      * @var string
      */
     public $deploymentName;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $executionMode;
+
     /**
      * @var mixed[]
      */
     public $flinkConf;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var LocalVariable[]
      */
     public $localVariables;
+
     /**
      * @var Logging
      */
     public $logging;
+
     /**
      * @var JobMetric
      */
     public $metric;
+
     /**
      * @var string
      */
     public $modifiedAt;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $modifierName;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var DeploymentRestoreStrategy
      */
     public $restoreStrategy;
+
     /**
      * @var string
      */
     public $sessionClusterName;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var JobStatus
      */
     public $status;
+
     /**
      * @var StreamingResourceSetting
      */
     public $streamingResourceSetting;
+
     /**
      * @var mixed[]
      */
     public $userFlinkConf;
+
     /**
      * @var string
      */
     public $workspace;
     protected $_name = [
-        'artifact'                 => 'artifact',
-        'batchResourceSetting'     => 'batchResourceSetting',
-        'createdAt'                => 'createdAt',
-        'creator'                  => 'creator',
-        'creatorName'              => 'creatorName',
-        'deploymentId'             => 'deploymentId',
-        'deploymentName'           => 'deploymentName',
-        'endTime'                  => 'endTime',
-        'engineVersion'            => 'engineVersion',
-        'executionMode'            => 'executionMode',
-        'flinkConf'                => 'flinkConf',
-        'jobId'                    => 'jobId',
-        'localVariables'           => 'localVariables',
-        'logging'                  => 'logging',
-        'metric'                   => 'metric',
-        'modifiedAt'               => 'modifiedAt',
-        'modifier'                 => 'modifier',
-        'modifierName'             => 'modifierName',
-        'namespace'                => 'namespace',
-        'restoreStrategy'          => 'restoreStrategy',
-        'sessionClusterName'       => 'sessionClusterName',
-        'startTime'                => 'startTime',
-        'status'                   => 'status',
+        'artifact' => 'artifact',
+        'batchResourceSetting' => 'batchResourceSetting',
+        'createdAt' => 'createdAt',
+        'creator' => 'creator',
+        'creatorName' => 'creatorName',
+        'deploymentId' => 'deploymentId',
+        'deploymentName' => 'deploymentName',
+        'endTime' => 'endTime',
+        'engineVersion' => 'engineVersion',
+        'executionMode' => 'executionMode',
+        'flinkConf' => 'flinkConf',
+        'jobId' => 'jobId',
+        'localVariables' => 'localVariables',
+        'logging' => 'logging',
+        'metric' => 'metric',
+        'modifiedAt' => 'modifiedAt',
+        'modifier' => 'modifier',
+        'modifierName' => 'modifierName',
+        'namespace' => 'namespace',
+        'restoreStrategy' => 'restoreStrategy',
+        'sessionClusterName' => 'sessionClusterName',
+        'startTime' => 'startTime',
+        'status' => 'status',
         'streamingResourceSetting' => 'streamingResourceSetting',
-        'userFlinkConf'            => 'userFlinkConf',
-        'workspace'                => 'workspace',
+        'userFlinkConf' => 'userFlinkConf',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -235,9 +260,10 @@ class Job extends Model
         if (null !== $this->localVariables) {
             if (\is_array($this->localVariables)) {
                 $res['localVariables'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->localVariables as $item1) {
-                    $res['localVariables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['localVariables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -366,9 +392,10 @@ class Job extends Model
         if (isset($map['localVariables'])) {
             if (!empty($map['localVariables'])) {
                 $model->localVariables = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['localVariables'] as $item1) {
-                    $model->localVariables[$n1++] = LocalVariable::fromMap($item1);
+                    $model->localVariables[$n1] = LocalVariable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

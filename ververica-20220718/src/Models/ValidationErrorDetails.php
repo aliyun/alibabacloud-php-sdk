@@ -12,28 +12,32 @@ class ValidationErrorDetails extends Model
      * @var string
      */
     public $columnNumber;
+
     /**
      * @var string
      */
     public $endColumnNumber;
+
     /**
      * @var string
      */
     public $endLineNumber;
+
     /**
      * @var string
      */
     public $lineNumber;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
-        'columnNumber'    => 'columnNumber',
+        'columnNumber' => 'columnNumber',
         'endColumnNumber' => 'endColumnNumber',
-        'endLineNumber'   => 'endLineNumber',
-        'lineNumber'      => 'lineNumber',
-        'message'         => 'message',
+        'endLineNumber' => 'endLineNumber',
+        'lineNumber' => 'lineNumber',
+        'message' => 'message',
     ];
 
     public function validate()
