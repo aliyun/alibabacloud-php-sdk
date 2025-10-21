@@ -1,3 +1,6 @@
+2025-10-21 Version: 2.9.1
+- Generated php 2024-08-01 for QuanMiaoLightApp.
+
 2025-10-21 Version: 2.9.0
 - Support API GetEssayCorrectionTask.
 - Support API GetFileContent.
