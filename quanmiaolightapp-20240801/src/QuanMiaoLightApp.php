@@ -27,6 +27,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskR
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisConfigResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoDetectShotConfigResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoDetectShotTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoDetectShotTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\HotNewsRecommendRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\HotNewsRecommendResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListAnalysisTagDetailByTaskIdRequest;
@@ -71,6 +74,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunTagMiningAnalysisShrin
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoDetectShotRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoDetectShotResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoDetectShotShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskShrinkRequest;
@@ -83,6 +89,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitTagMiningAnalysisTa
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoDetectShotTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoDetectShotTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoDetectShotTaskShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisConfigRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisConfigResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTaskRequest;
@@ -90,6 +99,10 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTaskRe
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTasksRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTasksResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisTasksShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoDetectShotConfigRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoDetectShotConfigResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoDetectShotTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoDetectShotTaskResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -781,6 +794,120 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->getVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 智能拆条-获取配置.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoDetectShotConfigResponse
+     *
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetVideoDetectShotConfigResponse
+     */
+    public function getVideoDetectShotConfigWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoDetectShotConfig',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/videoAnalysis/getVideoDetectShotConfig',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoDetectShotConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 智能拆条-获取配置.
+     *
+     * @returns GetVideoDetectShotConfigResponse
+     *
+     * @param string $workspaceId
+     *
+     * @return GetVideoDetectShotConfigResponse
+     */
+    public function getVideoDetectShotConfig($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVideoDetectShotConfigWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
+     * 轻应用-获取视频拆条异步任务结果.
+     *
+     * @param request - GetVideoDetectShotTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoDetectShotTaskResponse
+     *
+     * @param string                        $workspaceId
+     * @param GetVideoDetectShotTaskRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetVideoDetectShotTaskResponse
+     */
+    public function getVideoDetectShotTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoDetectShotTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/getVideoDetectShotTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoDetectShotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 轻应用-获取视频拆条异步任务结果.
+     *
+     * @param request - GetVideoDetectShotTaskRequest
+     *
+     * @returns GetVideoDetectShotTaskResponse
+     *
+     * @param string                        $workspaceId
+     * @param GetVideoDetectShotTaskRequest $request
+     *
+     * @return GetVideoDetectShotTaskResponse
+     */
+    public function getVideoDetectShotTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVideoDetectShotTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3663,6 +3790,248 @@ class QuanMiaoLightApp extends OpenApiClient
     }
 
     /**
+     * 轻应用-视频拆条
+     *
+     * @param tmpReq - RunVideoDetectShotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunVideoDetectShotResponse
+     *
+     * @param string                    $workspaceId
+     * @param RunVideoDetectShotRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunVideoDetectShotResponse
+     */
+    public function runVideoDetectShotWithSSE($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunVideoDetectShotShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->options) {
+            $request->optionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->options, 'options', 'json');
+        }
+
+        if (null !== $tmpReq->recognitionOptions) {
+            $request->recognitionOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recognitionOptions, 'recognitionOptions', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->intelliSimpPrompt) {
+            @$body['intelliSimpPrompt'] = $request->intelliSimpPrompt;
+        }
+
+        if (null !== $request->intelliSimpPromptTemplateId) {
+            @$body['intelliSimpPromptTemplateId'] = $request->intelliSimpPromptTemplateId;
+        }
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
+        }
+
+        if (null !== $request->modelCustomPromptTemplateId) {
+            @$body['modelCustomPromptTemplateId'] = $request->modelCustomPromptTemplateId;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelVlCustomPromptTemplateId) {
+            @$body['modelVlCustomPromptTemplateId'] = $request->modelVlCustomPromptTemplateId;
+        }
+
+        if (null !== $request->optionsShrink) {
+            @$body['options'] = $request->optionsShrink;
+        }
+
+        if (null !== $request->originalSessionId) {
+            @$body['originalSessionId'] = $request->originalSessionId;
+        }
+
+        if (null !== $request->preModelId) {
+            @$body['preModelId'] = $request->preModelId;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->recognitionOptionsShrink) {
+            @$body['recognitionOptions'] = $request->recognitionOptionsShrink;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->videoUrl) {
+            @$body['videoUrl'] = $request->videoUrl;
+        }
+
+        if (null !== $request->vlPrompt) {
+            @$body['vlPrompt'] = $request->vlPrompt;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunVideoDetectShot',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/runVideoDetectShot',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield RunVideoDetectShotResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 轻应用-视频拆条
+     *
+     * @param tmpReq - RunVideoDetectShotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunVideoDetectShotResponse
+     *
+     * @param string                    $workspaceId
+     * @param RunVideoDetectShotRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunVideoDetectShotResponse
+     */
+    public function runVideoDetectShotWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunVideoDetectShotShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->options) {
+            $request->optionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->options, 'options', 'json');
+        }
+
+        if (null !== $tmpReq->recognitionOptions) {
+            $request->recognitionOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recognitionOptions, 'recognitionOptions', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->intelliSimpPrompt) {
+            @$body['intelliSimpPrompt'] = $request->intelliSimpPrompt;
+        }
+
+        if (null !== $request->intelliSimpPromptTemplateId) {
+            @$body['intelliSimpPromptTemplateId'] = $request->intelliSimpPromptTemplateId;
+        }
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
+        }
+
+        if (null !== $request->modelCustomPromptTemplateId) {
+            @$body['modelCustomPromptTemplateId'] = $request->modelCustomPromptTemplateId;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelVlCustomPromptTemplateId) {
+            @$body['modelVlCustomPromptTemplateId'] = $request->modelVlCustomPromptTemplateId;
+        }
+
+        if (null !== $request->optionsShrink) {
+            @$body['options'] = $request->optionsShrink;
+        }
+
+        if (null !== $request->originalSessionId) {
+            @$body['originalSessionId'] = $request->originalSessionId;
+        }
+
+        if (null !== $request->preModelId) {
+            @$body['preModelId'] = $request->preModelId;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->recognitionOptionsShrink) {
+            @$body['recognitionOptions'] = $request->recognitionOptionsShrink;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->videoUrl) {
+            @$body['videoUrl'] = $request->videoUrl;
+        }
+
+        if (null !== $request->vlPrompt) {
+            @$body['vlPrompt'] = $request->vlPrompt;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunVideoDetectShot',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/runVideoDetectShot',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunVideoDetectShotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 轻应用-视频拆条
+     *
+     * @param request - RunVideoDetectShotRequest
+     *
+     * @returns RunVideoDetectShotResponse
+     *
+     * @param string                    $workspaceId
+     * @param RunVideoDetectShotRequest $request
+     *
+     * @return RunVideoDetectShotResponse
+     */
+    public function runVideoDetectShot($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runVideoDetectShotWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 提交企业VOC异步任务
      *
      * @param tmpReq - SubmitEnterpriseVocAnalysisTaskRequest
@@ -4147,6 +4516,135 @@ class QuanMiaoLightApp extends OpenApiClient
     }
 
     /**
+     * 轻应用-提交视频拆条任务
+     *
+     * @param tmpReq - SubmitVideoDetectShotTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoDetectShotTaskResponse
+     *
+     * @param string                           $workspaceId
+     * @param SubmitVideoDetectShotTaskRequest $tmpReq
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitVideoDetectShotTaskResponse
+     */
+    public function submitVideoDetectShotTaskWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitVideoDetectShotTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->options) {
+            $request->optionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->options, 'options', 'json');
+        }
+
+        if (null !== $tmpReq->recognitionOptions) {
+            $request->recognitionOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recognitionOptions, 'recognitionOptions', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->deduplicationId) {
+            @$body['deduplicationId'] = $request->deduplicationId;
+        }
+
+        if (null !== $request->intelliSimpPrompt) {
+            @$body['intelliSimpPrompt'] = $request->intelliSimpPrompt;
+        }
+
+        if (null !== $request->intelliSimpPromptTemplateId) {
+            @$body['intelliSimpPromptTemplateId'] = $request->intelliSimpPromptTemplateId;
+        }
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
+        }
+
+        if (null !== $request->modelCustomPromptTemplateId) {
+            @$body['modelCustomPromptTemplateId'] = $request->modelCustomPromptTemplateId;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelVlCustomPromptTemplateId) {
+            @$body['modelVlCustomPromptTemplateId'] = $request->modelVlCustomPromptTemplateId;
+        }
+
+        if (null !== $request->optionsShrink) {
+            @$body['options'] = $request->optionsShrink;
+        }
+
+        if (null !== $request->originalSessionId) {
+            @$body['originalSessionId'] = $request->originalSessionId;
+        }
+
+        if (null !== $request->preModelId) {
+            @$body['preModelId'] = $request->preModelId;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->recognitionOptionsShrink) {
+            @$body['recognitionOptions'] = $request->recognitionOptionsShrink;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->videoUrl) {
+            @$body['videoUrl'] = $request->videoUrl;
+        }
+
+        if (null !== $request->vlPrompt) {
+            @$body['vlPrompt'] = $request->vlPrompt;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoDetectShotTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/submitVideoDetectShotTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoDetectShotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 轻应用-提交视频拆条任务
+     *
+     * @param request - SubmitVideoDetectShotTaskRequest
+     *
+     * @returns SubmitVideoDetectShotTaskResponse
+     *
+     * @param string                           $workspaceId
+     * @param SubmitVideoDetectShotTaskRequest $request
+     *
+     * @return SubmitVideoDetectShotTaskResponse
+     */
+    public function submitVideoDetectShotTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitVideoDetectShotTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 视频理解-更新配置.
      *
      * @param request - UpdateVideoAnalysisConfigRequest
@@ -4347,5 +4845,135 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->updateVideoAnalysisTasksWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 智能拆条-更新配置.
+     *
+     * @param request - UpdateVideoDetectShotConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVideoDetectShotConfigResponse
+     *
+     * @param string                             $workspaceId
+     * @param UpdateVideoDetectShotConfigRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateVideoDetectShotConfigResponse
+     */
+    public function updateVideoDetectShotConfigWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->asyncConcurrency) {
+            @$body['asyncConcurrency'] = $request->asyncConcurrency;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVideoDetectShotConfig',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/videoAnalysis/updateVideoDetectShotConfig',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVideoDetectShotConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 智能拆条-更新配置.
+     *
+     * @param request - UpdateVideoDetectShotConfigRequest
+     *
+     * @returns UpdateVideoDetectShotConfigResponse
+     *
+     * @param string                             $workspaceId
+     * @param UpdateVideoDetectShotConfigRequest $request
+     *
+     * @return UpdateVideoDetectShotConfigResponse
+     */
+    public function updateVideoDetectShotConfig($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateVideoDetectShotConfigWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 视频拆条-修改任务状态
+     *
+     * @param request - UpdateVideoDetectShotTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVideoDetectShotTaskResponse
+     *
+     * @param string                           $workspaceId
+     * @param UpdateVideoDetectShotTaskRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateVideoDetectShotTaskResponse
+     */
+    public function updateVideoDetectShotTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskStatus) {
+            @$body['taskStatus'] = $request->taskStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVideoDetectShotTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/updateVideoDetectShotTask',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVideoDetectShotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 视频拆条-修改任务状态
+     *
+     * @param request - UpdateVideoDetectShotTaskRequest
+     *
+     * @returns UpdateVideoDetectShotTaskResponse
+     *
+     * @param string                           $workspaceId
+     * @param UpdateVideoDetectShotTaskRequest $request
+     *
+     * @return UpdateVideoDetectShotTaskResponse
+     */
+    public function updateVideoDetectShotTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateVideoDetectShotTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 }
