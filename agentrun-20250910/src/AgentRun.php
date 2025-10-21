@@ -375,8 +375,16 @@ class AgentRun extends OpenApiClient
             @$body['name'] = $request->name;
         }
 
+        if (null !== $request->permanent) {
+            @$body['permanent'] = $request->permanent;
+        }
+
         if (null !== $request->shortTtl) {
             @$body['shortTtl'] = $request->shortTtl;
+        }
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
         }
 
         $req = new OpenApiRequest([
@@ -2078,18 +2086,26 @@ class AgentRun extends OpenApiClient
     public function updateMemoryWithOptions($memoryName, $request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
+        $body = [];
         if (null !== $request->longTtl) {
-            @$query['longTtl'] = $request->longTtl;
+            @$body['longTtl'] = $request->longTtl;
+        }
+
+        if (null !== $request->permanent) {
+            @$body['permanent'] = $request->permanent;
         }
 
         if (null !== $request->shortTtl) {
-            @$query['shortTtl'] = $request->shortTtl;
+            @$body['shortTtl'] = $request->shortTtl;
+        }
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
         }
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateMemory',

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentRun\V20250910\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryResponseBody\data;
 
 class CreateMemoryResponseBody extends Model
 {
@@ -14,16 +15,25 @@ class CreateMemoryResponseBody extends Model
     public $code;
 
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'code' => 'code',
+        'data' => 'data',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
         parent::validate();
     }
 
@@ -32,6 +42,10 @@ class CreateMemoryResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->requestId) {
@@ -51,6 +65,10 @@ class CreateMemoryResponseBody extends Model
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
         }
 
         if (isset($map['requestId'])) {

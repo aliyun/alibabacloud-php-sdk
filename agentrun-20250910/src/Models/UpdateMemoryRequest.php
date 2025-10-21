@@ -14,16 +14,31 @@ class UpdateMemoryRequest extends Model
     public $longTtl;
 
     /**
+     * @var bool
+     */
+    public $permanent;
+
+    /**
      * @var int
      */
     public $shortTtl;
+
+    /**
+     * @var string[]
+     */
+    public $strategy;
     protected $_name = [
         'longTtl' => 'longTtl',
+        'permanent' => 'permanent',
         'shortTtl' => 'shortTtl',
+        'strategy' => 'strategy',
     ];
 
     public function validate()
     {
+        if (\is_array($this->strategy)) {
+            Model::validateArray($this->strategy);
+        }
         parent::validate();
     }
 
@@ -34,8 +49,23 @@ class UpdateMemoryRequest extends Model
             $res['longTtl'] = $this->longTtl;
         }
 
+        if (null !== $this->permanent) {
+            $res['permanent'] = $this->permanent;
+        }
+
         if (null !== $this->shortTtl) {
             $res['shortTtl'] = $this->shortTtl;
+        }
+
+        if (null !== $this->strategy) {
+            if (\is_array($this->strategy)) {
+                $res['strategy'] = [];
+                $n1 = 0;
+                foreach ($this->strategy as $item1) {
+                    $res['strategy'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -53,8 +83,23 @@ class UpdateMemoryRequest extends Model
             $model->longTtl = $map['longTtl'];
         }
 
+        if (isset($map['permanent'])) {
+            $model->permanent = $map['permanent'];
+        }
+
         if (isset($map['shortTtl'])) {
             $model->shortTtl = $map['shortTtl'];
+        }
+
+        if (isset($map['strategy'])) {
+            if (!empty($map['strategy'])) {
+                $model->strategy = [];
+                $n1 = 0;
+                foreach ($map['strategy'] as $item1) {
+                    $model->strategy[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
