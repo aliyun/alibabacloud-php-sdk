@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeCatalogRequest;
@@ -1693,6 +1695,81 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataLakeTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 调度运行Notebook文件.
+     *
+     * @param request - GetNotebookAndSubmitTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNotebookAndSubmitTaskResponse
+     *
+     * @param GetNotebookAndSubmitTaskRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetNotebookAndSubmitTaskResponse
+     */
+    public function getNotebookAndSubmitTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->params) {
+            @$body['Params'] = $request->params;
+        }
+
+        if (null !== $request->path) {
+            @$body['Path'] = $request->path;
+        }
+
+        if (null !== $request->retry) {
+            @$body['Retry'] = $request->retry;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetNotebookAndSubmitTask',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNotebookAndSubmitTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 调度运行Notebook文件.
+     *
+     * @param request - GetNotebookAndSubmitTaskRequest
+     *
+     * @returns GetNotebookAndSubmitTaskResponse
+     *
+     * @param GetNotebookAndSubmitTaskRequest $request
+     *
+     * @return GetNotebookAndSubmitTaskResponse
+     */
+    public function getNotebookAndSubmitTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNotebookAndSubmitTaskWithOptions($request, $runtime);
     }
 
     /**
