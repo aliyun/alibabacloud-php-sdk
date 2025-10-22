@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckSelectedDomainStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
@@ -20,9 +16,12 @@ class CheckSelectedDomainStatusRequest extends Model
         'domain' => 'Domain',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
@@ -32,11 +31,11 @@ class CheckSelectedDomainStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckSelectedDomainStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

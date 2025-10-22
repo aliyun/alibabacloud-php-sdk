@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusResponseBody\domainTransferStatus;
-use AlibabaCloud\Tea\Model;
 
 class QueryDomainTransferStatusResponseBody extends Model
 {
@@ -23,20 +23,28 @@ class QueryDomainTransferStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainTransferStatus)) {
+            Model::validateArray($this->domainTransferStatus);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainTransferStatus) {
-            $res['DomainTransferStatus'] = [];
-            if (null !== $this->domainTransferStatus && \is_array($this->domainTransferStatus)) {
-                $n = 0;
-                foreach ($this->domainTransferStatus as $item) {
-                    $res['DomainTransferStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainTransferStatus)) {
+                $res['DomainTransferStatus'] = [];
+                $n1 = 0;
+                foreach ($this->domainTransferStatus as $item1) {
+                    $res['DomainTransferStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,23 +52,25 @@ class QueryDomainTransferStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDomainTransferStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainTransferStatus'])) {
             if (!empty($map['DomainTransferStatus'])) {
                 $model->domainTransferStatus = [];
-                $n = 0;
-                foreach ($map['DomainTransferStatus'] as $item) {
-                    $model->domainTransferStatus[$n++] = null !== $item ? domainTransferStatus::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainTransferStatus'] as $item1) {
+                    $model->domainTransferStatus[$n1] = domainTransferStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

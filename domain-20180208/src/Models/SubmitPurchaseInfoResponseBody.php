@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitPurchaseInfoResponseBody extends Model
 {
@@ -76,41 +76,64 @@ class SubmitPurchaseInfoResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->errorArgs)) {
+            Model::validateArray($this->errorArgs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowRetry) {
             $res['AllowRetry'] = $this->allowRetry;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
         }
+
         if (null !== $this->dynamicMessage) {
             $res['DynamicMessage'] = $this->dynamicMessage;
         }
+
         if (null !== $this->errorArgs) {
-            $res['ErrorArgs'] = $this->errorArgs;
+            if (\is_array($this->errorArgs)) {
+                $res['ErrorArgs'] = [];
+                $n1 = 0;
+                foreach ($this->errorArgs as $item1) {
+                    $res['ErrorArgs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->module) {
             $res['Module'] = $this->module;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -118,46 +141,61 @@ class SubmitPurchaseInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitPurchaseInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowRetry'])) {
             $model->allowRetry = $map['AllowRetry'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
         }
+
         if (isset($map['DynamicMessage'])) {
             $model->dynamicMessage = $map['DynamicMessage'];
         }
+
         if (isset($map['ErrorArgs'])) {
             if (!empty($map['ErrorArgs'])) {
-                $model->errorArgs = $map['ErrorArgs'];
+                $model->errorArgs = [];
+                $n1 = 0;
+                foreach ($map['ErrorArgs'] as $item1) {
+                    $model->errorArgs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

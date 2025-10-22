@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -46,26 +46,34 @@ class data extends Model
         'tradeMoney' => 'TradeMoney',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliveryTime) {
             $res['DeliveryTime'] = $this->deliveryTime;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->operationStatus) {
             $res['OperationStatus'] = $this->operationStatus;
         }
+
         if (null !== $this->operationTime) {
             $res['OperationTime'] = $this->operationTime;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->tradeMoney) {
             $res['TradeMoney'] = $this->tradeMoney;
         }
@@ -73,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeliveryTime'])) {
             $model->deliveryTime = $map['DeliveryTime'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OperationStatus'])) {
             $model->operationStatus = $map['OperationStatus'];
         }
+
         if (isset($map['OperationTime'])) {
             $model->operationTime = $map['OperationTime'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['TradeMoney'])) {
             $model->tradeMoney = $map['TradeMoney'];
         }

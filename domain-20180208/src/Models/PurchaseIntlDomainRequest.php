@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PurchaseIntlDomainRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $auctionId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $currency;
 
     /**
-     * @description This parameter is required.
-     *
      * @var float
      */
     public $price;
@@ -34,17 +28,22 @@ class PurchaseIntlDomainRequest extends Model
         'price' => 'Price',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auctionId) {
             $res['AuctionId'] = $this->auctionId;
         }
+
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
@@ -52,20 +51,22 @@ class PurchaseIntlDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PurchaseIntlDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuctionId'])) {
             $model->auctionId = $map['AuctionId'];
         }
+
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }

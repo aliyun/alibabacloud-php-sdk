@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePartnerReservePriceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $biddingId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $partnerType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var float
      */
     public $reservePrice;
@@ -42,20 +34,26 @@ class UpdatePartnerReservePriceRequest extends Model
         'reservePrice' => 'ReservePrice',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->biddingId) {
             $res['BiddingId'] = $this->biddingId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->partnerType) {
             $res['PartnerType'] = $this->partnerType;
         }
+
         if (null !== $this->reservePrice) {
             $res['ReservePrice'] = $this->reservePrice;
         }
@@ -63,23 +61,26 @@ class UpdatePartnerReservePriceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePartnerReservePriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BiddingId'])) {
             $model->biddingId = $map['BiddingId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['PartnerType'])) {
             $model->partnerType = $map['PartnerType'];
         }
+
         if (isset($map['ReservePrice'])) {
             $model->reservePrice = $map['ReservePrice'];
         }

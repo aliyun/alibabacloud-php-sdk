@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainTransferStatus extends Model
 {
@@ -22,14 +22,18 @@ class domainTransferStatus extends Model
         'domainStatusDescription' => 'DomainStatusDescription',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->domainStatusDescription) {
             $res['DomainStatusDescription'] = $this->domainStatusDescription;
         }
@@ -37,17 +41,18 @@ class domainTransferStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainTransferStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['DomainStatusDescription'])) {
             $model->domainStatusDescription = $map['DomainStatusDescription'];
         }

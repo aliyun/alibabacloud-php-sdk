@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\BatchIntrudeDomainsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failureList extends Model
 {
@@ -34,20 +34,26 @@ class failureList extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -55,23 +61,26 @@ class failureList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failureList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

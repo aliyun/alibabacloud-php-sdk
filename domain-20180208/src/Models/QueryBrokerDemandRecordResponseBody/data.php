@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandRecordResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandRecordResponseBody\data\brokerDemandRecord;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,24 @@ class data extends Model
         'brokerDemandRecord' => 'BrokerDemandRecord',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->brokerDemandRecord)) {
+            Model::validateArray($this->brokerDemandRecord);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->brokerDemandRecord) {
-            $res['BrokerDemandRecord'] = [];
-            if (null !== $this->brokerDemandRecord && \is_array($this->brokerDemandRecord)) {
-                $n = 0;
-                foreach ($this->brokerDemandRecord as $item) {
-                    $res['BrokerDemandRecord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->brokerDemandRecord)) {
+                $res['BrokerDemandRecord'] = [];
+                $n1 = 0;
+                foreach ($this->brokerDemandRecord as $item1) {
+                    $res['BrokerDemandRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BrokerDemandRecord'])) {
             if (!empty($map['BrokerDemandRecord'])) {
                 $model->brokerDemandRecord = [];
-                $n = 0;
-                foreach ($map['BrokerDemandRecord'] as $item) {
-                    $model->brokerDemandRecord[$n++] = null !== $item ? brokerDemandRecord::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BrokerDemandRecord'] as $item1) {
+                    $model->brokerDemandRecord[$n1] = brokerDemandRecord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

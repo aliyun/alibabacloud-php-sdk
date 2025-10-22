@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandRecordResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class brokerDemandRecord extends Model
 {
     /**
-     * @example SE20183A0Q7C5556
-     *
      * @var string
      */
     public $bizId;
 
     /**
-     * @example 1525249317000
-     *
      * @var int
      */
     public $createTime;
@@ -32,17 +28,22 @@ class brokerDemandRecord extends Model
         'description' => 'Description',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -50,20 +51,22 @@ class brokerDemandRecord extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return brokerDemandRecord
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RequestPayDemandRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example SE20183A0Q7C5556
-     *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example some message
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 100
-     *
      * @var float
      */
     public $price;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $produceType;
@@ -56,23 +40,30 @@ class RequestPayDemandRequest extends Model
         'produceType' => 'ProduceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->price) {
             $res['Price'] = $this->price;
         }
+
         if (null !== $this->produceType) {
             $res['ProduceType'] = $this->produceType;
         }
@@ -80,26 +71,30 @@ class RequestPayDemandRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RequestPayDemandRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
         }
+
         if (isset($map['ProduceType'])) {
             $model->produceType = $map['ProduceType'];
         }
