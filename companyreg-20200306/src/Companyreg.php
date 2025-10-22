@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserProduceOperateLogsRespo
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserSolutionsRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserSolutionsResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserSolutionsShrinkRequest;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\OperateCallCenterForPartnerRequest;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\OperateCallCenterForPartnerResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\OperateProduceForPartnerRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\OperateProduceForPartnerResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\PutMeasureDataRequest;
@@ -55,6 +57,8 @@ use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryPartnerIntentionListRespon
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryPartnerProduceListRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryPartnerProduceListResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryUserNeedAuthResponse;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\RecordCallCenterEventForPartnerRequest;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\RecordCallCenterEventForPartnerResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\RecordPostBackRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\RecordPostBackResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\RejectSolutionRequest;
@@ -1162,6 +1166,79 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * 服务商玄坛呼叫中心操作.
+     *
+     * @param request - OperateCallCenterForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateCallCenterForPartnerResponse
+     *
+     * @param OperateCallCenterForPartnerRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return OperateCallCenterForPartnerResponse
+     */
+    public function operateCallCenterForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->callAction) {
+            @$query['CallAction'] = $request->callAction;
+        }
+
+        if (null !== $request->employeeCode) {
+            @$query['EmployeeCode'] = $request->employeeCode;
+        }
+
+        if (null !== $request->request) {
+            @$query['Request'] = $request->request;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OperateCallCenterForPartner',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateCallCenterForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 服务商玄坛呼叫中心操作.
+     *
+     * @param request - OperateCallCenterForPartnerRequest
+     *
+     * @returns OperateCallCenterForPartnerResponse
+     *
+     * @param OperateCallCenterForPartnerRequest $request
+     *
+     * @return OperateCallCenterForPartnerResponse
+     */
+    public function operateCallCenterForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateCallCenterForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - OperateProduceForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1752,6 +1829,103 @@ class Companyreg extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryUserNeedAuthWithOptions($runtime);
+    }
+
+    /**
+     * 服务商玄坛外呼呼叫中心事件回传.
+     *
+     * @param request - RecordCallCenterEventForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecordCallCenterEventForPartnerResponse
+     *
+     * @param RecordCallCenterEventForPartnerRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return RecordCallCenterEventForPartnerResponse
+     */
+    public function recordCallCenterEventForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->callAction) {
+            @$query['CallAction'] = $request->callAction;
+        }
+
+        if (null !== $request->callee) {
+            @$query['Callee'] = $request->callee;
+        }
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
+        }
+
+        if (null !== $request->connId) {
+            @$query['ConnId'] = $request->connId;
+        }
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->relatedId) {
+            @$query['RelatedId'] = $request->relatedId;
+        }
+
+        if (null !== $request->secretMobile) {
+            @$query['SecretMobile'] = $request->secretMobile;
+        }
+
+        if (null !== $request->skillType) {
+            @$query['SkillType'] = $request->skillType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RecordCallCenterEventForPartner',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RecordCallCenterEventForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 服务商玄坛外呼呼叫中心事件回传.
+     *
+     * @param request - RecordCallCenterEventForPartnerRequest
+     *
+     * @returns RecordCallCenterEventForPartnerResponse
+     *
+     * @param RecordCallCenterEventForPartnerRequest $request
+     *
+     * @return RecordCallCenterEventForPartnerResponse
+     */
+    public function recordCallCenterEventForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recordCallCenterEventForPartnerWithOptions($request, $runtime);
     }
 
     /**
