@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Starrocks\V20221019\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesShrinkRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeNodeGroupsRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeNodeGroupsResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyCuPreCheckRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyCuPreCheckResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyCuRequest;
@@ -456,6 +458,97 @@ class Starrocks extends OpenApiClient
         $headers = [];
 
         return $this->describeInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取节点组信息.
+     *
+     * @param request - DescribeNodeGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNodeGroupsResponse
+     *
+     * @param DescribeNodeGroupsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeNodeGroupsResponse
+     */
+    public function describeNodeGroupsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $body = [];
+        if (null !== $request->componentType) {
+            @$body['componentType'] = $request->componentType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nodeGroupIds) {
+            @$body['nodeGroupIds'] = $request->nodeGroupIds;
+        }
+
+        if (null !== $request->nodeGroupName) {
+            @$body['nodeGroupName'] = $request->nodeGroupName;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNodeGroups',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/nodegroup/describeNodeGroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNodeGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取节点组信息.
+     *
+     * @param request - DescribeNodeGroupsRequest
+     *
+     * @returns DescribeNodeGroupsResponse
+     *
+     * @param DescribeNodeGroupsRequest $request
+     *
+     * @return DescribeNodeGroupsResponse
+     */
+    public function describeNodeGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeNodeGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
