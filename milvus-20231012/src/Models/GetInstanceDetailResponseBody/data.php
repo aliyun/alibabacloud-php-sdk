@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\clusterInfo;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\measureConfig;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\tags;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\vSwitches;
 
 class data extends Model
 {
@@ -65,6 +66,11 @@ class data extends Model
      * @var measureConfig
      */
     public $measureConfig;
+
+    /**
+     * @var string
+     */
+    public $multiZoneMode;
 
     /**
      * @var string
@@ -127,6 +133,11 @@ class data extends Model
     public $userConfig;
 
     /**
+     * @var vSwitches[]
+     */
+    public $vSwitches;
+
+    /**
      * @var string
      */
     public $version;
@@ -157,6 +168,7 @@ class data extends Model
         'instanceId' => 'InstanceId',
         'instanceStatus' => 'InstanceStatus',
         'measureConfig' => 'MeasureConfig',
+        'multiZoneMode' => 'MultiZoneMode',
         'nodeType' => 'NodeType',
         'openPublicNet' => 'OpenPublicNet',
         'packageType' => 'PackageType',
@@ -169,6 +181,7 @@ class data extends Model
         'tags' => 'Tags',
         'templateVersion' => 'TemplateVersion',
         'userConfig' => 'UserConfig',
+        'vSwitches' => 'VSwitches',
         'version' => 'Version',
         'vpcId' => 'VpcId',
         'vswId' => 'VswId',
@@ -185,6 +198,9 @@ class data extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->vSwitches)) {
+            Model::validateArray($this->vSwitches);
         }
         parent::validate();
     }
@@ -234,6 +250,10 @@ class data extends Model
 
         if (null !== $this->measureConfig) {
             $res['MeasureConfig'] = null !== $this->measureConfig ? $this->measureConfig->toArray($noStream) : $this->measureConfig;
+        }
+
+        if (null !== $this->multiZoneMode) {
+            $res['MultiZoneMode'] = $this->multiZoneMode;
         }
 
         if (null !== $this->nodeType) {
@@ -289,6 +309,17 @@ class data extends Model
 
         if (null !== $this->userConfig) {
             $res['UserConfig'] = $this->userConfig;
+        }
+
+        if (null !== $this->vSwitches) {
+            if (\is_array($this->vSwitches)) {
+                $res['VSwitches'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitches as $item1) {
+                    $res['VSwitches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->version) {
@@ -362,6 +393,10 @@ class data extends Model
             $model->measureConfig = measureConfig::fromMap($map['MeasureConfig']);
         }
 
+        if (isset($map['MultiZoneMode'])) {
+            $model->multiZoneMode = $map['MultiZoneMode'];
+        }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
@@ -415,6 +450,17 @@ class data extends Model
 
         if (isset($map['UserConfig'])) {
             $model->userConfig = $map['UserConfig'];
+        }
+
+        if (isset($map['VSwitches'])) {
+            if (!empty($map['VSwitches'])) {
+                $model->vSwitches = [];
+                $n1 = 0;
+                foreach ($map['VSwitches'] as $item1) {
+                    $model->vSwitches[$n1] = vSwitches::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Version'])) {
