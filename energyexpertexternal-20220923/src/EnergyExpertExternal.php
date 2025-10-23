@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DeleteDocumentRequest
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DeleteFolderRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DeleteFolderResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DetailDocumentRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\DetailDocumentResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditProhibitedDevicesResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\EditUnfavorableAreaDevicesRequest;
@@ -1021,6 +1023,67 @@ class EnergyExpertExternal extends OpenApiClient
         $headers = [];
 
         return $this->deleteFolderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取文档detail.
+     *
+     * @param Request - DetailDocumentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetailDocumentResponse
+     *
+     * @param DetailDocumentRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DetailDocumentResponse
+     */
+    public function detailDocumentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetailDocument',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aidoc/document/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DetailDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文档detail.
+     *
+     * @param Request - DetailDocumentRequest
+     *
+     * @returns DetailDocumentResponse
+     *
+     * @param DetailDocumentRequest $request
+     *
+     * @return DetailDocumentResponse
+     */
+    public function detailDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->detailDocumentWithOptions($request, $headers, $runtime);
     }
 
     /**
