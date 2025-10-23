@@ -9,10 +9,22 @@ use AlibabaCloud\Dara\Model;
 class AutoScalingSpec extends Model
 {
     /**
+     * @var int
+     */
+    public $maxReplicas;
+
+    /**
+     * @var int
+     */
+    public $minReplicas;
+
+    /**
      * @var string
      */
     public $scalingStrategy;
     protected $_name = [
+        'maxReplicas' => 'MaxReplicas',
+        'minReplicas' => 'MinReplicas',
         'scalingStrategy' => 'ScalingStrategy',
     ];
 
@@ -24,6 +36,14 @@ class AutoScalingSpec extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->maxReplicas) {
+            $res['MaxReplicas'] = $this->maxReplicas;
+        }
+
+        if (null !== $this->minReplicas) {
+            $res['MinReplicas'] = $this->minReplicas;
+        }
+
         if (null !== $this->scalingStrategy) {
             $res['ScalingStrategy'] = $this->scalingStrategy;
         }
@@ -39,6 +59,14 @@ class AutoScalingSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxReplicas'])) {
+            $model->maxReplicas = $map['MaxReplicas'];
+        }
+
+        if (isset($map['MinReplicas'])) {
+            $model->minReplicas = $map['MinReplicas'];
+        }
+
         if (isset($map['ScalingStrategy'])) {
             $model->scalingStrategy = $map['ScalingStrategy'];
         }

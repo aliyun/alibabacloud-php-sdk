@@ -122,6 +122,11 @@ class JobItem extends Model
     public $jobMaxRunningTimeMinutes;
 
     /**
+     * @var JobReplicaStatus
+     */
+    public $jobReplicaStatuses;
+
+    /**
      * @var JobSpec[]
      */
     public $jobSpecs;
@@ -313,6 +318,7 @@ class JobItem extends Model
         'isDeleted' => 'IsDeleted',
         'jobId' => 'JobId',
         'jobMaxRunningTimeMinutes' => 'JobMaxRunningTimeMinutes',
+        'jobReplicaStatuses' => 'JobReplicaStatuses',
         'jobSpecs' => 'JobSpecs',
         'jobType' => 'JobType',
         'nodeCount' => 'NodeCount',
@@ -365,6 +371,9 @@ class JobItem extends Model
         }
         if (\is_array($this->envs)) {
             Model::validateArray($this->envs);
+        }
+        if (null !== $this->jobReplicaStatuses) {
+            $this->jobReplicaStatuses->validate();
         }
         if (\is_array($this->jobSpecs)) {
             Model::validateArray($this->jobSpecs);
@@ -494,6 +503,10 @@ class JobItem extends Model
 
         if (null !== $this->jobMaxRunningTimeMinutes) {
             $res['JobMaxRunningTimeMinutes'] = $this->jobMaxRunningTimeMinutes;
+        }
+
+        if (null !== $this->jobReplicaStatuses) {
+            $res['JobReplicaStatuses'] = null !== $this->jobReplicaStatuses ? $this->jobReplicaStatuses->toArray($noStream) : $this->jobReplicaStatuses;
         }
 
         if (null !== $this->jobSpecs) {
@@ -781,6 +794,10 @@ class JobItem extends Model
 
         if (isset($map['JobMaxRunningTimeMinutes'])) {
             $model->jobMaxRunningTimeMinutes = $map['JobMaxRunningTimeMinutes'];
+        }
+
+        if (isset($map['JobReplicaStatuses'])) {
+            $model->jobReplicaStatuses = JobReplicaStatus::fromMap($map['JobReplicaStatuses']);
         }
 
         if (isset($map['JobSpecs'])) {

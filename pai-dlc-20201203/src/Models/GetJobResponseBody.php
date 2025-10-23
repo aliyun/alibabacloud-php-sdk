@@ -104,6 +104,11 @@ class GetJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @var JobReplicaStatus[]
+     */
+    public $jobReplicaStatuses;
+
+    /**
      * @var JobSpec[]
      */
     public $jobSpecs;
@@ -241,6 +246,7 @@ class GetJobResponseBody extends Model
         'gmtSubmittedTime' => 'GmtSubmittedTime',
         'gmtSuccessedTime' => 'GmtSuccessedTime',
         'jobId' => 'JobId',
+        'jobReplicaStatuses' => 'JobReplicaStatuses',
         'jobSpecs' => 'JobSpecs',
         'jobType' => 'JobType',
         'pods' => 'Pods',
@@ -283,6 +289,9 @@ class GetJobResponseBody extends Model
         }
         if (\is_array($this->envs)) {
             Model::validateArray($this->envs);
+        }
+        if (\is_array($this->jobReplicaStatuses)) {
+            Model::validateArray($this->jobReplicaStatuses);
         }
         if (\is_array($this->jobSpecs)) {
             Model::validateArray($this->jobSpecs);
@@ -393,6 +402,17 @@ class GetJobResponseBody extends Model
 
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+
+        if (null !== $this->jobReplicaStatuses) {
+            if (\is_array($this->jobReplicaStatuses)) {
+                $res['JobReplicaStatuses'] = [];
+                $n1 = 0;
+                foreach ($this->jobReplicaStatuses as $item1) {
+                    $res['JobReplicaStatuses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->jobSpecs) {
@@ -619,6 +639,17 @@ class GetJobResponseBody extends Model
 
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+
+        if (isset($map['JobReplicaStatuses'])) {
+            if (!empty($map['JobReplicaStatuses'])) {
+                $model->jobReplicaStatuses = [];
+                $n1 = 0;
+                foreach ($map['JobReplicaStatuses'] as $item1) {
+                    $model->jobReplicaStatuses[$n1] = JobReplicaStatus::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['JobSpecs'])) {
