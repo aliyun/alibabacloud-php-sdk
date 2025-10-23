@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailAdvanceRequest\attachments;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailAdvanceRequest\template;
 
 class SingleSendMailAdvanceRequest extends Model
 {
@@ -90,6 +91,11 @@ class SingleSendMailAdvanceRequest extends Model
     public $tagName;
 
     /**
+     * @var template
+     */
+    public $template;
+
+    /**
      * @var string
      */
     public $textBody;
@@ -125,6 +131,7 @@ class SingleSendMailAdvanceRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
         'subject' => 'Subject',
         'tagName' => 'TagName',
+        'template' => 'Template',
         'textBody' => 'TextBody',
         'toAddress' => 'ToAddress',
         'unSubscribeFilterLevel' => 'UnSubscribeFilterLevel',
@@ -135,6 +142,9 @@ class SingleSendMailAdvanceRequest extends Model
     {
         if (\is_array($this->attachments)) {
             Model::validateArray($this->attachments);
+        }
+        if (null !== $this->template) {
+            $this->template->validate();
         }
         parent::validate();
     }
@@ -211,6 +221,10 @@ class SingleSendMailAdvanceRequest extends Model
 
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
+        }
+
+        if (null !== $this->template) {
+            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
         }
 
         if (null !== $this->textBody) {
@@ -309,6 +323,10 @@ class SingleSendMailAdvanceRequest extends Model
 
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
+        }
+
+        if (isset($map['Template'])) {
+            $model->template = template::fromMap($map['Template']);
         }
 
         if (isset($map['TextBody'])) {

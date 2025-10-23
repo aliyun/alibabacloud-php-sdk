@@ -6,27 +6,17 @@ namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SaveReceiverDetailRequest extends Model
+class DescTemplateRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $customDetail;
-
-    /**
-     * @var string
-     */
-    public $detail;
+    public $fromType;
 
     /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $receiverId;
 
     /**
      * @var string
@@ -37,13 +27,17 @@ class SaveReceiverDetailRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $templateId;
     protected $_name = [
-        'customDetail' => 'CustomDetail',
-        'detail' => 'Detail',
+        'fromType' => 'FromType',
         'ownerId' => 'OwnerId',
-        'receiverId' => 'ReceiverId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -54,20 +48,12 @@ class SaveReceiverDetailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->customDetail) {
-            $res['CustomDetail'] = $this->customDetail;
-        }
-
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
+        if (null !== $this->fromType) {
+            $res['FromType'] = $this->fromType;
         }
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-
-        if (null !== $this->receiverId) {
-            $res['ReceiverId'] = $this->receiverId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -76,6 +62,10 @@ class SaveReceiverDetailRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -89,20 +79,12 @@ class SaveReceiverDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustomDetail'])) {
-            $model->customDetail = $map['CustomDetail'];
-        }
-
-        if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
+        if (isset($map['FromType'])) {
+            $model->fromType = $map['FromType'];
         }
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-
-        if (isset($map['ReceiverId'])) {
-            $model->receiverId = $map['ReceiverId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -111,6 +93,10 @@ class SaveReceiverDetailRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

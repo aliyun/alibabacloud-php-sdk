@@ -19,10 +19,26 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\BatchSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\BatchSendMailResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ChangeDomainDkimRecordRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ChangeDomainDkimRecordResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\CheckDisposableRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\CheckDisposableResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CheckDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CheckDomainResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CheckReplyToMailAddressRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CheckReplyToMailAddressResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCancelRelationFromAddressRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCancelRelationFromAddressResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCreateRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetCreateResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDeleteRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDeleteResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDetailRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetDetailResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetListRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetListResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetRelationFromAddressRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetRelationFromAddressResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetUpdateRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetUpdateResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateMailAddressRequest;
@@ -62,10 +78,14 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteReceiverRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteReceiverResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteTagRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteTagResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteValidateFileRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteValidateFileResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescDomainResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DescTemplateRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DescTemplateResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetDedicatedIpWarmUpDetailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetDedicatedIpWarmUpDetailResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetDedicatedIpWarmUpInfoRequest;
@@ -81,6 +101,11 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameRespons
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetUserResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetValidateFileRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetValidateFileResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetValidateFileStatusRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetValidateFileStatusResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetValidationQuotaResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListBlockSendingRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListBlockSendingResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionRequest;
@@ -105,6 +130,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTagByParamRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTagByParamResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTaskByParamRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTaskByParamResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTemplateByParamRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\QueryTemplateByParamResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\RemoveUserSuppressionRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\RemoveUserSuppressionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailRequest;
@@ -115,11 +142,15 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\SenderStatisticsDetailByParamRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SenderStatisticsDetailByParamResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SendTestByTemplateRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SendTestByTemplateResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SendValidateFileAdvanceRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SendValidateFileRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SendValidateFileResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SetSuppressionListLevelRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SetSuppressionListLevelResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailAdvanceRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailShrinkRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UnblockSendingRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UnblockSendingResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionRequest;
@@ -127,6 +158,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserShrinkRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ValidateEmailRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ValidateEmailResponse;
 use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -538,6 +571,63 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * 检查地址是否为一次性邮箱.
+     *
+     * @param Request - CheckDisposableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDisposableResponse
+     *
+     * @param CheckDisposableRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CheckDisposableResponse
+     */
+    public function checkDisposableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckDisposable',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckDisposableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查地址是否为一次性邮箱.
+     *
+     * @param Request - CheckDisposableRequest
+     *
+     * @returns CheckDisposableResponse
+     *
+     * @param CheckDisposableRequest $request
+     *
+     * @return CheckDisposableResponse
+     */
+    public function checkDisposable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkDisposableWithOptions($request, $runtime);
+    }
+
+    /**
      * Check Domain Status.
      *
      * @param Request - CheckDomainRequest
@@ -681,6 +771,449 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkReplyToMailAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置集取消关联发信地址
+     *
+     * @param Request - ConfigSetCancelRelationFromAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigSetCancelRelationFromAddressResponse
+     *
+     * @param ConfigSetCancelRelationFromAddressRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ConfigSetCancelRelationFromAddressResponse
+     */
+    public function configSetCancelRelationFromAddressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromAddress) {
+            @$query['FromAddress'] = $request->fromAddress;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigSetCancelRelationFromAddress',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigSetCancelRelationFromAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置集取消关联发信地址
+     *
+     * @param Request - ConfigSetCancelRelationFromAddressRequest
+     *
+     * @returns ConfigSetCancelRelationFromAddressResponse
+     *
+     * @param ConfigSetCancelRelationFromAddressRequest $request
+     *
+     * @return ConfigSetCancelRelationFromAddressResponse
+     */
+    public function configSetCancelRelationFromAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configSetCancelRelationFromAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置集创建.
+     *
+     * @param Request - ConfigSetCreateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigSetCreateResponse
+     *
+     * @param ConfigSetCreateRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConfigSetCreateResponse
+     */
+    public function configSetCreateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->ipPoolId) {
+            @$query['IpPoolId'] = $request->ipPoolId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigSetCreate',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigSetCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置集创建.
+     *
+     * @param Request - ConfigSetCreateRequest
+     *
+     * @returns ConfigSetCreateResponse
+     *
+     * @param ConfigSetCreateRequest $request
+     *
+     * @return ConfigSetCreateResponse
+     */
+    public function configSetCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configSetCreateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除配置集.
+     *
+     * @param Request - ConfigSetDeleteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigSetDeleteResponse
+     *
+     * @param ConfigSetDeleteRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConfigSetDeleteResponse
+     */
+    public function configSetDeleteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        if (null !== $request->isForce) {
+            @$query['IsForce'] = $request->isForce;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigSetDelete',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigSetDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除配置集.
+     *
+     * @param Request - ConfigSetDeleteRequest
+     *
+     * @returns ConfigSetDeleteResponse
+     *
+     * @param ConfigSetDeleteRequest $request
+     *
+     * @return ConfigSetDeleteResponse
+     */
+    public function configSetDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configSetDeleteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置集详情.
+     *
+     * @param Request - ConfigSetDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigSetDetailResponse
+     *
+     * @param ConfigSetDetailRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConfigSetDetailResponse
+     */
+    public function configSetDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigSetDetail',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigSetDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置集详情.
+     *
+     * @param Request - ConfigSetDetailRequest
+     *
+     * @returns ConfigSetDetailResponse
+     *
+     * @param ConfigSetDetailRequest $request
+     *
+     * @return ConfigSetDetailResponse
+     */
+    public function configSetDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configSetDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置集列表.
+     *
+     * @param Request - ConfigSetListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigSetListResponse
+     *
+     * @param ConfigSetListRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ConfigSetListResponse
+     */
+    public function configSetListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigSetList',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigSetListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置集列表.
+     *
+     * @param Request - ConfigSetListRequest
+     *
+     * @returns ConfigSetListResponse
+     *
+     * @param ConfigSetListRequest $request
+     *
+     * @return ConfigSetListResponse
+     */
+    public function configSetList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configSetListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置集关联发信地址
+     *
+     * @param Request - ConfigSetRelationFromAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigSetRelationFromAddressResponse
+     *
+     * @param ConfigSetRelationFromAddressRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ConfigSetRelationFromAddressResponse
+     */
+    public function configSetRelationFromAddressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromAddress) {
+            @$query['FromAddress'] = $request->fromAddress;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigSetRelationFromAddress',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigSetRelationFromAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置集关联发信地址
+     *
+     * @param Request - ConfigSetRelationFromAddressRequest
+     *
+     * @returns ConfigSetRelationFromAddressResponse
+     *
+     * @param ConfigSetRelationFromAddressRequest $request
+     *
+     * @return ConfigSetRelationFromAddressResponse
+     */
+    public function configSetRelationFromAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configSetRelationFromAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置集更新.
+     *
+     * @param Request - ConfigSetUpdateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigSetUpdateResponse
+     *
+     * @param ConfigSetUpdateRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConfigSetUpdateResponse
+     */
+    public function configSetUpdateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->ipPoolId) {
+            @$query['IpPoolId'] = $request->ipPoolId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigSetUpdate',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigSetUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置集更新.
+     *
+     * @param Request - ConfigSetUpdateRequest
+     *
+     * @returns ConfigSetUpdateResponse
+     *
+     * @param ConfigSetUpdateRequest $request
+     *
+     * @return ConfigSetUpdateResponse
+     */
+    public function configSetUpdate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configSetUpdateWithOptions($request, $runtime);
     }
 
     /**
@@ -2027,6 +2560,63 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * 删除批量校验任务的结果文件.
+     *
+     * @param Request - DeleteValidateFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteValidateFileResponse
+     *
+     * @param DeleteValidateFileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteValidateFileResponse
+     */
+    public function deleteValidateFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteValidateFile',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteValidateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除批量校验任务的结果文件.
+     *
+     * @param Request - DeleteValidateFileRequest
+     *
+     * @returns DeleteValidateFileResponse
+     *
+     * @param DeleteValidateFileRequest $request
+     *
+     * @return DeleteValidateFileResponse
+     */
+    public function deleteValidateFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteValidateFileWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieve account information.
      *
      * @param Request - DescAccountSummaryRequest
@@ -2162,6 +2752,79 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->descDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看模板信息.
+     *
+     * @param Request - DescTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescTemplateResponse
+     *
+     * @param DescTemplateRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescTemplateResponse
+     */
+    public function descTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromType) {
+            @$query['FromType'] = $request->fromType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescTemplate',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看模板信息.
+     *
+     * @param Request - DescTemplateRequest
+     *
+     * @returns DescTemplateResponse
+     *
+     * @param DescTemplateRequest $request
+     *
+     * @return DescTemplateResponse
+     */
+    public function descTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->descTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -2769,6 +3432,164 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserWithOptions($runtime);
+    }
+
+    /**
+     * 获取批量校验任务的结果文件.
+     *
+     * @param Request - GetValidateFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetValidateFileResponse
+     *
+     * @param GetValidateFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetValidateFileResponse
+     */
+    public function getValidateFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetValidateFile',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetValidateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取批量校验任务的结果文件.
+     *
+     * @param Request - GetValidateFileRequest
+     *
+     * @returns GetValidateFileResponse
+     *
+     * @param GetValidateFileRequest $request
+     *
+     * @return GetValidateFileResponse
+     */
+    public function getValidateFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getValidateFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取批量校验任务的状态
+     *
+     * @param Request - GetValidateFileStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetValidateFileStatusResponse
+     *
+     * @param GetValidateFileStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetValidateFileStatusResponse
+     */
+    public function getValidateFileStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetValidateFileStatus',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetValidateFileStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取批量校验任务的状态
+     *
+     * @param Request - GetValidateFileStatusRequest
+     *
+     * @returns GetValidateFileStatusResponse
+     *
+     * @param GetValidateFileStatusRequest $request
+     *
+     * @return GetValidateFileStatusResponse
+     */
+    public function getValidateFileStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getValidateFileStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取电子邮件校验额度.
+     *
+     * @param Request - GetValidationQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetValidationQuotaResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetValidationQuotaResponse
+     */
+    public function getValidationQuotaWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetValidationQuota',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetValidationQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取电子邮件校验额度.
+     *
+     * @returns GetValidationQuotaResponse
+     *
+     * @return GetValidationQuotaResponse
+     */
+    public function getValidationQuota()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getValidationQuotaWithOptions($runtime);
     }
 
     /**
@@ -3746,6 +4567,91 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * 查询模板信息.
+     *
+     * @param Request - QueryTemplateByParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTemplateByParamResponse
+     *
+     * @param QueryTemplateByParamRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryTemplateByParamResponse
+     */
+    public function queryTemplateByParamWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromType) {
+            @$query['FromType'] = $request->fromType;
+        }
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryTemplateByParam',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryTemplateByParamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模板信息.
+     *
+     * @param Request - QueryTemplateByParamRequest
+     *
+     * @returns QueryTemplateByParamResponse
+     *
+     * @param QueryTemplateByParamRequest $request
+     *
+     * @return QueryTemplateByParamResponse
+     */
+    public function queryTemplateByParam($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTemplateByParamWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除用户无效地址
      *
      * @param Request - RemoveUserSuppressionRequest
@@ -3831,6 +4737,10 @@ class Dm extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customDetail) {
+            @$query['CustomDetail'] = $request->customDetail;
+        }
+
         if (null !== $request->detail) {
             @$query['Detail'] = $request->detail;
         }
@@ -3944,6 +4854,10 @@ class Dm extends OpenApiClient
             @$query['TemplateId'] = $request->templateId;
         }
 
+        if (null !== $request->templateParams) {
+            @$query['TemplateParams'] = $request->templateParams;
+        }
+
         if (null !== $request->userName) {
             @$query['UserName'] = $request->userName;
         }
@@ -3982,6 +4896,171 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendTestByTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交批量校验任务
+     *
+     * @param Request - SendValidateFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendValidateFileResponse
+     *
+     * @param SendValidateFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SendValidateFileResponse
+     */
+    public function sendValidateFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addressColumn) {
+            @$query['AddressColumn'] = $request->addressColumn;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->hasHeaderRow) {
+            @$query['HasHeaderRow'] = $request->hasHeaderRow;
+        }
+
+        if (null !== $request->removeDuplicate) {
+            @$query['RemoveDuplicate'] = $request->removeDuplicate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SendValidateFile',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendValidateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交批量校验任务
+     *
+     * @param Request - SendValidateFileRequest
+     *
+     * @returns SendValidateFileResponse
+     *
+     * @param SendValidateFileRequest $request
+     *
+     * @return SendValidateFileResponse
+     */
+    public function sendValidateFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendValidateFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendValidateFileAdvanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SendValidateFileResponse
+     */
+    public function sendValidateFileAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Dm',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $sendValidateFileReq = new SendValidateFileRequest([]);
+        Utils::convert($request, $sendValidateFileReq);
+        if (null !== $request->fileUrlObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $sendValidateFileReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->sendValidateFileWithOptions($sendValidateFileReq, $runtime);
     }
 
     /**
@@ -4254,19 +5333,25 @@ class Dm extends OpenApiClient
     /**
      * API for Sending Emails.
      *
-     * @param Request - SingleSendMailRequest
+     * @param tmpReq - SingleSendMailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SingleSendMailResponse
      *
-     * @param SingleSendMailRequest $request
+     * @param SingleSendMailRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return SingleSendMailResponse
      */
-    public function singleSendMailWithOptions($request, $runtime)
+    public function singleSendMailWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new SingleSendMailShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->template) {
+            $request->templateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
+        }
+
         $query = [];
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
@@ -4331,6 +5416,10 @@ class Dm extends OpenApiClient
 
         if (null !== $request->tagName) {
             @$body['TagName'] = $request->tagName;
+        }
+
+        if (null !== $request->templateShrink) {
+            @$body['Template'] = $request->templateShrink;
         }
 
         if (null !== $request->textBody) {
@@ -4681,5 +5770,66 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 校验电子邮件地址
+     *
+     * @param Request - ValidateEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateEmailResponse
+     *
+     * @param ValidateEmailRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ValidateEmailResponse
+     */
+    public function validateEmailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateEmail',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 校验电子邮件地址
+     *
+     * @param Request - ValidateEmailRequest
+     *
+     * @returns ValidateEmailResponse
+     *
+     * @param ValidateEmailRequest $request
+     *
+     * @return ValidateEmailResponse
+     */
+    public function validateEmail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateEmailWithOptions($request, $runtime);
     }
 }

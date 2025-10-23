@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailResponseBody\data;
+namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class detail extends Model
+class ValidateEmailRequest extends Model
 {
     /**
      * @var string
@@ -14,12 +14,12 @@ class detail extends Model
     public $email;
 
     /**
-     * @var string
+     * @var int
      */
-    public $errMessage;
+    public $timeout;
     protected $_name = [
         'email' => 'Email',
-        'errMessage' => 'ErrMessage',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -34,8 +34,8 @@ class detail extends Model
             $res['Email'] = $this->email;
         }
 
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -53,8 +53,8 @@ class detail extends Model
             $model->email = $map['Email'];
         }
 
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

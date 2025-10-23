@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SaveReceiverDetailRequest extends Model
+class QueryTemplateByParamRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $customDetail;
+    public $fromType;
 
     /**
      * @var string
      */
-    public $detail;
+    public $keyWord;
 
     /**
      * @var int
@@ -24,9 +24,14 @@ class SaveReceiverDetailRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $receiverId;
+    public $pageNo;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -37,13 +42,20 @@ class SaveReceiverDetailRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'customDetail' => 'CustomDetail',
-        'detail' => 'Detail',
+        'fromType' => 'FromType',
+        'keyWord' => 'KeyWord',
         'ownerId' => 'OwnerId',
-        'receiverId' => 'ReceiverId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -54,20 +66,24 @@ class SaveReceiverDetailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->customDetail) {
-            $res['CustomDetail'] = $this->customDetail;
+        if (null !== $this->fromType) {
+            $res['FromType'] = $this->fromType;
         }
 
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
+        if (null !== $this->keyWord) {
+            $res['KeyWord'] = $this->keyWord;
         }
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->receiverId) {
-            $res['ReceiverId'] = $this->receiverId;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -76,6 +92,10 @@ class SaveReceiverDetailRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -89,20 +109,24 @@ class SaveReceiverDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustomDetail'])) {
-            $model->customDetail = $map['CustomDetail'];
+        if (isset($map['FromType'])) {
+            $model->fromType = $map['FromType'];
         }
 
-        if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
+        if (isset($map['KeyWord'])) {
+            $model->keyWord = $map['KeyWord'];
         }
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
 
-        if (isset($map['ReceiverId'])) {
-            $model->receiverId = $map['ReceiverId'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -111,6 +135,10 @@ class SaveReceiverDetailRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

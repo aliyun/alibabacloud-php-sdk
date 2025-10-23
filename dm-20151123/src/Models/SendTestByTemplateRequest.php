@@ -61,6 +61,11 @@ class SendTestByTemplateRequest extends Model
     /**
      * @var string
      */
+    public $templateParams;
+
+    /**
+     * @var string
+     */
     public $userName;
     protected $_name = [
         'accountName' => 'AccountName',
@@ -73,6 +78,7 @@ class SendTestByTemplateRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'templateId' => 'TemplateId',
+        'templateParams' => 'TemplateParams',
         'userName' => 'UserName',
     ];
 
@@ -122,6 +128,10 @@ class SendTestByTemplateRequest extends Model
 
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateParams) {
+            $res['TemplateParams'] = $this->templateParams;
         }
 
         if (null !== $this->userName) {
@@ -177,6 +187,10 @@ class SendTestByTemplateRequest extends Model
 
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateParams'])) {
+            $model->templateParams = $map['TemplateParams'];
         }
 
         if (isset($map['UserName'])) {

@@ -5,10 +5,9 @@
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest\attachments;
-use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest\template;
+use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailShrinkRequest\attachments;
 
-class SingleSendMailRequest extends Model
+class SingleSendMailShrinkRequest extends Model
 {
     /**
      * @var string
@@ -91,9 +90,9 @@ class SingleSendMailRequest extends Model
     public $tagName;
 
     /**
-     * @var template
+     * @var string
      */
-    public $template;
+    public $templateShrink;
 
     /**
      * @var string
@@ -131,7 +130,7 @@ class SingleSendMailRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
         'subject' => 'Subject',
         'tagName' => 'TagName',
-        'template' => 'Template',
+        'templateShrink' => 'Template',
         'textBody' => 'TextBody',
         'toAddress' => 'ToAddress',
         'unSubscribeFilterLevel' => 'UnSubscribeFilterLevel',
@@ -142,9 +141,6 @@ class SingleSendMailRequest extends Model
     {
         if (\is_array($this->attachments)) {
             Model::validateArray($this->attachments);
-        }
-        if (null !== $this->template) {
-            $this->template->validate();
         }
         parent::validate();
     }
@@ -223,8 +219,8 @@ class SingleSendMailRequest extends Model
             $res['TagName'] = $this->tagName;
         }
 
-        if (null !== $this->template) {
-            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
+        if (null !== $this->templateShrink) {
+            $res['Template'] = $this->templateShrink;
         }
 
         if (null !== $this->textBody) {
@@ -326,7 +322,7 @@ class SingleSendMailRequest extends Model
         }
 
         if (isset($map['Template'])) {
-            $model->template = template::fromMap($map['Template']);
+            $model->templateShrink = $map['Template'];
         }
 
         if (isset($map['TextBody'])) {

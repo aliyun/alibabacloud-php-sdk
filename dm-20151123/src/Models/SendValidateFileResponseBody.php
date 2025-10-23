@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailResponseBody\data;
+namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class detail extends Model
+class SendValidateFileResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $email;
+    public $fileId;
 
     /**
      * @var string
      */
-    public $errMessage;
+    public $requestId;
     protected $_name = [
-        'email' => 'Email',
-        'errMessage' => 'ErrMessage',
+        'fileId' => 'FileId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class detail extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
 
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
 
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

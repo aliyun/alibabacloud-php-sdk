@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailResponseBody\data;
+namespace AlibabaCloud\SDK\Dm\V20151123\Models\ConfigSetListResponseBody\configSets;
 
 use AlibabaCloud\Dara\Model;
 
-class detail extends Model
+class ipPool extends Model
 {
     /**
      * @var string
      */
-    public $email;
+    public $ipPoolId;
 
     /**
      * @var string
      */
-    public $errMessage;
+    public $ipPoolName;
     protected $_name = [
-        'email' => 'Email',
-        'errMessage' => 'ErrMessage',
+        'ipPoolId' => 'IpPoolId',
+        'ipPoolName' => 'IpPoolName',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class detail extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
+        if (null !== $this->ipPoolId) {
+            $res['IpPoolId'] = $this->ipPoolId;
         }
 
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->ipPoolName) {
+            $res['IpPoolName'] = $this->ipPoolName;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
+        if (isset($map['IpPoolId'])) {
+            $model->ipPoolId = $map['IpPoolId'];
         }
 
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['IpPoolName'])) {
+            $model->ipPoolName = $map['IpPoolName'];
         }
 
         return $model;

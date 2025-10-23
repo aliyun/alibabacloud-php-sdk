@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailResponseBody\data;
+namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class detail extends Model
+class ConfigSetCancelRelationFromAddressRequest extends Model
 {
     /**
      * @var string
      */
-    public $email;
+    public $fromAddress;
 
     /**
      * @var string
      */
-    public $errMessage;
+    public $id;
     protected $_name = [
-        'email' => 'Email',
-        'errMessage' => 'ErrMessage',
+        'fromAddress' => 'FromAddress',
+        'id' => 'Id',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class detail extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
+        if (null !== $this->fromAddress) {
+            $res['FromAddress'] = $this->fromAddress;
         }
 
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
+        if (isset($map['FromAddress'])) {
+            $model->fromAddress = $map['FromAddress'];
         }
 
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

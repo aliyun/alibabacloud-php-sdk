@@ -2,24 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dm\V20151123\Models\SaveReceiverDetailResponseBody\data;
+namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class detail extends Model
+class CheckDisposableRequest extends Model
 {
     /**
      * @var string
      */
     public $email;
-
-    /**
-     * @var string
-     */
-    public $errMessage;
     protected $_name = [
         'email' => 'Email',
-        'errMessage' => 'ErrMessage',
     ];
 
     public function validate()
@@ -32,10 +26,6 @@ class detail extends Model
         $res = [];
         if (null !== $this->email) {
             $res['Email'] = $this->email;
-        }
-
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
         }
 
         return $res;
@@ -51,10 +41,6 @@ class detail extends Model
         $model = new self();
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
-        }
-
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
         }
 
         return $model;
