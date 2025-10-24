@@ -35,6 +35,7 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityValueResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityValueShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateFaqRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateFaqResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateFaqShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateInstancePublishTaskRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateInstancePublishTaskResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateInstanceRequest;
@@ -54,6 +55,11 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateSimQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateSimQuestionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateSolutionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateSolutionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateSolutionShrinkRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateTagGroupRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateTagGroupResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateTagRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateTagResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateUserSayRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateUserSayResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateUserSayShrinkRequest;
@@ -81,6 +87,10 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteSimQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteSimQuestionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteSolutionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteSolutionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteTagGroupRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteTagGroupResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteTagRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteTagResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteUserSayRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DeleteUserSayResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeCategoryRequest;
@@ -97,6 +107,10 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeIntentRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeIntentResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribePerspectiveRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribePerspectiveResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeTagGroupRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeTagGroupResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeTagRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeTagResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\FeedbackRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\FeedbackResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GenerateUserAccessTokenRequest;
@@ -139,6 +153,10 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSimQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSimQuestionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSolutionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSolutionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTagGroupRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTagGroupResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTagRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTagResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiChatHistorysRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiChatHistorysResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiConversationLogsRequest;
@@ -173,6 +191,7 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityValueResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityValueShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateFaqRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateFaqResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateFaqShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateIntentRequest;
@@ -187,6 +206,11 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateSimQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateSimQuestionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateSolutionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateSolutionResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateSolutionShrinkRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateTagGroupRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateTagGroupResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateTagRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateTagResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateUserSayShrinkRequest;
@@ -1136,19 +1160,25 @@ class Chatbot extends OpenApiClient
     /**
      * 新建FAQ.
      *
-     * @param request - CreateFaqRequest
+     * @param tmpReq - CreateFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateFaqResponse
      *
-     * @param CreateFaqRequest $request
+     * @param CreateFaqRequest $tmpReq
      * @param RuntimeOptions   $runtime
      *
      * @return CreateFaqResponse
      */
-    public function createFaqWithOptions($request, $runtime)
+    public function createFaqWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateFaqShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tagIdList) {
+            $request->tagIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagIdList, 'TagIdList', 'json');
+        }
+
         $query = [];
         if (null !== $request->agentKey) {
             @$query['AgentKey'] = $request->agentKey;
@@ -1173,6 +1203,10 @@ class Chatbot extends OpenApiClient
 
         if (null !== $request->startDate) {
             @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->tagIdListShrink) {
+            @$body['TagIdList'] = $request->tagIdListShrink;
         }
 
         if (null !== $request->title) {
@@ -1698,19 +1732,25 @@ class Chatbot extends OpenApiClient
     /**
      * 新建FAQ答案.
      *
-     * @param request - CreateSolutionRequest
+     * @param tmpReq - CreateSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateSolutionResponse
      *
-     * @param CreateSolutionRequest $request
+     * @param CreateSolutionRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return CreateSolutionResponse
      */
-    public function createSolutionWithOptions($request, $runtime)
+    public function createSolutionWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateSolutionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tagIdList) {
+            $request->tagIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagIdList, 'TagIdList', 'json');
+        }
+
         $query = [];
         if (null !== $request->agentKey) {
             @$query['AgentKey'] = $request->agentKey;
@@ -1732,8 +1772,14 @@ class Chatbot extends OpenApiClient
             @$query['PerspectiveCodes'] = $request->perspectiveCodes;
         }
 
+        $body = [];
+        if (null !== $request->tagIdListShrink) {
+            @$body['TagIdList'] = $request->tagIdListShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateSolution',
@@ -1766,6 +1812,144 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSolutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标签创建.
+     *
+     * @param request - CreateTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTagResponse
+     *
+     * @param CreateTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateTagResponse
+     */
+    public function createTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->tagName) {
+            @$body['TagName'] = $request->tagName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTag',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签创建.
+     *
+     * @param request - CreateTagRequest
+     *
+     * @returns CreateTagResponse
+     *
+     * @param CreateTagRequest $request
+     *
+     * @return CreateTagResponse
+     */
+    public function createTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标签组创建.
+     *
+     * @param request - CreateTagGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTagGroupResponse
+     *
+     * @param CreateTagGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTagGroupResponse
+     */
+    public function createTagGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTagGroup',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签组创建.
+     *
+     * @param request - CreateTagGroupRequest
+     *
+     * @returns CreateTagGroupResponse
+     *
+     * @param CreateTagGroupRequest $request
+     *
+     * @return CreateTagGroupResponse
+     */
+    public function createTagGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTagGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2606,6 +2790,144 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * 标签删除.
+     *
+     * @param request - DeleteTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTagResponse
+     *
+     * @param DeleteTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteTagResponse
+     */
+    public function deleteTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTag',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签删除.
+     *
+     * @param request - DeleteTagRequest
+     *
+     * @returns DeleteTagResponse
+     *
+     * @param DeleteTagRequest $request
+     *
+     * @return DeleteTagResponse
+     */
+    public function deleteTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标签组删除.
+     *
+     * @param request - DeleteTagGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTagGroupResponse
+     *
+     * @param DeleteTagGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTagGroupResponse
+     */
+    public function deleteTagGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTagGroup',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签组删除.
+     *
+     * @param request - DeleteTagGroupRequest
+     *
+     * @returns DeleteTagGroupResponse
+     *
+     * @param DeleteTagGroupRequest $request
+     *
+     * @return DeleteTagGroupResponse
+     */
+    public function deleteTagGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTagGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * 意图-用户话术-删除.
      *
      * @param request - DeleteUserSayRequest
@@ -3117,6 +3439,144 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePerspectiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标签详情.
+     *
+     * @param request - DescribeTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagResponse
+     *
+     * @param DescribeTagRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeTagResponse
+     */
+    public function describeTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTag',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签详情.
+     *
+     * @param request - DescribeTagRequest
+     *
+     * @returns DescribeTagResponse
+     *
+     * @param DescribeTagRequest $request
+     *
+     * @return DescribeTagResponse
+     */
+    public function describeTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标签组详情.
+     *
+     * @param request - DescribeTagGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagGroupResponse
+     *
+     * @param DescribeTagGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeTagGroupResponse
+     */
+    public function describeTagGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTagGroup',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签组详情.
+     *
+     * @param request - DescribeTagGroupRequest
+     *
+     * @returns DescribeTagGroupResponse
+     *
+     * @param DescribeTagGroupRequest $request
+     *
+     * @return DescribeTagGroupResponse
+     */
+    public function describeTagGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTagGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -4557,6 +5017,160 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * 标签查询.
+     *
+     * @param request - ListTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResponse
+     *
+     * @param ListTagRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListTagResponse
+     */
+    public function listTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tagName) {
+            @$body['TagName'] = $request->tagName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListTag',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签查询.
+     *
+     * @param request - ListTagRequest
+     *
+     * @returns ListTagResponse
+     *
+     * @param ListTagRequest $request
+     *
+     * @return ListTagResponse
+     */
+    public function listTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标签组查询.
+     *
+     * @param request - ListTagGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagGroupResponse
+     *
+     * @param ListTagGroupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTagGroupResponse
+     */
+    public function listTagGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagGroup',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签组查询.
+     *
+     * @param request - ListTagGroupRequest
+     *
+     * @returns ListTagGroupResponse
+     *
+     * @param ListTagGroupRequest $request
+     *
+     * @return ListTagGroupResponse
+     */
+    public function listTagGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Tongyi对话明细查询接口.
      *
      * @param request - ListTongyiChatHistorysRequest
@@ -5697,19 +6311,25 @@ class Chatbot extends OpenApiClient
     /**
      * 更新FAQ.
      *
-     * @param request - UpdateFaqRequest
+     * @param tmpReq - UpdateFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateFaqResponse
      *
-     * @param UpdateFaqRequest $request
+     * @param UpdateFaqRequest $tmpReq
      * @param RuntimeOptions   $runtime
      *
      * @return UpdateFaqResponse
      */
-    public function updateFaqWithOptions($request, $runtime)
+    public function updateFaqWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateFaqShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tagIdList) {
+            $request->tagIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagIdList, 'TagIdList', 'json');
+        }
+
         $query = [];
         if (null !== $request->agentKey) {
             @$query['AgentKey'] = $request->agentKey;
@@ -5730,6 +6350,10 @@ class Chatbot extends OpenApiClient
 
         if (null !== $request->startDate) {
             @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->tagIdListShrink) {
+            @$body['TagIdList'] = $request->tagIdListShrink;
         }
 
         if (null !== $request->title) {
@@ -6127,19 +6751,25 @@ class Chatbot extends OpenApiClient
     /**
      * 更新FAQ答案.
      *
-     * @param request - UpdateSolutionRequest
+     * @param tmpReq - UpdateSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateSolutionResponse
      *
-     * @param UpdateSolutionRequest $request
+     * @param UpdateSolutionRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return UpdateSolutionResponse
      */
-    public function updateSolutionWithOptions($request, $runtime)
+    public function updateSolutionWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateSolutionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tagIdList) {
+            $request->tagIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagIdList, 'TagIdList', 'json');
+        }
+
         $query = [];
         if (null !== $request->agentKey) {
             @$query['AgentKey'] = $request->agentKey;
@@ -6160,6 +6790,10 @@ class Chatbot extends OpenApiClient
 
         if (null !== $request->solutionId) {
             @$body['SolutionId'] = $request->solutionId;
+        }
+
+        if (null !== $request->tagIdListShrink) {
+            @$body['TagIdList'] = $request->tagIdListShrink;
         }
 
         $req = new OpenApiRequest([
@@ -6197,6 +6831,152 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSolutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标签编辑.
+     *
+     * @param request - UpdateTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTagResponse
+     *
+     * @param UpdateTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateTagResponse
+     */
+    public function updateTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->tagName) {
+            @$body['TagName'] = $request->tagName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTag',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签编辑.
+     *
+     * @param request - UpdateTagRequest
+     *
+     * @returns UpdateTagResponse
+     *
+     * @param UpdateTagRequest $request
+     *
+     * @return UpdateTagResponse
+     */
+    public function updateTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 标签组编辑.
+     *
+     * @param request - UpdateTagGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTagGroupResponse
+     *
+     * @param UpdateTagGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTagGroupResponse
+     */
+    public function updateTagGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTagGroup',
+            'version' => '2022-04-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标签组编辑.
+     *
+     * @param request - UpdateTagGroupRequest
+     *
+     * @returns UpdateTagGroupResponse
+     *
+     * @param UpdateTagGroupRequest $request
+     *
+     * @return UpdateTagGroupResponse
+     */
+    public function updateTagGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTagGroupWithOptions($request, $runtime);
     }
 
     /**

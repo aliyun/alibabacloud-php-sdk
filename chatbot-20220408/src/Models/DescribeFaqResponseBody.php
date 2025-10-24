@@ -82,6 +82,11 @@ class DescribeFaqResponseBody extends Model
     public $status;
 
     /**
+     * @var int[]
+     */
+    public $tagIdList;
+
+    /**
      * @var string
      */
     public $title;
@@ -100,6 +105,7 @@ class DescribeFaqResponseBody extends Model
         'solutions' => 'Solutions',
         'startDate' => 'StartDate',
         'status' => 'Status',
+        'tagIdList' => 'TagIdList',
         'title' => 'Title',
     ];
 
@@ -113,6 +119,9 @@ class DescribeFaqResponseBody extends Model
         }
         if (\is_array($this->solutions)) {
             Model::validateArray($this->solutions);
+        }
+        if (\is_array($this->tagIdList)) {
+            Model::validateArray($this->tagIdList);
         }
         parent::validate();
     }
@@ -195,6 +204,17 @@ class DescribeFaqResponseBody extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tagIdList) {
+            if (\is_array($this->tagIdList)) {
+                $res['TagIdList'] = [];
+                $n1 = 0;
+                foreach ($this->tagIdList as $item1) {
+                    $res['TagIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->title) {
@@ -287,6 +307,17 @@ class DescribeFaqResponseBody extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['TagIdList'])) {
+            if (!empty($map['TagIdList'])) {
+                $model->tagIdList = [];
+                $n1 = 0;
+                foreach ($map['TagIdList'] as $item1) {
+                    $model->tagIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Title'])) {

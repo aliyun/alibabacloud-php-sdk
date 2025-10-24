@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateSolutionRequest extends Model
+class CreateSolutionShrinkRequest extends Model
 {
     /**
      * @var string
@@ -34,25 +34,22 @@ class CreateSolutionRequest extends Model
     public $perspectiveCodes;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $tagIdList;
+    public $tagIdListShrink;
     protected $_name = [
         'agentKey' => 'AgentKey',
         'content' => 'Content',
         'contentType' => 'ContentType',
         'knowledgeId' => 'KnowledgeId',
         'perspectiveCodes' => 'PerspectiveCodes',
-        'tagIdList' => 'TagIdList',
+        'tagIdListShrink' => 'TagIdList',
     ];
 
     public function validate()
     {
         if (\is_array($this->perspectiveCodes)) {
             Model::validateArray($this->perspectiveCodes);
-        }
-        if (\is_array($this->tagIdList)) {
-            Model::validateArray($this->tagIdList);
         }
         parent::validate();
     }
@@ -87,15 +84,8 @@ class CreateSolutionRequest extends Model
             }
         }
 
-        if (null !== $this->tagIdList) {
-            if (\is_array($this->tagIdList)) {
-                $res['TagIdList'] = [];
-                $n1 = 0;
-                foreach ($this->tagIdList as $item1) {
-                    $res['TagIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->tagIdListShrink) {
+            $res['TagIdList'] = $this->tagIdListShrink;
         }
 
         return $res;
@@ -137,14 +127,7 @@ class CreateSolutionRequest extends Model
         }
 
         if (isset($map['TagIdList'])) {
-            if (!empty($map['TagIdList'])) {
-                $model->tagIdList = [];
-                $n1 = 0;
-                foreach ($map['TagIdList'] as $item1) {
-                    $model->tagIdList[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->tagIdListShrink = $map['TagIdList'];
         }
 
         return $model;

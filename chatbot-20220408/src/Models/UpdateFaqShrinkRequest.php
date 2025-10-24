@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateFaqRequest extends Model
+class UpdateFaqShrinkRequest extends Model
 {
     /**
      * @var string
@@ -24,14 +24,9 @@ class CreateFaqRequest extends Model
     public $endDate;
 
     /**
-     * @var string
-     */
-    public $solutionContent;
-
-    /**
      * @var int
      */
-    public $solutionType;
+    public $knowledgeId;
 
     /**
      * @var string
@@ -39,9 +34,9 @@ class CreateFaqRequest extends Model
     public $startDate;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $tagIdList;
+    public $tagIdListShrink;
 
     /**
      * @var string
@@ -51,18 +46,14 @@ class CreateFaqRequest extends Model
         'agentKey' => 'AgentKey',
         'categoryId' => 'CategoryId',
         'endDate' => 'EndDate',
-        'solutionContent' => 'SolutionContent',
-        'solutionType' => 'SolutionType',
+        'knowledgeId' => 'KnowledgeId',
         'startDate' => 'StartDate',
-        'tagIdList' => 'TagIdList',
+        'tagIdListShrink' => 'TagIdList',
         'title' => 'Title',
     ];
 
     public function validate()
     {
-        if (\is_array($this->tagIdList)) {
-            Model::validateArray($this->tagIdList);
-        }
         parent::validate();
     }
 
@@ -81,27 +72,16 @@ class CreateFaqRequest extends Model
             $res['EndDate'] = $this->endDate;
         }
 
-        if (null !== $this->solutionContent) {
-            $res['SolutionContent'] = $this->solutionContent;
-        }
-
-        if (null !== $this->solutionType) {
-            $res['SolutionType'] = $this->solutionType;
+        if (null !== $this->knowledgeId) {
+            $res['KnowledgeId'] = $this->knowledgeId;
         }
 
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
 
-        if (null !== $this->tagIdList) {
-            if (\is_array($this->tagIdList)) {
-                $res['TagIdList'] = [];
-                $n1 = 0;
-                foreach ($this->tagIdList as $item1) {
-                    $res['TagIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->tagIdListShrink) {
+            $res['TagIdList'] = $this->tagIdListShrink;
         }
 
         if (null !== $this->title) {
@@ -131,12 +111,8 @@ class CreateFaqRequest extends Model
             $model->endDate = $map['EndDate'];
         }
 
-        if (isset($map['SolutionContent'])) {
-            $model->solutionContent = $map['SolutionContent'];
-        }
-
-        if (isset($map['SolutionType'])) {
-            $model->solutionType = $map['SolutionType'];
+        if (isset($map['KnowledgeId'])) {
+            $model->knowledgeId = $map['KnowledgeId'];
         }
 
         if (isset($map['StartDate'])) {
@@ -144,14 +120,7 @@ class CreateFaqRequest extends Model
         }
 
         if (isset($map['TagIdList'])) {
-            if (!empty($map['TagIdList'])) {
-                $model->tagIdList = [];
-                $n1 = 0;
-                foreach ($map['TagIdList'] as $item1) {
-                    $model->tagIdList[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->tagIdListShrink = $map['TagIdList'];
         }
 
         if (isset($map['Title'])) {

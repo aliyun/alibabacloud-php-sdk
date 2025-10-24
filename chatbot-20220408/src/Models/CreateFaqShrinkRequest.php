@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateFaqRequest extends Model
+class CreateFaqShrinkRequest extends Model
 {
     /**
      * @var string
@@ -39,9 +39,9 @@ class CreateFaqRequest extends Model
     public $startDate;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $tagIdList;
+    public $tagIdListShrink;
 
     /**
      * @var string
@@ -54,15 +54,12 @@ class CreateFaqRequest extends Model
         'solutionContent' => 'SolutionContent',
         'solutionType' => 'SolutionType',
         'startDate' => 'StartDate',
-        'tagIdList' => 'TagIdList',
+        'tagIdListShrink' => 'TagIdList',
         'title' => 'Title',
     ];
 
     public function validate()
     {
-        if (\is_array($this->tagIdList)) {
-            Model::validateArray($this->tagIdList);
-        }
         parent::validate();
     }
 
@@ -93,15 +90,8 @@ class CreateFaqRequest extends Model
             $res['StartDate'] = $this->startDate;
         }
 
-        if (null !== $this->tagIdList) {
-            if (\is_array($this->tagIdList)) {
-                $res['TagIdList'] = [];
-                $n1 = 0;
-                foreach ($this->tagIdList as $item1) {
-                    $res['TagIdList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->tagIdListShrink) {
+            $res['TagIdList'] = $this->tagIdListShrink;
         }
 
         if (null !== $this->title) {
@@ -144,14 +134,7 @@ class CreateFaqRequest extends Model
         }
 
         if (isset($map['TagIdList'])) {
-            if (!empty($map['TagIdList'])) {
-                $model->tagIdList = [];
-                $n1 = 0;
-                foreach ($map['TagIdList'] as $item1) {
-                    $model->tagIdList[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->tagIdListShrink = $map['TagIdList'];
         }
 
         if (isset($map['Title'])) {

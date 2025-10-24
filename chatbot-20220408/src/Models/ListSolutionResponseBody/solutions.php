@@ -42,6 +42,11 @@ class solutions extends Model
      * @var int
      */
     public $solutionId;
+
+    /**
+     * @var int[]
+     */
+    public $tagIdList;
     protected $_name = [
         'content' => 'Content',
         'contentType' => 'ContentType',
@@ -50,12 +55,16 @@ class solutions extends Model
         'perspectiveCodes' => 'PerspectiveCodes',
         'plainText' => 'PlainText',
         'solutionId' => 'SolutionId',
+        'tagIdList' => 'TagIdList',
     ];
 
     public function validate()
     {
         if (\is_array($this->perspectiveCodes)) {
             Model::validateArray($this->perspectiveCodes);
+        }
+        if (\is_array($this->tagIdList)) {
+            Model::validateArray($this->tagIdList);
         }
         parent::validate();
     }
@@ -96,6 +105,17 @@ class solutions extends Model
 
         if (null !== $this->solutionId) {
             $res['SolutionId'] = $this->solutionId;
+        }
+
+        if (null !== $this->tagIdList) {
+            if (\is_array($this->tagIdList)) {
+                $res['TagIdList'] = [];
+                $n1 = 0;
+                foreach ($this->tagIdList as $item1) {
+                    $res['TagIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -142,6 +162,17 @@ class solutions extends Model
 
         if (isset($map['SolutionId'])) {
             $model->solutionId = $map['SolutionId'];
+        }
+
+        if (isset($map['TagIdList'])) {
+            if (!empty($map['TagIdList'])) {
+                $model->tagIdList = [];
+                $n1 = 0;
+                foreach ($map['TagIdList'] as $item1) {
+                    $model->tagIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
