@@ -38,8 +38,12 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpV2Request;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpV2Response;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePocFunctionRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePocFunctionResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePostpaidInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateSM2CertRequest;
@@ -114,6 +118,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeChargeModuleRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeChargeModuleResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeChargeResultRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeChargeResultResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessedPortsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessedPortsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessPortDetailsRequest;
@@ -235,6 +243,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePauseProtectionStatusRe
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePauseProtectionStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePocFunctionsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePocFunctionsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePunishedDomainsRequest;
@@ -318,6 +328,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsReques
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserSlsLogRegionsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserWafLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserWafLogStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVerifyContentRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVerifyContentResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitTopIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitTopIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasRequest;
@@ -410,6 +422,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\VerifyDomainOwnerRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\VerifyDomainOwnerResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1797,6 +1811,91 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 添加重保场景黑IP.
+     *
+     * @param request - CreateMajorProtectionBlackIpV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMajorProtectionBlackIpV2Response
+     *
+     * @param CreateMajorProtectionBlackIpV2Request $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateMajorProtectionBlackIpV2Response
+     */
+    public function createMajorProtectionBlackIpV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->expiredTime) {
+            @$query['ExpiredTime'] = $request->expiredTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ipList) {
+            @$query['IpList'] = $request->ipList;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMajorProtectionBlackIpV2',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMajorProtectionBlackIpV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加重保场景黑IP.
+     *
+     * @param request - CreateMajorProtectionBlackIpV2Request
+     *
+     * @returns CreateMajorProtectionBlackIpV2Response
+     *
+     * @param CreateMajorProtectionBlackIpV2Request $request
+     *
+     * @return CreateMajorProtectionBlackIpV2Response
+     */
+    public function createMajorProtectionBlackIpV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMajorProtectionBlackIpV2WithOptions($request, $runtime);
+    }
+
+    /**
      * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
      *
      * @param request - CreateMemberAccountsRequest
@@ -1867,6 +1966,75 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMemberAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开启防护功能POC.
+     *
+     * @param request - CreatePocFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePocFunctionResponse
+     *
+     * @param CreatePocFunctionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePocFunctionResponse
+     */
+    public function createPocFunctionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePocFunction',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePocFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启防护功能POC.
+     *
+     * @param request - CreatePocFunctionRequest
+     *
+     * @returns CreatePocFunctionResponse
+     *
+     * @param CreatePocFunctionRequest $request
+     *
+     * @return CreatePocFunctionResponse
+     */
+    public function createPocFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPocFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -4892,6 +5060,144 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCertsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询WAF计价模块信息.
+     *
+     * @param request - DescribeChargeModuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeChargeModuleResponse
+     *
+     * @param DescribeChargeModuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeChargeModuleResponse
+     */
+    public function describeChargeModuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeChargeModule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeChargeModuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询WAF计价模块信息.
+     *
+     * @param request - DescribeChargeModuleRequest
+     *
+     * @returns DescribeChargeModuleResponse
+     *
+     * @param DescribeChargeModuleRequest $request
+     *
+     * @return DescribeChargeModuleResponse
+     */
+    public function describeChargeModule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChargeModuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询WAF计价模块的计价结果.
+     *
+     * @param request - DescribeChargeResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeChargeResultResponse
+     *
+     * @param DescribeChargeResultRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeChargeResultResponse
+     */
+    public function describeChargeResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->chargeCycle) {
+            @$query['ChargeCycle'] = $request->chargeCycle;
+        }
+
+        if (null !== $request->chargeModules) {
+            @$query['ChargeModules'] = $request->chargeModules;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeChargeResult',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeChargeResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询WAF计价模块的计价结果.
+     *
+     * @param request - DescribeChargeResultRequest
+     *
+     * @returns DescribeChargeResultResponse
+     *
+     * @param DescribeChargeResultRequest $request
+     *
+     * @return DescribeChargeResultResponse
+     */
+    public function describeChargeResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChargeResultWithOptions($request, $runtime);
     }
 
     /**
@@ -9360,6 +9666,71 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 查询开启POC的功能信息.
+     *
+     * @param request - DescribePocFunctionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePocFunctionsResponse
+     *
+     * @param DescribePocFunctionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePocFunctionsResponse
+     */
+    public function describePocFunctionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePocFunctions',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePocFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询开启POC的功能信息.
+     *
+     * @param request - DescribePocFunctionsRequest
+     *
+     * @returns DescribePocFunctionsResponse
+     *
+     * @param DescribePocFunctionsRequest $request
+     *
+     * @return DescribePocFunctionsResponse
+     */
+    public function describePocFunctions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePocFunctionsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
      *
      * @param request - DescribeProductInstancesRequest
@@ -12547,6 +12918,71 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserWafLogStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询归属校验内容.
+     *
+     * @param request - DescribeVerifyContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifyContentResponse
+     *
+     * @param DescribeVerifyContentRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVerifyContentResponse
+     */
+    public function describeVerifyContentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessOrigin) {
+            @$query['AccessOrigin'] = $request->accessOrigin;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifyContent',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询归属校验内容.
+     *
+     * @param request - DescribeVerifyContentRequest
+     *
+     * @returns DescribeVerifyContentResponse
+     *
+     * @param DescribeVerifyContentRequest $request
+     *
+     * @return DescribeVerifyContentResponse
+     */
+    public function describeVerifyContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyContentWithOptions($request, $runtime);
     }
 
     /**
@@ -16080,5 +16516,74 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Verifies the ownership of a domain name.
+     *
+     * @param request - VerifyDomainOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyDomainOwnerResponse
+     *
+     * @param VerifyDomainOwnerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return VerifyDomainOwnerResponse
+     */
+    public function verifyDomainOwnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->verifyType) {
+            @$query['VerifyType'] = $request->verifyType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyDomainOwner',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Verifies the ownership of a domain name.
+     *
+     * @param request - VerifyDomainOwnerRequest
+     *
+     * @returns VerifyDomainOwnerResponse
+     *
+     * @param VerifyDomainOwnerRequest $request
+     *
+     * @return VerifyDomainOwnerResponse
+     */
+    public function verifyDomainOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyDomainOwnerWithOptions($request, $runtime);
     }
 }
