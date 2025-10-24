@@ -41,6 +41,11 @@ class CreateIngressRequest extends Model
     /**
      * @var bool
      */
+    public $enableGzip;
+
+    /**
+     * @var bool
+     */
     public $enableXForwardedFor;
 
     /**
@@ -124,6 +129,7 @@ class CreateIngressRequest extends Model
         'corsConfig' => 'CorsConfig',
         'defaultRule' => 'DefaultRule',
         'description' => 'Description',
+        'enableGzip' => 'EnableGzip',
         'enableXForwardedFor' => 'EnableXForwardedFor',
         'enableXForwardedForClientSrcPort' => 'EnableXForwardedForClientSrcPort',
         'enableXForwardedForProto' => 'EnableXForwardedForProto',
@@ -172,6 +178,10 @@ class CreateIngressRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableGzip) {
+            $res['EnableGzip'] = $this->enableGzip;
         }
 
         if (null !== $this->enableXForwardedFor) {
@@ -271,6 +281,10 @@ class CreateIngressRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableGzip'])) {
+            $model->enableGzip = $map['EnableGzip'];
         }
 
         if (isset($map['EnableXForwardedFor'])) {

@@ -186,6 +186,16 @@ class DeployApplicationShrinkRequest extends Model
     /**
      * @var int
      */
+    public $maxSurgeInstanceRatio;
+
+    /**
+     * @var int
+     */
+    public $maxSurgeInstances;
+
+    /**
+     * @var int
+     */
     public $memory;
 
     /**
@@ -433,6 +443,8 @@ class DeployApplicationShrinkRequest extends Model
         'jdk' => 'Jdk',
         'kafkaConfigs' => 'KafkaConfigs',
         'liveness' => 'Liveness',
+        'maxSurgeInstanceRatio' => 'MaxSurgeInstanceRatio',
+        'maxSurgeInstances' => 'MaxSurgeInstances',
         'memory' => 'Memory',
         'microRegistration' => 'MicroRegistration',
         'microRegistrationConfig' => 'MicroRegistrationConfig',
@@ -624,6 +636,14 @@ class DeployApplicationShrinkRequest extends Model
 
         if (null !== $this->liveness) {
             $res['Liveness'] = $this->liveness;
+        }
+
+        if (null !== $this->maxSurgeInstanceRatio) {
+            $res['MaxSurgeInstanceRatio'] = $this->maxSurgeInstanceRatio;
+        }
+
+        if (null !== $this->maxSurgeInstances) {
+            $res['MaxSurgeInstances'] = $this->maxSurgeInstances;
         }
 
         if (null !== $this->memory) {
@@ -947,6 +967,14 @@ class DeployApplicationShrinkRequest extends Model
 
         if (isset($map['Liveness'])) {
             $model->liveness = $map['Liveness'];
+        }
+
+        if (isset($map['MaxSurgeInstanceRatio'])) {
+            $model->maxSurgeInstanceRatio = $map['MaxSurgeInstanceRatio'];
+        }
+
+        if (isset($map['MaxSurgeInstances'])) {
+            $model->maxSurgeInstances = $map['MaxSurgeInstances'];
         }
 
         if (isset($map['Memory'])) {

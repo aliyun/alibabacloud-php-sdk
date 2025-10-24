@@ -1597,6 +1597,10 @@ class Sae extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->enableGzip) {
+            @$query['EnableGzip'] = $request->enableGzip;
+        }
+
         if (null !== $request->enableXForwardedFor) {
             @$query['EnableXForwardedFor'] = $request->enableXForwardedFor;
         }
@@ -3517,6 +3521,14 @@ class Sae extends OpenApiClient
 
         if (null !== $request->liveness) {
             @$query['Liveness'] = $request->liveness;
+        }
+
+        if (null !== $request->maxSurgeInstanceRatio) {
+            @$query['MaxSurgeInstanceRatio'] = $request->maxSurgeInstanceRatio;
+        }
+
+        if (null !== $request->maxSurgeInstances) {
+            @$query['MaxSurgeInstances'] = $request->maxSurgeInstances;
         }
 
         if (null !== $request->memory) {
@@ -10817,6 +10829,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableGzip) {
+            @$query['EnableGzip'] = $request->enableGzip;
         }
 
         if (null !== $request->enableXForwardedFor) {
