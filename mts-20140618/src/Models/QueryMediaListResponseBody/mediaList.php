@@ -33,7 +33,8 @@ class mediaList extends Model
                 $res['Media'] = [];
                 $n1 = 0;
                 foreach ($this->media as $item1) {
-                    $res['Media'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Media'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class mediaList extends Model
                 $model->media = [];
                 $n1 = 0;
                 foreach ($map['Media'] as $item1) {
-                    $model->media[$n1++] = media::fromMap($item1);
+                    $model->media[$n1] = media::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

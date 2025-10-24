@@ -141,7 +141,8 @@ class results extends Model
                 $res['frames'] = [];
                 $n1 = 0;
                 foreach ($this->frames as $item1) {
-                    $res['frames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['frames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -151,7 +152,8 @@ class results extends Model
                 $res['hintWordsInfo'] = [];
                 $n1 = 0;
                 foreach ($this->hintWordsInfo as $item1) {
-                    $res['hintWordsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['hintWordsInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +163,8 @@ class results extends Model
                 $res['logoData'] = [];
                 $n1 = 0;
                 foreach ($this->logoData as $item1) {
-                    $res['logoData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['logoData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -171,7 +174,8 @@ class results extends Model
                 $res['ocrData'] = [];
                 $n1 = 0;
                 foreach ($this->ocrData as $item1) {
-                    $res['ocrData'][$n1++] = $item1;
+                    $res['ocrData'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -181,7 +185,8 @@ class results extends Model
                 $res['programCodeData'] = [];
                 $n1 = 0;
                 foreach ($this->programCodeData as $item1) {
-                    $res['programCodeData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['programCodeData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -191,7 +196,8 @@ class results extends Model
                 $res['qrcodeData'] = [];
                 $n1 = 0;
                 foreach ($this->qrcodeData as $item1) {
-                    $res['qrcodeData'][$n1++] = $item1;
+                    $res['qrcodeData'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +207,8 @@ class results extends Model
                 $res['qrcodeLocations'] = [];
                 $n1 = 0;
                 foreach ($this->qrcodeLocations as $item1) {
-                    $res['qrcodeLocations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['qrcodeLocations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -211,7 +218,8 @@ class results extends Model
                 $res['sfaceData'] = [];
                 $n1 = 0;
                 foreach ($this->sfaceData as $item1) {
-                    $res['sfaceData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sfaceData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -248,7 +256,8 @@ class results extends Model
                 $model->frames = [];
                 $n1 = 0;
                 foreach ($map['frames'] as $item1) {
-                    $model->frames[$n1++] = frames::fromMap($item1);
+                    $model->frames[$n1] = frames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +267,8 @@ class results extends Model
                 $model->hintWordsInfo = [];
                 $n1 = 0;
                 foreach ($map['hintWordsInfo'] as $item1) {
-                    $model->hintWordsInfo[$n1++] = hintWordsInfo::fromMap($item1);
+                    $model->hintWordsInfo[$n1] = hintWordsInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -268,7 +278,8 @@ class results extends Model
                 $model->logoData = [];
                 $n1 = 0;
                 foreach ($map['logoData'] as $item1) {
-                    $model->logoData[$n1++] = logoData::fromMap($item1);
+                    $model->logoData[$n1] = logoData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -278,7 +289,8 @@ class results extends Model
                 $model->ocrData = [];
                 $n1 = 0;
                 foreach ($map['ocrData'] as $item1) {
-                    $model->ocrData[$n1++] = $item1;
+                    $model->ocrData[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -288,7 +300,8 @@ class results extends Model
                 $model->programCodeData = [];
                 $n1 = 0;
                 foreach ($map['programCodeData'] as $item1) {
-                    $model->programCodeData[$n1++] = programCodeData::fromMap($item1);
+                    $model->programCodeData[$n1] = programCodeData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -298,7 +311,8 @@ class results extends Model
                 $model->qrcodeData = [];
                 $n1 = 0;
                 foreach ($map['qrcodeData'] as $item1) {
-                    $model->qrcodeData[$n1++] = $item1;
+                    $model->qrcodeData[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -308,7 +322,8 @@ class results extends Model
                 $model->qrcodeLocations = [];
                 $n1 = 0;
                 foreach ($map['qrcodeLocations'] as $item1) {
-                    $model->qrcodeLocations[$n1++] = qrcodeLocations::fromMap($item1);
+                    $model->qrcodeLocations[$n1] = qrcodeLocations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +333,8 @@ class results extends Model
                 $model->sfaceData = [];
                 $n1 = 0;
                 foreach ($map['sfaceData'] as $item1) {
-                    $model->sfaceData[$n1++] = sfaceData::fromMap($item1);
+                    $model->sfaceData[$n1] = sfaceData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class fpFileDeleteJobList extends Model
                 $res['FpFileDeleteJob'] = [];
                 $n1 = 0;
                 foreach ($this->fpFileDeleteJob as $item1) {
-                    $res['FpFileDeleteJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FpFileDeleteJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class fpFileDeleteJobList extends Model
                 $model->fpFileDeleteJob = [];
                 $n1 = 0;
                 foreach ($map['FpFileDeleteJob'] as $item1) {
-                    $model->fpFileDeleteJob[$n1++] = fpFileDeleteJob::fromMap($item1);
+                    $model->fpFileDeleteJob[$n1] = fpFileDeleteJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

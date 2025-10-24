@@ -33,7 +33,8 @@ class videoTimelines extends Model
                 $res['VideoTimeline'] = [];
                 $n1 = 0;
                 foreach ($this->videoTimeline as $item1) {
-                    $res['VideoTimeline'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoTimeline'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class videoTimelines extends Model
                 $model->videoTimeline = [];
                 $n1 = 0;
                 foreach ($map['VideoTimeline'] as $item1) {
-                    $model->videoTimeline[$n1++] = videoTimeline::fromMap($item1);
+                    $model->videoTimeline[$n1] = videoTimeline::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

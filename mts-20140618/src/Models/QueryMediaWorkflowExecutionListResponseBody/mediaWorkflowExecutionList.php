@@ -33,7 +33,8 @@ class mediaWorkflowExecutionList extends Model
                 $res['MediaWorkflowExecution'] = [];
                 $n1 = 0;
                 foreach ($this->mediaWorkflowExecution as $item1) {
-                    $res['MediaWorkflowExecution'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaWorkflowExecution'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class mediaWorkflowExecutionList extends Model
                 $model->mediaWorkflowExecution = [];
                 $n1 = 0;
                 foreach ($map['MediaWorkflowExecution'] as $item1) {
-                    $model->mediaWorkflowExecution[$n1++] = mediaWorkflowExecution::fromMap($item1);
+                    $model->mediaWorkflowExecution[$n1] = mediaWorkflowExecution::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

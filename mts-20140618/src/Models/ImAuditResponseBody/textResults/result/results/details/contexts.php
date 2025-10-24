@@ -68,7 +68,8 @@ class contexts extends Model
                 $res['positions'] = [];
                 $n1 = 0;
                 foreach ($this->positions as $item1) {
-                    $res['positions'][$n1++] = $item1;
+                    $res['positions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +106,8 @@ class contexts extends Model
                 $model->positions = [];
                 $n1 = 0;
                 foreach ($map['positions'] as $item1) {
-                    $model->positions[$n1++] = $item1;
+                    $model->positions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

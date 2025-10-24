@@ -33,7 +33,8 @@ class mediaCensorJobList extends Model
                 $res['MediaCensorJob'] = [];
                 $n1 = 0;
                 foreach ($this->mediaCensorJob as $item1) {
-                    $res['MediaCensorJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaCensorJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class mediaCensorJobList extends Model
                 $model->mediaCensorJob = [];
                 $n1 = 0;
                 foreach ($map['MediaCensorJob'] as $item1) {
-                    $model->mediaCensorJob[$n1++] = mediaCensorJob::fromMap($item1);
+                    $model->mediaCensorJob[$n1] = mediaCensorJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

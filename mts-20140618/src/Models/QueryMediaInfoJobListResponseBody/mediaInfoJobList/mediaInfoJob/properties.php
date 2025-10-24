@@ -28,6 +28,11 @@ class properties extends Model
     /**
      * @var string
      */
+    public $fileMd5;
+
+    /**
+     * @var string
+     */
     public $fileSize;
 
     /**
@@ -58,6 +63,7 @@ class properties extends Model
         'bitrate' => 'Bitrate',
         'duration' => 'Duration',
         'fileFormat' => 'FileFormat',
+        'fileMd5' => 'FileMd5',
         'fileSize' => 'FileSize',
         'format' => 'Format',
         'fps' => 'Fps',
@@ -90,6 +96,10 @@ class properties extends Model
 
         if (null !== $this->fileFormat) {
             $res['FileFormat'] = $this->fileFormat;
+        }
+
+        if (null !== $this->fileMd5) {
+            $res['FileMd5'] = $this->fileMd5;
         }
 
         if (null !== $this->fileSize) {
@@ -137,6 +147,10 @@ class properties extends Model
 
         if (isset($map['FileFormat'])) {
             $model->fileFormat = $map['FileFormat'];
+        }
+
+        if (isset($map['FileMd5'])) {
+            $model->fileMd5 = $map['FileMd5'];
         }
 
         if (isset($map['FileSize'])) {

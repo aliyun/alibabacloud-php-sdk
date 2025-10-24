@@ -46,6 +46,11 @@ class properties extends Model
     public $height;
 
     /**
+     * @var string
+     */
+    public $MD5;
+
+    /**
      * @var streams
      */
     public $streams;
@@ -62,6 +67,7 @@ class properties extends Model
         'format' => 'Format',
         'fps' => 'Fps',
         'height' => 'Height',
+        'MD5' => 'MD5',
         'streams' => 'Streams',
         'width' => 'Width',
     ];
@@ -106,6 +112,10 @@ class properties extends Model
 
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+
+        if (null !== $this->MD5) {
+            $res['MD5'] = $this->MD5;
         }
 
         if (null !== $this->streams) {
@@ -153,6 +163,10 @@ class properties extends Model
 
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+
+        if (isset($map['MD5'])) {
+            $model->MD5 = $map['MD5'];
         }
 
         if (isset($map['Streams'])) {

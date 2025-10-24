@@ -33,7 +33,8 @@ class fpShotFileList extends Model
                 $res['FpShotFile'] = [];
                 $n1 = 0;
                 foreach ($this->fpShotFile as $item1) {
-                    $res['FpShotFile'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FpShotFile'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class fpShotFileList extends Model
                 $model->fpShotFile = [];
                 $n1 = 0;
                 foreach ($map['FpShotFile'] as $item1) {
-                    $model->fpShotFile[$n1++] = fpShotFile::fromMap($item1);
+                    $model->fpShotFile[$n1] = fpShotFile::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

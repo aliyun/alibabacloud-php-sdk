@@ -33,7 +33,8 @@ class analysisJobList extends Model
                 $res['AnalysisJob'] = [];
                 $n1 = 0;
                 foreach ($this->analysisJob as $item1) {
-                    $res['AnalysisJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AnalysisJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class analysisJobList extends Model
                 $model->analysisJob = [];
                 $n1 = 0;
                 foreach ($map['AnalysisJob'] as $item1) {
-                    $model->analysisJob[$n1++] = analysisJob::fromMap($item1);
+                    $model->analysisJob[$n1] = analysisJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

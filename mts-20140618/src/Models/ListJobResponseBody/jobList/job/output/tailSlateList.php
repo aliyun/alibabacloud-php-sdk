@@ -33,7 +33,8 @@ class tailSlateList extends Model
                 $res['TailSlate'] = [];
                 $n1 = 0;
                 foreach ($this->tailSlate as $item1) {
-                    $res['TailSlate'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TailSlate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class tailSlateList extends Model
                 $model->tailSlate = [];
                 $n1 = 0;
                 foreach ($map['TailSlate'] as $item1) {
-                    $model->tailSlate[$n1++] = tailSlate::fromMap($item1);
+                    $model->tailSlate[$n1] = tailSlate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

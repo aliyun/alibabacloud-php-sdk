@@ -33,7 +33,8 @@ class fpShotSlices extends Model
                 $res['FpShotSlice'] = [];
                 $n1 = 0;
                 foreach ($this->fpShotSlice as $item1) {
-                    $res['FpShotSlice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FpShotSlice'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class fpShotSlices extends Model
                 $model->fpShotSlice = [];
                 $n1 = 0;
                 foreach ($map['FpShotSlice'] as $item1) {
-                    $model->fpShotSlice[$n1++] = fpShotSlice::fromMap($item1);
+                    $model->fpShotSlice[$n1] = fpShotSlice::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

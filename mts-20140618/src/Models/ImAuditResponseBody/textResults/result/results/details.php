@@ -43,7 +43,8 @@ class details extends Model
                 $res['contexts'] = [];
                 $n1 = 0;
                 foreach ($this->contexts as $item1) {
-                    $res['contexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['contexts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class details extends Model
                 $model->contexts = [];
                 $n1 = 0;
                 foreach ($map['contexts'] as $item1) {
-                    $model->contexts[$n1++] = contexts::fromMap($item1);
+                    $model->contexts[$n1] = contexts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

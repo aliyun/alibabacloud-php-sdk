@@ -33,7 +33,8 @@ class customEntities extends Model
                 $res['CustomEntity'] = [];
                 $n1 = 0;
                 foreach ($this->customEntity as $item1) {
-                    $res['CustomEntity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class customEntities extends Model
                 $model->customEntity = [];
                 $n1 = 0;
                 foreach ($map['CustomEntity'] as $item1) {
-                    $model->customEntity[$n1++] = customEntity::fromMap($item1);
+                    $model->customEntity[$n1] = customEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

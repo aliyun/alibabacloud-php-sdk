@@ -32,7 +32,8 @@ class nonExistMediaIds extends Model
                 $res['MediaId'] = [];
                 $n1 = 0;
                 foreach ($this->mediaId as $item1) {
-                    $res['MediaId'][$n1++] = $item1;
+                    $res['MediaId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class nonExistMediaIds extends Model
                 $model->mediaId = [];
                 $n1 = 0;
                 foreach ($map['MediaId'] as $item1) {
-                    $model->mediaId[$n1++] = $item1;
+                    $model->mediaId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

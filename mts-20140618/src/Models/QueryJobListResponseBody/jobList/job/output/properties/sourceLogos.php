@@ -33,7 +33,8 @@ class sourceLogos extends Model
                 $res['SourceLogo'] = [];
                 $n1 = 0;
                 foreach ($this->sourceLogo as $item1) {
-                    $res['SourceLogo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SourceLogo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class sourceLogos extends Model
                 $model->sourceLogo = [];
                 $n1 = 0;
                 foreach ($map['SourceLogo'] as $item1) {
-                    $model->sourceLogo[$n1++] = sourceLogo::fromMap($item1);
+                    $model->sourceLogo[$n1] = sourceLogo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class outSubtitleList extends Model
                 $res['OutSubtitle'] = [];
                 $n1 = 0;
                 foreach ($this->outSubtitle as $item1) {
-                    $res['OutSubtitle'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OutSubtitle'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class outSubtitleList extends Model
                 $model->outSubtitle = [];
                 $n1 = 0;
                 foreach ($map['OutSubtitle'] as $item1) {
-                    $model->outSubtitle[$n1++] = outSubtitle::fromMap($item1);
+                    $model->outSubtitle[$n1] = outSubtitle::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

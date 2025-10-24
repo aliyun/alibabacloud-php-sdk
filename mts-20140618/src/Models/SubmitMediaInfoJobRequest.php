@@ -16,6 +16,11 @@ class SubmitMediaInfoJobRequest extends Model
     /**
      * @var string
      */
+    public $config;
+
+    /**
+     * @var string
+     */
     public $input;
 
     /**
@@ -49,6 +54,7 @@ class SubmitMediaInfoJobRequest extends Model
     public $userData;
     protected $_name = [
         'async' => 'Async',
+        'config' => 'Config',
         'input' => 'Input',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -68,6 +74,10 @@ class SubmitMediaInfoJobRequest extends Model
         $res = [];
         if (null !== $this->async) {
             $res['Async'] = $this->async;
+        }
+
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
 
         if (null !== $this->input) {
@@ -111,6 +121,10 @@ class SubmitMediaInfoJobRequest extends Model
         $model = new self();
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
+        }
+
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
 
         if (isset($map['Input'])) {

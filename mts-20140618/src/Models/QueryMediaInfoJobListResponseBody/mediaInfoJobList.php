@@ -33,7 +33,8 @@ class mediaInfoJobList extends Model
                 $res['MediaInfoJob'] = [];
                 $n1 = 0;
                 foreach ($this->mediaInfoJob as $item1) {
-                    $res['MediaInfoJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaInfoJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class mediaInfoJobList extends Model
                 $model->mediaInfoJob = [];
                 $n1 = 0;
                 foreach ($map['MediaInfoJob'] as $item1) {
-                    $model->mediaInfoJob[$n1++] = mediaInfoJob::fromMap($item1);
+                    $model->mediaInfoJob[$n1] = mediaInfoJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

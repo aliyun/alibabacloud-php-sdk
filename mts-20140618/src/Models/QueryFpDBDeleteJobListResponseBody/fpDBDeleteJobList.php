@@ -33,7 +33,8 @@ class fpDBDeleteJobList extends Model
                 $res['FpDBDeleteJob'] = [];
                 $n1 = 0;
                 foreach ($this->fpDBDeleteJob as $item1) {
-                    $res['FpDBDeleteJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FpDBDeleteJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class fpDBDeleteJobList extends Model
                 $model->fpDBDeleteJob = [];
                 $n1 = 0;
                 foreach ($map['FpDBDeleteJob'] as $item1) {
-                    $model->fpDBDeleteJob[$n1++] = fpDBDeleteJob::fromMap($item1);
+                    $model->fpDBDeleteJob[$n1] = fpDBDeleteJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

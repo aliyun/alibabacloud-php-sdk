@@ -33,7 +33,8 @@ class customViews extends Model
                 $res['CustomView'] = [];
                 $n1 = 0;
                 foreach ($this->customView as $item1) {
-                    $res['CustomView'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomView'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class customViews extends Model
                 $model->customView = [];
                 $n1 = 0;
                 foreach ($map['CustomView'] as $item1) {
-                    $model->customView[$n1++] = customView::fromMap($item1);
+                    $model->customView[$n1] = customView::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

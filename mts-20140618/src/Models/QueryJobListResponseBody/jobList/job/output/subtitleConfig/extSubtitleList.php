@@ -33,7 +33,8 @@ class extSubtitleList extends Model
                 $res['ExtSubtitle'] = [];
                 $n1 = 0;
                 foreach ($this->extSubtitle as $item1) {
-                    $res['ExtSubtitle'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ExtSubtitle'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class extSubtitleList extends Model
                 $model->extSubtitle = [];
                 $n1 = 0;
                 foreach ($map['ExtSubtitle'] as $item1) {
-                    $model->extSubtitle[$n1++] = extSubtitle::fromMap($item1);
+                    $model->extSubtitle[$n1] = extSubtitle::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

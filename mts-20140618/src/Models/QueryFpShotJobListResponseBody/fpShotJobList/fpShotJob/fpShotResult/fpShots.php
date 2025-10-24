@@ -33,7 +33,8 @@ class fpShots extends Model
                 $res['FpShot'] = [];
                 $n1 = 0;
                 foreach ($this->fpShot as $item1) {
-                    $res['FpShot'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FpShot'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class fpShots extends Model
                 $model->fpShot = [];
                 $n1 = 0;
                 foreach ($map['FpShot'] as $item1) {
-                    $model->fpShot[$n1++] = fpShot::fromMap($item1);
+                    $model->fpShot[$n1] = fpShot::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class customGroups extends Model
                 $res['CustomGroup'] = [];
                 $n1 = 0;
                 foreach ($this->customGroup as $item1) {
-                    $res['CustomGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CustomGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class customGroups extends Model
                 $model->customGroup = [];
                 $n1 = 0;
                 foreach ($map['CustomGroup'] as $item1) {
-                    $model->customGroup[$n1++] = customGroup::fromMap($item1);
+                    $model->customGroup[$n1] = customGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class amixList extends Model
                 $res['Amix'] = [];
                 $n1 = 0;
                 foreach ($this->amix as $item1) {
-                    $res['Amix'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Amix'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class amixList extends Model
                 $model->amix = [];
                 $n1 = 0;
                 foreach ($map['Amix'] as $item1) {
-                    $model->amix[$n1++] = amix::fromMap($item1);
+                    $model->amix[$n1] = amix::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

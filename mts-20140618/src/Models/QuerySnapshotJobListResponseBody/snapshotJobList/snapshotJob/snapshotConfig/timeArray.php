@@ -32,7 +32,8 @@ class timeArray extends Model
                 $res['TimePointList'] = [];
                 $n1 = 0;
                 foreach ($this->timePointList as $item1) {
-                    $res['TimePointList'][$n1++] = $item1;
+                    $res['TimePointList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class timeArray extends Model
                 $model->timePointList = [];
                 $n1 = 0;
                 foreach ($map['TimePointList'] as $item1) {
-                    $model->timePointList[$n1++] = $item1;
+                    $model->timePointList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

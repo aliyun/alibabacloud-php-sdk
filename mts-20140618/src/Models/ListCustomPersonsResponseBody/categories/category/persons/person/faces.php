@@ -33,7 +33,8 @@ class faces extends Model
                 $res['Face'] = [];
                 $n1 = 0;
                 foreach ($this->face as $item1) {
-                    $res['Face'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Face'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class faces extends Model
                 $model->face = [];
                 $n1 = 0;
                 foreach ($map['Face'] as $item1) {
-                    $model->face[$n1++] = face::fromMap($item1);
+                    $model->face[$n1] = face::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

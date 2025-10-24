@@ -7157,6 +7157,10 @@ class Mts extends OpenApiClient
             @$query['Async'] = $request->async;
         }
 
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
         if (null !== $request->input) {
             @$query['Input'] = $request->input;
         }

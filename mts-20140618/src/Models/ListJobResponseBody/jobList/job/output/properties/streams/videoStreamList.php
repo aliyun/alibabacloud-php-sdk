@@ -33,7 +33,8 @@ class videoStreamList extends Model
                 $res['VideoStream'] = [];
                 $n1 = 0;
                 foreach ($this->videoStream as $item1) {
-                    $res['VideoStream'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoStream'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class videoStreamList extends Model
                 $model->videoStream = [];
                 $n1 = 0;
                 foreach ($map['VideoStream'] as $item1) {
-                    $model->videoStream[$n1++] = videoStream::fromMap($item1);
+                    $model->videoStream[$n1] = videoStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

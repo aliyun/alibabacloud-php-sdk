@@ -33,7 +33,8 @@ class coverImageCensorResults extends Model
                 $res['CoverImageCensorResult'] = [];
                 $n1 = 0;
                 foreach ($this->coverImageCensorResult as $item1) {
-                    $res['CoverImageCensorResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CoverImageCensorResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class coverImageCensorResults extends Model
                 $model->coverImageCensorResult = [];
                 $n1 = 0;
                 foreach ($map['CoverImageCensorResult'] as $item1) {
-                    $model->coverImageCensorResult[$n1++] = coverImageCensorResult::fromMap($item1);
+                    $model->coverImageCensorResult[$n1] = coverImageCensorResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class persons extends Model
                 $res['Person'] = [];
                 $n1 = 0;
                 foreach ($this->person as $item1) {
-                    $res['Person'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Person'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class persons extends Model
                 $model->person = [];
                 $n1 = 0;
                 foreach ($map['Person'] as $item1) {
-                    $model->person[$n1++] = person::fromMap($item1);
+                    $model->person[$n1] = person::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

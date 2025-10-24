@@ -33,7 +33,8 @@ class audioStreamList extends Model
                 $res['AudioStream'] = [];
                 $n1 = 0;
                 foreach ($this->audioStream as $item1) {
-                    $res['AudioStream'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioStream'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class audioStreamList extends Model
                 $model->audioStream = [];
                 $n1 = 0;
                 foreach ($map['AudioStream'] as $item1) {
-                    $model->audioStream[$n1++] = audioStream::fromMap($item1);
+                    $model->audioStream[$n1] = audioStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

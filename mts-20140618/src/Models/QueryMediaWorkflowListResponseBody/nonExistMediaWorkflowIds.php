@@ -32,7 +32,8 @@ class nonExistMediaWorkflowIds extends Model
                 $res['MediaWorkflowId'] = [];
                 $n1 = 0;
                 foreach ($this->mediaWorkflowId as $item1) {
-                    $res['MediaWorkflowId'][$n1++] = $item1;
+                    $res['MediaWorkflowId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class nonExistMediaWorkflowIds extends Model
                 $model->mediaWorkflowId = [];
                 $n1 = 0;
                 foreach ($map['MediaWorkflowId'] as $item1) {
-                    $model->mediaWorkflowId[$n1++] = $item1;
+                    $model->mediaWorkflowId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

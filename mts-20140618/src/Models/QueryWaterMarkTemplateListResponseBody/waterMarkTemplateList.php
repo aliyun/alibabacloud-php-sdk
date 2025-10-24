@@ -33,7 +33,8 @@ class waterMarkTemplateList extends Model
                 $res['WaterMarkTemplate'] = [];
                 $n1 = 0;
                 foreach ($this->waterMarkTemplate as $item1) {
-                    $res['WaterMarkTemplate'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WaterMarkTemplate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class waterMarkTemplateList extends Model
                 $model->waterMarkTemplate = [];
                 $n1 = 0;
                 foreach ($map['WaterMarkTemplate'] as $item1) {
-                    $model->waterMarkTemplate[$n1++] = waterMarkTemplate::fromMap($item1);
+                    $model->waterMarkTemplate[$n1] = waterMarkTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -57,7 +57,8 @@ class sfaceData extends Model
                 $res['faces'] = [];
                 $n1 = 0;
                 foreach ($this->faces as $item1) {
-                    $res['faces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['faces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class sfaceData extends Model
                 $model->faces = [];
                 $n1 = 0;
                 foreach ($map['faces'] as $item1) {
-                    $model->faces[$n1++] = faces::fromMap($item1);
+                    $model->faces[$n1] = faces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

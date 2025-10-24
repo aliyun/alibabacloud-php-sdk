@@ -33,7 +33,8 @@ class activityList extends Model
                 $res['Activity'] = [];
                 $n1 = 0;
                 foreach ($this->activity as $item1) {
-                    $res['Activity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Activity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class activityList extends Model
                 $model->activity = [];
                 $n1 = 0;
                 foreach ($map['Activity'] as $item1) {
-                    $model->activity[$n1++] = activity::fromMap($item1);
+                    $model->activity[$n1] = activity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

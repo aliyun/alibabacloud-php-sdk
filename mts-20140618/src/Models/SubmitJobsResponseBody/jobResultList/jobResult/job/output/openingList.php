@@ -33,7 +33,8 @@ class openingList extends Model
                 $res['Opening'] = [];
                 $n1 = 0;
                 foreach ($this->opening as $item1) {
-                    $res['Opening'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Opening'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class openingList extends Model
                 $model->opening = [];
                 $n1 = 0;
                 foreach ($map['Opening'] as $item1) {
-                    $model->opening[$n1++] = opening::fromMap($item1);
+                    $model->opening[$n1] = opening::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

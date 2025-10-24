@@ -56,6 +56,11 @@ class audioStream extends Model
     /**
      * @var string
      */
+    public $durationInaccurate;
+
+    /**
+     * @var string
+     */
     public $index;
 
     /**
@@ -97,6 +102,7 @@ class audioStream extends Model
         'codecTagString' => 'CodecTagString',
         'codecTimeBase' => 'CodecTimeBase',
         'duration' => 'Duration',
+        'durationInaccurate' => 'DurationInaccurate',
         'index' => 'Index',
         'lang' => 'Lang',
         'numFrames' => 'NumFrames',
@@ -148,6 +154,10 @@ class audioStream extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->durationInaccurate) {
+            $res['DurationInaccurate'] = $this->durationInaccurate;
         }
 
         if (null !== $this->index) {
@@ -223,6 +233,10 @@ class audioStream extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['DurationInaccurate'])) {
+            $model->durationInaccurate = $map['DurationInaccurate'];
         }
 
         if (isset($map['Index'])) {

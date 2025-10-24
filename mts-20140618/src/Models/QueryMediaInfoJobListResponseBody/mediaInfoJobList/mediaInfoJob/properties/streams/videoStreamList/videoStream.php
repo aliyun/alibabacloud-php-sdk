@@ -72,6 +72,11 @@ class videoStream extends Model
     /**
      * @var string
      */
+    public $durationInaccurate;
+
+    /**
+     * @var string
+     */
     public $fps;
 
     /**
@@ -156,6 +161,7 @@ class videoStream extends Model
         'colorTransfer' => 'ColorTransfer',
         'dar' => 'Dar',
         'duration' => 'Duration',
+        'durationInaccurate' => 'DurationInaccurate',
         'fps' => 'Fps',
         'hasBFrames' => 'HasBFrames',
         'height' => 'Height',
@@ -230,6 +236,10 @@ class videoStream extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->durationInaccurate) {
+            $res['DurationInaccurate'] = $this->durationInaccurate;
         }
 
         if (null !== $this->fps) {
@@ -349,6 +359,10 @@ class videoStream extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['DurationInaccurate'])) {
+            $model->durationInaccurate = $map['DurationInaccurate'];
         }
 
         if (isset($map['Fps'])) {

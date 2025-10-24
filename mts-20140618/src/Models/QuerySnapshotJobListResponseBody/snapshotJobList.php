@@ -33,7 +33,8 @@ class snapshotJobList extends Model
                 $res['SnapshotJob'] = [];
                 $n1 = 0;
                 foreach ($this->snapshotJob as $item1) {
-                    $res['SnapshotJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SnapshotJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class snapshotJobList extends Model
                 $model->snapshotJob = [];
                 $n1 = 0;
                 foreach ($map['SnapshotJob'] as $item1) {
-                    $model->snapshotJob[$n1++] = snapshotJob::fromMap($item1);
+                    $model->snapshotJob[$n1] = snapshotJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

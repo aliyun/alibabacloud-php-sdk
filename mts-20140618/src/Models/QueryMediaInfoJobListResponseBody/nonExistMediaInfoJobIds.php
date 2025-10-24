@@ -32,7 +32,8 @@ class nonExistMediaInfoJobIds extends Model
                 $res['String'] = [];
                 $n1 = 0;
                 foreach ($this->string as $item1) {
-                    $res['String'][$n1++] = $item1;
+                    $res['String'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class nonExistMediaInfoJobIds extends Model
                 $model->string = [];
                 $n1 = 0;
                 foreach ($map['String'] as $item1) {
-                    $model->string[$n1++] = $item1;
+                    $model->string[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

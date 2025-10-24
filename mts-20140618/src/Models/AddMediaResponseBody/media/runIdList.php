@@ -32,7 +32,8 @@ class runIdList extends Model
                 $res['RunId'] = [];
                 $n1 = 0;
                 foreach ($this->runId as $item1) {
-                    $res['RunId'][$n1++] = $item1;
+                    $res['RunId'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class runIdList extends Model
                 $model->runId = [];
                 $n1 = 0;
                 foreach ($map['RunId'] as $item1) {
-                    $model->runId[$n1++] = $item1;
+                    $model->runId[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

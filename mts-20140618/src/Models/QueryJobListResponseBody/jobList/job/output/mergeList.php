@@ -33,7 +33,8 @@ class mergeList extends Model
                 $res['Merge'] = [];
                 $n1 = 0;
                 foreach ($this->merge as $item1) {
-                    $res['Merge'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Merge'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class mergeList extends Model
                 $model->merge = [];
                 $n1 = 0;
                 foreach ($map['Merge'] as $item1) {
-                    $model->merge[$n1++] = merge::fromMap($item1);
+                    $model->merge[$n1] = merge::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

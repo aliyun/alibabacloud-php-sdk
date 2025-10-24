@@ -48,7 +48,8 @@ class ListFpShotImportJobResponseBody extends Model
                 $res['FpShotImportJobList'] = [];
                 $n1 = 0;
                 foreach ($this->fpShotImportJobList as $item1) {
-                    $res['FpShotImportJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FpShotImportJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -58,7 +59,8 @@ class ListFpShotImportJobResponseBody extends Model
                 $res['NonExistIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistIds as $item1) {
-                    $res['NonExistIds'][$n1++] = $item1;
+                    $res['NonExistIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class ListFpShotImportJobResponseBody extends Model
                 $model->fpShotImportJobList = [];
                 $n1 = 0;
                 foreach ($map['FpShotImportJobList'] as $item1) {
-                    $model->fpShotImportJobList[$n1++] = fpShotImportJobList::fromMap($item1);
+                    $model->fpShotImportJobList[$n1] = fpShotImportJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class ListFpShotImportJobResponseBody extends Model
                 $model->nonExistIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistIds'] as $item1) {
-                    $model->nonExistIds[$n1++] = $item1;
+                    $model->nonExistIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

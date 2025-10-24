@@ -32,7 +32,8 @@ class nonExistFileURLs extends Model
                 $res['FileURL'] = [];
                 $n1 = 0;
                 foreach ($this->fileURL as $item1) {
-                    $res['FileURL'][$n1++] = $item1;
+                    $res['FileURL'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class nonExistFileURLs extends Model
                 $model->fileURL = [];
                 $n1 = 0;
                 foreach ($map['FileURL'] as $item1) {
-                    $model->fileURL[$n1++] = $item1;
+                    $model->fileURL[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

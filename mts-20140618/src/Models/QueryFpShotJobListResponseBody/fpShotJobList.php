@@ -33,7 +33,8 @@ class fpShotJobList extends Model
                 $res['FpShotJob'] = [];
                 $n1 = 0;
                 foreach ($this->fpShotJob as $item1) {
-                    $res['FpShotJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FpShotJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class fpShotJobList extends Model
                 $model->fpShotJob = [];
                 $n1 = 0;
                 foreach ($map['FpShotJob'] as $item1) {
-                    $model->fpShotJob[$n1++] = fpShotJob::fromMap($item1);
+                    $model->fpShotJob[$n1] = fpShotJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class mediaBucketList extends Model
                 $res['MediaBucket'] = [];
                 $n1 = 0;
                 foreach ($this->mediaBucket as $item1) {
-                    $res['MediaBucket'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaBucket'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class mediaBucketList extends Model
                 $model->mediaBucket = [];
                 $n1 = 0;
                 foreach ($map['MediaBucket'] as $item1) {
-                    $model->mediaBucket[$n1++] = mediaBucket::fromMap($item1);
+                    $model->mediaBucket[$n1] = mediaBucket::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

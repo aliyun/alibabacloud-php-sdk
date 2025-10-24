@@ -33,7 +33,8 @@ class summaryList extends Model
                 $res['Summary'] = [];
                 $n1 = 0;
                 foreach ($this->summary as $item1) {
-                    $res['Summary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Summary'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class summaryList extends Model
                 $model->summary = [];
                 $n1 = 0;
                 foreach ($map['Summary'] as $item1) {
-                    $model->summary[$n1++] = summary::fromMap($item1);
+                    $model->summary[$n1] = summary::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

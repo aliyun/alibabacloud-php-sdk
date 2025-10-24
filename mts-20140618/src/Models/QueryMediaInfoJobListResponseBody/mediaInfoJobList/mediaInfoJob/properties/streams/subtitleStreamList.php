@@ -33,7 +33,8 @@ class subtitleStreamList extends Model
                 $res['SubtitleStream'] = [];
                 $n1 = 0;
                 foreach ($this->subtitleStream as $item1) {
-                    $res['SubtitleStream'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubtitleStream'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class subtitleStreamList extends Model
                 $model->subtitleStream = [];
                 $n1 = 0;
                 foreach ($map['SubtitleStream'] as $item1) {
-                    $model->subtitleStream[$n1++] = subtitleStream::fromMap($item1);
+                    $model->subtitleStream[$n1] = subtitleStream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

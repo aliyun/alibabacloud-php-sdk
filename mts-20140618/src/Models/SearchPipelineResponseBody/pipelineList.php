@@ -33,7 +33,8 @@ class pipelineList extends Model
                 $res['Pipeline'] = [];
                 $n1 = 0;
                 foreach ($this->pipeline as $item1) {
-                    $res['Pipeline'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Pipeline'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class pipelineList extends Model
                 $model->pipeline = [];
                 $n1 = 0;
                 foreach ($map['Pipeline'] as $item1) {
-                    $model->pipeline[$n1++] = pipeline::fromMap($item1);
+                    $model->pipeline[$n1] = pipeline::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
