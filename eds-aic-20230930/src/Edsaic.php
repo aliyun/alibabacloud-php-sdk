@@ -63,6 +63,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAppsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBackupFilesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBackupFilesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBucketsRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBucketsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeDisplayConfigRequest;
@@ -109,6 +111,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstanceHealerRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstanceHealerResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListTagResourcesRequest;
@@ -570,6 +574,14 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->promotionId) {
             @$query['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->shareDataVolume) {
+            @$query['ShareDataVolume'] = $request->shareDataVolume;
+        }
+
+        if (null !== $request->swapSize) {
+            @$query['SwapSize'] = $request->swapSize;
         }
 
         if (null !== $request->upBandwidthLimit) {
@@ -1100,6 +1112,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->streamMode) {
             @$query['StreamMode'] = $request->streamMode;
+        }
+
+        if (null !== $request->swapSize) {
+            @$query['SwapSize'] = $request->swapSize;
         }
 
         if (null !== $request->tag) {
@@ -2468,6 +2484,63 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * 查询bucket信息.
+     *
+     * @param request - DescribeBucketsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBucketsResponse
+     *
+     * @param DescribeBucketsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeBucketsResponse
+     */
+    public function describeBucketsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBuckets',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBucketsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询bucket信息.
+     *
+     * @param request - DescribeBucketsRequest
+     *
+     * @returns DescribeBucketsResponse
+     *
+     * @param DescribeBucketsRequest $request
+     *
+     * @return DescribeBucketsResponse
+     */
+    public function describeBuckets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBucketsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a cloud phone matrix.
      *
      * @param request - DescribeCloudPhoneNodesRequest
@@ -2850,6 +2923,11 @@ class Edsaic extends OpenApiClient
     public function describeMetricLastWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
         $body = [];
         if (null !== $request->androidInstanceIds) {
             @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
@@ -2880,6 +2958,7 @@ class Edsaic extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -4134,6 +4213,71 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installMonitorAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 实例诊断.
+     *
+     * @param request - InstanceHealerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstanceHealerResponse
+     *
+     * @param InstanceHealerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InstanceHealerResponse
+     */
+    public function instanceHealerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
+        }
+
+        if (null !== $request->strategy) {
+            @$query['Strategy'] = $request->strategy;
+        }
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InstanceHealer',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstanceHealerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 实例诊断.
+     *
+     * @param request - InstanceHealerRequest
+     *
+     * @returns InstanceHealerResponse
+     *
+     * @param InstanceHealerRequest $request
+     *
+     * @return InstanceHealerResponse
+     */
+    public function instanceHealer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->instanceHealerWithOptions($request, $runtime);
     }
 
     /**

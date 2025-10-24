@@ -51,6 +51,16 @@ class ChangeCloudPhoneNodeRequest extends Model
     /**
      * @var int
      */
+    public $shareDataVolume;
+
+    /**
+     * @var int
+     */
+    public $swapSize;
+
+    /**
+     * @var int
+     */
     public $upBandwidthLimit;
     protected $_name = [
         'autoPay' => 'AutoPay',
@@ -61,6 +71,8 @@ class ChangeCloudPhoneNodeRequest extends Model
         'phoneCount' => 'PhoneCount',
         'phoneDataVolume' => 'PhoneDataVolume',
         'promotionId' => 'PromotionId',
+        'shareDataVolume' => 'ShareDataVolume',
+        'swapSize' => 'SwapSize',
         'upBandwidthLimit' => 'UpBandwidthLimit',
     ];
 
@@ -102,6 +114,14 @@ class ChangeCloudPhoneNodeRequest extends Model
 
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
+        }
+
+        if (null !== $this->shareDataVolume) {
+            $res['ShareDataVolume'] = $this->shareDataVolume;
+        }
+
+        if (null !== $this->swapSize) {
+            $res['SwapSize'] = $this->swapSize;
         }
 
         if (null !== $this->upBandwidthLimit) {
@@ -149,6 +169,14 @@ class ChangeCloudPhoneNodeRequest extends Model
 
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
+        }
+
+        if (isset($map['ShareDataVolume'])) {
+            $model->shareDataVolume = $map['ShareDataVolume'];
+        }
+
+        if (isset($map['SwapSize'])) {
+            $model->swapSize = $map['SwapSize'];
         }
 
         if (isset($map['UpBandwidthLimit'])) {

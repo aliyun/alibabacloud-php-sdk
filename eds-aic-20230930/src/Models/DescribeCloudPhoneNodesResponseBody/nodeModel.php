@@ -132,6 +132,11 @@ class nodeModel extends Model
     public $status;
 
     /**
+     * @var int
+     */
+    public $swapSize;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -160,6 +165,7 @@ class nodeModel extends Model
         'serverType' => 'ServerType',
         'shareDataVolume' => 'ShareDataVolume',
         'status' => 'Status',
+        'swapSize' => 'SwapSize',
         'vSwitchId' => 'VSwitchId',
     ];
 
@@ -290,6 +296,10 @@ class nodeModel extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->swapSize) {
+            $res['SwapSize'] = $this->swapSize;
+        }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -413,6 +423,10 @@ class nodeModel extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SwapSize'])) {
+            $model->swapSize = $map['SwapSize'];
         }
 
         if (isset($map['VSwitchId'])) {

@@ -19,6 +19,11 @@ class DescribeMetricLastRequest extends Model
     public $endTime;
 
     /**
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
      * @var string
      */
     public $length;
@@ -45,6 +50,7 @@ class DescribeMetricLastRequest extends Model
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
         'endTime' => 'EndTime',
+        'instanceIds' => 'InstanceIds',
         'length' => 'Length',
         'metricNames' => 'MetricNames',
         'nextToken' => 'NextToken',
@@ -56,6 +62,9 @@ class DescribeMetricLastRequest extends Model
     {
         if (\is_array($this->androidInstanceIds)) {
             Model::validateArray($this->androidInstanceIds);
+        }
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
         }
         if (\is_array($this->metricNames)) {
             Model::validateArray($this->metricNames);
@@ -79,6 +88,17 @@ class DescribeMetricLastRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->instanceIds) {
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->length) {
@@ -132,6 +152,17 @@ class DescribeMetricLastRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Length'])) {
