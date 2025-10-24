@@ -7,6 +7,9 @@ namespace AlibabaCloud\SDK\Eflocontroller\V20221215;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ApproveOperationRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ApproveOperationResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeGroupRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeGroupResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeGroupShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CloseSessionRequest;
@@ -60,14 +63,22 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClusterHyperNodesRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClusterHyperNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClusterNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClusterNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClustersRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClustersResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListDiagnosticResultsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListDiagnosticResultsResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeHyperNodesRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeHyperNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeNodesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListHyperNodesRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListHyperNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListImagesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListImagesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineNetworkInfoRequest;
@@ -91,6 +102,9 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReportNodesStatusRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReportNodesStatusResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReportNodesStatusShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandShrinkRequest;
@@ -210,6 +224,79 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->approveOperationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改节点的节点组.
+     *
+     * @param tmpReq - ChangeNodeGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeNodeGroupResponse
+     *
+     * @param ChangeNodeGroupRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ChangeNodeGroupResponse
+     */
+    public function changeNodeGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChangeNodeGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodes) {
+            $request->nodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->ignoreFailedNodeTasks) {
+            @$query['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+        }
+
+        if (null !== $request->targetNodeGroupId) {
+            @$query['TargetNodeGroupId'] = $request->targetNodeGroupId;
+        }
+
+        $body = [];
+        if (null !== $request->nodesShrink) {
+            @$body['Nodes'] = $request->nodesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeNodeGroup',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改节点的节点组.
+     *
+     * @param request - ChangeNodeGroupRequest
+     *
+     * @returns ChangeNodeGroupResponse
+     *
+     * @param ChangeNodeGroupRequest $request
+     *
+     * @return ChangeNodeGroupResponse
+     */
+    public function changeNodeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeNodeGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1851,6 +1938,142 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * 查询节点列表.
+     *
+     * @param request - GetHyperNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHyperNodeResponse
+     *
+     * @param GetHyperNodeRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetHyperNodeResponse
+     */
+    public function getHyperNodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hyperNodeId) {
+            @$body['HyperNodeId'] = $request->hyperNodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetHyperNode',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetHyperNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询节点列表.
+     *
+     * @param request - GetHyperNodeRequest
+     *
+     * @returns GetHyperNodeResponse
+     *
+     * @param GetHyperNodeRequest $request
+     *
+     * @return GetHyperNodeResponse
+     */
+    public function getHyperNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHyperNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 集群下的主机分组列表，分组下的主机列表.
+     *
+     * @param request - ListClusterHyperNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterHyperNodesResponse
+     *
+     * @param ListClusterHyperNodesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListClusterHyperNodesResponse
+     */
+    public function listClusterHyperNodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListClusterHyperNodes',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListClusterHyperNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 集群下的主机分组列表，分组下的主机列表.
+     *
+     * @param request - ListClusterHyperNodesRequest
+     *
+     * @returns ListClusterHyperNodesResponse
+     *
+     * @param ListClusterHyperNodesRequest $request
+     *
+     * @return ListClusterHyperNodesResponse
+     */
+    public function listClusterHyperNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClusterHyperNodesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of nodes in a cluster.
      *
      * @param request - ListClusterNodesRequest
@@ -2074,6 +2297,87 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * 可用rack物理机列表.
+     *
+     * @param request - ListFreeHyperNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFreeHyperNodesResponse
+     *
+     * @param ListFreeHyperNodesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListFreeHyperNodesResponse
+     */
+    public function listFreeHyperNodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hpnZone) {
+            @$body['HpnZone'] = $request->hpnZone;
+        }
+
+        if (null !== $request->machineType) {
+            @$body['MachineType'] = $request->machineType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListFreeHyperNodes',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFreeHyperNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 可用rack物理机列表.
+     *
+     * @param request - ListFreeHyperNodesRequest
+     *
+     * @returns ListFreeHyperNodesResponse
+     *
+     * @param ListFreeHyperNodesRequest $request
+     *
+     * @return ListFreeHyperNodesResponse
+     */
+    public function listFreeHyperNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFreeHyperNodesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of nodes that are not used.
      *
      * @param request - ListFreeNodesRequest
@@ -2154,6 +2458,99 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFreeNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 机器列表.
+     *
+     * @param request - ListHyperNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHyperNodesResponse
+     *
+     * @param ListHyperNodesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListHyperNodesResponse
+     */
+    public function listHyperNodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterName) {
+            @$body['ClusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->hpnZone) {
+            @$body['HpnZone'] = $request->hpnZone;
+        }
+
+        if (null !== $request->hyperNodeId) {
+            @$body['HyperNodeId'] = $request->hyperNodeId;
+        }
+
+        if (null !== $request->machineType) {
+            @$body['MachineType'] = $request->machineType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeGroupName) {
+            @$body['NodeGroupName'] = $request->nodeGroupName;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListHyperNodes',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHyperNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 机器列表.
+     *
+     * @param request - ListHyperNodesRequest
+     *
+     * @returns ListHyperNodesResponse
+     *
+     * @param ListHyperNodesRequest $request
+     *
+     * @return ListHyperNodesResponse
+     */
+    public function listHyperNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHyperNodesWithOptions($request, $runtime);
     }
 
     /**
@@ -2831,6 +3228,89 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->reimageNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 节点异常问题上报.
+     *
+     * @param tmpReq - ReportNodesStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReportNodesStatusResponse
+     *
+     * @param ReportNodesStatusRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReportNodesStatusResponse
+     */
+    public function reportNodesStatusWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReportNodesStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodes) {
+            $request->nodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->issueCategory) {
+            @$body['IssueCategory'] = $request->issueCategory;
+        }
+
+        if (null !== $request->nodesShrink) {
+            @$body['Nodes'] = $request->nodesShrink;
+        }
+
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReportNodesStatus',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReportNodesStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 节点异常问题上报.
+     *
+     * @param request - ReportNodesStatusRequest
+     *
+     * @returns ReportNodesStatusResponse
+     *
+     * @param ReportNodesStatusRequest $request
+     *
+     * @return ReportNodesStatusResponse
+     */
+    public function reportNodesStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reportNodesStatusWithOptions($request, $runtime);
     }
 
     /**

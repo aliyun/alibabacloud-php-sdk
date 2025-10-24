@@ -2,26 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups\hyperNodes;
+namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponseBody\nodes;
 
 use AlibabaCloud\Dara\Model;
 
-class dataDisk extends Model
+class disks extends Model
 {
-    /**
-     * @var bool
-     */
-    public $burstingEnabled;
-
     /**
      * @var string
      */
     public $category;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $deleteWithNode;
+    public $diskId;
 
     /**
      * @var string
@@ -31,19 +26,18 @@ class dataDisk extends Model
     /**
      * @var int
      */
-    public $provisionedIops;
+    public $size;
 
     /**
-     * @var int
+     * @var string
      */
-    public $size;
+    public $type;
     protected $_name = [
-        'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
-        'deleteWithNode' => 'DeleteWithNode',
+        'diskId' => 'DiskId',
         'performanceLevel' => 'PerformanceLevel',
-        'provisionedIops' => 'ProvisionedIops',
         'size' => 'Size',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -54,28 +48,24 @@ class dataDisk extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->burstingEnabled) {
-            $res['BurstingEnabled'] = $this->burstingEnabled;
-        }
-
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
 
-        if (null !== $this->deleteWithNode) {
-            $res['DeleteWithNode'] = $this->deleteWithNode;
+        if (null !== $this->diskId) {
+            $res['DiskId'] = $this->diskId;
         }
 
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
 
-        if (null !== $this->provisionedIops) {
-            $res['ProvisionedIops'] = $this->provisionedIops;
-        }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -89,28 +79,24 @@ class dataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BurstingEnabled'])) {
-            $model->burstingEnabled = $map['BurstingEnabled'];
-        }
-
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
 
-        if (isset($map['DeleteWithNode'])) {
-            $model->deleteWithNode = $map['DeleteWithNode'];
+        if (isset($map['DiskId'])) {
+            $model->diskId = $map['DiskId'];
         }
 
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
 
-        if (isset($map['ProvisionedIops'])) {
-            $model->provisionedIops = $map['ProvisionedIops'];
-        }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

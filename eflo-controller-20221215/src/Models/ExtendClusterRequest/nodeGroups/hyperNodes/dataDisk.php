@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class dataDisk extends Model
 {
     /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
      * @var string
      */
     public $category;
@@ -26,11 +31,18 @@ class dataDisk extends Model
     /**
      * @var int
      */
+    public $provisionedIops;
+
+    /**
+     * @var int
+     */
     public $size;
     protected $_name = [
+        'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
         'deleteWithNode' => 'DeleteWithNode',
         'performanceLevel' => 'PerformanceLevel',
+        'provisionedIops' => 'ProvisionedIops',
         'size' => 'Size',
     ];
 
@@ -42,6 +54,10 @@ class dataDisk extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -52,6 +68,10 @@ class dataDisk extends Model
 
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
         }
 
         if (null !== $this->size) {
@@ -69,6 +89,10 @@ class dataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -79,6 +103,10 @@ class dataDisk extends Model
 
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
 
         if (isset($map['Size'])) {
