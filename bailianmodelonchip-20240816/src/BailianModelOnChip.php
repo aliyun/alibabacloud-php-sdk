@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\BailianModelOnChip\V20240816;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ActiveInteractionCreateRequest;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ActiveInteractionCreateResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\DeviceRegisterRequest;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\DeviceRegisterResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetTokenRequest;
@@ -46,6 +48,67 @@ class BailianModelOnChip extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 主动交互消息传递.
+     *
+     * @param request - ActiveInteractionCreateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActiveInteractionCreateResponse
+     *
+     * @param ActiveInteractionCreateRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ActiveInteractionCreateResponse
+     */
+    public function activeInteractionCreateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->image) {
+            @$body['image'] = $request->image;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ActiveInteractionCreate',
+            'version' => '2024-08-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/api/v1/active/interaction/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ActiveInteractionCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 主动交互消息传递.
+     *
+     * @param request - ActiveInteractionCreateRequest
+     *
+     * @returns ActiveInteractionCreateResponse
+     *
+     * @param ActiveInteractionCreateRequest $request
+     *
+     * @return ActiveInteractionCreateResponse
+     */
+    public function activeInteractionCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->activeInteractionCreateWithOptions($request, $headers, $runtime);
     }
 
     /**
