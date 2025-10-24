@@ -4100,6 +4100,14 @@ class Eas extends OpenApiClient
             @$query['Filter'] = $request->filter;
         }
 
+        if (null !== $request->modelId) {
+            @$query['ModelId'] = $request->modelId;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -4108,8 +4116,20 @@ class Eas extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->requestMethod) {
+            @$query['RequestMethod'] = $request->requestMethod;
+        }
+
         if (null !== $request->serviceName) {
             @$query['ServiceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
 
         $req = new OpenApiRequest([
@@ -4498,12 +4518,24 @@ class Eas extends OpenApiClient
             @$query['Filter'] = $request->filter;
         }
 
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->trafficMode) {
+            @$query['TrafficMode'] = $request->trafficMode;
         }
 
         if (null !== $request->workspaceId) {

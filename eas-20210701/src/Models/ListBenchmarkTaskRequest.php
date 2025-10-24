@@ -16,6 +16,16 @@ class ListBenchmarkTaskRequest extends Model
     /**
      * @var string
      */
+    public $modelId;
+
+    /**
+     * @var string
+     */
+    public $order;
+
+    /**
+     * @var string
+     */
     public $pageNumber;
 
     /**
@@ -26,12 +36,32 @@ class ListBenchmarkTaskRequest extends Model
     /**
      * @var string
      */
+    public $requestMethod;
+
+    /**
+     * @var string
+     */
     public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $sort;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'filter' => 'Filter',
+        'modelId' => 'ModelId',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'requestMethod' => 'RequestMethod',
         'serviceName' => 'ServiceName',
+        'sort' => 'Sort',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -46,6 +76,14 @@ class ListBenchmarkTaskRequest extends Model
             $res['Filter'] = $this->filter;
         }
 
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
+        }
+
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -54,8 +92,20 @@ class ListBenchmarkTaskRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->requestMethod) {
+            $res['RequestMethod'] = $this->requestMethod;
+        }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -73,6 +123,14 @@ class ListBenchmarkTaskRequest extends Model
             $model->filter = $map['Filter'];
         }
 
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
+        }
+
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -81,8 +139,20 @@ class ListBenchmarkTaskRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['RequestMethod'])) {
+            $model->requestMethod = $map['RequestMethod'];
+        }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
