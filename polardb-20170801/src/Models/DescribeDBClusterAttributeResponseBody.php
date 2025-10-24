@@ -261,6 +261,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $SQLSize;
 
     /**
+     * @var string
+     */
+    public $searchClusterStatus;
+
+    /**
      * @var int
      */
     public $searchCompressStorageUsed;
@@ -400,6 +405,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'restoreType' => 'RestoreType',
         'rowCompression' => 'RowCompression',
         'SQLSize' => 'SQLSize',
+        'searchClusterStatus' => 'SearchClusterStatus',
         'searchCompressStorageUsed' => 'SearchCompressStorageUsed',
         'searchStorageUsed' => 'SearchStorageUsed',
         'serverlessType' => 'ServerlessType',
@@ -639,6 +645,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->SQLSize) {
             $res['SQLSize'] = $this->SQLSize;
+        }
+
+        if (null !== $this->searchClusterStatus) {
+            $res['SearchClusterStatus'] = $this->searchClusterStatus;
         }
 
         if (null !== $this->searchCompressStorageUsed) {
@@ -936,6 +946,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (isset($map['SQLSize'])) {
             $model->SQLSize = $map['SQLSize'];
+        }
+
+        if (isset($map['SearchClusterStatus'])) {
+            $model->searchClusterStatus = $map['SearchClusterStatus'];
         }
 
         if (isset($map['SearchCompressStorageUsed'])) {
