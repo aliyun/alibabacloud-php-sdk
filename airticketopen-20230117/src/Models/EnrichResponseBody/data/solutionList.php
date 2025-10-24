@@ -49,16 +49,6 @@ class solutionList extends Model
     public $journeyList;
 
     /**
-     * @var string
-     */
-    public $productTypeDescription;
-
-    /**
-     * @var string
-     */
-    public $refundTicketCouponDescription;
-
-    /**
      * @var segmentBaggageCheckInInfoList[]
      */
     public $segmentBaggageCheckInInfoList;
@@ -90,8 +80,6 @@ class solutionList extends Model
         'infantPrice' => 'infant_price',
         'infantTax' => 'infant_tax',
         'journeyList' => 'journey_list',
-        'productTypeDescription' => 'product_type_description',
-        'refundTicketCouponDescription' => 'refund_ticket_coupon_description',
         'segmentBaggageCheckInInfoList' => 'segment_baggage_check_in_info_list',
         'segmentBaggageMappingList' => 'segment_baggage_mapping_list',
         'segmentRefundChangeRuleMappingList' => 'segment_refund_change_rule_mapping_list',
@@ -155,14 +143,6 @@ class solutionList extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->productTypeDescription) {
-            $res['product_type_description'] = $this->productTypeDescription;
-        }
-
-        if (null !== $this->refundTicketCouponDescription) {
-            $res['refund_ticket_coupon_description'] = $this->refundTicketCouponDescription;
         }
 
         if (null !== $this->segmentBaggageCheckInInfoList) {
@@ -250,14 +230,6 @@ class solutionList extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['product_type_description'])) {
-            $model->productTypeDescription = $map['product_type_description'];
-        }
-
-        if (isset($map['refund_ticket_coupon_description'])) {
-            $model->refundTicketCouponDescription = $map['refund_ticket_coupon_description'];
         }
 
         if (isset($map['segment_baggage_check_in_info_list'])) {

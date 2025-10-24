@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderDetailResponseBody\data
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderDetailResponseBody\data\solution\segmentBaggageCheckInInfoList;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderDetailResponseBody\data\solution\segmentBaggageMappingList;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderDetailResponseBody\data\solution\segmentRefundChangeRuleMappingList;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\OrderDetailResponseBody\data\solution\solutionAttribute;
 
 class solution extends Model
 {
@@ -73,6 +74,11 @@ class solution extends Model
     public $segmentRefundChangeRuleMappingList;
 
     /**
+     * @var solutionAttribute
+     */
+    public $solutionAttribute;
+
+    /**
      * @var string
      */
     public $solutionId;
@@ -89,6 +95,7 @@ class solution extends Model
         'segmentBaggageCheckInInfoList' => 'segment_baggage_check_in_info_list',
         'segmentBaggageMappingList' => 'segment_baggage_mapping_list',
         'segmentRefundChangeRuleMappingList' => 'segment_refund_change_rule_mapping_list',
+        'solutionAttribute' => 'solution_attribute',
         'solutionId' => 'solution_id',
     ];
 
@@ -105,6 +112,9 @@ class solution extends Model
         }
         if (\is_array($this->segmentRefundChangeRuleMappingList)) {
             Model::validateArray($this->segmentRefundChangeRuleMappingList);
+        }
+        if (null !== $this->solutionAttribute) {
+            $this->solutionAttribute->validate();
         }
         parent::validate();
     }
@@ -186,6 +196,10 @@ class solution extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->solutionAttribute) {
+            $res['solution_attribute'] = null !== $this->solutionAttribute ? $this->solutionAttribute->toArray($noStream) : $this->solutionAttribute;
         }
 
         if (null !== $this->solutionId) {
@@ -277,6 +291,10 @@ class solution extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['solution_attribute'])) {
+            $model->solutionAttribute = solutionAttribute::fromMap($map['solution_attribute']);
         }
 
         if (isset($map['solution_id'])) {
