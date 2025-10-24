@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class CreateSimpleOfficeSiteRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
+     * @var string
+     */
+    public $authorityHost;
+
+    /**
      * @var int
      */
     public $bandwidth;
@@ -29,6 +39,16 @@ class CreateSimpleOfficeSiteRequest extends Model
     public $cidrBlock;
 
     /**
+     * @var string
+     */
+    public $clientId;
+
+    /**
+     * @var string
+     */
+    public $clientSecret;
+
+    /**
      * @var bool
      */
     public $cloudBoxOfficeSite;
@@ -37,6 +57,11 @@ class CreateSimpleOfficeSiteRequest extends Model
      * @var string
      */
     public $desktopAccessType;
+
+    /**
+     * @var string
+     */
+    public $domainName;
 
     /**
      * @var bool
@@ -64,6 +89,11 @@ class CreateSimpleOfficeSiteRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $tenantId;
+
+    /**
      * @var string[]
      */
     public $vSwitchId;
@@ -78,17 +108,23 @@ class CreateSimpleOfficeSiteRequest extends Model
      */
     public $vpcType;
     protected $_name = [
+        'accountType' => 'AccountType',
+        'authorityHost' => 'AuthorityHost',
         'bandwidth' => 'Bandwidth',
         'cenId' => 'CenId',
         'cenOwnerId' => 'CenOwnerId',
         'cidrBlock' => 'CidrBlock',
+        'clientId' => 'ClientId',
+        'clientSecret' => 'ClientSecret',
         'cloudBoxOfficeSite' => 'CloudBoxOfficeSite',
         'desktopAccessType' => 'DesktopAccessType',
+        'domainName' => 'DomainName',
         'enableAdminAccess' => 'EnableAdminAccess',
         'enableInternetAccess' => 'EnableInternetAccess',
         'needVerifyZeroDevice' => 'NeedVerifyZeroDevice',
         'officeSiteName' => 'OfficeSiteName',
         'regionId' => 'RegionId',
+        'tenantId' => 'TenantId',
         'vSwitchId' => 'VSwitchId',
         'verifyCode' => 'VerifyCode',
         'vpcType' => 'VpcType',
@@ -105,6 +141,14 @@ class CreateSimpleOfficeSiteRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+
+        if (null !== $this->authorityHost) {
+            $res['AuthorityHost'] = $this->authorityHost;
+        }
+
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
@@ -121,12 +165,24 @@ class CreateSimpleOfficeSiteRequest extends Model
             $res['CidrBlock'] = $this->cidrBlock;
         }
 
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
+        }
+
+        if (null !== $this->clientSecret) {
+            $res['ClientSecret'] = $this->clientSecret;
+        }
+
         if (null !== $this->cloudBoxOfficeSite) {
             $res['CloudBoxOfficeSite'] = $this->cloudBoxOfficeSite;
         }
 
         if (null !== $this->desktopAccessType) {
             $res['DesktopAccessType'] = $this->desktopAccessType;
+        }
+
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
 
         if (null !== $this->enableAdminAccess) {
@@ -147,6 +203,10 @@ class CreateSimpleOfficeSiteRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         if (null !== $this->vSwitchId) {
@@ -179,6 +239,14 @@ class CreateSimpleOfficeSiteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+
+        if (isset($map['AuthorityHost'])) {
+            $model->authorityHost = $map['AuthorityHost'];
+        }
+
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
@@ -195,12 +263,24 @@ class CreateSimpleOfficeSiteRequest extends Model
             $model->cidrBlock = $map['CidrBlock'];
         }
 
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
+        }
+
+        if (isset($map['ClientSecret'])) {
+            $model->clientSecret = $map['ClientSecret'];
+        }
+
         if (isset($map['CloudBoxOfficeSite'])) {
             $model->cloudBoxOfficeSite = $map['CloudBoxOfficeSite'];
         }
 
         if (isset($map['DesktopAccessType'])) {
             $model->desktopAccessType = $map['DesktopAccessType'];
+        }
+
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
 
         if (isset($map['EnableAdminAccess'])) {
@@ -221,6 +301,10 @@ class CreateSimpleOfficeSiteRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         if (isset($map['VSwitchId'])) {

@@ -245,6 +245,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaTasksRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaTasksResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGlobalDesktopRecordsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGlobalDesktopRecordsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGuestApplicationsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGuestApplicationsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImageModifiedRecordsRequest;
@@ -6162,6 +6164,14 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
+        }
+
+        if (null !== $request->authorityHost) {
+            @$query['AuthorityHost'] = $request->authorityHost;
+        }
+
         if (null !== $request->bandwidth) {
             @$query['Bandwidth'] = $request->bandwidth;
         }
@@ -6178,12 +6188,24 @@ class Ecd extends OpenApiClient
             @$query['CidrBlock'] = $request->cidrBlock;
         }
 
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientSecret) {
+            @$query['ClientSecret'] = $request->clientSecret;
+        }
+
         if (null !== $request->cloudBoxOfficeSite) {
             @$query['CloudBoxOfficeSite'] = $request->cloudBoxOfficeSite;
         }
 
         if (null !== $request->desktopAccessType) {
             @$query['DesktopAccessType'] = $request->desktopAccessType;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
 
         if (null !== $request->enableAdminAccess) {
@@ -6204,6 +6226,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
         }
 
         if (null !== $request->vSwitchId) {
@@ -11225,6 +11251,119 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFotaTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询全局桌面记录.
+     *
+     * @param request - DescribeGlobalDesktopRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGlobalDesktopRecordsResponse
+     *
+     * @param DescribeGlobalDesktopRecordsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeGlobalDesktopRecordsResponse
+     */
+    public function describeGlobalDesktopRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
+        }
+
+        if (null !== $request->desktopName) {
+            @$query['DesktopName'] = $request->desktopName;
+        }
+
+        if (null !== $request->desktopType) {
+            @$query['DesktopType'] = $request->desktopType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
+        }
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->subPayType) {
+            @$query['SubPayType'] = $request->subPayType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGlobalDesktopRecords',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGlobalDesktopRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询全局桌面记录.
+     *
+     * @param request - DescribeGlobalDesktopRecordsRequest
+     *
+     * @returns DescribeGlobalDesktopRecordsResponse
+     *
+     * @param DescribeGlobalDesktopRecordsRequest $request
+     *
+     * @return DescribeGlobalDesktopRecordsResponse
+     */
+    public function describeGlobalDesktopRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalDesktopRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -19381,8 +19520,24 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->authorityHost) {
+            @$query['AuthorityHost'] = $request->authorityHost;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
+        }
+
+        if (null !== $request->clientSecret) {
+            @$query['ClientSecret'] = $request->clientSecret;
+        }
+
         if (null !== $request->desktopAccessType) {
             @$query['DesktopAccessType'] = $request->desktopAccessType;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
 
         if (null !== $request->enableAdminAccess) {
@@ -19407,6 +19562,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
         }
 
         $req = new OpenApiRequest([

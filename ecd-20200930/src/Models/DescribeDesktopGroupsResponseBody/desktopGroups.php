@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponseBody\desk
 class desktopGroups extends Model
 {
     /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
      * @var int
      */
     public $bindAmount;
@@ -84,6 +89,11 @@ class desktopGroups extends Model
      * @var int
      */
     public $endUserCount;
+
+    /**
+     * @var string
+     */
+    public $entraDomainName;
 
     /**
      * @var string
@@ -285,6 +295,7 @@ class desktopGroups extends Model
      */
     public $volumeEncryptionKey;
     protected $_name = [
+        'accountType' => 'AccountType',
         'bindAmount' => 'BindAmount',
         'buyDesktopsCount' => 'BuyDesktopsCount',
         'comments' => 'Comments',
@@ -300,6 +311,7 @@ class desktopGroups extends Model
         'desktopGroupName' => 'DesktopGroupName',
         'desktopType' => 'DesktopType',
         'endUserCount' => 'EndUserCount',
+        'entraDomainName' => 'EntraDomainName',
         'expiredTime' => 'ExpiredTime',
         'expiredTimes' => 'ExpiredTimes',
         'gpuCount' => 'GpuCount',
@@ -365,6 +377,10 @@ class desktopGroups extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+
         if (null !== $this->bindAmount) {
             $res['BindAmount'] = $this->bindAmount;
         }
@@ -430,6 +446,10 @@ class desktopGroups extends Model
 
         if (null !== $this->endUserCount) {
             $res['EndUserCount'] = $this->endUserCount;
+        }
+
+        if (null !== $this->entraDomainName) {
+            $res['EntraDomainName'] = $this->entraDomainName;
         }
 
         if (null !== $this->expiredTime) {
@@ -631,6 +651,10 @@ class desktopGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+
         if (isset($map['BindAmount'])) {
             $model->bindAmount = $map['BindAmount'];
         }
@@ -696,6 +720,10 @@ class desktopGroups extends Model
 
         if (isset($map['EndUserCount'])) {
             $model->endUserCount = $map['EndUserCount'];
+        }
+
+        if (isset($map['EntraDomainName'])) {
+            $model->entraDomainName = $map['EntraDomainName'];
         }
 
         if (isset($map['ExpiredTime'])) {

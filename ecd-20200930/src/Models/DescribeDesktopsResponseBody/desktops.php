@@ -16,6 +16,11 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\
 class desktops extends Model
 {
     /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
      * @var int
      */
     public $bindAmount;
@@ -124,6 +129,11 @@ class desktops extends Model
      * @var string[]
      */
     public $endUserIds;
+
+    /**
+     * @var string
+     */
+    public $entraDomainName;
 
     /**
      * @var string
@@ -345,6 +355,7 @@ class desktops extends Model
      */
     public $zoneType;
     protected $_name = [
+        'accountType' => 'AccountType',
         'bindAmount' => 'BindAmount',
         'bundleId' => 'BundleId',
         'bundleName' => 'BundleName',
@@ -367,6 +378,7 @@ class desktops extends Model
         'downgradeQuota' => 'DowngradeQuota',
         'downgradedTimes' => 'DowngradedTimes',
         'endUserIds' => 'EndUserIds',
+        'entraDomainName' => 'EntraDomainName',
         'expiredTime' => 'ExpiredTime',
         'fotaUpdate' => 'FotaUpdate',
         'gpuCategory' => 'GpuCategory',
@@ -454,6 +466,10 @@ class desktops extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+
         if (null !== $this->bindAmount) {
             $res['BindAmount'] = $this->bindAmount;
         }
@@ -561,6 +577,10 @@ class desktops extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->entraDomainName) {
+            $res['EntraDomainName'] = $this->entraDomainName;
         }
 
         if (null !== $this->expiredTime) {
@@ -792,6 +812,10 @@ class desktops extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+
         if (isset($map['BindAmount'])) {
             $model->bindAmount = $map['BindAmount'];
         }
@@ -899,6 +923,10 @@ class desktops extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EntraDomainName'])) {
+            $model->entraDomainName = $map['EntraDomainName'];
         }
 
         if (isset($map['ExpiredTime'])) {

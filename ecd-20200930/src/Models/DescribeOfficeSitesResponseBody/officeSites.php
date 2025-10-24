@@ -24,7 +24,17 @@ class officeSites extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $adHostname;
+
+    /**
+     * @var string
+     */
+    public $authorityHost;
 
     /**
      * @var string
@@ -55,6 +65,16 @@ class officeSites extends Model
      * @var string
      */
     public $cidrBlock;
+
+    /**
+     * @var string
+     */
+    public $clientId;
+
+    /**
+     * @var string
+     */
+    public $clientSecret;
 
     /**
      * @var bool
@@ -267,6 +287,11 @@ class officeSites extends Model
     public $subnetMode;
 
     /**
+     * @var string
+     */
+    public $tenantId;
+
+    /**
      * @var int
      */
     public $totalEdsCount;
@@ -303,13 +328,17 @@ class officeSites extends Model
     protected $_name = [
         'ADConnectors' => 'ADConnectors',
         'acceleratorId' => 'AcceleratorId',
+        'accountType' => 'AccountType',
         'adHostname' => 'AdHostname',
+        'authorityHost' => 'AuthorityHost',
         'backupDCHostname' => 'BackupDCHostname',
         'backupDns' => 'BackupDns',
         'bandwidth' => 'Bandwidth',
         'cenAttachStatus' => 'CenAttachStatus',
         'cenId' => 'CenId',
         'cidrBlock' => 'CidrBlock',
+        'clientId' => 'ClientId',
+        'clientSecret' => 'ClientSecret',
         'cloudBoxOfficeSite' => 'CloudBoxOfficeSite',
         'creationTime' => 'CreationTime',
         'customAccessPoint' => 'CustomAccessPoint',
@@ -352,6 +381,7 @@ class officeSites extends Model
         'subDnsAddress' => 'SubDnsAddress',
         'subDomainName' => 'SubDomainName',
         'subnetMode' => 'SubnetMode',
+        'tenantId' => 'TenantId',
         'totalEdsCount' => 'TotalEdsCount',
         'totalEdsCountForGroup' => 'TotalEdsCountForGroup',
         'totalResourceAmount' => 'TotalResourceAmount',
@@ -408,8 +438,16 @@ class officeSites extends Model
             $res['AcceleratorId'] = $this->acceleratorId;
         }
 
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+
         if (null !== $this->adHostname) {
             $res['AdHostname'] = $this->adHostname;
+        }
+
+        if (null !== $this->authorityHost) {
+            $res['AuthorityHost'] = $this->authorityHost;
         }
 
         if (null !== $this->backupDCHostname) {
@@ -434,6 +472,14 @@ class officeSites extends Model
 
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
+        }
+
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
+        }
+
+        if (null !== $this->clientSecret) {
+            $res['ClientSecret'] = $this->clientSecret;
         }
 
         if (null !== $this->cloudBoxOfficeSite) {
@@ -646,6 +692,10 @@ class officeSites extends Model
             $res['SubnetMode'] = $this->subnetMode;
         }
 
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
+        }
+
         if (null !== $this->totalEdsCount) {
             $res['TotalEdsCount'] = $this->totalEdsCount;
         }
@@ -707,8 +757,16 @@ class officeSites extends Model
             $model->acceleratorId = $map['AcceleratorId'];
         }
 
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+
         if (isset($map['AdHostname'])) {
             $model->adHostname = $map['AdHostname'];
+        }
+
+        if (isset($map['AuthorityHost'])) {
+            $model->authorityHost = $map['AuthorityHost'];
         }
 
         if (isset($map['BackupDCHostname'])) {
@@ -733,6 +791,14 @@ class officeSites extends Model
 
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
+        }
+
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
+        }
+
+        if (isset($map['ClientSecret'])) {
+            $model->clientSecret = $map['ClientSecret'];
         }
 
         if (isset($map['CloudBoxOfficeSite'])) {
@@ -943,6 +1009,10 @@ class officeSites extends Model
 
         if (isset($map['SubnetMode'])) {
             $model->subnetMode = $map['SubnetMode'];
+        }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         if (isset($map['TotalEdsCount'])) {
