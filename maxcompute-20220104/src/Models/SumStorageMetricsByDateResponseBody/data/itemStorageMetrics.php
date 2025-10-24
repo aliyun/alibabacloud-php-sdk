@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByDateResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class itemStorageMetrics extends Model
 {
     /**
-     * @example prj
-     *
      * @var string
      */
     public $itemName;
 
     /**
-     * @example 91.22
-     *
      * @var float
      */
     public $percentage;
 
     /**
-     * @example 300.560392
-     *
      * @var string
      */
     public $usage;
@@ -34,17 +28,22 @@ class itemStorageMetrics extends Model
         'usage' => 'usage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->itemName) {
             $res['itemName'] = $this->itemName;
         }
+
         if (null !== $this->percentage) {
             $res['percentage'] = $this->percentage;
         }
+
         if (null !== $this->usage) {
             $res['usage'] = $this->usage;
         }
@@ -52,20 +51,22 @@ class itemStorageMetrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return itemStorageMetrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['itemName'])) {
             $model->itemName = $map['itemName'];
         }
+
         if (isset($map['percentage'])) {
             $model->percentage = $map['percentage'];
         }
+
         if (isset($map['usage'])) {
             $model->usage = $map['usage'];
         }

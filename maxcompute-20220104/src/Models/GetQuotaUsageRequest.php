@@ -4,96 +4,51 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetQuotaUsageRequest extends Model
 {
     /**
-     * @description The aggregation algorithm. For a better page experience, up to 60 points can be displayed for each metric. If you select a time range longer than 1 hour, the chart uses the average value within the range (minutes of the selected time range/60) to aggregate data by default. You can change the aggregation algorithm based on your business requirements.
-     *
-     * @example max
-     *
      * @var string
      */
     public $aggMethod;
 
     /**
-     * @description The time when the query starts. The value is the log time that is specified when log data is written.
-     *
-     *   The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the **from** parameter, but does not include the end time specified by the **to** parameter. If you set the **from** and **to** parameters to the same value, the time range is invalid and an error message is returned.
-     *   This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * This parameter is required.
-     *
-     * @example 1669081045
-     *
      * @var int
      */
     public $from;
 
     /**
-     * @description The types of the charts.
-     *
      * @var string[]
      */
     public $plotTypes;
 
     /**
-     * @description The quota type. Default value: ODPS.
-     *
-     *   ODPS: computing quota
-     *   TUNNEL: Tunnel quota
-     *
-     * @example ODPS
-     *
      * @var string
      */
     public $productId;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-chengdu
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The alias of the level-2 quota.
-     *
-     * @example ot_tunnel_quota
-     *
      * @var string
      */
     public $subQuotaNickname;
 
     /**
-     * @description The ID of the tenant. You can log on to the MaxCompute console, and choose Tenants > Tenant Property from the left-side navigation pane to view the tenant ID.
-     *
-     * @example 478403690625249
-     *
      * @var string
      */
     public $tenantId;
 
     /**
-     * @description The time when the query ends. The value is the log time that is specified when log data is written.
-     *
-     *   The time range that is specified in this operation is a left-closed, right-open interval. The interval includes the start time specified by the **from** parameter, but does not include the end time specified by the **to** parameter. If you set the **from** and **to** parameters to the same value, the time range is invalid and an error message is returned.
-     *   This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * This parameter is required.
-     *
-     * @example 1669360870
-     *
      * @var int
      */
     public $to;
 
     /**
-     * @description The data metric fields.
-     *
      * @var string[]
      */
     public $yAxisTypes;
@@ -109,79 +64,128 @@ class GetQuotaUsageRequest extends Model
         'yAxisTypes' => 'yAxisTypes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->plotTypes)) {
+            Model::validateArray($this->plotTypes);
+        }
+        if (\is_array($this->yAxisTypes)) {
+            Model::validateArray($this->yAxisTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggMethod) {
             $res['aggMethod'] = $this->aggMethod;
         }
+
         if (null !== $this->from) {
             $res['from'] = $this->from;
         }
+
         if (null !== $this->plotTypes) {
-            $res['plotTypes'] = $this->plotTypes;
+            if (\is_array($this->plotTypes)) {
+                $res['plotTypes'] = [];
+                $n1 = 0;
+                foreach ($this->plotTypes as $item1) {
+                    $res['plotTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
+
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
+
         if (null !== $this->subQuotaNickname) {
             $res['subQuotaNickname'] = $this->subQuotaNickname;
         }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
+
         if (null !== $this->to) {
             $res['to'] = $this->to;
         }
+
         if (null !== $this->yAxisTypes) {
-            $res['yAxisTypes'] = $this->yAxisTypes;
+            if (\is_array($this->yAxisTypes)) {
+                $res['yAxisTypes'] = [];
+                $n1 = 0;
+                foreach ($this->yAxisTypes as $item1) {
+                    $res['yAxisTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQuotaUsageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aggMethod'])) {
             $model->aggMethod = $map['aggMethod'];
         }
+
         if (isset($map['from'])) {
             $model->from = $map['from'];
         }
+
         if (isset($map['plotTypes'])) {
             if (!empty($map['plotTypes'])) {
-                $model->plotTypes = $map['plotTypes'];
+                $model->plotTypes = [];
+                $n1 = 0;
+                foreach ($map['plotTypes'] as $item1) {
+                    $model->plotTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
+
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
+
         if (isset($map['subQuotaNickname'])) {
             $model->subQuotaNickname = $map['subQuotaNickname'];
         }
+
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
         }
+
         if (isset($map['to'])) {
             $model->to = $map['to'];
         }
+
         if (isset($map['yAxisTypes'])) {
             if (!empty($map['yAxisTypes'])) {
-                $model->yAxisTypes = $map['yAxisTypes'];
+                $model->yAxisTypes = [];
+                $n1 = 0;
+                foreach ($map['yAxisTypes'] as $item1) {
+                    $model->yAxisTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

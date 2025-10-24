@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsJobsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsJobsResponseBody\data\objectList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,22 +15,16 @@ class data extends Model
     public $objectList;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $total;
@@ -41,26 +35,36 @@ class data extends Model
         'total' => 'total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->objectList)) {
+            Model::validateArray($this->objectList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->objectList) {
-            $res['objectList'] = [];
-            if (null !== $this->objectList && \is_array($this->objectList)) {
-                $n = 0;
-                foreach ($this->objectList as $item) {
-                    $res['objectList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->objectList)) {
+                $res['objectList'] = [];
+                $n1 = 0;
+                foreach ($this->objectList as $item1) {
+                    $res['objectList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageNum) {
             $res['pageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -68,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['objectList'])) {
             if (!empty($map['objectList'])) {
                 $model->objectList = [];
-                $n = 0;
-                foreach ($map['objectList'] as $item) {
-                    $model->objectList[$n++] = null !== $item ? objectList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['objectList'] as $item1) {
+                    $model->objectList[$n1] = objectList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['pageNum'])) {
             $model->pageNum = $map['pageNum'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

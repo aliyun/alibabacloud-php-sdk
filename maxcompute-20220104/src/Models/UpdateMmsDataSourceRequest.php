@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMmsDataSourceRequest extends Model
 {
@@ -34,20 +34,34 @@ class UpdateMmsDataSourceRequest extends Model
         'test' => 'test',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->config)) {
+            Model::validateArray($this->config);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['action'] = $this->action;
         }
+
         if (null !== $this->config) {
-            $res['config'] = $this->config;
+            if (\is_array($this->config)) {
+                $res['config'] = [];
+                foreach ($this->config as $key1 => $value1) {
+                    $res['config'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->test) {
             $res['test'] = $this->test;
         }
@@ -55,23 +69,31 @@ class UpdateMmsDataSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMmsDataSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['action'])) {
             $model->action = $map['action'];
         }
+
         if (isset($map['config'])) {
-            $model->config = $map['config'];
+            if (!empty($map['config'])) {
+                $model->config = [];
+                foreach ($map['config'] as $key1 => $value1) {
+                    $model->config[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['test'])) {
             $model->test = $map['test'];
         }

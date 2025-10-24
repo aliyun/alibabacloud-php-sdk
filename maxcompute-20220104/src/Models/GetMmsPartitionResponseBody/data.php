@@ -4,105 +4,101 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsPartitionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @example d1
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @example 2323
-     *
+     * @var string
+     */
+    public $dstProjectName;
+
+    /**
+     * @var string
+     */
+    public $dstSchemaName;
+
+    /**
+     * @var string
+     */
+    public $dstTableName;
+
+    /**
+     * @var string
+     */
+    public $dstValue;
+
+    /**
      * @var int
      */
     public $id;
 
     /**
-     * @description lastDdlTime
-     *
-     * @example 2024-12-17 15:44:42
-     *
      * @var string
      */
     public $lastDdlTime;
 
     /**
-     * @example 2323
-     *
      * @var int
      */
     public $numRows;
 
     /**
-     * @example 12323
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @example 200018
-     *
      * @var int
      */
     public $sourceId;
 
     /**
-     * @example demo
-     *
      * @var string
      */
     public $sourceName;
 
     /**
-     * @example DONE
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example 23
-     *
      * @var int
      */
     public $tableId;
 
     /**
-     * @example t1
-     *
      * @var string
      */
     public $tableName;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $updated;
 
     /**
-     * @example p1=1/p2=abc
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'dbId' => 'DbId',
+        'dbId' => 'dbId',
         'dbName' => 'dbName',
+        'dstProjectName' => 'dstProjectName',
+        'dstSchemaName' => 'dstSchemaName',
+        'dstTableName' => 'dstTableName',
+        'dstValue' => 'dstValue',
         'id' => 'id',
         'lastDdlTime' => 'lastDdlTime',
         'numRows' => 'numRows',
@@ -116,47 +112,78 @@ class data extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
+            $res['dbId'] = $this->dbId;
         }
+
         if (null !== $this->dbName) {
             $res['dbName'] = $this->dbName;
         }
+
+        if (null !== $this->dstProjectName) {
+            $res['dstProjectName'] = $this->dstProjectName;
+        }
+
+        if (null !== $this->dstSchemaName) {
+            $res['dstSchemaName'] = $this->dstSchemaName;
+        }
+
+        if (null !== $this->dstTableName) {
+            $res['dstTableName'] = $this->dstTableName;
+        }
+
+        if (null !== $this->dstValue) {
+            $res['dstValue'] = $this->dstValue;
+        }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->lastDdlTime) {
             $res['lastDdlTime'] = $this->lastDdlTime;
         }
+
         if (null !== $this->numRows) {
             $res['numRows'] = $this->numRows;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+
         if (null !== $this->sourceId) {
             $res['sourceId'] = $this->sourceId;
         }
+
         if (null !== $this->sourceName) {
             $res['sourceName'] = $this->sourceName;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->tableId) {
             $res['tableId'] = $this->tableId;
         }
+
         if (null !== $this->tableName) {
             $res['tableName'] = $this->tableName;
         }
+
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -164,50 +191,78 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
+        if (isset($map['dbId'])) {
+            $model->dbId = $map['dbId'];
         }
+
         if (isset($map['dbName'])) {
             $model->dbName = $map['dbName'];
         }
+
+        if (isset($map['dstProjectName'])) {
+            $model->dstProjectName = $map['dstProjectName'];
+        }
+
+        if (isset($map['dstSchemaName'])) {
+            $model->dstSchemaName = $map['dstSchemaName'];
+        }
+
+        if (isset($map['dstTableName'])) {
+            $model->dstTableName = $map['dstTableName'];
+        }
+
+        if (isset($map['dstValue'])) {
+            $model->dstValue = $map['dstValue'];
+        }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['lastDdlTime'])) {
             $model->lastDdlTime = $map['lastDdlTime'];
         }
+
         if (isset($map['numRows'])) {
             $model->numRows = $map['numRows'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
+
         if (isset($map['sourceId'])) {
             $model->sourceId = $map['sourceId'];
         }
+
         if (isset($map['sourceName'])) {
             $model->sourceName = $map['sourceName'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['tableId'])) {
             $model->tableId = $map['tableId'];
         }
+
         if (isset($map['tableName'])) {
             $model->tableName = $map['tableName'];
         }
+
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

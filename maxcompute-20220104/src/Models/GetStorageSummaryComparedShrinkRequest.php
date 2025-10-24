@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetStorageSummaryComparedShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 20250601
-     *
      * @var string
      */
     public $beginDate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 20250604
-     *
      * @var string
      */
     public $endDate;
@@ -32,15 +24,11 @@ class GetStorageSummaryComparedShrinkRequest extends Model
     public $projectsShrink;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @example 483212237127906
-     *
      * @var string
      */
     public $tenantId;
@@ -52,23 +40,30 @@ class GetStorageSummaryComparedShrinkRequest extends Model
         'tenantId' => 'tenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginDate) {
             $res['beginDate'] = $this->beginDate;
         }
+
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
+
         if (null !== $this->projectsShrink) {
             $res['projects'] = $this->projectsShrink;
         }
+
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
@@ -76,26 +71,30 @@ class GetStorageSummaryComparedShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStorageSummaryComparedShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['beginDate'])) {
             $model->beginDate = $map['beginDate'];
         }
+
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
+
         if (isset($map['projects'])) {
             $model->projectsShrink = $map['projects'];
         }
+
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
+
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
         }

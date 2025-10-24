@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListUsersByRoleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListUsersByRoleResponseBody\data\users;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The users.
-     *
      * @var users[]
      */
     public $users;
@@ -19,17 +17,24 @@ class data extends Model
         'users' => 'users',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->users) {
-            $res['users'] = [];
-            if (null !== $this->users && \is_array($this->users)) {
-                $n = 0;
-                foreach ($this->users as $item) {
-                    $res['users'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->users)) {
+                $res['users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['users'])) {
             if (!empty($map['users'])) {
                 $model->users = [];
-                $n = 0;
-                foreach ($map['users'] as $item) {
-                    $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['users'] as $item1) {
+                    $model->users[$n1] = users::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

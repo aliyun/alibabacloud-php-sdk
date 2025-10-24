@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeQuotaPlanResponseBody\data\planList\quota\subQuotaInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parameter extends Model
 {
@@ -28,17 +28,22 @@ class parameter extends Model
         'minCU' => 'minCU',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticReservedCU) {
             $res['elasticReservedCU'] = $this->elasticReservedCU;
         }
+
         if (null !== $this->maxCU) {
             $res['maxCU'] = $this->maxCU;
         }
+
         if (null !== $this->minCU) {
             $res['minCU'] = $this->minCU;
         }
@@ -46,20 +51,22 @@ class parameter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['elasticReservedCU'])) {
             $model->elasticReservedCU = $map['elasticReservedCU'];
         }
+
         if (isset($map['maxCU'])) {
             $model->maxCU = $map['maxCU'];
         }
+
         if (isset($map['minCU'])) {
             $model->minCU = $map['minCU'];
         }

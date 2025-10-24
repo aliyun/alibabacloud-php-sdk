@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetComputeQuotaScheduleRequest extends Model
 {
     /**
-     * @description Display time zone.
-     *
-     * @example UTC+8
-     *
      * @var string
      */
     public $displayTimezone;
@@ -20,9 +16,12 @@ class GetComputeQuotaScheduleRequest extends Model
         'displayTimezone' => 'displayTimezone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayTimezone) {
@@ -32,11 +31,11 @@ class GetComputeQuotaScheduleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetComputeQuotaScheduleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

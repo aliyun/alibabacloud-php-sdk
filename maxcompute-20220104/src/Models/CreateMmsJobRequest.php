@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMmsJobRequest extends Model
 {
@@ -22,6 +22,16 @@ class CreateMmsJobRequest extends Model
      * @var string
      */
     public $dstSchemaName;
+
+    /**
+     * @var bool
+     */
+    public $enableDataMigration;
+
+    /**
+     * @var bool
+     */
+    public $enableSchemaMigration;
 
     /**
      * @var bool
@@ -104,8 +114,6 @@ class CreateMmsJobRequest extends Model
     public $tables;
 
     /**
-     * @description MOCK, HIVE: hive udtf task, HIVE_DATAX: hive datax task, COPY_TASK: odps Copy Task, ODPS_INSERT_OVERWRITE: odps simple insert overwrite task, MC2MC_VERIFY, OSS, HIVE_OSS
-     *
      * @var string
      */
     public $taskType;
@@ -113,6 +121,8 @@ class CreateMmsJobRequest extends Model
         'columnMapping' => 'columnMapping',
         'dstDbName' => 'dstDbName',
         'dstSchemaName' => 'dstSchemaName',
+        'enableDataMigration' => 'enableDataMigration',
+        'enableSchemaMigration' => 'enableSchemaMigration',
         'enableVerification' => 'enableVerification',
         'eta' => 'eta',
         'increment' => 'increment',
@@ -132,68 +142,170 @@ class CreateMmsJobRequest extends Model
         'taskType' => 'taskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnMapping)) {
+            Model::validateArray($this->columnMapping);
+        }
+        if (\is_array($this->others)) {
+            Model::validateArray($this->others);
+        }
+        if (\is_array($this->partitionFilters)) {
+            Model::validateArray($this->partitionFilters);
+        }
+        if (\is_array($this->partitions)) {
+            Model::validateArray($this->partitions);
+        }
+        if (\is_array($this->tableBlackList)) {
+            Model::validateArray($this->tableBlackList);
+        }
+        if (\is_array($this->tableMapping)) {
+            Model::validateArray($this->tableMapping);
+        }
+        if (\is_array($this->tableWhiteList)) {
+            Model::validateArray($this->tableWhiteList);
+        }
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnMapping) {
-            $res['columnMapping'] = $this->columnMapping;
+            if (\is_array($this->columnMapping)) {
+                $res['columnMapping'] = [];
+                foreach ($this->columnMapping as $key1 => $value1) {
+                    $res['columnMapping'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->dstDbName) {
             $res['dstDbName'] = $this->dstDbName;
         }
+
         if (null !== $this->dstSchemaName) {
             $res['dstSchemaName'] = $this->dstSchemaName;
         }
+
+        if (null !== $this->enableDataMigration) {
+            $res['enableDataMigration'] = $this->enableDataMigration;
+        }
+
+        if (null !== $this->enableSchemaMigration) {
+            $res['enableSchemaMigration'] = $this->enableSchemaMigration;
+        }
+
         if (null !== $this->enableVerification) {
             $res['enableVerification'] = $this->enableVerification;
         }
+
         if (null !== $this->eta) {
             $res['eta'] = $this->eta;
         }
+
         if (null !== $this->increment) {
             $res['increment'] = $this->increment;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->others) {
-            $res['others'] = $this->others;
+            if (\is_array($this->others)) {
+                $res['others'] = [];
+                foreach ($this->others as $key1 => $value1) {
+                    $res['others'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->partitionFilters) {
-            $res['partitionFilters'] = $this->partitionFilters;
+            if (\is_array($this->partitionFilters)) {
+                $res['partitionFilters'] = [];
+                foreach ($this->partitionFilters as $key1 => $value1) {
+                    $res['partitionFilters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->partitions) {
-            $res['partitions'] = $this->partitions;
+            if (\is_array($this->partitions)) {
+                $res['partitions'] = [];
+                $n1 = 0;
+                foreach ($this->partitions as $item1) {
+                    $res['partitions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->schemaOnly) {
             $res['schemaOnly'] = $this->schemaOnly;
         }
+
         if (null !== $this->sourceId) {
             $res['sourceId'] = $this->sourceId;
         }
+
         if (null !== $this->sourceName) {
             $res['sourceName'] = $this->sourceName;
         }
+
         if (null !== $this->srcDbName) {
             $res['srcDbName'] = $this->srcDbName;
         }
+
         if (null !== $this->srcSchemaName) {
             $res['srcSchemaName'] = $this->srcSchemaName;
         }
+
         if (null !== $this->tableBlackList) {
-            $res['tableBlackList'] = $this->tableBlackList;
+            if (\is_array($this->tableBlackList)) {
+                $res['tableBlackList'] = [];
+                $n1 = 0;
+                foreach ($this->tableBlackList as $item1) {
+                    $res['tableBlackList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->tableMapping) {
-            $res['tableMapping'] = $this->tableMapping;
+            if (\is_array($this->tableMapping)) {
+                $res['tableMapping'] = [];
+                foreach ($this->tableMapping as $key1 => $value1) {
+                    $res['tableMapping'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->tableWhiteList) {
-            $res['tableWhiteList'] = $this->tableWhiteList;
+            if (\is_array($this->tableWhiteList)) {
+                $res['tableWhiteList'] = [];
+                $n1 = 0;
+                foreach ($this->tableWhiteList as $item1) {
+                    $res['tableWhiteList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->tables) {
-            $res['tables'] = $this->tables;
+            if (\is_array($this->tables)) {
+                $res['tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['tables'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->taskType) {
             $res['taskType'] = $this->taskType;
         }
@@ -201,79 +313,146 @@ class CreateMmsJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMmsJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['columnMapping'])) {
-            $model->columnMapping = $map['columnMapping'];
+            if (!empty($map['columnMapping'])) {
+                $model->columnMapping = [];
+                foreach ($map['columnMapping'] as $key1 => $value1) {
+                    $model->columnMapping[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['dstDbName'])) {
             $model->dstDbName = $map['dstDbName'];
         }
+
         if (isset($map['dstSchemaName'])) {
             $model->dstSchemaName = $map['dstSchemaName'];
         }
+
+        if (isset($map['enableDataMigration'])) {
+            $model->enableDataMigration = $map['enableDataMigration'];
+        }
+
+        if (isset($map['enableSchemaMigration'])) {
+            $model->enableSchemaMigration = $map['enableSchemaMigration'];
+        }
+
         if (isset($map['enableVerification'])) {
             $model->enableVerification = $map['enableVerification'];
         }
+
         if (isset($map['eta'])) {
             $model->eta = $map['eta'];
         }
+
         if (isset($map['increment'])) {
             $model->increment = $map['increment'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['others'])) {
-            $model->others = $map['others'];
-        }
-        if (isset($map['partitionFilters'])) {
-            $model->partitionFilters = $map['partitionFilters'];
-        }
-        if (isset($map['partitions'])) {
-            if (!empty($map['partitions'])) {
-                $model->partitions = $map['partitions'];
+            if (!empty($map['others'])) {
+                $model->others = [];
+                foreach ($map['others'] as $key1 => $value1) {
+                    $model->others[$key1] = $value1;
+                }
             }
         }
+
+        if (isset($map['partitionFilters'])) {
+            if (!empty($map['partitionFilters'])) {
+                $model->partitionFilters = [];
+                foreach ($map['partitionFilters'] as $key1 => $value1) {
+                    $model->partitionFilters[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['partitions'])) {
+            if (!empty($map['partitions'])) {
+                $model->partitions = [];
+                $n1 = 0;
+                foreach ($map['partitions'] as $item1) {
+                    $model->partitions[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['schemaOnly'])) {
             $model->schemaOnly = $map['schemaOnly'];
         }
+
         if (isset($map['sourceId'])) {
             $model->sourceId = $map['sourceId'];
         }
+
         if (isset($map['sourceName'])) {
             $model->sourceName = $map['sourceName'];
         }
+
         if (isset($map['srcDbName'])) {
             $model->srcDbName = $map['srcDbName'];
         }
+
         if (isset($map['srcSchemaName'])) {
             $model->srcSchemaName = $map['srcSchemaName'];
         }
+
         if (isset($map['tableBlackList'])) {
             if (!empty($map['tableBlackList'])) {
-                $model->tableBlackList = $map['tableBlackList'];
+                $model->tableBlackList = [];
+                $n1 = 0;
+                foreach ($map['tableBlackList'] as $item1) {
+                    $model->tableBlackList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['tableMapping'])) {
-            $model->tableMapping = $map['tableMapping'];
+            if (!empty($map['tableMapping'])) {
+                $model->tableMapping = [];
+                foreach ($map['tableMapping'] as $key1 => $value1) {
+                    $model->tableMapping[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['tableWhiteList'])) {
             if (!empty($map['tableWhiteList'])) {
-                $model->tableWhiteList = $map['tableWhiteList'];
+                $model->tableWhiteList = [];
+                $n1 = 0;
+                foreach ($map['tableWhiteList'] as $item1) {
+                    $model->tableWhiteList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['tables'])) {
             if (!empty($map['tables'])) {
-                $model->tables = $map['tables'];
+                $model->tables = [];
+                $n1 = 0;
+                foreach ($map['tables'] as $item1) {
+                    $model->tables[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['taskType'])) {
             $model->taskType = $map['taskType'];
         }

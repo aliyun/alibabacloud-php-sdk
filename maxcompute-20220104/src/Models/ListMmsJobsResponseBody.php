@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsJobsResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListMmsJobsResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class ListMmsJobsResponseBody extends Model
     public $data;
 
     /**
-     * @example 1112E7C7-C65F-57A2-A7C7-3B178AA257B6
-     *
      * @var string
      */
     public $requestId;
@@ -25,14 +23,21 @@ class ListMmsJobsResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class ListMmsJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMmsJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

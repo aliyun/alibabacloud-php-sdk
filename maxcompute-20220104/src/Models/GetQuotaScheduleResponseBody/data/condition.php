@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaScheduleResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class condition extends Model
 {
     /**
-     * @description The start time when the quota plan takes effect.
-     *
-     * @example 2022-04-25T04:23:04Z
-     *
      * @var string
      */
     public $after;
 
     /**
-     * @description The time when the quota plan takes effect.
-     *
-     * @example 0900
-     *
      * @var string
      */
     public $at;
@@ -30,14 +22,18 @@ class condition extends Model
         'at' => 'at',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->after) {
             $res['after'] = $this->after;
         }
+
         if (null !== $this->at) {
             $res['at'] = $this->at;
         }
@@ -45,17 +41,18 @@ class condition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return condition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['after'])) {
             $model->after = $map['after'];
         }
+
         if (isset($map['at'])) {
             $model->at = $map['at'];
         }

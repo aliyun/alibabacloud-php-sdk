@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaScheduleRequest\body;
-use AlibabaCloud\Tea\Model;
 
 class UpdateComputeQuotaScheduleRequest extends Model
 {
     /**
-     * @description The request body parameters.
-     *
      * @var body[]
      */
     public $body;
@@ -25,20 +23,28 @@ class UpdateComputeQuotaScheduleRequest extends Model
         'scheduleTimezone' => 'scheduleTimezone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = [];
-            if (null !== $this->body && \is_array($this->body)) {
-                $n = 0;
-                foreach ($this->body as $item) {
-                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                $n1 = 0;
+                foreach ($this->body as $item1) {
+                    $res['body'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->scheduleTimezone) {
             $res['scheduleTimezone'] = $this->scheduleTimezone;
         }
@@ -46,23 +52,25 @@ class UpdateComputeQuotaScheduleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateComputeQuotaScheduleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
                 $model->body = [];
-                $n = 0;
-                foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['body'] as $item1) {
+                    $model->body[$n1] = body::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['scheduleTimezone'])) {
             $model->scheduleTimezone = $map['scheduleTimezone'];
         }

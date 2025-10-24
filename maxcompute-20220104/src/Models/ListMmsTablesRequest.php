@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTablesRequest\sorter;
-use AlibabaCloud\Tea\Model;
 
 class ListMmsTablesRequest extends Model
 {
@@ -15,64 +15,61 @@ class ListMmsTablesRequest extends Model
     public $sorter;
 
     /**
-     * @example 197
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @example mms_test
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @example true
-     *
+     * @var string
+     */
+    public $dstName;
+
+    /**
+     * @var string
+     */
+    public $dstProjectName;
+
+    /**
+     * @var string
+     */
+    public $dstSchemaName;
+
+    /**
      * @var bool
      */
     public $hasPartitions;
 
     /**
-     * @example 2024-12-19 15:44:42
-     *
      * @var string
      */
     public $lastDdlTimeEnd;
 
     /**
-     * @example 2024-12-17 15:44:42
-     *
      * @var string
      */
     public $lastDdlTimeStart;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $onlyName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -83,8 +80,6 @@ class ListMmsTablesRequest extends Model
     public $status;
 
     /**
-     * @example MANAGED_TABLE
-     *
      * @var string
      */
     public $type;
@@ -92,6 +87,9 @@ class ListMmsTablesRequest extends Model
         'sorter' => 'sorter',
         'dbId' => 'dbId',
         'dbName' => 'dbName',
+        'dstName' => 'dstName',
+        'dstProjectName' => 'dstProjectName',
+        'dstSchemaName' => 'dstSchemaName',
         'hasPartitions' => 'hasPartitions',
         'lastDdlTimeEnd' => 'lastDdlTimeEnd',
         'lastDdlTimeStart' => 'lastDdlTimeStart',
@@ -103,44 +101,83 @@ class ListMmsTablesRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->sorter) {
+            $this->sorter->validate();
+        }
+        if (\is_array($this->status)) {
+            Model::validateArray($this->status);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sorter) {
-            $res['sorter'] = null !== $this->sorter ? $this->sorter->toMap() : null;
+            $res['sorter'] = null !== $this->sorter ? $this->sorter->toArray($noStream) : $this->sorter;
         }
+
         if (null !== $this->dbId) {
             $res['dbId'] = $this->dbId;
         }
+
         if (null !== $this->dbName) {
             $res['dbName'] = $this->dbName;
         }
+
+        if (null !== $this->dstName) {
+            $res['dstName'] = $this->dstName;
+        }
+
+        if (null !== $this->dstProjectName) {
+            $res['dstProjectName'] = $this->dstProjectName;
+        }
+
+        if (null !== $this->dstSchemaName) {
+            $res['dstSchemaName'] = $this->dstSchemaName;
+        }
+
         if (null !== $this->hasPartitions) {
             $res['hasPartitions'] = $this->hasPartitions;
         }
+
         if (null !== $this->lastDdlTimeEnd) {
             $res['lastDdlTimeEnd'] = $this->lastDdlTimeEnd;
         }
+
         if (null !== $this->lastDdlTimeStart) {
             $res['lastDdlTimeStart'] = $this->lastDdlTimeStart;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->onlyName) {
             $res['onlyName'] = $this->onlyName;
         }
+
         if (null !== $this->pageNum) {
             $res['pageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
-            $res['status'] = $this->status;
+            if (\is_array($this->status)) {
+                $res['status'] = [];
+                $n1 = 0;
+                foreach ($this->status as $item1) {
+                    $res['status'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -148,49 +185,77 @@ class ListMmsTablesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMmsTablesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['sorter'])) {
             $model->sorter = sorter::fromMap($map['sorter']);
         }
+
         if (isset($map['dbId'])) {
             $model->dbId = $map['dbId'];
         }
+
         if (isset($map['dbName'])) {
             $model->dbName = $map['dbName'];
         }
+
+        if (isset($map['dstName'])) {
+            $model->dstName = $map['dstName'];
+        }
+
+        if (isset($map['dstProjectName'])) {
+            $model->dstProjectName = $map['dstProjectName'];
+        }
+
+        if (isset($map['dstSchemaName'])) {
+            $model->dstSchemaName = $map['dstSchemaName'];
+        }
+
         if (isset($map['hasPartitions'])) {
             $model->hasPartitions = $map['hasPartitions'];
         }
+
         if (isset($map['lastDdlTimeEnd'])) {
             $model->lastDdlTimeEnd = $map['lastDdlTimeEnd'];
         }
+
         if (isset($map['lastDdlTimeStart'])) {
             $model->lastDdlTimeStart = $map['lastDdlTimeStart'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['onlyName'])) {
             $model->onlyName = $map['onlyName'];
         }
+
         if (isset($map['pageNum'])) {
             $model->pageNum = $map['pageNum'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['status'])) {
             if (!empty($map['status'])) {
-                $model->status = $map['status'];
+                $model->status = [];
+                $n1 = 0;
+                foreach ($map['status'] as $item1) {
+                    $model->status[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

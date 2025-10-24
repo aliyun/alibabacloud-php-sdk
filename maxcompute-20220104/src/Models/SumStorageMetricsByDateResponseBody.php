@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByDateResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class SumStorageMetricsByDateResponseBody extends Model
 {
@@ -15,29 +15,21 @@ class SumStorageMetricsByDateResponseBody extends Model
     public $data;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example this quota is not exist.
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpCode;
 
     /**
-     * @example 0abb781a17411408145995819e0dae
-     *
      * @var string
      */
     public $requestId;
@@ -49,29 +41,40 @@ class SumStorageMetricsByDateResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->httpCode) {
             $res['httpCode'] = $this->httpCode;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -79,32 +82,37 @@ class SumStorageMetricsByDateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SumStorageMetricsByDateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['httpCode'])) {
             $model->httpCode = $map['httpCode'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListUsersResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class users extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account.
-     *
-     * @example 167835629082
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description The username of the account.
-     *
-     * @example Bob@
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description The type of the account.
-     *
-     * @example ALIYUN
-     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @description The display name.
-     *
-     * @example Bob
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * @example 1567253789
-     *
      * @var string
      */
     public $tenantId;
@@ -60,23 +40,30 @@ class users extends Model
         'tenantId' => 'tenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
         }
+
         if (null !== $this->accountName) {
             $res['accountName'] = $this->accountName;
         }
+
         if (null !== $this->accountType) {
             $res['accountType'] = $this->accountType;
         }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
@@ -84,26 +71,30 @@ class users extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return users
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
         }
+
         if (isset($map['accountName'])) {
             $model->accountName = $map['accountName'];
         }
+
         if (isset($map['accountType'])) {
             $model->accountType = $map['accountType'];
         }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }
+
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryStorageMetricRequest extends Model
 {
@@ -19,19 +19,11 @@ class QueryStorageMetricRequest extends Model
     public $typeList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1735536322
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1735534322
-     *
      * @var int
      */
     public $startTime;
@@ -42,20 +34,46 @@ class QueryStorageMetricRequest extends Model
         'startTime' => 'startTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->projectList)) {
+            Model::validateArray($this->projectList);
+        }
+        if (\is_array($this->typeList)) {
+            Model::validateArray($this->typeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectList) {
-            $res['projectList'] = $this->projectList;
+            if (\is_array($this->projectList)) {
+                $res['projectList'] = [];
+                $n1 = 0;
+                foreach ($this->projectList as $item1) {
+                    $res['projectList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->typeList) {
-            $res['typeList'] = $this->typeList;
+            if (\is_array($this->typeList)) {
+                $res['typeList'] = [];
+                $n1 = 0;
+                foreach ($this->typeList as $item1) {
+                    $res['typeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -63,27 +81,40 @@ class QueryStorageMetricRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryStorageMetricRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['projectList'])) {
             if (!empty($map['projectList'])) {
-                $model->projectList = $map['projectList'];
+                $model->projectList = [];
+                $n1 = 0;
+                foreach ($map['projectList'] as $item1) {
+                    $model->projectList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['typeList'])) {
             if (!empty($map['typeList'])) {
-                $model->typeList = $map['typeList'];
+                $model->typeList = [];
+                $n1 = 0;
+                foreach ($map['typeList'] as $item1) {
+                    $model->typeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }

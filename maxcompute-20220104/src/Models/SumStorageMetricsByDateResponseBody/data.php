@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByDateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByDateResponseBody\data\itemStorageMetrics;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 20250719
-     *
      * @var string
      */
     public $dateTime;
@@ -22,22 +20,16 @@ class data extends Model
     public $itemStorageMetrics;
 
     /**
-     * @example Storage
-     *
      * @var string
      */
     public $storageType;
 
     /**
-     * @example GB
-     *
      * @var string
      */
     public $unit;
 
     /**
-     * @example 329.503338
-     *
      * @var string
      */
     public $usage;
@@ -49,29 +41,40 @@ class data extends Model
         'usage' => 'usage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->itemStorageMetrics)) {
+            Model::validateArray($this->itemStorageMetrics);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dateTime) {
             $res['dateTime'] = $this->dateTime;
         }
+
         if (null !== $this->itemStorageMetrics) {
-            $res['itemStorageMetrics'] = [];
-            if (null !== $this->itemStorageMetrics && \is_array($this->itemStorageMetrics)) {
-                $n = 0;
-                foreach ($this->itemStorageMetrics as $item) {
-                    $res['itemStorageMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->itemStorageMetrics)) {
+                $res['itemStorageMetrics'] = [];
+                $n1 = 0;
+                foreach ($this->itemStorageMetrics as $item1) {
+                    $res['itemStorageMetrics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->storageType) {
             $res['storageType'] = $this->storageType;
         }
+
         if (null !== $this->unit) {
             $res['unit'] = $this->unit;
         }
+
         if (null !== $this->usage) {
             $res['usage'] = $this->usage;
         }
@@ -79,32 +82,37 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dateTime'])) {
             $model->dateTime = $map['dateTime'];
         }
+
         if (isset($map['itemStorageMetrics'])) {
             if (!empty($map['itemStorageMetrics'])) {
                 $model->itemStorageMetrics = [];
-                $n = 0;
-                foreach ($map['itemStorageMetrics'] as $item) {
-                    $model->itemStorageMetrics[$n++] = null !== $item ? itemStorageMetrics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['itemStorageMetrics'] as $item1) {
+                    $model->itemStorageMetrics[$n1] = itemStorageMetrics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['storageType'])) {
             $model->storageType = $map['storageType'];
         }
+
         if (isset($map['unit'])) {
             $model->unit = $map['unit'];
         }
+
         if (isset($map['usage'])) {
             $model->usage = $map['usage'];
         }

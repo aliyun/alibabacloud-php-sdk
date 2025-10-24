@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetStorageSummaryComparedRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 20250601
-     *
      * @var string
      */
     public $beginDate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 20250604
-     *
      * @var string
      */
     public $endDate;
@@ -32,15 +24,11 @@ class GetStorageSummaryComparedRequest extends Model
     public $projects;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @example 483212237127906
-     *
      * @var string
      */
     public $tenantId;
@@ -52,23 +40,40 @@ class GetStorageSummaryComparedRequest extends Model
         'tenantId' => 'tenantId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->projects)) {
+            Model::validateArray($this->projects);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginDate) {
             $res['beginDate'] = $this->beginDate;
         }
+
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
+
         if (null !== $this->projects) {
-            $res['projects'] = $this->projects;
+            if (\is_array($this->projects)) {
+                $res['projects'] = [];
+                $n1 = 0;
+                foreach ($this->projects as $item1) {
+                    $res['projects'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
@@ -76,28 +81,37 @@ class GetStorageSummaryComparedRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStorageSummaryComparedRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['beginDate'])) {
             $model->beginDate = $map['beginDate'];
         }
+
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
+
         if (isset($map['projects'])) {
             if (!empty($map['projects'])) {
-                $model->projects = $map['projects'];
+                $model->projects = [];
+                $n1 = 0;
+                foreach ($map['projects'] as $item1) {
+                    $model->projects[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
+
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
         }

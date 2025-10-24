@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRoleAclOnObjectRequest extends Model
 {
     /**
-     * @description The name of the object.
-     *
-     * This parameter is required.
-     *
-     * @example tableA
-     *
      * @var string
      */
     public $objectName;
 
     /**
-     * @description The type of the object.
-     *
-     * This parameter is required.
-     *
-     * @example table
-     *
      * @var string
      */
     public $objectType;
@@ -34,14 +22,18 @@ class GetRoleAclOnObjectRequest extends Model
         'objectType' => 'objectType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->objectName) {
             $res['objectName'] = $this->objectName;
         }
+
         if (null !== $this->objectType) {
             $res['objectType'] = $this->objectType;
         }
@@ -49,17 +41,18 @@ class GetRoleAclOnObjectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRoleAclOnObjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['objectName'])) {
             $model->objectName = $map['objectName'];
         }
+
         if (isset($map['objectType'])) {
             $model->objectType = $map['objectType'];
         }

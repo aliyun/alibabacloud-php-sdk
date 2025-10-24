@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsPartitionsShrinkRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sorter extends Model
 {
     /**
-     * @example desc
-     *
      * @var string
      */
     public $lastDdlTime;
 
     /**
-     * @example desc
-     *
      * @var string
      */
     public $numRows;
 
     /**
-     * @example asc
-     *
      * @var string
      */
     public $size;
@@ -34,17 +28,22 @@ class sorter extends Model
         'size' => 'size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lastDdlTime) {
             $res['lastDdlTime'] = $this->lastDdlTime;
         }
+
         if (null !== $this->numRows) {
             $res['numRows'] = $this->numRows;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -52,20 +51,22 @@ class sorter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sorter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['lastDdlTime'])) {
             $model->lastDdlTime = $map['lastDdlTime'];
         }
+
         if (isset($map['numRows'])) {
             $model->numRows = $map['numRows'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaUsageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaUsageResponseBody\data\plot;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The metric results.
-     *
      * @var mixed[]
      */
     public $metrics;
 
     /**
-     * @description The information about the chart.
-     *
      * @var plot[]
      */
     public $plot;
@@ -27,20 +23,36 @@ class data extends Model
         'plot' => 'plot',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metrics)) {
+            Model::validateArray($this->metrics);
+        }
+        if (\is_array($this->plot)) {
+            Model::validateArray($this->plot);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metrics) {
-            $res['metrics'] = $this->metrics;
+            if (\is_array($this->metrics)) {
+                $res['metrics'] = [];
+                foreach ($this->metrics as $key1 => $value1) {
+                    $res['metrics'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->plot) {
-            $res['plot'] = [];
-            if (null !== $this->plot && \is_array($this->plot)) {
-                $n = 0;
-                foreach ($this->plot as $item) {
-                    $res['plot'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->plot)) {
+                $res['plot'] = [];
+                $n1 = 0;
+                foreach ($this->plot as $item1) {
+                    $res['plot'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +60,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['metrics'])) {
-            $model->metrics = $map['metrics'];
+            if (!empty($map['metrics'])) {
+                $model->metrics = [];
+                foreach ($map['metrics'] as $key1 => $value1) {
+                    $model->metrics[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['plot'])) {
             if (!empty($map['plot'])) {
                 $model->plot = [];
-                $n = 0;
-                foreach ($map['plot'] as $item) {
-                    $model->plot[$n++] = null !== $item ? plot::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['plot'] as $item1) {
+                    $model->plot[$n1] = plot::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

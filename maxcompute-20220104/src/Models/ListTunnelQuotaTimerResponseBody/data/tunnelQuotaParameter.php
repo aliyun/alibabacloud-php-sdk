@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListTunnelQuotaTimerResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tunnelQuotaParameter extends Model
 {
     /**
-     * @description The number of elastically reserved slots.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $elasticReservedSlotNum;
 
     /**
-     * @description The number of reserved slots.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $slotNum;
@@ -30,14 +22,18 @@ class tunnelQuotaParameter extends Model
         'slotNum' => 'slotNum',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticReservedSlotNum) {
             $res['elasticReservedSlotNum'] = $this->elasticReservedSlotNum;
         }
+
         if (null !== $this->slotNum) {
             $res['slotNum'] = $this->slotNum;
         }
@@ -45,17 +41,18 @@ class tunnelQuotaParameter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tunnelQuotaParameter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['elasticReservedSlotNum'])) {
             $model->elasticReservedSlotNum = $map['elasticReservedSlotNum'];
         }
+
         if (isset($map['slotNum'])) {
             $model->slotNum = $map['slotNum'];
         }

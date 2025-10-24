@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaResponseBody\data\subQuotaInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class billingPolicy extends Model
 {
     /**
-     * @description The billing method of the quota. Valid values:
-     *
-     *   subscription: a subscription quota.
-     *   payasyougo: a pay-as-you-go quota.
-     *
-     * @example subscription
-     *
      * @var string
      */
     public $billingMethod;
 
     /**
-     * @description The specifications of the order.
-     *
-     * @example OdpsStandard
-     *
      * @var string
      */
     public $odpsSpecCode;
 
     /**
-     * @description The order ID.
-     *
-     * @example 45245678
-     *
      * @var string
      */
     public $orderId;
@@ -43,17 +28,22 @@ class billingPolicy extends Model
         'orderId' => 'orderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billingMethod) {
             $res['billingMethod'] = $this->billingMethod;
         }
+
         if (null !== $this->odpsSpecCode) {
             $res['odpsSpecCode'] = $this->odpsSpecCode;
         }
+
         if (null !== $this->orderId) {
             $res['orderId'] = $this->orderId;
         }
@@ -61,20 +51,22 @@ class billingPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return billingPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['billingMethod'])) {
             $model->billingMethod = $map['billingMethod'];
         }
+
         if (isset($map['odpsSpecCode'])) {
             $model->odpsSpecCode = $map['odpsSpecCode'];
         }
+
         if (isset($map['orderId'])) {
             $model->orderId = $map['orderId'];
         }

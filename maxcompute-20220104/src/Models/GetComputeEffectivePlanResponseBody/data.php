@@ -4,42 +4,27 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetComputeEffectivePlanResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetComputeEffectivePlanResponseBody\data\quota;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The time when the quota plan was created.
-     *
-     * @example 1714356241163
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description Whether it is currently effective.
-     * > A Quota plan that has taken effect cannot be deleted, i.e., isEffective=true
-     *
-     * @example true/false
-     *
      * @var bool
      */
     public $isEffective;
 
     /**
-     * @description The name of the quota plan.
-     *
-     * @example planA
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The details of the quota.
-     *
      * @var quota
      */
     public $quota;
@@ -50,44 +35,56 @@ class data extends Model
         'quota' => 'quota',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->quota) {
+            $this->quota->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->isEffective) {
             $res['isEffective'] = $this->isEffective;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->quota) {
-            $res['quota'] = null !== $this->quota ? $this->quota->toMap() : null;
+            $res['quota'] = null !== $this->quota ? $this->quota->toArray($noStream) : $this->quota;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['isEffective'])) {
             $model->isEffective = $map['isEffective'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['quota'])) {
             $model->quota = quota::fromMap($map['quota']);
         }

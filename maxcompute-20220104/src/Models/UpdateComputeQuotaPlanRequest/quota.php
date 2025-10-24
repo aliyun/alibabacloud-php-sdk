@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaPlanRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaPlanRequest\quota\parameter;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaPlanRequest\quota\subQuotaInfoList;
-use AlibabaCloud\Tea\Model;
 
 class quota extends Model
 {
     /**
-     * @description The parameters of level-1 quota.
-     *
      * @var parameter
      */
     public $parameter;
 
     /**
-     * @description The list of level-2 quotas.
-     *
      * @var subQuotaInfoList[]
      */
     public $subQuotaInfoList;
@@ -28,20 +24,31 @@ class quota extends Model
         'subQuotaInfoList' => 'subQuotaInfoList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->parameter) {
+            $this->parameter->validate();
+        }
+        if (\is_array($this->subQuotaInfoList)) {
+            Model::validateArray($this->subQuotaInfoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameter) {
-            $res['parameter'] = null !== $this->parameter ? $this->parameter->toMap() : null;
+            $res['parameter'] = null !== $this->parameter ? $this->parameter->toArray($noStream) : $this->parameter;
         }
+
         if (null !== $this->subQuotaInfoList) {
-            $res['subQuotaInfoList'] = [];
-            if (null !== $this->subQuotaInfoList && \is_array($this->subQuotaInfoList)) {
-                $n = 0;
-                foreach ($this->subQuotaInfoList as $item) {
-                    $res['subQuotaInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subQuotaInfoList)) {
+                $res['subQuotaInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->subQuotaInfoList as $item1) {
+                    $res['subQuotaInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -49,23 +56,25 @@ class quota extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quota
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['parameter'])) {
             $model->parameter = parameter::fromMap($map['parameter']);
         }
+
         if (isset($map['subQuotaInfoList'])) {
             if (!empty($map['subQuotaInfoList'])) {
                 $model->subQuotaInfoList = [];
-                $n = 0;
-                foreach ($map['subQuotaInfoList'] as $item) {
-                    $model->subQuotaInfoList[$n++] = null !== $item ? subQuotaInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['subQuotaInfoList'] as $item1) {
+                    $model->subQuotaInfoList[$n1] = subQuotaInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

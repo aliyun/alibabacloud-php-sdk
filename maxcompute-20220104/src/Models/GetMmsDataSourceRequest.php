@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMmsDataSourceRequest extends Model
 {
     /**
-     * @example en_US
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $withConfig;
@@ -26,14 +22,18 @@ class GetMmsDataSourceRequest extends Model
         'withConfig' => 'withConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['lang'] = $this->lang;
         }
+
         if (null !== $this->withConfig) {
             $res['withConfig'] = $this->withConfig;
         }
@@ -41,17 +41,18 @@ class GetMmsDataSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMmsDataSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['lang'])) {
             $model->lang = $map['lang'];
         }
+
         if (isset($map['withConfig'])) {
             $model->withConfig = $map['withConfig'];
         }

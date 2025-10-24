@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetStorageAmountSummaryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 20241205
-     *
      * @var string
      */
     public $date;
 
     /**
-     * @example -
-     *
      * @var int
      */
     public $timestamp;
@@ -38,46 +34,81 @@ class data extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->unit)) {
+            Model::validateArray($this->unit);
+        }
+        if (\is_array($this->value)) {
+            Model::validateArray($this->value);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['date'] = $this->date;
         }
+
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->unit) {
-            $res['unit'] = $this->unit;
+            if (\is_array($this->unit)) {
+                $res['unit'] = [];
+                foreach ($this->unit as $key1 => $value1) {
+                    $res['unit'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->value) {
-            $res['value'] = $this->value;
+            if (\is_array($this->value)) {
+                $res['value'] = [];
+                foreach ($this->value as $key1 => $value1) {
+                    $res['value'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['date'])) {
             $model->date = $map['date'];
         }
+
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }
+
         if (isset($map['unit'])) {
-            $model->unit = $map['unit'];
+            if (!empty($map['unit'])) {
+                $model->unit = [];
+                foreach ($map['unit'] as $key1 => $value1) {
+                    $model->unit[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['value'])) {
-            $model->value = $map['value'];
+            if (!empty($map['value'])) {
+                $model->value = [];
+                foreach ($map['value'] as $key1 => $value1) {
+                    $model->value[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

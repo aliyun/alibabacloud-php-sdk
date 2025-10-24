@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricDetailResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class QueryTunnelMetricDetailResponseBody extends Model
 {
@@ -15,29 +15,21 @@ class QueryTunnelMetricDetailResponseBody extends Model
     public $data;
 
     /**
-     * @example OBJECT_NOT_EXIST
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example plan \\"***\\" does not exist
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpCode;
 
     /**
-     * @example 0a06dd4516687375802853481ec9fd
-     *
      * @var string
      */
     public $requestId;
@@ -49,23 +41,33 @@ class QueryTunnelMetricDetailResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->httpCode) {
             $res['httpCode'] = $this->httpCode;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -73,26 +75,30 @@ class QueryTunnelMetricDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTunnelMetricDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['httpCode'])) {
             $model->httpCode = $map['httpCode'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
