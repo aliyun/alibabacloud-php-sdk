@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody\data\jobConfigInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The configurations of the job.
-     *
      * @var jobConfigInfo
      */
     public $jobConfigInfo;
@@ -19,23 +17,29 @@ class data extends Model
         'jobConfigInfo' => 'JobConfigInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->jobConfigInfo) {
+            $this->jobConfigInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobConfigInfo) {
-            $res['JobConfigInfo'] = null !== $this->jobConfigInfo ? $this->jobConfigInfo->toMap() : null;
+            $res['JobConfigInfo'] = null !== $this->jobConfigInfo ? $this->jobConfigInfo->toArray($noStream) : $this->jobConfigInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetLogResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The logs. The value is an array of strings.
-     *
      * @var string[]
      */
     public $logs;
@@ -18,29 +16,47 @@ class data extends Model
         'logs' => 'Logs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logs)) {
+            Model::validateArray($this->logs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logs) {
-            $res['Logs'] = $this->logs;
+            if (\is_array($this->logs)) {
+                $res['Logs'] = [];
+                $n1 = 0;
+                foreach ($this->logs as $item1) {
+                    $res['Logs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
-                $model->logs = $map['Logs'];
+                $model->logs = [];
+                $n1 = 0;
+                foreach ($map['Logs'] as $item1) {
+                    $model->logs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ExecuteWorkflowResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The workflow instance ID.
-     *
-     * @example 111111
-     *
      * @var int
      */
     public $wfInstanceId;
@@ -20,9 +16,12 @@ class data extends Model
         'wfInstanceId' => 'WfInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->wfInstanceId) {
@@ -32,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

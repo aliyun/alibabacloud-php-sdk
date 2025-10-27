@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateInfoResponseBody\data\designateDetailVos;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description -
-     *
      * @var designateDetailVos[]
      */
     public $designateDetailVos;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $designateType;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $transferable;
@@ -35,23 +29,32 @@ class data extends Model
         'transferable' => 'Transferable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->designateDetailVos)) {
+            Model::validateArray($this->designateDetailVos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->designateDetailVos) {
-            $res['DesignateDetailVos'] = [];
-            if (null !== $this->designateDetailVos && \is_array($this->designateDetailVos)) {
-                $n = 0;
-                foreach ($this->designateDetailVos as $item) {
-                    $res['DesignateDetailVos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->designateDetailVos)) {
+                $res['DesignateDetailVos'] = [];
+                $n1 = 0;
+                foreach ($this->designateDetailVos as $item1) {
+                    $res['DesignateDetailVos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->designateType) {
             $res['DesignateType'] = $this->designateType;
         }
+
         if (null !== $this->transferable) {
             $res['Transferable'] = $this->transferable;
         }
@@ -59,26 +62,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesignateDetailVos'])) {
             if (!empty($map['DesignateDetailVos'])) {
                 $model->designateDetailVos = [];
-                $n = 0;
-                foreach ($map['DesignateDetailVos'] as $item) {
-                    $model->designateDetailVos[$n++] = null !== $item ? designateDetailVos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DesignateDetailVos'] as $item1) {
+                    $model->designateDetailVos[$n1] = designateDetailVos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DesignateType'])) {
             $model->designateType = $map['DesignateType'];
         }
+
         if (isset($map['Transferable'])) {
             $model->transferable = $map['Transferable'];
         }

@@ -1,3 +1,9 @@
+2025-10-27 Version: 2.3.1
+- Update API CreateAppGroup: add request parameters NotificationPolicyName.
+- Update API GetAppGroup: add response parameters Body.Data.NotificationPolicyName.
+- Update API UpdateAppGroup: add request parameters NotificationPolicyName.
+
+
 2025-07-29 Version: 2.3.0
 - Support API ManageSchedulerxJobSync.
 

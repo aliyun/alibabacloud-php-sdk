@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListJobScriptHistoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ListJobScriptHistoryResponseBody\data\jobScriptHistoryInfos;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description -
-     *
      * @var jobScriptHistoryInfos[]
      */
     public $jobScriptHistoryInfos;
@@ -19,17 +17,24 @@ class data extends Model
         'jobScriptHistoryInfos' => 'JobScriptHistoryInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->jobScriptHistoryInfos)) {
+            Model::validateArray($this->jobScriptHistoryInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobScriptHistoryInfos) {
-            $res['JobScriptHistoryInfos'] = [];
-            if (null !== $this->jobScriptHistoryInfos && \is_array($this->jobScriptHistoryInfos)) {
-                $n = 0;
-                foreach ($this->jobScriptHistoryInfos as $item) {
-                    $res['JobScriptHistoryInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobScriptHistoryInfos)) {
+                $res['JobScriptHistoryInfos'] = [];
+                $n1 = 0;
+                foreach ($this->jobScriptHistoryInfos as $item1) {
+                    $res['JobScriptHistoryInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobScriptHistoryInfos'])) {
             if (!empty($map['JobScriptHistoryInfos'])) {
                 $model->jobScriptHistoryInfos = [];
-                $n = 0;
-                foreach ($map['JobScriptHistoryInfos'] as $item) {
-                    $model->jobScriptHistoryInfos[$n++] = null !== $item ? jobScriptHistoryInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['JobScriptHistoryInfos'] as $item1) {
+                    $model->jobScriptHistoryInfos[$n1] = jobScriptHistoryInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

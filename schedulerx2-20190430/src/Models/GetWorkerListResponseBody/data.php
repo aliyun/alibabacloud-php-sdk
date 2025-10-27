@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkerListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkerListResponseBody\data\workerInfos;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The worker information.
-     *
      * @var workerInfos[]
      */
     public $workerInfos;
@@ -19,17 +17,24 @@ class data extends Model
         'workerInfos' => 'WorkerInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->workerInfos)) {
+            Model::validateArray($this->workerInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workerInfos) {
-            $res['WorkerInfos'] = [];
-            if (null !== $this->workerInfos && \is_array($this->workerInfos)) {
-                $n = 0;
-                foreach ($this->workerInfos as $item) {
-                    $res['WorkerInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workerInfos)) {
+                $res['WorkerInfos'] = [];
+                $n1 = 0;
+                foreach ($this->workerInfos as $item1) {
+                    $res['WorkerInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WorkerInfos'])) {
             if (!empty($map['WorkerInfos'])) {
                 $model->workerInfos = [];
-                $n = 0;
-                foreach ($map['WorkerInfos'] as $item) {
-                    $model->workerInfos[$n++] = null !== $item ? workerInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WorkerInfos'] as $item1) {
+                    $model->workerInfos[$n1] = workerInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,22 +4,28 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateRouteStrategyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
-    public function validate() {}
+    protected $_name = [
+    ];
 
-    public function toMap()
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
     {
         return [];
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         return new self();

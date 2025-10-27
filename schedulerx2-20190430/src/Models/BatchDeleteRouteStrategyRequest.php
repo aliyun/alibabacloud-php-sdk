@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchDeleteRouteStrategyRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
-     *
-     * This parameter is required.
-     *
-     * @example testSchedulerx.defaultGroup
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The IDs of the jobs.
-     *
      * @var int[]
      */
     public $jobIdList;
 
     /**
-     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in the SchedulerX console.
-     *
-     * This parameter is required.
-     *
-     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -54,20 +34,36 @@ class BatchDeleteRouteStrategyRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->jobIdList)) {
+            Model::validateArray($this->jobIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->jobIdList) {
-            $res['JobIdList'] = $this->jobIdList;
+            if (\is_array($this->jobIdList)) {
+                $res['JobIdList'] = [];
+                $n1 = 0;
+                foreach ($this->jobIdList as $item1) {
+                    $res['JobIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -75,25 +71,33 @@ class BatchDeleteRouteStrategyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchDeleteRouteStrategyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['JobIdList'])) {
             if (!empty($map['JobIdList'])) {
-                $model->jobIdList = $map['JobIdList'];
+                $model->jobIdList = [];
+                $n1 = 0;
+                foreach ($map['JobIdList'] as $item1) {
+                    $model->jobIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,55 +4,41 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\ReadSchedulerxDesignateInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessDeniedDetail extends Model
 {
     /**
-     * @example edas:ReadSchedulerxDesignateInfo
-     *
      * @var string
      */
     public $authAction;
 
     /**
-     * @example 209312833131416xxx
-     *
      * @var string
      */
     public $authPrincipalDisplayName;
 
     /**
-     * @example 1827811800526xxx
-     *
      * @var string
      */
     public $authPrincipalOwnerId;
 
     /**
-     * @example SubUser
-     *
      * @var string
      */
     public $authPrincipalType;
 
     /**
-     * @example AQFn/cLPZ/3Cz0YxQkZBMjVGLTY0REUtNTlGNS05NzUwLTgyMUE4M0MwMTFDRQ==
-     *
      * @var string
      */
     public $encodedDiagnosticMessage;
 
     /**
-     * @example ImplicitDeny
-     *
      * @var string
      */
     public $noPermissionType;
 
     /**
-     * @example AccountLevelIdentityBasedPolicy
-     *
      * @var string
      */
     public $policyType;
@@ -66,29 +52,38 @@ class accessDeniedDetail extends Model
         'policyType' => 'PolicyType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authAction) {
             $res['AuthAction'] = $this->authAction;
         }
+
         if (null !== $this->authPrincipalDisplayName) {
             $res['AuthPrincipalDisplayName'] = $this->authPrincipalDisplayName;
         }
+
         if (null !== $this->authPrincipalOwnerId) {
             $res['AuthPrincipalOwnerId'] = $this->authPrincipalOwnerId;
         }
+
         if (null !== $this->authPrincipalType) {
             $res['AuthPrincipalType'] = $this->authPrincipalType;
         }
+
         if (null !== $this->encodedDiagnosticMessage) {
             $res['EncodedDiagnosticMessage'] = $this->encodedDiagnosticMessage;
         }
+
         if (null !== $this->noPermissionType) {
             $res['NoPermissionType'] = $this->noPermissionType;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
@@ -96,32 +91,38 @@ class accessDeniedDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessDeniedDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthAction'])) {
             $model->authAction = $map['AuthAction'];
         }
+
         if (isset($map['AuthPrincipalDisplayName'])) {
             $model->authPrincipalDisplayName = $map['AuthPrincipalDisplayName'];
         }
+
         if (isset($map['AuthPrincipalOwnerId'])) {
             $model->authPrincipalOwnerId = $map['AuthPrincipalOwnerId'];
         }
+
         if (isset($map['AuthPrincipalType'])) {
             $model->authPrincipalType = $map['AuthPrincipalType'];
         }
+
         if (isset($map['EncodedDiagnosticMessage'])) {
             $model->encodedDiagnosticMessage = $map['EncodedDiagnosticMessage'];
         }
+
         if (isset($map['NoPermissionType'])) {
             $model->noPermissionType = $map['NoPermissionType'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }

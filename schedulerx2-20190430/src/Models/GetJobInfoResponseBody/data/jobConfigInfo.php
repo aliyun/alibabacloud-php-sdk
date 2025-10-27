@@ -4,167 +4,94 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody\data\jobConfigInfo\jobMonitorInfo;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody\data\jobConfigInfo\mapTaskXAttrs;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInfoResponseBody\data\jobConfigInfo\timeConfig;
-use AlibabaCloud\Tea\Model;
 
 class jobConfigInfo extends Model
 {
     /**
-     * @description The interval at which the system retried to run the job after a job failure. Default value: 30. Unit: seconds.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $attemptInterval;
 
     /**
-     * @description The full path of the job interface class. This parameter is returned only for jobs whose job type is Java.
-     *
-     * @example com.alibaba.test.helloword
-     *
      * @var string
      */
     public $className;
 
     /**
-     * @description The script of a script job.
-     *
-     * @example echo "clear" > /home/admin/edas-container/logs/catalina.out
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The description of the job.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The execution mode of the job. Valid values:
-     *
-     *   **Stand-alone operation**: standalone
-     *   **Broadcast run**: broadcast
-     *   **Visual MapReduce**: parallel
-     *   **MapReduce**: batch
-     *   **Shard run**: sharding
-     *
-     * @example standalone
-     *
      * @var string
      */
     public $executeMode;
 
     /**
-     * @description The full path used to upload files to Object Storage Service (OSS).
-     *
-     * If you use a JAR package, you can upload the JAR package to this OSS path.
-     *
-     * @example https://test.oss-cn-hangzhou.aliyuncs.com/schedulerX/test.jar
-     *
      * @var string
      */
     public $jarUrl;
 
     /**
-     * @description The job ID.
-     *
-     * @example 538039
-     *
      * @var int
      */
     public $jobId;
 
     /**
-     * @description The monitoring information of the job.
-     *
      * @var jobMonitorInfo
      */
     public $jobMonitorInfo;
 
     /**
-     * @description The job type.
-     *
-     * @example java
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @description The advanced configurations of the job.
-     *
      * @var mapTaskXAttrs
      */
     public $mapTaskXAttrs;
 
     /**
-     * @description The maximum number of retries after a job failure. This parameter was specified based on your business requirements. Default value: 0.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $maxAttempt;
 
     /**
-     * @description The maximum number of concurrent instances. Default value: 1. The default value indicates that if the last triggered instance is running, the next instance is not triggered even if the scheduled point in time for running the next instance is reached.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $maxConcurrency;
 
     /**
-     * @description The job name.
-     *
-     * @example helloworld
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The user-defined parameters that you can obtain when the job is running.
-     *
-     * @example test
-     *
      * @var string
      */
     public $parameters;
 
     /**
-     * @description Indicates whether the job was enabled. Valid values:
-     *
-     *   **1**: The job was enabled and could be triggered.
-     *   **0**: The job was disabled and could not be triggered.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The time configurations.
-     *
      * @var timeConfig
      */
     public $timeConfig;
 
     /**
-     * @description The extended fields.
-     *
-     * @example {"pageSize":5,"queueSize":10,"consumerSize":5,"dispatcherSize":5,"taskMaxAttempt":0,"taskAttemptInterval":0,"globalConsumerSize":1000,"taskDispatchMode":"push"}
-     *
      * @var string
      */
     public $XAttrs;
@@ -188,59 +115,87 @@ class jobConfigInfo extends Model
         'XAttrs' => 'XAttrs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->jobMonitorInfo) {
+            $this->jobMonitorInfo->validate();
+        }
+        if (null !== $this->mapTaskXAttrs) {
+            $this->mapTaskXAttrs->validate();
+        }
+        if (null !== $this->timeConfig) {
+            $this->timeConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attemptInterval) {
             $res['AttemptInterval'] = $this->attemptInterval;
         }
+
         if (null !== $this->className) {
             $res['ClassName'] = $this->className;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->executeMode) {
             $res['ExecuteMode'] = $this->executeMode;
         }
+
         if (null !== $this->jarUrl) {
             $res['JarUrl'] = $this->jarUrl;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->jobMonitorInfo) {
-            $res['JobMonitorInfo'] = null !== $this->jobMonitorInfo ? $this->jobMonitorInfo->toMap() : null;
+            $res['JobMonitorInfo'] = null !== $this->jobMonitorInfo ? $this->jobMonitorInfo->toArray($noStream) : $this->jobMonitorInfo;
         }
+
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->mapTaskXAttrs) {
-            $res['MapTaskXAttrs'] = null !== $this->mapTaskXAttrs ? $this->mapTaskXAttrs->toMap() : null;
+            $res['MapTaskXAttrs'] = null !== $this->mapTaskXAttrs ? $this->mapTaskXAttrs->toArray($noStream) : $this->mapTaskXAttrs;
         }
+
         if (null !== $this->maxAttempt) {
             $res['MaxAttempt'] = $this->maxAttempt;
         }
+
         if (null !== $this->maxConcurrency) {
             $res['MaxConcurrency'] = $this->maxConcurrency;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->timeConfig) {
-            $res['TimeConfig'] = null !== $this->timeConfig ? $this->timeConfig->toMap() : null;
+            $res['TimeConfig'] = null !== $this->timeConfig ? $this->timeConfig->toArray($noStream) : $this->timeConfig;
         }
+
         if (null !== $this->XAttrs) {
             $res['XAttrs'] = $this->XAttrs;
         }
@@ -248,62 +203,78 @@ class jobConfigInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobConfigInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttemptInterval'])) {
             $model->attemptInterval = $map['AttemptInterval'];
         }
+
         if (isset($map['ClassName'])) {
             $model->className = $map['ClassName'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ExecuteMode'])) {
             $model->executeMode = $map['ExecuteMode'];
         }
+
         if (isset($map['JarUrl'])) {
             $model->jarUrl = $map['JarUrl'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['JobMonitorInfo'])) {
             $model->jobMonitorInfo = jobMonitorInfo::fromMap($map['JobMonitorInfo']);
         }
+
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['MapTaskXAttrs'])) {
             $model->mapTaskXAttrs = mapTaskXAttrs::fromMap($map['MapTaskXAttrs']);
         }
+
         if (isset($map['MaxAttempt'])) {
             $model->maxAttempt = $map['MaxAttempt'];
         }
+
         if (isset($map['MaxConcurrency'])) {
             $model->maxConcurrency = $map['MaxConcurrency'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TimeConfig'])) {
             $model->timeConfig = timeConfig::fromMap($map['TimeConfig']);
         }
+
         if (isset($map['XAttrs'])) {
             $model->XAttrs = $map['XAttrs'];
         }

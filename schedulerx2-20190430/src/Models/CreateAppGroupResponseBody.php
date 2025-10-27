@@ -4,53 +4,32 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateAppGroupResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class CreateAppGroupResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The information about the job group.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error message that is returned only if the corresponding error occurs.
-     *
-     * @example Your request is denied as lack of ssl protect.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 883AFE93-FB03-4FA9-A958-E750C6DE120C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the application was created. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -62,23 +41,33 @@ class CreateAppGroupResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -86,26 +75,30 @@ class CreateAppGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAppGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

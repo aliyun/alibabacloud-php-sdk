@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateNamespaceRequest extends Model
 {
     /**
-     * @description The description of the namespace.
-     *
-     * @example Test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the namespace.
-     *
-     * This parameter is required.
-     *
-     * @example test-env
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The unique identifier (UID) of the namespace. We recommend that you use the universally unique identifier (UUID) to generate the UID.
-     *
-     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
-     *
      * @var string
      */
     public $uid;
@@ -54,20 +34,26 @@ class CreateNamespaceRequest extends Model
         'uid' => 'Uid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
@@ -75,23 +61,26 @@ class CreateNamespaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNamespaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }
