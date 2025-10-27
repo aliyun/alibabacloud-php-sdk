@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Clickhouse\V20230522;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateAccountShrinkRequest;
@@ -167,6 +169,75 @@ class Clickhouse extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 资源转组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeResourceGroup',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 资源转组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -558,6 +629,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->connectionPrefix) {
             @$query['ConnectionPrefix'] = $request->connectionPrefix;
         }
@@ -883,6 +958,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->connectionString) {
             @$query['ConnectionString'] = $request->connectionString;
         }
@@ -1610,6 +1689,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -1760,6 +1843,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -1841,6 +1928,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -1918,6 +2009,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -2273,6 +2368,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -2427,6 +2526,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->connectionString) {
             @$query['ConnectionString'] = $request->connectionString;
         }

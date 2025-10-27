@@ -11,6 +11,11 @@ class CreateEndpointRequest extends Model
     /**
      * @var string
      */
+    public $computingGroupId;
+
+    /**
+     * @var string
+     */
     public $connectionPrefix;
 
     /**
@@ -28,6 +33,7 @@ class CreateEndpointRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'computingGroupId' => 'ComputingGroupId',
         'connectionPrefix' => 'ConnectionPrefix',
         'DBInstanceId' => 'DBInstanceId',
         'DBInstanceNetType' => 'DBInstanceNetType',
@@ -42,6 +48,10 @@ class CreateEndpointRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->computingGroupId) {
+            $res['ComputingGroupId'] = $this->computingGroupId;
+        }
+
         if (null !== $this->connectionPrefix) {
             $res['ConnectionPrefix'] = $this->connectionPrefix;
         }
@@ -69,6 +79,10 @@ class CreateEndpointRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputingGroupId'])) {
+            $model->computingGroupId = $map['ComputingGroupId'];
+        }
+
         if (isset($map['ConnectionPrefix'])) {
             $model->connectionPrefix = $map['ConnectionPrefix'];
         }

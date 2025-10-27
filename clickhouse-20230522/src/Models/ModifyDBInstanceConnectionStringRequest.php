@@ -11,6 +11,11 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     /**
      * @var string
      */
+    public $computingGroupId;
+
+    /**
+     * @var string
+     */
     public $connectionString;
 
     /**
@@ -38,6 +43,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'computingGroupId' => 'ComputingGroupId',
         'connectionString' => 'ConnectionString',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'DBInstanceId' => 'DBInstanceId',
@@ -54,6 +60,10 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->computingGroupId) {
+            $res['ComputingGroupId'] = $this->computingGroupId;
+        }
+
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
@@ -89,6 +99,10 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputingGroupId'])) {
+            $model->computingGroupId = $map['ComputingGroupId'];
+        }
+
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }

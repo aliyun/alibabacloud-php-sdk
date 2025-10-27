@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $computingGroupId;
+
+    /**
      * @var int
      */
     public $DBInstanceID;
@@ -33,6 +38,7 @@ class data extends Model
      */
     public $taskId;
     protected $_name = [
+        'computingGroupId' => 'ComputingGroupId',
         'DBInstanceID' => 'DBInstanceID',
         'DBInstanceName' => 'DBInstanceName',
         'scaleMax' => 'ScaleMax',
@@ -48,6 +54,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->computingGroupId) {
+            $res['ComputingGroupId'] = $this->computingGroupId;
+        }
+
         if (null !== $this->DBInstanceID) {
             $res['DBInstanceID'] = $this->DBInstanceID;
         }
@@ -79,6 +89,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputingGroupId'])) {
+            $model->computingGroupId = $map['ComputingGroupId'];
+        }
+
         if (isset($map['DBInstanceID'])) {
             $model->DBInstanceID = $map['DBInstanceID'];
         }

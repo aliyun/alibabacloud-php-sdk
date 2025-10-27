@@ -11,6 +11,11 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @var string
      */
+    public $computingGroupId;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
@@ -43,6 +48,7 @@ class DescribeSlowLogRecordsRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'computingGroupId' => 'ComputingGroupId',
         'DBInstanceId' => 'DBInstanceId',
         'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
@@ -60,6 +66,10 @@ class DescribeSlowLogRecordsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->computingGroupId) {
+            $res['ComputingGroupId'] = $this->computingGroupId;
+        }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -99,6 +109,10 @@ class DescribeSlowLogRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputingGroupId'])) {
+            $model->computingGroupId = $map['ComputingGroupId'];
+        }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

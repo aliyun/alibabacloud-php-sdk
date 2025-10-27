@@ -11,6 +11,11 @@ class ModifyDBInstanceClassRequest extends Model
     /**
      * @var string
      */
+    public $computingGroupId;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
@@ -53,6 +58,7 @@ class ModifyDBInstanceClassRequest extends Model
      */
     public $storageType;
     protected $_name = [
+        'computingGroupId' => 'ComputingGroupId',
         'DBInstanceId' => 'DBInstanceId',
         'nodeCount' => 'NodeCount',
         'nodeScaleMax' => 'NodeScaleMax',
@@ -72,6 +78,10 @@ class ModifyDBInstanceClassRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->computingGroupId) {
+            $res['ComputingGroupId'] = $this->computingGroupId;
+        }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -119,6 +129,10 @@ class ModifyDBInstanceClassRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputingGroupId'])) {
+            $model->computingGroupId = $map['ComputingGroupId'];
+        }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
