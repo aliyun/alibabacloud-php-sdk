@@ -31917,6 +31917,10 @@ class Sas extends OpenApiClient
             @$query['From'] = $request->from;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -41607,6 +41611,10 @@ class Sas extends OpenApiClient
             @$query['GroupIdList'] = $request->groupIdList;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }
@@ -44638,6 +44646,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->requirementIds) {
             @$query['RequirementIds'] = $request->requirementIds;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->riskLevels) {

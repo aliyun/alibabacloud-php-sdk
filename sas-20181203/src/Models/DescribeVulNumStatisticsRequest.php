@@ -12,8 +12,14 @@ class DescribeVulNumStatisticsRequest extends Model
      * @var string
      */
     public $from;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
     protected $_name = [
         'from' => 'From',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DescribeVulNumStatisticsRequest extends Model
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DescribeVulNumStatisticsRequest extends Model
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         return $model;

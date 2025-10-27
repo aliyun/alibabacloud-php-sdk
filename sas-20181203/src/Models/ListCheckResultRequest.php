@@ -69,6 +69,11 @@ class ListCheckResultRequest extends Model
     public $requirementIds;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string[]
      */
     public $riskLevels;
@@ -115,6 +120,7 @@ class ListCheckResultRequest extends Model
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'requirementIds' => 'RequirementIds',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'riskLevels' => 'RiskLevels',
         'sortTypes' => 'SortTypes',
         'standardIds' => 'StandardIds',
@@ -259,6 +265,10 @@ class ListCheckResultRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->riskLevels) {
@@ -437,6 +447,10 @@ class ListCheckResultRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['RiskLevels'])) {

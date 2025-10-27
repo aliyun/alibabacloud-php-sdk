@@ -21,16 +21,6 @@ class accountIdInfos extends Model
     /**
      * @var string
      */
-    public $isCloudSiemAccount;
-
-    /**
-     * @var string
-     */
-    public $isSasAccount;
-
-    /**
-     * @var string
-     */
     public $operatorUid;
 
     /**
@@ -42,26 +32,12 @@ class accountIdInfos extends Model
      * @var string
      */
     public $sasVersion;
-
-    /**
-     * @var string
-     */
-    public $aliUid;
-
-    /**
-     * @var string
-     */
-    public $isMarked;
     protected $_name = [
         'accountId' => 'AccountId',
         'addTime' => 'AddTime',
-        'isCloudSiemAccount' => 'IsCloudSiemAccount',
-        'isSasAccount' => 'IsSasAccount',
         'operatorUid' => 'OperatorUid',
         'postBasicService' => 'PostBasicService',
         'sasVersion' => 'SasVersion',
-        'aliUid' => 'aliUid',
-        'isMarked' => 'isMarked',
     ];
 
     public function validate()
@@ -80,14 +56,6 @@ class accountIdInfos extends Model
             $res['AddTime'] = $this->addTime;
         }
 
-        if (null !== $this->isCloudSiemAccount) {
-            $res['IsCloudSiemAccount'] = $this->isCloudSiemAccount;
-        }
-
-        if (null !== $this->isSasAccount) {
-            $res['IsSasAccount'] = $this->isSasAccount;
-        }
-
         if (null !== $this->operatorUid) {
             $res['OperatorUid'] = $this->operatorUid;
         }
@@ -98,14 +66,6 @@ class accountIdInfos extends Model
 
         if (null !== $this->sasVersion) {
             $res['SasVersion'] = $this->sasVersion;
-        }
-
-        if (null !== $this->aliUid) {
-            $res['aliUid'] = $this->aliUid;
-        }
-
-        if (null !== $this->isMarked) {
-            $res['isMarked'] = $this->isMarked;
         }
 
         return $res;
@@ -127,14 +87,6 @@ class accountIdInfos extends Model
             $model->addTime = $map['AddTime'];
         }
 
-        if (isset($map['IsCloudSiemAccount'])) {
-            $model->isCloudSiemAccount = $map['IsCloudSiemAccount'];
-        }
-
-        if (isset($map['IsSasAccount'])) {
-            $model->isSasAccount = $map['IsSasAccount'];
-        }
-
         if (isset($map['OperatorUid'])) {
             $model->operatorUid = $map['OperatorUid'];
         }
@@ -145,14 +97,6 @@ class accountIdInfos extends Model
 
         if (isset($map['SasVersion'])) {
             $model->sasVersion = $map['SasVersion'];
-        }
-
-        if (isset($map['aliUid'])) {
-            $model->aliUid = $map['aliUid'];
-        }
-
-        if (isset($map['isMarked'])) {
-            $model->isMarked = $map['isMarked'];
         }
 
         return $model;
