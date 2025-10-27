@@ -12,18 +12,26 @@ class StartSyncExecutionRequest extends Model
      * @var string
      */
     public $executionName;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $input;
+
+    /**
+     * @var string
+     */
+    public $qualifier;
     protected $_name = [
         'executionName' => 'ExecutionName',
-        'flowName'      => 'FlowName',
-        'input'         => 'Input',
+        'flowName' => 'FlowName',
+        'input' => 'Input',
+        'qualifier' => 'Qualifier',
     ];
 
     public function validate()
@@ -44,6 +52,10 @@ class StartSyncExecutionRequest extends Model
 
         if (null !== $this->input) {
             $res['Input'] = $this->input;
+        }
+
+        if (null !== $this->qualifier) {
+            $res['Qualifier'] = $this->qualifier;
         }
 
         return $res;
@@ -67,6 +79,10 @@ class StartSyncExecutionRequest extends Model
 
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
+        }
+
+        if (isset($map['Qualifier'])) {
+            $model->qualifier = $map['Qualifier'];
         }
 
         return $model;

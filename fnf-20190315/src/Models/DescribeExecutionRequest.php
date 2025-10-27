@@ -12,17 +12,19 @@ class DescribeExecutionRequest extends Model
      * @var string
      */
     public $executionName;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var int
      */
     public $waitTimeSeconds;
     protected $_name = [
-        'executionName'   => 'ExecutionName',
-        'flowName'        => 'FlowName',
+        'executionName' => 'ExecutionName',
+        'flowName' => 'FlowName',
         'waitTimeSeconds' => 'WaitTimeSeconds',
     ];
 

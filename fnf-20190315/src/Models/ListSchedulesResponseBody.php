@@ -13,10 +13,12 @@ class ListSchedulesResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var schedules[]
      */
@@ -49,9 +51,10 @@ class ListSchedulesResponseBody extends Model
         if (null !== $this->schedules) {
             if (\is_array($this->schedules)) {
                 $res['Schedules'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->schedules as $item1) {
-                    $res['Schedules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Schedules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,9 +81,10 @@ class ListSchedulesResponseBody extends Model
         if (isset($map['Schedules'])) {
             if (!empty($map['Schedules'])) {
                 $model->schedules = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Schedules'] as $item1) {
-                    $model->schedules[$n1++] = schedules::fromMap($item1);
+                    $model->schedules[$n1] = schedules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,12 +12,13 @@ class ReportTaskSucceededResponseBody extends Model
      * @var int
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'eventId'   => 'EventId',
+        'eventId' => 'EventId',
         'requestId' => 'RequestId',
     ];
 

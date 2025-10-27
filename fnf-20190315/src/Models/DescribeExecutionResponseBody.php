@@ -5,65 +5,87 @@
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeExecutionResponseBody\environment;
 
 class DescribeExecutionResponseBody extends Model
 {
     /**
+     * @var environment
+     */
+    public $environment;
+
+    /**
      * @var string
      */
     public $flowDefinition;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $input;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $output;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $startedTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $stoppedTime;
     protected $_name = [
+        'environment' => 'Environment',
         'flowDefinition' => 'FlowDefinition',
-        'flowName'       => 'FlowName',
-        'input'          => 'Input',
-        'name'           => 'Name',
-        'output'         => 'Output',
-        'requestId'      => 'RequestId',
-        'startedTime'    => 'StartedTime',
-        'status'         => 'Status',
-        'stoppedTime'    => 'StoppedTime',
+        'flowName' => 'FlowName',
+        'input' => 'Input',
+        'name' => 'Name',
+        'output' => 'Output',
+        'requestId' => 'RequestId',
+        'startedTime' => 'StartedTime',
+        'status' => 'Status',
+        'stoppedTime' => 'StoppedTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->environment) {
+            $this->environment->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->environment) {
+            $res['Environment'] = null !== $this->environment ? $this->environment->toArray($noStream) : $this->environment;
+        }
+
         if (null !== $this->flowDefinition) {
             $res['FlowDefinition'] = $this->flowDefinition;
         }
@@ -111,6 +133,10 @@ class DescribeExecutionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Environment'])) {
+            $model->environment = environment::fromMap($map['Environment']);
+        }
+
         if (isset($map['FlowDefinition'])) {
             $model->flowDefinition = $map['FlowDefinition'];
         }

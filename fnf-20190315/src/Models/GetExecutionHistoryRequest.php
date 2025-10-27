@@ -12,23 +12,26 @@ class GetExecutionHistoryRequest extends Model
      * @var string
      */
     public $executionName;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'executionName' => 'ExecutionName',
-        'flowName'      => 'FlowName',
-        'limit'         => 'Limit',
-        'nextToken'     => 'NextToken',
+        'flowName' => 'FlowName',
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class DeleteScheduleRequest extends Model
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $scheduleName;
     protected $_name = [
-        'flowName'     => 'FlowName',
+        'flowName' => 'FlowName',
         'scheduleName' => 'ScheduleName',
     ];
 

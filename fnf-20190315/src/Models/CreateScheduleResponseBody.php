@@ -12,48 +12,56 @@ class CreateScheduleResponseBody extends Model
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $cronExpression;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enable;
+
     /**
      * @var string
      */
     public $lastModifiedTime;
+
     /**
      * @var string
      */
     public $payload;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $scheduleId;
+
     /**
      * @var string
      */
     public $scheduleName;
     protected $_name = [
-        'createdTime'      => 'CreatedTime',
-        'cronExpression'   => 'CronExpression',
-        'description'      => 'Description',
-        'enable'           => 'Enable',
+        'createdTime' => 'CreatedTime',
+        'cronExpression' => 'CronExpression',
+        'description' => 'Description',
+        'enable' => 'Enable',
         'lastModifiedTime' => 'LastModifiedTime',
-        'payload'          => 'Payload',
-        'requestId'        => 'RequestId',
-        'scheduleId'       => 'ScheduleId',
-        'scheduleName'     => 'ScheduleName',
+        'payload' => 'Payload',
+        'requestId' => 'RequestId',
+        'scheduleId' => 'ScheduleId',
+        'scheduleName' => 'ScheduleName',
     ];
 
     public function validate()

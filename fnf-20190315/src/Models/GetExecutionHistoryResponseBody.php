@@ -13,16 +13,18 @@ class GetExecutionHistoryResponseBody extends Model
      * @var events[]
      */
     public $events;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'events'    => 'Events',
+        'events' => 'Events',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
@@ -41,9 +43,10 @@ class GetExecutionHistoryResponseBody extends Model
         if (null !== $this->events) {
             if (\is_array($this->events)) {
                 $res['Events'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->events as $item1) {
-                    $res['Events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Events'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,9 +73,10 @@ class GetExecutionHistoryResponseBody extends Model
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
                 $model->events = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Events'] as $item1) {
-                    $model->events[$n1++] = events::fromMap($item1);
+                    $model->events[$n1] = events::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

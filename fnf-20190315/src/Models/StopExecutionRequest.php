@@ -12,23 +12,26 @@ class StopExecutionRequest extends Model
      * @var string
      */
     public $cause;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $executionName;
+
     /**
      * @var string
      */
     public $flowName;
     protected $_name = [
-        'cause'         => 'Cause',
-        'error'         => 'Error',
+        'cause' => 'Cause',
+        'error' => 'Error',
         'executionName' => 'ExecutionName',
-        'flowName'      => 'FlowName',
+        'flowName' => 'FlowName',
     ];
 
     public function validate()

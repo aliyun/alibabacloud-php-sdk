@@ -12,33 +12,38 @@ class events extends Model
      * @var string
      */
     public $eventDetail;
+
     /**
      * @var int
      */
     public $eventId;
+
     /**
      * @var int
      */
     public $scheduleEventId;
+
     /**
      * @var string
      */
     public $stepName;
+
     /**
      * @var string
      */
     public $time;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'eventDetail'     => 'EventDetail',
-        'eventId'         => 'EventId',
+        'eventDetail' => 'EventDetail',
+        'eventId' => 'EventId',
         'scheduleEventId' => 'ScheduleEventId',
-        'stepName'        => 'StepName',
-        'time'            => 'Time',
-        'type'            => 'Type',
+        'stepName' => 'StepName',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
     public function validate()

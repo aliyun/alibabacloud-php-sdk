@@ -12,12 +12,13 @@ class ListFlowsRequest extends Model
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
-        'limit'     => 'Limit',
+        'limit' => 'Limit',
         'nextToken' => 'NextToken',
     ];
 

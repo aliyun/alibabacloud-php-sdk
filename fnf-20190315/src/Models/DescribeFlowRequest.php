@@ -11,8 +11,14 @@ class DescribeFlowRequest extends Model
     /**
      * @var string
      */
+    public $flowVersion;
+
+    /**
+     * @var string
+     */
     public $name;
     protected $_name = [
+        'flowVersion' => 'FlowVersion',
         'name' => 'Name',
     ];
 
@@ -24,6 +30,10 @@ class DescribeFlowRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->flowVersion) {
+            $res['FlowVersion'] = $this->flowVersion;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -39,6 +49,10 @@ class DescribeFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FlowVersion'])) {
+            $model->flowVersion = $map['FlowVersion'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

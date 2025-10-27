@@ -12,37 +12,43 @@ class CreateScheduleRequest extends Model
      * @var string
      */
     public $cronExpression;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enable;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $payload;
+
     /**
      * @var string
      */
     public $scheduleName;
+
     /**
      * @var string
      */
     public $signatureVersion;
     protected $_name = [
-        'cronExpression'   => 'CronExpression',
-        'description'      => 'Description',
-        'enable'           => 'Enable',
-        'flowName'         => 'FlowName',
-        'payload'          => 'Payload',
-        'scheduleName'     => 'ScheduleName',
+        'cronExpression' => 'CronExpression',
+        'description' => 'Description',
+        'enable' => 'Enable',
+        'flowName' => 'FlowName',
+        'payload' => 'Payload',
+        'scheduleName' => 'ScheduleName',
         'signatureVersion' => 'SignatureVersion',
     ];
 

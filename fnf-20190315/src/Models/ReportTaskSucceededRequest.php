@@ -12,12 +12,13 @@ class ReportTaskSucceededRequest extends Model
      * @var string
      */
     public $output;
+
     /**
      * @var string
      */
     public $taskToken;
     protected $_name = [
-        'output'    => 'Output',
+        'output' => 'Output',
         'taskToken' => 'TaskToken',
     ];
 

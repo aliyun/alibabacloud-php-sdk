@@ -12,17 +12,19 @@ class ListSchedulesRequest extends Model
      * @var string
      */
     public $flowName;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
-        'flowName'  => 'FlowName',
-        'limit'     => 'Limit',
+        'flowName' => 'FlowName',
+        'limit' => 'Limit',
         'nextToken' => 'NextToken',
     ];
 

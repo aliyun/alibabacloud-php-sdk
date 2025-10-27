@@ -12,43 +12,62 @@ class ListExecutionsRequest extends Model
      * @var string
      */
     public $executionNamePrefix;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var int
      */
     public $limit;
+
+    /**
+     * @var string
+     */
+    public $mapRunName;
+
     /**
      * @var bool
      */
     public $metadataOnly;
+
     /**
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $qualifier;
+
     /**
      * @var string
      */
     public $startedTimeBegin;
+
     /**
      * @var string
      */
     public $startedTimeEnd;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'executionNamePrefix' => 'ExecutionNamePrefix',
-        'flowName'            => 'FlowName',
-        'limit'               => 'Limit',
-        'metadataOnly'        => 'MetadataOnly',
-        'nextToken'           => 'NextToken',
-        'startedTimeBegin'    => 'StartedTimeBegin',
-        'startedTimeEnd'      => 'StartedTimeEnd',
-        'status'              => 'Status',
+        'flowName' => 'FlowName',
+        'limit' => 'Limit',
+        'mapRunName' => 'MapRunName',
+        'metadataOnly' => 'MetadataOnly',
+        'nextToken' => 'NextToken',
+        'qualifier' => 'Qualifier',
+        'startedTimeBegin' => 'StartedTimeBegin',
+        'startedTimeEnd' => 'StartedTimeEnd',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -71,12 +90,20 @@ class ListExecutionsRequest extends Model
             $res['Limit'] = $this->limit;
         }
 
+        if (null !== $this->mapRunName) {
+            $res['MapRunName'] = $this->mapRunName;
+        }
+
         if (null !== $this->metadataOnly) {
             $res['MetadataOnly'] = $this->metadataOnly;
         }
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->qualifier) {
+            $res['Qualifier'] = $this->qualifier;
         }
 
         if (null !== $this->startedTimeBegin) {
@@ -114,12 +141,20 @@ class ListExecutionsRequest extends Model
             $model->limit = $map['Limit'];
         }
 
+        if (isset($map['MapRunName'])) {
+            $model->mapRunName = $map['MapRunName'];
+        }
+
         if (isset($map['MetadataOnly'])) {
             $model->metadataOnly = $map['MetadataOnly'];
         }
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['Qualifier'])) {
+            $model->qualifier = $map['Qualifier'];
         }
 
         if (isset($map['StartedTimeBegin'])) {

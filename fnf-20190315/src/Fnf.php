@@ -5,18 +5,31 @@
 namespace AlibabaCloud\SDK\Fnf\V20190315;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\CreateFlowAliasRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\CreateFlowAliasResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\CreateFlowAliasShrinkRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\CreateFlowRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\CreateFlowResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\CreateFlowShrinkRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\CreateScheduleRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\CreateScheduleResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DeleteFlowAliasRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DeleteFlowAliasResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DeleteFlowRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DeleteFlowResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DeleteFlowVersionRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DeleteFlowVersionResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DeleteScheduleRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DeleteScheduleResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeExecutionRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeExecutionResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeFlowAliasRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeFlowAliasResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeFlowRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeFlowResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeMapRunRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeMapRunResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeScheduleRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\DescribeScheduleResponse;
@@ -24,10 +37,16 @@ use AlibabaCloud\SDK\Fnf\V20190315\Models\GetExecutionHistoryRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\GetExecutionHistoryResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ListExecutionsRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ListExecutionsResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\ListFlowAliasesRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\ListFlowAliasesResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ListFlowsRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ListFlowsResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\ListFlowVersionsRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\ListFlowVersionsResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ListSchedulesRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ListSchedulesResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\PublishFlowVersionRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\PublishFlowVersionResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ReportTaskFailedRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ReportTaskFailedResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ReportTaskSucceededRequest;
@@ -38,8 +57,14 @@ use AlibabaCloud\SDK\Fnf\V20190315\Models\StartSyncExecutionRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\StartSyncExecutionResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\StopExecutionRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\StopExecutionResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateFlowAliasRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateFlowAliasResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateFlowAliasShrinkRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateFlowRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateFlowResponse;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateFlowShrinkRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateMapRunRequest;
+use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateMapRunResponse;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateScheduleRequest;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateScheduleResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -53,9 +78,9 @@ class Fnf extends OpenApiClient
     {
         parent::__construct($config);
         $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'regional';
-        $this->_endpointMap        = [
-            'cn-beijing'  => 'cn-beijing.fnf.aliyuncs.com',
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-beijing' => 'cn-beijing.fnf.aliyuncs.com',
             'cn-hangzhou' => 'cn-hangzhou.fnf.aliyuncs.com',
             'cn-shanghai' => 'cn-shanghai.fnf.aliyuncs.com',
             'cn-shenzhen' => 'cn-shenzhen.fnf.aliyuncs.com',
@@ -96,18 +121,25 @@ class Fnf extends OpenApiClient
      * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](https://help.aliyun.com/document_detail/122093.html). If you want to create more flows, submit a ticket.
      * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
      *
-     * @param request - CreateFlowRequest
+     * @param tmpReq - CreateFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFlowResponse
      *
-     * @param CreateFlowRequest $request
+     * @param CreateFlowRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return CreateFlowResponse
      */
-    public function createFlowWithOptions($request, $runtime)
+    public function createFlowWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->environment) {
+            $request->environmentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->environment, 'Environment', 'json');
+        }
+
         $body = [];
         if (null !== $request->definition) {
             @$body['Definition'] = $request->definition;
@@ -115,6 +147,10 @@ class Fnf extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->environmentShrink) {
+            @$body['Environment'] = $request->environmentShrink;
         }
 
         if (null !== $request->executionMode) {
@@ -141,21 +177,18 @@ class Fnf extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFlow',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFlow',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -167,6 +200,7 @@ class Fnf extends OpenApiClient
      * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
      *
      * @param request - CreateFlowRequest
+     *
      * @returns CreateFlowResponse
      *
      * @param CreateFlowRequest $request
@@ -181,10 +215,86 @@ class Fnf extends OpenApiClient
     }
 
     /**
+     * 创建流程版本别名.
+     *
+     * @param tmpReq - CreateFlowAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFlowAliasResponse
+     *
+     * @param CreateFlowAliasRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateFlowAliasResponse
+     */
+    public function createFlowAliasWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateFlowAliasShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->routingConfigurations) {
+            $request->routingConfigurationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->routingConfigurations, 'RoutingConfigurations', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->flowName) {
+            @$body['FlowName'] = $request->flowName;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->routingConfigurationsShrink) {
+            @$body['RoutingConfigurations'] = $request->routingConfigurationsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFlowAlias',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFlowAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建流程版本别名.
+     *
+     * @param request - CreateFlowAliasRequest
+     *
+     * @returns CreateFlowAliasResponse
+     *
+     * @param CreateFlowAliasRequest $request
+     *
+     * @return CreateFlowAliasResponse
+     */
+    public function createFlowAlias($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFlowAliasWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a time-based schedule.
      *
      * @param request - CreateScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateScheduleResponse
      *
      * @param CreateScheduleRequest $request
@@ -227,30 +337,28 @@ class Fnf extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSchedule',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSchedule',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a time-based schedule.
      *
      * @param request - CreateScheduleRequest
+     *
      * @returns CreateScheduleResponse
      *
      * @param CreateScheduleRequest $request
@@ -273,6 +381,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - DeleteFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFlowResponse
      *
      * @param DeleteFlowRequest $request
@@ -292,21 +401,18 @@ class Fnf extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFlow',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFlow',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -317,6 +423,7 @@ class Fnf extends OpenApiClient
      * A delete operation is asynchronous. If this operation is successful, the system returns a successful response. If an existing flow is pending to be deleted, a new flow of the same name will not be affected by the existing one. After you delete a flow, you cannot query its historical executions. All executions in progress will stop after their most recent steps are complete.
      *
      * @param request - DeleteFlowRequest
+     *
      * @returns DeleteFlowResponse
      *
      * @param DeleteFlowRequest $request
@@ -331,10 +438,133 @@ class Fnf extends OpenApiClient
     }
 
     /**
+     * 删除流程别名.
+     *
+     * @param request - DeleteFlowAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFlowAliasResponse
+     *
+     * @param DeleteFlowAliasRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteFlowAliasResponse
+     */
+    public function deleteFlowAliasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->flowName) {
+            @$body['FlowName'] = $request->flowName;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFlowAlias',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFlowAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除流程别名.
+     *
+     * @param request - DeleteFlowAliasRequest
+     *
+     * @returns DeleteFlowAliasResponse
+     *
+     * @param DeleteFlowAliasRequest $request
+     *
+     * @return DeleteFlowAliasResponse
+     */
+    public function deleteFlowAlias($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFlowAliasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除流程版本.
+     *
+     * @param request - DeleteFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFlowVersionResponse
+     *
+     * @param DeleteFlowVersionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteFlowVersionResponse
+     */
+    public function deleteFlowVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->flowName) {
+            @$body['FlowName'] = $request->flowName;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$body['FlowVersion'] = $request->flowVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFlowVersion',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除流程版本.
+     *
+     * @param request - DeleteFlowVersionRequest
+     *
+     * @returns DeleteFlowVersionResponse
+     *
+     * @param DeleteFlowVersionRequest $request
+     *
+     * @return DeleteFlowVersionResponse
+     */
+    public function deleteFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFlowVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a time-based scheduling task.
      *
      * @param request - DeleteScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteScheduleResponse
      *
      * @param DeleteScheduleRequest $request
@@ -358,27 +588,25 @@ class Fnf extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSchedule',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSchedule',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes a time-based scheduling task.
      *
      * @param request - DeleteScheduleRequest
+     *
      * @returns DeleteScheduleResponse
      *
      * @param DeleteScheduleRequest $request
@@ -397,6 +625,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - DescribeExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeExecutionResponse
      *
      * @param DescribeExecutionRequest $request
@@ -408,31 +637,29 @@ class Fnf extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExecution',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExecution',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeExecutionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries an execution in a flow. The long polling mode is supported. The maximum waiting period for long polling depends on the value of the WaitTimeSeconds parameter.
      *
      * @param request - DescribeExecutionRequest
+     *
      * @returns DescribeExecutionResponse
      *
      * @param DescribeExecutionRequest $request
@@ -451,6 +678,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - DescribeFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFlowResponse
      *
      * @param DescribeFlowRequest $request
@@ -462,31 +690,29 @@ class Fnf extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFlow',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFlow',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about a flow.
      *
      * @param request - DescribeFlowRequest
+     *
      * @returns DescribeFlowResponse
      *
      * @param DescribeFlowRequest $request
@@ -501,49 +727,166 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * 查询地域信息列表.
+     * 查询流程版本别名详情.
      *
-     * @param request - DescribeRegionsRequest
+     * @param request - DescribeFlowAliasRequest
      * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRegionsResponse
      *
-     * @param RuntimeOptions $runtime
+     * @returns DescribeFlowAliasResponse
      *
-     * @return DescribeRegionsResponse
+     * @param DescribeFlowAliasRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeFlowAliasResponse
      */
-    public function describeRegionsWithOptions($runtime)
+    public function describeFlowAliasWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
+        $params = new Params([
+            'action' => 'DescribeFlowAlias',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFlowAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询流程版本别名详情.
+     *
+     * @param request - DescribeFlowAliasRequest
+     *
+     * @returns DescribeFlowAliasResponse
+     *
+     * @param DescribeFlowAliasRequest $request
+     *
+     * @return DescribeFlowAliasResponse
+     */
+    public function describeFlowAlias($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFlowAliasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询 MapRun 详情.
+     *
+     * @param request - DescribeMapRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMapRunResponse
+     *
+     * @param DescribeMapRunRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeMapRunResponse
+     */
+    public function describeMapRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMapRun',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMapRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 MapRun 详情.
+     *
+     * @param request - DescribeMapRunRequest
+     *
+     * @returns DescribeMapRunResponse
+     *
+     * @param DescribeMapRunRequest $request
+     *
+     * @return DescribeMapRunResponse
+     */
+    public function describeMapRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMapRunWithOptions($request, $runtime);
     }
 
     /**
      * 查询地域信息列表.
      *
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
      *
      * @return DescribeRegionsResponse
      */
-    public function describeRegions()
+    public function describeRegionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegions',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询地域信息列表.
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($runtime);
+        return $this->describeRegionsWithOptions($request, $runtime);
     }
 
     /**
@@ -551,6 +894,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - DescribeScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeScheduleResponse
      *
      * @param DescribeScheduleRequest $request
@@ -562,31 +906,29 @@ class Fnf extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSchedule',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSchedule',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the detailed information about a time-based schedule.
      *
      * @param request - DescribeScheduleRequest
+     *
      * @returns DescribeScheduleResponse
      *
      * @param DescribeScheduleRequest $request
@@ -605,6 +947,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - GetExecutionHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetExecutionHistoryResponse
      *
      * @param GetExecutionHistoryRequest $request
@@ -616,31 +959,29 @@ class Fnf extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExecutionHistory',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExecutionHistory',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetExecutionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetExecutionHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetExecutionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details about each step in an execution process.
      *
      * @param request - GetExecutionHistoryRequest
+     *
      * @returns GetExecutionHistoryResponse
      *
      * @param GetExecutionHistoryRequest $request
@@ -663,6 +1004,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - ListExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListExecutionsResponse
      *
      * @param ListExecutionsRequest $request
@@ -674,25 +1016,22 @@ class Fnf extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExecutions',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExecutions',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -703,6 +1042,7 @@ class Fnf extends OpenApiClient
      * After you delete a flow, you cannot query its historical executions, even if you create a flow of the same name.
      *
      * @param request - ListExecutionsRequest
+     *
      * @returns ListExecutionsResponse
      *
      * @param ListExecutionsRequest $request
@@ -717,10 +1057,117 @@ class Fnf extends OpenApiClient
     }
 
     /**
+     * 查询流程版本别名列表.
+     *
+     * @param request - ListFlowAliasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFlowAliasesResponse
+     *
+     * @param ListFlowAliasesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListFlowAliasesResponse
+     */
+    public function listFlowAliasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFlowAliases',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFlowAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询流程版本别名列表.
+     *
+     * @param request - ListFlowAliasesRequest
+     *
+     * @returns ListFlowAliasesResponse
+     *
+     * @param ListFlowAliasesRequest $request
+     *
+     * @return ListFlowAliasesResponse
+     */
+    public function listFlowAliases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowAliasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询流程版本列表.
+     *
+     * @param request - ListFlowVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFlowVersionsResponse
+     *
+     * @param ListFlowVersionsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListFlowVersionsResponse
+     */
+    public function listFlowVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFlowVersions',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFlowVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询流程版本列表.
+     *
+     * @param request - ListFlowVersionsRequest
+     *
+     * @returns ListFlowVersionsResponse
+     *
+     * @param ListFlowVersionsRequest $request
+     *
+     * @return ListFlowVersionsResponse
+     */
+    public function listFlowVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowVersionsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of flows.
      *
      * @param request - ListFlowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFlowsResponse
      *
      * @param ListFlowsRequest $request
@@ -732,31 +1179,29 @@ class Fnf extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFlows',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFlows',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFlowsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of flows.
      *
      * @param request - ListFlowsRequest
+     *
      * @returns ListFlowsResponse
      *
      * @param ListFlowsRequest $request
@@ -775,6 +1220,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - ListSchedulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSchedulesResponse
      *
      * @param ListSchedulesRequest $request
@@ -786,31 +1232,29 @@ class Fnf extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSchedules',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSchedules',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSchedulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries time-based schedules in a flow.
      *
      * @param request - ListSchedulesRequest
+     *
      * @returns ListSchedulesResponse
      *
      * @param ListSchedulesRequest $request
@@ -825,6 +1269,67 @@ class Fnf extends OpenApiClient
     }
 
     /**
+     * 发布流程版本.
+     *
+     * @param request - PublishFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishFlowVersionResponse
+     *
+     * @param PublishFlowVersionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PublishFlowVersionResponse
+     */
+    public function publishFlowVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->flowName) {
+            @$body['FlowName'] = $request->flowName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishFlowVersion',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布流程版本.
+     *
+     * @param request - PublishFlowVersionRequest
+     *
+     * @returns PublishFlowVersionResponse
+     *
+     * @param PublishFlowVersionRequest $request
+     *
+     * @return PublishFlowVersionResponse
+     */
+    public function publishFlowVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishFlowVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Reports a failed task.
      *
      * @remarks
@@ -834,6 +1339,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - ReportTaskFailedRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReportTaskFailedResponse
      *
      * @param ReportTaskFailedRequest $request
@@ -860,24 +1366,21 @@ class Fnf extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReportTaskFailed',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReportTaskFailed',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReportTaskFailedResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReportTaskFailedResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReportTaskFailedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -889,6 +1392,7 @@ class Fnf extends OpenApiClient
      * In the new service (CloudFlow), the task step that ReportTaskFailed is used to call back `TaskMode: WaitForCustomCallback` indicates that the current task fails to be executed.
      *
      * @param request - ReportTaskFailedRequest
+     *
      * @returns ReportTaskFailedResponse
      *
      * @param ReportTaskFailedRequest $request
@@ -912,6 +1416,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - ReportTaskSucceededRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReportTaskSucceededResponse
      *
      * @param ReportTaskSucceededRequest $request
@@ -934,24 +1439,21 @@ class Fnf extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReportTaskSucceeded',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReportTaskSucceeded',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReportTaskSucceededResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReportTaskSucceededResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReportTaskSucceededResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -963,6 +1465,7 @@ class Fnf extends OpenApiClient
      * In the new service (CloudFlow), the task step that ReportTaskSucceeded is used to call back TaskMode: WaitForCustomCallback indicates that the current task is successfully executed.
      *
      * @param request - ReportTaskSucceededRequest
+     *
      * @returns ReportTaskSucceededResponse
      *
      * @param ReportTaskSucceededRequest $request
@@ -989,6 +1492,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - StartExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartExecutionResponse
      *
      * @param StartExecutionRequest $request
@@ -1016,25 +1520,26 @@ class Fnf extends OpenApiClient
             @$body['Input'] = $request->input;
         }
 
+        if (null !== $request->qualifier) {
+            @$body['Qualifier'] = $request->qualifier;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartExecution',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartExecution',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartExecutionResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1049,6 +1554,7 @@ class Fnf extends OpenApiClient
      * *   If no execution with the same name exists, the system starts a new execution.
      *
      * @param request - StartExecutionRequest
+     *
      * @returns StartExecutionResponse
      *
      * @param StartExecutionRequest $request
@@ -1070,6 +1576,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - StartSyncExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartSyncExecutionResponse
      *
      * @param StartSyncExecutionRequest $request
@@ -1093,25 +1600,26 @@ class Fnf extends OpenApiClient
             @$body['Input'] = $request->input;
         }
 
+        if (null !== $request->qualifier) {
+            @$body['Qualifier'] = $request->qualifier;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartSyncExecution',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartSyncExecution',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartSyncExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartSyncExecutionResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartSyncExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1121,6 +1629,7 @@ class Fnf extends OpenApiClient
      *   Only flows of the express execution mode are supported.
      *
      * @param request - StartSyncExecutionRequest
+     *
      * @returns StartSyncExecutionResponse
      *
      * @param StartSyncExecutionRequest $request
@@ -1143,6 +1652,7 @@ class Fnf extends OpenApiClient
      *
      * @param request - StopExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopExecutionResponse
      *
      * @param StopExecutionRequest $request
@@ -1174,21 +1684,18 @@ class Fnf extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopExecution',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopExecution',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopExecutionResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1199,6 +1706,7 @@ class Fnf extends OpenApiClient
      * The flow must be in progress.
      *
      * @param request - StopExecutionRequest
+     *
      * @returns StopExecutionResponse
      *
      * @param StopExecutionRequest $request
@@ -1215,18 +1723,25 @@ class Fnf extends OpenApiClient
     /**
      * Updates a flow.
      *
-     * @param request - UpdateFlowRequest
+     * @param tmpReq - UpdateFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFlowResponse
      *
-     * @param UpdateFlowRequest $request
+     * @param UpdateFlowRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return UpdateFlowResponse
      */
-    public function updateFlowWithOptions($request, $runtime)
+    public function updateFlowWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->environment) {
+            $request->environmentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->environment, 'Environment', 'json');
+        }
+
         $body = [];
         if (null !== $request->definition) {
             @$body['Definition'] = $request->definition;
@@ -1234,6 +1749,10 @@ class Fnf extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->environmentShrink) {
+            @$body['Environment'] = $request->environmentShrink;
         }
 
         if (null !== $request->name) {
@@ -1252,27 +1771,25 @@ class Fnf extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFlow',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFlow',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates a flow.
      *
      * @param request - UpdateFlowRequest
+     *
      * @returns UpdateFlowResponse
      *
      * @param UpdateFlowRequest $request
@@ -1287,10 +1804,139 @@ class Fnf extends OpenApiClient
     }
 
     /**
+     * 更新流程版本别名配置.
+     *
+     * @param tmpReq - UpdateFlowAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFlowAliasResponse
+     *
+     * @param UpdateFlowAliasRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateFlowAliasResponse
+     */
+    public function updateFlowAliasWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateFlowAliasShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->routingConfigurations) {
+            $request->routingConfigurationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->routingConfigurations, 'RoutingConfigurations', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->flowName) {
+            @$body['FlowName'] = $request->flowName;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->routingConfigurationsShrink) {
+            @$body['RoutingConfigurations'] = $request->routingConfigurationsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFlowAlias',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFlowAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新流程版本别名配置.
+     *
+     * @param request - UpdateFlowAliasRequest
+     *
+     * @returns UpdateFlowAliasResponse
+     *
+     * @param UpdateFlowAliasRequest $request
+     *
+     * @return UpdateFlowAliasResponse
+     */
+    public function updateFlowAlias($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFlowAliasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新 MapRun 配置.
+     *
+     * @param request - UpdateMapRunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMapRunResponse
+     *
+     * @param UpdateMapRunRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateMapRunResponse
+     */
+    public function updateMapRunWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMapRun',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMapRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 MapRun 配置.
+     *
+     * @param request - UpdateMapRunRequest
+     *
+     * @returns UpdateMapRunResponse
+     *
+     * @param UpdateMapRunRequest $request
+     *
+     * @return UpdateMapRunResponse
+     */
+    public function updateMapRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMapRunWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates a time-based schedule.
      *
      * @param request - UpdateScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateScheduleResponse
      *
      * @param UpdateScheduleRequest $request
@@ -1330,27 +1976,25 @@ class Fnf extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSchedule',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSchedule',
+            'version' => '2019-03-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates a time-based schedule.
      *
      * @param request - UpdateScheduleRequest
+     *
      * @returns UpdateScheduleResponse
      *
      * @param UpdateScheduleRequest $request

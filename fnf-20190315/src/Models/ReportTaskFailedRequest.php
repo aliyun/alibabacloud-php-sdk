@@ -12,17 +12,19 @@ class ReportTaskFailedRequest extends Model
      * @var string
      */
     public $cause;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $taskToken;
     protected $_name = [
-        'cause'     => 'Cause',
-        'error'     => 'Error',
+        'cause' => 'Cause',
+        'error' => 'Error',
         'taskToken' => 'TaskToken',
     ];
 

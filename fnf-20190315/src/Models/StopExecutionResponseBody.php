@@ -12,53 +12,62 @@ class StopExecutionResponseBody extends Model
      * @var string
      */
     public $flowDefinition;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $input;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $output;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $roleArn;
+
     /**
      * @var string
      */
     public $startedTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $stoppedTime;
     protected $_name = [
         'flowDefinition' => 'FlowDefinition',
-        'flowName'       => 'FlowName',
-        'input'          => 'Input',
-        'name'           => 'Name',
-        'output'         => 'Output',
-        'requestId'      => 'RequestId',
-        'roleArn'        => 'RoleArn',
-        'startedTime'    => 'StartedTime',
-        'status'         => 'Status',
-        'stoppedTime'    => 'StoppedTime',
+        'flowName' => 'FlowName',
+        'input' => 'Input',
+        'name' => 'Name',
+        'output' => 'Output',
+        'requestId' => 'RequestId',
+        'roleArn' => 'RoleArn',
+        'startedTime' => 'StartedTime',
+        'status' => 'Status',
+        'stoppedTime' => 'StoppedTime',
     ];
 
     public function validate()
