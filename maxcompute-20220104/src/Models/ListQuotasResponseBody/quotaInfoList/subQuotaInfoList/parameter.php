@@ -16,6 +16,11 @@ class parameter extends Model
     /**
      * @var int
      */
+    public $autoScaleCPULimit;
+
+    /**
+     * @var int
+     */
     public $elasticReservedCU;
 
     /**
@@ -64,6 +69,7 @@ class parameter extends Model
     public $slotNum;
     protected $_name = [
         'adhocSlot' => 'adhocSlot',
+        'autoScaleCPULimit' => 'autoScaleCPULimit',
         'elasticReservedCU' => 'elasticReservedCU',
         'enablePriority' => 'enablePriority',
         'forceReservedMin' => 'forceReservedMin',
@@ -86,6 +92,10 @@ class parameter extends Model
         $res = [];
         if (null !== $this->adhocSlot) {
             $res['adhocSlot'] = $this->adhocSlot;
+        }
+
+        if (null !== $this->autoScaleCPULimit) {
+            $res['autoScaleCPULimit'] = $this->autoScaleCPULimit;
         }
 
         if (null !== $this->elasticReservedCU) {
@@ -141,6 +151,10 @@ class parameter extends Model
         $model = new self();
         if (isset($map['adhocSlot'])) {
             $model->adhocSlot = $map['adhocSlot'];
+        }
+
+        if (isset($map['autoScaleCPULimit'])) {
+            $model->autoScaleCPULimit = $map['autoScaleCPULimit'];
         }
 
         if (isset($map['elasticReservedCU'])) {

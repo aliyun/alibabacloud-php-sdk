@@ -16,6 +16,11 @@ class parameter extends Model
     /**
      * @var int
      */
+    public $autoScaleCPULimit;
+
+    /**
+     * @var int
+     */
     public $elasticReservedCU;
 
     /**
@@ -36,7 +41,17 @@ class parameter extends Model
     /**
      * @var int
      */
+    public $maxGu;
+
+    /**
+     * @var int
+     */
     public $minCU;
+
+    /**
+     * @var int
+     */
+    public $minGu;
 
     /**
      * @var string
@@ -54,11 +69,14 @@ class parameter extends Model
     public $slotNum;
     protected $_name = [
         'adhocSlot' => 'adhocSlot',
+        'autoScaleCPULimit' => 'autoScaleCPULimit',
         'elasticReservedCU' => 'elasticReservedCU',
         'enablePriority' => 'enablePriority',
         'forceReservedMin' => 'forceReservedMin',
         'maxCU' => 'maxCU',
+        'maxGu' => 'maxGu',
         'minCU' => 'minCU',
+        'minGu' => 'minGu',
         'schedulerType' => 'schedulerType',
         'singleJobCULimit' => 'singleJobCULimit',
         'slotNum' => 'slotNum',
@@ -74,6 +92,10 @@ class parameter extends Model
         $res = [];
         if (null !== $this->adhocSlot) {
             $res['adhocSlot'] = $this->adhocSlot;
+        }
+
+        if (null !== $this->autoScaleCPULimit) {
+            $res['autoScaleCPULimit'] = $this->autoScaleCPULimit;
         }
 
         if (null !== $this->elasticReservedCU) {
@@ -92,8 +114,16 @@ class parameter extends Model
             $res['maxCU'] = $this->maxCU;
         }
 
+        if (null !== $this->maxGu) {
+            $res['maxGu'] = $this->maxGu;
+        }
+
         if (null !== $this->minCU) {
             $res['minCU'] = $this->minCU;
+        }
+
+        if (null !== $this->minGu) {
+            $res['minGu'] = $this->minGu;
         }
 
         if (null !== $this->schedulerType) {
@@ -123,6 +153,10 @@ class parameter extends Model
             $model->adhocSlot = $map['adhocSlot'];
         }
 
+        if (isset($map['autoScaleCPULimit'])) {
+            $model->autoScaleCPULimit = $map['autoScaleCPULimit'];
+        }
+
         if (isset($map['elasticReservedCU'])) {
             $model->elasticReservedCU = $map['elasticReservedCU'];
         }
@@ -139,8 +173,16 @@ class parameter extends Model
             $model->maxCU = $map['maxCU'];
         }
 
+        if (isset($map['maxGu'])) {
+            $model->maxGu = $map['maxGu'];
+        }
+
         if (isset($map['minCU'])) {
             $model->minCU = $map['minCU'];
+        }
+
+        if (isset($map['minGu'])) {
+            $model->minGu = $map['minGu'];
         }
 
         if (isset($map['schedulerType'])) {
