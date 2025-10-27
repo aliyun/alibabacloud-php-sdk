@@ -16,6 +16,7 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtract
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppShrinkRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocParserResultRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocParserResultResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocParserResultShrinkRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocStructureResultRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocStructureResultResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocumentCompareResultRequest;
@@ -296,20 +297,30 @@ class Docmindapi extends OpenApiClient
     /**
      * 文档结构化流式接口.
      *
-     * @param Request - GetDocParserResultRequest
+     * @param tmpReq - GetDocParserResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDocParserResultResponse
      *
-     * @param GetDocParserResultRequest $request
+     * @param GetDocParserResultRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return GetDocParserResultResponse
      */
-    public function getDocParserResultWithOptions($request, $runtime)
+    public function getDocParserResultWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetDocParserResultShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->excludeFields) {
+            $request->excludeFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeFields, 'ExcludeFields', 'simple');
+        }
+
         $query = [];
+        if (null !== $request->excludeFieldsShrink) {
+            @$query['ExcludeFields'] = $request->excludeFieldsShrink;
+        }
+
         if (null !== $request->id) {
             @$query['Id'] = $request->id;
         }

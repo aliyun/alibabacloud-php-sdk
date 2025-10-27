@@ -1,3 +1,7 @@
+2025-10-27 Version: 1.4.13
+- Update API GetDocParserResult: add request parameters ExcludeFields.
+
+
 2025-10-16 Version: 1.4.12
 - Update API SubmitDocParserJob: add request parameters NeedHeaderFooter.
 

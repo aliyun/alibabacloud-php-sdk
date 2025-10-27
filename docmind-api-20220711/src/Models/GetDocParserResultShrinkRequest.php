@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetDocParserResultRequest extends Model
+class GetDocParserResultShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $excludeFields;
+    public $excludeFieldsShrink;
 
     /**
      * @var string
@@ -28,7 +28,7 @@ class GetDocParserResultRequest extends Model
      */
     public $layoutStepSize;
     protected $_name = [
-        'excludeFields' => 'ExcludeFields',
+        'excludeFieldsShrink' => 'ExcludeFields',
         'id' => 'Id',
         'layoutNum' => 'LayoutNum',
         'layoutStepSize' => 'LayoutStepSize',
@@ -36,24 +36,14 @@ class GetDocParserResultRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->excludeFields)) {
-            Model::validateArray($this->excludeFields);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->excludeFields) {
-            if (\is_array($this->excludeFields)) {
-                $res['ExcludeFields'] = [];
-                $n1 = 0;
-                foreach ($this->excludeFields as $item1) {
-                    $res['ExcludeFields'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->excludeFieldsShrink) {
+            $res['ExcludeFields'] = $this->excludeFieldsShrink;
         }
 
         if (null !== $this->id) {
@@ -80,14 +70,7 @@ class GetDocParserResultRequest extends Model
     {
         $model = new self();
         if (isset($map['ExcludeFields'])) {
-            if (!empty($map['ExcludeFields'])) {
-                $model->excludeFields = [];
-                $n1 = 0;
-                foreach ($map['ExcludeFields'] as $item1) {
-                    $model->excludeFields[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->excludeFieldsShrink = $map['ExcludeFields'];
         }
 
         if (isset($map['Id'])) {
