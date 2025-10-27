@@ -21,6 +21,11 @@ class huawei extends Model
     /**
      * @var string
      */
+    public $liveNotificationPayload;
+
+    /**
+     * @var string
+     */
     public $receiptId;
 
     /**
@@ -30,6 +35,7 @@ class huawei extends Model
     protected $_name = [
         'category' => 'Category',
         'importance' => 'Importance',
+        'liveNotificationPayload' => 'LiveNotificationPayload',
         'receiptId' => 'ReceiptId',
         'urgency' => 'Urgency',
     ];
@@ -48,6 +54,10 @@ class huawei extends Model
 
         if (null !== $this->importance) {
             $res['Importance'] = $this->importance;
+        }
+
+        if (null !== $this->liveNotificationPayload) {
+            $res['LiveNotificationPayload'] = $this->liveNotificationPayload;
         }
 
         if (null !== $this->receiptId) {
@@ -75,6 +85,10 @@ class huawei extends Model
 
         if (isset($map['Importance'])) {
             $model->importance = $map['Importance'];
+        }
+
+        if (isset($map['LiveNotificationPayload'])) {
+            $model->liveNotificationPayload = $map['LiveNotificationPayload'];
         }
 
         if (isset($map['ReceiptId'])) {

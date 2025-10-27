@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushTask\notification\android\options\accs;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushTask\notification\android\options\honor;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushTask\notification\android\options\huawei;
+use AlibabaCloud\SDK\Push\V20160801\Models\PushTask\notification\android\options\meizu;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushTask\notification\android\options\oppo;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushTask\notification\android\options\vivo;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushTask\notification\android\options\xiaomi;
@@ -30,6 +31,11 @@ class options extends Model
     public $huawei;
 
     /**
+     * @var meizu
+     */
+    public $meizu;
+
+    /**
      * @var oppo
      */
     public $oppo;
@@ -47,6 +53,7 @@ class options extends Model
         'accs' => 'Accs',
         'honor' => 'Honor',
         'huawei' => 'Huawei',
+        'meizu' => 'Meizu',
         'oppo' => 'Oppo',
         'vivo' => 'Vivo',
         'xiaomi' => 'Xiaomi',
@@ -62,6 +69,9 @@ class options extends Model
         }
         if (null !== $this->huawei) {
             $this->huawei->validate();
+        }
+        if (null !== $this->meizu) {
+            $this->meizu->validate();
         }
         if (null !== $this->oppo) {
             $this->oppo->validate();
@@ -88,6 +98,10 @@ class options extends Model
 
         if (null !== $this->huawei) {
             $res['Huawei'] = null !== $this->huawei ? $this->huawei->toArray($noStream) : $this->huawei;
+        }
+
+        if (null !== $this->meizu) {
+            $res['Meizu'] = null !== $this->meizu ? $this->meizu->toArray($noStream) : $this->meizu;
         }
 
         if (null !== $this->oppo) {
@@ -123,6 +137,10 @@ class options extends Model
 
         if (isset($map['Huawei'])) {
             $model->huawei = huawei::fromMap($map['Huawei']);
+        }
+
+        if (isset($map['Meizu'])) {
+            $model->meizu = meizu::fromMap($map['Meizu']);
         }
 
         if (isset($map['Oppo'])) {

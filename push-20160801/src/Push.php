@@ -28,6 +28,9 @@ use AlibabaCloud\SDK\Push\V20160801\Models\ListTagsRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\ListTagsResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\MassPushRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\MassPushResponse;
+use AlibabaCloud\SDK\Push\V20160801\Models\MassPushV2Request;
+use AlibabaCloud\SDK\Push\V20160801\Models\MassPushV2Response;
+use AlibabaCloud\SDK\Push\V20160801\Models\MassPushV2ShrinkRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushMessageToAndroidRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushMessageToAndroidResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushMessageToiOSRequest;
@@ -39,6 +42,9 @@ use AlibabaCloud\SDK\Push\V20160801\Models\PushNoticeToiOSResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushShrinkRequest;
+use AlibabaCloud\SDK\Push\V20160801\Models\PushV2Request;
+use AlibabaCloud\SDK\Push\V20160801\Models\PushV2Response;
+use AlibabaCloud\SDK\Push\V20160801\Models\PushV2ShrinkRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryAliasesRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryAliasesResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryDeviceInfoRequest;
@@ -907,6 +913,77 @@ class Push extends OpenApiClient
     }
 
     /**
+     * 新版高级推送接口.
+     *
+     * @param tmpReq - MassPushV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MassPushV2Response
+     *
+     * @param MassPushV2Request $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return MassPushV2Response
+     */
+    public function massPushV2WithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MassPushV2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pushTasks) {
+            $request->pushTasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pushTasks, 'PushTasks', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->idempotentToken) {
+            @$query['IdempotentToken'] = $request->idempotentToken;
+        }
+
+        if (null !== $request->pushTasksShrink) {
+            @$query['PushTasks'] = $request->pushTasksShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MassPushV2',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MassPushV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新版高级推送接口.
+     *
+     * @param request - MassPushV2Request
+     *
+     * @returns MassPushV2Response
+     *
+     * @param MassPushV2Request $request
+     *
+     * @return MassPushV2Response
+     */
+    public function massPushV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->massPushV2WithOptions($request, $runtime);
+    }
+
+    /**
      * 高级推送接口.
      *
      * @param tmpReq - PushRequest
@@ -1747,6 +1824,77 @@ class Push extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pushNoticeToiOSWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新版高级推送接口.
+     *
+     * @param tmpReq - PushV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushV2Response
+     *
+     * @param PushV2Request  $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return PushV2Response
+     */
+    public function pushV2WithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PushV2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pushTask) {
+            $request->pushTaskShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pushTask, 'PushTask', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->idempotentToken) {
+            @$query['IdempotentToken'] = $request->idempotentToken;
+        }
+
+        if (null !== $request->pushTaskShrink) {
+            @$query['PushTask'] = $request->pushTaskShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PushV2',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PushV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新版高级推送接口.
+     *
+     * @param request - PushV2Request
+     *
+     * @returns PushV2Response
+     *
+     * @param PushV2Request $request
+     *
+     * @return PushV2Response
+     */
+    public function pushV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pushV2WithOptions($request, $runtime);
     }
 
     /**

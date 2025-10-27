@@ -17,9 +17,27 @@ class oppo extends Model
      * @var int
      */
     public $notifyLevel;
+
+    /**
+     * @var string
+     */
+    public $privateContentParameters;
+
+    /**
+     * @var string
+     */
+    public $privateMsgTemplateId;
+
+    /**
+     * @var string
+     */
+    public $privateTitleParameters;
     protected $_name = [
         'category' => 'Category',
         'notifyLevel' => 'NotifyLevel',
+        'privateContentParameters' => 'PrivateContentParameters',
+        'privateMsgTemplateId' => 'PrivateMsgTemplateId',
+        'privateTitleParameters' => 'PrivateTitleParameters',
     ];
 
     public function validate()
@@ -36,6 +54,18 @@ class oppo extends Model
 
         if (null !== $this->notifyLevel) {
             $res['NotifyLevel'] = $this->notifyLevel;
+        }
+
+        if (null !== $this->privateContentParameters) {
+            $res['PrivateContentParameters'] = $this->privateContentParameters;
+        }
+
+        if (null !== $this->privateMsgTemplateId) {
+            $res['PrivateMsgTemplateId'] = $this->privateMsgTemplateId;
+        }
+
+        if (null !== $this->privateTitleParameters) {
+            $res['PrivateTitleParameters'] = $this->privateTitleParameters;
         }
 
         return $res;
@@ -55,6 +85,18 @@ class oppo extends Model
 
         if (isset($map['NotifyLevel'])) {
             $model->notifyLevel = $map['NotifyLevel'];
+        }
+
+        if (isset($map['PrivateContentParameters'])) {
+            $model->privateContentParameters = $map['PrivateContentParameters'];
+        }
+
+        if (isset($map['PrivateMsgTemplateId'])) {
+            $model->privateMsgTemplateId = $map['PrivateMsgTemplateId'];
+        }
+
+        if (isset($map['PrivateTitleParameters'])) {
+            $model->privateTitleParameters = $map['PrivateTitleParameters'];
         }
 
         return $model;

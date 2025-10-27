@@ -54,6 +54,11 @@ class hmos extends Model
     public $inboxContent;
 
     /**
+     * @var string
+     */
+    public $liveViewPayload;
+
+    /**
      * @var int
      */
     public $notifyId;
@@ -92,6 +97,7 @@ class hmos extends Model
         'extensionPush' => 'ExtensionPush',
         'imageUrl' => 'ImageUrl',
         'inboxContent' => 'InboxContent',
+        'liveViewPayload' => 'LiveViewPayload',
         'notifyId' => 'NotifyId',
         'receiptId' => 'ReceiptId',
         'renderStyle' => 'RenderStyle',
@@ -152,6 +158,10 @@ class hmos extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->liveViewPayload) {
+            $res['LiveViewPayload'] = $this->liveViewPayload;
         }
 
         if (null !== $this->notifyId) {
@@ -230,6 +240,10 @@ class hmos extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['LiveViewPayload'])) {
+            $model->liveViewPayload = $map['LiveViewPayload'];
         }
 
         if (isset($map['NotifyId'])) {
