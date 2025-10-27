@@ -2715,6 +2715,10 @@ class Edsaic extends OpenApiClient
             @$query['InstanceType'] = $request->instanceType;
         }
 
+        if (null !== $request->systemType) {
+            @$query['SystemType'] = $request->systemType;
+        }
+
         $body = [];
         if (null !== $request->imageId) {
             @$body['ImageId'] = $request->imageId;

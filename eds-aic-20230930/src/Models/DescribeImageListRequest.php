@@ -53,6 +53,11 @@ class DescribeImageListRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $systemType;
     protected $_name = [
         'imageBizTags' => 'ImageBizTags',
         'imageId' => 'ImageId',
@@ -63,6 +68,7 @@ class DescribeImageListRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'status' => 'Status',
+        'systemType' => 'SystemType',
     ];
 
     public function validate()
@@ -119,6 +125,10 @@ class DescribeImageListRequest extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->systemType) {
+            $res['SystemType'] = $this->systemType;
+        }
+
         return $res;
     }
 
@@ -171,6 +181,10 @@ class DescribeImageListRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SystemType'])) {
+            $model->systemType = $map['SystemType'];
         }
 
         return $model;
