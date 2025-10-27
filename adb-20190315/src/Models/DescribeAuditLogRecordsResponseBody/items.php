@@ -24,6 +24,11 @@ class items extends Model
     public $executeTime;
 
     /**
+     * @var int
+     */
+    public $executeTimestamp;
+
+    /**
      * @var string
      */
     public $hostAddress;
@@ -61,6 +66,7 @@ class items extends Model
         'connId' => 'ConnId',
         'DBName' => 'DBName',
         'executeTime' => 'ExecuteTime',
+        'executeTimestamp' => 'ExecuteTimestamp',
         'hostAddress' => 'HostAddress',
         'processID' => 'ProcessID',
         'SQLText' => 'SQLText',
@@ -88,6 +94,10 @@ class items extends Model
 
         if (null !== $this->executeTime) {
             $res['ExecuteTime'] = $this->executeTime;
+        }
+
+        if (null !== $this->executeTimestamp) {
+            $res['ExecuteTimestamp'] = $this->executeTimestamp;
         }
 
         if (null !== $this->hostAddress) {
@@ -139,6 +149,10 @@ class items extends Model
 
         if (isset($map['ExecuteTime'])) {
             $model->executeTime = $map['ExecuteTime'];
+        }
+
+        if (isset($map['ExecuteTimestamp'])) {
+            $model->executeTimestamp = $map['ExecuteTimestamp'];
         }
 
         if (isset($map['HostAddress'])) {

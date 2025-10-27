@@ -383,7 +383,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 申请公网链接.
+     * Applies for a public endpoint for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
      * @param request - AllocateClusterPublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -442,7 +442,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 申请公网链接.
+     * Applies for a public endpoint for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *
      * @param request - AllocateClusterPublicConnectionRequest
      *
