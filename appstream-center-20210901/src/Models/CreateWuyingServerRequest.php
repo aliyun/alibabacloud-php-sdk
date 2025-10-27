@@ -87,6 +87,11 @@ class CreateWuyingServerRequest extends Model
     /**
      * @var string
      */
+    public $savingPlanId;
+
+    /**
+     * @var string
+     */
     public $serverInstanceType;
 
     /**
@@ -139,6 +144,7 @@ class CreateWuyingServerRequest extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
+        'savingPlanId' => 'SavingPlanId',
         'serverInstanceType' => 'ServerInstanceType',
         'serverPortRange' => 'ServerPortRange',
         'systemDiskCategory' => 'SystemDiskCategory',
@@ -228,6 +234,10 @@ class CreateWuyingServerRequest extends Model
 
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
+        }
+
+        if (null !== $this->savingPlanId) {
+            $res['SavingPlanId'] = $this->savingPlanId;
         }
 
         if (null !== $this->serverInstanceType) {
@@ -345,6 +355,10 @@ class CreateWuyingServerRequest extends Model
 
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
+        }
+
+        if (isset($map['SavingPlanId'])) {
+            $model->savingPlanId = $map['SavingPlanId'];
         }
 
         if (isset($map['ServerInstanceType'])) {

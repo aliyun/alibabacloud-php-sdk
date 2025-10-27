@@ -74,6 +74,9 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttr
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAmountRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAmountResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAmountShrinkRequest;
@@ -684,6 +687,11 @@ class Appstreamcenter extends OpenApiClient
     public function createWuyingServerWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->savingPlanId) {
+            @$query['SavingPlanId'] = $request->savingPlanId;
+        }
+
         $body = [];
         if (null !== $request->amount) {
             @$body['Amount'] = $request->amount;
@@ -781,6 +789,7 @@ class Appstreamcenter extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2917,6 +2926,103 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAppPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改浏览器交付组.
+     *
+     * @param tmpReq - ModifyBrowserInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBrowserInstanceGroupResponse
+     *
+     * @param ModifyBrowserInstanceGroupRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyBrowserInstanceGroupResponse
+     */
+    public function modifyBrowserInstanceGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyBrowserInstanceGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->browserConfig) {
+            $request->browserConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->browserConfig, 'BrowserConfig', 'json');
+        }
+
+        if (null !== $tmpReq->network) {
+            $request->networkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->network, 'Network', 'json');
+        }
+
+        if (null !== $tmpReq->policy) {
+            $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+        }
+
+        if (null !== $tmpReq->timers) {
+            $request->timersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timers, 'Timers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->browserConfigShrink) {
+            @$query['BrowserConfig'] = $request->browserConfigShrink;
+        }
+
+        if (null !== $request->browserInstanceGroupId) {
+            @$query['BrowserInstanceGroupId'] = $request->browserInstanceGroupId;
+        }
+
+        if (null !== $request->policyShrink) {
+            @$query['Policy'] = $request->policyShrink;
+        }
+
+        if (null !== $request->timersShrink) {
+            @$query['Timers'] = $request->timersShrink;
+        }
+
+        $body = [];
+        if (null !== $request->cloudBrowserName) {
+            @$body['CloudBrowserName'] = $request->cloudBrowserName;
+        }
+
+        if (null !== $request->networkShrink) {
+            @$body['Network'] = $request->networkShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBrowserInstanceGroup',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBrowserInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改浏览器交付组.
+     *
+     * @param request - ModifyBrowserInstanceGroupRequest
+     *
+     * @returns ModifyBrowserInstanceGroupResponse
+     *
+     * @param ModifyBrowserInstanceGroupRequest $request
+     *
+     * @return ModifyBrowserInstanceGroupResponse
+     */
+    public function modifyBrowserInstanceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBrowserInstanceGroupWithOptions($request, $runtime);
     }
 
     /**
