@@ -3564,6 +3564,10 @@ class Ecd extends OpenApiClient
             @$query['EndUserGroupCoordinate'] = $request->endUserGroupCoordinate;
         }
 
+        if (null !== $request->externalDrive) {
+            @$query['ExternalDrive'] = $request->externalDrive;
+        }
+
         if (null !== $request->fileMigrate) {
             @$query['FileMigrate'] = $request->fileMigrate;
         }
@@ -17301,6 +17305,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->endUserGroupCoordinate) {
             @$query['EndUserGroupCoordinate'] = $request->endUserGroupCoordinate;
+        }
+
+        if (null !== $request->externalDrive) {
+            @$query['ExternalDrive'] = $request->externalDrive;
         }
 
         if (null !== $request->fileMigrate) {

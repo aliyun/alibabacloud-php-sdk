@@ -178,6 +178,11 @@ class ModifyCenterPolicyRequest extends Model
     /**
      * @var string
      */
+    public $externalDrive;
+
+    /**
+     * @var string
+     */
     public $fileMigrate;
 
     /**
@@ -646,6 +651,7 @@ class ModifyCenterPolicyRequest extends Model
         'enableSessionRateLimiting' => 'EnableSessionRateLimiting',
         'endUserApplyAdminCoordinate' => 'EndUserApplyAdminCoordinate',
         'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
+        'externalDrive' => 'ExternalDrive',
         'fileMigrate' => 'FileMigrate',
         'fileTransferAddress' => 'FileTransferAddress',
         'fileTransferSpeed' => 'FileTransferSpeed',
@@ -979,6 +985,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (null !== $this->endUserGroupCoordinate) {
             $res['EndUserGroupCoordinate'] = $this->endUserGroupCoordinate;
+        }
+
+        if (null !== $this->externalDrive) {
+            $res['ExternalDrive'] = $this->externalDrive;
         }
 
         if (null !== $this->fileMigrate) {
@@ -1599,6 +1609,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (isset($map['EndUserGroupCoordinate'])) {
             $model->endUserGroupCoordinate = $map['EndUserGroupCoordinate'];
+        }
+
+        if (isset($map['ExternalDrive'])) {
+            $model->externalDrive = $map['ExternalDrive'];
         }
 
         if (isset($map['FileMigrate'])) {

@@ -165,6 +165,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $externalDrive;
+
+    /**
+     * @var string
+     */
     public $fileMigrate;
 
     /**
@@ -636,6 +641,7 @@ class describePolicyGroups extends Model
         'edsCount' => 'EdsCount',
         'endUserApplyAdminCoordinate' => 'EndUserApplyAdminCoordinate',
         'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
+        'externalDrive' => 'ExternalDrive',
         'fileMigrate' => 'FileMigrate',
         'fileTransfer' => 'FileTransfer',
         'fileTransferAddress' => 'FileTransferAddress',
@@ -946,6 +952,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->endUserGroupCoordinate) {
             $res['EndUserGroupCoordinate'] = $this->endUserGroupCoordinate;
+        }
+
+        if (null !== $this->externalDrive) {
+            $res['ExternalDrive'] = $this->externalDrive;
         }
 
         if (null !== $this->fileMigrate) {
@@ -1541,6 +1551,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['EndUserGroupCoordinate'])) {
             $model->endUserGroupCoordinate = $map['EndUserGroupCoordinate'];
+        }
+
+        if (isset($map['ExternalDrive'])) {
+            $model->externalDrive = $map['ExternalDrive'];
         }
 
         if (isset($map['FileMigrate'])) {
