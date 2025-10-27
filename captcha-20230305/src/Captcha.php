@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\Captcha\V20230305;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Captcha\V20230305\Models\VerifyCaptchaRequest;
 use AlibabaCloud\SDK\Captcha\V20230305\Models\VerifyCaptchaResponse;
 use AlibabaCloud\SDK\Captcha\V20230305\Models\VerifyIntelligentCaptchaRequest;
 use AlibabaCloud\SDK\Captcha\V20230305\Models\VerifyIntelligentCaptchaResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Captcha extends OpenApiClient
 {
@@ -39,17 +37,25 @@ class Captcha extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 验证码验证
+     *
+     * @param request - VerifyCaptchaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyCaptchaResponse
+     *
      * @param VerifyCaptchaRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -57,30 +63,37 @@ class Captcha extends OpenApiClient
      */
     public function verifyCaptchaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->captchaVerifyParam)) {
-            $query['CaptchaVerifyParam'] = $request->captchaVerifyParam;
+        if (null !== $request->captchaVerifyParam) {
+            @$query['CaptchaVerifyParam'] = $request->captchaVerifyParam;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyCaptcha',
-            'version'     => '2023-03-05',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyCaptcha',
+            'version' => '2023-03-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyCaptchaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 验证码验证
+     *
+     * @param request - VerifyCaptchaRequest
+     *
+     * @returns VerifyCaptchaResponse
+     *
      * @param VerifyCaptchaRequest $request
      *
      * @return VerifyCaptchaResponse
@@ -93,6 +106,13 @@ class Captcha extends OpenApiClient
     }
 
     /**
+     * 验证码验证
+     *
+     * @param request - VerifyIntelligentCaptchaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyIntelligentCaptchaResponse
+     *
      * @param VerifyIntelligentCaptchaRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -100,33 +120,41 @@ class Captcha extends OpenApiClient
      */
     public function verifyIntelligentCaptchaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->captchaVerifyParam)) {
-            $body['CaptchaVerifyParam'] = $request->captchaVerifyParam;
+        if (null !== $request->captchaVerifyParam) {
+            @$body['CaptchaVerifyParam'] = $request->captchaVerifyParam;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $body['SceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VerifyIntelligentCaptcha',
-            'version'     => '2023-03-05',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyIntelligentCaptcha',
+            'version' => '2023-03-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyIntelligentCaptchaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 验证码验证
+     *
+     * @param request - VerifyIntelligentCaptchaRequest
+     *
+     * @returns VerifyIntelligentCaptchaResponse
+     *
      * @param VerifyIntelligentCaptchaRequest $request
      *
      * @return VerifyIntelligentCaptchaResponse

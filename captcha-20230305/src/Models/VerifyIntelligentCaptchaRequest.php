@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Captcha\V20230305\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyIntelligentCaptchaRequest extends Model
 {
     /**
-     * @example dsjidsjidsjkds*djsjdiskds
-     *
      * @var string
      */
     public $captchaVerifyParam;
@@ -21,19 +19,21 @@ class VerifyIntelligentCaptchaRequest extends Model
     public $sceneId;
     protected $_name = [
         'captchaVerifyParam' => 'CaptchaVerifyParam',
-        'sceneId'            => 'SceneId',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->captchaVerifyParam) {
             $res['CaptchaVerifyParam'] = $this->captchaVerifyParam;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
@@ -41,17 +41,18 @@ class VerifyIntelligentCaptchaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyIntelligentCaptchaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CaptchaVerifyParam'])) {
             $model->captchaVerifyParam = $map['CaptchaVerifyParam'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }
