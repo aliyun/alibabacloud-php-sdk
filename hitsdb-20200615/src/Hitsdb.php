@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceDetailsRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceDetailsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceEngineListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceEngineListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormV2InstanceForTerraformRequest;
@@ -122,6 +124,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceSecurityGroupsRequest
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceSecurityGroupsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLdpsComputeGroupRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLdpsComputeGroupResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormInstanceAttributeRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormInstanceAttributeResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceParameterRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceParameterResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateLindormV2InstanceRequest;
@@ -2768,6 +2772,83 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 查询新架构实例详情.
+     *
+     * @param request - GetLindormV2InstanceDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLindormV2InstanceDetailsResponse
+     *
+     * @param GetLindormV2InstanceDetailsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetLindormV2InstanceDetailsResponse
+     */
+    public function getLindormV2InstanceDetailsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLindormV2InstanceDetails',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLindormV2InstanceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询新架构实例详情.
+     *
+     * @param request - GetLindormV2InstanceDetailsRequest
+     *
+     * @returns GetLindormV2InstanceDetailsResponse
+     *
+     * @param GetLindormV2InstanceDetailsRequest $request
+     *
+     * @return GetLindormV2InstanceDetailsResponse
+     */
+    public function getLindormV2InstanceDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLindormV2InstanceDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - GetLindormV2InstanceEngineListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2845,7 +2926,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 查询实例详情.
+     * 查询新架构实例详情.
      *
      * @param request - GetLindormV2InstanceForTerraformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2904,7 +2985,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 查询实例详情.
+     * 查询新架构实例详情.
      *
      * @param request - GetLindormV2InstanceForTerraformRequest
      *
@@ -5389,6 +5470,91 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateLdpsComputeGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实例名称或删除保护.
+     *
+     * @param request - UpdateLindormInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLindormInstanceAttributeResponse
+     *
+     * @param UpdateLindormInstanceAttributeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateLindormInstanceAttributeResponse
+     */
+    public function updateLindormInstanceAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deletionProtection) {
+            @$query['DeletionProtection'] = $request->deletionProtection;
+        }
+
+        if (null !== $request->instanceAlias) {
+            @$query['InstanceAlias'] = $request->instanceAlias;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLindormInstanceAttribute',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLindormInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例名称或删除保护.
+     *
+     * @param request - UpdateLindormInstanceAttributeRequest
+     *
+     * @returns UpdateLindormInstanceAttributeResponse
+     *
+     * @param UpdateLindormInstanceAttributeRequest $request
+     *
+     * @return UpdateLindormInstanceAttributeResponse
+     */
+    public function updateLindormInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLindormInstanceAttributeWithOptions($request, $runtime);
     }
 
     /**
