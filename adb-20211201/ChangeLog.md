@@ -2,6 +2,10 @@
 - Update API DescribeAuditLogRecords: add response parameters Body.Items.$.ExecuteTimestamp.
 
 
+2025-10-27 Version: 4.5.1
+- Update API DescribeAuditLogRecords: add response parameters Body.Items.$.ExecuteTimestamp.
+
+
 2025-10-17 Version: 4.5.0
 - Support API CreateApsWebhook.
 - Support API CreateMaterializedViewRecommend.
