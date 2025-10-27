@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyRequ
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallPreCheckRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallPreCheckResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreatePrivateDnsEndpointRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreatePrivateDnsEndpointResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSecurityProxyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateSlsLogDispatchRequest;
@@ -223,6 +225,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserInternetStatusR
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserInternetStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserNatStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserNatStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserVpcStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayUserVpcStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsDomainNameListRequest;
@@ -245,9 +249,12 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskSecurityGroupDetailReq
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskSecurityGroupDetailResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSecurityModeRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSecurityModeResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSecurityProxyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSecurityProxyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSignatureLibVersionResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSlsAnalyzeOpenStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSlsAnalyzeOpenStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeThreatIntelligenceSwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest;
@@ -301,6 +308,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVulnerabilityProtectedList
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVulnerabilityProtectedListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\EnableSdlProtectedAssetRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\EnableSdlProtectedAssetResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\GetTlsInspectCertificateDownloadUrlRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\GetTlsInspectCertificateDownloadUrlResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListTlsInspectCACertificatesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListTlsInspectCACertificatesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest;
@@ -390,6 +401,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAITrafficAnalysisStatusReque
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAITrafficAnalysisStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserInternetStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserInternetStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserNatStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserNatStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserVpcStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserVpcStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateSecurityProxyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1535,6 +1550,115 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNatFirewallPreCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建私网DNS终端节点.
+     *
+     * @param request - CreatePrivateDnsEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePrivateDnsEndpointResponse
+     *
+     * @param CreatePrivateDnsEndpointRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreatePrivateDnsEndpointResponse
+     */
+    public function createPrivateDnsEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessInstanceName) {
+            @$query['AccessInstanceName'] = $request->accessInstanceName;
+        }
+
+        if (null !== $request->firewallType) {
+            @$query['FirewallType'] = $request->firewallType;
+        }
+
+        if (null !== $request->ipProtocol) {
+            @$query['IpProtocol'] = $request->ipProtocol;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->primaryDns) {
+            @$query['PrimaryDns'] = $request->primaryDns;
+        }
+
+        if (null !== $request->primaryVSwitchId) {
+            @$query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
+        }
+
+        if (null !== $request->primaryVSwitchIp) {
+            @$query['PrimaryVSwitchIp'] = $request->primaryVSwitchIp;
+        }
+
+        if (null !== $request->privateDnsType) {
+            @$query['PrivateDnsType'] = $request->privateDnsType;
+        }
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
+        }
+
+        if (null !== $request->standbyDns) {
+            @$query['StandbyDns'] = $request->standbyDns;
+        }
+
+        if (null !== $request->standbyVSwitchId) {
+            @$query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+        }
+
+        if (null !== $request->standbyVSwitchIp) {
+            @$query['StandbyVSwitchIp'] = $request->standbyVSwitchIp;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePrivateDnsEndpoint',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePrivateDnsEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建私网DNS终端节点.
+     *
+     * @param request - CreatePrivateDnsEndpointRequest
+     *
+     * @returns CreatePrivateDnsEndpointResponse
+     *
+     * @param CreatePrivateDnsEndpointRequest $request
+     *
+     * @return CreatePrivateDnsEndpointResponse
+     */
+    public function createPrivateDnsEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPrivateDnsEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -6800,6 +6924,10 @@ class Cloudfw extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
         if (null !== $request->memberUid) {
             @$query['MemberUid'] = $request->memberUid;
         }
@@ -7649,6 +7777,14 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->networkInstanceId) {
+            @$query['NetworkInstanceId'] = $request->networkInstanceId;
+        }
+
+        if (null !== $request->peerNetworkInstanceId) {
+            @$query['PeerNetworkInstanceId'] = $request->peerNetworkInstanceId;
         }
 
         $req = new OpenApiRequest([
@@ -8995,6 +9131,59 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * Queries the status of the virtual private cloud (VPC) Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - DescribePostpayUserVpcStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePostpayUserVpcStatusResponse
+     *
+     * @param DescribePostpayUserVpcStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribePostpayUserVpcStatusResponse
+     */
+    public function describePostpayUserVpcStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePostpayUserVpcStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePostpayUserVpcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status of the virtual private cloud (VPC) Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - DescribePostpayUserVpcStatusRequest
+     *
+     * @returns DescribePostpayUserVpcStatusResponse
+     *
+     * @param DescribePostpayUserVpcStatusRequest $request
+     *
+     * @return DescribePostpayUserVpcStatusResponse
+     */
+    public function describePostpayUserVpcStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePostpayUserVpcStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries prefix lists.
      *
      * @param request - DescribePrefixListsRequest
@@ -9820,6 +10009,103 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 获取正向代理.
+     *
+     * @param request - DescribeSecurityProxyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityProxyResponse
+     *
+     * @param DescribeSecurityProxyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSecurityProxyResponse
+     */
+    public function describeSecurityProxyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
+        }
+
+        if (null !== $request->natGatewayId) {
+            @$query['NatGatewayId'] = $request->natGatewayId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->proxyId) {
+            @$query['ProxyId'] = $request->proxyId;
+        }
+
+        if (null !== $request->proxyName) {
+            @$query['ProxyName'] = $request->proxyName;
+        }
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSecurityProxy',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSecurityProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取正向代理.
+     *
+     * @param request - DescribeSecurityProxyRequest
+     *
+     * @returns DescribeSecurityProxyResponse
+     *
+     * @param DescribeSecurityProxyRequest $request
+     *
+     * @return DescribeSecurityProxyResponse
+     */
+    public function describeSecurityProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityProxyWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about signature library versions.
      *
      * @param request - DescribeSignatureLibVersionRequest
@@ -9918,6 +10204,50 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlsAnalyzeOpenStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询威胁情报配置的信息.
+     *
+     * @param request - DescribeThreatIntelligenceSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeThreatIntelligenceSwitchResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeThreatIntelligenceSwitchResponse
+     */
+    public function describeThreatIntelligenceSwitchWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeThreatIntelligenceSwitch',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeThreatIntelligenceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询威胁情报配置的信息.
+     *
+     * @returns DescribeThreatIntelligenceSwitchResponse
+     *
+     * @return DescribeThreatIntelligenceSwitchResponse
+     */
+    public function describeThreatIntelligenceSwitch()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeThreatIntelligenceSwitchWithOptions($runtime);
     }
 
     /**
@@ -12014,6 +12344,128 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableSdlProtectedAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 下载TLS证书.
+     *
+     * @param request - GetTlsInspectCertificateDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTlsInspectCertificateDownloadUrlResponse
+     *
+     * @param GetTlsInspectCertificateDownloadUrlRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetTlsInspectCertificateDownloadUrlResponse
+     */
+    public function getTlsInspectCertificateDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->caCertId) {
+            @$query['CaCertId'] = $request->caCertId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTlsInspectCertificateDownloadUrl',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTlsInspectCertificateDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下载TLS证书.
+     *
+     * @param request - GetTlsInspectCertificateDownloadUrlRequest
+     *
+     * @returns GetTlsInspectCertificateDownloadUrlResponse
+     *
+     * @param GetTlsInspectCertificateDownloadUrlRequest $request
+     *
+     * @return GetTlsInspectCertificateDownloadUrlResponse
+     */
+    public function getTlsInspectCertificateDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTlsInspectCertificateDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询TLS检查证书.
+     *
+     * @param request - ListTlsInspectCACertificatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTlsInspectCACertificatesResponse
+     *
+     * @param ListTlsInspectCACertificatesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListTlsInspectCACertificatesResponse
+     */
+    public function listTlsInspectCACertificatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->caCertId) {
+            @$query['CaCertId'] = $request->caCertId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTlsInspectCACertificates',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTlsInspectCACertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询TLS检查证书.
+     *
+     * @param request - ListTlsInspectCACertificatesRequest
+     *
+     * @returns ListTlsInspectCACertificatesResponse
+     *
+     * @param ListTlsInspectCACertificatesRequest $request
+     *
+     * @return ListTlsInspectCACertificatesResponse
+     */
+    public function listTlsInspectCACertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTlsInspectCACertificatesWithOptions($request, $runtime);
     }
 
     /**
@@ -15528,6 +15980,136 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePostpayUserInternetStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the status of the NAT Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - UpdatePostpayUserNatStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePostpayUserNatStatusResponse
+     *
+     * @param UpdatePostpayUserNatStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdatePostpayUserNatStatusResponse
+     */
+    public function updatePostpayUserNatStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->operate) {
+            @$query['Operate'] = $request->operate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePostpayUserNatStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePostpayUserNatStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the status of the NAT Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - UpdatePostpayUserNatStatusRequest
+     *
+     * @returns UpdatePostpayUserNatStatusResponse
+     *
+     * @param UpdatePostpayUserNatStatusRequest $request
+     *
+     * @return UpdatePostpayUserNatStatusResponse
+     */
+    public function updatePostpayUserNatStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePostpayUserNatStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the status of the virtual private cloud (VPC) Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - UpdatePostpayUserVpcStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePostpayUserVpcStatusResponse
+     *
+     * @param UpdatePostpayUserVpcStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdatePostpayUserVpcStatusResponse
+     */
+    public function updatePostpayUserVpcStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->operate) {
+            @$query['Operate'] = $request->operate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePostpayUserVpcStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePostpayUserVpcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the status of the virtual private cloud (VPC) Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+     *
+     * @param request - UpdatePostpayUserVpcStatusRequest
+     *
+     * @returns UpdatePostpayUserVpcStatusResponse
+     *
+     * @param UpdatePostpayUserVpcStatusRequest $request
+     *
+     * @return UpdatePostpayUserVpcStatusResponse
+     */
+    public function updatePostpayUserVpcStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePostpayUserVpcStatusWithOptions($request, $runtime);
     }
 
     /**

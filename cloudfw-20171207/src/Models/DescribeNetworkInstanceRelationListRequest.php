@@ -22,10 +22,22 @@ class DescribeNetworkInstanceRelationListRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $networkInstanceId;
+
+    /**
+     * @var string
+     */
+    public $peerNetworkInstanceId;
     protected $_name = [
         'connectType' => 'ConnectType',
         'firewallConfigureStatus' => 'FirewallConfigureStatus',
         'lang' => 'Lang',
+        'networkInstanceId' => 'NetworkInstanceId',
+        'peerNetworkInstanceId' => 'PeerNetworkInstanceId',
     ];
 
     public function validate()
@@ -46,6 +58,14 @@ class DescribeNetworkInstanceRelationListRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->networkInstanceId) {
+            $res['NetworkInstanceId'] = $this->networkInstanceId;
+        }
+
+        if (null !== $this->peerNetworkInstanceId) {
+            $res['PeerNetworkInstanceId'] = $this->peerNetworkInstanceId;
         }
 
         return $res;
@@ -69,6 +89,14 @@ class DescribeNetworkInstanceRelationListRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['NetworkInstanceId'])) {
+            $model->networkInstanceId = $map['NetworkInstanceId'];
+        }
+
+        if (isset($map['PeerNetworkInstanceId'])) {
+            $model->peerNetworkInstanceId = $map['PeerNetworkInstanceId'];
         }
 
         return $model;
