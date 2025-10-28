@@ -26,6 +26,11 @@ class UnbindRequest extends Model
     /**
      * @var string
      */
+    public $appInstancePersistentId;
+
+    /**
+     * @var string
+     */
     public $clientId;
 
     /**
@@ -76,6 +81,7 @@ class UnbindRequest extends Model
         'appId' => 'AppId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceId' => 'AppInstanceId',
+        'appInstancePersistentId' => 'AppInstancePersistentId',
         'clientId' => 'ClientId',
         'clientIp' => 'ClientIp',
         'clientOS' => 'ClientOS',
@@ -106,6 +112,10 @@ class UnbindRequest extends Model
 
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
+        }
+
+        if (null !== $this->appInstancePersistentId) {
+            $res['AppInstancePersistentId'] = $this->appInstancePersistentId;
         }
 
         if (null !== $this->clientId) {
@@ -169,6 +179,10 @@ class UnbindRequest extends Model
 
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
+        }
+
+        if (isset($map['AppInstancePersistentId'])) {
+            $model->appInstancePersistentId = $map['AppInstancePersistentId'];
         }
 
         if (isset($map['ClientId'])) {

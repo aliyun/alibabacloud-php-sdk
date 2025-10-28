@@ -1015,6 +1015,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['AppInstanceId'] = $request->appInstanceId;
         }
 
+        if (null !== $request->appInstancePersistentId) {
+            @$body['AppInstancePersistentId'] = $request->appInstancePersistentId;
+        }
+
         if (null !== $request->clientId) {
             @$body['ClientId'] = $request->clientId;
         }
