@@ -9383,7 +9383,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 删除自定义策略.
+     * Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
      *
      * @param request - DeleteCheckPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9426,7 +9426,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 删除自定义策略.
+     * Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
      *
      * @param request - DeleteCheckPolicyRequest
      *
@@ -14944,6 +14944,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->checkWarningId) {
             @$query['CheckWarningId'] = $request->checkWarningId;
+        }
+
+        if (null !== $request->containerName) {
+            @$query['ContainerName'] = $request->containerName;
         }
 
         if (null !== $request->lang) {

@@ -21,6 +21,11 @@ class DescribeCheckWarningDetailRequest extends Model
     /**
      * @var string
      */
+    public $containerName;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -40,6 +45,7 @@ class DescribeCheckWarningDetailRequest extends Model
     protected $_name = [
         'checkId' => 'CheckId',
         'checkWarningId' => 'CheckWarningId',
+        'containerName' => 'ContainerName',
         'lang' => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'sourceIp' => 'SourceIp',
@@ -60,6 +66,10 @@ class DescribeCheckWarningDetailRequest extends Model
 
         if (null !== $this->checkWarningId) {
             $res['CheckWarningId'] = $this->checkWarningId;
+        }
+
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
 
         if (null !== $this->lang) {
@@ -95,6 +105,10 @@ class DescribeCheckWarningDetailRequest extends Model
 
         if (isset($map['CheckWarningId'])) {
             $model->checkWarningId = $map['CheckWarningId'];
+        }
+
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
 
         if (isset($map['Lang'])) {
