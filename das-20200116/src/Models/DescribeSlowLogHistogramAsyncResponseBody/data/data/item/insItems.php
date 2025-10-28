@@ -22,10 +22,16 @@ class insItems extends Model
      * @var string
      */
     public $insRole;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'count' => 'Count',
         'insId' => 'InsId',
         'insRole' => 'InsRole',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -58,6 +64,10 @@ class insItems extends Model
             $res['InsRole'] = $this->insRole;
         }
 
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+
         return $res;
     }
 
@@ -86,6 +96,10 @@ class insItems extends Model
 
         if (isset($map['InsRole'])) {
             $model->insRole = $map['InsRole'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

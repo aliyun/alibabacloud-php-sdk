@@ -265,6 +265,11 @@ class data extends Model
     public $total;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var int[]
      */
     public $ts;
@@ -325,6 +330,7 @@ class data extends Model
         'rt' => 'Rt',
         'scnt' => 'Scnt',
         'total' => 'Total',
+        'totalCount' => 'TotalCount',
         'ts' => 'Ts',
         'tsEnd' => 'TsEnd',
     ];
@@ -1047,6 +1053,10 @@ class data extends Model
             $res['Total'] = $this->total;
         }
 
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+
         if (null !== $this->ts) {
             if (\is_array($this->ts)) {
                 $res['Ts'] = [];
@@ -1632,6 +1642,10 @@ class data extends Model
 
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         if (isset($map['Ts'])) {

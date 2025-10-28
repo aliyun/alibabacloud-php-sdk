@@ -22,11 +22,23 @@ class item extends Model
     /**
      * @var string
      */
+    public $insRole;
+
+    /**
+     * @var string
+     */
     public $nodeId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'count' => 'Count',
         'insItems' => 'InsItems',
+        'insRole' => 'InsRole',
         'nodeId' => 'NodeId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -65,8 +77,16 @@ class item extends Model
             }
         }
 
+        if (null !== $this->insRole) {
+            $res['InsRole'] = $this->insRole;
+        }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -102,8 +122,16 @@ class item extends Model
             }
         }
 
+        if (isset($map['InsRole'])) {
+            $model->insRole = $map['InsRole'];
+        }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
