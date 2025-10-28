@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateDiagnosisRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateDiagnosisResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateIdleInstanceCullerRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateIdleInstanceCullerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest;
@@ -99,6 +101,75 @@ class Paidsw extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 诊断问题.
+     *
+     * @param request - CreateDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDiagnosisResponse
+     *
+     * @param CreateDiagnosisRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDiagnosisResponse
+     */
+    public function createDiagnosisWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->gmtFailureTime) {
+            @$body['GmtFailureTime'] = $request->gmtFailureTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->problemCategory) {
+            @$body['ProblemCategory'] = $request->problemCategory;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDiagnosis',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/diagnoses',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 诊断问题.
+     *
+     * @param request - CreateDiagnosisRequest
+     *
+     * @returns CreateDiagnosisResponse
+     *
+     * @param CreateDiagnosisRequest $request
+     *
+     * @return CreateDiagnosisResponse
+     */
+    public function createDiagnosis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDiagnosisWithOptions($request, $headers, $runtime);
     }
 
     /**
