@@ -1,3 +1,7 @@
+2025-10-28 Version: 2.7.6
+- Update API DescribeNamespaceResources: add response parameters Body.Data.SlsConfigs.
+
+
 2025-10-24 Version: 2.7.5
 - Update API CreateIngress: add request parameters EnableGzip.
 - Update API DeployApplication: add request parameters MaxSurgeInstanceRatio.

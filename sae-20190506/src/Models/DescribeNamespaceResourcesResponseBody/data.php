@@ -76,6 +76,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $slsConfigs;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -116,6 +121,7 @@ class data extends Model
         'namespaceName' => 'NamespaceName',
         'notificationExpired' => 'NotificationExpired',
         'securityGroupId' => 'SecurityGroupId',
+        'slsConfigs' => 'SlsConfigs',
         'tenantId' => 'TenantId',
         'userId' => 'UserId',
         'vSwitchId' => 'VSwitchId',
@@ -182,6 +188,10 @@ class data extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->slsConfigs) {
+            $res['SlsConfigs'] = $this->slsConfigs;
         }
 
         if (null !== $this->tenantId) {
@@ -269,6 +279,10 @@ class data extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['SlsConfigs'])) {
+            $model->slsConfigs = $map['SlsConfigs'];
         }
 
         if (isset($map['TenantId'])) {
