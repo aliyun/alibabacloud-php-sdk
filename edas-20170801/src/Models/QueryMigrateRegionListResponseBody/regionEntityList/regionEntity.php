@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\QueryMigrateRegionListResponseBody\regionEntityList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regionEntity extends Model
 {
     /**
-     * @description The name of the namespace.
-     *
-     * @example Beta
-     *
      * @var string
      */
     public $regionName;
 
     /**
-     * @description The ID of the namespace.
-     *
-     * @example cn-beijing:beta
-     *
      * @var string
      */
     public $regionNo;
     protected $_name = [
         'regionName' => 'RegionName',
-        'regionNo'   => 'RegionNo',
+        'regionNo' => 'RegionNo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
+
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
@@ -47,17 +41,18 @@ class regionEntity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regionEntity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }
+
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }

@@ -4,58 +4,63 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\CreateApplicationScalingRuleResponseBody\appScalingRule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\CreateApplicationScalingRuleResponseBody\appScalingRule\behaviour\scaleDown;
 use AlibabaCloud\SDK\Edas\V20170801\Models\CreateApplicationScalingRuleResponseBody\appScalingRule\behaviour\scaleUp;
-use AlibabaCloud\Tea\Model;
 
 class behaviour extends Model
 {
     /**
-     * @description 弹性缩容行为配置。
-     *
      * @var scaleDown
      */
     public $scaleDown;
 
     /**
-     * @description 弹性扩容行为配置。
-     *
      * @var scaleUp
      */
     public $scaleUp;
     protected $_name = [
         'scaleDown' => 'ScaleDown',
-        'scaleUp'   => 'ScaleUp',
+        'scaleUp' => 'ScaleUp',
     ];
 
     public function validate()
     {
+        if (null !== $this->scaleDown) {
+            $this->scaleDown->validate();
+        }
+        if (null !== $this->scaleUp) {
+            $this->scaleUp->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scaleDown) {
-            $res['ScaleDown'] = null !== $this->scaleDown ? $this->scaleDown->toMap() : null;
+            $res['ScaleDown'] = null !== $this->scaleDown ? $this->scaleDown->toArray($noStream) : $this->scaleDown;
         }
+
         if (null !== $this->scaleUp) {
-            $res['ScaleUp'] = null !== $this->scaleUp ? $this->scaleUp->toMap() : null;
+            $res['ScaleUp'] = null !== $this->scaleUp ? $this->scaleUp->toArray($noStream) : $this->scaleUp;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return behaviour
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScaleDown'])) {
             $model->scaleDown = scaleDown::fromMap($map['ScaleDown']);
         }
+
         if (isset($map['ScaleUp'])) {
             $model->scaleUp = scaleUp::fromMap($map['ScaleUp']);
         }

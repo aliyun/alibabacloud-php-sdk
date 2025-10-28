@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\GetChangeOrderInfoResponseBody\changeOrderInfo\pipelineInfoList\pipelineInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetChangeOrderInfoResponseBody\changeOrderInfo\pipelineInfoList\pipelineInfo\stageList\stageInfoDTO;
-use AlibabaCloud\Tea\Model;
 
 class stageList extends Model
 {
@@ -19,17 +19,22 @@ class stageList extends Model
 
     public function validate()
     {
+        if (\is_array($this->stageInfoDTO)) {
+            Model::validateArray($this->stageInfoDTO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->stageInfoDTO) {
-            $res['StageInfoDTO'] = [];
-            if (null !== $this->stageInfoDTO && \is_array($this->stageInfoDTO)) {
-                $n = 0;
-                foreach ($this->stageInfoDTO as $item) {
-                    $res['StageInfoDTO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->stageInfoDTO)) {
+                $res['StageInfoDTO'] = [];
+                $n1 = 0;
+                foreach ($this->stageInfoDTO as $item1) {
+                    $res['StageInfoDTO'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class stageList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stageList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StageInfoDTO'])) {
             if (!empty($map['StageInfoDTO'])) {
                 $model->stageInfoDTO = [];
-                $n                   = 0;
-                foreach ($map['StageInfoDTO'] as $item) {
-                    $model->stageInfoDTO[$n++] = null !== $item ? stageInfoDTO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StageInfoDTO'] as $item1) {
+                    $model->stageInfoDTO[$n1] = stageInfoDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

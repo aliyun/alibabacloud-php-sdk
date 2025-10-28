@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteK8sApplicationRequest extends Model
 {
     /**
-     * @description The ID of the application that you want to delete. You can call the ListApplication operation to query the application ID.
-     *
-     * @example dbac7e3c-****-49bc-b6de-ffc550018b45
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description Specifies whether to forcibly delete the application and disable application deletion protection.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $force;
@@ -32,14 +24,16 @@ class DeleteK8sApplicationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
@@ -47,17 +41,18 @@ class DeleteK8sApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteK8sApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }

@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RollbackApplicationResponseBody extends Model
 {
     /**
-     * @description The change process ID. You can call the GetChangeOrderInfo operation to query the progress of this rollback. For more information, see [GetChangeOrderInfo](~~423155~~).
-     *
-     * @example 921026b8-d1be-************
-     *
      * @var string
      */
     public $changeOrderId;
 
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The returned message.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example D16979DC-4D42-*********
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'changeOrderId' => 'ChangeOrderId',
-        'code'          => 'Code',
-        'message'       => 'Message',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
             $res['ChangeOrderId'] = $this->changeOrderId;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -73,23 +61,26 @@ class RollbackApplicationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RollbackApplicationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeOrderId'])) {
             $model->changeOrderId = $map['ChangeOrderId'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

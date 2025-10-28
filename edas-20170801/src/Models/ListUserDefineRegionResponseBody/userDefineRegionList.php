@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListUserDefineRegionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListUserDefineRegionResponseBody\userDefineRegionList\userDefineRegionEntity;
-use AlibabaCloud\Tea\Model;
 
 class userDefineRegionList extends Model
 {
@@ -19,17 +19,22 @@ class userDefineRegionList extends Model
 
     public function validate()
     {
+        if (\is_array($this->userDefineRegionEntity)) {
+            Model::validateArray($this->userDefineRegionEntity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userDefineRegionEntity) {
-            $res['UserDefineRegionEntity'] = [];
-            if (null !== $this->userDefineRegionEntity && \is_array($this->userDefineRegionEntity)) {
-                $n = 0;
-                foreach ($this->userDefineRegionEntity as $item) {
-                    $res['UserDefineRegionEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userDefineRegionEntity)) {
+                $res['UserDefineRegionEntity'] = [];
+                $n1 = 0;
+                foreach ($this->userDefineRegionEntity as $item1) {
+                    $res['UserDefineRegionEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class userDefineRegionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userDefineRegionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserDefineRegionEntity'])) {
             if (!empty($map['UserDefineRegionEntity'])) {
                 $model->userDefineRegionEntity = [];
-                $n                             = 0;
-                foreach ($map['UserDefineRegionEntity'] as $item) {
-                    $model->userDefineRegionEntity[$n++] = null !== $item ? userDefineRegionEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserDefineRegionEntity'] as $item1) {
+                    $model->userDefineRegionEntity[$n1] = userDefineRegionEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

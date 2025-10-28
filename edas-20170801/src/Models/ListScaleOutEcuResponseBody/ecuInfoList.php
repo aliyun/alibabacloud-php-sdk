@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListScaleOutEcuResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListScaleOutEcuResponseBody\ecuInfoList\ecuInfo;
-use AlibabaCloud\Tea\Model;
 
 class ecuInfoList extends Model
 {
@@ -19,17 +19,22 @@ class ecuInfoList extends Model
 
     public function validate()
     {
+        if (\is_array($this->ecuInfo)) {
+            Model::validateArray($this->ecuInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecuInfo) {
-            $res['EcuInfo'] = [];
-            if (null !== $this->ecuInfo && \is_array($this->ecuInfo)) {
-                $n = 0;
-                foreach ($this->ecuInfo as $item) {
-                    $res['EcuInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ecuInfo)) {
+                $res['EcuInfo'] = [];
+                $n1 = 0;
+                foreach ($this->ecuInfo as $item1) {
+                    $res['EcuInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class ecuInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ecuInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcuInfo'])) {
             if (!empty($map['EcuInfo'])) {
                 $model->ecuInfo = [];
-                $n              = 0;
-                foreach ($map['EcuInfo'] as $item) {
-                    $model->ecuInfo[$n++] = null !== $item ? ecuInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EcuInfo'] as $item1) {
+                    $model->ecuInfo[$n1] = ecuInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

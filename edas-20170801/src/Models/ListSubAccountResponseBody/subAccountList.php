@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListSubAccountResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListSubAccountResponseBody\subAccountList\subAccount;
-use AlibabaCloud\Tea\Model;
 
 class subAccountList extends Model
 {
@@ -19,17 +19,22 @@ class subAccountList extends Model
 
     public function validate()
     {
+        if (\is_array($this->subAccount)) {
+            Model::validateArray($this->subAccount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subAccount) {
-            $res['SubAccount'] = [];
-            if (null !== $this->subAccount && \is_array($this->subAccount)) {
-                $n = 0;
-                foreach ($this->subAccount as $item) {
-                    $res['SubAccount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subAccount)) {
+                $res['SubAccount'] = [];
+                $n1 = 0;
+                foreach ($this->subAccount as $item1) {
+                    $res['SubAccount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class subAccountList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subAccountList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubAccount'])) {
             if (!empty($map['SubAccount'])) {
                 $model->subAccount = [];
-                $n                 = 0;
-                foreach ($map['SubAccount'] as $item) {
-                    $model->subAccount[$n++] = null !== $item ? subAccount::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubAccount'] as $item1) {
+                    $model->subAccount[$n1] = subAccount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

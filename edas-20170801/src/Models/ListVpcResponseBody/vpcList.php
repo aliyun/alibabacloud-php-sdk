@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListVpcResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListVpcResponseBody\vpcList\vpcEntity;
-use AlibabaCloud\Tea\Model;
 
 class vpcList extends Model
 {
@@ -19,17 +19,22 @@ class vpcList extends Model
 
     public function validate()
     {
+        if (\is_array($this->vpcEntity)) {
+            Model::validateArray($this->vpcEntity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcEntity) {
-            $res['VpcEntity'] = [];
-            if (null !== $this->vpcEntity && \is_array($this->vpcEntity)) {
-                $n = 0;
-                foreach ($this->vpcEntity as $item) {
-                    $res['VpcEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vpcEntity)) {
+                $res['VpcEntity'] = [];
+                $n1 = 0;
+                foreach ($this->vpcEntity as $item1) {
+                    $res['VpcEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class vpcList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpcList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpcEntity'])) {
             if (!empty($map['VpcEntity'])) {
                 $model->vpcEntity = [];
-                $n                = 0;
-                foreach ($map['VpcEntity'] as $item) {
-                    $model->vpcEntity[$n++] = null !== $item ? vpcEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VpcEntity'] as $item1) {
+                    $model->vpcEntity[$n1] = vpcEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

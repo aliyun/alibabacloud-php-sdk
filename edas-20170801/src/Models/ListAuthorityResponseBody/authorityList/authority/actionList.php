@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListAuthorityResponseBody\authorityList\authority;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListAuthorityResponseBody\authorityList\authority\actionList\action;
-use AlibabaCloud\Tea\Model;
 
 class actionList extends Model
 {
@@ -19,17 +19,22 @@ class actionList extends Model
 
     public function validate()
     {
+        if (\is_array($this->action)) {
+            Model::validateArray($this->action);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
-            $res['Action'] = [];
-            if (null !== $this->action && \is_array($this->action)) {
-                $n = 0;
-                foreach ($this->action as $item) {
-                    $res['Action'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->action)) {
+                $res['Action'] = [];
+                $n1 = 0;
+                foreach ($this->action as $item1) {
+                    $res['Action'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class actionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return actionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             if (!empty($map['Action'])) {
                 $model->action = [];
-                $n             = 0;
-                foreach ($map['Action'] as $item) {
-                    $model->action[$n++] = null !== $item ? action::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Action'] as $item1) {
+                    $model->action[$n1] = action::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

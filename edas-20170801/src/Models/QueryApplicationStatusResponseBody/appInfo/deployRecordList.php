@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\QueryApplicationStatusResponseBody\appInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryApplicationStatusResponseBody\appInfo\deployRecordList\deployRecord;
-use AlibabaCloud\Tea\Model;
 
 class deployRecordList extends Model
 {
@@ -19,17 +19,22 @@ class deployRecordList extends Model
 
     public function validate()
     {
+        if (\is_array($this->deployRecord)) {
+            Model::validateArray($this->deployRecord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deployRecord) {
-            $res['DeployRecord'] = [];
-            if (null !== $this->deployRecord && \is_array($this->deployRecord)) {
-                $n = 0;
-                foreach ($this->deployRecord as $item) {
-                    $res['DeployRecord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deployRecord)) {
+                $res['DeployRecord'] = [];
+                $n1 = 0;
+                foreach ($this->deployRecord as $item1) {
+                    $res['DeployRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class deployRecordList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deployRecordList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeployRecord'])) {
             if (!empty($map['DeployRecord'])) {
                 $model->deployRecord = [];
-                $n                   = 0;
-                foreach ($map['DeployRecord'] as $item) {
-                    $model->deployRecord[$n++] = null !== $item ? deployRecord::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeployRecord'] as $item1) {
+                    $model->deployRecord[$n1] = deployRecord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

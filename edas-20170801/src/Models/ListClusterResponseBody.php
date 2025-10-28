@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListClusterResponseBody\clusterList;
-use AlibabaCloud\Tea\Model;
 
 class ListClusterResponseBody extends Model
 {
     /**
-     * @description The clusters.
-     *
      * @var clusterList
      */
     public $clusterList;
 
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The additional information that is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1053-08e4-47a5-b2ab-5c0323de****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterList' => 'ClusterList',
-        'code'        => 'Code',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->clusterList) {
+            $this->clusterList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterList) {
-            $res['ClusterList'] = null !== $this->clusterList ? $this->clusterList->toMap() : null;
+            $res['ClusterList'] = null !== $this->clusterList ? $this->clusterList->toArray($noStream) : $this->clusterList;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +65,26 @@ class ListClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterList'])) {
             $model->clusterList = clusterList::fromMap($map['ClusterList']);
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

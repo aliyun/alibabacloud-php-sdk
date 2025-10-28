@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAppDeploymentRequest extends Model
 {
     /**
-     * @description The ID of the application. You can call the ListApplication operation to query the application ID.
-     *
-     * @example 93fdd228-*****-ed2ae98de18d
-     *
      * @var string
      */
     public $appId;
@@ -22,9 +18,10 @@ class GetAppDeploymentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -34,11 +31,11 @@ class GetAppDeploymentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAppDeploymentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

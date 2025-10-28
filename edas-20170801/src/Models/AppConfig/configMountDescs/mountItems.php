@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig\configMountDescs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mountItems extends Model
 {
@@ -18,20 +18,22 @@ class mountItems extends Model
      */
     public $path;
     protected $_name = [
-        'key'  => 'Key',
+        'key' => 'Key',
         'path' => 'Path',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -39,17 +41,18 @@ class mountItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mountItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

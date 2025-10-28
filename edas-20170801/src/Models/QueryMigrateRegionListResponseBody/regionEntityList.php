@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\QueryMigrateRegionListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryMigrateRegionListResponseBody\regionEntityList\regionEntity;
-use AlibabaCloud\Tea\Model;
 
 class regionEntityList extends Model
 {
@@ -19,17 +19,22 @@ class regionEntityList extends Model
 
     public function validate()
     {
+        if (\is_array($this->regionEntity)) {
+            Model::validateArray($this->regionEntity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionEntity) {
-            $res['RegionEntity'] = [];
-            if (null !== $this->regionEntity && \is_array($this->regionEntity)) {
-                $n = 0;
-                foreach ($this->regionEntity as $item) {
-                    $res['RegionEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->regionEntity)) {
+                $res['RegionEntity'] = [];
+                $n1 = 0;
+                foreach ($this->regionEntity as $item1) {
+                    $res['RegionEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class regionEntityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regionEntityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionEntity'])) {
             if (!empty($map['RegionEntity'])) {
                 $model->regionEntity = [];
-                $n                   = 0;
-                foreach ($map['RegionEntity'] as $item) {
-                    $model->regionEntity[$n++] = null !== $item ? regionEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RegionEntity'] as $item1) {
+                    $model->regionEntity[$n1] = regionEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

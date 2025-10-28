@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AbortChangeOrderRequest extends Model
 {
     /**
-     * @description The ID of the change process. You can call the [GetChangeOrderInfo](~~62072~~) operation to query the change process ID.
-     *
-     * @example 4f038ddf-b27b-****-****-88e44375****
-     *
      * @var string
      */
     public $changeOrderId;
@@ -22,9 +18,10 @@ class AbortChangeOrderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -34,11 +31,11 @@ class AbortChangeOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AbortChangeOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

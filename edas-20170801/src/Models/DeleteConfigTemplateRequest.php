@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteConfigTemplateRequest extends Model
 {
     /**
-     * @description The ID of the configuration template.
-     *
-     * @example 555
-     *
      * @var int
      */
     public $id;
@@ -22,9 +18,10 @@ class DeleteConfigTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -34,11 +31,11 @@ class DeleteConfigTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteConfigTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

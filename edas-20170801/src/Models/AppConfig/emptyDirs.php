@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class emptyDirs extends Model
 {
@@ -28,28 +28,32 @@ class emptyDirs extends Model
      */
     public $subPathExpr;
     protected $_name = [
-        'mountPath'   => 'MountPath',
-        'name'        => 'Name',
-        'readOnly'    => 'ReadOnly',
+        'mountPath' => 'MountPath',
+        'name' => 'Name',
+        'readOnly' => 'ReadOnly',
         'subPathExpr' => 'SubPathExpr',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->readOnly) {
             $res['ReadOnly'] = $this->readOnly;
         }
+
         if (null !== $this->subPathExpr) {
             $res['SubPathExpr'] = $this->subPathExpr;
         }
@@ -57,23 +61,26 @@ class emptyDirs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return emptyDirs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ReadOnly'])) {
             $model->readOnly = $map['ReadOnly'];
         }
+
         if (isset($map['SubPathExpr'])) {
             $model->subPathExpr = $map['SubPathExpr'];
         }

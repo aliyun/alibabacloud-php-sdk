@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMethodsRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example be213a4a-c7e4-473b-ab0****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The name of the service.
-     *
-     * @example Method
-     *
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'serviceName' => 'ServiceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -47,17 +41,18 @@ class ListMethodsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMethodsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }

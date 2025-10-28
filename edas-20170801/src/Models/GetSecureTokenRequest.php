@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSecureTokenRequest extends Model
 {
     /**
-     * @description The ID of the namespace, such as cn-beijing or cn-beijing:prod````.
-     *
-     * @example cn-shenzhen:x*****
-     *
      * @var string
      */
     public $namespaceId;
@@ -22,9 +18,10 @@ class GetSecureTokenRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespaceId) {
@@ -34,11 +31,11 @@ class GetSecureTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSecureTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

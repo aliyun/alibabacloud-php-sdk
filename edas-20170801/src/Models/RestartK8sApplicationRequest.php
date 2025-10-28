@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestartK8sApplicationRequest extends Model
 {
     /**
-     * @description The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](~~149390~~).
-     *
-     * @example 93fdd228-********ed2ae98de18d
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The timeout period of the change process. Unit: seconds.
-     *
-     * @example 60
-     *
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'timeout' => 'Timeout',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -47,17 +41,18 @@ class RestartK8sApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestartK8sApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

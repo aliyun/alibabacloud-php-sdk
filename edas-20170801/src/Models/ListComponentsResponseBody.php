@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListComponentsResponseBody\componentList;
-use AlibabaCloud\Tea\Model;
 
 class ListComponentsResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The components.
-     *
      * @var componentList
      */
     public $componentList;
 
     /**
-     * @description The message that is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
     protected $_name = [
-        'code'          => 'Code',
+        'code' => 'Code',
         'componentList' => 'ComponentList',
-        'message'       => 'Message',
+        'message' => 'Message',
     ];
 
     public function validate()
     {
+        if (null !== $this->componentList) {
+            $this->componentList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->componentList) {
-            $res['ComponentList'] = null !== $this->componentList ? $this->componentList->toMap() : null;
+            $res['ComponentList'] = null !== $this->componentList ? $this->componentList->toArray($noStream) : $this->componentList;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -59,20 +55,22 @@ class ListComponentsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListComponentsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ComponentList'])) {
             $model->componentList = componentList::fromMap($map['ComponentList']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

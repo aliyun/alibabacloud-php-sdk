@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetK8sServicesRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example 5a166fbd-****-****-a286-781659d9f54c
-     *
      * @var string
      */
     public $appId;
@@ -22,9 +18,10 @@ class GetK8sServicesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -34,11 +31,11 @@ class GetK8sServicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetK8sServicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

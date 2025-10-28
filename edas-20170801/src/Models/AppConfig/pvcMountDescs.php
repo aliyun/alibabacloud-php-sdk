@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig\pvcMountDescs\mountPaths;
-use AlibabaCloud\Tea\Model;
 
 class pvcMountDescs extends Model
 {
@@ -20,25 +20,31 @@ class pvcMountDescs extends Model
     public $pvcName;
     protected $_name = [
         'mountPaths' => 'MountPaths',
-        'pvcName'    => 'PvcName',
+        'pvcName' => 'PvcName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->mountPaths)) {
+            Model::validateArray($this->mountPaths);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountPaths) {
-            $res['MountPaths'] = [];
-            if (null !== $this->mountPaths && \is_array($this->mountPaths)) {
-                $n = 0;
-                foreach ($this->mountPaths as $item) {
-                    $res['MountPaths'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mountPaths)) {
+                $res['MountPaths'] = [];
+                $n1 = 0;
+                foreach ($this->mountPaths as $item1) {
+                    $res['MountPaths'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pvcName) {
             $res['PvcName'] = $this->pvcName;
         }
@@ -46,23 +52,25 @@ class pvcMountDescs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pvcMountDescs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountPaths'])) {
             if (!empty($map['MountPaths'])) {
                 $model->mountPaths = [];
-                $n                 = 0;
-                foreach ($map['MountPaths'] as $item) {
-                    $model->mountPaths[$n++] = null !== $item ? mountPaths::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MountPaths'] as $item1) {
+                    $model->mountPaths[$n1] = mountPaths::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PvcName'])) {
             $model->pvcName = $map['PvcName'];
         }

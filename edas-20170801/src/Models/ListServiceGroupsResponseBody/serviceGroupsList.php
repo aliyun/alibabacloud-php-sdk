@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListServiceGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListServiceGroupsResponseBody\serviceGroupsList\listServiceGroups;
-use AlibabaCloud\Tea\Model;
 
 class serviceGroupsList extends Model
 {
@@ -19,17 +19,22 @@ class serviceGroupsList extends Model
 
     public function validate()
     {
+        if (\is_array($this->listServiceGroups)) {
+            Model::validateArray($this->listServiceGroups);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listServiceGroups) {
-            $res['ListServiceGroups'] = [];
-            if (null !== $this->listServiceGroups && \is_array($this->listServiceGroups)) {
-                $n = 0;
-                foreach ($this->listServiceGroups as $item) {
-                    $res['ListServiceGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->listServiceGroups)) {
+                $res['ListServiceGroups'] = [];
+                $n1 = 0;
+                foreach ($this->listServiceGroups as $item1) {
+                    $res['ListServiceGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class serviceGroupsList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceGroupsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListServiceGroups'])) {
             if (!empty($map['ListServiceGroups'])) {
                 $model->listServiceGroups = [];
-                $n                        = 0;
-                foreach ($map['ListServiceGroups'] as $item) {
-                    $model->listServiceGroups[$n++] = null !== $item ? listServiceGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ListServiceGroups'] as $item1) {
+                    $model->listServiceGroups[$n1] = listServiceGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\InstallAgentResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InstallAgentResponseBody\executionResultList\executionResult;
-use AlibabaCloud\Tea\Model;
 
 class executionResultList extends Model
 {
@@ -19,17 +19,22 @@ class executionResultList extends Model
 
     public function validate()
     {
+        if (\is_array($this->executionResult)) {
+            Model::validateArray($this->executionResult);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->executionResult) {
-            $res['ExecutionResult'] = [];
-            if (null !== $this->executionResult && \is_array($this->executionResult)) {
-                $n = 0;
-                foreach ($this->executionResult as $item) {
-                    $res['ExecutionResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->executionResult)) {
+                $res['ExecutionResult'] = [];
+                $n1 = 0;
+                foreach ($this->executionResult as $item1) {
+                    $res['ExecutionResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class executionResultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return executionResultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecutionResult'])) {
             if (!empty($map['ExecutionResult'])) {
                 $model->executionResult = [];
-                $n                      = 0;
-                foreach ($map['ExecutionResult'] as $item) {
-                    $model->executionResult[$n++] = null !== $item ? executionResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ExecutionResult'] as $item1) {
+                    $model->executionResult[$n1] = executionResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

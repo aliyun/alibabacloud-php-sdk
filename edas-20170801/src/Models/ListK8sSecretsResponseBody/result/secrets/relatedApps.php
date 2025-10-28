@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sSecretsResponseBody\result\secrets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relatedApps extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example b08eeb18-8946-410c-a1ea-dbbc********
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The name of the application.
-     *
-     * @example my-app
-     *
      * @var string
      */
     public $appName;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'appName' => 'AppName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -47,17 +41,18 @@ class relatedApps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedApps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

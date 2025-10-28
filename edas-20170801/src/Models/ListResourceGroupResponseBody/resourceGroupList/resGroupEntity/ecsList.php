@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListResourceGroupResponseBody\resourceGroupList\resGroupEntity;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListResourceGroupResponseBody\resourceGroupList\resGroupEntity\ecsList\ecsEntity;
-use AlibabaCloud\Tea\Model;
 
 class ecsList extends Model
 {
@@ -19,17 +19,22 @@ class ecsList extends Model
 
     public function validate()
     {
+        if (\is_array($this->ecsEntity)) {
+            Model::validateArray($this->ecsEntity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecsEntity) {
-            $res['EcsEntity'] = [];
-            if (null !== $this->ecsEntity && \is_array($this->ecsEntity)) {
-                $n = 0;
-                foreach ($this->ecsEntity as $item) {
-                    $res['EcsEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ecsEntity)) {
+                $res['EcsEntity'] = [];
+                $n1 = 0;
+                foreach ($this->ecsEntity as $item1) {
+                    $res['EcsEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class ecsList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ecsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsEntity'])) {
             if (!empty($map['EcsEntity'])) {
                 $model->ecsEntity = [];
-                $n                = 0;
-                foreach ($map['EcsEntity'] as $item) {
-                    $model->ecsEntity[$n++] = null !== $item ? ecsEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EcsEntity'] as $item1) {
+                    $model->ecsEntity[$n1] = ecsEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

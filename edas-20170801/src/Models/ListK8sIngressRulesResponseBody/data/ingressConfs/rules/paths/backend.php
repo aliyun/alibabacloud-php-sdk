@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesResponseBody\data\ingressConfs\rules\paths;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backend extends Model
 {
     /**
-     * @description The name of the backend Service.
-     *
-     * @example http-service
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The port of the backend Service.
-     *
-     * @example 8080
-     *
      * @var string
      */
     public $servicePort;
@@ -32,14 +24,16 @@ class backend extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->servicePort) {
             $res['ServicePort'] = $this->servicePort;
         }
@@ -47,17 +41,18 @@ class backend extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backend
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['ServicePort'])) {
             $model->servicePort = $map['ServicePort'];
         }

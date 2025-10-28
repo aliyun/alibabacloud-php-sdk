@@ -4,76 +4,67 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesResponseBody\data\ingressConfs;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sIngressRulesResponseBody\data\ingressConfs\rules\paths;
-use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
-     * @description Indicates whether TLS is enabled. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableTls;
 
     /**
-     * @description The domain name to be accessed.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The paths to be accessed.
-     *
      * @var paths[]
      */
     public $paths;
 
     /**
-     * @description The name of the Secret that stores the Transport Layer Security (TLS) certificate.
-     *
-     * @example my-secret
-     *
      * @var string
      */
     public $secretName;
     protected $_name = [
-        'enableTls'  => 'EnableTls',
-        'host'       => 'Host',
-        'paths'      => 'Paths',
+        'enableTls' => 'EnableTls',
+        'host' => 'Host',
+        'paths' => 'Paths',
         'secretName' => 'SecretName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->paths)) {
+            Model::validateArray($this->paths);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableTls) {
             $res['EnableTls'] = $this->enableTls;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->paths) {
-            $res['Paths'] = [];
-            if (null !== $this->paths && \is_array($this->paths)) {
-                $n = 0;
-                foreach ($this->paths as $item) {
-                    $res['Paths'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->paths)) {
+                $res['Paths'] = [];
+                $n1 = 0;
+                foreach ($this->paths as $item1) {
+                    $res['Paths'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
@@ -81,29 +72,33 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableTls'])) {
             $model->enableTls = $map['EnableTls'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['Paths'])) {
             if (!empty($map['Paths'])) {
                 $model->paths = [];
-                $n            = 0;
-                foreach ($map['Paths'] as $item) {
-                    $model->paths[$n++] = null !== $item ? paths::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Paths'] as $item1) {
+                    $model->paths[$n1] = paths::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }

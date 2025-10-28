@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\GetChangeOrderInfoResponseBody\changeOrderInfo\pipelineInfoList\pipelineInfo\stageDetailList\stageDetailDTO;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetChangeOrderInfoResponseBody\changeOrderInfo\pipelineInfoList\pipelineInfo\stageDetailList\stageDetailDTO\taskList\taskInfoDTO;
-use AlibabaCloud\Tea\Model;
 
 class taskList extends Model
 {
@@ -19,17 +19,22 @@ class taskList extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskInfoDTO)) {
+            Model::validateArray($this->taskInfoDTO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskInfoDTO) {
-            $res['TaskInfoDTO'] = [];
-            if (null !== $this->taskInfoDTO && \is_array($this->taskInfoDTO)) {
-                $n = 0;
-                foreach ($this->taskInfoDTO as $item) {
-                    $res['TaskInfoDTO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskInfoDTO)) {
+                $res['TaskInfoDTO'] = [];
+                $n1 = 0;
+                foreach ($this->taskInfoDTO as $item1) {
+                    $res['TaskInfoDTO'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class taskList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskInfoDTO'])) {
             if (!empty($map['TaskInfoDTO'])) {
                 $model->taskInfoDTO = [];
-                $n                  = 0;
-                foreach ($map['TaskInfoDTO'] as $item) {
-                    $model->taskInfoDTO[$n++] = null !== $item ? taskInfoDTO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskInfoDTO'] as $item1) {
+                    $model->taskInfoDTO[$n1] = taskInfoDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

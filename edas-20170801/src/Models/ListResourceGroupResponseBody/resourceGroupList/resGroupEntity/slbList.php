@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListResourceGroupResponseBody\resourceGroupList\resGroupEntity;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListResourceGroupResponseBody\resourceGroupList\resGroupEntity\slbList\slbEntity;
-use AlibabaCloud\Tea\Model;
 
 class slbList extends Model
 {
@@ -19,17 +19,22 @@ class slbList extends Model
 
     public function validate()
     {
+        if (\is_array($this->slbEntity)) {
+            Model::validateArray($this->slbEntity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->slbEntity) {
-            $res['SlbEntity'] = [];
-            if (null !== $this->slbEntity && \is_array($this->slbEntity)) {
-                $n = 0;
-                foreach ($this->slbEntity as $item) {
-                    $res['SlbEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slbEntity)) {
+                $res['SlbEntity'] = [];
+                $n1 = 0;
+                foreach ($this->slbEntity as $item1) {
+                    $res['SlbEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class slbList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slbList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SlbEntity'])) {
             if (!empty($map['SlbEntity'])) {
                 $model->slbEntity = [];
-                $n                = 0;
-                foreach ($map['SlbEntity'] as $item) {
-                    $model->slbEntity[$n++] = null !== $item ? slbEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlbEntity'] as $item1) {
+                    $model->slbEntity[$n1] = slbEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

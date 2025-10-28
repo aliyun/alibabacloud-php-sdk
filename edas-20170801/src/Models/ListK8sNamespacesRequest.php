@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListK8sNamespacesRequest extends Model
 {
     /**
-     * @description The ID of the cluster in Enterprise Distributed Application Service (EDAS).
-     *
-     * @example 5b2b4ab4-efbc-4a81-9c45-xxxxxxxxxxxxx
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +18,10 @@ class ListK8sNamespacesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class ListK8sNamespacesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListK8sNamespacesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

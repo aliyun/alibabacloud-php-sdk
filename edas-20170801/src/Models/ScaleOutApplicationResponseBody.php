@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScaleOutApplicationResponseBody extends Model
 {
     /**
-     * @description The ID of the change process. You can call the GetChangeOrderInfo operation to query the progress of this scale-out. For more information, see [GetChangeOrderInfo](~~62072~~).
-     *
-     * @example f4208118-7171-4e20-92************
-     *
      * @var string
      */
     public $changeOrderId;
 
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The additional information that is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D16979DC-4D42-***********************
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'changeOrderId' => 'ChangeOrderId',
-        'code'          => 'Code',
-        'message'       => 'Message',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
             $res['ChangeOrderId'] = $this->changeOrderId;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -73,23 +61,26 @@ class ScaleOutApplicationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScaleOutApplicationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeOrderId'])) {
             $model->changeOrderId = $map['ChangeOrderId'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

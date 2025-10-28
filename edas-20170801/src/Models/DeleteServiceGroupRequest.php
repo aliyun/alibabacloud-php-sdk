@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteServiceGroupRequest extends Model
 {
     /**
-     * @description The ID of the service group that you want to delete.
-     *
-     * @example 789d9cda-74b1-****-****-05e21a0a7661
-     *
      * @var string
      */
     public $groupId;
@@ -22,9 +18,10 @@ class DeleteServiceGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
@@ -34,11 +31,11 @@ class DeleteServiceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteServiceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

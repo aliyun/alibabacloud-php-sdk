@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InsertServiceGroupRequest extends Model
 {
     /**
-     * @description The name of the service group that you want to create.
-     *
-     * @example edas-test-group
-     *
      * @var string
      */
     public $groupName;
@@ -22,9 +18,10 @@ class InsertServiceGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
@@ -34,11 +31,11 @@ class InsertServiceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InsertServiceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

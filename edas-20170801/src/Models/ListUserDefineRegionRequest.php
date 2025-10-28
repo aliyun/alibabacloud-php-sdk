@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUserDefineRegionRequest extends Model
 {
     /**
-     * @description Specifies whether remote debugging is allowed.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $debugEnable;
@@ -22,9 +18,10 @@ class ListUserDefineRegionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->debugEnable) {
@@ -34,11 +31,11 @@ class ListUserDefineRegionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserDefineRegionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

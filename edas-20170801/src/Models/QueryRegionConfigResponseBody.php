@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\QueryRegionConfigResponseBody\regionConfig;
-use AlibabaCloud\Tea\Model;
 
 class QueryRegionConfigResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The additional information that is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The information about region configurations.
-     *
      * @var regionConfig
      */
     public $regionConfig;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example b197-40ab-9155-7ca7
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'         => 'Code',
-        'message'      => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'regionConfig' => 'RegionConfig',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->regionConfig) {
+            $this->regionConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->regionConfig) {
-            $res['RegionConfig'] = null !== $this->regionConfig ? $this->regionConfig->toMap() : null;
+            $res['RegionConfig'] = null !== $this->regionConfig ? $this->regionConfig->toArray($noStream) : $this->regionConfig;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +65,26 @@ class QueryRegionConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryRegionConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RegionConfig'])) {
             $model->regionConfig = regionConfig::fromMap($map['RegionConfig']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

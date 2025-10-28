@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryEccInfoRequest extends Model
 {
     /**
-     * @description The ID of the ECC.
-     *
-     * @example b197-40ab-9155-****
-     *
      * @var string
      */
     public $eccId;
@@ -22,9 +18,10 @@ class QueryEccInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eccId) {
@@ -34,11 +31,11 @@ class QueryEccInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryEccInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

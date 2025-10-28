@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\UpdateHookConfigurationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hooksConfiguration extends Model
 {
     /**
-     * @description Indicates whether a mount failure is ignored. Valid values:
-     *
-     *   **true**: A mount failure is ignored.
-     *   **false**: A mount failure is not ignored.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $ignoreFail;
 
     /**
-     * @description The name of the mounted script.
-     *
-     * @example postprepareInstanceEnvironmentOnScaleOut
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The content of the mounted script.
-     *
-     * @example ls
-     *
      * @var string
      */
     public $script;
     protected $_name = [
         'ignoreFail' => 'IgnoreFail',
-        'name'       => 'Name',
-        'script'     => 'Script',
+        'name' => 'Name',
+        'script' => 'Script',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ignoreFail) {
             $res['IgnoreFail'] = $this->ignoreFail;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->script) {
             $res['Script'] = $this->script;
         }
@@ -63,20 +51,22 @@ class hooksConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hooksConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoreFail'])) {
             $model->ignoreFail = $map['IgnoreFail'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Script'])) {
             $model->script = $map['Script'];
         }

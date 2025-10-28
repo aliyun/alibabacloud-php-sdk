@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteEcuRequest extends Model
 {
     /**
-     * @description The unique ID of the ECU to be deleted.
-     *
-     * @example 5c0b8c82-4ba9-****-****-130a34ffa534
-     *
      * @var string
      */
     public $ecuId;
@@ -22,9 +18,10 @@ class DeleteEcuRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecuId) {
@@ -34,11 +31,11 @@ class DeleteEcuRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteEcuRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

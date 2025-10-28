@@ -4,79 +4,76 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScaleoutApplicationWithNewInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the change process for the scale-out.
-     *
-     * @example e370c17f-*****-3df0721a327
-     *
      * @var string
      */
     public $changeOrderId;
 
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The IDs of ECS instances.
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The additional information that is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example e370c17f-*****-3df0721a327
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'changeOrderId' => 'ChangeOrderId',
-        'code'          => 'Code',
-        'instanceIds'   => 'InstanceIds',
-        'message'       => 'Message',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'instanceIds' => 'InstanceIds',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
             $res['ChangeOrderId'] = $this->changeOrderId;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -84,28 +81,37 @@ class ScaleoutApplicationWithNewInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScaleoutApplicationWithNewInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeOrderId'])) {
             $model->changeOrderId = $map['ChangeOrderId'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

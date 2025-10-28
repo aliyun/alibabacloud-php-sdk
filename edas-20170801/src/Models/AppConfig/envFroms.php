@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class envFroms extends Model
 {
@@ -19,19 +19,21 @@ class envFroms extends Model
     public $secretRef;
     protected $_name = [
         'configMapRef' => 'ConfigMapRef',
-        'secretRef'    => 'SecretRef',
+        'secretRef' => 'SecretRef',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configMapRef) {
             $res['ConfigMapRef'] = $this->configMapRef;
         }
+
         if (null !== $this->secretRef) {
             $res['SecretRef'] = $this->secretRef;
         }
@@ -39,17 +41,18 @@ class envFroms extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return envFroms
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigMapRef'])) {
             $model->configMapRef = $map['ConfigMapRef'];
         }
+
         if (isset($map['SecretRef'])) {
             $model->secretRef = $map['SecretRef'];
         }

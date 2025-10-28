@@ -1,3 +1,6 @@
+2025-10-28 Version: 1.0.9
+- Generated php 2017-08-01 for Edas.
+
 2024-01-30 Version: 1.0.8
 - Update API DeployK8sApplicationadd CustomAgentVersion param.
 - Update API GetK8sApplicationupdate response param.

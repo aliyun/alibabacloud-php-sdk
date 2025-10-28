@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListRoleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListRoleResponseBody\roleList\roleItem;
-use AlibabaCloud\Tea\Model;
 
 class roleList extends Model
 {
@@ -19,17 +19,22 @@ class roleList extends Model
 
     public function validate()
     {
+        if (\is_array($this->roleItem)) {
+            Model::validateArray($this->roleItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleItem) {
-            $res['RoleItem'] = [];
-            if (null !== $this->roleItem && \is_array($this->roleItem)) {
-                $n = 0;
-                foreach ($this->roleItem as $item) {
-                    $res['RoleItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roleItem)) {
+                $res['RoleItem'] = [];
+                $n1 = 0;
+                foreach ($this->roleItem as $item1) {
+                    $res['RoleItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class roleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RoleItem'])) {
             if (!empty($map['RoleItem'])) {
                 $model->roleItem = [];
-                $n               = 0;
-                foreach ($map['RoleItem'] as $item) {
-                    $model->roleItem[$n++] = null !== $item ? roleItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RoleItem'] as $item1) {
+                    $model->roleItem[$n1] = roleItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

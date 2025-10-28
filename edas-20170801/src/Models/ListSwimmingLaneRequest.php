@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSwimmingLaneRequest extends Model
 {
     /**
-     * @description The ID of the lane group.
-     *
-     * @example 79
-     *
      * @var int
      */
     public $groupId;
@@ -22,9 +18,10 @@ class ListSwimmingLaneRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
@@ -34,11 +31,11 @@ class ListSwimmingLaneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSwimmingLaneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

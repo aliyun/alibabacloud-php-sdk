@@ -4,58 +4,63 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\GetChangeOrderInfoResponseBody\changeOrderInfo\pipelineInfoList\pipelineInfo\stageList\stageInfoDTO;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetChangeOrderInfoResponseBody\changeOrderInfo\pipelineInfoList\pipelineInfo\stageList\stageInfoDTO\stageResultDTO\instanceDTOList;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetChangeOrderInfoResponseBody\changeOrderInfo\pipelineInfoList\pipelineInfo\stageList\stageInfoDTO\stageResultDTO\serviceStage;
-use AlibabaCloud\Tea\Model;
 
 class stageResultDTO extends Model
 {
     /**
-     * @description The results of the task executed on each Elastic Compute Service (ECS) instance in each stage.
-     *
      * @var instanceDTOList
      */
     public $instanceDTOList;
 
     /**
-     * @description The results of tasks executed in each service-oriented stage.
-     *
      * @var serviceStage
      */
     public $serviceStage;
     protected $_name = [
         'instanceDTOList' => 'InstanceDTOList',
-        'serviceStage'    => 'ServiceStage',
+        'serviceStage' => 'ServiceStage',
     ];
 
     public function validate()
     {
+        if (null !== $this->instanceDTOList) {
+            $this->instanceDTOList->validate();
+        }
+        if (null !== $this->serviceStage) {
+            $this->serviceStage->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceDTOList) {
-            $res['InstanceDTOList'] = null !== $this->instanceDTOList ? $this->instanceDTOList->toMap() : null;
+            $res['InstanceDTOList'] = null !== $this->instanceDTOList ? $this->instanceDTOList->toArray($noStream) : $this->instanceDTOList;
         }
+
         if (null !== $this->serviceStage) {
-            $res['ServiceStage'] = null !== $this->serviceStage ? $this->serviceStage->toMap() : null;
+            $res['ServiceStage'] = null !== $this->serviceStage ? $this->serviceStage->toArray($noStream) : $this->serviceStage;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stageResultDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceDTOList'])) {
             $model->instanceDTOList = instanceDTOList::fromMap($map['InstanceDTOList']);
         }
+
         if (isset($map['ServiceStage'])) {
             $model->serviceStage = serviceStage::fromMap($map['ServiceStage']);
         }

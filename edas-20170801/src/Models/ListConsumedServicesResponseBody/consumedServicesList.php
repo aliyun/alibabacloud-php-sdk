@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListConsumedServicesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListConsumedServicesResponseBody\consumedServicesList\listConsumedServices;
-use AlibabaCloud\Tea\Model;
 
 class consumedServicesList extends Model
 {
@@ -19,17 +19,22 @@ class consumedServicesList extends Model
 
     public function validate()
     {
+        if (\is_array($this->listConsumedServices)) {
+            Model::validateArray($this->listConsumedServices);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listConsumedServices) {
-            $res['ListConsumedServices'] = [];
-            if (null !== $this->listConsumedServices && \is_array($this->listConsumedServices)) {
-                $n = 0;
-                foreach ($this->listConsumedServices as $item) {
-                    $res['ListConsumedServices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->listConsumedServices)) {
+                $res['ListConsumedServices'] = [];
+                $n1 = 0;
+                foreach ($this->listConsumedServices as $item1) {
+                    $res['ListConsumedServices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class consumedServicesList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumedServicesList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListConsumedServices'])) {
             if (!empty($map['ListConsumedServices'])) {
                 $model->listConsumedServices = [];
-                $n                           = 0;
-                foreach ($map['ListConsumedServices'] as $item) {
-                    $model->listConsumedServices[$n++] = null !== $item ? listConsumedServices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ListConsumedServices'] as $item1) {
+                    $model->listConsumedServices[$n1] = listConsumedServices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class packageConfig extends Model
 {
@@ -54,47 +54,56 @@ class packageConfig extends Model
     public $webContainer;
     protected $_name = [
         'edasContainerVersion' => 'EdasContainerVersion',
-        'jdk'                  => 'Jdk',
-        'packageType'          => 'PackageType',
-        'packageUrl'           => 'PackageUrl',
-        'packageVersion'       => 'PackageVersion',
-        'timezone'             => 'Timezone',
-        'uriEncoding'          => 'UriEncoding',
-        'useBodyEncoding'      => 'UseBodyEncoding',
-        'webContainer'         => 'WebContainer',
+        'jdk' => 'Jdk',
+        'packageType' => 'PackageType',
+        'packageUrl' => 'PackageUrl',
+        'packageVersion' => 'PackageVersion',
+        'timezone' => 'Timezone',
+        'uriEncoding' => 'UriEncoding',
+        'useBodyEncoding' => 'UseBodyEncoding',
+        'webContainer' => 'WebContainer',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->edasContainerVersion) {
             $res['EdasContainerVersion'] = $this->edasContainerVersion;
         }
+
         if (null !== $this->jdk) {
             $res['Jdk'] = $this->jdk;
         }
+
         if (null !== $this->packageType) {
             $res['PackageType'] = $this->packageType;
         }
+
         if (null !== $this->packageUrl) {
             $res['PackageUrl'] = $this->packageUrl;
         }
+
         if (null !== $this->packageVersion) {
             $res['PackageVersion'] = $this->packageVersion;
         }
+
         if (null !== $this->timezone) {
             $res['Timezone'] = $this->timezone;
         }
+
         if (null !== $this->uriEncoding) {
             $res['UriEncoding'] = $this->uriEncoding;
         }
+
         if (null !== $this->useBodyEncoding) {
             $res['UseBodyEncoding'] = $this->useBodyEncoding;
         }
+
         if (null !== $this->webContainer) {
             $res['WebContainer'] = $this->webContainer;
         }
@@ -102,38 +111,46 @@ class packageConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return packageConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EdasContainerVersion'])) {
             $model->edasContainerVersion = $map['EdasContainerVersion'];
         }
+
         if (isset($map['Jdk'])) {
             $model->jdk = $map['Jdk'];
         }
+
         if (isset($map['PackageType'])) {
             $model->packageType = $map['PackageType'];
         }
+
         if (isset($map['PackageUrl'])) {
             $model->packageUrl = $map['PackageUrl'];
         }
+
         if (isset($map['PackageVersion'])) {
             $model->packageVersion = $map['PackageVersion'];
         }
+
         if (isset($map['Timezone'])) {
             $model->timezone = $map['Timezone'];
         }
+
         if (isset($map['UriEncoding'])) {
             $model->uriEncoding = $map['UriEncoding'];
         }
+
         if (isset($map['UseBodyEncoding'])) {
             $model->useBodyEncoding = $map['UseBodyEncoding'];
         }
+
         if (isset($map['WebContainer'])) {
             $model->webContainer = $map['WebContainer'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneGroupResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\InsertSwimmingLaneGroupResponseBody\data\applicationList\application;
-use AlibabaCloud\Tea\Model;
 
 class applicationList extends Model
 {
@@ -19,17 +19,22 @@ class applicationList extends Model
 
     public function validate()
     {
+        if (\is_array($this->application)) {
+            Model::validateArray($this->application);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->application) {
-            $res['Application'] = [];
-            if (null !== $this->application && \is_array($this->application)) {
-                $n = 0;
-                foreach ($this->application as $item) {
-                    $res['Application'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->application)) {
+                $res['Application'] = [];
+                $n1 = 0;
+                foreach ($this->application as $item1) {
+                    $res['Application'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class applicationList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicationList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Application'])) {
             if (!empty($map['Application'])) {
                 $model->application = [];
-                $n                  = 0;
-                foreach ($map['Application'] as $item) {
-                    $model->application[$n++] = null !== $item ? application::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Application'] as $item1) {
+                    $model->application[$n1] = application::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

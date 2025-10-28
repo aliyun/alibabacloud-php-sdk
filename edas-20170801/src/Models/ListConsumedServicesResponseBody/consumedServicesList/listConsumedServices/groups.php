@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListConsumedServicesResponseBody\consumedServicesList\listConsumedServices;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groups extends Model
 {
@@ -18,29 +18,45 @@ class groups extends Model
 
     public function validate()
     {
+        if (\is_array($this->group)) {
+            Model::validateArray($this->group);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->group) {
-            $res['group'] = $this->group;
+            if (\is_array($this->group)) {
+                $res['group'] = [];
+                $n1 = 0;
+                foreach ($this->group as $item1) {
+                    $res['group'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['group'])) {
             if (!empty($map['group'])) {
-                $model->group = $map['group'];
+                $model->group = [];
+                $n1 = 0;
+                foreach ($map['group'] as $item1) {
+                    $model->group[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

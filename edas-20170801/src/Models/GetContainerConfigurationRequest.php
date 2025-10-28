@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetContainerConfigurationRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example 3616cdca-4f92-**************
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The ID of the instance group.
-     *
-     *   If this parameter is specified, this operation queries the Tomcat configuration of the instance group.
-     *   If this parameter is not specified, this operation queries the Tomcat configuration of the application.
-     *
-     * @example 8123db90-880f-**************
-     *
      * @var string
      */
     public $groupId;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'groupId' => 'GroupId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -50,17 +41,18 @@ class GetContainerConfigurationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetContainerConfigurationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

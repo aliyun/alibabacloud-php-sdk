@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationScalingRuleResponseBody\appScalingRule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\UpdateApplicationScalingRuleResponseBody\appScalingRule\trigger\triggers;
-use AlibabaCloud\Tea\Model;
 
 class trigger extends Model
 {
     /**
-     * @description The maximum number of replicas. The maximum value is 1000.
-     *
-     * @example 122
-     *
      * @var int
      */
     public $maxReplicas;
 
     /**
-     * @description The minimum number of replicas. The minimum value is 0.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $minReplicas;
 
     /**
-     * @description The configurations of the trigger.
-     *
      * @var triggers[]
      */
     public $triggers;
     protected $_name = [
         'maxReplicas' => 'MaxReplicas',
         'minReplicas' => 'MinReplicas',
-        'triggers'    => 'Triggers',
+        'triggers' => 'Triggers',
     ];
 
     public function validate()
     {
+        if (\is_array($this->triggers)) {
+            Model::validateArray($this->triggers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxReplicas) {
             $res['MaxReplicas'] = $this->maxReplicas;
         }
+
         if (null !== $this->minReplicas) {
             $res['MinReplicas'] = $this->minReplicas;
         }
+
         if (null !== $this->triggers) {
-            $res['Triggers'] = [];
-            if (null !== $this->triggers && \is_array($this->triggers)) {
-                $n = 0;
-                foreach ($this->triggers as $item) {
-                    $res['Triggers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->triggers)) {
+                $res['Triggers'] = [];
+                $n1 = 0;
+                foreach ($this->triggers as $item1) {
+                    $res['Triggers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -65,26 +62,29 @@ class trigger extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trigger
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxReplicas'])) {
             $model->maxReplicas = $map['MaxReplicas'];
         }
+
         if (isset($map['MinReplicas'])) {
             $model->minReplicas = $map['MinReplicas'];
         }
+
         if (isset($map['Triggers'])) {
             if (!empty($map['Triggers'])) {
                 $model->triggers = [];
-                $n               = 0;
-                foreach ($map['Triggers'] as $item) {
-                    $model->triggers[$n++] = null !== $item ? triggers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Triggers'] as $item1) {
+                    $model->triggers[$n1] = triggers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

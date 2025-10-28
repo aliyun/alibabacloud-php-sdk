@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetJavaStartUpConfigResponseBody\javaStartUpConfig;
-use AlibabaCloud\Tea\Model;
 
 class GetJavaStartUpConfigResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The configuration of Java startup parameters.
-     *
      * @var javaStartUpConfig
      */
     public $javaStartUpConfig;
 
     /**
-     * @description The message that is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4823-bhjf-23u4-eiufh
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'              => 'Code',
+        'code' => 'Code',
         'javaStartUpConfig' => 'JavaStartUpConfig',
-        'message'           => 'Message',
-        'requestId'         => 'RequestId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->javaStartUpConfig) {
+            $this->javaStartUpConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->javaStartUpConfig) {
-            $res['JavaStartUpConfig'] = null !== $this->javaStartUpConfig ? $this->javaStartUpConfig->toMap() : null;
+            $res['JavaStartUpConfig'] = null !== $this->javaStartUpConfig ? $this->javaStartUpConfig->toArray($noStream) : $this->javaStartUpConfig;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +65,26 @@ class GetJavaStartUpConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJavaStartUpConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['JavaStartUpConfig'])) {
             $model->javaStartUpConfig = javaStartUpConfig::fromMap($map['JavaStartUpConfig']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

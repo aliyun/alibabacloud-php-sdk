@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAppInstanceListRequest extends Model
 {
     /**
-     * @description The ID of the application. You can call the ListApplication operation to query the ID of the application. For more information, see [ListApplication](~~149390~~).
-     *
-     * @example 93fdd228-*****-ed2ae98de18d
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description Specifies whether to return the information about the node in which the pod resides.
-     *
-     *   `true`: returns the information about the node in which the pod resides
-     *   `false`: does not return the information about the node in which the pod resides
-     *
-     * @example true
-     *
      * @var bool
      */
     public $withNodeInfo;
     protected $_name = [
-        'appId'        => 'AppId',
+        'appId' => 'AppId',
         'withNodeInfo' => 'WithNodeInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->withNodeInfo) {
             $res['WithNodeInfo'] = $this->withNodeInfo;
         }
@@ -50,17 +41,18 @@ class DescribeAppInstanceListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAppInstanceListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['WithNodeInfo'])) {
             $model->withNodeInfo = $map['WithNodeInfo'];
         }

@@ -4,102 +4,111 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The IDs of the resources. You can specify up to 20 IDs. Set this parameter to a JSON array.
-     *
-     * @example ["000e5836-xxxx-xxxx-xxxx-0d6ab2ac4877"]
-     *
      * @var mixed[]
      */
     public $resourceIds;
 
     /**
-     * @description The region in which the resource resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $resourceRegionId;
 
     /**
-     * @description The type of the resource. Valid values:
-     *
-     *   **application**: Enterprise Distributed Application Service (EDAS) application
-     *   **cluster**: EDAS cluster
-     *
-     * @example application
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The key-value pairs that specify the tags.
-     *
-     *   You can add up to 20 tags to a resource.
-     *   The key cannot start with **aliyun** or **acs:** and cannot contain **http://** or **https://**.
-     *   The tag key or tag value can be up to 128 characters in length, and can contain letters, digits, hyphens (-), commas (,), asterisks (\*), forward slashes (/), question marks (?), and colons (:).
-     *   Set this parameter to a JSON array.
-     *
-     * @example [{"key":"key1","value":"v1"},{"key":"key2","value":"v2"}]
-     *
      * @var mixed[]
      */
     public $tags;
     protected $_name = [
-        'resourceIds'      => 'ResourceIds',
+        'resourceIds' => 'ResourceIds',
         'resourceRegionId' => 'ResourceRegionId',
-        'resourceType'     => 'ResourceType',
-        'tags'             => 'Tags',
+        'resourceType' => 'ResourceType',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceIds)) {
+            Model::validateArray($this->resourceIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
+            if (\is_array($this->resourceIds)) {
+                $res['ResourceIds'] = [];
+                foreach ($this->resourceIds as $key1 => $value1) {
+                    $res['ResourceIds'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->resourceRegionId) {
             $res['ResourceRegionId'] = $this->resourceRegionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceIds'])) {
-            $model->resourceIds = $map['ResourceIds'];
+            if (!empty($map['ResourceIds'])) {
+                $model->resourceIds = [];
+                foreach ($map['ResourceIds'] as $key1 => $value1) {
+                    $model->resourceIds[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ResourceRegionId'])) {
             $model->resourceRegionId = $map['ResourceRegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

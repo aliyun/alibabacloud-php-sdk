@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateContainerRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example e83acea6-****-47e1-96ae-c0e953772cdc
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The build package number of EDAS Container. You can obtain the build package number in the Build package number column in the EDAS Container release notes table. For more information, see [Release notes for EDAS Container](~~92614~~).
-     *
-     * @example 59
-     *
      * @var int
      */
     public $buildPackId;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'buildPackId' => 'BuildPackId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->buildPackId) {
             $res['BuildPackId'] = $this->buildPackId;
         }
@@ -47,17 +41,18 @@ class UpdateContainerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateContainerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['BuildPackId'])) {
             $model->buildPackId = $map['BuildPackId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListComponentsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListComponentsResponseBody\componentList\component;
-use AlibabaCloud\Tea\Model;
 
 class componentList extends Model
 {
@@ -19,17 +19,22 @@ class componentList extends Model
 
     public function validate()
     {
+        if (\is_array($this->component)) {
+            Model::validateArray($this->component);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->component) {
-            $res['Component'] = [];
-            if (null !== $this->component && \is_array($this->component)) {
-                $n = 0;
-                foreach ($this->component as $item) {
-                    $res['Component'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->component)) {
+                $res['Component'] = [];
+                $n1 = 0;
+                foreach ($this->component as $item1) {
+                    $res['Component'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class componentList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return componentList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Component'])) {
             if (!empty($map['Component'])) {
                 $model->component = [];
-                $n                = 0;
-                foreach ($map['Component'] as $item) {
-                    $model->component[$n++] = null !== $item ? component::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Component'] as $item1) {
+                    $model->component[$n1] = component::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPublishedServicesRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example 1fbd8b72-****-****-bdfe-478dbc914121
-     *
      * @var string
      */
     public $appId;
@@ -22,9 +18,10 @@ class ListPublishedServicesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -34,11 +31,11 @@ class ListPublishedServicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPublishedServicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

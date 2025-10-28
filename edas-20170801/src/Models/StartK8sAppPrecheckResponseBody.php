@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\StartK8sAppPrecheckResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class StartK8sAppPrecheckResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The returned data.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The returned message.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7638276F-****-****-884F-54CC0BC84A8D
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +65,26 @@ class StartK8sAppPrecheckResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartK8sAppPrecheckResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

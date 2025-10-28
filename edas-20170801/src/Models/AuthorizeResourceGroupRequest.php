@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AuthorizeResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the resource group. You can call the ListResourceGroup operation to query the resource group ID. For more information, see [ListResourceGroup](~~62055~~).
-     *
-     * You can specify multiple resource group IDs. Separate multiple resource group IDs with semicolons (;).
-     * @example 461;462
-     *
      * @var string
      */
     public $resourceGroupIds;
 
     /**
-     * @description The ID of the RAM user to be authorized.
-     *
-     * @example test@13333********
-     *
      * @var string
      */
     public $targetUserId;
     protected $_name = [
         'resourceGroupIds' => 'ResourceGroupIds',
-        'targetUserId'     => 'TargetUserId',
+        'targetUserId' => 'TargetUserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupIds) {
             $res['ResourceGroupIds'] = $this->resourceGroupIds;
         }
+
         if (null !== $this->targetUserId) {
             $res['TargetUserId'] = $this->targetUserId;
         }
@@ -48,17 +41,18 @@ class AuthorizeResourceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuthorizeResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupIds'])) {
             $model->resourceGroupIds = $map['ResourceGroupIds'];
         }
+
         if (isset($map['TargetUserId'])) {
             $model->targetUserId = $map['TargetUserId'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\DisableApplicationScalingRuleResponseBody\appScalingRule\metric;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metrics extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $metricTargetAverageUtilization;
 
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $metricType;
     protected $_name = [
         'metricTargetAverageUtilization' => 'MetricTargetAverageUtilization',
-        'metricType'                     => 'MetricType',
+        'metricType' => 'MetricType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricTargetAverageUtilization) {
             $res['MetricTargetAverageUtilization'] = $this->metricTargetAverageUtilization;
         }
+
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
@@ -47,17 +41,18 @@ class metrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricTargetAverageUtilization'])) {
             $model->metricTargetAverageUtilization = $map['MetricTargetAverageUtilization'];
         }
+
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }

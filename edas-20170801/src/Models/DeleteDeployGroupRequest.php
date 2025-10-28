@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDeployGroupRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example 3616cdca-4f92-4413-b31*************
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The name of the instance group.
-     *
-     * @example test
-     *
      * @var string
      */
     public $groupName;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'groupName' => 'GroupName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -47,17 +41,18 @@ class DeleteDeployGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDeployGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

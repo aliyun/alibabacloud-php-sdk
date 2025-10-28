@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nasMountDescs extends Model
 {
@@ -19,19 +19,21 @@ class nasMountDescs extends Model
     public $nasPath;
     protected $_name = [
         'mountPath' => 'MountPath',
-        'nasPath'   => 'NasPath',
+        'nasPath' => 'NasPath',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->nasPath) {
             $res['NasPath'] = $this->nasPath;
         }
@@ -39,17 +41,18 @@ class nasMountDescs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nasMountDescs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['NasPath'])) {
             $model->nasPath = $map['NasPath'];
         }

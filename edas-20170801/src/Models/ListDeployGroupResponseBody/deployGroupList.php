@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListDeployGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListDeployGroupResponseBody\deployGroupList\deployGroup;
-use AlibabaCloud\Tea\Model;
 
 class deployGroupList extends Model
 {
@@ -19,17 +19,22 @@ class deployGroupList extends Model
 
     public function validate()
     {
+        if (\is_array($this->deployGroup)) {
+            Model::validateArray($this->deployGroup);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deployGroup) {
-            $res['DeployGroup'] = [];
-            if (null !== $this->deployGroup && \is_array($this->deployGroup)) {
-                $n = 0;
-                foreach ($this->deployGroup as $item) {
-                    $res['DeployGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deployGroup)) {
+                $res['DeployGroup'] = [];
+                $n1 = 0;
+                foreach ($this->deployGroup as $item1) {
+                    $res['DeployGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class deployGroupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deployGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeployGroup'])) {
             if (!empty($map['DeployGroup'])) {
                 $model->deployGroup = [];
-                $n                  = 0;
-                foreach ($map['DeployGroup'] as $item) {
-                    $model->deployGroup[$n++] = null !== $item ? deployGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeployGroup'] as $item1) {
+                    $model->deployGroup[$n1] = deployGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

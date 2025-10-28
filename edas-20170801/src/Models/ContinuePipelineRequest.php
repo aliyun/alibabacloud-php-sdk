@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ContinuePipelineRequest extends Model
 {
     /**
-     * @description Specifies whether to release the next batch. Valid values:
-     *
-     *   true: releases the next batch.
-     *   false: does not release the next batch.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $confirm;
 
     /**
-     * @description The ID of the change process. You can call the GetChangeOrderInfo operation to query the ID of the change process that corresponds to a specific batch. For more information, see [GetChangeOrderInfo](~~62072~~).
-     *
-     * @example 5648dbd7-df13********************
-     *
      * @var string
      */
     public $pipelineId;
     protected $_name = [
-        'confirm'    => 'Confirm',
+        'confirm' => 'Confirm',
         'pipelineId' => 'PipelineId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confirm) {
             $res['Confirm'] = $this->confirm;
         }
+
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
@@ -50,17 +41,18 @@ class ContinuePipelineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ContinuePipelineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confirm'])) {
             $model->confirm = $map['Confirm'];
         }
+
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }

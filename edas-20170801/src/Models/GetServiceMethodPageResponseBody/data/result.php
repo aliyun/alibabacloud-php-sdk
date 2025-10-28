@@ -4,171 +4,140 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceMethodPageResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetServiceMethodPageResponseBody\data\result\returnDefinition;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The method.
-     *
-     * @example com.aliware.edas.EchoController
-     *
      * @var string
      */
     public $methodController;
 
     /**
-     * @description The name of the method.
-     *
-     * @example echo
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The details of the method.
-     *
-     * @example name
-     *
      * @var string
      */
     public $nameDetail;
 
     /**
-     * @description The definition of the parameter.
-     *
-     * @example [{"description":"","name":"arg0","type":"java.lang.String"}]
-     *
      * @var string
      */
     public $parameterDefinitions;
 
     /**
-     * @description The details of the parameters.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $parameterDetails;
 
     /**
-     * @description The name of the parameter.
-     *
-     * @example echo
-     *
      * @var string
      */
     public $parameterNames;
 
     /**
-     * @description The data type of the parameter.
-     *
-     * @example java.lang.String
-     *
      * @var string
      */
     public $parameterTypes;
 
     /**
-     * @description The method path.
-     *
-     * @example /consumer/alive
-     *
      * @var string
      */
     public $paths;
 
     /**
-     * @description The request method.
-     *
-     * @example GET
-     *
      * @var string
      */
     public $requestMethods;
 
     /**
-     * @description The return value.
-     *
      * @var returnDefinition
      */
     public $returnDefinition;
 
     /**
-     * @description The details of the response.
-     *
-     * @example java.lang.String
-     *
      * @var string
      */
     public $returnDetails;
 
     /**
-     * @description The data format of the response.
-     *
-     * @example java.lang.String
-     *
      * @var string
      */
     public $returnType;
     protected $_name = [
-        'methodController'     => 'MethodController',
-        'name'                 => 'Name',
-        'nameDetail'           => 'NameDetail',
+        'methodController' => 'MethodController',
+        'name' => 'Name',
+        'nameDetail' => 'NameDetail',
         'parameterDefinitions' => 'ParameterDefinitions',
-        'parameterDetails'     => 'ParameterDetails',
-        'parameterNames'       => 'ParameterNames',
-        'parameterTypes'       => 'ParameterTypes',
-        'paths'                => 'Paths',
-        'requestMethods'       => 'RequestMethods',
-        'returnDefinition'     => 'ReturnDefinition',
-        'returnDetails'        => 'ReturnDetails',
-        'returnType'           => 'ReturnType',
+        'parameterDetails' => 'ParameterDetails',
+        'parameterNames' => 'ParameterNames',
+        'parameterTypes' => 'ParameterTypes',
+        'paths' => 'Paths',
+        'requestMethods' => 'RequestMethods',
+        'returnDefinition' => 'ReturnDefinition',
+        'returnDetails' => 'ReturnDetails',
+        'returnType' => 'ReturnType',
     ];
 
     public function validate()
     {
+        if (null !== $this->returnDefinition) {
+            $this->returnDefinition->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->methodController) {
             $res['MethodController'] = $this->methodController;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nameDetail) {
             $res['NameDetail'] = $this->nameDetail;
         }
+
         if (null !== $this->parameterDefinitions) {
             $res['ParameterDefinitions'] = $this->parameterDefinitions;
         }
+
         if (null !== $this->parameterDetails) {
             $res['ParameterDetails'] = $this->parameterDetails;
         }
+
         if (null !== $this->parameterNames) {
             $res['ParameterNames'] = $this->parameterNames;
         }
+
         if (null !== $this->parameterTypes) {
             $res['ParameterTypes'] = $this->parameterTypes;
         }
+
         if (null !== $this->paths) {
             $res['Paths'] = $this->paths;
         }
+
         if (null !== $this->requestMethods) {
             $res['RequestMethods'] = $this->requestMethods;
         }
+
         if (null !== $this->returnDefinition) {
-            $res['ReturnDefinition'] = null !== $this->returnDefinition ? $this->returnDefinition->toMap() : null;
+            $res['ReturnDefinition'] = null !== $this->returnDefinition ? $this->returnDefinition->toArray($noStream) : $this->returnDefinition;
         }
+
         if (null !== $this->returnDetails) {
             $res['ReturnDetails'] = $this->returnDetails;
         }
+
         if (null !== $this->returnType) {
             $res['ReturnType'] = $this->returnType;
         }
@@ -176,47 +145,58 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MethodController'])) {
             $model->methodController = $map['MethodController'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NameDetail'])) {
             $model->nameDetail = $map['NameDetail'];
         }
+
         if (isset($map['ParameterDefinitions'])) {
             $model->parameterDefinitions = $map['ParameterDefinitions'];
         }
+
         if (isset($map['ParameterDetails'])) {
             $model->parameterDetails = $map['ParameterDetails'];
         }
+
         if (isset($map['ParameterNames'])) {
             $model->parameterNames = $map['ParameterNames'];
         }
+
         if (isset($map['ParameterTypes'])) {
             $model->parameterTypes = $map['ParameterTypes'];
         }
+
         if (isset($map['Paths'])) {
             $model->paths = $map['Paths'];
         }
+
         if (isset($map['RequestMethods'])) {
             $model->requestMethods = $map['RequestMethods'];
         }
+
         if (isset($map['ReturnDefinition'])) {
             $model->returnDefinition = returnDefinition::fromMap($map['ReturnDefinition']);
         }
+
         if (isset($map['ReturnDetails'])) {
             $model->returnDetails = $map['ReturnDetails'];
         }
+
         if (isset($map['ReturnType'])) {
             $model->returnType = $map['ReturnType'];
         }

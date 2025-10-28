@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\GetClusterResponseBody\cluster;
-use AlibabaCloud\Tea\Model;
 
 class GetClusterResponseBody extends Model
 {
     /**
-     * @description The information about the cluster.
-     *
      * @var cluster
      */
     public $cluster;
 
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The detailed information that is returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example d76db491
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cluster'   => 'Cluster',
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'cluster' => 'Cluster',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->cluster) {
+            $this->cluster->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cluster) {
-            $res['Cluster'] = null !== $this->cluster ? $this->cluster->toMap() : null;
+            $res['Cluster'] = null !== $this->cluster ? $this->cluster->toArray($noStream) : $this->cluster;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +65,26 @@ class GetClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cluster'])) {
             $model->cluster = cluster::fromMap($map['Cluster']);
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

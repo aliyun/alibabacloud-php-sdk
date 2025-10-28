@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\GetJavaStartUpConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class javaStartUpConfig extends Model
 {
     /**
-     * @description The displayed startup parameter configuration.
-     *
-     * @example -Xms512m
-     *
      * @var string
      */
     public $originalConfigs;
 
     /**
-     * @description The effective startup parameter configuration.
-     *
-     * @example -Xms512m
-     *
      * @var string
      */
     public $startUpArgs;
     protected $_name = [
         'originalConfigs' => 'OriginalConfigs',
-        'startUpArgs'     => 'StartUpArgs',
+        'startUpArgs' => 'StartUpArgs',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->originalConfigs) {
             $res['OriginalConfigs'] = $this->originalConfigs;
         }
+
         if (null !== $this->startUpArgs) {
             $res['StartUpArgs'] = $this->startUpArgs;
         }
@@ -47,17 +41,18 @@ class javaStartUpConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return javaStartUpConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OriginalConfigs'])) {
             $model->originalConfigs = $map['OriginalConfigs'];
         }
+
         if (isset($map['StartUpArgs'])) {
             $model->startUpArgs = $map['StartUpArgs'];
         }

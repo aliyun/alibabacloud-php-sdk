@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\QueryRegionConfigResponseBody\regionConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fileServerConfig extends Model
 {
     /**
-     * @description The Object Storage Service (OSS) bucket of the file server.
-     *
-     * @example edas-bj
-     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @description The internal endpoint of the file server.
-     *
-     * @example oss-cn-beijing-****.aliyuncs.com
-     *
      * @var string
      */
     public $internalUrl;
 
     /**
-     * @description The public endpoint of the file server.
-     *
-     * @example oss-cn-beijing.aliyuncs.com
-     *
      * @var string
      */
     public $publicUrl;
 
     /**
-     * @description The virtual private cloud (VPC) endpoint of the file server.
-     *
-     * @example v*****-oss-cn-beijing.aliyuncs.com
-     *
      * @var string
      */
     public $vpcUrl;
     protected $_name = [
-        'bucket'      => 'Bucket',
+        'bucket' => 'Bucket',
         'internalUrl' => 'InternalUrl',
-        'publicUrl'   => 'PublicUrl',
-        'vpcUrl'      => 'VpcUrl',
+        'publicUrl' => 'PublicUrl',
+        'vpcUrl' => 'VpcUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
+
         if (null !== $this->internalUrl) {
             $res['InternalUrl'] = $this->internalUrl;
         }
+
         if (null !== $this->publicUrl) {
             $res['PublicUrl'] = $this->publicUrl;
         }
+
         if (null !== $this->vpcUrl) {
             $res['VpcUrl'] = $this->vpcUrl;
         }
@@ -73,23 +61,26 @@ class fileServerConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileServerConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
+
         if (isset($map['InternalUrl'])) {
             $model->internalUrl = $map['InternalUrl'];
         }
+
         if (isset($map['PublicUrl'])) {
             $model->publicUrl = $map['PublicUrl'];
         }
+
         if (isset($map['VpcUrl'])) {
             $model->vpcUrl = $map['VpcUrl'];
         }

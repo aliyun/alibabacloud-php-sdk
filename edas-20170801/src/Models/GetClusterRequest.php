@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetClusterRequest extends Model
 {
     /**
-     * @description The ID of the cluster in Enterprise Distributed Application Service (EDAS). You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](~~154995~~).
-     *
-     * @example 5439271a-015b-433d-****-d76db49****
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +18,10 @@ class GetClusterRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class GetClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

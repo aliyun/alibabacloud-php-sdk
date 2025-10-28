@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sConfigMapsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListK8sConfigMapsResponseBody\result\configMaps;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The information about ConfigMaps.
-     *
      * @var configMaps[]
      */
     public $configMaps;
 
     /**
-     * @description The total number of entries that are returned.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'configMaps' => 'ConfigMaps',
-        'total'      => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->configMaps)) {
+            Model::validateArray($this->configMaps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configMaps) {
-            $res['ConfigMaps'] = [];
-            if (null !== $this->configMaps && \is_array($this->configMaps)) {
-                $n = 0;
-                foreach ($this->configMaps as $item) {
-                    $res['ConfigMaps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configMaps)) {
+                $res['ConfigMaps'] = [];
+                $n1 = 0;
+                foreach ($this->configMaps as $item1) {
+                    $res['ConfigMaps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -52,23 +52,25 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigMaps'])) {
             if (!empty($map['ConfigMaps'])) {
                 $model->configMaps = [];
-                $n                 = 0;
-                foreach ($map['ConfigMaps'] as $item) {
-                    $model->configMaps[$n++] = null !== $item ? configMaps::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConfigMaps'] as $item1) {
+                    $model->configMaps[$n1] = configMaps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetChangeOrderInfoRequest extends Model
 {
     /**
-     * @description The ID of the change process.
-     *
-     * @example 1074f3e2-e974-4a0e-****-************
-     *
      * @var string
      */
     public $changeOrderId;
@@ -22,9 +18,10 @@ class GetChangeOrderInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -34,11 +31,11 @@ class GetChangeOrderInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetChangeOrderInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

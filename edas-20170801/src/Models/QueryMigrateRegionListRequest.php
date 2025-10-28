@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryMigrateRegionListRequest extends Model
 {
     /**
-     * @description The ID of the namespace.
-     *
-     * @example cn-hangzhou:test
-     *
      * @var string
      */
     public $logicalRegionId;
@@ -22,9 +18,10 @@ class QueryMigrateRegionListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logicalRegionId) {
@@ -34,11 +31,11 @@ class QueryMigrateRegionListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMigrateRegionListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

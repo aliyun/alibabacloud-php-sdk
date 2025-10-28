@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\ListResourceGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\ListResourceGroupResponseBody\resourceGroupList\resGroupEntity;
-use AlibabaCloud\Tea\Model;
 
 class resourceGroupList extends Model
 {
@@ -19,17 +19,22 @@ class resourceGroupList extends Model
 
     public function validate()
     {
+        if (\is_array($this->resGroupEntity)) {
+            Model::validateArray($this->resGroupEntity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resGroupEntity) {
-            $res['ResGroupEntity'] = [];
-            if (null !== $this->resGroupEntity && \is_array($this->resGroupEntity)) {
-                $n = 0;
-                foreach ($this->resGroupEntity as $item) {
-                    $res['ResGroupEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resGroupEntity)) {
+                $res['ResGroupEntity'] = [];
+                $n1 = 0;
+                foreach ($this->resGroupEntity as $item1) {
+                    $res['ResGroupEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class resourceGroupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResGroupEntity'])) {
             if (!empty($map['ResGroupEntity'])) {
                 $model->resGroupEntity = [];
-                $n                     = 0;
-                foreach ($map['ResGroupEntity'] as $item) {
-                    $model->resGroupEntity[$n++] = null !== $item ? resGroupEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResGroupEntity'] as $item1) {
+                    $model->resGroupEntity[$n1] = resGroupEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

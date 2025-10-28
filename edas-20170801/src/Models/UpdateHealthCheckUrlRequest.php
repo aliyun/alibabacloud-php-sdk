@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateHealthCheckUrlRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example c627c157-560d-43ff-***************
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The health check URL of the application. The URL must start with `http://`, and can be up to 255 characters in length. Example: `http://127.0.0.1:8080/_ehc.html`. If this parameter is not specified, the health check URL of the application is not changed.
-     *
-     * @example http://127.0.0.1:8080/_ehc.html
-     *
      * @var string
      */
     public $hcURL;
@@ -32,14 +24,16 @@ class UpdateHealthCheckUrlRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->hcURL) {
             $res['hcURL'] = $this->hcURL;
         }
@@ -47,17 +41,18 @@ class UpdateHealthCheckUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateHealthCheckUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['hcURL'])) {
             $model->hcURL = $map['hcURL'];
         }

@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEcsNotInClusterRequest extends Model
 {
     /**
-     * @description The network type. Valid values:
-     *
-     *   1: classic network
-     *   2: virtual private cloud (VPC)
-     *
-     * @example 2
-     *
      * @var int
      */
     public $networkMode;
 
     /**
-     * @description The ID of the VPC. This parameter is required if the NetworkMode parameter is set to 2.
-     *
-     * @example vpc-2zef6ob8****v8x3q46kp
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'networkMode' => 'NetworkMode',
-        'vpcId'       => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkMode) {
             $res['NetworkMode'] = $this->networkMode;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -50,17 +41,18 @@ class ListEcsNotInClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEcsNotInClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkMode'])) {
             $model->networkMode = $map['NetworkMode'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

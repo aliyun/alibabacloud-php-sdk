@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListConvertableEcuRequest extends Model
 {
     /**
-     * @description The ID of the cluster. You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](~~154995~~).
-     *
-     * @example b3e3f77b-462e-****-****-bec8727a****
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +18,10 @@ class ListConvertableEcuRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class ListConvertableEcuRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListConvertableEcuRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

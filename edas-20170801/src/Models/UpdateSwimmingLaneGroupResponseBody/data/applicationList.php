@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\UpdateSwimmingLaneGroupResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applicationList extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example 476d26d9-b54c-40b8-8af9-d898cdc2****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The name of the application.
-     *
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'appName' => 'AppName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -47,17 +41,18 @@ class applicationList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicationList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

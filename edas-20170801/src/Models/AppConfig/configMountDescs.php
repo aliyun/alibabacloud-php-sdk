@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edas\V20170801\Models\AppConfig\configMountDescs\mountItems;
-use AlibabaCloud\Tea\Model;
 
 class configMountDescs extends Model
 {
@@ -30,33 +30,41 @@ class configMountDescs extends Model
     public $type;
     protected $_name = [
         'mountItems' => 'MountItems',
-        'mountPath'  => 'MountPath',
-        'name'       => 'Name',
-        'type'       => 'Type',
+        'mountPath' => 'MountPath',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->mountItems)) {
+            Model::validateArray($this->mountItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountItems) {
-            $res['MountItems'] = [];
-            if (null !== $this->mountItems && \is_array($this->mountItems)) {
-                $n = 0;
-                foreach ($this->mountItems as $item) {
-                    $res['MountItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mountItems)) {
+                $res['MountItems'] = [];
+                $n1 = 0;
+                foreach ($this->mountItems as $item1) {
+                    $res['MountItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -64,29 +72,33 @@ class configMountDescs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configMountDescs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountItems'])) {
             if (!empty($map['MountItems'])) {
                 $model->mountItems = [];
-                $n                 = 0;
-                foreach ($map['MountItems'] as $item) {
-                    $model->mountItems[$n++] = null !== $item ? mountItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MountItems'] as $item1) {
+                    $model->mountItems[$n1] = mountItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
