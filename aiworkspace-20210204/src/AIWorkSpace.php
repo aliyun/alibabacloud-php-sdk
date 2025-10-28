@@ -6826,6 +6826,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['Status'] = $request->status;
         }
 
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         if (null !== $request->verbose) {
             @$query['Verbose'] = $request->verbose;
         }

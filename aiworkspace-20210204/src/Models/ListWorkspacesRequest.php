@@ -54,6 +54,11 @@ class ListWorkspacesRequest extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $userId;
+
+    /**
      * @var bool
      */
     public $verbose;
@@ -77,6 +82,7 @@ class ListWorkspacesRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'sortBy' => 'SortBy',
         'status' => 'Status',
+        'userId' => 'UserId',
         'verbose' => 'Verbose',
         'workspaceIds' => 'WorkspaceIds',
         'workspaceName' => 'WorkspaceName',
@@ -124,6 +130,10 @@ class ListWorkspacesRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         if (null !== $this->verbose) {
@@ -183,6 +193,10 @@ class ListWorkspacesRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         if (isset($map['Verbose'])) {
