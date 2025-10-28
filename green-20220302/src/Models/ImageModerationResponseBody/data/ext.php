@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\aigcData;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\customImage;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\logoData;
@@ -16,6 +17,11 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext
 
 class ext extends Model
 {
+    /**
+     * @var aigcData
+     */
+    public $aigcData;
+
     /**
      * @var customImage[]
      */
@@ -56,6 +62,7 @@ class ext extends Model
      */
     public $vlContent;
     protected $_name = [
+        'aigcData' => 'AigcData',
         'customImage' => 'CustomImage',
         'faceData' => 'FaceData',
         'logoData' => 'LogoData',
@@ -68,6 +75,9 @@ class ext extends Model
 
     public function validate()
     {
+        if (null !== $this->aigcData) {
+            $this->aigcData->validate();
+        }
         if (\is_array($this->customImage)) {
             Model::validateArray($this->customImage);
         }
@@ -98,6 +108,10 @@ class ext extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aigcData) {
+            $res['AigcData'] = null !== $this->aigcData ? $this->aigcData->toArray($noStream) : $this->aigcData;
+        }
+
         if (null !== $this->customImage) {
             if (\is_array($this->customImage)) {
                 $res['CustomImage'] = [];
@@ -183,6 +197,10 @@ class ext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AigcData'])) {
+            $model->aigcData = aigcData::fromMap($map['AigcData']);
+        }
+
         if (isset($map['CustomImage'])) {
             if (!empty($map['CustomImage'])) {
                 $model->customImage = [];
