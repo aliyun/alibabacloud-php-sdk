@@ -620,6 +620,10 @@ class ExpressConnectRouter extends OpenApiClient
             @$query['Tag'] = $request->tag;
         }
 
+        if (null !== $request->targetSlsRegionId) {
+            @$query['TargetSlsRegionId'] = $request->targetSlsRegionId;
+        }
+
         if (null !== $request->version) {
             @$query['Version'] = $request->version;
         }

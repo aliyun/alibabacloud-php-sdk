@@ -77,6 +77,11 @@ class CreateFlowLogRequest extends Model
     /**
      * @var string
      */
+    public $targetSlsRegionId;
+
+    /**
+     * @var string
+     */
     public $version;
     protected $_name = [
         'clientToken' => 'ClientToken',
@@ -92,6 +97,7 @@ class CreateFlowLogRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'samplingRate' => 'SamplingRate',
         'tag' => 'Tag',
+        'targetSlsRegionId' => 'TargetSlsRegionId',
         'version' => 'Version',
     ];
 
@@ -163,6 +169,10 @@ class CreateFlowLogRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->targetSlsRegionId) {
+            $res['TargetSlsRegionId'] = $this->targetSlsRegionId;
         }
 
         if (null !== $this->version) {
@@ -237,6 +247,10 @@ class CreateFlowLogRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TargetSlsRegionId'])) {
+            $model->targetSlsRegionId = $map['TargetSlsRegionId'];
         }
 
         if (isset($map['Version'])) {
