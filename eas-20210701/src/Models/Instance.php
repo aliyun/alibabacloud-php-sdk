@@ -56,6 +56,11 @@ class Instance extends Model
     /**
      * @var bool
      */
+    public $isLatest;
+
+    /**
+     * @var bool
+     */
     public $isSpot;
 
     /**
@@ -147,6 +152,7 @@ class Instance extends Model
         'instanceName' => 'InstanceName',
         'instancePort' => 'InstancePort',
         'instanceType' => 'InstanceType',
+        'isLatest' => 'IsLatest',
         'isSpot' => 'IsSpot',
         'isolated' => 'Isolated',
         'lastState' => 'LastState',
@@ -211,6 +217,10 @@ class Instance extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->isLatest) {
+            $res['IsLatest'] = $this->isLatest;
         }
 
         if (null !== $this->isSpot) {
@@ -338,6 +348,10 @@ class Instance extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['IsLatest'])) {
+            $model->isLatest = $map['IsLatest'];
         }
 
         if (isset($map['IsSpot'])) {
