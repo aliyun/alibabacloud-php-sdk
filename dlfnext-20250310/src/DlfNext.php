@@ -61,6 +61,7 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRegionStatusResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRoleRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRoleResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetShareResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableCompactionResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableSnapshotResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableSummaryRequest;
@@ -2326,6 +2327,61 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->getTableWithOptions($catalogId, $database, $table, $headers, $runtime);
+    }
+
+    /**
+     * 查看表Compaction详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableCompactionResponse
+     *
+     * @param string         $catalogId
+     * @param string         $database
+     * @param string         $table
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTableCompactionResponse
+     */
+    public function getTableCompactionWithOptions($catalogId, $database, $table, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTableCompaction',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '/compaction',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableCompactionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看表Compaction详情.
+     *
+     * @returns GetTableCompactionResponse
+     *
+     * @param string $catalogId
+     * @param string $database
+     * @param string $table
+     *
+     * @return GetTableCompactionResponse
+     */
+    public function getTableCompaction($catalogId, $database, $table)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTableCompactionWithOptions($catalogId, $database, $table, $headers, $runtime);
     }
 
     /**

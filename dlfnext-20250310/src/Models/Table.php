@@ -19,6 +19,11 @@ class Table extends Model
     public $createdBy;
 
     /**
+     * @var IcebergTableMetadata
+     */
+    public $icebergTableMetadata;
+
+    /**
      * @var string
      */
     public $id;
@@ -69,6 +74,11 @@ class Table extends Model
     public $storageClass;
 
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var int
      */
     public $updatedAt;
@@ -80,6 +90,7 @@ class Table extends Model
     protected $_name = [
         'createdAt' => 'createdAt',
         'createdBy' => 'createdBy',
+        'icebergTableMetadata' => 'icebergTableMetadata',
         'id' => 'id',
         'isExternal' => 'isExternal',
         'name' => 'name',
@@ -90,12 +101,16 @@ class Table extends Model
         'storageAction' => 'storageAction',
         'storageActionTimestamp' => 'storageActionTimestamp',
         'storageClass' => 'storageClass',
+        'type' => 'type',
         'updatedAt' => 'updatedAt',
         'updatedBy' => 'updatedBy',
     ];
 
     public function validate()
     {
+        if (null !== $this->icebergTableMetadata) {
+            $this->icebergTableMetadata->validate();
+        }
         if (null !== $this->schema) {
             $this->schema->validate();
         }
@@ -111,6 +126,10 @@ class Table extends Model
 
         if (null !== $this->createdBy) {
             $res['createdBy'] = $this->createdBy;
+        }
+
+        if (null !== $this->icebergTableMetadata) {
+            $res['icebergTableMetadata'] = null !== $this->icebergTableMetadata ? $this->icebergTableMetadata->toArray($noStream) : $this->icebergTableMetadata;
         }
 
         if (null !== $this->id) {
@@ -153,6 +172,10 @@ class Table extends Model
             $res['storageClass'] = $this->storageClass;
         }
 
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+
         if (null !== $this->updatedAt) {
             $res['updatedAt'] = $this->updatedAt;
         }
@@ -178,6 +201,10 @@ class Table extends Model
 
         if (isset($map['createdBy'])) {
             $model->createdBy = $map['createdBy'];
+        }
+
+        if (isset($map['icebergTableMetadata'])) {
+            $model->icebergTableMetadata = IcebergTableMetadata::fromMap($map['icebergTableMetadata']);
         }
 
         if (isset($map['id'])) {
@@ -218,6 +245,10 @@ class Table extends Model
 
         if (isset($map['storageClass'])) {
             $model->storageClass = $map['storageClass'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         if (isset($map['updatedAt'])) {

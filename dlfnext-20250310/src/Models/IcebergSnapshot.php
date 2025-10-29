@@ -21,12 +21,22 @@ class IcebergSnapshot extends Model
     /**
      * @var string
      */
+    public $idString;
+
+    /**
+     * @var string
+     */
     public $operation;
 
     /**
      * @var int
      */
     public $parentId;
+
+    /**
+     * @var string
+     */
+    public $parentIdString;
 
     /**
      * @var int
@@ -50,8 +60,10 @@ class IcebergSnapshot extends Model
     protected $_name = [
         'addedRows' => 'addedRows',
         'id' => 'id',
+        'idString' => 'idString',
         'operation' => 'operation',
         'parentId' => 'parentId',
+        'parentIdString' => 'parentIdString',
         'schemaId' => 'schemaId',
         'sequenceNumber' => 'sequenceNumber',
         'summary' => 'summary',
@@ -77,12 +89,20 @@ class IcebergSnapshot extends Model
             $res['id'] = $this->id;
         }
 
+        if (null !== $this->idString) {
+            $res['idString'] = $this->idString;
+        }
+
         if (null !== $this->operation) {
             $res['operation'] = $this->operation;
         }
 
         if (null !== $this->parentId) {
             $res['parentId'] = $this->parentId;
+        }
+
+        if (null !== $this->parentIdString) {
+            $res['parentIdString'] = $this->parentIdString;
         }
 
         if (null !== $this->schemaId) {
@@ -125,12 +145,20 @@ class IcebergSnapshot extends Model
             $model->id = $map['id'];
         }
 
+        if (isset($map['idString'])) {
+            $model->idString = $map['idString'];
+        }
+
         if (isset($map['operation'])) {
             $model->operation = $map['operation'];
         }
 
         if (isset($map['parentId'])) {
             $model->parentId = $map['parentId'];
+        }
+
+        if (isset($map['parentIdString'])) {
+            $model->parentIdString = $map['parentIdString'];
         }
 
         if (isset($map['schemaId'])) {

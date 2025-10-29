@@ -56,6 +56,11 @@ class Snapshot extends Model
     /**
      * @var string
      */
+    public $idString;
+
+    /**
+     * @var string
+     */
     public $indexManifest;
 
     /**
@@ -64,14 +69,29 @@ class Snapshot extends Model
     public $logOffsets;
 
     /**
+     * @var string
+     */
+    public $parentIdString;
+
+    /**
      * @var int
      */
     public $schemaId;
 
     /**
+     * @var int
+     */
+    public $sequenceNumber;
+
+    /**
      * @var string
      */
     public $statistics;
+
+    /**
+     * @var string[]
+     */
+    public $summary;
 
     /**
      * @var int
@@ -102,10 +122,14 @@ class Snapshot extends Model
         'deltaManifestList' => 'deltaManifestList',
         'deltaRecordCount' => 'deltaRecordCount',
         'id' => 'id',
+        'idString' => 'idString',
         'indexManifest' => 'indexManifest',
         'logOffsets' => 'logOffsets',
+        'parentIdString' => 'parentIdString',
         'schemaId' => 'schemaId',
+        'sequenceNumber' => 'sequenceNumber',
         'statistics' => 'statistics',
+        'summary' => 'summary',
         'timeMillis' => 'timeMillis',
         'totalRecordCount' => 'totalRecordCount',
         'version' => 'version',
@@ -116,6 +140,9 @@ class Snapshot extends Model
     {
         if (\is_array($this->logOffsets)) {
             Model::validateArray($this->logOffsets);
+        }
+        if (\is_array($this->summary)) {
+            Model::validateArray($this->summary);
         }
         parent::validate();
     }
@@ -159,6 +186,10 @@ class Snapshot extends Model
             $res['id'] = $this->id;
         }
 
+        if (null !== $this->idString) {
+            $res['idString'] = $this->idString;
+        }
+
         if (null !== $this->indexManifest) {
             $res['indexManifest'] = $this->indexManifest;
         }
@@ -172,12 +203,29 @@ class Snapshot extends Model
             }
         }
 
+        if (null !== $this->parentIdString) {
+            $res['parentIdString'] = $this->parentIdString;
+        }
+
         if (null !== $this->schemaId) {
             $res['schemaId'] = $this->schemaId;
         }
 
+        if (null !== $this->sequenceNumber) {
+            $res['sequenceNumber'] = $this->sequenceNumber;
+        }
+
         if (null !== $this->statistics) {
             $res['statistics'] = $this->statistics;
+        }
+
+        if (null !== $this->summary) {
+            if (\is_array($this->summary)) {
+                $res['summary'] = [];
+                foreach ($this->summary as $key1 => $value1) {
+                    $res['summary'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->timeMillis) {
@@ -243,6 +291,10 @@ class Snapshot extends Model
             $model->id = $map['id'];
         }
 
+        if (isset($map['idString'])) {
+            $model->idString = $map['idString'];
+        }
+
         if (isset($map['indexManifest'])) {
             $model->indexManifest = $map['indexManifest'];
         }
@@ -256,12 +308,29 @@ class Snapshot extends Model
             }
         }
 
+        if (isset($map['parentIdString'])) {
+            $model->parentIdString = $map['parentIdString'];
+        }
+
         if (isset($map['schemaId'])) {
             $model->schemaId = $map['schemaId'];
         }
 
+        if (isset($map['sequenceNumber'])) {
+            $model->sequenceNumber = $map['sequenceNumber'];
+        }
+
         if (isset($map['statistics'])) {
             $model->statistics = $map['statistics'];
+        }
+
+        if (isset($map['summary'])) {
+            if (!empty($map['summary'])) {
+                $model->summary = [];
+                foreach ($map['summary'] as $key1 => $value1) {
+                    $model->summary[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['timeMillis'])) {
