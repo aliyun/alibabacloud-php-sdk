@@ -12213,6 +12213,10 @@ class Cloudfw extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->ruleTag) {
+            @$query['RuleTag'] = $request->ruleTag;
+        }
+
         if (null !== $request->sortKey) {
             @$query['SortKey'] = $request->sortKey;
         }
