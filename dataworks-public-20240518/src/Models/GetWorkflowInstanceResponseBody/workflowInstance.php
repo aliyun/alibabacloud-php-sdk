@@ -55,6 +55,11 @@ class workflowInstance extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -88,6 +93,11 @@ class workflowInstance extends Model
      * @var string
      */
     public $workflowParameters;
+
+    /**
+     * @var int
+     */
+    public $workflowTaskInstanceId;
     protected $_name = [
         'bizDate' => 'BizDate',
         'createTime' => 'CreateTime',
@@ -98,6 +108,7 @@ class workflowInstance extends Model
         'modifyTime' => 'ModifyTime',
         'modifyUser' => 'ModifyUser',
         'name' => 'Name',
+        'owner' => 'Owner',
         'projectId' => 'ProjectId',
         'startedTime' => 'StartedTime',
         'status' => 'Status',
@@ -105,6 +116,7 @@ class workflowInstance extends Model
         'type' => 'Type',
         'workflowId' => 'WorkflowId',
         'workflowParameters' => 'WorkflowParameters',
+        'workflowTaskInstanceId' => 'WorkflowTaskInstanceId',
     ];
 
     public function validate()
@@ -154,6 +166,10 @@ class workflowInstance extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -187,6 +203,10 @@ class workflowInstance extends Model
 
         if (null !== $this->workflowParameters) {
             $res['WorkflowParameters'] = $this->workflowParameters;
+        }
+
+        if (null !== $this->workflowTaskInstanceId) {
+            $res['WorkflowTaskInstanceId'] = $this->workflowTaskInstanceId;
         }
 
         return $res;
@@ -236,6 +256,10 @@ class workflowInstance extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
@@ -269,6 +293,10 @@ class workflowInstance extends Model
 
         if (isset($map['WorkflowParameters'])) {
             $model->workflowParameters = $map['WorkflowParameters'];
+        }
+
+        if (isset($map['WorkflowTaskInstanceId'])) {
+            $model->workflowTaskInstanceId = $map['WorkflowTaskInstanceId'];
         }
 
         return $model;

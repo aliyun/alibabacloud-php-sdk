@@ -1246,7 +1246,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建组件.
+     * Creates components.
      *
      * @param Request - CreateComponentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1293,7 +1293,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建组件.
+     * Creates components.
      *
      * @param Request - CreateComponentRequest
      *
@@ -6864,7 +6864,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取组件信息.
+     * Gets component information.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      *
      * @param Request - GetComponentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6907,7 +6910,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取组件信息.
+     * Gets component information.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
      *
      * @param Request - GetComponentRequest
      *
@@ -8410,7 +8416,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据表的分区详情.
+     * Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  This operation supports MaxCompute and HMS (EMR cluster) tables only.
      *
      * @param Request - GetPartitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8445,7 +8455,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据表的分区详情.
+     * Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  This operation supports MaxCompute and HMS (EMR cluster) tables only.
      *
      * @param Request - GetPartitionRequest
      *
@@ -10035,7 +10049,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取组件列表.
+     * Retrieves a list of components.
+     *
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
      * @param Request - ListComponentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10086,7 +10103,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取组件列表.
+     * Retrieves a list of components.
+     *
+     * @remarks
+     * This API operation is available for all DataWorks editions.
      *
      * @param Request - ListComponentsRequest
      *
@@ -11480,7 +11500,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询发布包列表.
+     * Queries a list of deployment packages.
      *
      * @param Request - ListDeploymentPackagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11555,7 +11575,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询发布包列表.
+     * Queries a list of deployment packages.
      *
      * @param Request - ListDeploymentPackagesRequest
      *
@@ -12419,7 +12439,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 通过发布流程的ID获取发布内容.
+     * Queries the information about deployment objects by deployment process ID.
      *
      * @param Request - ListPipelineRunItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12454,7 +12474,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 通过发布流程的ID获取发布内容.
+     * Queries the information about deployment objects by deployment process ID.
      *
      * @param Request - ListPipelineRunItemsRequest
      *
@@ -13052,7 +13072,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询数据表列表.
+     * Queries a list of tables in Data Map. For data source types that do not support schemas, you can call this API operation to query a list of tables in a specific database. For data source types that support schemas, you can call this API operation to query a list of tables in a specific database, MaxCompute project, or schema. Only the basic information about tables is returned. The information about technical metadata and business metadata is not returned.
      *
      * @param tmpReq - ListTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13093,7 +13113,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询数据表列表.
+     * Queries a list of tables in Data Map. For data source types that do not support schemas, you can call this API operation to query a list of tables in a specific database. For data source types that support schemas, you can call this API operation to query a list of tables in a specific database, MaxCompute project, or schema. Only the basic information about tables is returned. The information about technical metadata and business metadata is not returned.
      *
      * @param Request - ListTablesRequest
      *
