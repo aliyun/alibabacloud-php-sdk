@@ -30,6 +30,16 @@ class loadBalancers extends Model
     public $gatewayDefault;
 
     /**
+     * @var string[]
+     */
+    public $ipv4Addresses;
+
+    /**
+     * @var string[]
+     */
+    public $ipv6Addresses;
+
+    /**
      * @var string
      */
     public $loadBalancerId;
@@ -58,6 +68,8 @@ class loadBalancers extends Model
         'addressIpVersion' => 'addressIpVersion',
         'addressType' => 'addressType',
         'gatewayDefault' => 'gatewayDefault',
+        'ipv4Addresses' => 'ipv4Addresses',
+        'ipv6Addresses' => 'ipv6Addresses',
         'loadBalancerId' => 'loadBalancerId',
         'mode' => 'mode',
         'ports' => 'ports',
@@ -67,6 +79,12 @@ class loadBalancers extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipv4Addresses)) {
+            Model::validateArray($this->ipv4Addresses);
+        }
+        if (\is_array($this->ipv6Addresses)) {
+            Model::validateArray($this->ipv6Addresses);
+        }
         if (\is_array($this->ports)) {
             Model::validateArray($this->ports);
         }
@@ -90,6 +108,28 @@ class loadBalancers extends Model
 
         if (null !== $this->gatewayDefault) {
             $res['gatewayDefault'] = $this->gatewayDefault;
+        }
+
+        if (null !== $this->ipv4Addresses) {
+            if (\is_array($this->ipv4Addresses)) {
+                $res['ipv4Addresses'] = [];
+                $n1 = 0;
+                foreach ($this->ipv4Addresses as $item1) {
+                    $res['ipv4Addresses'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ipv6Addresses) {
+            if (\is_array($this->ipv6Addresses)) {
+                $res['ipv6Addresses'] = [];
+                $n1 = 0;
+                foreach ($this->ipv6Addresses as $item1) {
+                    $res['ipv6Addresses'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->loadBalancerId) {
@@ -144,6 +184,28 @@ class loadBalancers extends Model
 
         if (isset($map['gatewayDefault'])) {
             $model->gatewayDefault = $map['gatewayDefault'];
+        }
+
+        if (isset($map['ipv4Addresses'])) {
+            if (!empty($map['ipv4Addresses'])) {
+                $model->ipv4Addresses = [];
+                $n1 = 0;
+                foreach ($map['ipv4Addresses'] as $item1) {
+                    $model->ipv4Addresses[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ipv6Addresses'])) {
+            if (!empty($map['ipv6Addresses'])) {
+                $model->ipv6Addresses = [];
+                $n1 = 0;
+                foreach ($map['ipv6Addresses'] as $item1) {
+                    $model->ipv6Addresses[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['loadBalancerId'])) {
