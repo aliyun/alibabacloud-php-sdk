@@ -9,8 +9,16 @@ use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CloseChatInstanceSessionsRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CloseChatInstanceSessionsResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CloseChatInstanceSessionsShrinkRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatConfigRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatConfigResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatSessionRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateChatSessionResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateNoTrainPicAvatarRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateNoTrainPicAvatarResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\QueryChatInstanceSessionsRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\QueryChatInstanceSessionsResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\QueryChatInstanceSessionsShrinkRequest;
@@ -123,6 +131,136 @@ class LingMou extends OpenApiClient
     }
 
     /**
+     * 创建背景素材.
+     *
+     * @param request - CreateBackgroundPicRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBackgroundPicResponse
+     *
+     * @param CreateBackgroundPicRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateBackgroundPicResponse
+     */
+    public function createBackgroundPicWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filename) {
+            @$query['filename'] = $request->filename;
+        }
+
+        if (null !== $request->ossKey) {
+            @$query['ossKey'] = $request->ossKey;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBackgroundPic',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/chat/createBackgroundPic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBackgroundPicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建背景素材.
+     *
+     * @param request - CreateBackgroundPicRequest
+     *
+     * @returns CreateBackgroundPicResponse
+     *
+     * @param CreateBackgroundPicRequest $request
+     *
+     * @return CreateBackgroundPicResponse
+     */
+    public function createBackgroundPic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createBackgroundPicWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 背景配置.
+     *
+     * @param request - CreateChatConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatConfigResponse
+     *
+     * @param CreateChatConfigRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateChatConfigResponse
+     */
+    public function createChatConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->avatarId) {
+            @$query['avatarId'] = $request->avatarId;
+        }
+
+        if (null !== $request->backgroundId) {
+            @$query['backgroundId'] = $request->backgroundId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChatConfig',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/chat/createChatConfig',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateChatConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 背景配置.
+     *
+     * @param request - CreateChatConfigRequest
+     *
+     * @returns CreateChatConfigResponse
+     *
+     * @param CreateChatConfigRequest $request
+     *
+     * @return CreateChatConfigResponse
+     */
+    public function createChatConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createChatConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 创建数字人会话.
      *
      * @param request - CreateChatSessionRequest
@@ -191,6 +329,156 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->createChatSessionWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建对话免训照片数字人.
+     *
+     * @param request - CreateNoTrainPicAvatarRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNoTrainPicAvatarResponse
+     *
+     * @param CreateNoTrainPicAvatarRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateNoTrainPicAvatarResponse
+     */
+    public function createNoTrainPicAvatarWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->expressiveness) {
+            @$query['expressiveness'] = $request->expressiveness;
+        }
+
+        if (null !== $request->gender) {
+            @$query['gender'] = $request->gender;
+        }
+
+        if (null !== $request->generateAssets) {
+            @$query['generateAssets'] = $request->generateAssets;
+        }
+
+        if (null !== $request->imageOssPath) {
+            @$query['imageOssPath'] = $request->imageOssPath;
+        }
+
+        if (null !== $request->jwtToken) {
+            @$query['jwtToken'] = $request->jwtToken;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->transparent) {
+            @$query['transparent'] = $request->transparent;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNoTrainPicAvatar',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/chat/createNoTrainPicAvatar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNoTrainPicAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建对话免训照片数字人.
+     *
+     * @param request - CreateNoTrainPicAvatarRequest
+     *
+     * @returns CreateNoTrainPicAvatarResponse
+     *
+     * @param CreateNoTrainPicAvatarRequest $request
+     *
+     * @return CreateNoTrainPicAvatarResponse
+     */
+    public function createNoTrainPicAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createNoTrainPicAvatarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取对话免训图片素材上传凭证
+     *
+     * @param request - GetUploadPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUploadPolicyResponse
+     *
+     * @param GetUploadPolicyRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetUploadPolicyResponse
+     */
+    public function getUploadPolicyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jwtToken) {
+            @$query['jwtToken'] = $request->jwtToken;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUploadPolicy',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/chat/getUploadPolicy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取对话免训图片素材上传凭证
+     *
+     * @param request - GetUploadPolicyRequest
+     *
+     * @returns GetUploadPolicyResponse
+     *
+     * @param GetUploadPolicyRequest $request
+     *
+     * @return GetUploadPolicyResponse
+     */
+    public function getUploadPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getUploadPolicyWithOptions($request, $headers, $runtime);
     }
 
     /**
