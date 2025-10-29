@@ -74,6 +74,11 @@ class list_ extends Model
     public $recordingFilePath;
 
     /**
+     * @var int
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -91,6 +96,7 @@ class list_ extends Model
         'majorIntent' => 'MajorIntent',
         'options' => 'Options',
         'recordingFilePath' => 'RecordingFilePath',
+        'status' => 'Status',
         'taskId' => 'TaskId',
     ];
 
@@ -152,6 +158,10 @@ class list_ extends Model
 
         if (null !== $this->recordingFilePath) {
             $res['RecordingFilePath'] = $this->recordingFilePath;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->taskId) {
@@ -219,6 +229,10 @@ class list_ extends Model
 
         if (isset($map['RecordingFilePath'])) {
             $model->recordingFilePath = $map['RecordingFilePath'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['TaskId'])) {

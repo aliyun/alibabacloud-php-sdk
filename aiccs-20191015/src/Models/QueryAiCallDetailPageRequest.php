@@ -49,6 +49,11 @@ class QueryAiCallDetailPageRequest extends Model
     public $minConversationDuration;
 
     /**
+     * @var string
+     */
+    public $outId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -101,6 +106,7 @@ class QueryAiCallDetailPageRequest extends Model
         'majorIntent' => 'MajorIntent',
         'maxConversationDuration' => 'MaxConversationDuration',
         'minConversationDuration' => 'MinConversationDuration',
+        'outId' => 'OutId',
         'ownerId' => 'OwnerId',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
@@ -150,6 +156,10 @@ class QueryAiCallDetailPageRequest extends Model
 
         if (null !== $this->minConversationDuration) {
             $res['MinConversationDuration'] = $this->minConversationDuration;
+        }
+
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
 
         if (null !== $this->ownerId) {
@@ -229,6 +239,10 @@ class QueryAiCallDetailPageRequest extends Model
 
         if (isset($map['MinConversationDuration'])) {
             $model->minConversationDuration = $map['MinConversationDuration'];
+        }
+
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
 
         if (isset($map['OwnerId'])) {
