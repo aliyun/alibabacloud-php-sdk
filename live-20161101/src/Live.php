@@ -705,6 +705,9 @@ use AlibabaCloud\SDK\Live\V20161101\Models\PlayChoosenShowRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\PlayChoosenShowResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\PublishLiveStagingConfigToProductionRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\PublishLiveStagingConfigToProductionResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\PutRecordStorageLifeCycleRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\PutRecordStorageLifeCycleResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\PutRecordStorageLifeCycleShrinkRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\QueryLiveDomainMultiStreamListRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\QueryLiveDomainMultiStreamListResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\QueryMessageAppRequest;
@@ -1745,6 +1748,10 @@ class Live extends OpenApiClient
 
         if (null !== $request->bitrateWithSource) {
             @$query['BitrateWithSource'] = $request->bitrateWithSource;
+        }
+
+        if (null !== $request->deInterlaced) {
+            @$query['DeInterlaced'] = $request->deInterlaced;
         }
 
         if (null !== $request->domain) {
@@ -30197,6 +30204,93 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 用于修改指定直播流的录制文件存储时长。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口允许用户为一个或多个指定的直播流设置新的录制文件存储期限。
+     * - `Tag` 字段必须符合格式 `[0-9]+days`，表示直播结束后录制内容将被保存的天数。
+     * - 如果对某个流的存储时间修改失败，错误信息会被记录在返回结果中。对于失败的情况，调用方应重试最多3次；如果超过重试次数仍失败，则视为最终失败。
+     * - 为了支持未来可能的需求变化（如更长的存储周期），请确保您的系统能够处理不同的时间段值。
+     * - 成功执行后，供应商会通过异步回调的方式通知调用方所有操作的结果。若回调失败，将按照1小时、2小时、4小时的时间间隔尝试重新发送，直至成功或达到最大重试次数。
+     *
+     * @param tmpReq - PutRecordStorageLifeCycleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutRecordStorageLifeCycleResponse
+     *
+     * @param PutRecordStorageLifeCycleRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return PutRecordStorageLifeCycleResponse
+     */
+    public function putRecordStorageLifeCycleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PutRecordStorageLifeCycleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->streamIds) {
+            $request->streamIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->streamIds, 'StreamIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->streamIdsShrink) {
+            @$body['StreamIds'] = $request->streamIdsShrink;
+        }
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->unixTimestamp) {
+            @$body['UnixTimestamp'] = $request->unixTimestamp;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PutRecordStorageLifeCycle',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PutRecordStorageLifeCycleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于修改指定直播流的录制文件存储时长。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口允许用户为一个或多个指定的直播流设置新的录制文件存储期限。
+     * - `Tag` 字段必须符合格式 `[0-9]+days`，表示直播结束后录制内容将被保存的天数。
+     * - 如果对某个流的存储时间修改失败，错误信息会被记录在返回结果中。对于失败的情况，调用方应重试最多3次；如果超过重试次数仍失败，则视为最终失败。
+     * - 为了支持未来可能的需求变化（如更长的存储周期），请确保您的系统能够处理不同的时间段值。
+     * - 成功执行后，供应商会通过异步回调的方式通知调用方所有操作的结果。若回调失败，将按照1小时、2小时、4小时的时间间隔尝试重新发送，直至成功或达到最大重试次数。
+     *
+     * @param request - PutRecordStorageLifeCycleRequest
+     *
+     * @returns PutRecordStorageLifeCycleResponse
+     *
+     * @param PutRecordStorageLifeCycleRequest $request
+     *
+     * @return PutRecordStorageLifeCycleResponse
+     */
+    public function putRecordStorageLifeCycle($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putRecordStorageLifeCycleWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the dual-stream disaster recovery records of online streams.
      *
      * @param request - QueryLiveDomainMultiStreamListRequest
@@ -34836,6 +34930,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 解绑标签.
+     *
      * @param request - UnTagLiveResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -34893,6 +34989,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 解绑标签.
+     *
      * @param request - UnTagLiveResourcesRequest
      *
      * @returns UnTagLiveResourcesResponse
@@ -35297,6 +35395,10 @@ class Live extends OpenApiClient
 
         if (null !== $request->bitrateWithSource) {
             @$query['BitrateWithSource'] = $request->bitrateWithSource;
+        }
+
+        if (null !== $request->deInterlaced) {
+            @$query['DeInterlaced'] = $request->deInterlaced;
         }
 
         if (null !== $request->domain) {

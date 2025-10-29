@@ -44,6 +44,11 @@ class AddCustomLiveStreamTranscodeRequest extends Model
     public $bitrateWithSource;
 
     /**
+     * @var bool
+     */
+    public $deInterlaced;
+
+    /**
      * @var string
      */
     public $domain;
@@ -145,6 +150,7 @@ class AddCustomLiveStreamTranscodeRequest extends Model
         'audioProfile' => 'AudioProfile',
         'audioRate' => 'AudioRate',
         'bitrateWithSource' => 'BitrateWithSource',
+        'deInterlaced' => 'DeInterlaced',
         'domain' => 'Domain',
         'encryptParameters' => 'EncryptParameters',
         'extWithSource' => 'ExtWithSource',
@@ -200,6 +206,10 @@ class AddCustomLiveStreamTranscodeRequest extends Model
 
         if (null !== $this->bitrateWithSource) {
             $res['BitrateWithSource'] = $this->bitrateWithSource;
+        }
+
+        if (null !== $this->deInterlaced) {
+            $res['DeInterlaced'] = $this->deInterlaced;
         }
 
         if (null !== $this->domain) {
@@ -315,6 +325,10 @@ class AddCustomLiveStreamTranscodeRequest extends Model
 
         if (isset($map['BitrateWithSource'])) {
             $model->bitrateWithSource = $map['BitrateWithSource'];
+        }
+
+        if (isset($map['DeInterlaced'])) {
+            $model->deInterlaced = $map['DeInterlaced'];
         }
 
         if (isset($map['Domain'])) {

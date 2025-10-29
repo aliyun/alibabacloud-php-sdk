@@ -44,6 +44,11 @@ class customTranscodeParameters extends Model
     public $bitrateWithSource;
 
     /**
+     * @var bool
+     */
+    public $deInterlaced;
+
+    /**
      * @var mixed[]
      */
     public $extWithSource;
@@ -105,6 +110,7 @@ class customTranscodeParameters extends Model
         'audioRate' => 'AudioRate',
         'bframes' => 'Bframes',
         'bitrateWithSource' => 'BitrateWithSource',
+        'deInterlaced' => 'DeInterlaced',
         'extWithSource' => 'ExtWithSource',
         'FPS' => 'FPS',
         'fpsWithSource' => 'FpsWithSource',
@@ -169,6 +175,10 @@ class customTranscodeParameters extends Model
                     $res['BitrateWithSource'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->deInterlaced) {
+            $res['DeInterlaced'] = $this->deInterlaced;
         }
 
         if (null !== $this->extWithSource) {
@@ -272,6 +282,10 @@ class customTranscodeParameters extends Model
                     $model->bitrateWithSource[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['DeInterlaced'])) {
+            $model->deInterlaced = $map['DeInterlaced'];
         }
 
         if (isset($map['ExtWithSource'])) {
