@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AddEncryptionDBRolePrivilegeReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddEncryptionDBRolePrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddFirewallRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSRequest;
@@ -19,6 +21,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelCronJobPolicyServerlessRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelCronJobPolicyServerlessResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelPolarFsFileQuotaRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelPolarFsFileQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameRequest;
@@ -138,6 +142,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteNetworkChannelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteNetworkChannelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsRequest;
@@ -317,6 +323,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionRe
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRdsVpcsRequest;
@@ -534,6 +544,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\SetPolarFsFileQuotaRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\SetPolarFsFileQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SwitchOverGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SwitchOverGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TagResourcesRequest;
@@ -879,6 +891,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 新增PolarFs Quota规则.
+     *
+     * @param request - AddPolarFsQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddPolarFsQuotaResponse
+     *
+     * @param AddPolarFsQuotaRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddPolarFsQuotaResponse
+     */
+    public function addPolarFsQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->quotas) {
+            @$query['Quotas'] = $request->quotas;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddPolarFsQuota',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddPolarFsQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增PolarFs Quota规则.
+     *
+     * @param request - AddPolarFsQuotaRequest
+     *
+     * @returns AddPolarFsQuotaResponse
+     *
+     * @param AddPolarFsQuotaRequest $request
+     *
+     * @return AddPolarFsQuotaResponse
+     */
+    public function addPolarFsQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPolarFsQuotaWithOptions($request, $runtime);
+    }
+
+    /**
      * 添加SQL限流规则.
      *
      * @param request - AddSQLRateLimitingRulesRequest
@@ -1188,6 +1265,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelCronJobPolicyServerlessWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消目录的配额.
+     *
+     * @param request - CancelPolarFsFileQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelPolarFsFileQuotaResponse
+     *
+     * @param CancelPolarFsFileQuotaRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CancelPolarFsFileQuotaResponse
+     */
+    public function cancelPolarFsFileQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->filePathIds) {
+            @$query['FilePathIds'] = $request->filePathIds;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelPolarFsFileQuota',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelPolarFsFileQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消目录的配额.
+     *
+     * @param request - CancelPolarFsFileQuotaRequest
+     *
+     * @returns CancelPolarFsFileQuotaResponse
+     *
+     * @param CancelPolarFsFileQuotaRequest $request
+     *
+     * @return CancelPolarFsFileQuotaResponse
+     */
+    public function cancelPolarFsFileQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelPolarFsFileQuotaWithOptions($request, $runtime);
     }
 
     /**
@@ -6599,6 +6741,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarFs Quota规则.
+     *
+     * @param request - DeletePolarFsQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarFsQuotaResponse
+     *
+     * @param DeletePolarFsQuotaRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeletePolarFsQuotaResponse
+     */
+    public function deletePolarFsQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->quotas) {
+            @$query['Quotas'] = $request->quotas;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarFsQuota',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarFsQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarFs Quota规则.
+     *
+     * @param request - DeletePolarFsQuotaRequest
+     *
+     * @returns DeletePolarFsQuotaResponse
+     *
+     * @param DeletePolarFsQuotaRequest $request
+     *
+     * @return DeletePolarFsQuotaResponse
+     */
+    public function deletePolarFsQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarFsQuotaWithOptions($request, $runtime);
     }
 
     /**
@@ -14092,6 +14299,136 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePendingMaintenanceActionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取PolarFS实例详情.
+     *
+     * @param request - DescribePolarFsAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarFsAttributeResponse
+     *
+     * @param DescribePolarFsAttributeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribePolarFsAttributeResponse
+     */
+    public function describePolarFsAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->queryFuseMountInfo) {
+            @$query['QueryFuseMountInfo'] = $request->queryFuseMountInfo;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarFsAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarFsAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取PolarFS实例详情.
+     *
+     * @param request - DescribePolarFsAttributeRequest
+     *
+     * @returns DescribePolarFsAttributeResponse
+     *
+     * @param DescribePolarFsAttributeRequest $request
+     *
+     * @return DescribePolarFsAttributeResponse
+     */
+    public function describePolarFsAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarFsAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询配额规则.
+     *
+     * @param request - DescribePolarFsQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarFsQuotaResponse
+     *
+     * @param DescribePolarFsQuotaRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePolarFsQuotaResponse
+     */
+    public function describePolarFsQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarFsQuota',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarFsQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询配额规则.
+     *
+     * @param request - DescribePolarFsQuotaRequest
+     *
+     * @returns DescribePolarFsQuotaResponse
+     *
+     * @param DescribePolarFsQuotaRequest $request
+     *
+     * @return DescribePolarFsQuotaResponse
+     */
+    public function describePolarFsQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarFsQuotaWithOptions($request, $runtime);
     }
 
     /**
@@ -23603,6 +23940,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeAccountPrivilegeZonalWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为目录应用配额规则.
+     *
+     * @param request - SetPolarFsFileQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetPolarFsFileQuotaResponse
+     *
+     * @param SetPolarFsFileQuotaRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetPolarFsFileQuotaResponse
+     */
+    public function setPolarFsFileQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->filePathQuotas) {
+            @$query['FilePathQuotas'] = $request->filePathQuotas;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetPolarFsFileQuota',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetPolarFsFileQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为目录应用配额规则.
+     *
+     * @param request - SetPolarFsFileQuotaRequest
+     *
+     * @returns SetPolarFsFileQuotaResponse
+     *
+     * @param SetPolarFsFileQuotaRequest $request
+     *
+     * @return SetPolarFsFileQuotaResponse
+     */
+    public function setPolarFsFileQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPolarFsFileQuotaWithOptions($request, $runtime);
     }
 
     /**
