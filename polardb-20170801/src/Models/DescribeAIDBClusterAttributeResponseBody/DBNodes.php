@@ -57,6 +57,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $publicIp;
+
+    /**
+     * @var string
+     */
     public $VNodeId;
 
     /**
@@ -83,6 +88,7 @@ class DBNodes extends Model
         'GPU' => 'GPU',
         'linkIP' => 'LinkIP',
         'memorySize' => 'MemorySize',
+        'publicIp' => 'PublicIp',
         'VNodeId' => 'VNodeId',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
@@ -141,6 +147,10 @@ class DBNodes extends Model
 
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
+        }
+
+        if (null !== $this->publicIp) {
+            $res['PublicIp'] = $this->publicIp;
         }
 
         if (null !== $this->VNodeId) {
@@ -211,6 +221,10 @@ class DBNodes extends Model
 
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+
+        if (isset($map['PublicIp'])) {
+            $model->publicIp = $map['PublicIp'];
         }
 
         if (isset($map['VNodeId'])) {
