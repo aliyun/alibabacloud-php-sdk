@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GenericSearchRequest extends Model
+class GenericSearchShrinkRequest extends Model
 {
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $advancedParams;
+    public $advancedParamsShrink;
 
     /**
      * @var bool
@@ -63,7 +63,7 @@ class GenericSearchRequest extends Model
      */
     public $timeRange;
     protected $_name = [
-        'advancedParams' => 'advancedParams',
+        'advancedParamsShrink' => 'advancedParams',
         'enableRerank' => 'enableRerank',
         'industry' => 'industry',
         'page' => 'page',
@@ -78,22 +78,14 @@ class GenericSearchRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->advancedParams)) {
-            Model::validateArray($this->advancedParams);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->advancedParams) {
-            if (\is_array($this->advancedParams)) {
-                $res['advancedParams'] = [];
-                foreach ($this->advancedParams as $key1 => $value1) {
-                    $res['advancedParams'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->advancedParamsShrink) {
+            $res['advancedParams'] = $this->advancedParamsShrink;
         }
 
         if (null !== $this->enableRerank) {
@@ -148,12 +140,7 @@ class GenericSearchRequest extends Model
     {
         $model = new self();
         if (isset($map['advancedParams'])) {
-            if (!empty($map['advancedParams'])) {
-                $model->advancedParams = [];
-                foreach ($map['advancedParams'] as $key1 => $value1) {
-                    $model->advancedParams[$key1] = $value1;
-                }
-            }
+            $model->advancedParamsShrink = $map['advancedParams'];
         }
 
         if (isset($map['enableRerank'])) {

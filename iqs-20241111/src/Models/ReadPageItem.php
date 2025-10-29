@@ -29,6 +29,11 @@ class ReadPageItem extends Model
     public $rawHtml;
 
     /**
+     * @var string
+     */
+    public $screenshot;
+
+    /**
      * @var int
      */
     public $statusCode;
@@ -42,6 +47,7 @@ class ReadPageItem extends Model
         'html' => 'html',
         'markdown' => 'markdown',
         'rawHtml' => 'rawHtml',
+        'screenshot' => 'screenshot',
         'statusCode' => 'statusCode',
         'text' => 'text',
     ];
@@ -68,6 +74,10 @@ class ReadPageItem extends Model
 
         if (null !== $this->rawHtml) {
             $res['rawHtml'] = $this->rawHtml;
+        }
+
+        if (null !== $this->screenshot) {
+            $res['screenshot'] = $this->screenshot;
         }
 
         if (null !== $this->statusCode) {
@@ -103,6 +113,10 @@ class ReadPageItem extends Model
 
         if (isset($map['rawHtml'])) {
             $model->rawHtml = $map['rawHtml'];
+        }
+
+        if (isset($map['screenshot'])) {
+            $model->screenshot = $map['screenshot'];
         }
 
         if (isset($map['statusCode'])) {

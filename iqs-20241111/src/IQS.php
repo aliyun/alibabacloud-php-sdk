@@ -11,12 +11,15 @@ use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchShrinkRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageScrapeRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageScrapeResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -281,22 +284,32 @@ class IQS extends OpenApiClient
     /**
      * 通用搜索.
      *
-     * @param request - GenericSearchRequest
+     * @param tmpReq - GenericSearchRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GenericSearchResponse
      *
-     * @param GenericSearchRequest $request
+     * @param GenericSearchRequest $tmpReq
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
      *
      * @return GenericSearchResponse
      */
-    public function genericSearchWithOptions($request, $headers, $runtime)
+    public function genericSearchWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GenericSearchShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->advancedParams) {
+            $request->advancedParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->advancedParams, 'advancedParams', 'json');
+        }
+
         $query = [];
+        if (null !== $request->advancedParamsShrink) {
+            @$query['advancedParams'] = $request->advancedParamsShrink;
+        }
+
         if (null !== $request->enableRerank) {
             @$query['enableRerank'] = $request->enableRerank;
         }
@@ -567,6 +580,62 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->readPageBasicWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 动态页面解析.
+     *
+     * @param request - ReadPageScrapeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReadPageScrapeResponse
+     *
+     * @param ReadPageScrapeRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ReadPageScrapeResponse
+     */
+    public function readPageScrapeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'ReadPageScrape',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/readpage/scrape',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ReadPageScrapeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 动态页面解析.
+     *
+     * @param request - ReadPageScrapeRequest
+     *
+     * @returns ReadPageScrapeResponse
+     *
+     * @param ReadPageScrapeRequest $request
+     *
+     * @return ReadPageScrapeResponse
+     */
+    public function readPageScrape($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->readPageScrapeWithOptions($request, $headers, $runtime);
     }
 
     /**
