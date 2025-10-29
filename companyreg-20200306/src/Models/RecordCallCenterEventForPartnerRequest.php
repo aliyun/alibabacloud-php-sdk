@@ -46,6 +46,11 @@ class RecordCallCenterEventForPartnerRequest extends Model
     /**
      * @var string
      */
+    public $employeeCode;
+
+    /**
+     * @var string
+     */
     public $jobId;
 
     /**
@@ -62,6 +67,11 @@ class RecordCallCenterEventForPartnerRequest extends Model
      * @var int
      */
     public $skillType;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
     protected $_name = [
         'bizId' => 'BizId',
         'bizType' => 'BizType',
@@ -70,10 +80,12 @@ class RecordCallCenterEventForPartnerRequest extends Model
         'caller' => 'Caller',
         'connId' => 'ConnId',
         'contactId' => 'ContactId',
+        'employeeCode' => 'EmployeeCode',
         'jobId' => 'JobId',
         'relatedId' => 'RelatedId',
         'secretMobile' => 'SecretMobile',
         'skillType' => 'SkillType',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
@@ -112,6 +124,10 @@ class RecordCallCenterEventForPartnerRequest extends Model
             $res['ContactId'] = $this->contactId;
         }
 
+        if (null !== $this->employeeCode) {
+            $res['EmployeeCode'] = $this->employeeCode;
+        }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -126,6 +142,10 @@ class RecordCallCenterEventForPartnerRequest extends Model
 
         if (null !== $this->skillType) {
             $res['SkillType'] = $this->skillType;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -167,6 +187,10 @@ class RecordCallCenterEventForPartnerRequest extends Model
             $model->contactId = $map['ContactId'];
         }
 
+        if (isset($map['EmployeeCode'])) {
+            $model->employeeCode = $map['EmployeeCode'];
+        }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
@@ -181,6 +205,10 @@ class RecordCallCenterEventForPartnerRequest extends Model
 
         if (isset($map['SkillType'])) {
             $model->skillType = $map['SkillType'];
+        }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

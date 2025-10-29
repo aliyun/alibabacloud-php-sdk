@@ -1876,6 +1876,10 @@ class Companyreg extends OpenApiClient
             @$query['ContactId'] = $request->contactId;
         }
 
+        if (null !== $request->employeeCode) {
+            @$query['EmployeeCode'] = $request->employeeCode;
+        }
+
         if (null !== $request->jobId) {
             @$query['JobId'] = $request->jobId;
         }
@@ -1890,6 +1894,10 @@ class Companyreg extends OpenApiClient
 
         if (null !== $request->skillType) {
             @$query['SkillType'] = $request->skillType;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
         }
 
         $req = new OpenApiRequest([
