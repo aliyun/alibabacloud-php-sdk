@@ -57,9 +57,19 @@ class job extends Model
     public $jobId;
 
     /**
+     * @var mixed[]
+     */
+    public $logFile;
+
+    /**
      * @var string
      */
     public $output;
+
+    /**
+     * @var mixed
+     */
+    public $outputJsonPlan;
 
     /**
      * @var string[]
@@ -100,7 +110,9 @@ class job extends Model
         'executeType' => 'executeType',
         'isPassAssertCheck' => 'isPassAssertCheck',
         'jobId' => 'jobId',
+        'logFile' => 'logFile',
         'output' => 'output',
+        'outputJsonPlan' => 'outputJsonPlan',
         'parameters' => 'parameters',
         'status' => 'status',
         'statusDetail' => 'statusDetail',
@@ -119,6 +131,9 @@ class job extends Model
         }
         if (\is_array($this->downloadUrl)) {
             Model::validateArray($this->downloadUrl);
+        }
+        if (\is_array($this->logFile)) {
+            Model::validateArray($this->logFile);
         }
         if (\is_array($this->parameters)) {
             Model::validateArray($this->parameters);
@@ -180,8 +195,21 @@ class job extends Model
             $res['jobId'] = $this->jobId;
         }
 
+        if (null !== $this->logFile) {
+            if (\is_array($this->logFile)) {
+                $res['logFile'] = [];
+                foreach ($this->logFile as $key1 => $value1) {
+                    $res['logFile'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->output) {
             $res['output'] = $this->output;
+        }
+
+        if (null !== $this->outputJsonPlan) {
+            $res['outputJsonPlan'] = $this->outputJsonPlan;
         }
 
         if (null !== $this->parameters) {
@@ -277,8 +305,21 @@ class job extends Model
             $model->jobId = $map['jobId'];
         }
 
+        if (isset($map['logFile'])) {
+            if (!empty($map['logFile'])) {
+                $model->logFile = [];
+                foreach ($map['logFile'] as $key1 => $value1) {
+                    $model->logFile[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['output'])) {
             $model->output = $map['output'];
+        }
+
+        if (isset($map['outputJsonPlan'])) {
+            $model->outputJsonPlan = $map['outputJsonPlan'];
         }
 
         if (isset($map['parameters'])) {

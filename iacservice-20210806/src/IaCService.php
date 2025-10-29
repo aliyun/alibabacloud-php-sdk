@@ -3173,6 +3173,10 @@ class IaCService extends OpenApiClient
             @$query['keyword'] = $request->keyword;
         }
 
+        if (null !== $request->moduleName) {
+            @$query['moduleName'] = $request->moduleName;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }

@@ -19,6 +19,11 @@ class ListModulesShrinkRequest extends Model
     public $keyword;
 
     /**
+     * @var string
+     */
+    public $moduleName;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -40,6 +45,7 @@ class ListModulesShrinkRequest extends Model
     protected $_name = [
         'groupId' => 'groupId',
         'keyword' => 'keyword',
+        'moduleName' => 'moduleName',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'projectId' => 'projectId',
@@ -60,6 +66,10 @@ class ListModulesShrinkRequest extends Model
 
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->moduleName) {
+            $res['moduleName'] = $this->moduleName;
         }
 
         if (null !== $this->pageNumber) {
@@ -95,6 +105,10 @@ class ListModulesShrinkRequest extends Model
 
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['moduleName'])) {
+            $model->moduleName = $map['moduleName'];
         }
 
         if (isset($map['pageNumber'])) {
