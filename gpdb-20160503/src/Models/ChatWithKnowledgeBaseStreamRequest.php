@@ -39,6 +39,11 @@ class ChatWithKnowledgeBaseStreamRequest extends Model
      * @var string
      */
     public $promptParams;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'includeKnowledgeBaseResults' => 'IncludeKnowledgeBaseResults',
@@ -46,6 +51,7 @@ class ChatWithKnowledgeBaseStreamRequest extends Model
         'modelParams' => 'ModelParams',
         'ownerId' => 'OwnerId',
         'promptParams' => 'PromptParams',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class ChatWithKnowledgeBaseStreamRequest extends Model
             $res['PromptParams'] = $this->promptParams;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         return $res;
     }
 
@@ -119,6 +129,10 @@ class ChatWithKnowledgeBaseStreamRequest extends Model
 
         if (isset($map['PromptParams'])) {
             $model->promptParams = $map['PromptParams'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

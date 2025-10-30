@@ -418,6 +418,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentAdvanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryKnowledgeBasesContentRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryKnowledgeBasesContentResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryKnowledgeBasesContentShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionRequest;
@@ -1137,6 +1140,10 @@ class Gpdb extends OpenApiClient
             @$query['PromptParams'] = $request->promptParams;
         }
 
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1230,6 +1237,10 @@ class Gpdb extends OpenApiClient
             @$query['PromptParams'] = $request->promptParams;
         }
 
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1312,6 +1323,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->promptParams) {
             @$query['PromptParams'] = $request->promptParams;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
 
         $req = new OpenApiRequest([
@@ -16351,6 +16366,14 @@ class Gpdb extends OpenApiClient
             @$query['NamespacePassword'] = $request->namespacePassword;
         }
 
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
@@ -16511,6 +16534,105 @@ class Gpdb extends OpenApiClient
         }
 
         return $this->queryContentWithOptions($queryContentReq, $runtime);
+    }
+
+    /**
+     * 多知识库查询.
+     *
+     * @param tmpReq - QueryKnowledgeBasesContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryKnowledgeBasesContentResponse
+     *
+     * @param QueryKnowledgeBasesContentRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryKnowledgeBasesContentResponse
+     */
+    public function queryKnowledgeBasesContentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryKnowledgeBasesContentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->mergeMethodArgs) {
+            $request->mergeMethodArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->mergeMethodArgs, 'MergeMethodArgs', 'json');
+        }
+
+        if (null !== $tmpReq->sourceCollection) {
+            $request->sourceCollectionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceCollection, 'SourceCollection', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->mergeMethod) {
+            @$query['MergeMethod'] = $request->mergeMethod;
+        }
+
+        if (null !== $request->mergeMethodArgsShrink) {
+            @$query['MergeMethodArgs'] = $request->mergeMethodArgsShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->rerankFactor) {
+            @$query['RerankFactor'] = $request->rerankFactor;
+        }
+
+        if (null !== $request->sourceCollectionShrink) {
+            @$query['SourceCollection'] = $request->sourceCollectionShrink;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryKnowledgeBasesContent',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryKnowledgeBasesContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 多知识库查询.
+     *
+     * @param Request - QueryKnowledgeBasesContentRequest
+     *
+     * @returns QueryKnowledgeBasesContentResponse
+     *
+     * @param QueryKnowledgeBasesContentRequest $request
+     *
+     * @return QueryKnowledgeBasesContentResponse
+     */
+    public function queryKnowledgeBasesContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryKnowledgeBasesContentWithOptions($request, $runtime);
     }
 
     /**

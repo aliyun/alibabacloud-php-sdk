@@ -37,6 +37,11 @@ class ChatWithKnowledgeBaseStreamShrinkRequest extends Model
      * @var string
      */
     public $promptParams;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'includeKnowledgeBaseResults' => 'IncludeKnowledgeBaseResults',
@@ -44,6 +49,7 @@ class ChatWithKnowledgeBaseStreamShrinkRequest extends Model
         'modelParamsShrink' => 'ModelParams',
         'ownerId' => 'OwnerId',
         'promptParams' => 'PromptParams',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class ChatWithKnowledgeBaseStreamShrinkRequest extends Model
 
         if (null !== $this->promptParams) {
             $res['PromptParams'] = $this->promptParams;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class ChatWithKnowledgeBaseStreamShrinkRequest extends Model
 
         if (isset($map['PromptParams'])) {
             $model->promptParams = $map['PromptParams'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

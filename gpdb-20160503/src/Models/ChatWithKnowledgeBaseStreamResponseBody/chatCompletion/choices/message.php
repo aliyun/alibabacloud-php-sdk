@@ -17,6 +17,11 @@ class message extends Model
     /**
      * @var string
      */
+    public $reasoningContent;
+
+    /**
+     * @var string
+     */
     public $role;
 
     /**
@@ -25,6 +30,7 @@ class message extends Model
     public $toolCalls;
     protected $_name = [
         'content' => 'Content',
+        'reasoningContent' => 'ReasoningContent',
         'role' => 'Role',
         'toolCalls' => 'ToolCalls',
     ];
@@ -42,6 +48,10 @@ class message extends Model
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+
+        if (null !== $this->reasoningContent) {
+            $res['ReasoningContent'] = $this->reasoningContent;
         }
 
         if (null !== $this->role) {
@@ -72,6 +82,10 @@ class message extends Model
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+
+        if (isset($map['ReasoningContent'])) {
+            $model->reasoningContent = $map['ReasoningContent'];
         }
 
         if (isset($map['Role'])) {

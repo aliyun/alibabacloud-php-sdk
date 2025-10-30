@@ -92,6 +92,16 @@ class QueryContentRequest extends Model
     /**
      * @var int
      */
+    public $offset;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -140,6 +150,8 @@ class QueryContentRequest extends Model
         'metrics' => 'Metrics',
         'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
+        'offset' => 'Offset',
+        'orderBy' => 'OrderBy',
         'ownerId' => 'OwnerId',
         'recallWindow' => 'RecallWindow',
         'regionId' => 'RegionId',
@@ -233,6 +245,14 @@ class QueryContentRequest extends Model
 
         if (null !== $this->namespacePassword) {
             $res['NamespacePassword'] = $this->namespacePassword;
+        }
+
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
+        }
+
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
 
         if (null !== $this->ownerId) {
@@ -348,6 +368,14 @@ class QueryContentRequest extends Model
 
         if (isset($map['NamespacePassword'])) {
             $model->namespacePassword = $map['NamespacePassword'];
+        }
+
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
+        }
+
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
 
         if (isset($map['OwnerId'])) {
