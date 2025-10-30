@@ -67,7 +67,8 @@ class data extends Model
                 $res['CpTimeSelectList'] = [];
                 $n1 = 0;
                 foreach ($this->cpTimeSelectList as $item1) {
-                    $res['CpTimeSelectList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CpTimeSelectList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class data extends Model
                 $model->cpTimeSelectList = [];
                 $n1 = 0;
                 foreach ($map['CpTimeSelectList'] as $item1) {
-                    $model->cpTimeSelectList[$n1++] = cpTimeSelectList::fromMap($item1);
+                    $model->cpTimeSelectList[$n1] = cpTimeSelectList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

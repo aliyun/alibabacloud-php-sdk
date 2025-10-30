@@ -99,7 +99,8 @@ class data extends Model
                 $res['Sentences'] = [];
                 $n1 = 0;
                 foreach ($this->sentences as $item1) {
-                    $res['Sentences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Sentences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class data extends Model
                 $model->sentences = [];
                 $n1 = 0;
                 foreach ($map['Sentences'] as $item1) {
-                    $model->sentences[$n1++] = sentences::fromMap($item1);
+                    $model->sentences[$n1] = sentences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

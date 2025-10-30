@@ -5,15 +5,9 @@
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgRequest\axgBindList;
 
-class BindBatchAxgRequest extends Model
+class UnbindSubs700Request extends Model
 {
-    /**
-     * @var axgBindList[]
-     */
-    public $axgBindList;
-
     /**
      * @var int
      */
@@ -33,36 +27,33 @@ class BindBatchAxgRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $subsId;
+
+    /**
+     * @var string
+     */
+    public $telX;
     protected $_name = [
-        'axgBindList' => 'AxgBindList',
         'ownerId' => 'OwnerId',
         'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'subsId' => 'SubsId',
+        'telX' => 'TelX',
     ];
 
     public function validate()
     {
-        if (\is_array($this->axgBindList)) {
-            Model::validateArray($this->axgBindList);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->axgBindList) {
-            if (\is_array($this->axgBindList)) {
-                $res['AxgBindList'] = [];
-                $n1 = 0;
-                foreach ($this->axgBindList as $item1) {
-                    $res['AxgBindList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -79,6 +70,14 @@ class BindBatchAxgRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
+        if (null !== $this->subsId) {
+            $res['SubsId'] = $this->subsId;
+        }
+
+        if (null !== $this->telX) {
+            $res['TelX'] = $this->telX;
+        }
+
         return $res;
     }
 
@@ -90,17 +89,6 @@ class BindBatchAxgRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AxgBindList'])) {
-            if (!empty($map['AxgBindList'])) {
-                $model->axgBindList = [];
-                $n1 = 0;
-                foreach ($map['AxgBindList'] as $item1) {
-                    $model->axgBindList[$n1] = axgBindList::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -115,6 +103,14 @@ class BindBatchAxgRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SubsId'])) {
+            $model->subsId = $map['SubsId'];
+        }
+
+        if (isset($map['TelX'])) {
+            $model->telX = $map['TelX'];
         }
 
         return $model;

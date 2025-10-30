@@ -53,7 +53,8 @@ class appointTimes extends Model
                 $res['TimeList'] = [];
                 $n1 = 0;
                 foreach ($this->timeList as $item1) {
-                    $res['TimeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TimeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +83,8 @@ class appointTimes extends Model
                 $model->timeList = [];
                 $n1 = 0;
                 foreach ($map['TimeList'] as $item1) {
-                    $model->timeList[$n1++] = timeList::fromMap($item1);
+                    $model->timeList[$n1] = timeList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -59,7 +59,8 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
                 $res['Module'] = [];
                 $n1 = 0;
                 foreach ($this->module as $item1) {
-                    $res['Module'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Module'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +93,8 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
                 $model->module = [];
                 $n1 = 0;
                 foreach ($map['Module'] as $item1) {
-                    $model->module[$n1++] = module::fromMap($item1);
+                    $model->module[$n1] = module::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

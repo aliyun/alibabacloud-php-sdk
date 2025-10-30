@@ -33,7 +33,8 @@ class secretBindList extends Model
                 $res['SecretBind'] = [];
                 $n1 = 0;
                 foreach ($this->secretBind as $item1) {
-                    $res['SecretBind'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecretBind'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class secretBindList extends Model
                 $model->secretBind = [];
                 $n1 = 0;
                 foreach ($map['SecretBind'] as $item1) {
-                    $model->secretBind[$n1++] = secretBind::fromMap($item1);
+                    $model->secretBind[$n1] = secretBind::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

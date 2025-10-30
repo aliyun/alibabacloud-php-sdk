@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddAxnTrackNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddAxnTrackNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddSecretBlacklistRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddSecretBlacklistResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxb700Request;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxb700Response;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAXBCallRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAXBCallResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxbFixedLineRequest;
@@ -31,6 +33,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindAxnResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgShrinkRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindGxb700Request;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindGxb700Response;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindXBRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindXBResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoRequest;
@@ -110,6 +114,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ReleaseSecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ReleaseSecretNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindAXBRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindAXBResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnbindSubs700Request;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnbindSubs700Response;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnbindSubscriptionRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnbindSubscriptionResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnBindXBRequest;
@@ -125,6 +131,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnBindFixedLineShrinkReque
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnExtensionBindFixedLineRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnExtensionBindFixedLineResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateAxnExtensionBindFixedLineShrinkRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubs700Request;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubs700Response;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -137,7 +145,6 @@ class Dyplsapi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dyplsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -567,6 +574,139 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindAxbWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建700绑定关系.
+     *
+     * @param request - BindAxb700Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindAxb700Response
+     *
+     * @param BindAxb700Request $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BindAxb700Response
+     */
+    public function bindAxb700WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->asrModelId) {
+            @$query['AsrModelId'] = $request->asrModelId;
+        }
+
+        if (null !== $request->audio) {
+            @$query['Audio'] = $request->audio;
+        }
+
+        if (null !== $request->callRestrict) {
+            @$query['CallRestrict'] = $request->callRestrict;
+        }
+
+        if (null !== $request->callTimeout) {
+            @$query['CallTimeout'] = $request->callTimeout;
+        }
+
+        if (null !== $request->dtmfConfig) {
+            @$query['DtmfConfig'] = $request->dtmfConfig;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->industrialId) {
+            @$query['IndustrialId'] = $request->industrialId;
+        }
+
+        if (null !== $request->needAsr) {
+            @$query['NeedAsr'] = $request->needAsr;
+        }
+
+        if (null !== $request->needRecord) {
+            @$query['NeedRecord'] = $request->needRecord;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['OutOrderId'] = $request->outOrderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
+        }
+
+        if (null !== $request->recType) {
+            @$query['RecType'] = $request->recType;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindAxb700',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindAxb700Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建700绑定关系.
+     *
+     * @param request - BindAxb700Request
+     *
+     * @returns BindAxb700Response
+     *
+     * @param BindAxb700Request $request
+     *
+     * @return BindAxb700Response
+     */
+    public function bindAxb700($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAxb700WithOptions($request, $runtime);
     }
 
     /**
@@ -1448,6 +1588,143 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindBatchAxgWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建700Gxb绑定关系.
+     *
+     * @param request - BindGxb700Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindGxb700Response
+     *
+     * @param BindGxb700Request $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BindGxb700Response
+     */
+    public function bindGxb700WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->asrModelId) {
+            @$query['AsrModelId'] = $request->asrModelId;
+        }
+
+        if (null !== $request->audio) {
+            @$query['Audio'] = $request->audio;
+        }
+
+        if (null !== $request->callRestrict) {
+            @$query['CallRestrict'] = $request->callRestrict;
+        }
+
+        if (null !== $request->callTimeout) {
+            @$query['CallTimeout'] = $request->callTimeout;
+        }
+
+        if (null !== $request->defaultA) {
+            @$query['DefaultA'] = $request->defaultA;
+        }
+
+        if (null !== $request->dtmfConfig) {
+            @$query['DtmfConfig'] = $request->dtmfConfig;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->industrialId) {
+            @$query['IndustrialId'] = $request->industrialId;
+        }
+
+        if (null !== $request->needAsr) {
+            @$query['NeedAsr'] = $request->needAsr;
+        }
+
+        if (null !== $request->needRecord) {
+            @$query['NeedRecord'] = $request->needRecord;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['OutOrderId'] = $request->outOrderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
+        }
+
+        if (null !== $request->recType) {
+            @$query['RecType'] = $request->recType;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindGxb700',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindGxb700Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建700Gxb绑定关系.
+     *
+     * @param request - BindGxb700Request
+     *
+     * @returns BindGxb700Response
+     *
+     * @param BindGxb700Request $request
+     *
+     * @return BindGxb700Response
+     */
+    public function bindGxb700($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindGxb700WithOptions($request, $runtime);
     }
 
     /**
@@ -4862,6 +5139,83 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * 解除700绑定关系.
+     *
+     * @param request - UnbindSubs700Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindSubs700Response
+     *
+     * @param UnbindSubs700Request $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UnbindSubs700Response
+     */
+    public function unbindSubs700WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subsId) {
+            @$query['SubsId'] = $request->subsId;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindSubs700',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindSubs700Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解除700绑定关系.
+     *
+     * @param request - UnbindSubs700Request
+     *
+     * @returns UnbindSubs700Response
+     *
+     * @param UnbindSubs700Request $request
+     *
+     * @return UnbindSubs700Response
+     */
+    public function unbindSubs700($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindSubs700WithOptions($request, $runtime);
+    }
+
+    /**
      * Unbinds a phone number.
      *
      * @remarks
@@ -5394,6 +5748,139 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAxnExtensionBindFixedLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新700绑定关系.
+     *
+     * @param request - UpdateSubs700Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSubs700Response
+     *
+     * @param UpdateSubs700Request $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateSubs700Response
+     */
+    public function updateSubs700WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->asrModelId) {
+            @$query['AsrModelId'] = $request->asrModelId;
+        }
+
+        if (null !== $request->audio) {
+            @$query['Audio'] = $request->audio;
+        }
+
+        if (null !== $request->callRestrict) {
+            @$query['CallRestrict'] = $request->callRestrict;
+        }
+
+        if (null !== $request->defaultA) {
+            @$query['DefaultA'] = $request->defaultA;
+        }
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->industrialId) {
+            @$query['IndustrialId'] = $request->industrialId;
+        }
+
+        if (null !== $request->needAsr) {
+            @$query['NeedAsr'] = $request->needAsr;
+        }
+
+        if (null !== $request->needRecord) {
+            @$query['NeedRecord'] = $request->needRecord;
+        }
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->subsId) {
+            @$query['SubsId'] = $request->subsId;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
+        }
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSubs700',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSubs700Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新700绑定关系.
+     *
+     * @param request - UpdateSubs700Request
+     *
+     * @returns UpdateSubs700Response
+     *
+     * @param UpdateSubs700Request $request
+     *
+     * @return UpdateSubs700Response
+     */
+    public function updateSubs700($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSubs700WithOptions($request, $runtime);
     }
 
     /**

@@ -87,7 +87,8 @@ class data extends Model
                 $res['ReachJsons'] = [];
                 $n1 = 0;
                 foreach ($this->reachJsons as $item1) {
-                    $res['ReachJsons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ReachJsons'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class data extends Model
                 $res['SequenceCalls'] = [];
                 $n1 = 0;
                 foreach ($this->sequenceCalls as $item1) {
-                    $res['SequenceCalls'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SequenceCalls'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +144,8 @@ class data extends Model
                 $model->reachJsons = [];
                 $n1 = 0;
                 foreach ($map['ReachJsons'] as $item1) {
-                    $model->reachJsons[$n1++] = reachJsons::fromMap($item1);
+                    $model->reachJsons[$n1] = reachJsons::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class data extends Model
                 $model->sequenceCalls = [];
                 $n1 = 0;
                 foreach ($map['SequenceCalls'] as $item1) {
-                    $model->sequenceCalls[$n1++] = sequenceCalls::fromMap($item1);
+                    $model->sequenceCalls[$n1] = sequenceCalls::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

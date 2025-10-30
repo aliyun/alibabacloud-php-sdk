@@ -137,7 +137,8 @@ class ConfigXRequest extends Model
                 $res['SequenceCalls'] = [];
                 $n1 = 0;
                 foreach ($this->sequenceCalls as $item1) {
-                    $res['SequenceCalls'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SequenceCalls'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +207,8 @@ class ConfigXRequest extends Model
                 $model->sequenceCalls = [];
                 $n1 = 0;
                 foreach ($map['SequenceCalls'] as $item1) {
-                    $model->sequenceCalls[$n1++] = sequenceCalls::fromMap($item1);
+                    $model->sequenceCalls[$n1] = sequenceCalls::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

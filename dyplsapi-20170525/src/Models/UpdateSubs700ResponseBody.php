@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryAxnExtensionBindFixedLineResponseBody\data;
 
-class QueryAxnExtensionBindFixedLineResponseBody extends Model
+class UpdateSubs700ResponseBody extends Model
 {
     /**
      * @var string
@@ -20,7 +19,7 @@ class QueryAxnExtensionBindFixedLineResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var mixed[]
      */
     public $data;
 
@@ -69,10 +68,8 @@ class QueryAxnExtensionBindFixedLineResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+                foreach ($this->data as $key1 => $value1) {
+                    $res['Data'][$key1] = $value1;
                 }
             }
         }
@@ -111,10 +108,8 @@ class QueryAxnExtensionBindFixedLineResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
-                    ++$n1;
+                foreach ($map['Data'] as $key1 => $value1) {
+                    $model->data[$key1] = $value1;
                 }
             }
         }

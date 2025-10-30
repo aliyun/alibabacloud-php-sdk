@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryAxnExtensionBindFixedLineResponseBody\data;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindGxb700ResponseBody\data;
 
-class QueryAxnExtensionBindFixedLineResponseBody extends Model
+class BindGxb700ResponseBody extends Model
 {
     /**
      * @var string
@@ -20,7 +20,7 @@ class QueryAxnExtensionBindFixedLineResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
@@ -49,8 +49,8 @@ class QueryAxnExtensionBindFixedLineResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
+        if (null !== $this->data) {
+            $this->data->validate();
         }
         parent::validate();
     }
@@ -67,14 +67,7 @@ class QueryAxnExtensionBindFixedLineResponseBody extends Model
         }
 
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->message) {
@@ -109,14 +102,7 @@ class QueryAxnExtensionBindFixedLineResponseBody extends Model
         }
 
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
 
         if (isset($map['Message'])) {

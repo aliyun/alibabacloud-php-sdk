@@ -163,7 +163,8 @@ class CreatePickUpWaybillRequest extends Model
                 $res['GoodsInfos'] = [];
                 $n1 = 0;
                 foreach ($this->goodsInfos as $item1) {
-                    $res['GoodsInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['GoodsInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +245,8 @@ class CreatePickUpWaybillRequest extends Model
                 $model->goodsInfos = [];
                 $n1 = 0;
                 foreach ($map['GoodsInfos'] as $item1) {
-                    $model->goodsInfos[$n1++] = goodsInfos::fromMap($item1);
+                    $model->goodsInfos[$n1] = goodsInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
