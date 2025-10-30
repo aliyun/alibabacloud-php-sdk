@@ -18,6 +18,11 @@ class policy extends Model
     public $bindResource;
 
     /**
+     * @var bool
+     */
+    public $csUmodelStatus;
+
+    /**
      * @var entityGroup
      */
     public $entityGroup;
@@ -68,6 +73,7 @@ class policy extends Model
     public $workspace;
     protected $_name = [
         'bindResource' => 'bindResource',
+        'csUmodelStatus' => 'csUmodelStatus',
         'entityGroup' => 'entityGroup',
         'managedInfo' => 'managedInfo',
         'policyId' => 'policyId',
@@ -102,6 +108,10 @@ class policy extends Model
         $res = [];
         if (null !== $this->bindResource) {
             $res['bindResource'] = null !== $this->bindResource ? $this->bindResource->toArray($noStream) : $this->bindResource;
+        }
+
+        if (null !== $this->csUmodelStatus) {
+            $res['csUmodelStatus'] = $this->csUmodelStatus;
         }
 
         if (null !== $this->entityGroup) {
@@ -164,6 +174,10 @@ class policy extends Model
         $model = new self();
         if (isset($map['bindResource'])) {
             $model->bindResource = bindResource::fromMap($map['bindResource']);
+        }
+
+        if (isset($map['csUmodelStatus'])) {
+            $model->csUmodelStatus = $map['csUmodelStatus'];
         }
 
         if (isset($map['entityGroup'])) {

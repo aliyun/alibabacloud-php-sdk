@@ -19,9 +19,19 @@ class policies extends Model
     public $bindResource;
 
     /**
+     * @var bool
+     */
+    public $csUmodelStatus;
+
+    /**
      * @var entityGroup
      */
     public $entityGroup;
+
+    /**
+     * @var string
+     */
+    public $feePackage;
 
     /**
      * @var managedInfo
@@ -74,7 +84,9 @@ class policies extends Model
     public $workspace;
     protected $_name = [
         'bindResource' => 'bindResource',
+        'csUmodelStatus' => 'csUmodelStatus',
         'entityGroup' => 'entityGroup',
+        'feePackage' => 'feePackage',
         'managedInfo' => 'managedInfo',
         'policyId' => 'policyId',
         'policyName' => 'policyName',
@@ -114,8 +126,16 @@ class policies extends Model
             $res['bindResource'] = null !== $this->bindResource ? $this->bindResource->toArray($noStream) : $this->bindResource;
         }
 
+        if (null !== $this->csUmodelStatus) {
+            $res['csUmodelStatus'] = $this->csUmodelStatus;
+        }
+
         if (null !== $this->entityGroup) {
             $res['entityGroup'] = null !== $this->entityGroup ? $this->entityGroup->toArray($noStream) : $this->entityGroup;
+        }
+
+        if (null !== $this->feePackage) {
+            $res['feePackage'] = $this->feePackage;
         }
 
         if (null !== $this->managedInfo) {
@@ -180,8 +200,16 @@ class policies extends Model
             $model->bindResource = bindResource::fromMap($map['bindResource']);
         }
 
+        if (isset($map['csUmodelStatus'])) {
+            $model->csUmodelStatus = $map['csUmodelStatus'];
+        }
+
         if (isset($map['entityGroup'])) {
             $model->entityGroup = entityGroup::fromMap($map['entityGroup']);
+        }
+
+        if (isset($map['feePackage'])) {
+            $model->feePackage = $map['feePackage'];
         }
 
         if (isset($map['managedInfo'])) {

@@ -31,12 +31,18 @@ class entityGroup extends Model
     /**
      * @var string
      */
+    public $entityUserId;
+
+    /**
+     * @var string
+     */
     public $vpcId;
     protected $_name = [
         'clusterEntityType' => 'clusterEntityType',
         'clusterId' => 'clusterId',
         'disablePolicyShare' => 'disablePolicyShare',
         'entityGroupId' => 'entityGroupId',
+        'entityUserId' => 'entityUserId',
         'vpcId' => 'vpcId',
     ];
 
@@ -62,6 +68,10 @@ class entityGroup extends Model
 
         if (null !== $this->entityGroupId) {
             $res['entityGroupId'] = $this->entityGroupId;
+        }
+
+        if (null !== $this->entityUserId) {
+            $res['entityUserId'] = $this->entityUserId;
         }
 
         if (null !== $this->vpcId) {
@@ -93,6 +103,10 @@ class entityGroup extends Model
 
         if (isset($map['entityGroupId'])) {
             $model->entityGroupId = $map['entityGroupId'];
+        }
+
+        if (isset($map['entityUserId'])) {
+            $model->entityUserId = $map['entityUserId'];
         }
 
         if (isset($map['vpcId'])) {
