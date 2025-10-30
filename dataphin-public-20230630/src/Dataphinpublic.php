@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMember
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddProjectMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddProjectMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddProjectMemberShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddRegisterLineageRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddRegisterLineageResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddRegisterLineageShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddTenantMembersBySourceUserRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddTenantMembersBySourceUserResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddTenantMembersBySourceUserShrinkRequest;
@@ -71,9 +74,15 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDirectoryShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineByAsyncRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineByAsyncResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineByAsyncShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateResourceShrinkRequest;
@@ -107,6 +116,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRegisterLineageRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRegisterLineageResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRegisterLineageShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteResourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteResourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionRequest;
@@ -219,6 +231,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalNodeOperationLog
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalNodeOperationLogResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalNodeResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPipelineAsyncResultRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPipelineAsyncResultResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPipelineAsyncResultShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPipelineByIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPipelineByIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPipelineByIdShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectByNameRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectByNameResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectProduceUserRequest;
@@ -368,6 +386,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBizEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBizEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBizEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineByAsyncRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineByAsyncResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineByAsyncShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityShrinkRequest;
@@ -448,6 +472,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileDirectoryResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileNameRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileNameResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateProjectMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateProjectMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateProjectMemberShrinkRequest;
@@ -654,6 +684,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addProjectMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增注册血缘。
+     *
+     * @param tmpReq - AddRegisterLineageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddRegisterLineageResponse
+     *
+     * @param AddRegisterLineageRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddRegisterLineageResponse
+     */
+    public function addRegisterLineageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddRegisterLineageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addRegisterLineageCommand) {
+            $request->addRegisterLineageCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addRegisterLineageCommand, 'AddRegisterLineageCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->addRegisterLineageCommandShrink) {
+            @$body['AddRegisterLineageCommand'] = $request->addRegisterLineageCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddRegisterLineage',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddRegisterLineageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增注册血缘。
+     *
+     * @param request - AddRegisterLineageRequest
+     *
+     * @returns AddRegisterLineageResponse
+     *
+     * @param AddRegisterLineageRequest $request
+     *
+     * @return AddRegisterLineageResponse
+     */
+    public function addRegisterLineage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRegisterLineageWithOptions($request, $runtime);
     }
 
     /**
@@ -2094,6 +2193,160 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 创建集成管道任务。
+     *
+     * @param tmpReq - CreatePipelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePipelineResponse
+     *
+     * @param CreatePipelineRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipelineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePipelineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePipeline',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建集成管道任务。
+     *
+     * @param request - CreatePipelineRequest
+     *
+     * @returns CreatePipelineResponse
+     *
+     * @param CreatePipelineRequest $request
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPipelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 异步创建集成管道任务。
+     *
+     * @param tmpReq - CreatePipelineByAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePipelineByAsyncResponse
+     *
+     * @param CreatePipelineByAsyncRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreatePipelineByAsyncResponse
+     */
+    public function createPipelineByAsyncWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePipelineByAsyncShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePipelineByAsync',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePipelineByAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 异步创建集成管道任务。
+     *
+     * @param request - CreatePipelineByAsyncRequest
+     *
+     * @returns CreatePipelineByAsyncResponse
+     *
+     * @param CreatePipelineByAsyncRequest $request
+     *
+     * @return CreatePipelineByAsyncResponse
+     */
+    public function createPipelineByAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPipelineByAsyncWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建数据集成任务。
      *
      * @param tmpReq - CreatePipelineNodeRequest
@@ -3029,6 +3282,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除注册血缘。
+     *
+     * @param tmpReq - DeleteRegisterLineageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRegisterLineageResponse
+     *
+     * @param DeleteRegisterLineageRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteRegisterLineageResponse
+     */
+    public function deleteRegisterLineageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteRegisterLineageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteRegisterLineageCommand) {
+            $request->deleteRegisterLineageCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteRegisterLineageCommand, 'DeleteRegisterLineageCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteRegisterLineageCommandShrink) {
+            @$body['DeleteRegisterLineageCommand'] = $request->deleteRegisterLineageCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRegisterLineage',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRegisterLineageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除注册血缘。
+     *
+     * @param request - DeleteRegisterLineageRequest
+     *
+     * @returns DeleteRegisterLineageResponse
+     *
+     * @param DeleteRegisterLineageRequest $request
+     *
+     * @return DeleteRegisterLineageResponse
+     */
+    public function deleteRegisterLineage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRegisterLineageWithOptions($request, $runtime);
     }
 
     /**
@@ -6448,6 +6770,156 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPhysicalNodeOperationLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询异步操作管道任务的执行结果。
+     *
+     * @param tmpReq - GetPipelineAsyncResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPipelineAsyncResultResponse
+     *
+     * @param GetPipelineAsyncResultRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPipelineAsyncResultResponse
+     */
+    public function getPipelineAsyncResultWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetPipelineAsyncResultShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->asyncId) {
+            @$query['AsyncId'] = $request->asyncId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetPipelineAsyncResult',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPipelineAsyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询异步操作管道任务的执行结果。
+     *
+     * @param request - GetPipelineAsyncResultRequest
+     *
+     * @returns GetPipelineAsyncResultResponse
+     *
+     * @param GetPipelineAsyncResultRequest $request
+     *
+     * @return GetPipelineAsyncResultResponse
+     */
+    public function getPipelineAsyncResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPipelineAsyncResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据管道任务id查询管道任务。
+     *
+     * @param tmpReq - GetPipelineByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPipelineByIdResponse
+     *
+     * @param GetPipelineByIdRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetPipelineByIdResponse
+     */
+    public function getPipelineByIdWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetPipelineByIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->queryId) {
+            $request->queryIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryId, 'QueryId', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->queryIdShrink) {
+            @$body['QueryId'] = $request->queryIdShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetPipelineById',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPipelineByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据管道任务id查询管道任务。
+     *
+     * @param request - GetPipelineByIdRequest
+     *
+     * @returns GetPipelineByIdResponse
+     *
+     * @param GetPipelineByIdRequest $request
+     *
+     * @return GetPipelineByIdResponse
+     */
+    public function getPipelineById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPipelineByIdWithOptions($request, $runtime);
     }
 
     /**
@@ -10271,6 +10743,160 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 下线集成管道任务。
+     *
+     * @param tmpReq - OfflinePipelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflinePipelineResponse
+     *
+     * @param OfflinePipelineRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OfflinePipelineResponse
+     */
+    public function offlinePipelineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new OfflinePipelineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->offlineCommand) {
+            $request->offlineCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->offlineCommand, 'OfflineCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->offlineCommandShrink) {
+            @$body['OfflineCommand'] = $request->offlineCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OfflinePipeline',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflinePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下线集成管道任务。
+     *
+     * @param request - OfflinePipelineRequest
+     *
+     * @returns OfflinePipelineResponse
+     *
+     * @param OfflinePipelineRequest $request
+     *
+     * @return OfflinePipelineResponse
+     */
+    public function offlinePipeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->offlinePipelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 异步下线集成管道任务。
+     *
+     * @param tmpReq - OfflinePipelineByAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflinePipelineByAsyncResponse
+     *
+     * @param OfflinePipelineByAsyncRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return OfflinePipelineByAsyncResponse
+     */
+    public function offlinePipelineByAsyncWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new OfflinePipelineByAsyncShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->offlineCommand) {
+            $request->offlineCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->offlineCommand, 'OfflineCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->offlineCommandShrink) {
+            @$body['OfflineCommand'] = $request->offlineCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OfflinePipelineByAsync',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflinePipelineByAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 异步下线集成管道任务。
+     *
+     * @param request - OfflinePipelineByAsyncRequest
+     *
+     * @returns OfflinePipelineByAsyncResponse
+     *
+     * @param OfflinePipelineByAsyncRequest $request
+     *
+     * @return OfflinePipelineByAsyncResponse
+     */
+    public function offlinePipelineByAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->offlinePipelineByAsyncWithOptions($request, $runtime);
+    }
+
+    /**
      * 上线业务实体。
      *
      * @param tmpReq - OnlineBizEntityRequest
@@ -12220,6 +12846,160 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFileNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新集成管道任务。
+     *
+     * @param tmpReq - UpdatePipelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePipelineResponse
+     *
+     * @param UpdatePipelineRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdatePipelineResponse
+     */
+    public function updatePipelineWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdatePipelineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePipeline',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新集成管道任务。
+     *
+     * @param request - UpdatePipelineRequest
+     *
+     * @returns UpdatePipelineResponse
+     *
+     * @param UpdatePipelineRequest $request
+     *
+     * @return UpdatePipelineResponse
+     */
+    public function updatePipeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePipelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 异步更新集成管道任务。
+     *
+     * @param tmpReq - UpdatePipelineByAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePipelineByAsyncResponse
+     *
+     * @param UpdatePipelineByAsyncRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdatePipelineByAsyncResponse
+     */
+    public function updatePipelineByAsyncWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdatePipelineByAsyncShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePipelineByAsync',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePipelineByAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 异步更新集成管道任务。
+     *
+     * @param request - UpdatePipelineByAsyncRequest
+     *
+     * @returns UpdatePipelineByAsyncResponse
+     *
+     * @param UpdatePipelineByAsyncRequest $request
+     *
+     * @return UpdatePipelineByAsyncResponse
+     */
+    public function updatePipelineByAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePipelineByAsyncWithOptions($request, $runtime);
     }
 
     /**

@@ -21,6 +21,16 @@ class grantCommand extends Model
     public $appId;
 
     /**
+     * @var bool
+     */
+    public $applyDev;
+
+    /**
+     * @var bool
+     */
+    public $applyProd;
+
+    /**
      * @var devFieldList[]
      */
     public $devFieldList;
@@ -42,6 +52,8 @@ class grantCommand extends Model
     protected $_name = [
         'apiId' => 'ApiId',
         'appId' => 'AppId',
+        'applyDev' => 'ApplyDev',
+        'applyProd' => 'ApplyProd',
         'devFieldList' => 'DevFieldList',
         'expireDate' => 'ExpireDate',
         'prodFieldList' => 'ProdFieldList',
@@ -68,6 +80,14 @@ class grantCommand extends Model
 
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->applyDev) {
+            $res['ApplyDev'] = $this->applyDev;
+        }
+
+        if (null !== $this->applyProd) {
+            $res['ApplyProd'] = $this->applyProd;
         }
 
         if (null !== $this->devFieldList) {
@@ -117,6 +137,14 @@ class grantCommand extends Model
 
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['ApplyDev'])) {
+            $model->applyDev = $map['ApplyDev'];
+        }
+
+        if (isset($map['ApplyProd'])) {
+            $model->applyProd = $map['ApplyProd'];
         }
 
         if (isset($map['DevFieldList'])) {
