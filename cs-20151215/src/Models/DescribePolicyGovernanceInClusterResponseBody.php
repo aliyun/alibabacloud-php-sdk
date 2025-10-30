@@ -7,11 +7,15 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\admitLog;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\onState;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\totalViolations;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\violations;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\violation;
 
 class DescribePolicyGovernanceInClusterResponseBody extends Model
 {
+    /**
+     * @var violation
+     */
+    public $violation;
+
     /**
      * @var admitLog
      */
@@ -21,36 +25,22 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
      * @var onState[]
      */
     public $onState;
-
-    /**
-     * @var totalViolations
-     */
-    public $totalViolations;
-
-    /**
-     * @var violations
-     */
-    public $violations;
     protected $_name = [
+        'violation' => 'Violation',
         'admitLog' => 'admit_log',
         'onState' => 'on_state',
-        'totalViolations' => 'totalViolations',
-        'violations' => 'violations',
     ];
 
     public function validate()
     {
+        if (null !== $this->violation) {
+            $this->violation->validate();
+        }
         if (null !== $this->admitLog) {
             $this->admitLog->validate();
         }
         if (\is_array($this->onState)) {
             Model::validateArray($this->onState);
-        }
-        if (null !== $this->totalViolations) {
-            $this->totalViolations->validate();
-        }
-        if (null !== $this->violations) {
-            $this->violations->validate();
         }
         parent::validate();
     }
@@ -58,6 +48,10 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->violation) {
+            $res['Violation'] = null !== $this->violation ? $this->violation->toArray($noStream) : $this->violation;
+        }
+
         if (null !== $this->admitLog) {
             $res['admit_log'] = null !== $this->admitLog ? $this->admitLog->toArray($noStream) : $this->admitLog;
         }
@@ -73,14 +67,6 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
             }
         }
 
-        if (null !== $this->totalViolations) {
-            $res['totalViolations'] = null !== $this->totalViolations ? $this->totalViolations->toArray($noStream) : $this->totalViolations;
-        }
-
-        if (null !== $this->violations) {
-            $res['violations'] = null !== $this->violations ? $this->violations->toArray($noStream) : $this->violations;
-        }
-
         return $res;
     }
 
@@ -92,6 +78,10 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Violation'])) {
+            $model->violation = violation::fromMap($map['Violation']);
+        }
+
         if (isset($map['admit_log'])) {
             $model->admitLog = admitLog::fromMap($map['admit_log']);
         }
@@ -105,14 +95,6 @@ class DescribePolicyGovernanceInClusterResponseBody extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['totalViolations'])) {
-            $model->totalViolations = totalViolations::fromMap($map['totalViolations']);
-        }
-
-        if (isset($map['violations'])) {
-            $model->violations = violations::fromMap($map['violations']);
         }
 
         return $model;

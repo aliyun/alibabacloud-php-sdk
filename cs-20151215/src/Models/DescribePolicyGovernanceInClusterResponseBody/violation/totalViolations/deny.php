@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\totalViolations;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterResponseBody\violation\totalViolations;
 
 use AlibabaCloud\Dara\Model;
 
@@ -14,7 +14,7 @@ class deny extends Model
     public $severity;
 
     /**
-     * @var int
+     * @var string
      */
     public $violations;
     protected $_name = [
