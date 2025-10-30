@@ -24,6 +24,11 @@ class Node extends Model
     public $allocatableMemory;
 
     /**
+     * @var int
+     */
+    public $ancestorQuotaWorkloadNum;
+
+    /**
      * @var string
      */
     public $availabilityZone;
@@ -42,6 +47,11 @@ class Node extends Model
      * @var string
      */
     public $creatorId;
+
+    /**
+     * @var int
+     */
+    public $descendantQuotaWorkloadNum;
 
     /**
      * @var string
@@ -169,6 +179,11 @@ class Node extends Model
     public $resourceGroupName;
 
     /**
+     * @var int
+     */
+    public $selfQuotaWorkloadNum;
+
+    /**
      * @var string
      */
     public $systemReservedCPU;
@@ -191,10 +206,12 @@ class Node extends Model
         'acceleratorType' => 'AcceleratorType',
         'allocatableCPU' => 'AllocatableCPU',
         'allocatableMemory' => 'AllocatableMemory',
+        'ancestorQuotaWorkloadNum' => 'AncestorQuotaWorkloadNum',
         'availabilityZone' => 'AvailabilityZone',
         'boundQuotas' => 'BoundQuotas',
         'CPU' => 'CPU',
         'creatorId' => 'CreatorId',
+        'descendantQuotaWorkloadNum' => 'DescendantQuotaWorkloadNum',
         'GPU' => 'GPU',
         'GPUMemory' => 'GPUMemory',
         'GPUType' => 'GPUType',
@@ -220,6 +237,7 @@ class Node extends Model
         'requestMemory' => 'RequestMemory',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceGroupName' => 'ResourceGroupName',
+        'selfQuotaWorkloadNum' => 'SelfQuotaWorkloadNum',
         'systemReservedCPU' => 'SystemReservedCPU',
         'systemReservedMemory' => 'SystemReservedMemory',
         'users' => 'Users',
@@ -252,6 +270,10 @@ class Node extends Model
             $res['AllocatableMemory'] = $this->allocatableMemory;
         }
 
+        if (null !== $this->ancestorQuotaWorkloadNum) {
+            $res['AncestorQuotaWorkloadNum'] = $this->ancestorQuotaWorkloadNum;
+        }
+
         if (null !== $this->availabilityZone) {
             $res['AvailabilityZone'] = $this->availabilityZone;
         }
@@ -273,6 +295,10 @@ class Node extends Model
 
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
+        }
+
+        if (null !== $this->descendantQuotaWorkloadNum) {
+            $res['DescendantQuotaWorkloadNum'] = $this->descendantQuotaWorkloadNum;
         }
 
         if (null !== $this->GPU) {
@@ -375,6 +401,10 @@ class Node extends Model
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
 
+        if (null !== $this->selfQuotaWorkloadNum) {
+            $res['SelfQuotaWorkloadNum'] = $this->selfQuotaWorkloadNum;
+        }
+
         if (null !== $this->systemReservedCPU) {
             $res['SystemReservedCPU'] = $this->systemReservedCPU;
         }
@@ -421,6 +451,10 @@ class Node extends Model
             $model->allocatableMemory = $map['AllocatableMemory'];
         }
 
+        if (isset($map['AncestorQuotaWorkloadNum'])) {
+            $model->ancestorQuotaWorkloadNum = $map['AncestorQuotaWorkloadNum'];
+        }
+
         if (isset($map['AvailabilityZone'])) {
             $model->availabilityZone = $map['AvailabilityZone'];
         }
@@ -442,6 +476,10 @@ class Node extends Model
 
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
+        }
+
+        if (isset($map['DescendantQuotaWorkloadNum'])) {
+            $model->descendantQuotaWorkloadNum = $map['DescendantQuotaWorkloadNum'];
         }
 
         if (isset($map['GPU'])) {
@@ -542,6 +580,10 @@ class Node extends Model
 
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
+        }
+
+        if (isset($map['SelfQuotaWorkloadNum'])) {
+            $model->selfQuotaWorkloadNum = $map['SelfQuotaWorkloadNum'];
         }
 
         if (isset($map['SystemReservedCPU'])) {
