@@ -75,7 +75,8 @@ class actions extends Model
                 $res['Guidance'] = [];
                 $n1 = 0;
                 foreach ($this->guidance as $item1) {
-                    $res['Guidance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Guidance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +117,8 @@ class actions extends Model
                 $model->guidance = [];
                 $n1 = 0;
                 foreach ($map['Guidance'] as $item1) {
-                    $model->guidance[$n1++] = guidance::fromMap($item1);
+                    $model->guidance[$n1] = guidance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

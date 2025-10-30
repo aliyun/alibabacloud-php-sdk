@@ -33,7 +33,8 @@ class scoreHistory extends Model
                 $res['TotalScoreHistory'] = [];
                 $n1 = 0;
                 foreach ($this->totalScoreHistory as $item1) {
-                    $res['TotalScoreHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TotalScoreHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class scoreHistory extends Model
                 $model->totalScoreHistory = [];
                 $n1 = 0;
                 foreach ($map['TotalScoreHistory'] as $item1) {
-                    $model->totalScoreHistory[$n1++] = totalScoreHistory::fromMap($item1);
+                    $model->totalScoreHistory[$n1] = totalScoreHistory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

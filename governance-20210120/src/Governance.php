@@ -47,7 +47,6 @@ class Governance extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('governance', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -749,6 +748,10 @@ class Governance extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->topicCode) {
+            @$query['TopicCode'] = $request->topicCode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -905,6 +908,10 @@ class Governance extends OpenApiClient
 
         if (null !== $request->snapshotId) {
             @$query['SnapshotId'] = $request->snapshotId;
+        }
+
+        if (null !== $request->topicCode) {
+            @$query['TopicCode'] = $request->topicCode;
         }
 
         $req = new OpenApiRequest([

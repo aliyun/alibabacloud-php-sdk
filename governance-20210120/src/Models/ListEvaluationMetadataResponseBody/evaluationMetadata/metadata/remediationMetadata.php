@@ -33,7 +33,8 @@ class remediationMetadata extends Model
                 $res['Remediation'] = [];
                 $n1 = 0;
                 foreach ($this->remediation as $item1) {
-                    $res['Remediation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Remediation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class remediationMetadata extends Model
                 $model->remediation = [];
                 $n1 = 0;
                 foreach ($map['Remediation'] as $item1) {
-                    $model->remediation[$n1++] = remediation::fromMap($item1);
+                    $model->remediation[$n1] = remediation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

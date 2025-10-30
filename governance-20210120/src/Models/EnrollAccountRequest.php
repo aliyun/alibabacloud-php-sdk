@@ -103,7 +103,8 @@ class EnrollAccountRequest extends Model
                 $res['BaselineItems'] = [];
                 $n1 = 0;
                 foreach ($this->baselineItems as $item1) {
-                    $res['BaselineItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BaselineItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -133,7 +134,8 @@ class EnrollAccountRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +168,8 @@ class EnrollAccountRequest extends Model
                 $model->baselineItems = [];
                 $n1 = 0;
                 foreach ($map['BaselineItems'] as $item1) {
-                    $model->baselineItems[$n1++] = baselineItems::fromMap($item1);
+                    $model->baselineItems[$n1] = baselineItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -196,7 +199,8 @@ class EnrollAccountRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -55,7 +55,8 @@ class BatchEnrollAccountsRequest extends Model
                 $res['Accounts'] = [];
                 $n1 = 0;
                 foreach ($this->accounts as $item1) {
-                    $res['Accounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Accounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -69,7 +70,8 @@ class BatchEnrollAccountsRequest extends Model
                 $res['BaselineItems'] = [];
                 $n1 = 0;
                 foreach ($this->baselineItems as $item1) {
-                    $res['BaselineItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BaselineItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +96,8 @@ class BatchEnrollAccountsRequest extends Model
                 $model->accounts = [];
                 $n1 = 0;
                 foreach ($map['Accounts'] as $item1) {
-                    $model->accounts[$n1++] = accounts::fromMap($item1);
+                    $model->accounts[$n1] = accounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +111,8 @@ class BatchEnrollAccountsRequest extends Model
                 $model->baselineItems = [];
                 $n1 = 0;
                 foreach ($map['BaselineItems'] as $item1) {
-                    $model->baselineItems[$n1++] = baselineItems::fromMap($item1);
+                    $model->baselineItems[$n1] = baselineItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -69,7 +69,8 @@ class ListAccountFactoryBaselineItemsRequest extends Model
                 $res['Names'] = [];
                 $n1 = 0;
                 foreach ($this->names as $item1) {
-                    $res['Names'][$n1++] = $item1;
+                    $res['Names'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ListAccountFactoryBaselineItemsRequest extends Model
                 $res['Versions'] = [];
                 $n1 = 0;
                 foreach ($this->versions as $item1) {
-                    $res['Versions'][$n1++] = $item1;
+                    $res['Versions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,7 +118,8 @@ class ListAccountFactoryBaselineItemsRequest extends Model
                 $model->names = [];
                 $n1 = 0;
                 foreach ($map['Names'] as $item1) {
-                    $model->names[$n1++] = $item1;
+                    $model->names[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +141,8 @@ class ListAccountFactoryBaselineItemsRequest extends Model
                 $model->versions = [];
                 $n1 = 0;
                 foreach ($map['Versions'] as $item1) {
-                    $model->versions[$n1++] = $item1;
+                    $model->versions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

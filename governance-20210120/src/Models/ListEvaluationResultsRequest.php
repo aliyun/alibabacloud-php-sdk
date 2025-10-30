@@ -38,6 +38,11 @@ class ListEvaluationResultsRequest extends Model
      * @var string
      */
     public $snapshotId;
+
+    /**
+     * @var string
+     */
+    public $topicCode;
     protected $_name = [
         'accountId' => 'AccountId',
         'filters' => 'Filters',
@@ -45,6 +50,7 @@ class ListEvaluationResultsRequest extends Model
         'regionId' => 'RegionId',
         'scope' => 'Scope',
         'snapshotId' => 'SnapshotId',
+        'topicCode' => 'TopicCode',
     ];
 
     public function validate()
@@ -67,7 +73,8 @@ class ListEvaluationResultsRequest extends Model
                 $res['Filters'] = [];
                 $n1 = 0;
                 foreach ($this->filters as $item1) {
-                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,6 +93,10 @@ class ListEvaluationResultsRequest extends Model
 
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
+        }
+
+        if (null !== $this->topicCode) {
+            $res['TopicCode'] = $this->topicCode;
         }
 
         return $res;
@@ -108,7 +119,8 @@ class ListEvaluationResultsRequest extends Model
                 $model->filters = [];
                 $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
-                    $model->filters[$n1++] = filters::fromMap($item1);
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -127,6 +139,10 @@ class ListEvaluationResultsRequest extends Model
 
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
+        }
+
+        if (isset($map['TopicCode'])) {
+            $model->topicCode = $map['TopicCode'];
         }
 
         return $model;

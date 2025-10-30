@@ -32,6 +32,11 @@ class metricResults extends Model
     public $id;
 
     /**
+     * @var float
+     */
+    public $potentialScoreIncrease;
+
+    /**
      * @var resourcesSummary
      */
     public $resourcesSummary;
@@ -55,6 +60,7 @@ class metricResults extends Model
         'errorInfo' => 'ErrorInfo',
         'evaluationTime' => 'EvaluationTime',
         'id' => 'Id',
+        'potentialScoreIncrease' => 'PotentialScoreIncrease',
         'resourcesSummary' => 'ResourcesSummary',
         'result' => 'Result',
         'risk' => 'Risk',
@@ -92,6 +98,10 @@ class metricResults extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->potentialScoreIncrease) {
+            $res['PotentialScoreIncrease'] = $this->potentialScoreIncrease;
         }
 
         if (null !== $this->resourcesSummary) {
@@ -135,6 +145,10 @@ class metricResults extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['PotentialScoreIncrease'])) {
+            $model->potentialScoreIncrease = $map['PotentialScoreIncrease'];
         }
 
         if (isset($map['ResourcesSummary'])) {

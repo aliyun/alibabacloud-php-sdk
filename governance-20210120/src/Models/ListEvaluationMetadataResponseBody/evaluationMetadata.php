@@ -39,7 +39,8 @@ class evaluationMetadata extends Model
                 $res['Metadata'] = [];
                 $n1 = 0;
                 foreach ($this->metadata as $item1) {
-                    $res['Metadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Metadata'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class evaluationMetadata extends Model
                 $model->metadata = [];
                 $n1 = 0;
                 foreach ($map['Metadata'] as $item1) {
-                    $model->metadata[$n1++] = metadata::fromMap($item1);
+                    $model->metadata[$n1] = metadata::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

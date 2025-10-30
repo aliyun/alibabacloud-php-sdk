@@ -39,7 +39,8 @@ class ListEvaluationMetadataResponseBody extends Model
                 $res['EvaluationMetadata'] = [];
                 $n1 = 0;
                 foreach ($this->evaluationMetadata as $item1) {
-                    $res['EvaluationMetadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EvaluationMetadata'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListEvaluationMetadataResponseBody extends Model
                 $model->evaluationMetadata = [];
                 $n1 = 0;
                 foreach ($map['EvaluationMetadata'] as $item1) {
-                    $model->evaluationMetadata[$n1++] = evaluationMetadata::fromMap($item1);
+                    $model->evaluationMetadata[$n1] = evaluationMetadata::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -22,10 +22,16 @@ class ListEvaluationMetadataRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $topicCode;
     protected $_name = [
         'language' => 'Language',
         'lensCode' => 'LensCode',
         'regionId' => 'RegionId',
+        'topicCode' => 'TopicCode',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ListEvaluationMetadataRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->topicCode) {
+            $res['TopicCode'] = $this->topicCode;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ListEvaluationMetadataRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['TopicCode'])) {
+            $model->topicCode = $map['TopicCode'];
         }
 
         return $model;

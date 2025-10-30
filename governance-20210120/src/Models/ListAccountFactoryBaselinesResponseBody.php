@@ -45,7 +45,8 @@ class ListAccountFactoryBaselinesResponseBody extends Model
                 $res['Baselines'] = [];
                 $n1 = 0;
                 foreach ($this->baselines as $item1) {
-                    $res['Baselines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Baselines'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListAccountFactoryBaselinesResponseBody extends Model
                 $model->baselines = [];
                 $n1 = 0;
                 foreach ($map['Baselines'] as $item1) {
-                    $model->baselines[$n1++] = baselines::fromMap($item1);
+                    $model->baselines[$n1] = baselines::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

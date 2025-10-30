@@ -45,7 +45,8 @@ class ListEnrolledAccountsResponseBody extends Model
                 $res['EnrolledAccounts'] = [];
                 $n1 = 0;
                 foreach ($this->enrolledAccounts as $item1) {
-                    $res['EnrolledAccounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EnrolledAccounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListEnrolledAccountsResponseBody extends Model
                 $model->enrolledAccounts = [];
                 $n1 = 0;
                 foreach ($map['EnrolledAccounts'] as $item1) {
-                    $model->enrolledAccounts[$n1++] = enrolledAccounts::fromMap($item1);
+                    $model->enrolledAccounts[$n1] = enrolledAccounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

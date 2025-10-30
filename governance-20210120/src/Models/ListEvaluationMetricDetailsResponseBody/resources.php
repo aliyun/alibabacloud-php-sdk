@@ -99,7 +99,8 @@ class resources extends Model
                 $res['ResourceProperties'] = [];
                 $n1 = 0;
                 foreach ($this->resourceProperties as $item1) {
-                    $res['ResourceProperties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +149,8 @@ class resources extends Model
                 $model->resourceProperties = [];
                 $n1 = 0;
                 foreach ($map['ResourceProperties'] as $item1) {
-                    $model->resourceProperties[$n1++] = resourceProperties::fromMap($item1);
+                    $model->resourceProperties[$n1] = resourceProperties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

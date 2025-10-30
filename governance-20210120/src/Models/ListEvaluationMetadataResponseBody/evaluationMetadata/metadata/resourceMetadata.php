@@ -33,7 +33,8 @@ class resourceMetadata extends Model
                 $res['ResourcePropertyMetadata'] = [];
                 $n1 = 0;
                 foreach ($this->resourcePropertyMetadata as $item1) {
-                    $res['ResourcePropertyMetadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourcePropertyMetadata'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class resourceMetadata extends Model
                 $model->resourcePropertyMetadata = [];
                 $n1 = 0;
                 foreach ($map['ResourcePropertyMetadata'] as $item1) {
-                    $model->resourcePropertyMetadata[$n1++] = resourcePropertyMetadata::fromMap($item1);
+                    $model->resourcePropertyMetadata[$n1] = resourcePropertyMetadata::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

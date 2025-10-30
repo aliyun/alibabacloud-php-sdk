@@ -57,7 +57,8 @@ class baselineItems extends Model
                 $res['DependsOn'] = [];
                 $n1 = 0;
                 foreach ($this->dependsOn as $item1) {
-                    $res['DependsOn'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DependsOn'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class baselineItems extends Model
                 $model->dependsOn = [];
                 $n1 = 0;
                 foreach ($map['DependsOn'] as $item1) {
-                    $model->dependsOn[$n1++] = dependsOn::fromMap($item1);
+                    $model->dependsOn[$n1] = dependsOn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

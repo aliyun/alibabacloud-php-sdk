@@ -54,6 +54,11 @@ class metadata extends Model
      * @var string
      */
     public $stage;
+
+    /**
+     * @var string
+     */
+    public $topicCode;
     protected $_name = [
         'category' => 'Category',
         'description' => 'Description',
@@ -64,6 +69,7 @@ class metadata extends Model
         'resourceMetadata' => 'ResourceMetadata',
         'scope' => 'Scope',
         'stage' => 'Stage',
+        'topicCode' => 'TopicCode',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class metadata extends Model
             $res['Stage'] = $this->stage;
         }
 
+        if (null !== $this->topicCode) {
+            $res['TopicCode'] = $this->topicCode;
+        }
+
         return $res;
     }
 
@@ -161,6 +171,10 @@ class metadata extends Model
 
         if (isset($map['Stage'])) {
             $model->stage = $map['Stage'];
+        }
+
+        if (isset($map['TopicCode'])) {
+            $model->topicCode = $map['TopicCode'];
         }
 
         return $model;
