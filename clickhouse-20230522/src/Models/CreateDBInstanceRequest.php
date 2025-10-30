@@ -27,6 +27,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $DBTimeZone;
+
+    /**
+     * @var string
+     */
     public $deploySchema;
 
     /**
@@ -112,6 +117,7 @@ class CreateDBInstanceRequest extends Model
         'backupSetId' => 'BackupSetId',
         'clientToken' => 'ClientToken',
         'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBTimeZone' => 'DBTimeZone',
         'deploySchema' => 'DeploySchema',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
@@ -152,6 +158,10 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
+
+        if (null !== $this->DBTimeZone) {
+            $res['DBTimeZone'] = $this->DBTimeZone;
         }
 
         if (null !== $this->deploySchema) {
@@ -250,6 +260,10 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
+
+        if (isset($map['DBTimeZone'])) {
+            $model->DBTimeZone = $map['DBTimeZone'];
         }
 
         if (isset($map['DeploySchema'])) {

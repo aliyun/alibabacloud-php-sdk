@@ -508,6 +508,10 @@ class Clickhouse extends OpenApiClient
             @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
 
+        if (null !== $request->DBTimeZone) {
+            @$query['DBTimeZone'] = $request->DBTimeZone;
+        }
+
         if (null !== $request->deploySchema) {
             @$query['DeploySchema'] = $request->deploySchema;
         }
