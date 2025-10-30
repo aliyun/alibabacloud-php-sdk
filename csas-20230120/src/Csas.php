@@ -2535,6 +2535,8 @@ class Csas extends OpenApiClient
     /**
      * 卸载connector的应用.
      *
+     * @deprecated openAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead
+     *
      * @param tmpReq - DetachApplication2ConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2581,8 +2583,11 @@ class Csas extends OpenApiClient
         return DetachApplication2ConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * 卸载connector的应用.
+     *
+     * @deprecated openAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead
      *
      * @param request - DetachApplication2ConnectorRequest
      *
