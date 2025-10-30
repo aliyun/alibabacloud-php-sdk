@@ -34,6 +34,16 @@ class policy extends Model
     /**
      * @var string
      */
+    public $noOperationDisconnect;
+
+    /**
+     * @var int
+     */
+    public $noOperationDisconnectTime;
+
+    /**
+     * @var string
+     */
     public $policyId;
 
     /**
@@ -55,6 +65,8 @@ class policy extends Model
         'disconnectKeepSession' => 'DisconnectKeepSession',
         'disconnectKeepSessionTime' => 'DisconnectKeepSessionTime',
         'html5FileTransfer' => 'Html5FileTransfer',
+        'noOperationDisconnect' => 'NoOperationDisconnect',
+        'noOperationDisconnectTime' => 'NoOperationDisconnectTime',
         'policyId' => 'PolicyId',
         'policyVersion' => 'PolicyVersion',
         'videoPolicy' => 'VideoPolicy',
@@ -92,6 +104,14 @@ class policy extends Model
 
         if (null !== $this->html5FileTransfer) {
             $res['Html5FileTransfer'] = $this->html5FileTransfer;
+        }
+
+        if (null !== $this->noOperationDisconnect) {
+            $res['NoOperationDisconnect'] = $this->noOperationDisconnect;
+        }
+
+        if (null !== $this->noOperationDisconnectTime) {
+            $res['NoOperationDisconnectTime'] = $this->noOperationDisconnectTime;
         }
 
         if (null !== $this->policyId) {
@@ -135,6 +155,14 @@ class policy extends Model
 
         if (isset($map['Html5FileTransfer'])) {
             $model->html5FileTransfer = $map['Html5FileTransfer'];
+        }
+
+        if (isset($map['NoOperationDisconnect'])) {
+            $model->noOperationDisconnect = $map['NoOperationDisconnect'];
+        }
+
+        if (isset($map['NoOperationDisconnectTime'])) {
+            $model->noOperationDisconnectTime = $map['NoOperationDisconnectTime'];
         }
 
         if (isset($map['PolicyId'])) {
