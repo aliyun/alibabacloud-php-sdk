@@ -48,6 +48,11 @@ class data extends Model
     public $enableHa;
 
     /**
+     * @var string
+     */
+    public $encrypted;
+
+    /**
      * @var int
      */
     public $expireTime;
@@ -61,6 +66,11 @@ class data extends Model
      * @var string
      */
     public $instanceStatus;
+
+    /**
+     * @var string
+     */
+    public $kmsKeyId;
 
     /**
      * @var measureConfig
@@ -164,9 +174,11 @@ class data extends Model
         'clusterInfo' => 'ClusterInfo',
         'clusterName' => 'ClusterName',
         'enableHa' => 'EnableHa',
+        'encrypted' => 'Encrypted',
         'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
         'instanceStatus' => 'InstanceStatus',
+        'kmsKeyId' => 'KmsKeyId',
         'measureConfig' => 'MeasureConfig',
         'multiZoneMode' => 'MultiZoneMode',
         'nodeType' => 'NodeType',
@@ -236,6 +248,10 @@ class data extends Model
             $res['EnableHa'] = $this->enableHa;
         }
 
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
@@ -246,6 +262,10 @@ class data extends Model
 
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
+        }
+
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
         }
 
         if (null !== $this->measureConfig) {
@@ -377,6 +397,10 @@ class data extends Model
             $model->enableHa = $map['EnableHa'];
         }
 
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
@@ -387,6 +411,10 @@ class data extends Model
 
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
+        }
+
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
         }
 
         if (isset($map['MeasureConfig'])) {
