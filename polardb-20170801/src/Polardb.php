@@ -506,6 +506,7 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyMaskingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyMaskingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionRequest;
@@ -22299,20 +22300,30 @@ class Polardb extends OpenApiClient
     /**
      * Modifies the retention policy of the log backups in a PolarDB cluster.
      *
-     * @param request - ModifyLogBackupPolicyRequest
+     * @param tmpReq - ModifyLogBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyLogBackupPolicyResponse
      *
-     * @param ModifyLogBackupPolicyRequest $request
+     * @param ModifyLogBackupPolicyRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return ModifyLogBackupPolicyResponse
      */
-    public function modifyLogBackupPolicyWithOptions($request, $runtime)
+    public function modifyLogBackupPolicyWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifyLogBackupPolicyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->advancedLogPolicies) {
+            $request->advancedLogPoliciesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->advancedLogPolicies, 'AdvancedLogPolicies', 'json');
+        }
+
         $query = [];
+        if (null !== $request->advancedLogPoliciesShrink) {
+            @$query['AdvancedLogPolicies'] = $request->advancedLogPoliciesShrink;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }

@@ -5,14 +5,13 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyRequest\advancedLogPolicies;
 
-class ModifyLogBackupPolicyRequest extends Model
+class ModifyLogBackupPolicyShrinkRequest extends Model
 {
     /**
-     * @var advancedLogPolicies[]
+     * @var string
      */
-    public $advancedLogPolicies;
+    public $advancedLogPoliciesShrink;
 
     /**
      * @var string
@@ -54,7 +53,7 @@ class ModifyLogBackupPolicyRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'advancedLogPolicies' => 'AdvancedLogPolicies',
+        'advancedLogPoliciesShrink' => 'AdvancedLogPolicies',
         'DBClusterId' => 'DBClusterId',
         'logBackupAnotherRegionRegion' => 'LogBackupAnotherRegionRegion',
         'logBackupAnotherRegionRetentionPeriod' => 'LogBackupAnotherRegionRetentionPeriod',
@@ -67,24 +66,14 @@ class ModifyLogBackupPolicyRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->advancedLogPolicies)) {
-            Model::validateArray($this->advancedLogPolicies);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->advancedLogPolicies) {
-            if (\is_array($this->advancedLogPolicies)) {
-                $res['AdvancedLogPolicies'] = [];
-                $n1 = 0;
-                foreach ($this->advancedLogPolicies as $item1) {
-                    $res['AdvancedLogPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->advancedLogPoliciesShrink) {
+            $res['AdvancedLogPolicies'] = $this->advancedLogPoliciesShrink;
         }
 
         if (null !== $this->DBClusterId) {
@@ -131,14 +120,7 @@ class ModifyLogBackupPolicyRequest extends Model
     {
         $model = new self();
         if (isset($map['AdvancedLogPolicies'])) {
-            if (!empty($map['AdvancedLogPolicies'])) {
-                $model->advancedLogPolicies = [];
-                $n1 = 0;
-                foreach ($map['AdvancedLogPolicies'] as $item1) {
-                    $model->advancedLogPolicies[$n1] = advancedLogPolicies::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->advancedLogPoliciesShrink = $map['AdvancedLogPolicies'];
         }
 
         if (isset($map['DBClusterId'])) {

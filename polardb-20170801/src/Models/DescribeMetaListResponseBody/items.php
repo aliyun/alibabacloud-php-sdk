@@ -14,16 +14,25 @@ class items extends Model
     public $database;
 
     /**
+     * @var int[]
+     */
+    public $size;
+
+    /**
      * @var string[]
      */
     public $tables;
     protected $_name = [
         'database' => 'Database',
+        'size' => 'Size',
         'tables' => 'Tables',
     ];
 
     public function validate()
     {
+        if (\is_array($this->size)) {
+            Model::validateArray($this->size);
+        }
         if (\is_array($this->tables)) {
             Model::validateArray($this->tables);
         }
@@ -35,6 +44,17 @@ class items extends Model
         $res = [];
         if (null !== $this->database) {
             $res['Database'] = $this->database;
+        }
+
+        if (null !== $this->size) {
+            if (\is_array($this->size)) {
+                $res['Size'] = [];
+                $n1 = 0;
+                foreach ($this->size as $item1) {
+                    $res['Size'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->tables) {
@@ -61,6 +81,17 @@ class items extends Model
         $model = new self();
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
+        }
+
+        if (isset($map['Size'])) {
+            if (!empty($map['Size'])) {
+                $model->size = [];
+                $n1 = 0;
+                foreach ($map['Size'] as $item1) {
+                    $model->size[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Tables'])) {
