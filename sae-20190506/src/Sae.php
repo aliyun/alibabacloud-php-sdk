@@ -284,6 +284,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceSlsConfigsRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceSlsConfigsResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceVpcRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceVpcResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretRequest;
@@ -2066,7 +2068,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 创建或者更新泳道.
+     * Creates or updates a lane.
      *
      * @param tmpReq - CreateOrUpdateSwimmingLaneRequest
      * @param headers - map
@@ -2150,7 +2152,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 创建或者更新泳道.
+     * Creates or updates a lane.
      *
      * @param request - CreateOrUpdateSwimmingLaneRequest
      *
@@ -2169,7 +2171,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 创建或者更新泳道组.
+     * Creates or updates a lane group.
      *
      * @param tmpReq - CreateOrUpdateSwimmingLaneGroupRequest
      * @param headers - map
@@ -2241,7 +2243,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 创建或者更新泳道组.
+     * Creates or updates a lane group.
      *
      * @param request - CreateOrUpdateSwimmingLaneGroupRequest
      *
@@ -2849,7 +2851,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 删除实例.
+     * Deletes an application instance.
      *
      * @param request - DeleteInstancesRequest
      * @param headers - map
@@ -2895,7 +2897,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 删除实例.
+     * Deletes an application instance.
      *
      * @param request - DeleteInstancesRequest
      *
@@ -3105,7 +3107,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 删除泳道组.
+     * Deletes a lane group.
      *
      * @param request - DeleteSwimmingLaneGroupRequest
      * @param headers - map
@@ -3151,7 +3153,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 删除泳道组.
+     * Deletes a lane group.
      *
      * @param request - DeleteSwimmingLaneGroupRequest
      *
@@ -4971,6 +4973,10 @@ class Sae extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->previous) {
+            @$query['Previous'] = $request->previous;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -5695,7 +5701,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询泳道详情.
+     * Queries details about swimlanes.
      *
      * @param request - DescribeSwimmingLaneRequest
      * @param headers - map
@@ -5745,7 +5751,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询泳道详情.
+     * Queries details about swimlanes.
      *
      * @param request - DescribeSwimmingLaneRequest
      *
@@ -6324,7 +6330,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+     * Disable ARMS Advanced Edition monitoring.
      *
      * @param request - DowngradeApplicationApmServiceRequest
      * @param headers - map
@@ -6366,7 +6372,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+     * Disable ARMS Advanced Edition monitoring.
      *
      * @param request - DowngradeApplicationApmServiceRequest
      *
@@ -7082,7 +7088,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询所有泳道组.
+     * Queries all lane groups.
      *
      * @param request - ListAllSwimmingLaneGroupsRequest
      * @param headers - map
@@ -7124,7 +7130,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询所有泳道组.
+     * Queries all lane groups.
      *
      * @param request - ListAllSwimmingLaneGroupsRequest
      *
@@ -7143,7 +7149,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询所有泳道.
+     * Queries all swimlanes.
      *
      * @param request - ListAllSwimmingLanesRequest
      * @param headers - map
@@ -7189,7 +7195,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询所有泳道.
+     * Queries all swimlanes.
      *
      * @param request - ListAllSwimmingLanesRequest
      *
@@ -7625,7 +7631,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 获取应用列表，供全链路灰度拉取应用列表.
+     * Obtains the application list for the end-to-end grayscale pull application list.
      *
      * @param request - ListApplicationsForSwimmingLaneRequest
      * @param headers - map
@@ -7675,7 +7681,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 获取应用列表，供全链路灰度拉取应用列表.
+     * Obtains the application list for the end-to-end grayscale pull application list.
      *
      * @param request - ListApplicationsForSwimmingLaneRequest
      *
@@ -8414,7 +8420,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询泳道可选的网关路由.
+     * Query the gateway routes that are available for a lane.
      *
      * @param request - ListSwimmingLaneGatewayRoutesRequest
      * @param headers - map
@@ -8460,7 +8466,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询泳道可选的网关路由.
+     * Query the gateway routes that are available for a lane.
      *
      * @param request - ListSwimmingLaneGatewayRoutesRequest
      *
@@ -8479,7 +8485,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询所有泳道标签列表.
+     * Queries all lane tags.
      *
      * @param request - ListSwimmingLaneGroupTagsRequest
      * @param headers - map
@@ -8525,7 +8531,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 查询所有泳道标签列表.
+     * Queries all lane tags.
      *
      * @param request - ListSwimmingLaneGroupTagsRequest
      *
@@ -10284,7 +10290,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 应用闲置模式更新.
+     * Application Idle Mode Update.
      *
      * @param request - UpdateAppModeRequest
      * @param headers - map
@@ -10338,7 +10344,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 应用闲置模式更新.
+     * Application Idle Mode Update.
      *
      * @param request - UpdateAppModeRequest
      *
@@ -11252,6 +11258,75 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * 更新命名空间级别sls配置.
+     *
+     * @param request - UpdateNamespaceSlsConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNamespaceSlsConfigsResponse
+     *
+     * @param UpdateNamespaceSlsConfigsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateNamespaceSlsConfigsResponse
+     */
+    public function updateNamespaceSlsConfigsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nameSpaceShortId) {
+            @$query['NameSpaceShortId'] = $request->nameSpaceShortId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->slsConfigs) {
+            @$query['SlsConfigs'] = $request->slsConfigs;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNamespaceSlsConfigs',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/cas/namespace/updateNamespaceSlsConfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNamespaceSlsConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新命名空间级别sls配置.
+     *
+     * @param request - UpdateNamespaceSlsConfigsRequest
+     *
+     * @returns UpdateNamespaceSlsConfigsResponse
+     *
+     * @param UpdateNamespaceSlsConfigsRequest $request
+     *
+     * @return UpdateNamespaceSlsConfigsResponse
+     */
+    public function updateNamespaceSlsConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateNamespaceSlsConfigsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * cn-beijing:test.
      *
      * @param request - UpdateNamespaceVpcRequest
@@ -11404,7 +11479,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 更新泳道的启用属性.
+     * Update the enabled property of the swimlane.
      *
      * @param request - UpdateSwimmingLaneEnableAttributeRequest
      * @param headers - map
@@ -11458,7 +11533,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 更新泳道的启用属性.
+     * Update the enabled property of the swimlane.
      *
      * @param request - UpdateSwimmingLaneEnableAttributeRequest
      *

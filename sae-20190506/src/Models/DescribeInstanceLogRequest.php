@@ -17,9 +17,15 @@ class DescribeInstanceLogRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $previous;
     protected $_name = [
         'containerId' => 'ContainerId',
         'instanceId' => 'InstanceId',
+        'previous' => 'Previous',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class DescribeInstanceLogRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->previous) {
+            $res['Previous'] = $this->previous;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class DescribeInstanceLogRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Previous'])) {
+            $model->previous = $map['Previous'];
         }
 
         return $model;
