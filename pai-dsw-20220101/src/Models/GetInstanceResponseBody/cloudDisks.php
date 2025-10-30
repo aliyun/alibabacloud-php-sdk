@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\cloudDisks\status;
 
 class cloudDisks extends Model
 {
@@ -24,6 +25,11 @@ class cloudDisks extends Model
     public $path;
 
     /**
+     * @var status
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $subType;
@@ -31,11 +37,15 @@ class cloudDisks extends Model
         'capacity' => 'Capacity',
         'mountPath' => 'MountPath',
         'path' => 'Path',
+        'status' => 'Status',
         'subType' => 'SubType',
     ];
 
     public function validate()
     {
+        if (null !== $this->status) {
+            $this->status->validate();
+        }
         parent::validate();
     }
 
@@ -52,6 +62,10 @@ class cloudDisks extends Model
 
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = null !== $this->status ? $this->status->toArray($noStream) : $this->status;
         }
 
         if (null !== $this->subType) {
@@ -79,6 +93,10 @@ class cloudDisks extends Model
 
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = status::fromMap($map['Status']);
         }
 
         if (isset($map['SubType'])) {
