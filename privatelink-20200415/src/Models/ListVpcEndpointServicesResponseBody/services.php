@@ -13,103 +13,122 @@ class services extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var bool
      */
     public $autoAcceptEnabled;
+
     /**
      * @var int
      */
     public $connectBandwidth;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $maxBandwidth;
+
     /**
      * @var int
      */
     public $minBandwidth;
+
     /**
      * @var string
      */
     public $payer;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceBusinessStatus;
+
     /**
      * @var string
      */
     public $serviceDescription;
+
     /**
      * @var string
      */
     public $serviceDomain;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $serviceResourceType;
+
     /**
      * @var string
      */
     public $serviceStatus;
+
     /**
      * @var bool
      */
     public $serviceSupportIPv6;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var bool
      */
     public $zoneAffinityEnabled;
     protected $_name = [
-        'addressIpVersion'      => 'AddressIpVersion',
-        'autoAcceptEnabled'     => 'AutoAcceptEnabled',
-        'connectBandwidth'      => 'ConnectBandwidth',
-        'createTime'            => 'CreateTime',
-        'maxBandwidth'          => 'MaxBandwidth',
-        'minBandwidth'          => 'MinBandwidth',
-        'payer'                 => 'Payer',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'addressIpVersion' => 'AddressIpVersion',
+        'autoAcceptEnabled' => 'AutoAcceptEnabled',
+        'connectBandwidth' => 'ConnectBandwidth',
+        'createTime' => 'CreateTime',
+        'maxBandwidth' => 'MaxBandwidth',
+        'minBandwidth' => 'MinBandwidth',
+        'payer' => 'Payer',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'serviceBusinessStatus' => 'ServiceBusinessStatus',
-        'serviceDescription'    => 'ServiceDescription',
-        'serviceDomain'         => 'ServiceDomain',
-        'serviceId'             => 'ServiceId',
-        'serviceName'           => 'ServiceName',
-        'serviceResourceType'   => 'ServiceResourceType',
-        'serviceStatus'         => 'ServiceStatus',
-        'serviceSupportIPv6'    => 'ServiceSupportIPv6',
-        'serviceType'           => 'ServiceType',
-        'tags'                  => 'Tags',
-        'zoneAffinityEnabled'   => 'ZoneAffinityEnabled',
+        'serviceDescription' => 'ServiceDescription',
+        'serviceDomain' => 'ServiceDomain',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'serviceResourceType' => 'ServiceResourceType',
+        'serviceStatus' => 'ServiceStatus',
+        'serviceSupportIPv6' => 'ServiceSupportIPv6',
+        'serviceType' => 'ServiceType',
+        'tags' => 'Tags',
+        'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
     public function validate()
@@ -198,9 +217,10 @@ class services extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -295,9 +315,10 @@ class services extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

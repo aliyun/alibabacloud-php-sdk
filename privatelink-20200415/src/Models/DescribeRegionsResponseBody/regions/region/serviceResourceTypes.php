@@ -30,9 +30,10 @@ class serviceResourceTypes extends Model
         if (null !== $this->serviceResourceType) {
             if (\is_array($this->serviceResourceType)) {
                 $res['ServiceResourceType'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->serviceResourceType as $item1) {
-                    $res['ServiceResourceType'][$n1++] = $item1;
+                    $res['ServiceResourceType'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,9 +52,10 @@ class serviceResourceTypes extends Model
         if (isset($map['ServiceResourceType'])) {
             if (!empty($map['ServiceResourceType'])) {
                 $model->serviceResourceType = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['ServiceResourceType'] as $item1) {
-                    $model->serviceResourceType[$n1++] = $item1;
+                    $model->serviceResourceType[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

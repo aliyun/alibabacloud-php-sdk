@@ -12,23 +12,26 @@ class DeleteVpcEndpointServiceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class UpdateVpcEndpointZoneConnectionResourceAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceAllocateMode;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceReplaceMode;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'endpointId'           => 'EndpointId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'endpointId' => 'EndpointId',
+        'regionId' => 'RegionId',
         'resourceAllocateMode' => 'ResourceAllocateMode',
-        'resourceId'           => 'ResourceId',
-        'resourceReplaceMode'  => 'ResourceReplaceMode',
-        'resourceType'         => 'ResourceType',
-        'serviceId'            => 'ServiceId',
-        'zoneId'               => 'ZoneId',
+        'resourceId' => 'ResourceId',
+        'resourceReplaceMode' => 'ResourceReplaceMode',
+        'resourceType' => 'ResourceType',
+        'serviceId' => 'ServiceId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

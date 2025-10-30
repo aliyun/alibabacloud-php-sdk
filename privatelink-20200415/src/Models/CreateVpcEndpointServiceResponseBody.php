@@ -12,68 +12,80 @@ class CreateVpcEndpointServiceResponseBody extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var bool
      */
     public $autoAcceptEnabled;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceBusinessStatus;
+
     /**
      * @var string
      */
     public $serviceDescription;
+
     /**
      * @var string
      */
     public $serviceDomain;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $serviceStatus;
+
     /**
      * @var bool
      */
     public $serviceSupportIPv6;
+
     /**
      * @var bool
      */
     public $zoneAffinityEnabled;
     protected $_name = [
-        'addressIpVersion'      => 'AddressIpVersion',
-        'autoAcceptEnabled'     => 'AutoAcceptEnabled',
-        'createTime'            => 'CreateTime',
-        'requestId'             => 'RequestId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'addressIpVersion' => 'AddressIpVersion',
+        'autoAcceptEnabled' => 'AutoAcceptEnabled',
+        'createTime' => 'CreateTime',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'serviceBusinessStatus' => 'ServiceBusinessStatus',
-        'serviceDescription'    => 'ServiceDescription',
-        'serviceDomain'         => 'ServiceDomain',
-        'serviceId'             => 'ServiceId',
-        'serviceName'           => 'ServiceName',
-        'serviceStatus'         => 'ServiceStatus',
-        'serviceSupportIPv6'    => 'ServiceSupportIPv6',
-        'zoneAffinityEnabled'   => 'ZoneAffinityEnabled',
+        'serviceDescription' => 'ServiceDescription',
+        'serviceDomain' => 'ServiceDomain',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'serviceStatus' => 'ServiceStatus',
+        'serviceSupportIPv6' => 'ServiceSupportIPv6',
+        'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
     public function validate()

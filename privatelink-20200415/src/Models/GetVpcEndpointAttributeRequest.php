@@ -12,13 +12,14 @@ class GetVpcEndpointAttributeRequest extends Model
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'endpointId' => 'EndpointId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

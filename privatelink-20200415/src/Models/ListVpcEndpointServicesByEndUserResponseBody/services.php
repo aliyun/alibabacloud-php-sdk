@@ -13,58 +13,74 @@ class services extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var string
      */
     public $payer;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceDomain;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $serviceResourceType;
+
     /**
      * @var bool
      */
     public $serviceSupportIPv6;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var bool
+     */
+    public $zoneAffinityEnabled;
+
     /**
      * @var string[]
      */
     public $zones;
     protected $_name = [
-        'addressIpVersion'    => 'AddressIpVersion',
-        'payer'               => 'Payer',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'serviceDomain'       => 'ServiceDomain',
-        'serviceId'           => 'ServiceId',
-        'serviceName'         => 'ServiceName',
+        'addressIpVersion' => 'AddressIpVersion',
+        'payer' => 'Payer',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceDomain' => 'ServiceDomain',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
         'serviceResourceType' => 'ServiceResourceType',
-        'serviceSupportIPv6'  => 'ServiceSupportIPv6',
-        'serviceType'         => 'ServiceType',
-        'tags'                => 'Tags',
-        'zones'               => 'Zones',
+        'serviceSupportIPv6' => 'ServiceSupportIPv6',
+        'serviceType' => 'ServiceType',
+        'tags' => 'Tags',
+        'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
+        'zones' => 'Zones',
     ];
 
     public function validate()
@@ -120,19 +136,25 @@ class services extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->zoneAffinityEnabled) {
+            $res['ZoneAffinityEnabled'] = $this->zoneAffinityEnabled;
         }
 
         if (null !== $this->zones) {
             if (\is_array($this->zones)) {
                 $res['Zones'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['Zones'][$n1++] = $item1;
+                    $res['Zones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,19 +209,25 @@ class services extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ZoneAffinityEnabled'])) {
+            $model->zoneAffinityEnabled = $map['ZoneAffinityEnabled'];
         }
 
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
-                    $model->zones[$n1++] = $item1;
+                    $model->zones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

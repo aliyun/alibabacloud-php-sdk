@@ -12,43 +12,56 @@ class UpdateVpcEndpointAttributeRequest extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointDescription;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var string
      */
     public $policyDocument;
+
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $zoneAffinityEnabled;
     protected $_name = [
-        'addressIpVersion'    => 'AddressIpVersion',
-        'clientToken'         => 'ClientToken',
-        'dryRun'              => 'DryRun',
+        'addressIpVersion' => 'AddressIpVersion',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'endpointDescription' => 'EndpointDescription',
-        'endpointId'          => 'EndpointId',
-        'endpointName'        => 'EndpointName',
-        'policyDocument'      => 'PolicyDocument',
-        'regionId'            => 'RegionId',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'policyDocument' => 'PolicyDocument',
+        'regionId' => 'RegionId',
+        'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
     public function validate()
@@ -89,6 +102,10 @@ class UpdateVpcEndpointAttributeRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->zoneAffinityEnabled) {
+            $res['ZoneAffinityEnabled'] = $this->zoneAffinityEnabled;
         }
 
         return $res;
@@ -132,6 +149,10 @@ class UpdateVpcEndpointAttributeRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ZoneAffinityEnabled'])) {
+            $model->zoneAffinityEnabled = $map['ZoneAffinityEnabled'];
         }
 
         return $model;

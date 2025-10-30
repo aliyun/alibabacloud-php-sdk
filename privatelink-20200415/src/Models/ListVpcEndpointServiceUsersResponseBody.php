@@ -14,33 +14,38 @@ class ListVpcEndpointServiceUsersResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
+
     /**
      * @var userARNs[]
      */
     public $userARNs;
+
     /**
      * @var users[]
      */
     public $users;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'userARNs'   => 'UserARNs',
-        'users'      => 'Users',
+        'userARNs' => 'UserARNs',
+        'users' => 'Users',
     ];
 
     public function validate()
@@ -76,9 +81,10 @@ class ListVpcEndpointServiceUsersResponseBody extends Model
         if (null !== $this->userARNs) {
             if (\is_array($this->userARNs)) {
                 $res['UserARNs'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->userARNs as $item1) {
-                    $res['UserARNs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserARNs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -86,9 +92,10 @@ class ListVpcEndpointServiceUsersResponseBody extends Model
         if (null !== $this->users) {
             if (\is_array($this->users)) {
                 $res['Users'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,9 +130,10 @@ class ListVpcEndpointServiceUsersResponseBody extends Model
         if (isset($map['UserARNs'])) {
             if (!empty($map['UserARNs'])) {
                 $model->userARNs = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['UserARNs'] as $item1) {
-                    $model->userARNs[$n1++] = userARNs::fromMap($item1);
+                    $model->userARNs[$n1] = userARNs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -133,9 +141,10 @@ class ListVpcEndpointServiceUsersResponseBody extends Model
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = users::fromMap($item1);
+                    $model->users[$n1] = users::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

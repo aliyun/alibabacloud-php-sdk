@@ -12,12 +12,13 @@ class DescribeZonesRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceResourceType;
     protected $_name = [
-        'regionId'            => 'RegionId',
+        'regionId' => 'RegionId',
         'serviceResourceType' => 'ServiceResourceType',
     ];
 

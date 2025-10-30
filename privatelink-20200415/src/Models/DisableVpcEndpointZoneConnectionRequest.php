@@ -12,38 +12,44 @@ class DisableVpcEndpointZoneConnectionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $replacedResource;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'dryRun'           => 'DryRun',
-        'endpointId'       => 'EndpointId',
-        'regionId'         => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'endpointId' => 'EndpointId',
+        'regionId' => 'RegionId',
         'replacedResource' => 'ReplacedResource',
-        'serviceId'        => 'ServiceId',
-        'zoneId'           => 'ZoneId',
+        'serviceId' => 'ServiceId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

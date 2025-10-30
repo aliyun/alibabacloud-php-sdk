@@ -13,43 +13,50 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'serviceId'       => 'ServiceId',
-        'serviceName'     => 'ServiceName',
-        'serviceType'     => 'ServiceType',
-        'tag'             => 'Tag',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'serviceType' => 'ServiceType',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -94,9 +101,10 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,9 +151,10 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

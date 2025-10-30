@@ -12,33 +12,38 @@ class RemoveUserFromVpcEndpointServiceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $userARN;
+
     /**
      * @var int
      */
     public $userId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
-        'userARN'     => 'UserARN',
-        'userId'      => 'UserId',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
+        'userARN' => 'UserARN',
+        'userId' => 'UserId',
     ];
 
     public function validate()

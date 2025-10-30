@@ -12,38 +12,44 @@ class DetachResourceFromVpcEndpointServiceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'dryRun'       => 'DryRun',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'serviceId'    => 'ServiceId',
-        'zoneId'       => 'ZoneId',
+        'serviceId' => 'ServiceId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

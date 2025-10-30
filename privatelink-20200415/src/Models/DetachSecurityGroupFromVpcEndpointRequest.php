@@ -12,27 +12,31 @@ class DetachSecurityGroupFromVpcEndpointRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'dryRun'          => 'DryRun',
-        'endpointId'      => 'EndpointId',
-        'regionId'        => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'endpointId' => 'EndpointId',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
     ];
 

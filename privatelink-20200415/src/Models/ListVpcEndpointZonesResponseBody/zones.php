@@ -12,43 +12,50 @@ class zones extends Model
      * @var string
      */
     public $eniId;
+
     /**
      * @var string
      */
     public $eniIp;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneDomain;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneIpv6Address;
+
     /**
      * @var string
      */
     public $zoneStatus;
     protected $_name = [
-        'eniId'           => 'EniId',
-        'eniIp'           => 'EniIp',
-        'regionId'        => 'RegionId',
-        'vSwitchId'       => 'VSwitchId',
-        'zoneDomain'      => 'ZoneDomain',
-        'zoneId'          => 'ZoneId',
+        'eniId' => 'EniId',
+        'eniIp' => 'EniIp',
+        'regionId' => 'RegionId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneDomain' => 'ZoneDomain',
+        'zoneId' => 'ZoneId',
         'zoneIpv6Address' => 'ZoneIpv6Address',
-        'zoneStatus'      => 'ZoneStatus',
+        'zoneStatus' => 'ZoneStatus',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class GetVpcEndpointServiceAttributeRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceId;
     protected $_name = [
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
         'serviceId' => 'ServiceId',
     ];
 

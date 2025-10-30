@@ -12,43 +12,50 @@ class AddZoneToVpcEndpointRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $ipv6Address;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $ip;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'endpointId'  => 'EndpointId',
+        'dryRun' => 'DryRun',
+        'endpointId' => 'EndpointId',
         'ipv6Address' => 'Ipv6Address',
-        'regionId'    => 'RegionId',
-        'vSwitchId'   => 'VSwitchId',
-        'zoneId'      => 'ZoneId',
-        'ip'          => 'ip',
+        'regionId' => 'RegionId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
+        'ip' => 'ip',
     ];
 
     public function validate()

@@ -13,50 +13,62 @@ class ListVpcEndpointsRequest extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var string
      */
     public $connectionStatus;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var string
      */
     public $endpointStatus;
+
     /**
      * @var string
      */
     public $endpointType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
@@ -64,17 +76,17 @@ class ListVpcEndpointsRequest extends Model
     protected $_name = [
         'addressIpVersion' => 'AddressIpVersion',
         'connectionStatus' => 'ConnectionStatus',
-        'endpointId'       => 'EndpointId',
-        'endpointName'     => 'EndpointName',
-        'endpointStatus'   => 'EndpointStatus',
-        'endpointType'     => 'EndpointType',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'regionId'         => 'RegionId',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'serviceName'      => 'ServiceName',
-        'tag'              => 'Tag',
-        'vpcId'            => 'VpcId',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'endpointStatus' => 'EndpointStatus',
+        'endpointType' => 'EndpointType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceName' => 'ServiceName',
+        'tag' => 'Tag',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -135,9 +147,10 @@ class ListVpcEndpointsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -204,9 +217,10 @@ class ListVpcEndpointsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

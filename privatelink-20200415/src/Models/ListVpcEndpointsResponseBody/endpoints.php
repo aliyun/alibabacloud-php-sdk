@@ -13,103 +13,122 @@ class endpoints extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $connectionStatus;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $endpointBusinessStatus;
+
     /**
      * @var string
      */
     public $endpointDescription;
+
     /**
      * @var string
      */
     public $endpointDomain;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var string
      */
     public $endpointStatus;
+
     /**
      * @var string
      */
     public $endpointType;
+
     /**
      * @var string
      */
     public $policyDocument;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $resourceOwner;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var bool
      */
     public $zoneAffinityEnabled;
     protected $_name = [
-        'addressIpVersion'       => 'AddressIpVersion',
-        'bandwidth'              => 'Bandwidth',
-        'connectionStatus'       => 'ConnectionStatus',
-        'createTime'             => 'CreateTime',
+        'addressIpVersion' => 'AddressIpVersion',
+        'bandwidth' => 'Bandwidth',
+        'connectionStatus' => 'ConnectionStatus',
+        'createTime' => 'CreateTime',
         'endpointBusinessStatus' => 'EndpointBusinessStatus',
-        'endpointDescription'    => 'EndpointDescription',
-        'endpointDomain'         => 'EndpointDomain',
-        'endpointId'             => 'EndpointId',
-        'endpointName'           => 'EndpointName',
-        'endpointStatus'         => 'EndpointStatus',
-        'endpointType'           => 'EndpointType',
-        'policyDocument'         => 'PolicyDocument',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'resourceOwner'          => 'ResourceOwner',
-        'serviceId'              => 'ServiceId',
-        'serviceName'            => 'ServiceName',
-        'tags'                   => 'Tags',
-        'vpcId'                  => 'VpcId',
-        'zoneAffinityEnabled'    => 'ZoneAffinityEnabled',
+        'endpointDescription' => 'EndpointDescription',
+        'endpointDomain' => 'EndpointDomain',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'endpointStatus' => 'EndpointStatus',
+        'endpointType' => 'EndpointType',
+        'policyDocument' => 'PolicyDocument',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwner' => 'ResourceOwner',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
+        'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
     public function validate()
@@ -194,9 +213,10 @@ class endpoints extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,9 +311,10 @@ class endpoints extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

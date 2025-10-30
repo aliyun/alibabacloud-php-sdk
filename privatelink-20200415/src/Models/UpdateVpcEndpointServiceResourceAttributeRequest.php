@@ -12,38 +12,44 @@ class UpdateVpcEndpointServiceResourceAttributeRequest extends Model
      * @var bool
      */
     public $autoAllocatedEnabled;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'autoAllocatedEnabled' => 'AutoAllocatedEnabled',
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'regionId'             => 'RegionId',
-        'resourceId'           => 'ResourceId',
-        'serviceId'            => 'ServiceId',
-        'zoneId'               => 'ZoneId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
+        'serviceId' => 'ServiceId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

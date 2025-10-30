@@ -13,13 +13,14 @@ class DescribeZonesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var zones
      */
     public $zones;
     protected $_name = [
         'requestId' => 'RequestId',
-        'zones'     => 'Zones',
+        'zones' => 'Zones',
     ];
 
     public function validate()

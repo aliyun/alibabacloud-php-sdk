@@ -13,27 +13,31 @@ class ListVpcEndpointsResponseBody extends Model
      * @var endpoints[]
      */
     public $endpoints;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'endpoints'  => 'Endpoints',
+        'endpoints' => 'Endpoints',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,9 +55,10 @@ class ListVpcEndpointsResponseBody extends Model
         if (null !== $this->endpoints) {
             if (\is_array($this->endpoints)) {
                 $res['Endpoints'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->endpoints as $item1) {
-                    $res['Endpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Endpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class ListVpcEndpointsResponseBody extends Model
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Endpoints'] as $item1) {
-                    $model->endpoints[$n1++] = endpoints::fromMap($item1);
+                    $model->endpoints[$n1] = endpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

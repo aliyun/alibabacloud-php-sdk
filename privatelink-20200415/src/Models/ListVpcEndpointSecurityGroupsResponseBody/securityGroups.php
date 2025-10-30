@@ -12,12 +12,13 @@ class securityGroups extends Model
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $securityGroupStatus;
     protected $_name = [
-        'securityGroupId'     => 'SecurityGroupId',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupStatus' => 'SecurityGroupStatus',
     ];
 

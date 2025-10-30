@@ -14,67 +14,79 @@ class CreateVpcEndpointServiceRequest extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var bool
      */
     public $autoAcceptEnabled;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $payer;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var resource[]
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceDescription;
+
     /**
      * @var string
      */
     public $serviceResourceType;
+
     /**
      * @var bool
      */
     public $serviceSupportIPv6;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var bool
      */
     public $zoneAffinityEnabled;
     protected $_name = [
-        'addressIpVersion'    => 'AddressIpVersion',
-        'autoAcceptEnabled'   => 'AutoAcceptEnabled',
-        'clientToken'         => 'ClientToken',
-        'dryRun'              => 'DryRun',
-        'payer'               => 'Payer',
-        'regionId'            => 'RegionId',
-        'resource'            => 'Resource',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'serviceDescription'  => 'ServiceDescription',
+        'addressIpVersion' => 'AddressIpVersion',
+        'autoAcceptEnabled' => 'AutoAcceptEnabled',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'payer' => 'Payer',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceDescription' => 'ServiceDescription',
         'serviceResourceType' => 'ServiceResourceType',
-        'serviceSupportIPv6'  => 'ServiceSupportIPv6',
-        'tag'                 => 'Tag',
+        'serviceSupportIPv6' => 'ServiceSupportIPv6',
+        'tag' => 'Tag',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
@@ -119,9 +131,10 @@ class CreateVpcEndpointServiceRequest extends Model
         if (null !== $this->resource) {
             if (\is_array($this->resource)) {
                 $res['Resource'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->resource as $item1) {
-                    $res['Resource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Resource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,9 +158,10 @@ class CreateVpcEndpointServiceRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -194,9 +208,10 @@ class CreateVpcEndpointServiceRequest extends Model
         if (isset($map['Resource'])) {
             if (!empty($map['Resource'])) {
                 $model->resource = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Resource'] as $item1) {
-                    $model->resource[$n1++] = resource::fromMap($item1);
+                    $model->resource[$n1] = resource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -220,9 +235,10 @@ class CreateVpcEndpointServiceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

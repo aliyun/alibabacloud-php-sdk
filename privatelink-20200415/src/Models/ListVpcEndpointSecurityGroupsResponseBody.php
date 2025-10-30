@@ -13,28 +13,32 @@ class ListVpcEndpointSecurityGroupsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var securityGroups[]
      */
     public $securityGroups;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'securityGroups' => 'SecurityGroups',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -63,9 +67,10 @@ class ListVpcEndpointSecurityGroupsResponseBody extends Model
         if (null !== $this->securityGroups) {
             if (\is_array($this->securityGroups)) {
                 $res['SecurityGroups'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->securityGroups as $item1) {
-                    $res['SecurityGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,9 +105,10 @@ class ListVpcEndpointSecurityGroupsResponseBody extends Model
         if (isset($map['SecurityGroups'])) {
             if (!empty($map['SecurityGroups'])) {
                 $model->securityGroups = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroups'] as $item1) {
-                    $model->securityGroups[$n1++] = securityGroups::fromMap($item1);
+                    $model->securityGroups[$n1] = securityGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

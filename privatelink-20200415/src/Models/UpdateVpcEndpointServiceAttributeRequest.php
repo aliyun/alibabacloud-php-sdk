@@ -12,52 +12,61 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var bool
      */
     public $autoAcceptEnabled;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $connectBandwidth;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceDescription;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var bool
      */
     public $serviceSupportIPv6;
+
     /**
      * @var bool
      */
     public $zoneAffinityEnabled;
     protected $_name = [
-        'addressIpVersion'    => 'AddressIpVersion',
-        'autoAcceptEnabled'   => 'AutoAcceptEnabled',
-        'clientToken'         => 'ClientToken',
-        'connectBandwidth'    => 'ConnectBandwidth',
-        'dryRun'              => 'DryRun',
-        'regionId'            => 'RegionId',
-        'serviceDescription'  => 'ServiceDescription',
-        'serviceId'           => 'ServiceId',
-        'serviceSupportIPv6'  => 'ServiceSupportIPv6',
+        'addressIpVersion' => 'AddressIpVersion',
+        'autoAcceptEnabled' => 'AutoAcceptEnabled',
+        'clientToken' => 'ClientToken',
+        'connectBandwidth' => 'ConnectBandwidth',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
+        'serviceDescription' => 'ServiceDescription',
+        'serviceId' => 'ServiceId',
+        'serviceSupportIPv6' => 'ServiceSupportIPv6',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 

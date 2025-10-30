@@ -13,53 +13,62 @@ class connections extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $connectionStatus;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var int
      */
     public $endpointOwnerId;
+
     /**
      * @var string
      */
     public $endpointVpcId;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $resourceOwner;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var zones[]
      */
     public $zones;
     protected $_name = [
-        'bandwidth'        => 'Bandwidth',
+        'bandwidth' => 'Bandwidth',
         'connectionStatus' => 'ConnectionStatus',
-        'endpointId'       => 'EndpointId',
-        'endpointOwnerId'  => 'EndpointOwnerId',
-        'endpointVpcId'    => 'EndpointVpcId',
-        'modifiedTime'     => 'ModifiedTime',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'resourceOwner'    => 'ResourceOwner',
-        'serviceId'        => 'ServiceId',
-        'zones'            => 'Zones',
+        'endpointId' => 'EndpointId',
+        'endpointOwnerId' => 'EndpointOwnerId',
+        'endpointVpcId' => 'EndpointVpcId',
+        'modifiedTime' => 'ModifiedTime',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwner' => 'ResourceOwner',
+        'serviceId' => 'ServiceId',
+        'zones' => 'Zones',
     ];
 
     public function validate()
@@ -112,9 +121,10 @@ class connections extends Model
         if (null !== $this->zones) {
             if (\is_array($this->zones)) {
                 $res['Zones'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['Zones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Zones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -169,9 +179,10 @@ class connections extends Model
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
-                    $model->zones[$n1++] = zones::fromMap($item1);
+                    $model->zones[$n1] = zones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,58 +12,68 @@ class ListVpcEndpointConnectionsRequest extends Model
      * @var string
      */
     public $connectionStatus;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var int
      */
     public $endpointOwnerId;
+
     /**
      * @var string
      */
     public $eniId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replacedResourceId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $serviceId;
     protected $_name = [
-        'connectionStatus'   => 'ConnectionStatus',
-        'endpointId'         => 'EndpointId',
-        'endpointOwnerId'    => 'EndpointOwnerId',
-        'eniId'              => 'EniId',
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'regionId'           => 'RegionId',
+        'connectionStatus' => 'ConnectionStatus',
+        'endpointId' => 'EndpointId',
+        'endpointOwnerId' => 'EndpointOwnerId',
+        'eniId' => 'EniId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'replacedResourceId' => 'ReplacedResourceId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'resourceId'         => 'ResourceId',
-        'serviceId'          => 'ServiceId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
+        'serviceId' => 'ServiceId',
     ];
 
     public function validate()

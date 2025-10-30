@@ -12,32 +12,37 @@ class ListVpcEndpointServiceUsersRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var int
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userListType;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
-        'serviceId'    => 'ServiceId',
-        'userId'       => 'UserId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
+        'userId' => 'UserId',
         'userListType' => 'UserListType',
     ];
 

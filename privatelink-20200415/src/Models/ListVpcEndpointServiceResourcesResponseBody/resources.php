@@ -12,58 +12,68 @@ class resources extends Model
      * @var bool
      */
     public $autoAllocatedEnabled;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $relatedDeprecatedEndpointCount;
+
     /**
      * @var int
      */
     public $relatedEndpointCount;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var bool
      */
     public $resourceSupportIPv6;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoAllocatedEnabled'           => 'AutoAllocatedEnabled',
-        'ip'                             => 'Ip',
-        'regionId'                       => 'RegionId',
+        'autoAllocatedEnabled' => 'AutoAllocatedEnabled',
+        'ip' => 'Ip',
+        'regionId' => 'RegionId',
         'relatedDeprecatedEndpointCount' => 'RelatedDeprecatedEndpointCount',
-        'relatedEndpointCount'           => 'RelatedEndpointCount',
-        'resourceId'                     => 'ResourceId',
-        'resourceSupportIPv6'            => 'ResourceSupportIPv6',
-        'resourceType'                   => 'ResourceType',
-        'vSwitchId'                      => 'VSwitchId',
-        'vpcId'                          => 'VpcId',
-        'zoneId'                         => 'ZoneId',
+        'relatedEndpointCount' => 'RelatedEndpointCount',
+        'resourceId' => 'ResourceId',
+        'resourceSupportIPv6' => 'ResourceSupportIPv6',
+        'resourceType' => 'ResourceType',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

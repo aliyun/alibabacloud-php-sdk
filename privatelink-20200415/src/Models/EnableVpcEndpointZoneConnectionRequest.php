@@ -12,33 +12,38 @@ class EnableVpcEndpointZoneConnectionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'endpointId'  => 'EndpointId',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
-        'zoneId'      => 'ZoneId',
+        'dryRun' => 'DryRun',
+        'endpointId' => 'EndpointId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

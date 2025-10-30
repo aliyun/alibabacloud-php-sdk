@@ -13,22 +13,25 @@ class region extends Model
      * @var string
      */
     public $localName;
+
     /**
      * @var string
      */
     public $regionEndpoint;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var serviceResourceTypes
      */
     public $serviceResourceTypes;
     protected $_name = [
-        'localName'            => 'LocalName',
-        'regionEndpoint'       => 'RegionEndpoint',
-        'regionId'             => 'RegionId',
+        'localName' => 'LocalName',
+        'regionEndpoint' => 'RegionEndpoint',
+        'regionId' => 'RegionId',
         'serviceResourceTypes' => 'ServiceResourceTypes',
     ];
 

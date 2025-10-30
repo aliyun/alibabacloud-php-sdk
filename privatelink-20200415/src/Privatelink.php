@@ -130,6 +130,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - AddUserToVpcEndpointServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddUserToVpcEndpointServiceResponse
      *
      * @param AddUserToVpcEndpointServiceRequest $request
@@ -173,21 +174,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUserToVpcEndpointService',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserToVpcEndpointService',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddUserToVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUserToVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUserToVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -198,6 +196,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **AddUserToVpcEndpointService** operation to add the ID of an Alibaba Cloud account to the whitelist of an endpoint service within a specified period of time.
      *
      * @param request - AddUserToVpcEndpointServiceRequest
+     *
      * @returns AddUserToVpcEndpointServiceResponse
      *
      * @param AddUserToVpcEndpointServiceRequest $request
@@ -222,6 +221,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - AddZoneToVpcEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddZoneToVpcEndpointResponse
      *
      * @param AddZoneToVpcEndpointRequest $request
@@ -273,21 +273,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddZoneToVpcEndpoint',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddZoneToVpcEndpoint',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddZoneToVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddZoneToVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddZoneToVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -300,6 +297,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **AddZoneToVpcEndpoint** operation to add a zone to an endpoint within a specified period of time.
      *
      * @param request - AddZoneToVpcEndpointRequest
+     *
      * @returns AddZoneToVpcEndpointResponse
      *
      * @param AddZoneToVpcEndpointRequest $request
@@ -322,6 +320,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - AttachResourceToVpcEndpointServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachResourceToVpcEndpointServiceResponse
      *
      * @param AttachResourceToVpcEndpointServiceRequest $request
@@ -369,21 +368,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachResourceToVpcEndpointService',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachResourceToVpcEndpointService',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachResourceToVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachResourceToVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachResourceToVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -394,6 +390,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **AttachResourceToVpcEndpointService** operation to add a service resource to an endpoint service within a specified period of time.
      *
      * @param request - AttachResourceToVpcEndpointServiceRequest
+     *
      * @returns AttachResourceToVpcEndpointServiceResponse
      *
      * @param AttachResourceToVpcEndpointServiceRequest $request
@@ -418,6 +415,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - AttachSecurityGroupToVpcEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachSecurityGroupToVpcEndpointResponse
      *
      * @param AttachSecurityGroupToVpcEndpointRequest $request
@@ -457,21 +455,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachSecurityGroupToVpcEndpoint',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachSecurityGroupToVpcEndpoint',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachSecurityGroupToVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachSecurityGroupToVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachSecurityGroupToVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -484,6 +479,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **AttachSecurityGroupToVpcEndpoint** operation to associate an endpoint with a security group within a specified period of time.
      *
      * @param request - AttachSecurityGroupToVpcEndpointRequest
+     *
      * @returns AttachSecurityGroupToVpcEndpointResponse
      *
      * @param AttachSecurityGroupToVpcEndpointRequest $request
@@ -502,6 +498,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -529,27 +526,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies a resource group.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -568,6 +563,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - CheckProductOpenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckProductOpenResponse
      *
      * @param RuntimeOptions $runtime
@@ -576,23 +572,20 @@ class Privatelink extends OpenApiClient
      */
     public function checkProductOpenWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'CheckProductOpen',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckProductOpen',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckProductOpenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckProductOpenResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckProductOpenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -619,6 +612,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - CreateVpcEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpcEndpointResponse
      *
      * @param CreateVpcEndpointRequest $request
@@ -698,6 +692,10 @@ class Privatelink extends OpenApiClient
             @$query['Zone'] = $request->zone;
         }
 
+        if (null !== $request->zoneAffinityEnabled) {
+            @$query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
+        }
+
         if (null !== $request->zonePrivateIpAddressCount) {
             @$query['ZonePrivateIpAddressCount'] = $request->zonePrivateIpAddressCount;
         }
@@ -706,21 +704,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpcEndpoint',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpcEndpoint',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -732,6 +727,7 @@ class Privatelink extends OpenApiClient
      * *   If the endpoint is in the **Active** state, the endpoint is created.
      *
      * @param request - CreateVpcEndpointRequest
+     *
      * @returns CreateVpcEndpointResponse
      *
      * @param CreateVpcEndpointRequest $request
@@ -756,6 +752,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - CreateVpcEndpointServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpcEndpointServiceResponse
      *
      * @param CreateVpcEndpointServiceRequest $request
@@ -827,21 +824,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpcEndpointService',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpcEndpointService',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -854,6 +848,7 @@ class Privatelink extends OpenApiClient
      *     *   If the endpoint service is in the **Active** state, the endpoint service is created.
      *
      * @param request - CreateVpcEndpointServiceRequest
+     *
      * @returns CreateVpcEndpointServiceResponse
      *
      * @param CreateVpcEndpointServiceRequest $request
@@ -878,6 +873,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - DeleteVpcEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpcEndpointResponse
      *
      * @param DeleteVpcEndpointRequest $request
@@ -913,21 +909,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpcEndpoint',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpcEndpoint',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -940,6 +933,7 @@ class Privatelink extends OpenApiClient
      *     *   If the endpoint cannot be queried, the endpoint is deleted.
      *
      * @param request - DeleteVpcEndpointRequest
+     *
      * @returns DeleteVpcEndpointResponse
      *
      * @param DeleteVpcEndpointRequest $request
@@ -965,6 +959,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - DeleteVpcEndpointServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpcEndpointServiceResponse
      *
      * @param DeleteVpcEndpointServiceRequest $request
@@ -1000,21 +995,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpcEndpointService',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpcEndpointService',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1028,6 +1020,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteVpcEndpointService** operation to delete an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
      *
      * @param request - DeleteVpcEndpointServiceRequest
+     *
      * @returns DeleteVpcEndpointServiceResponse
      *
      * @param DeleteVpcEndpointServiceRequest $request
@@ -1046,6 +1039,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -1073,27 +1067,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries available regions and zones.
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -1112,6 +1104,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeZonesResponse
      *
      * @param DescribeZonesRequest $request
@@ -1139,27 +1132,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeZones',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeZones',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of zones in a specified region.
      *
      * @param request - DescribeZonesRequest
+     *
      * @returns DescribeZonesResponse
      *
      * @param DescribeZonesRequest $request
@@ -1182,6 +1173,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - DetachResourceFromVpcEndpointServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachResourceFromVpcEndpointServiceResponse
      *
      * @param DetachResourceFromVpcEndpointServiceRequest $request
@@ -1229,21 +1221,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachResourceFromVpcEndpointService',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachResourceFromVpcEndpointService',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachResourceFromVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachResourceFromVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachResourceFromVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1254,6 +1243,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **DetachResourceFromVpcEndpointService** operation to remove a service resource from an endpoint service within a specified period of time.
      *
      * @param request - DetachResourceFromVpcEndpointServiceRequest
+     *
      * @returns DetachResourceFromVpcEndpointServiceResponse
      *
      * @param DetachResourceFromVpcEndpointServiceRequest $request
@@ -1278,6 +1268,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - DetachSecurityGroupFromVpcEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachSecurityGroupFromVpcEndpointResponse
      *
      * @param DetachSecurityGroupFromVpcEndpointRequest $request
@@ -1317,21 +1308,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachSecurityGroupFromVpcEndpoint',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachSecurityGroupFromVpcEndpoint',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachSecurityGroupFromVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachSecurityGroupFromVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachSecurityGroupFromVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1344,6 +1332,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **DetachSecurityGroupFromVpcEndpoint** operation to disassociate an endpoint from a security group within a specified period of time.
      *
      * @param request - DetachSecurityGroupFromVpcEndpointRequest
+     *
      * @returns DetachSecurityGroupFromVpcEndpointResponse
      *
      * @param DetachSecurityGroupFromVpcEndpointRequest $request
@@ -1368,6 +1357,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - DisableVpcEndpointConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableVpcEndpointConnectionResponse
      *
      * @param DisableVpcEndpointConnectionRequest $request
@@ -1407,21 +1397,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableVpcEndpointConnection',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableVpcEndpointConnection',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableVpcEndpointConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1434,6 +1421,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **DisableVpcEndpointConnection** operation to allow an endpoint service to reject a connection request from an endpoint within a specified period of time.
      *
      * @param request - DisableVpcEndpointConnectionRequest
+     *
      * @returns DisableVpcEndpointConnectionResponse
      *
      * @param DisableVpcEndpointConnectionRequest $request
@@ -1459,6 +1447,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - DisableVpcEndpointZoneConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableVpcEndpointZoneConnectionResponse
      *
      * @param DisableVpcEndpointZoneConnectionRequest $request
@@ -1506,21 +1495,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableVpcEndpointZoneConnection',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableVpcEndpointZoneConnection',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableVpcEndpointZoneConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1534,6 +1520,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **DisableVpcEndpointZoneConnection** operation to allow an endpoint service to reject a connection request from the endpoint in the zone within a specified period of time.
      *
      * @param request - DisableVpcEndpointZoneConnectionRequest
+     *
      * @returns DisableVpcEndpointZoneConnectionResponse
      *
      * @param DisableVpcEndpointZoneConnectionRequest $request
@@ -1558,6 +1545,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - EnableVpcEndpointConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableVpcEndpointConnectionResponse
      *
      * @param EnableVpcEndpointConnectionRequest $request
@@ -1601,21 +1589,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableVpcEndpointConnection',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableVpcEndpointConnection',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableVpcEndpointConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1628,6 +1613,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **EnableVpcEndpointConnection** operation to allow an endpoint service of an Alibaba Cloud account to accept a connection request from an endpoint within a specified period of time.
      *
      * @param request - EnableVpcEndpointConnectionRequest
+     *
      * @returns EnableVpcEndpointConnectionResponse
      *
      * @param EnableVpcEndpointConnectionRequest $request
@@ -1653,6 +1639,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - EnableVpcEndpointZoneConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableVpcEndpointZoneConnectionResponse
      *
      * @param EnableVpcEndpointZoneConnectionRequest $request
@@ -1696,21 +1683,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableVpcEndpointZoneConnection',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableVpcEndpointZoneConnection',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableVpcEndpointZoneConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableVpcEndpointZoneConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1724,6 +1708,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **EnableVpcEndpointZoneConnection** operation to allow an endpoint service to accept a connection request from an endpoint in the associated zone within a specified period of time.
      *
      * @param request - EnableVpcEndpointZoneConnectionRequest
+     *
      * @returns EnableVpcEndpointZoneConnectionResponse
      *
      * @param EnableVpcEndpointZoneConnectionRequest $request
@@ -1742,6 +1727,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - GetVpcEndpointAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpcEndpointAttributeResponse
      *
      * @param GetVpcEndpointAttributeRequest $request
@@ -1769,27 +1755,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVpcEndpointAttribute',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpcEndpointAttribute',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpcEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpcEndpointAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpcEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the attributes of an endpoint.
      *
      * @param request - GetVpcEndpointAttributeRequest
+     *
      * @returns GetVpcEndpointAttributeResponse
      *
      * @param GetVpcEndpointAttributeRequest $request
@@ -1808,6 +1792,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - GetVpcEndpointServiceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpcEndpointServiceAttributeResponse
      *
      * @param GetVpcEndpointServiceAttributeRequest $request
@@ -1835,27 +1820,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVpcEndpointServiceAttribute',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpcEndpointServiceAttribute',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpcEndpointServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpcEndpointServiceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpcEndpointServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the attributes of an endpoint service.
      *
      * @param request - GetVpcEndpointServiceAttributeRequest
+     *
      * @returns GetVpcEndpointServiceAttributeResponse
      *
      * @param GetVpcEndpointServiceAttributeRequest $request
@@ -1880,6 +1863,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -1919,21 +1903,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1946,6 +1927,7 @@ class Privatelink extends OpenApiClient
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -1964,6 +1946,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListVpcEndpointConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointConnectionsResponse
      *
      * @param ListVpcEndpointConnectionsRequest $request
@@ -2027,27 +2010,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpointConnections',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpointConnections',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries endpoint connections.
      *
      * @param request - ListVpcEndpointConnectionsRequest
+     *
      * @returns ListVpcEndpointConnectionsResponse
      *
      * @param ListVpcEndpointConnectionsRequest $request
@@ -2066,6 +2047,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListVpcEndpointSecurityGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointSecurityGroupsResponse
      *
      * @param ListVpcEndpointSecurityGroupsRequest $request
@@ -2101,27 +2083,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpointSecurityGroups',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpointSecurityGroups',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointSecurityGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the security groups that are associated with an endpoint.
      *
      * @param request - ListVpcEndpointSecurityGroupsRequest
+     *
      * @returns ListVpcEndpointSecurityGroupsResponse
      *
      * @param ListVpcEndpointSecurityGroupsRequest $request
@@ -2140,6 +2120,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListVpcEndpointServiceResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointServiceResourcesResponse
      *
      * @param ListVpcEndpointServiceResourcesRequest $request
@@ -2175,27 +2156,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpointServiceResources',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpointServiceResources',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointServiceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointServiceResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointServiceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the service resources that are added to an endpoint service.
      *
      * @param request - ListVpcEndpointServiceResourcesRequest
+     *
      * @returns ListVpcEndpointServiceResourcesResponse
      *
      * @param ListVpcEndpointServiceResourcesRequest $request
@@ -2214,6 +2193,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListVpcEndpointServiceUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointServiceUsersResponse
      *
      * @param ListVpcEndpointServiceUsersRequest $request
@@ -2257,27 +2237,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpointServiceUsers',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpointServiceUsers',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointServiceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointServiceUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointServiceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the whitelist of an endpoint service.
      *
      * @param request - ListVpcEndpointServiceUsersRequest
+     *
      * @returns ListVpcEndpointServiceUsersResponse
      *
      * @param ListVpcEndpointServiceUsersRequest $request
@@ -2296,6 +2274,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListVpcEndpointServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointServicesResponse
      *
      * @param ListVpcEndpointServicesRequest $request
@@ -2371,27 +2350,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpointServices',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpointServices',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointServicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointServicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of endpoint services.
      *
      * @param request - ListVpcEndpointServicesRequest
+     *
      * @returns ListVpcEndpointServicesResponse
      *
      * @param ListVpcEndpointServicesRequest $request
@@ -2410,6 +2387,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListVpcEndpointServicesByEndUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointServicesByEndUserResponse
      *
      * @param ListVpcEndpointServicesByEndUserRequest $request
@@ -2461,27 +2439,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpointServicesByEndUser',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpointServicesByEndUser',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointServicesByEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointServicesByEndUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointServicesByEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of endpoint services that can be associated with the endpoint created within the current account.
      *
      * @param request - ListVpcEndpointServicesByEndUserRequest
+     *
      * @returns ListVpcEndpointServicesByEndUserResponse
      *
      * @param ListVpcEndpointServicesByEndUserRequest $request
@@ -2500,6 +2476,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListVpcEndpointZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointZonesResponse
      *
      * @param ListVpcEndpointZonesRequest $request
@@ -2535,27 +2512,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpointZones',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpointZones',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the zones of an endpoint.
      *
      * @param request - ListVpcEndpointZonesRequest
+     *
      * @returns ListVpcEndpointZonesResponse
      *
      * @param ListVpcEndpointZonesRequest $request
@@ -2574,6 +2549,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - ListVpcEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointsResponse
      *
      * @param ListVpcEndpointsRequest $request
@@ -2645,27 +2621,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpoints',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpoints',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of endpoints.
      *
      * @param request - ListVpcEndpointsRequest
+     *
      * @returns ListVpcEndpointsResponse
      *
      * @param ListVpcEndpointsRequest $request
@@ -2684,6 +2658,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - OpenPrivateLinkServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OpenPrivateLinkServiceResponse
      *
      * @param OpenPrivateLinkServiceRequest $request
@@ -2703,27 +2678,25 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenPrivateLinkService',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenPrivateLinkService',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenPrivateLinkServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenPrivateLinkServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenPrivateLinkServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Activates PrivateLink.
      *
      * @param request - OpenPrivateLinkServiceRequest
+     *
      * @returns OpenPrivateLinkServiceResponse
      *
      * @param OpenPrivateLinkServiceRequest $request
@@ -2746,6 +2719,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - RemoveUserFromVpcEndpointServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveUserFromVpcEndpointServiceResponse
      *
      * @param RemoveUserFromVpcEndpointServiceRequest $request
@@ -2789,21 +2763,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveUserFromVpcEndpointService',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveUserFromVpcEndpointService',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveUserFromVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveUserFromVpcEndpointServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveUserFromVpcEndpointServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2814,6 +2785,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **RemoveUserFromVpcEndpointService** operation to remove the ID of an Alibaba Cloud account from the whitelist of an endpoint service within a specified period of time.
      *
      * @param request - RemoveUserFromVpcEndpointServiceRequest
+     *
      * @returns RemoveUserFromVpcEndpointServiceResponse
      *
      * @param RemoveUserFromVpcEndpointServiceRequest $request
@@ -2838,6 +2810,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - RemoveZoneFromVpcEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveZoneFromVpcEndpointResponse
      *
      * @param RemoveZoneFromVpcEndpointRequest $request
@@ -2877,21 +2850,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveZoneFromVpcEndpoint',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveZoneFromVpcEndpoint',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveZoneFromVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveZoneFromVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveZoneFromVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2904,6 +2874,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **RemoveZoneFromVpcEndpoint** operation to delete a zone of an endpoint within a specified period of time.
      *
      * @param request - RemoveZoneFromVpcEndpointRequest
+     *
      * @returns RemoveZoneFromVpcEndpointResponse
      *
      * @param RemoveZoneFromVpcEndpointRequest $request
@@ -2925,6 +2896,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -2967,21 +2939,18 @@ class Privatelink extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2991,6 +2960,7 @@ class Privatelink extends OpenApiClient
      * > You can add up to 20 tags to an instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3009,6 +2979,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3059,27 +3030,25 @@ class Privatelink extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Removes tags from one or more endpoints or endpoint services at a time.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3101,6 +3070,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - UpdateVpcEndpointAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVpcEndpointAttributeResponse
      *
      * @param UpdateVpcEndpointAttributeRequest $request
@@ -3148,25 +3118,26 @@ class Privatelink extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->zoneAffinityEnabled) {
+            @$query['ZoneAffinityEnabled'] = $request->zoneAffinityEnabled;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVpcEndpointAttribute',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVpcEndpointAttribute',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVpcEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVpcEndpointAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVpcEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3176,6 +3147,7 @@ class Privatelink extends OpenApiClient
      * You cannot repeatedly call the **UpdateVpcEndpointAttribute** operation to modify the attributes of an endpoint that belongs to an Alibaba Cloud account within a specified period of time.
      *
      * @param request - UpdateVpcEndpointAttributeRequest
+     *
      * @returns UpdateVpcEndpointAttributeResponse
      *
      * @param UpdateVpcEndpointAttributeRequest $request
@@ -3197,6 +3169,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - UpdateVpcEndpointConnectionAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVpcEndpointConnectionAttributeResponse
      *
      * @param UpdateVpcEndpointConnectionAttributeRequest $request
@@ -3240,21 +3213,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVpcEndpointConnectionAttribute',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVpcEndpointConnectionAttribute',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVpcEndpointConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVpcEndpointConnectionAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVpcEndpointConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3264,6 +3234,7 @@ class Privatelink extends OpenApiClient
      * You cannot repeatedly call the **UpdateVpcEndpointConnectionAttribute** operation to modify the bandwidth of an endpoint connection that belongs to an Alibaba Cloud account within a specified period of time.
      *
      * @param request - UpdateVpcEndpointConnectionAttributeRequest
+     *
      * @returns UpdateVpcEndpointConnectionAttributeResponse
      *
      * @param UpdateVpcEndpointConnectionAttributeRequest $request
@@ -3285,6 +3256,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - UpdateVpcEndpointServiceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVpcEndpointServiceAttributeResponse
      *
      * @param UpdateVpcEndpointServiceAttributeRequest $request
@@ -3344,21 +3316,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVpcEndpointServiceAttribute',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVpcEndpointServiceAttribute',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVpcEndpointServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVpcEndpointServiceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVpcEndpointServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3368,6 +3337,7 @@ class Privatelink extends OpenApiClient
      * You cannot repeatedly call the **UpdateVpcEndpointServiceAttribute** operation to modify the attributes of an endpoint service that belongs to an Alibaba Cloud account within a specified period of time.
      *
      * @param request - UpdateVpcEndpointServiceAttributeRequest
+     *
      * @returns UpdateVpcEndpointServiceAttributeResponse
      *
      * @param UpdateVpcEndpointServiceAttributeRequest $request
@@ -3389,6 +3359,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - UpdateVpcEndpointServiceResourceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVpcEndpointServiceResourceAttributeResponse
      *
      * @param UpdateVpcEndpointServiceResourceAttributeRequest $request
@@ -3436,21 +3407,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVpcEndpointServiceResourceAttribute',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVpcEndpointServiceResourceAttribute',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVpcEndpointServiceResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVpcEndpointServiceResourceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVpcEndpointServiceResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3460,6 +3428,7 @@ class Privatelink extends OpenApiClient
      * You cannot repeatedly call the **UpdateVpcEndpointServiceResourceAttribute** operation to modify the attributes of a service resource that is added to an endpoint service within a specified period of time.
      *
      * @param request - UpdateVpcEndpointServiceResourceAttributeRequest
+     *
      * @returns UpdateVpcEndpointServiceResourceAttributeResponse
      *
      * @param UpdateVpcEndpointServiceResourceAttributeRequest $request
@@ -3489,6 +3458,7 @@ class Privatelink extends OpenApiClient
      *
      * @param request - UpdateVpcEndpointZoneConnectionResourceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVpcEndpointZoneConnectionResourceAttributeResponse
      *
      * @param UpdateVpcEndpointZoneConnectionResourceAttributeRequest $request
@@ -3548,21 +3518,18 @@ class Privatelink extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVpcEndpointZoneConnectionResourceAttribute',
-            'version'     => '2020-04-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVpcEndpointZoneConnectionResourceAttribute',
+            'version' => '2020-04-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVpcEndpointZoneConnectionResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVpcEndpointZoneConnectionResourceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVpcEndpointZoneConnectionResourceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3580,6 +3547,7 @@ class Privatelink extends OpenApiClient
      * *   You cannot repeatedly call the **UpdateVpcEndpointZoneConnectionResourceAttribute** operation to modify a service resource in the zone to which an endpoint connection belongs within a specified period of time.
      *
      * @param request - UpdateVpcEndpointZoneConnectionResourceAttributeRequest
+     *
      * @returns UpdateVpcEndpointZoneConnectionResourceAttributeResponse
      *
      * @param UpdateVpcEndpointZoneConnectionResourceAttributeRequest $request

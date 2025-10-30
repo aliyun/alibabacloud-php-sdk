@@ -12,14 +12,17 @@ class ListVpcEndpointZonesRequest extends Model
      * @var string
      */
     public $endpointId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class ListVpcEndpointZonesRequest extends Model
     protected $_name = [
         'endpointId' => 'EndpointId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

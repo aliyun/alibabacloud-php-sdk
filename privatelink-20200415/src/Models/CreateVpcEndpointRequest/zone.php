@@ -12,23 +12,26 @@ class zone extends Model
      * @var string
      */
     public $ipv6Address;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $ip;
     protected $_name = [
         'ipv6Address' => 'Ipv6Address',
-        'vSwitchId'   => 'VSwitchId',
-        'zoneId'      => 'ZoneId',
-        'ip'          => 'ip',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
+        'ip' => 'ip',
     ];
 
     public function validate()

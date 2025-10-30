@@ -12,108 +12,128 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var bool
      */
     public $autoAcceptEnabled;
+
     /**
      * @var int
      */
     public $connectBandwidth;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $maxBandwidth;
+
     /**
      * @var int
      */
     public $minBandwidth;
+
     /**
      * @var string
      */
     public $payer;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceBusinessStatus;
+
     /**
      * @var string
      */
     public $serviceDescription;
+
     /**
      * @var string
      */
     public $serviceDomain;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $serviceResourceType;
+
     /**
      * @var string
      */
     public $serviceStatus;
+
     /**
      * @var bool
      */
     public $serviceSupportIPv6;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var bool
      */
     public $zoneAffinityEnabled;
+
     /**
      * @var string[]
      */
     public $zones;
     protected $_name = [
-        'addressIpVersion'      => 'AddressIpVersion',
-        'autoAcceptEnabled'     => 'AutoAcceptEnabled',
-        'connectBandwidth'      => 'ConnectBandwidth',
-        'createTime'            => 'CreateTime',
-        'maxBandwidth'          => 'MaxBandwidth',
-        'minBandwidth'          => 'MinBandwidth',
-        'payer'                 => 'Payer',
-        'regionId'              => 'RegionId',
-        'requestId'             => 'RequestId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'addressIpVersion' => 'AddressIpVersion',
+        'autoAcceptEnabled' => 'AutoAcceptEnabled',
+        'connectBandwidth' => 'ConnectBandwidth',
+        'createTime' => 'CreateTime',
+        'maxBandwidth' => 'MaxBandwidth',
+        'minBandwidth' => 'MinBandwidth',
+        'payer' => 'Payer',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'serviceBusinessStatus' => 'ServiceBusinessStatus',
-        'serviceDescription'    => 'ServiceDescription',
-        'serviceDomain'         => 'ServiceDomain',
-        'serviceId'             => 'ServiceId',
-        'serviceName'           => 'ServiceName',
-        'serviceResourceType'   => 'ServiceResourceType',
-        'serviceStatus'         => 'ServiceStatus',
-        'serviceSupportIPv6'    => 'ServiceSupportIPv6',
-        'serviceType'           => 'ServiceType',
-        'zoneAffinityEnabled'   => 'ZoneAffinityEnabled',
-        'zones'                 => 'Zones',
+        'serviceDescription' => 'ServiceDescription',
+        'serviceDomain' => 'ServiceDomain',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'serviceResourceType' => 'ServiceResourceType',
+        'serviceStatus' => 'ServiceStatus',
+        'serviceSupportIPv6' => 'ServiceSupportIPv6',
+        'serviceType' => 'ServiceType',
+        'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
+        'zones' => 'Zones',
     ];
 
     public function validate()
@@ -210,9 +230,10 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
         if (null !== $this->zones) {
             if (\is_array($this->zones)) {
                 $res['Zones'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->zones as $item1) {
-                    $res['Zones'][$n1++] = $item1;
+                    $res['Zones'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -311,9 +332,10 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
-                    $model->zones[$n1++] = $item1;
+                    $model->zones[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

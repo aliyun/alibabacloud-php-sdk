@@ -13,73 +13,86 @@ class ListVpcEndpointServicesRequest extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var bool
      */
     public $autoAcceptEnabled;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $serviceBusinessStatus;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $serviceResourceType;
+
     /**
      * @var string
      */
     public $serviceStatus;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var bool
      */
     public $zoneAffinityEnabled;
     protected $_name = [
-        'addressIpVersion'      => 'AddressIpVersion',
-        'autoAcceptEnabled'     => 'AutoAcceptEnabled',
-        'maxResults'            => 'MaxResults',
-        'nextToken'             => 'NextToken',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'resourceId'            => 'ResourceId',
+        'addressIpVersion' => 'AddressIpVersion',
+        'autoAcceptEnabled' => 'AutoAcceptEnabled',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
         'serviceBusinessStatus' => 'ServiceBusinessStatus',
-        'serviceId'             => 'ServiceId',
-        'serviceName'           => 'ServiceName',
-        'serviceResourceType'   => 'ServiceResourceType',
-        'serviceStatus'         => 'ServiceStatus',
-        'tag'                   => 'Tag',
-        'zoneAffinityEnabled'   => 'ZoneAffinityEnabled',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'serviceResourceType' => 'ServiceResourceType',
+        'serviceStatus' => 'ServiceStatus',
+        'tag' => 'Tag',
+        'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
     public function validate()
@@ -144,9 +157,10 @@ class ListVpcEndpointServicesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -217,9 +231,10 @@ class ListVpcEndpointServicesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

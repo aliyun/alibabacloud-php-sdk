@@ -12,23 +12,26 @@ class ListVpcEndpointServiceResourcesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceId;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'serviceId'  => 'ServiceId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
     public function validate()

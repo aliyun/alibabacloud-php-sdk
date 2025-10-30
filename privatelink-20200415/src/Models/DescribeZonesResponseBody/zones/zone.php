@@ -12,13 +12,14 @@ class zone extends Model
      * @var string
      */
     public $localName;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'localName' => 'LocalName',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

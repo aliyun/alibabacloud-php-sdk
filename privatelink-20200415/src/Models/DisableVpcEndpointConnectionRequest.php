@@ -12,28 +12,32 @@ class DisableVpcEndpointConnectionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'endpointId'  => 'EndpointId',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
+        'dryRun' => 'DryRun',
+        'endpointId' => 'EndpointId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
     public function validate()

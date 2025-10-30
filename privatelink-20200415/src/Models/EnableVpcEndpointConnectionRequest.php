@@ -12,33 +12,38 @@ class EnableVpcEndpointConnectionRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceId;
     protected $_name = [
-        'bandwidth'   => 'Bandwidth',
+        'bandwidth' => 'Bandwidth',
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'endpointId'  => 'EndpointId',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
+        'dryRun' => 'DryRun',
+        'endpointId' => 'EndpointId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
     public function validate()

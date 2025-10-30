@@ -12,73 +12,92 @@ class CreateVpcEndpointResponseBody extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $connectionStatus;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $endpointBusinessStatus;
+
     /**
      * @var string
      */
     public $endpointDescription;
+
     /**
      * @var string
      */
     public $endpointDomain;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var string
      */
     public $endpointStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var bool
+     */
+    public $zoneAffinityEnabled;
     protected $_name = [
-        'addressIpVersion'       => 'AddressIpVersion',
-        'bandwidth'              => 'Bandwidth',
-        'connectionStatus'       => 'ConnectionStatus',
-        'createTime'             => 'CreateTime',
+        'addressIpVersion' => 'AddressIpVersion',
+        'bandwidth' => 'Bandwidth',
+        'connectionStatus' => 'ConnectionStatus',
+        'createTime' => 'CreateTime',
         'endpointBusinessStatus' => 'EndpointBusinessStatus',
-        'endpointDescription'    => 'EndpointDescription',
-        'endpointDomain'         => 'EndpointDomain',
-        'endpointId'             => 'EndpointId',
-        'endpointName'           => 'EndpointName',
-        'endpointStatus'         => 'EndpointStatus',
-        'requestId'              => 'RequestId',
-        'serviceId'              => 'ServiceId',
-        'serviceName'            => 'ServiceName',
-        'vpcId'                  => 'VpcId',
+        'endpointDescription' => 'EndpointDescription',
+        'endpointDomain' => 'EndpointDomain',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'endpointStatus' => 'EndpointStatus',
+        'requestId' => 'RequestId',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'vpcId' => 'VpcId',
+        'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
     public function validate()
@@ -143,6 +162,10 @@ class CreateVpcEndpointResponseBody extends Model
 
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->zoneAffinityEnabled) {
+            $res['ZoneAffinityEnabled'] = $this->zoneAffinityEnabled;
         }
 
         return $res;
@@ -210,6 +233,10 @@ class CreateVpcEndpointResponseBody extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['ZoneAffinityEnabled'])) {
+            $model->zoneAffinityEnabled = $map['ZoneAffinityEnabled'];
         }
 
         return $model;

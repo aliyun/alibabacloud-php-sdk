@@ -12,28 +12,32 @@ class RemoveZoneFromVpcEndpointRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'endpointId'  => 'EndpointId',
-        'regionId'    => 'RegionId',
-        'zoneId'      => 'ZoneId',
+        'dryRun' => 'DryRun',
+        'endpointId' => 'EndpointId',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
