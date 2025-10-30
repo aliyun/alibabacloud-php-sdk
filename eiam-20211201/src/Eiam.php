@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Eiam\V20211201;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddApplicationAccountToUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddApplicationAccountToUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddCustomPrivacyPoliciesToBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddCustomPrivacyPoliciesToBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUsersToGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUsersToGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUserToOrganizationalUnitsRequest;
@@ -29,6 +31,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCustomPrivacyPolicyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCustomPrivacyPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainRequest;
@@ -61,6 +65,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCustomPrivacyPolicyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCustomPrivacyPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainRequest;
@@ -101,6 +107,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCustomPrivacyPolicyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCustomPrivacyPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableFederatedCredentialProviderRequest;
@@ -131,6 +139,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCustomPrivacyPolicyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCustomPrivacyPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableFederatedCredentialProviderRequest;
@@ -161,6 +171,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCustomPrivacyPolicyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCustomPrivacyPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainDnsChallengeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainDnsChallengeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainRequest;
@@ -237,6 +249,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForUserR
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCustomPrivacyPoliciesForBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCustomPrivacyPoliciesForBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCustomPrivacyPoliciesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCustomPrivacyPoliciesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainProxyTokensRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainProxyTokensResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsRequest;
@@ -290,6 +306,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationAccountFromUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationAccountFromUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveCustomPrivacyPoliciesFromBrandRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveCustomPrivacyPoliciesFromBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUsersFromGroupRequest;
@@ -350,6 +368,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescript
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCustomPrivacyPolicyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCustomPrivacyPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainIcpNumberRequest;
@@ -490,6 +510,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addApplicationAccountToUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加条款到品牌.
+     *
+     * @param request - AddCustomPrivacyPoliciesToBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCustomPrivacyPoliciesToBrandResponse
+     *
+     * @param AddCustomPrivacyPoliciesToBrandRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return AddCustomPrivacyPoliciesToBrandResponse
+     */
+    public function addCustomPrivacyPoliciesToBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->customPrivacyPolicyIds) {
+            @$query['CustomPrivacyPolicyIds'] = $request->customPrivacyPolicyIds;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddCustomPrivacyPoliciesToBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddCustomPrivacyPoliciesToBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加条款到品牌.
+     *
+     * @param request - AddCustomPrivacyPoliciesToBrandRequest
+     *
+     * @returns AddCustomPrivacyPoliciesToBrandResponse
+     *
+     * @param AddCustomPrivacyPoliciesToBrandRequest $request
+     *
+     * @return AddCustomPrivacyPoliciesToBrandResponse
+     */
+    public function addCustomPrivacyPoliciesToBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCustomPrivacyPoliciesToBrandWithOptions($request, $runtime);
     }
 
     /**
@@ -1281,6 +1366,87 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createConditionalAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建自定义条款.
+     *
+     * @param request - CreateCustomPrivacyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomPrivacyPolicyResponse
+     *
+     * @param CreateCustomPrivacyPolicyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateCustomPrivacyPolicyResponse
+     */
+    public function createCustomPrivacyPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->customPrivacyPolicyContents) {
+            @$query['CustomPrivacyPolicyContents'] = $request->customPrivacyPolicyContents;
+        }
+
+        if (null !== $request->customPrivacyPolicyName) {
+            @$query['CustomPrivacyPolicyName'] = $request->customPrivacyPolicyName;
+        }
+
+        if (null !== $request->defaultLanguageCode) {
+            @$query['DefaultLanguageCode'] = $request->defaultLanguageCode;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->userConsentType) {
+            @$query['UserConsentType'] = $request->userConsentType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomPrivacyPolicy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomPrivacyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义条款.
+     *
+     * @param request - CreateCustomPrivacyPolicyRequest
+     *
+     * @returns CreateCustomPrivacyPolicyResponse
+     *
+     * @param CreateCustomPrivacyPolicyRequest $request
+     *
+     * @return CreateCustomPrivacyPolicyResponse
+     */
+    public function createCustomPrivacyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomPrivacyPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -2481,6 +2647,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteConditionalAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除自定义条款.
+     *
+     * @param request - DeleteCustomPrivacyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomPrivacyPolicyResponse
+     *
+     * @param DeleteCustomPrivacyPolicyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteCustomPrivacyPolicyResponse
+     */
+    public function deleteCustomPrivacyPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customPrivacyPolicyId) {
+            @$query['CustomPrivacyPolicyId'] = $request->customPrivacyPolicyId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomPrivacyPolicy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomPrivacyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义条款.
+     *
+     * @param request - DeleteCustomPrivacyPolicyRequest
+     *
+     * @returns DeleteCustomPrivacyPolicyResponse
+     *
+     * @param DeleteCustomPrivacyPolicyRequest $request
+     *
+     * @return DeleteCustomPrivacyPolicyResponse
+     */
+    public function deleteCustomPrivacyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomPrivacyPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -3734,6 +3961,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 禁用自定义条款.
+     *
+     * @param request - DisableCustomPrivacyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableCustomPrivacyPolicyResponse
+     *
+     * @param DisableCustomPrivacyPolicyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DisableCustomPrivacyPolicyResponse
+     */
+    public function disableCustomPrivacyPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customPrivacyPolicyId) {
+            @$query['CustomPrivacyPolicyId'] = $request->customPrivacyPolicyId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableCustomPrivacyPolicy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableCustomPrivacyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用自定义条款.
+     *
+     * @param request - DisableCustomPrivacyPolicyRequest
+     *
+     * @returns DisableCustomPrivacyPolicyResponse
+     *
+     * @param DisableCustomPrivacyPolicyRequest $request
+     *
+     * @return DisableCustomPrivacyPolicyResponse
+     */
+    public function disableCustomPrivacyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableCustomPrivacyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. After the proxy token is disabled, the domain name may not be used as expected.
      *
      * @param request - DisableDomainProxyTokenRequest
@@ -4667,6 +4955,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 启用自定义条款.
+     *
+     * @param request - EnableCustomPrivacyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableCustomPrivacyPolicyResponse
+     *
+     * @param EnableCustomPrivacyPolicyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableCustomPrivacyPolicyResponse
+     */
+    public function enableCustomPrivacyPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customPrivacyPolicyId) {
+            @$query['CustomPrivacyPolicyId'] = $request->customPrivacyPolicyId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableCustomPrivacyPolicy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableCustomPrivacyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用自定义条款.
+     *
+     * @param request - EnableCustomPrivacyPolicyRequest
+     *
+     * @returns EnableCustomPrivacyPolicyResponse
+     *
+     * @param EnableCustomPrivacyPolicyRequest $request
+     *
+     * @return EnableCustomPrivacyPolicyResponse
+     */
+    public function enableCustomPrivacyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableCustomPrivacyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. The proxy token is used to verify the security of the domain name.
      *
      * @param request - EnableDomainProxyTokenRequest
@@ -5585,6 +5934,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getConditionalAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取自定义条款.
+     *
+     * @param request - GetCustomPrivacyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomPrivacyPolicyResponse
+     *
+     * @param GetCustomPrivacyPolicyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetCustomPrivacyPolicyResponse
+     */
+    public function getCustomPrivacyPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customPrivacyPolicyId) {
+            @$query['CustomPrivacyPolicyId'] = $request->customPrivacyPolicyId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomPrivacyPolicy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomPrivacyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取自定义条款.
+     *
+     * @param request - GetCustomPrivacyPolicyRequest
+     *
+     * @returns GetCustomPrivacyPolicyResponse
+     *
+     * @param GetCustomPrivacyPolicyRequest $request
+     *
+     * @return GetCustomPrivacyPolicyResponse
+     */
+    public function getCustomPrivacyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomPrivacyPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -8050,6 +8460,152 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 自定义条款列表查询。
+     *
+     * @param request - ListCustomPrivacyPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomPrivacyPoliciesResponse
+     *
+     * @param ListCustomPrivacyPoliciesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListCustomPrivacyPoliciesResponse
+     */
+    public function listCustomPrivacyPoliciesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customPrivacyPolicyNameStartsWith) {
+            @$query['CustomPrivacyPolicyNameStartsWith'] = $request->customPrivacyPolicyNameStartsWith;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomPrivacyPolicies',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomPrivacyPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 自定义条款列表查询。
+     *
+     * @param request - ListCustomPrivacyPoliciesRequest
+     *
+     * @returns ListCustomPrivacyPoliciesResponse
+     *
+     * @param ListCustomPrivacyPoliciesRequest $request
+     *
+     * @return ListCustomPrivacyPoliciesResponse
+     */
+    public function listCustomPrivacyPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomPrivacyPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取品牌关联资源的资源.
+     *
+     * @param request - ListCustomPrivacyPoliciesForBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomPrivacyPoliciesForBrandResponse
+     *
+     * @param ListCustomPrivacyPoliciesForBrandRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListCustomPrivacyPoliciesForBrandResponse
+     */
+    public function listCustomPrivacyPoliciesForBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomPrivacyPoliciesForBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomPrivacyPoliciesForBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取品牌关联资源的资源.
+     *
+     * @param request - ListCustomPrivacyPoliciesForBrandRequest
+     *
+     * @returns ListCustomPrivacyPoliciesForBrandResponse
+     *
+     * @param ListCustomPrivacyPoliciesForBrandRequest $request
+     *
+     * @return ListCustomPrivacyPoliciesForBrandResponse
+     */
+    public function listCustomPrivacyPoliciesForBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomPrivacyPoliciesForBrandWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
      *
      * @param request - ListDomainProxyTokensRequest
@@ -9972,6 +10528,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeApplicationAccountFromUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 移除品牌关联条款.
+     *
+     * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveCustomPrivacyPoliciesFromBrandResponse
+     *
+     * @param RemoveCustomPrivacyPoliciesFromBrandRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return RemoveCustomPrivacyPoliciesFromBrandResponse
+     */
+    public function removeCustomPrivacyPoliciesFromBrandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brandId) {
+            @$query['BrandId'] = $request->brandId;
+        }
+
+        if (null !== $request->customPrivacyPolicyIds) {
+            @$query['CustomPrivacyPolicyIds'] = $request->customPrivacyPolicyIds;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveCustomPrivacyPoliciesFromBrand',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveCustomPrivacyPoliciesFromBrandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移除品牌关联条款.
+     *
+     * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
+     *
+     * @returns RemoveCustomPrivacyPoliciesFromBrandResponse
+     *
+     * @param RemoveCustomPrivacyPoliciesFromBrandRequest $request
+     *
+     * @return RemoveCustomPrivacyPoliciesFromBrandResponse
+     */
+    public function removeCustomPrivacyPoliciesFromBrand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeCustomPrivacyPoliciesFromBrandWithOptions($request, $runtime);
     }
 
     /**
@@ -12096,6 +12717,83 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConditionalAccessPolicyDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新自定义条款.
+     *
+     * @param request - UpdateCustomPrivacyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomPrivacyPolicyResponse
+     *
+     * @param UpdateCustomPrivacyPolicyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateCustomPrivacyPolicyResponse
+     */
+    public function updateCustomPrivacyPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customPrivacyPolicyContents) {
+            @$query['CustomPrivacyPolicyContents'] = $request->customPrivacyPolicyContents;
+        }
+
+        if (null !== $request->customPrivacyPolicyId) {
+            @$query['CustomPrivacyPolicyId'] = $request->customPrivacyPolicyId;
+        }
+
+        if (null !== $request->customPrivacyPolicyName) {
+            @$query['CustomPrivacyPolicyName'] = $request->customPrivacyPolicyName;
+        }
+
+        if (null !== $request->defaultLanguageCode) {
+            @$query['DefaultLanguageCode'] = $request->defaultLanguageCode;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userConsentType) {
+            @$query['UserConsentType'] = $request->userConsentType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustomPrivacyPolicy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustomPrivacyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自定义条款.
+     *
+     * @param request - UpdateCustomPrivacyPolicyRequest
+     *
+     * @returns UpdateCustomPrivacyPolicyResponse
+     *
+     * @param UpdateCustomPrivacyPolicyRequest $request
+     *
+     * @return UpdateCustomPrivacyPolicyResponse
+     */
+    public function updateCustomPrivacyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomPrivacyPolicyWithOptions($request, $runtime);
     }
 
     /**
