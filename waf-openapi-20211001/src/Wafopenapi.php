@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudClusterRuleReq
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudClusterRuleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateHybridCloudGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateLogDeliveryConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateLogDeliveryConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpV2Request;
@@ -68,6 +70,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteHybridCloudClusterRuleRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteHybridCloudClusterRuleResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteHybridCloudGroupRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteHybridCloudGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteLogDeliveryConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteLogDeliveryConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountRequest;
@@ -209,6 +215,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudGroupsReques
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudGroupsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudProcessMonitorRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudProcessMonitorResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudProtectableCountRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudProtectableCountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourcesRequest;
@@ -229,6 +237,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeIpAbroadCountryInfosRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeIpAbroadCountryInfosResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeLogDeliveryConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeLogDeliveryConfigResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeLogDeliveryConfigsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeLogDeliveryConfigsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMemberAccountsRequest;
@@ -251,6 +263,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePunishedDomainsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePunishedDomainsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceInstanceCertsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceInstanceCertsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogDeliveryStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogDeliveryStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogFieldConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogFieldConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourcePortRequest;
@@ -261,6 +277,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceSupportRegionsR
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceSupportRegionsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResponseCodeTrendGraphRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResponseCodeTrendGraphResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRoleAuthStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRoleAuthStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleGroupsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleGroupsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopClientIpRequest;
@@ -336,6 +354,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeWafSourceIpSegmentRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeWafSourceIpSegmentResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\InitializeWafOperationRoleRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\InitializeWafOperationRoleResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesRequest;
@@ -356,6 +376,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecModuleStatusRequest
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecModuleStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceCertRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceCertResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceShrinkRequest;
@@ -377,6 +399,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainCertRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainCertResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainPunishStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainPunishStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest;
@@ -398,12 +422,18 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudSdkPullinStatu
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudSdkPullinStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudServerRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudServerResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyLogDeliveryConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyLogDeliveryConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMemberAccountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMemberAccountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyPauseProtectionStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyPauseProtectionStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogDeliveryStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogDeliveryStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogFieldConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogFieldConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
@@ -1720,6 +1750,83 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Creates a hybrid cloud log delivery configuration.
+     *
+     * @param request - CreateLogDeliveryConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLogDeliveryConfigResponse
+     *
+     * @param CreateLogDeliveryConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateLogDeliveryConfigResponse
+     */
+    public function createLogDeliveryConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryDetail) {
+            @$query['DeliveryDetail'] = $request->deliveryDetail;
+        }
+
+        if (null !== $request->deliveryName) {
+            @$query['DeliveryName'] = $request->deliveryName;
+        }
+
+        if (null !== $request->deliveryType) {
+            @$query['DeliveryType'] = $request->deliveryType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLogDeliveryConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLogDeliveryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a hybrid cloud log delivery configuration.
+     *
+     * @param request - CreateLogDeliveryConfigRequest
+     *
+     * @returns CreateLogDeliveryConfigResponse
+     *
+     * @param CreateLogDeliveryConfigRequest $request
+     *
+     * @return CreateLogDeliveryConfigResponse
+     */
+    public function createLogDeliveryConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLogDeliveryConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an IP address blacklist for major event protection.
      *
      * @remarks
@@ -2907,6 +3014,148 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteHybridCloudClusterRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除组信息.
+     *
+     * @param request - DeleteHybridCloudGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHybridCloudGroupResponse
+     *
+     * @param DeleteHybridCloudGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteHybridCloudGroupResponse
+     */
+    public function deleteHybridCloudGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteHybridCloudGroup',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除组信息.
+     *
+     * @param request - DeleteHybridCloudGroupRequest
+     *
+     * @returns DeleteHybridCloudGroupResponse
+     *
+     * @param DeleteHybridCloudGroupRequest $request
+     *
+     * @return DeleteHybridCloudGroupResponse
+     */
+    public function deleteHybridCloudGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHybridCloudGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除日志外发配置.
+     *
+     * @param request - DeleteLogDeliveryConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLogDeliveryConfigResponse
+     *
+     * @param DeleteLogDeliveryConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteLogDeliveryConfigResponse
+     */
+    public function deleteLogDeliveryConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryName) {
+            @$query['DeliveryName'] = $request->deliveryName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLogDeliveryConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLogDeliveryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除日志外发配置.
+     *
+     * @param request - DeleteLogDeliveryConfigRequest
+     *
+     * @returns DeleteLogDeliveryConfigResponse
+     *
+     * @param DeleteLogDeliveryConfigRequest $request
+     *
+     * @return DeleteLogDeliveryConfigResponse
+     */
+    public function deleteLogDeliveryConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLogDeliveryConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -8474,6 +8723,71 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+     *
+     * @param request - DescribeHybridCloudProtectableCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridCloudProtectableCountResponse
+     *
+     * @param DescribeHybridCloudProtectableCountRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeHybridCloudProtectableCountResponse
+     */
+    public function describeHybridCloudProtectableCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHybridCloudProtectableCount',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHybridCloudProtectableCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+     *
+     * @param request - DescribeHybridCloudProtectableCountRequest
+     *
+     * @returns DescribeHybridCloudProtectableCountResponse
+     *
+     * @param DescribeHybridCloudProtectableCountRequest $request
+     *
+     * @return DescribeHybridCloudProtectableCountResponse
+     */
+    public function describeHybridCloudProtectableCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHybridCloudProtectableCountWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询混合云域名详情.
      *
      * @param request - DescribeHybridCloudResourceDetailRequest
@@ -9193,6 +9507,156 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeIpAbroadCountryInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a hybrid cloud log delivery configuration.
+     *
+     * @param request - DescribeLogDeliveryConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLogDeliveryConfigResponse
+     *
+     * @param DescribeLogDeliveryConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeLogDeliveryConfigResponse
+     */
+    public function describeLogDeliveryConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryName) {
+            @$query['DeliveryName'] = $request->deliveryName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLogDeliveryConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLogDeliveryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a hybrid cloud log delivery configuration.
+     *
+     * @param request - DescribeLogDeliveryConfigRequest
+     *
+     * @returns DescribeLogDeliveryConfigResponse
+     *
+     * @param DescribeLogDeliveryConfigRequest $request
+     *
+     * @return DescribeLogDeliveryConfigResponse
+     */
+    public function describeLogDeliveryConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLogDeliveryConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries all hybrid cloud log delivery configurations.
+     *
+     * @param request - DescribeLogDeliveryConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLogDeliveryConfigsResponse
+     *
+     * @param DescribeLogDeliveryConfigsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeLogDeliveryConfigsResponse
+     */
+    public function describeLogDeliveryConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryNameLike) {
+            @$query['DeliveryNameLike'] = $request->deliveryNameLike;
+        }
+
+        if (null !== $request->deliveryType) {
+            @$query['DeliveryType'] = $request->deliveryType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLogDeliveryConfigs',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLogDeliveryConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries all hybrid cloud log delivery configurations.
+     *
+     * @param request - DescribeLogDeliveryConfigsRequest
+     *
+     * @returns DescribeLogDeliveryConfigsResponse
+     *
+     * @param DescribeLogDeliveryConfigsRequest $request
+     *
+     * @return DescribeLogDeliveryConfigsResponse
+     */
+    public function describeLogDeliveryConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLogDeliveryConfigsWithOptions($request, $runtime);
     }
 
     /**
@@ -9990,6 +10454,148 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 查询防护对象日志外发状态
+     *
+     * @param request - DescribeResourceLogDeliveryStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceLogDeliveryStatusResponse
+     *
+     * @param DescribeResourceLogDeliveryStatusRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeResourceLogDeliveryStatusResponse
+     */
+    public function describeResourceLogDeliveryStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeResourceLogDeliveryStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeResourceLogDeliveryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询防护对象日志外发状态
+     *
+     * @param request - DescribeResourceLogDeliveryStatusRequest
+     *
+     * @returns DescribeResourceLogDeliveryStatusResponse
+     *
+     * @param DescribeResourceLogDeliveryStatusRequest $request
+     *
+     * @return DescribeResourceLogDeliveryStatusResponse
+     */
+    public function describeResourceLogDeliveryStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceLogDeliveryStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询防护对象日志字段配置.
+     *
+     * @param request - DescribeResourceLogFieldConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceLogFieldConfigResponse
+     *
+     * @param DescribeResourceLogFieldConfigRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResourceLogFieldConfigResponse
+     */
+    public function describeResourceLogFieldConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryType) {
+            @$query['DeliveryType'] = $request->deliveryType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeResourceLogFieldConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeResourceLogFieldConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询防护对象日志字段配置.
+     *
+     * @param request - DescribeResourceLogFieldConfigRequest
+     *
+     * @returns DescribeResourceLogFieldConfigResponse
+     *
+     * @param DescribeResourceLogFieldConfigRequest $request
+     *
+     * @return DescribeResourceLogFieldConfigResponse
+     */
+    public function describeResourceLogFieldConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceLogFieldConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries whether the log collection feature is enabled for a protected object.
      *
      * @param request - DescribeResourceLogStatusRequest
@@ -10344,6 +10950,67 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeResponseCodeTrendGraphWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询授权状态
+     *
+     * @param request - DescribeRoleAuthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRoleAuthStatusResponse
+     *
+     * @param DescribeRoleAuthStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRoleAuthStatusResponse
+     */
+    public function describeRoleAuthStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRoleAuthStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRoleAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询授权状态
+     *
+     * @param request - DescribeRoleAuthStatusRequest
+     *
+     * @returns DescribeRoleAuthStatusResponse
+     *
+     * @param DescribeRoleAuthStatusRequest $request
+     *
+     * @return DescribeRoleAuthStatusResponse
+     */
+    public function describeRoleAuthStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRoleAuthStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -13205,6 +13872,71 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 创建WAF服务关联角色.
+     *
+     * @param request - InitializeWafOperationRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitializeWafOperationRoleResponse
+     *
+     * @param InitializeWafOperationRoleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return InitializeWafOperationRoleResponse
+     */
+    public function initializeWafOperationRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InitializeWafOperationRole',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitializeWafOperationRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建WAF服务关联角色.
+     *
+     * @param request - InitializeWafOperationRoleRequest
+     *
+     * @returns InitializeWafOperationRoleResponse
+     *
+     * @param InitializeWafOperationRoleRequest $request
+     *
+     * @return InitializeWafOperationRoleResponse
+     */
+    public function initializeWafOperationRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initializeWafOperationRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries tag keys.
      *
      * @param request - ListTagKeysRequest
@@ -14062,6 +14794,83 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 修改云产品接入的证书.
+     *
+     * @param request - ModifyCloudResourceCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCloudResourceCertResponse
+     *
+     * @param ModifyCloudResourceCertRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyCloudResourceCertResponse
+     */
+    public function modifyCloudResourceCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certificates) {
+            @$query['Certificates'] = $request->certificates;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
+        }
+
+        if (null !== $request->resourceProduct) {
+            @$query['ResourceProduct'] = $request->resourceProduct;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCloudResourceCert',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCloudResourceCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改云产品接入的证书.
+     *
+     * @param request - ModifyCloudResourceCertRequest
+     *
+     * @returns ModifyCloudResourceCertResponse
+     *
+     * @param ModifyCloudResourceCertRequest $request
+     *
+     * @return ModifyCloudResourceCertResponse
+     */
+    public function modifyCloudResourceCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCloudResourceCertWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
      *
      * @param request - ModifyDefaultHttpsRequest
@@ -14880,6 +15689,91 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 修改域名的证书.
+     *
+     * @param request - ModifyDomainCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDomainCertResponse
+     *
+     * @param ModifyDomainCertRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyDomainCertResponse
+     */
+    public function modifyDomainCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
+        }
+
+        if (null !== $request->cipherSuite) {
+            @$query['CipherSuite'] = $request->cipherSuite;
+        }
+
+        if (null !== $request->customCiphers) {
+            @$query['CustomCiphers'] = $request->customCiphers;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->enableTLSv3) {
+            @$query['EnableTLSv3'] = $request->enableTLSv3;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->TLSVersion) {
+            @$query['TLSVersion'] = $request->TLSVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDomainCert',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDomainCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改域名的证书.
+     *
+     * @param request - ModifyDomainCertRequest
+     *
+     * @returns ModifyDomainCertResponse
+     *
+     * @param ModifyDomainCertRequest $request
+     *
+     * @return ModifyDomainCertResponse
+     */
+    public function modifyDomainCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDomainCertWithOptions($request, $runtime);
+    }
+
+    /**
      * Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
      *
      * @param request - ModifyDomainPunishStatusRequest
@@ -15613,6 +16507,83 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Modifies a hybrid cloud log delivery configuration.
+     *
+     * @param request - ModifyLogDeliveryConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyLogDeliveryConfigResponse
+     *
+     * @param ModifyLogDeliveryConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyLogDeliveryConfigResponse
+     */
+    public function modifyLogDeliveryConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryDetail) {
+            @$query['DeliveryDetail'] = $request->deliveryDetail;
+        }
+
+        if (null !== $request->deliveryName) {
+            @$query['DeliveryName'] = $request->deliveryName;
+        }
+
+        if (null !== $request->deliveryType) {
+            @$query['DeliveryType'] = $request->deliveryType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyLogDeliveryConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyLogDeliveryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a hybrid cloud log delivery configuration.
+     *
+     * @param request - ModifyLogDeliveryConfigRequest
+     *
+     * @returns ModifyLogDeliveryConfigResponse
+     *
+     * @param ModifyLogDeliveryConfigRequest $request
+     *
+     * @return ModifyLogDeliveryConfigResponse
+     */
+    public function modifyLogDeliveryConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLogDeliveryConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies an IP address blacklist for major event protection.
      *
      * @param request - ModifyMajorProtectionBlackIpRequest
@@ -15841,6 +16812,168 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPauseProtectionStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改防护对象日志外发状态
+     *
+     * @param request - ModifyResourceLogDeliveryStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyResourceLogDeliveryStatusResponse
+     *
+     * @param ModifyResourceLogDeliveryStatusRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyResourceLogDeliveryStatusResponse
+     */
+    public function modifyResourceLogDeliveryStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryName) {
+            @$query['DeliveryName'] = $request->deliveryName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyResourceLogDeliveryStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyResourceLogDeliveryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改防护对象日志外发状态
+     *
+     * @param request - ModifyResourceLogDeliveryStatusRequest
+     *
+     * @returns ModifyResourceLogDeliveryStatusResponse
+     *
+     * @param ModifyResourceLogDeliveryStatusRequest $request
+     *
+     * @return ModifyResourceLogDeliveryStatusResponse
+     */
+    public function modifyResourceLogDeliveryStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyResourceLogDeliveryStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改防护对象的日志字段配置.
+     *
+     * @param request - ModifyResourceLogFieldConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyResourceLogFieldConfigResponse
+     *
+     * @param ModifyResourceLogFieldConfigRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyResourceLogFieldConfigResponse
+     */
+    public function modifyResourceLogFieldConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliveryType) {
+            @$query['DeliveryType'] = $request->deliveryType;
+        }
+
+        if (null !== $request->extendConfig) {
+            @$query['ExtendConfig'] = $request->extendConfig;
+        }
+
+        if (null !== $request->fieldList) {
+            @$query['FieldList'] = $request->fieldList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logDeliveryStrategy) {
+            @$query['LogDeliveryStrategy'] = $request->logDeliveryStrategy;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyResourceLogFieldConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyResourceLogFieldConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改防护对象的日志字段配置.
+     *
+     * @param request - ModifyResourceLogFieldConfigRequest
+     *
+     * @returns ModifyResourceLogFieldConfigResponse
+     *
+     * @param ModifyResourceLogFieldConfigRequest $request
+     *
+     * @return ModifyResourceLogFieldConfigResponse
+     */
+    public function modifyResourceLogFieldConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyResourceLogFieldConfigWithOptions($request, $runtime);
     }
 
     /**

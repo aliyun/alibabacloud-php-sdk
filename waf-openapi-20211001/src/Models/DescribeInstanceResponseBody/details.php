@@ -149,9 +149,24 @@ class details extends Model
     public $dlpTemplateMaxCount;
 
     /**
+     * @var int
+     */
+    public $elasticQps;
+
+    /**
      * @var bool
      */
     public $exclusiveIp;
+
+    /**
+     * @var int
+     */
+    public $extendQps;
+
+    /**
+     * @var int
+     */
+    public $freeQps;
 
     /**
      * @var bool
@@ -207,6 +222,11 @@ class details extends Model
      * @var int
      */
     public $majorProtectionTemplateMaxCount;
+
+    /**
+     * @var int
+     */
+    public $qpsBillingCap;
 
     /**
      * @var bool
@@ -291,7 +311,10 @@ class details extends Model
         'dlp' => 'Dlp',
         'dlpRuleInTemplateMaxCount' => 'DlpRuleInTemplateMaxCount',
         'dlpTemplateMaxCount' => 'DlpTemplateMaxCount',
+        'elasticQps' => 'ElasticQps',
         'exclusiveIp' => 'ExclusiveIp',
+        'extendQps' => 'ExtendQps',
+        'freeQps' => 'FreeQps',
         'gslb' => 'Gslb',
         'httpPorts' => 'HttpPorts',
         'httpsPorts' => 'HttpsPorts',
@@ -303,6 +326,7 @@ class details extends Model
         'logService' => 'LogService',
         'majorProtection' => 'MajorProtection',
         'majorProtectionTemplateMaxCount' => 'MajorProtectionTemplateMaxCount',
+        'qpsBillingCap' => 'QpsBillingCap',
         'tamperproof' => 'Tamperproof',
         'tamperproofRuleInTemplateMaxCount' => 'TamperproofRuleInTemplateMaxCount',
         'tamperproofTemplateMaxCount' => 'TamperproofTemplateMaxCount',
@@ -436,8 +460,20 @@ class details extends Model
             $res['DlpTemplateMaxCount'] = $this->dlpTemplateMaxCount;
         }
 
+        if (null !== $this->elasticQps) {
+            $res['ElasticQps'] = $this->elasticQps;
+        }
+
         if (null !== $this->exclusiveIp) {
             $res['ExclusiveIp'] = $this->exclusiveIp;
+        }
+
+        if (null !== $this->extendQps) {
+            $res['ExtendQps'] = $this->extendQps;
+        }
+
+        if (null !== $this->freeQps) {
+            $res['FreeQps'] = $this->freeQps;
         }
 
         if (null !== $this->gslb) {
@@ -482,6 +518,10 @@ class details extends Model
 
         if (null !== $this->majorProtectionTemplateMaxCount) {
             $res['MajorProtectionTemplateMaxCount'] = $this->majorProtectionTemplateMaxCount;
+        }
+
+        if (null !== $this->qpsBillingCap) {
+            $res['QpsBillingCap'] = $this->qpsBillingCap;
         }
 
         if (null !== $this->tamperproof) {
@@ -651,8 +691,20 @@ class details extends Model
             $model->dlpTemplateMaxCount = $map['DlpTemplateMaxCount'];
         }
 
+        if (isset($map['ElasticQps'])) {
+            $model->elasticQps = $map['ElasticQps'];
+        }
+
         if (isset($map['ExclusiveIp'])) {
             $model->exclusiveIp = $map['ExclusiveIp'];
+        }
+
+        if (isset($map['ExtendQps'])) {
+            $model->extendQps = $map['ExtendQps'];
+        }
+
+        if (isset($map['FreeQps'])) {
+            $model->freeQps = $map['FreeQps'];
         }
 
         if (isset($map['Gslb'])) {
@@ -697,6 +749,10 @@ class details extends Model
 
         if (isset($map['MajorProtectionTemplateMaxCount'])) {
             $model->majorProtectionTemplateMaxCount = $map['MajorProtectionTemplateMaxCount'];
+        }
+
+        if (isset($map['QpsBillingCap'])) {
+            $model->qpsBillingCap = $map['QpsBillingCap'];
         }
 
         if (isset($map['Tamperproof'])) {
