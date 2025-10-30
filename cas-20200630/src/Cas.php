@@ -217,6 +217,10 @@ class Cas extends OpenApiClient
             @$query['ParentIdentifier'] = $request->parentIdentifier;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->sanType) {
             @$query['SanType'] = $request->sanType;
         }
@@ -227,6 +231,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->state) {
             @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->years) {
@@ -352,6 +360,10 @@ class Cas extends OpenApiClient
             @$query['ParentIdentifier'] = $request->parentIdentifier;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->sanType) {
             @$query['SanType'] = $request->sanType;
         }
@@ -362,6 +374,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->state) {
             @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->years) {
@@ -463,6 +479,14 @@ class Cas extends OpenApiClient
             @$query['ParentIdentifier'] = $request->parentIdentifier;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
         if (null !== $request->validity) {
             @$query['Validity'] = $request->validity;
         }
@@ -553,6 +577,14 @@ class Cas extends OpenApiClient
 
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->validity) {
@@ -715,8 +747,16 @@ class Cas extends OpenApiClient
             @$query['OrganizationUnit'] = $request->organizationUnit;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->state) {
             @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->years) {
@@ -843,8 +883,16 @@ class Cas extends OpenApiClient
             @$query['ParentIdentifier'] = $request->parentIdentifier;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->state) {
             @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->years) {
@@ -973,8 +1021,16 @@ class Cas extends OpenApiClient
             @$query['ParentIdentifier'] = $request->parentIdentifier;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->state) {
             @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->years) {
@@ -1088,16 +1144,30 @@ class Cas extends OpenApiClient
             @$query['PathLenConstraint'] = $request->pathLenConstraint;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->state) {
             @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->years) {
             @$query['Years'] = $request->years;
         }
 
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateSubCACertificate',
@@ -1368,6 +1438,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->issuerType) {
             @$query['IssuerType'] = $request->issuerType;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->showSize) {
@@ -1842,6 +1916,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->identifier) {
             @$query['Identifier'] = $request->identifier;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->showSize) {

@@ -19,12 +19,18 @@ class ListClientCertificateRequest extends Model
     public $identifier;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $showSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'identifier' => 'Identifier',
+        'resourceGroupId' => 'ResourceGroupId',
         'showSize' => 'ShowSize',
     ];
 
@@ -42,6 +48,10 @@ class ListClientCertificateRequest extends Model
 
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->showSize) {
@@ -65,6 +75,10 @@ class ListClientCertificateRequest extends Model
 
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ShowSize'])) {

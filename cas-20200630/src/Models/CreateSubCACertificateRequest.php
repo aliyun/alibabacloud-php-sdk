@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cas\V20200630\Models\CreateSubCACertificateRequest\tags;
 
 class CreateSubCACertificateRequest extends Model
 {
@@ -12,6 +13,11 @@ class CreateSubCACertificateRequest extends Model
      * @var string
      */
     public $algorithm;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @var string
@@ -66,7 +72,17 @@ class CreateSubCACertificateRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $state;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var int
@@ -74,6 +90,7 @@ class CreateSubCACertificateRequest extends Model
     public $years;
     protected $_name = [
         'algorithm' => 'Algorithm',
+        'clientToken' => 'ClientToken',
         'commonName' => 'CommonName',
         'countryCode' => 'CountryCode',
         'crlDay' => 'CrlDay',
@@ -84,7 +101,9 @@ class CreateSubCACertificateRequest extends Model
         'organizationUnit' => 'OrganizationUnit',
         'parentIdentifier' => 'ParentIdentifier',
         'pathLenConstraint' => 'PathLenConstraint',
+        'resourceGroupId' => 'ResourceGroupId',
         'state' => 'State',
+        'tags' => 'Tags',
         'years' => 'Years',
     ];
 
@@ -92,6 +111,9 @@ class CreateSubCACertificateRequest extends Model
     {
         if (\is_array($this->extendedKeyUsages)) {
             Model::validateArray($this->extendedKeyUsages);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -101,6 +123,10 @@ class CreateSubCACertificateRequest extends Model
         $res = [];
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->commonName) {
@@ -150,8 +176,23 @@ class CreateSubCACertificateRequest extends Model
             $res['PathLenConstraint'] = $this->pathLenConstraint;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->years) {
@@ -171,6 +212,10 @@ class CreateSubCACertificateRequest extends Model
         $model = new self();
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['CommonName'])) {
@@ -220,8 +265,23 @@ class CreateSubCACertificateRequest extends Model
             $model->pathLenConstraint = $map['PathLenConstraint'];
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Years'])) {

@@ -34,6 +34,11 @@ class DescribeCACertificateListRequest extends Model
     public $issuerType;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $showSize;
@@ -48,6 +53,7 @@ class DescribeCACertificateListRequest extends Model
         'currentPage' => 'CurrentPage',
         'identifier' => 'Identifier',
         'issuerType' => 'IssuerType',
+        'resourceGroupId' => 'ResourceGroupId',
         'showSize' => 'ShowSize',
         'validStatus' => 'ValidStatus',
     ];
@@ -78,6 +84,10 @@ class DescribeCACertificateListRequest extends Model
 
         if (null !== $this->issuerType) {
             $res['IssuerType'] = $this->issuerType;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->showSize) {
@@ -117,6 +127,10 @@ class DescribeCACertificateListRequest extends Model
 
         if (isset($map['IssuerType'])) {
             $model->issuerType = $map['IssuerType'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ShowSize'])) {

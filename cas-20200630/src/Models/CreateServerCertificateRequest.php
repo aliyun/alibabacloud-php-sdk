@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cas\V20200630\Models\CreateServerCertificateRequest\tags;
 
 class CreateServerCertificateRequest extends Model
 {
@@ -81,7 +82,17 @@ class CreateServerCertificateRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $state;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var int
@@ -102,12 +113,17 @@ class CreateServerCertificateRequest extends Model
         'organization' => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
         'parentIdentifier' => 'ParentIdentifier',
+        'resourceGroupId' => 'ResourceGroupId',
         'state' => 'State',
+        'tags' => 'Tags',
         'years' => 'Years',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -170,8 +186,23 @@ class CreateServerCertificateRequest extends Model
             $res['ParentIdentifier'] = $this->parentIdentifier;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->years) {
@@ -245,8 +276,23 @@ class CreateServerCertificateRequest extends Model
             $model->parentIdentifier = $map['ParentIdentifier'];
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Years'])) {

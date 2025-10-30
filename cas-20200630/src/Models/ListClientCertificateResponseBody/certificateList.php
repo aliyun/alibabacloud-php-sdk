@@ -81,6 +81,11 @@ class certificateList extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $sans;
 
     /**
@@ -132,6 +137,7 @@ class certificateList extends Model
         'organization' => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
         'parentIdentifier' => 'ParentIdentifier',
+        'resourceGroupId' => 'ResourceGroupId',
         'sans' => 'Sans',
         'serialNumber' => 'SerialNumber',
         'sha2' => 'Sha2',
@@ -204,6 +210,10 @@ class certificateList extends Model
 
         if (null !== $this->parentIdentifier) {
             $res['ParentIdentifier'] = $this->parentIdentifier;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->sans) {
@@ -303,6 +313,10 @@ class certificateList extends Model
 
         if (isset($map['ParentIdentifier'])) {
             $model->parentIdentifier = $map['ParentIdentifier'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['Sans'])) {

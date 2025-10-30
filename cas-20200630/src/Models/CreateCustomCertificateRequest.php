@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest\apiPassthrough;
+use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest\tags;
 
 class CreateCustomCertificateRequest extends Model
 {
@@ -37,6 +38,16 @@ class CreateCustomCertificateRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
     public $validity;
     protected $_name = [
         'apiPassthrough' => 'ApiPassthrough',
@@ -44,6 +55,8 @@ class CreateCustomCertificateRequest extends Model
         'enableCrl' => 'EnableCrl',
         'immediately' => 'Immediately',
         'parentIdentifier' => 'ParentIdentifier',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tags' => 'Tags',
         'validity' => 'Validity',
     ];
 
@@ -51,6 +64,9 @@ class CreateCustomCertificateRequest extends Model
     {
         if (null !== $this->apiPassthrough) {
             $this->apiPassthrough->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -76,6 +92,21 @@ class CreateCustomCertificateRequest extends Model
 
         if (null !== $this->parentIdentifier) {
             $res['ParentIdentifier'] = $this->parentIdentifier;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->validity) {
@@ -111,6 +142,21 @@ class CreateCustomCertificateRequest extends Model
 
         if (isset($map['ParentIdentifier'])) {
             $model->parentIdentifier = $map['ParentIdentifier'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Validity'])) {
