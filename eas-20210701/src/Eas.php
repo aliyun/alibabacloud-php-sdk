@@ -1995,6 +1995,10 @@ class Eas extends OpenApiClient
             $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
         }
 
+        if (null !== $tmpReq->labelKeys) {
+            $request->labelKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelKeys, 'LabelKeys', 'json');
+        }
+
         $query = [];
         if (null !== $request->allInstances) {
             @$query['AllInstances'] = $request->allInstances;
@@ -2006,6 +2010,10 @@ class Eas extends OpenApiClient
 
         if (null !== $request->keysShrink) {
             @$query['Keys'] = $request->keysShrink;
+        }
+
+        if (null !== $request->labelKeysShrink) {
+            @$query['LabelKeys'] = $request->labelKeysShrink;
         }
 
         $req = new OpenApiRequest([
@@ -2428,9 +2436,17 @@ class Eas extends OpenApiClient
             $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
         }
 
+        if (null !== $tmpReq->labelKeys) {
+            $request->labelKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelKeys, 'LabelKeys', 'json');
+        }
+
         $query = [];
         if (null !== $request->keysShrink) {
             @$query['Keys'] = $request->keysShrink;
+        }
+
+        if (null !== $request->labelKeysShrink) {
+            @$query['LabelKeys'] = $request->labelKeysShrink;
         }
 
         $req = new OpenApiRequest([

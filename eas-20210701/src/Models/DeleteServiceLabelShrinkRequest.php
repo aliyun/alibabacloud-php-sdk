@@ -12,8 +12,14 @@ class DeleteServiceLabelShrinkRequest extends Model
      * @var string
      */
     public $keysShrink;
+
+    /**
+     * @var string
+     */
+    public $labelKeysShrink;
     protected $_name = [
         'keysShrink' => 'Keys',
+        'labelKeysShrink' => 'LabelKeys',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteServiceLabelShrinkRequest extends Model
         $res = [];
         if (null !== $this->keysShrink) {
             $res['Keys'] = $this->keysShrink;
+        }
+
+        if (null !== $this->labelKeysShrink) {
+            $res['LabelKeys'] = $this->labelKeysShrink;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteServiceLabelShrinkRequest extends Model
         $model = new self();
         if (isset($map['Keys'])) {
             $model->keysShrink = $map['Keys'];
+        }
+
+        if (isset($map['LabelKeys'])) {
+            $model->labelKeysShrink = $map['LabelKeys'];
         }
 
         return $model;

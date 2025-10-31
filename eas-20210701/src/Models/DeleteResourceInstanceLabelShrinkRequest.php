@@ -22,10 +22,16 @@ class DeleteResourceInstanceLabelShrinkRequest extends Model
      * @var string
      */
     public $keysShrink;
+
+    /**
+     * @var string
+     */
+    public $labelKeysShrink;
     protected $_name = [
         'allInstances' => 'AllInstances',
         'instanceIdsShrink' => 'InstanceIds',
         'keysShrink' => 'Keys',
+        'labelKeysShrink' => 'LabelKeys',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class DeleteResourceInstanceLabelShrinkRequest extends Model
 
         if (null !== $this->keysShrink) {
             $res['Keys'] = $this->keysShrink;
+        }
+
+        if (null !== $this->labelKeysShrink) {
+            $res['LabelKeys'] = $this->labelKeysShrink;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class DeleteResourceInstanceLabelShrinkRequest extends Model
 
         if (isset($map['Keys'])) {
             $model->keysShrink = $map['Keys'];
+        }
+
+        if (isset($map['LabelKeys'])) {
+            $model->labelKeysShrink = $map['LabelKeys'];
         }
 
         return $model;
