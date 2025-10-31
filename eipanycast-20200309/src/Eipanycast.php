@@ -123,6 +123,10 @@ class Eipanycast extends OpenApiClient
             @$query['ServiceLocation'] = $request->serviceLocation;
         }
 
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
