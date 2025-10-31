@@ -58,6 +58,11 @@ class ListMmsJobsRequest extends Model
      * @var int
      */
     public $stopped;
+
+    /**
+     * @var int
+     */
+    public $timerId;
     protected $_name = [
         'sorter' => 'sorter',
         'dstDbName' => 'dstDbName',
@@ -69,6 +74,7 @@ class ListMmsJobsRequest extends Model
         'srcTableName' => 'srcTableName',
         'status' => 'status',
         'stopped' => 'stopped',
+        'timerId' => 'timerId',
     ];
 
     public function validate()
@@ -122,6 +128,10 @@ class ListMmsJobsRequest extends Model
             $res['stopped'] = $this->stopped;
         }
 
+        if (null !== $this->timerId) {
+            $res['timerId'] = $this->timerId;
+        }
+
         return $res;
     }
 
@@ -171,6 +181,10 @@ class ListMmsJobsRequest extends Model
 
         if (isset($map['stopped'])) {
             $model->stopped = $map['stopped'];
+        }
+
+        if (isset($map['timerId'])) {
+            $model->timerId = $map['timerId'];
         }
 
         return $model;

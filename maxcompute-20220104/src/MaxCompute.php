@@ -1973,6 +1973,14 @@ class MaxCompute extends OpenApiClient
             @$query['verbose'] = $request->verbose;
         }
 
+        if (null !== $request->withQuotaProductType) {
+            @$query['withQuotaProductType'] = $request->withQuotaProductType;
+        }
+
+        if (null !== $request->withStorageTierInfo) {
+            @$query['withStorageTierInfo'] = $request->withStorageTierInfo;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -3803,6 +3811,10 @@ class MaxCompute extends OpenApiClient
 
         if (null !== $request->stopped) {
             @$query['stopped'] = $request->stopped;
+        }
+
+        if (null !== $request->timerId) {
+            @$query['timerId'] = $request->timerId;
         }
 
         if (null !== $request->sorter) {
