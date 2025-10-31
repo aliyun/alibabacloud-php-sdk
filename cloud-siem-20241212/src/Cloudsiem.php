@@ -691,6 +691,14 @@ class Cloudsiem extends OpenApiClient
             @$body['DetectionRuleStatus'] = $request->detectionRuleStatus;
         }
 
+        if (null !== $request->detectionRuleTemplateId) {
+            @$body['DetectionRuleTemplateId'] = $request->detectionRuleTemplateId;
+        }
+
+        if (null !== $request->detectionRuleTemplateVersion) {
+            @$body['DetectionRuleTemplateVersion'] = $request->detectionRuleTemplateVersion;
+        }
+
         if (null !== $request->detectionRuleType) {
             @$body['DetectionRuleType'] = $request->detectionRuleType;
         }

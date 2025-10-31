@@ -76,6 +76,16 @@ class CreateDetectionRuleRequest extends Model
     /**
      * @var string
      */
+    public $detectionRuleTemplateId;
+
+    /**
+     * @var string
+     */
+    public $detectionRuleTemplateVersion;
+
+    /**
+     * @var string
+     */
     public $detectionRuleType;
 
     /**
@@ -171,6 +181,8 @@ class CreateDetectionRuleRequest extends Model
         'detectionRuleDescription' => 'DetectionRuleDescription',
         'detectionRuleName' => 'DetectionRuleName',
         'detectionRuleStatus' => 'DetectionRuleStatus',
+        'detectionRuleTemplateId' => 'DetectionRuleTemplateId',
+        'detectionRuleTemplateVersion' => 'DetectionRuleTemplateVersion',
         'detectionRuleType' => 'DetectionRuleType',
         'entityMappings' => 'EntityMappings',
         'incidentAggregationExpression' => 'IncidentAggregationExpression',
@@ -248,6 +260,14 @@ class CreateDetectionRuleRequest extends Model
 
         if (null !== $this->detectionRuleStatus) {
             $res['DetectionRuleStatus'] = $this->detectionRuleStatus;
+        }
+
+        if (null !== $this->detectionRuleTemplateId) {
+            $res['DetectionRuleTemplateId'] = $this->detectionRuleTemplateId;
+        }
+
+        if (null !== $this->detectionRuleTemplateVersion) {
+            $res['DetectionRuleTemplateVersion'] = $this->detectionRuleTemplateVersion;
         }
 
         if (null !== $this->detectionRuleType) {
@@ -379,6 +399,14 @@ class CreateDetectionRuleRequest extends Model
 
         if (isset($map['DetectionRuleStatus'])) {
             $model->detectionRuleStatus = $map['DetectionRuleStatus'];
+        }
+
+        if (isset($map['DetectionRuleTemplateId'])) {
+            $model->detectionRuleTemplateId = $map['DetectionRuleTemplateId'];
+        }
+
+        if (isset($map['DetectionRuleTemplateVersion'])) {
+            $model->detectionRuleTemplateVersion = $map['DetectionRuleTemplateVersion'];
         }
 
         if (isset($map['DetectionRuleType'])) {

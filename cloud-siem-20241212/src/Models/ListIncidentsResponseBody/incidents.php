@@ -31,6 +31,11 @@ class incidents extends Model
     /**
      * @var string
      */
+    public $incidentTags;
+
+    /**
+     * @var string
+     */
     public $incidentUuid;
 
     /**
@@ -57,6 +62,7 @@ class incidents extends Model
         'incidentName' => 'IncidentName',
         'incidentRemark' => 'IncidentRemark',
         'incidentStatus' => 'IncidentStatus',
+        'incidentTags' => 'IncidentTags',
         'incidentUuid' => 'IncidentUuid',
         'relateAlertCount' => 'RelateAlertCount',
         'relateAssetCount' => 'RelateAssetCount',
@@ -86,6 +92,10 @@ class incidents extends Model
 
         if (null !== $this->incidentStatus) {
             $res['IncidentStatus'] = $this->incidentStatus;
+        }
+
+        if (null !== $this->incidentTags) {
+            $res['IncidentTags'] = $this->incidentTags;
         }
 
         if (null !== $this->incidentUuid) {
@@ -133,6 +143,10 @@ class incidents extends Model
 
         if (isset($map['IncidentStatus'])) {
             $model->incidentStatus = $map['IncidentStatus'];
+        }
+
+        if (isset($map['IncidentTags'])) {
+            $model->incidentTags = $map['IncidentTags'];
         }
 
         if (isset($map['IncidentUuid'])) {
