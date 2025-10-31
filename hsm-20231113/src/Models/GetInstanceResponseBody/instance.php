@@ -11,6 +11,16 @@ class instance extends Model
     /**
      * @var string
      */
+    public $certification;
+
+    /**
+     * @var string
+     */
+    public $certificationUrl;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -108,6 +118,8 @@ class instance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'certification' => 'Certification',
+        'certificationUrl' => 'CertificationUrl',
         'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
         'createTime' => 'CreateTime',
@@ -138,6 +150,14 @@ class instance extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->certification) {
+            $res['Certification'] = $this->certification;
+        }
+
+        if (null !== $this->certificationUrl) {
+            $res['CertificationUrl'] = $this->certificationUrl;
+        }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -229,6 +249,14 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Certification'])) {
+            $model->certification = $map['Certification'];
+        }
+
+        if (isset($map['CertificationUrl'])) {
+            $model->certificationUrl = $map['CertificationUrl'];
+        }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
