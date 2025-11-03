@@ -79,6 +79,10 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\SubmitPurchaseInfoRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\SubmitPurchaseInfoResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\UpdatePartnerReservePriceRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\UpdatePartnerReservePriceResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\WebsiteAddDnsRecordRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\WebsiteAddDnsRecordResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\WebsiteDeleteDnsRecordRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\WebsiteDeleteDnsRecordResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -2314,5 +2318,167 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePartnerReservePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 域名建站添加DNS记录.
+     *
+     * @param request - WebsiteAddDnsRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WebsiteAddDnsRecordResponse
+     *
+     * @param WebsiteAddDnsRecordRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return WebsiteAddDnsRecordResponse
+     */
+    public function websiteAddDnsRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->rr) {
+            @$query['Rr'] = $request->rr;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
+        }
+
+        if (null !== $request->websiteNo) {
+            @$query['WebsiteNo'] = $request->websiteNo;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'WebsiteAddDnsRecord',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return WebsiteAddDnsRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 域名建站添加DNS记录.
+     *
+     * @param request - WebsiteAddDnsRecordRequest
+     *
+     * @returns WebsiteAddDnsRecordResponse
+     *
+     * @param WebsiteAddDnsRecordRequest $request
+     *
+     * @return WebsiteAddDnsRecordResponse
+     */
+    public function websiteAddDnsRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->websiteAddDnsRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 域名建站删除DNS记录.
+     *
+     * @param request - WebsiteDeleteDnsRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WebsiteDeleteDnsRecordResponse
+     *
+     * @param WebsiteDeleteDnsRecordRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return WebsiteDeleteDnsRecordResponse
+     */
+    public function websiteDeleteDnsRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->rr) {
+            @$query['Rr'] = $request->rr;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
+        }
+
+        if (null !== $request->websiteNo) {
+            @$query['WebsiteNo'] = $request->websiteNo;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'WebsiteDeleteDnsRecord',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return WebsiteDeleteDnsRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 域名建站删除DNS记录.
+     *
+     * @param request - WebsiteDeleteDnsRecordRequest
+     *
+     * @returns WebsiteDeleteDnsRecordResponse
+     *
+     * @param WebsiteDeleteDnsRecordRequest $request
+     *
+     * @return WebsiteDeleteDnsRecordResponse
+     */
+    public function websiteDeleteDnsRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->websiteDeleteDnsRecordWithOptions($request, $runtime);
     }
 }
