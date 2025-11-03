@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkApacheKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkApacheRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkCustomizedKafkaConnectorParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkCustomizedKafkaParameters;
@@ -21,20 +20,21 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBod
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkSLSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkApiDestinationParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
-use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkDataWorksTriggerParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkHttpsParameters;
 
 class sink extends Model
 {
     /**
-     * @var sinkApacheKafkaParameters
-     */
-    public $sinkApacheKafkaParameters;
-
-    /**
      * @var sinkApacheRocketMQCheckpointParameters
      */
     public $sinkApacheRocketMQCheckpointParameters;
+
+    /**
+     * @var SinkApiDestinationParameters
+     */
+    public $sinkApiDestinationParameters;
 
     /**
      * @var SinkBaiLianParameters
@@ -62,11 +62,6 @@ class sink extends Model
     public $sinkDataHubParameters;
 
     /**
-     * @var SinkDataWorksTriggerParameters
-     */
-    public $sinkDataWorksTriggerParameters;
-
-    /**
      * @var sinkDorisParameters
      */
     public $sinkDorisParameters;
@@ -80,6 +75,11 @@ class sink extends Model
      * @var sinkFnfParameters
      */
     public $sinkFnfParameters;
+
+    /**
+     * @var SinkHttpsParameters
+     */
+    public $sinkHttpsParameters;
 
     /**
      * @var sinkKafkaParameters
@@ -116,17 +116,17 @@ class sink extends Model
      */
     public $sinkSLSParameters;
     protected $_name = [
-        'sinkApacheKafkaParameters' => 'SinkApacheKafkaParameters',
         'sinkApacheRocketMQCheckpointParameters' => 'SinkApacheRocketMQCheckpointParameters',
+        'sinkApiDestinationParameters' => 'SinkApiDestinationParameters',
         'sinkBaiLianParameters' => 'SinkBaiLianParameters',
         'sinkCustomizedKafkaConnectorParameters' => 'SinkCustomizedKafkaConnectorParameters',
         'sinkCustomizedKafkaParameters' => 'SinkCustomizedKafkaParameters',
         'sinkDashVectorParameters' => 'SinkDashVectorParameters',
         'sinkDataHubParameters' => 'SinkDataHubParameters',
-        'sinkDataWorksTriggerParameters' => 'SinkDataWorksTriggerParameters',
         'sinkDorisParameters' => 'SinkDorisParameters',
         'sinkFcParameters' => 'SinkFcParameters',
         'sinkFnfParameters' => 'SinkFnfParameters',
+        'sinkHttpsParameters' => 'SinkHttpsParameters',
         'sinkKafkaParameters' => 'SinkKafkaParameters',
         'sinkMNSParameters' => 'SinkMNSParameters',
         'sinkOpenSourceRabbitMQParameters' => 'SinkOpenSourceRabbitMQParameters',
@@ -138,11 +138,11 @@ class sink extends Model
 
     public function validate()
     {
-        if (null !== $this->sinkApacheKafkaParameters) {
-            $this->sinkApacheKafkaParameters->validate();
-        }
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $this->sinkApacheRocketMQCheckpointParameters->validate();
+        }
+        if (null !== $this->sinkApiDestinationParameters) {
+            $this->sinkApiDestinationParameters->validate();
         }
         if (null !== $this->sinkBaiLianParameters) {
             $this->sinkBaiLianParameters->validate();
@@ -159,9 +159,6 @@ class sink extends Model
         if (null !== $this->sinkDataHubParameters) {
             $this->sinkDataHubParameters->validate();
         }
-        if (null !== $this->sinkDataWorksTriggerParameters) {
-            $this->sinkDataWorksTriggerParameters->validate();
-        }
         if (null !== $this->sinkDorisParameters) {
             $this->sinkDorisParameters->validate();
         }
@@ -170,6 +167,9 @@ class sink extends Model
         }
         if (null !== $this->sinkFnfParameters) {
             $this->sinkFnfParameters->validate();
+        }
+        if (null !== $this->sinkHttpsParameters) {
+            $this->sinkHttpsParameters->validate();
         }
         if (null !== $this->sinkKafkaParameters) {
             $this->sinkKafkaParameters->validate();
@@ -198,12 +198,12 @@ class sink extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->sinkApacheKafkaParameters) {
-            $res['SinkApacheKafkaParameters'] = null !== $this->sinkApacheKafkaParameters ? $this->sinkApacheKafkaParameters->toArray($noStream) : $this->sinkApacheKafkaParameters;
-        }
-
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $res['SinkApacheRocketMQCheckpointParameters'] = null !== $this->sinkApacheRocketMQCheckpointParameters ? $this->sinkApacheRocketMQCheckpointParameters->toArray($noStream) : $this->sinkApacheRocketMQCheckpointParameters;
+        }
+
+        if (null !== $this->sinkApiDestinationParameters) {
+            $res['SinkApiDestinationParameters'] = null !== $this->sinkApiDestinationParameters ? $this->sinkApiDestinationParameters->toArray($noStream) : $this->sinkApiDestinationParameters;
         }
 
         if (null !== $this->sinkBaiLianParameters) {
@@ -226,10 +226,6 @@ class sink extends Model
             $res['SinkDataHubParameters'] = null !== $this->sinkDataHubParameters ? $this->sinkDataHubParameters->toArray($noStream) : $this->sinkDataHubParameters;
         }
 
-        if (null !== $this->sinkDataWorksTriggerParameters) {
-            $res['SinkDataWorksTriggerParameters'] = null !== $this->sinkDataWorksTriggerParameters ? $this->sinkDataWorksTriggerParameters->toArray($noStream) : $this->sinkDataWorksTriggerParameters;
-        }
-
         if (null !== $this->sinkDorisParameters) {
             $res['SinkDorisParameters'] = null !== $this->sinkDorisParameters ? $this->sinkDorisParameters->toArray($noStream) : $this->sinkDorisParameters;
         }
@@ -240,6 +236,10 @@ class sink extends Model
 
         if (null !== $this->sinkFnfParameters) {
             $res['SinkFnfParameters'] = null !== $this->sinkFnfParameters ? $this->sinkFnfParameters->toArray($noStream) : $this->sinkFnfParameters;
+        }
+
+        if (null !== $this->sinkHttpsParameters) {
+            $res['SinkHttpsParameters'] = null !== $this->sinkHttpsParameters ? $this->sinkHttpsParameters->toArray($noStream) : $this->sinkHttpsParameters;
         }
 
         if (null !== $this->sinkKafkaParameters) {
@@ -281,12 +281,12 @@ class sink extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SinkApacheKafkaParameters'])) {
-            $model->sinkApacheKafkaParameters = sinkApacheKafkaParameters::fromMap($map['SinkApacheKafkaParameters']);
-        }
-
         if (isset($map['SinkApacheRocketMQCheckpointParameters'])) {
             $model->sinkApacheRocketMQCheckpointParameters = sinkApacheRocketMQCheckpointParameters::fromMap($map['SinkApacheRocketMQCheckpointParameters']);
+        }
+
+        if (isset($map['SinkApiDestinationParameters'])) {
+            $model->sinkApiDestinationParameters = SinkApiDestinationParameters::fromMap($map['SinkApiDestinationParameters']);
         }
 
         if (isset($map['SinkBaiLianParameters'])) {
@@ -309,10 +309,6 @@ class sink extends Model
             $model->sinkDataHubParameters = sinkDataHubParameters::fromMap($map['SinkDataHubParameters']);
         }
 
-        if (isset($map['SinkDataWorksTriggerParameters'])) {
-            $model->sinkDataWorksTriggerParameters = SinkDataWorksTriggerParameters::fromMap($map['SinkDataWorksTriggerParameters']);
-        }
-
         if (isset($map['SinkDorisParameters'])) {
             $model->sinkDorisParameters = sinkDorisParameters::fromMap($map['SinkDorisParameters']);
         }
@@ -323,6 +319,10 @@ class sink extends Model
 
         if (isset($map['SinkFnfParameters'])) {
             $model->sinkFnfParameters = sinkFnfParameters::fromMap($map['SinkFnfParameters']);
+        }
+
+        if (isset($map['SinkHttpsParameters'])) {
+            $model->sinkHttpsParameters = SinkHttpsParameters::fromMap($map['SinkHttpsParameters']);
         }
 
         if (isset($map['SinkKafkaParameters'])) {

@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkApacheKafkaParameters;
+namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkHttpsParameters;
 
 use AlibabaCloud\Dara\Model;
 
-class value extends Model
+class URL extends Model
 {
     /**
      * @var string

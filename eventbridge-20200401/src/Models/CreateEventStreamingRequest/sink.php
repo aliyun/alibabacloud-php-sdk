@@ -22,8 +22,10 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\si
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkApiDestinationParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkDataWorksTriggerParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkHttpsParameters;
 
 class sink extends Model
 {
@@ -36,6 +38,11 @@ class sink extends Model
      * @var sinkApacheRocketMQCheckpointParameters
      */
     public $sinkApacheRocketMQCheckpointParameters;
+
+    /**
+     * @var SinkApiDestinationParameters
+     */
+    public $sinkApiDestinationParameters;
 
     /**
      * @var SinkBaiLianParameters
@@ -83,6 +90,11 @@ class sink extends Model
     public $sinkFnfParameters;
 
     /**
+     * @var SinkHttpsParameters
+     */
+    public $sinkHttpsParameters;
+
+    /**
      * @var sinkKafkaParameters
      */
     public $sinkKafkaParameters;
@@ -124,6 +136,7 @@ class sink extends Model
     protected $_name = [
         'sinkApacheKafkaParameters' => 'SinkApacheKafkaParameters',
         'sinkApacheRocketMQCheckpointParameters' => 'SinkApacheRocketMQCheckpointParameters',
+        'sinkApiDestinationParameters' => 'SinkApiDestinationParameters',
         'sinkBaiLianParameters' => 'SinkBaiLianParameters',
         'sinkCustomizedKafkaConnectorParameters' => 'SinkCustomizedKafkaConnectorParameters',
         'sinkCustomizedKafkaParameters' => 'SinkCustomizedKafkaParameters',
@@ -133,6 +146,7 @@ class sink extends Model
         'sinkDorisParameters' => 'SinkDorisParameters',
         'sinkFcParameters' => 'SinkFcParameters',
         'sinkFnfParameters' => 'SinkFnfParameters',
+        'sinkHttpsParameters' => 'SinkHttpsParameters',
         'sinkKafkaParameters' => 'SinkKafkaParameters',
         'sinkMNSParameters' => 'SinkMNSParameters',
         'sinkOpenSourceRabbitMQParameters' => 'SinkOpenSourceRabbitMQParameters',
@@ -150,6 +164,9 @@ class sink extends Model
         }
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $this->sinkApacheRocketMQCheckpointParameters->validate();
+        }
+        if (null !== $this->sinkApiDestinationParameters) {
+            $this->sinkApiDestinationParameters->validate();
         }
         if (null !== $this->sinkBaiLianParameters) {
             $this->sinkBaiLianParameters->validate();
@@ -177,6 +194,9 @@ class sink extends Model
         }
         if (null !== $this->sinkFnfParameters) {
             $this->sinkFnfParameters->validate();
+        }
+        if (null !== $this->sinkHttpsParameters) {
+            $this->sinkHttpsParameters->validate();
         }
         if (null !== $this->sinkKafkaParameters) {
             $this->sinkKafkaParameters->validate();
@@ -216,6 +236,10 @@ class sink extends Model
             $res['SinkApacheRocketMQCheckpointParameters'] = null !== $this->sinkApacheRocketMQCheckpointParameters ? $this->sinkApacheRocketMQCheckpointParameters->toArray($noStream) : $this->sinkApacheRocketMQCheckpointParameters;
         }
 
+        if (null !== $this->sinkApiDestinationParameters) {
+            $res['SinkApiDestinationParameters'] = null !== $this->sinkApiDestinationParameters ? $this->sinkApiDestinationParameters->toArray($noStream) : $this->sinkApiDestinationParameters;
+        }
+
         if (null !== $this->sinkBaiLianParameters) {
             $res['SinkBaiLianParameters'] = null !== $this->sinkBaiLianParameters ? $this->sinkBaiLianParameters->toArray($noStream) : $this->sinkBaiLianParameters;
         }
@@ -250,6 +274,10 @@ class sink extends Model
 
         if (null !== $this->sinkFnfParameters) {
             $res['SinkFnfParameters'] = null !== $this->sinkFnfParameters ? $this->sinkFnfParameters->toArray($noStream) : $this->sinkFnfParameters;
+        }
+
+        if (null !== $this->sinkHttpsParameters) {
+            $res['SinkHttpsParameters'] = null !== $this->sinkHttpsParameters ? $this->sinkHttpsParameters->toArray($noStream) : $this->sinkHttpsParameters;
         }
 
         if (null !== $this->sinkKafkaParameters) {
@@ -303,6 +331,10 @@ class sink extends Model
             $model->sinkApacheRocketMQCheckpointParameters = sinkApacheRocketMQCheckpointParameters::fromMap($map['SinkApacheRocketMQCheckpointParameters']);
         }
 
+        if (isset($map['SinkApiDestinationParameters'])) {
+            $model->sinkApiDestinationParameters = SinkApiDestinationParameters::fromMap($map['SinkApiDestinationParameters']);
+        }
+
         if (isset($map['SinkBaiLianParameters'])) {
             $model->sinkBaiLianParameters = SinkBaiLianParameters::fromMap($map['SinkBaiLianParameters']);
         }
@@ -337,6 +369,10 @@ class sink extends Model
 
         if (isset($map['SinkFnfParameters'])) {
             $model->sinkFnfParameters = sinkFnfParameters::fromMap($map['SinkFnfParameters']);
+        }
+
+        if (isset($map['SinkHttpsParameters'])) {
+            $model->sinkHttpsParameters = SinkHttpsParameters::fromMap($map['SinkHttpsParameters']);
         }
 
         if (isset($map['SinkKafkaParameters'])) {

@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkApacheKafkaParameters;
+namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDashVectorParameters\dashVectorSchemaParameters;
 
 use AlibabaCloud\Dara\Model;
 
-class networkType extends Model
+class name extends Model
 {
     /**
      * @var string

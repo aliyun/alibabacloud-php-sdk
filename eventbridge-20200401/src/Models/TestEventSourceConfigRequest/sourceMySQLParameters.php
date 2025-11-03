@@ -11,6 +11,11 @@ class sourceMySQLParameters extends Model
     /**
      * @var string
      */
+    public $allowedCIDRs;
+
+    /**
+     * @var string
+     */
     public $databaseName;
 
     /**
@@ -63,6 +68,7 @@ class sourceMySQLParameters extends Model
      */
     public $vpcId;
     protected $_name = [
+        'allowedCIDRs' => 'AllowedCIDRs',
         'databaseName' => 'DatabaseName',
         'hostName' => 'HostName',
         'networkType' => 'NetworkType',
@@ -84,6 +90,10 @@ class sourceMySQLParameters extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowedCIDRs) {
+            $res['AllowedCIDRs'] = $this->allowedCIDRs;
+        }
+
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
@@ -139,6 +149,10 @@ class sourceMySQLParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowedCIDRs'])) {
+            $model->allowedCIDRs = $map['AllowedCIDRs'];
+        }
+
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }

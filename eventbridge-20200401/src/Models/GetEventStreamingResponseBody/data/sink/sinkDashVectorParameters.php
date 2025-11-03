@@ -23,7 +23,7 @@ class sinkDashVectorParameters extends Model
     public $collection;
 
     /**
-     * @var dashVectorSchemaParameters
+     * @var dashVectorSchemaParameters[]
      */
     public $dashVectorSchemaParameters;
 
@@ -70,8 +70,8 @@ class sinkDashVectorParameters extends Model
 
     public function validate()
     {
-        if (null !== $this->dashVectorSchemaParameters) {
-            $this->dashVectorSchemaParameters->validate();
+        if (\is_array($this->dashVectorSchemaParameters)) {
+            Model::validateArray($this->dashVectorSchemaParameters);
         }
         if (null !== $this->partition) {
             $this->partition->validate();
@@ -97,7 +97,14 @@ class sinkDashVectorParameters extends Model
         }
 
         if (null !== $this->dashVectorSchemaParameters) {
-            $res['DashVectorSchemaParameters'] = null !== $this->dashVectorSchemaParameters ? $this->dashVectorSchemaParameters->toArray($noStream) : $this->dashVectorSchemaParameters;
+            if (\is_array($this->dashVectorSchemaParameters)) {
+                $res['DashVectorSchemaParameters'] = [];
+                $n1 = 0;
+                foreach ($this->dashVectorSchemaParameters as $item1) {
+                    $res['DashVectorSchemaParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->instanceId) {
@@ -144,7 +151,14 @@ class sinkDashVectorParameters extends Model
         }
 
         if (isset($map['DashVectorSchemaParameters'])) {
-            $model->dashVectorSchemaParameters = dashVectorSchemaParameters::fromMap($map['DashVectorSchemaParameters']);
+            if (!empty($map['DashVectorSchemaParameters'])) {
+                $model->dashVectorSchemaParameters = [];
+                $n1 = 0;
+                foreach ($map['DashVectorSchemaParameters'] as $item1) {
+                    $model->dashVectorSchemaParameters[$n1] = dashVectorSchemaParameters::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['InstanceId'])) {
