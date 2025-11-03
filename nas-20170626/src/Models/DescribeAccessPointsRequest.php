@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointsRequest\tag;
 
 class DescribeAccessPointsRequest extends Model
 {
@@ -27,15 +28,24 @@ class DescribeAccessPointsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'accessGroup' => 'AccessGroup',
         'fileSystemId' => 'FileSystemId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -56,6 +66,17 @@ class DescribeAccessPointsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -83,6 +104,17 @@ class DescribeAccessPointsRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

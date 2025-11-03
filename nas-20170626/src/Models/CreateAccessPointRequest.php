@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\NAS\V20170626\Models\CreateAccessPointRequest\tag;
 
 class CreateAccessPointRequest extends Model
 {
@@ -64,6 +65,11 @@ class CreateAccessPointRequest extends Model
     public $rootDirectory;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -84,12 +90,16 @@ class CreateAccessPointRequest extends Model
         'posixSecondaryGroupIds' => 'PosixSecondaryGroupIds',
         'posixUserId' => 'PosixUserId',
         'rootDirectory' => 'RootDirectory',
+        'tag' => 'Tag',
         'vpcId' => 'VpcId',
         'vswId' => 'VswId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -138,6 +148,17 @@ class CreateAccessPointRequest extends Model
 
         if (null !== $this->rootDirectory) {
             $res['RootDirectory'] = $this->rootDirectory;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vpcId) {
@@ -201,6 +222,17 @@ class CreateAccessPointRequest extends Model
 
         if (isset($map['RootDirectory'])) {
             $model->rootDirectory = $map['RootDirectory'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VpcId'])) {
