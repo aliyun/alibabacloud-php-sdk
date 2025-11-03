@@ -21,10 +21,16 @@ class CreateScreenshotRequest extends Model
     /**
      * @var string
      */
+    public $screenshotId;
+
+    /**
+     * @var string
+     */
     public $skipCheckPolicyConfig;
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
         'ossBucketName' => 'OssBucketName',
+        'screenshotId' => 'ScreenshotId',
         'skipCheckPolicyConfig' => 'SkipCheckPolicyConfig',
     ];
 
@@ -52,6 +58,10 @@ class CreateScreenshotRequest extends Model
 
         if (null !== $this->ossBucketName) {
             $res['OssBucketName'] = $this->ossBucketName;
+        }
+
+        if (null !== $this->screenshotId) {
+            $res['ScreenshotId'] = $this->screenshotId;
         }
 
         if (null !== $this->skipCheckPolicyConfig) {
@@ -82,6 +92,10 @@ class CreateScreenshotRequest extends Model
 
         if (isset($map['OssBucketName'])) {
             $model->ossBucketName = $map['OssBucketName'];
+        }
+
+        if (isset($map['ScreenshotId'])) {
+            $model->screenshotId = $map['ScreenshotId'];
         }
 
         if (isset($map['SkipCheckPolicyConfig'])) {

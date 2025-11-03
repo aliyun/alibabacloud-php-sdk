@@ -1445,6 +1445,10 @@ class Edsaic extends OpenApiClient
             @$query['OssBucketName'] = $request->ossBucketName;
         }
 
+        if (null !== $request->screenshotId) {
+            @$query['ScreenshotId'] = $request->screenshotId;
+        }
+
         if (null !== $request->skipCheckPolicyConfig) {
             @$query['SkipCheckPolicyConfig'] = $request->skipCheckPolicyConfig;
         }

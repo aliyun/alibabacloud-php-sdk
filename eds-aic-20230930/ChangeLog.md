@@ -1,3 +1,10 @@
+2025-11-03 Version: 4.12.1
+- Update API CreateScreenshot: add request parameters ScreenshotId.
+- Update API CreateScreenshot: add response parameters Body.Tasks.$.ScreenshotId.
+- Update API DescribeAndroidInstanceGroups: add response parameters Body.InstanceGroupModel.$.BindQosRules.
+- Update API DescribeAndroidInstanceGroups: add response parameters Body.InstanceGroupModel.$.ZoneId.
+
+
 2025-10-28 Version: 4.12.0
 - Support API DescribeBuckets.
 - Support API ExpandPhoneDataVolume.

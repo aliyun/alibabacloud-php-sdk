@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponseBody\instanceGroupModel\bindQosRules;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponseBody\instanceGroupModel\disks;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponseBody\instanceGroupModel\tags;
 
@@ -39,6 +40,11 @@ class instanceGroupModel extends Model
      * @var string
      */
     public $bandwidthPackageType;
+
+    /**
+     * @var bindQosRules
+     */
+    public $bindQosRules;
 
     /**
      * @var string
@@ -189,6 +195,11 @@ class instanceGroupModel extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'architectureType' => 'ArchitectureType',
@@ -196,6 +207,7 @@ class instanceGroupModel extends Model
         'bandwidthPackageId' => 'BandwidthPackageId',
         'bandwidthPackageStatus' => 'BandwidthPackageStatus',
         'bandwidthPackageType' => 'BandwidthPackageType',
+        'bindQosRules' => 'BindQosRules',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'disks' => 'Disks',
@@ -226,10 +238,14 @@ class instanceGroupModel extends Model
         'systemVersion' => 'SystemVersion',
         'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (null !== $this->bindQosRules) {
+            $this->bindQosRules->validate();
+        }
         if (\is_array($this->disks)) {
             Model::validateArray($this->disks);
         }
@@ -264,6 +280,10 @@ class instanceGroupModel extends Model
 
         if (null !== $this->bandwidthPackageType) {
             $res['BandwidthPackageType'] = $this->bandwidthPackageType;
+        }
+
+        if (null !== $this->bindQosRules) {
+            $res['BindQosRules'] = null !== $this->bindQosRules ? $this->bindQosRules->toArray($noStream) : $this->bindQosRules;
         }
 
         if (null !== $this->chargeType) {
@@ -400,6 +420,10 @@ class instanceGroupModel extends Model
             $res['VSwitchId'] = $this->vSwitchId;
         }
 
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+
         return $res;
     }
 
@@ -433,6 +457,10 @@ class instanceGroupModel extends Model
 
         if (isset($map['BandwidthPackageType'])) {
             $model->bandwidthPackageType = $map['BandwidthPackageType'];
+        }
+
+        if (isset($map['BindQosRules'])) {
+            $model->bindQosRules = bindQosRules::fromMap($map['BindQosRules']);
         }
 
         if (isset($map['ChargeType'])) {
@@ -567,6 +595,10 @@ class instanceGroupModel extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

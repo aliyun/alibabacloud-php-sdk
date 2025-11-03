@@ -16,9 +16,15 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $screenshotId;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
         'androidInstanceId' => 'AndroidInstanceId',
+        'screenshotId' => 'ScreenshotId',
         'taskId' => 'TaskId',
     ];
 
@@ -32,6 +38,10 @@ class tasks extends Model
         $res = [];
         if (null !== $this->androidInstanceId) {
             $res['AndroidInstanceId'] = $this->androidInstanceId;
+        }
+
+        if (null !== $this->screenshotId) {
+            $res['ScreenshotId'] = $this->screenshotId;
         }
 
         if (null !== $this->taskId) {
@@ -51,6 +61,10 @@ class tasks extends Model
         $model = new self();
         if (isset($map['AndroidInstanceId'])) {
             $model->androidInstanceId = $map['AndroidInstanceId'];
+        }
+
+        if (isset($map['ScreenshotId'])) {
+            $model->screenshotId = $map['ScreenshotId'];
         }
 
         if (isset($map['TaskId'])) {
