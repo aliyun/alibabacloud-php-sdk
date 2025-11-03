@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceRequest\tags;
 
-class CreateInstanceRequest extends Model
+class CreateInstanceShrinkRequest extends Model
 {
     /**
      * @var bool
@@ -125,9 +124,9 @@ class CreateInstanceRequest extends Model
     public $supportTracing;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
 
     /**
      * @var int
@@ -157,15 +156,12 @@ class CreateInstanceRequest extends Model
         'storageSize' => 'StorageSize',
         'supportEip' => 'SupportEip',
         'supportTracing' => 'SupportTracing',
-        'tags' => 'Tags',
+        'tagsShrink' => 'Tags',
         'tracingStorageTime' => 'TracingStorageTime',
     ];
 
     public function validate()
     {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
         parent::validate();
     }
 
@@ -264,15 +260,8 @@ class CreateInstanceRequest extends Model
             $res['SupportTracing'] = $this->supportTracing;
         }
 
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         if (null !== $this->tracingStorageTime) {
@@ -383,14 +372,7 @@ class CreateInstanceRequest extends Model
         }
 
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->tagsShrink = $map['Tags'];
         }
 
         if (isset($map['TracingStorageTime'])) {

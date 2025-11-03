@@ -13,6 +13,7 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateExchangeRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateExchangeResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceShrinkRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateQueueRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateQueueResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateVirtualHostRequest;
@@ -347,19 +348,25 @@ class Amqpopen extends OpenApiClient
      * @remarks
      * *Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
      *
-     * @param request - CreateInstanceRequest
+     * @param tmpReq - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateInstanceResponse
      *
-     * @param CreateInstanceRequest $request
+     * @param CreateInstanceRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return CreateInstanceResponse
      */
-    public function createInstanceWithOptions($request, $runtime)
+    public function createInstanceWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
         $query = [];
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
@@ -451,6 +458,10 @@ class Amqpopen extends OpenApiClient
 
         if (null !== $request->supportTracing) {
             @$query['SupportTracing'] = $request->supportTracing;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
 
         if (null !== $request->tracingStorageTime) {
