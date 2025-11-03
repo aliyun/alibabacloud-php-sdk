@@ -5155,6 +5155,14 @@ class Dyplsapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->industrialId) {
+            @$query['IndustrialId'] = $request->industrialId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }

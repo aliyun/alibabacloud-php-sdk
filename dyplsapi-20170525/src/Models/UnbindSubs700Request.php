@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class UnbindSubs700Request extends Model
 {
     /**
+     * @var string
+     */
+    public $industrialId;
+
+    /**
+     * @var string
+     */
+    public $orderId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -38,6 +48,8 @@ class UnbindSubs700Request extends Model
      */
     public $telX;
     protected $_name = [
+        'industrialId' => 'IndustrialId',
+        'orderId' => 'OrderId',
         'ownerId' => 'OwnerId',
         'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -54,6 +66,14 @@ class UnbindSubs700Request extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->industrialId) {
+            $res['IndustrialId'] = $this->industrialId;
+        }
+
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -89,6 +109,14 @@ class UnbindSubs700Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IndustrialId'])) {
+            $model->industrialId = $map['IndustrialId'];
+        }
+
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
