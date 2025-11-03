@@ -20,6 +20,11 @@ class UpdateAlertStrategyRequest extends Model
     public $id;
 
     /**
+     * @var bool
+     */
+    public $k8sLabel;
+
+    /**
      * @var string
      */
     public $name;
@@ -31,6 +36,7 @@ class UpdateAlertStrategyRequest extends Model
     protected $_name = [
         'enabled' => 'enabled',
         'id' => 'id',
+        'k8sLabel' => 'k8sLabel',
         'name' => 'name',
         'strategy' => 'strategy',
     ];
@@ -52,6 +58,10 @@ class UpdateAlertStrategyRequest extends Model
 
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+
+        if (null !== $this->k8sLabel) {
+            $res['k8sLabel'] = $this->k8sLabel;
         }
 
         if (null !== $this->name) {
@@ -79,6 +89,10 @@ class UpdateAlertStrategyRequest extends Model
 
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+
+        if (isset($map['k8sLabel'])) {
+            $model->k8sLabel = $map['k8sLabel'];
         }
 
         if (isset($map['name'])) {

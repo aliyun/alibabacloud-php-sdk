@@ -15,6 +15,11 @@ class CreateAlertStrategyRequest extends Model
     public $enabled;
 
     /**
+     * @var bool
+     */
+    public $k8sLabel;
+
+    /**
      * @var string
      */
     public $name;
@@ -25,6 +30,7 @@ class CreateAlertStrategyRequest extends Model
     public $strategy;
     protected $_name = [
         'enabled' => 'enabled',
+        'k8sLabel' => 'k8sLabel',
         'name' => 'name',
         'strategy' => 'strategy',
     ];
@@ -42,6 +48,10 @@ class CreateAlertStrategyRequest extends Model
         $res = [];
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
+        }
+
+        if (null !== $this->k8sLabel) {
+            $res['k8sLabel'] = $this->k8sLabel;
         }
 
         if (null !== $this->name) {
@@ -65,6 +75,10 @@ class CreateAlertStrategyRequest extends Model
         $model = new self();
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
+        }
+
+        if (isset($map['k8sLabel'])) {
+            $model->k8sLabel = $map['k8sLabel'];
         }
 
         if (isset($map['name'])) {

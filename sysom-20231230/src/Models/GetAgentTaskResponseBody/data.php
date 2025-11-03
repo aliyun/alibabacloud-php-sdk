@@ -17,9 +17,15 @@ class data extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
         'jobs' => 'jobs',
+        'status' => 'status',
         'taskId' => 'task_id',
     ];
 
@@ -43,6 +49,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->taskId) {
@@ -69,6 +79,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['task_id'])) {

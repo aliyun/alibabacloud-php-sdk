@@ -320,6 +320,10 @@ class SysOM extends OpenApiClient
             @$body['enabled'] = $request->enabled;
         }
 
+        if (null !== $request->k8sLabel) {
+            @$body['k8sLabel'] = $request->k8sLabel;
+        }
+
         if (null !== $request->name) {
             @$body['name'] = $request->name;
         }
@@ -4226,6 +4230,10 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->id) {
             @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->k8sLabel) {
+            @$body['k8sLabel'] = $request->k8sLabel;
         }
 
         if (null !== $request->name) {
