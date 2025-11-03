@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors
 class connectors extends Model
 {
     /**
+     * @var string
+     */
+    public $accelerateStatus;
+
+    /**
      * @var applications[]
      */
     public $applications;
@@ -66,6 +71,7 @@ class connectors extends Model
      */
     public $upgradeTime;
     protected $_name = [
+        'accelerateStatus' => 'AccelerateStatus',
         'applications' => 'Applications',
         'clusterIP' => 'ClusterIP',
         'clusterPort' => 'ClusterPort',
@@ -96,6 +102,10 @@ class connectors extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accelerateStatus) {
+            $res['AccelerateStatus'] = $this->accelerateStatus;
+        }
+
         if (null !== $this->applications) {
             if (\is_array($this->applications)) {
                 $res['Applications'] = [];
@@ -165,6 +175,10 @@ class connectors extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccelerateStatus'])) {
+            $model->accelerateStatus = $map['AccelerateStatus'];
+        }
+
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];

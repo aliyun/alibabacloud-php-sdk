@@ -11,8 +11,14 @@ class CreateEnterpriseAcceleratePolicyResponseBody extends Model
     /**
      * @var string
      */
+    public $eapId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
+        'eapId' => 'EapId',
         'requestId' => 'RequestId',
     ];
 
@@ -24,6 +30,10 @@ class CreateEnterpriseAcceleratePolicyResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->eapId) {
+            $res['EapId'] = $this->eapId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,6 +49,10 @@ class CreateEnterpriseAcceleratePolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EapId'])) {
+            $model->eapId = $map['EapId'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
