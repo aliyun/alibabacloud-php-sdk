@@ -71,6 +71,11 @@ class GetArtifactSubscriptionRuleResponseBody extends Model
     /**
      * @var string
      */
+    public $sourceDomain;
+
+    /**
+     * @var string
+     */
     public $sourceNamespaceName;
 
     /**
@@ -105,6 +110,7 @@ class GetArtifactSubscriptionRuleResponseBody extends Model
         'repoName' => 'RepoName',
         'requestId' => 'RequestId',
         'ruleId' => 'RuleId',
+        'sourceDomain' => 'SourceDomain',
         'sourceNamespaceName' => 'SourceNamespaceName',
         'sourceProvider' => 'SourceProvider',
         'sourceRepoName' => 'SourceRepoName',
@@ -176,6 +182,10 @@ class GetArtifactSubscriptionRuleResponseBody extends Model
 
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+
+        if (null !== $this->sourceDomain) {
+            $res['SourceDomain'] = $this->sourceDomain;
         }
 
         if (null !== $this->sourceNamespaceName) {
@@ -262,6 +272,10 @@ class GetArtifactSubscriptionRuleResponseBody extends Model
 
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+
+        if (isset($map['SourceDomain'])) {
+            $model->sourceDomain = $map['SourceDomain'];
         }
 
         if (isset($map['SourceNamespaceName'])) {

@@ -56,6 +56,11 @@ class rules extends Model
     /**
      * @var string
      */
+    public $sourceDomain;
+
+    /**
+     * @var string
+     */
     public $sourceNamespaceName;
 
     /**
@@ -87,6 +92,7 @@ class rules extends Model
         'platform' => 'Platform',
         'repoName' => 'RepoName',
         'ruleId' => 'RuleId',
+        'sourceDomain' => 'SourceDomain',
         'sourceNamespaceName' => 'SourceNamespaceName',
         'sourceProvider' => 'SourceProvider',
         'sourceRepoName' => 'SourceRepoName',
@@ -146,6 +152,10 @@ class rules extends Model
 
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+
+        if (null !== $this->sourceDomain) {
+            $res['SourceDomain'] = $this->sourceDomain;
         }
 
         if (null !== $this->sourceNamespaceName) {
@@ -220,6 +230,10 @@ class rules extends Model
 
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+
+        if (isset($map['SourceDomain'])) {
+            $model->sourceDomain = $map['SourceDomain'];
         }
 
         if (isset($map['SourceNamespaceName'])) {

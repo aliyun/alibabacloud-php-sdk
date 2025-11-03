@@ -3537,6 +3537,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * 获取交付链.
+     *
      * @param request - GetChainRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3578,6 +3580,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * 获取交付链.
+     *
      * @param request - GetChainRequest
      *
      * @returns GetChainResponse
