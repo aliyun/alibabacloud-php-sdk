@@ -16,9 +16,15 @@ class CreateBackupResponseBody extends Model
     /**
      * @var string
      */
+    public $backupJobId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'backupId' => 'BackupId',
+        'backupJobId' => 'BackupJobId',
         'requestId' => 'RequestId',
     ];
 
@@ -32,6 +38,10 @@ class CreateBackupResponseBody extends Model
         $res = [];
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
+        }
+
+        if (null !== $this->backupJobId) {
+            $res['BackupJobId'] = $this->backupJobId;
         }
 
         if (null !== $this->requestId) {
@@ -51,6 +61,10 @@ class CreateBackupResponseBody extends Model
         $model = new self();
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
+        }
+
+        if (isset($map['BackupJobId'])) {
+            $model->backupJobId = $map['BackupJobId'];
         }
 
         if (isset($map['RequestId'])) {

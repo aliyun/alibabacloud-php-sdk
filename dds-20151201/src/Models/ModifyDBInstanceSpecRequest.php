@@ -86,6 +86,21 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @var string
      */
+    public $searchNodeClass;
+
+    /**
+     * @var int
+     */
+    public $searchNodeCount;
+
+    /**
+     * @var int
+     */
+    public $searchNodeStorage;
+
+    /**
+     * @var string
+     */
     public $targetHiddenZoneId;
 
     /**
@@ -118,6 +133,9 @@ class ModifyDBInstanceSpecRequest extends Model
         'replicationFactor' => 'ReplicationFactor',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'searchNodeClass' => 'SearchNodeClass',
+        'searchNodeCount' => 'SearchNodeCount',
+        'searchNodeStorage' => 'SearchNodeStorage',
         'targetHiddenZoneId' => 'TargetHiddenZoneId',
         'targetSecondaryZoneId' => 'TargetSecondaryZoneId',
         'targetVswitchId' => 'TargetVswitchId',
@@ -190,6 +208,18 @@ class ModifyDBInstanceSpecRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->searchNodeClass) {
+            $res['SearchNodeClass'] = $this->searchNodeClass;
+        }
+
+        if (null !== $this->searchNodeCount) {
+            $res['SearchNodeCount'] = $this->searchNodeCount;
+        }
+
+        if (null !== $this->searchNodeStorage) {
+            $res['SearchNodeStorage'] = $this->searchNodeStorage;
         }
 
         if (null !== $this->targetHiddenZoneId) {
@@ -277,6 +307,18 @@ class ModifyDBInstanceSpecRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SearchNodeClass'])) {
+            $model->searchNodeClass = $map['SearchNodeClass'];
+        }
+
+        if (isset($map['SearchNodeCount'])) {
+            $model->searchNodeCount = $map['SearchNodeCount'];
+        }
+
+        if (isset($map['SearchNodeStorage'])) {
+            $model->searchNodeStorage = $map['SearchNodeStorage'];
         }
 
         if (isset($map['TargetHiddenZoneId'])) {

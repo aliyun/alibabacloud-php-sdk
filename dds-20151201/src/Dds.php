@@ -3609,6 +3609,10 @@ class Dds extends OpenApiClient
             @$query['BackupId'] = $request->backupId;
         }
 
+        if (null !== $request->backupJobId) {
+            @$query['BackupJobId'] = $request->backupJobId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -3639,6 +3643,10 @@ class Dds extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -3718,6 +3726,10 @@ class Dds extends OpenApiClient
             @$query['BackupId'] = $request->backupId;
         }
 
+        if (null !== $request->backupJobId) {
+            @$query['BackupJobId'] = $request->backupJobId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -3748,6 +3760,10 @@ class Dds extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -9090,6 +9106,18 @@ class Dds extends OpenApiClient
 
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->searchNodeClass) {
+            @$query['SearchNodeClass'] = $request->searchNodeClass;
+        }
+
+        if (null !== $request->searchNodeCount) {
+            @$query['SearchNodeCount'] = $request->searchNodeCount;
+        }
+
+        if (null !== $request->searchNodeStorage) {
+            @$query['SearchNodeStorage'] = $request->searchNodeStorage;
         }
 
         if (null !== $request->targetHiddenZoneId) {

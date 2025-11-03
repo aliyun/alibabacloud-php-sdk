@@ -31,6 +31,11 @@ class DescribeInstanceRecoverTimeRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -52,6 +57,7 @@ class DescribeInstanceRecoverTimeRequest extends Model
         'destRegion' => 'DestRegion',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
@@ -80,6 +86,10 @@ class DescribeInstanceRecoverTimeRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -123,6 +133,10 @@ class DescribeInstanceRecoverTimeRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

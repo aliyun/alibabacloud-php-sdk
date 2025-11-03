@@ -221,6 +221,21 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $searchNodeClass;
+
+    /**
+     * @var int
+     */
+    public $searchNodeCount;
+
+    /**
+     * @var int
+     */
+    public $searchNodeStorage;
+
+    /**
+     * @var string
+     */
     public $secondaryZoneId;
 
     /**
@@ -319,6 +334,9 @@ class DBInstance extends Model
         'replicaSets' => 'ReplicaSets',
         'replicationFactor' => 'ReplicationFactor',
         'resourceGroupId' => 'ResourceGroupId',
+        'searchNodeClass' => 'SearchNodeClass',
+        'searchNodeCount' => 'SearchNodeCount',
+        'searchNodeStorage' => 'SearchNodeStorage',
         'secondaryZoneId' => 'SecondaryZoneId',
         'shardList' => 'ShardList',
         'storageEngine' => 'StorageEngine',
@@ -518,6 +536,18 @@ class DBInstance extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->searchNodeClass) {
+            $res['SearchNodeClass'] = $this->searchNodeClass;
+        }
+
+        if (null !== $this->searchNodeCount) {
+            $res['SearchNodeCount'] = $this->searchNodeCount;
+        }
+
+        if (null !== $this->searchNodeStorage) {
+            $res['SearchNodeStorage'] = $this->searchNodeStorage;
         }
 
         if (null !== $this->secondaryZoneId) {
@@ -741,6 +771,18 @@ class DBInstance extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SearchNodeClass'])) {
+            $model->searchNodeClass = $map['SearchNodeClass'];
+        }
+
+        if (isset($map['SearchNodeCount'])) {
+            $model->searchNodeCount = $map['SearchNodeCount'];
+        }
+
+        if (isset($map['SearchNodeStorage'])) {
+            $model->searchNodeStorage = $map['SearchNodeStorage'];
         }
 
         if (isset($map['SecondaryZoneId'])) {
