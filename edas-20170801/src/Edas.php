@@ -85,6 +85,8 @@ use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeAppInstanceListRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeAppInstanceListResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeApplicationScalingRulesRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeApplicationScalingRulesResponse;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeLocalitySettingRequest;
+use AlibabaCloud\SDK\Edas\V20170801\Models\DescribeLocalitySettingResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DisableApplicationScalingRuleRequest;
 use AlibabaCloud\SDK\Edas\V20170801\Models\DisableApplicationScalingRuleResponse;
 use AlibabaCloud\SDK\Edas\V20170801\Models\EnableApplicationScalingRuleRequest;
@@ -3264,6 +3266,10 @@ class Edas extends OpenApiClient
             @$query['RuntimeClassName'] = $request->runtimeClassName;
         }
 
+        if (null !== $request->securityContext) {
+            @$query['SecurityContext'] = $request->securityContext;
+        }
+
         if (null !== $request->sidecars) {
             @$query['Sidecars'] = $request->sidecars;
         }
@@ -3478,6 +3484,71 @@ class Edas extends OpenApiClient
         $headers = [];
 
         return $this->describeApplicationScalingRulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param request - DescribeLocalitySettingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLocalitySettingResponse
+     *
+     * @param DescribeLocalitySettingRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeLocalitySettingResponse
+     */
+    public function describeLocalitySettingWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLocalitySetting',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/sp/applications/locality/setting',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLocalitySettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeLocalitySettingRequest
+     *
+     * @returns DescribeLocalitySettingResponse
+     *
+     * @param DescribeLocalitySettingRequest $request
+     *
+     * @return DescribeLocalitySettingResponse
+     */
+    public function describeLocalitySetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeLocalitySettingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5871,6 +5942,10 @@ class Edas extends OpenApiClient
 
         if (null !== $request->secretName) {
             @$query['SecretName'] = $request->secretName;
+        }
+
+        if (null !== $request->securityContext) {
+            @$query['SecurityContext'] = $request->securityContext;
         }
 
         if (null !== $request->serviceConfigs) {

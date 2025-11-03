@@ -173,6 +173,11 @@ class app extends Model
     /**
      * @var string
      */
+    public $securityContext;
+
+    /**
+     * @var string
+     */
     public $slbInfo;
 
     /**
@@ -217,6 +222,7 @@ class app extends Model
         'requestCpuM' => 'RequestCpuM',
         'requestEphemeralStorage' => 'RequestEphemeralStorage',
         'requestMem' => 'RequestMem',
+        'securityContext' => 'SecurityContext',
         'slbInfo' => 'SlbInfo',
         'tomcatVersion' => 'TomcatVersion',
         'workloadType' => 'WorkloadType',
@@ -362,6 +368,10 @@ class app extends Model
 
         if (null !== $this->requestMem) {
             $res['RequestMem'] = $this->requestMem;
+        }
+
+        if (null !== $this->securityContext) {
+            $res['SecurityContext'] = $this->securityContext;
         }
 
         if (null !== $this->slbInfo) {
@@ -513,6 +523,10 @@ class app extends Model
 
         if (isset($map['RequestMem'])) {
             $model->requestMem = $map['RequestMem'];
+        }
+
+        if (isset($map['SecurityContext'])) {
+            $model->securityContext = $map['SecurityContext'];
         }
 
         if (isset($map['SlbInfo'])) {

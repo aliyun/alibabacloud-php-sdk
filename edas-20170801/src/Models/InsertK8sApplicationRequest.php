@@ -371,6 +371,11 @@ class InsertK8sApplicationRequest extends Model
     /**
      * @var string
      */
+    public $securityContext;
+
+    /**
+     * @var string
+     */
     public $serviceConfigs;
 
     /**
@@ -505,6 +510,7 @@ class InsertK8sApplicationRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'runtimeClassName' => 'RuntimeClassName',
         'secretName' => 'SecretName',
+        'securityContext' => 'SecurityContext',
         'serviceConfigs' => 'ServiceConfigs',
         'sidecars' => 'Sidecars',
         'slsConfigs' => 'SlsConfigs',
@@ -814,6 +820,10 @@ class InsertK8sApplicationRequest extends Model
 
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
+        }
+
+        if (null !== $this->securityContext) {
+            $res['SecurityContext'] = $this->securityContext;
         }
 
         if (null !== $this->serviceConfigs) {
@@ -1165,6 +1175,10 @@ class InsertK8sApplicationRequest extends Model
 
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
+        }
+
+        if (isset($map['SecurityContext'])) {
+            $model->securityContext = $map['SecurityContext'];
         }
 
         if (isset($map['ServiceConfigs'])) {

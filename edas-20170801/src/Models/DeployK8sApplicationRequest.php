@@ -286,6 +286,11 @@ class DeployK8sApplicationRequest extends Model
     /**
      * @var string
      */
+    public $securityContext;
+
+    /**
+     * @var string
+     */
     public $sidecars;
 
     /**
@@ -403,6 +408,7 @@ class DeployK8sApplicationRequest extends Model
         'replicas' => 'Replicas',
         'requestsEphemeralStorage' => 'RequestsEphemeralStorage',
         'runtimeClassName' => 'RuntimeClassName',
+        'securityContext' => 'SecurityContext',
         'sidecars' => 'Sidecars',
         'slsConfigs' => 'SlsConfigs',
         'startup' => 'Startup',
@@ -644,6 +650,10 @@ class DeployK8sApplicationRequest extends Model
 
         if (null !== $this->runtimeClassName) {
             $res['RuntimeClassName'] = $this->runtimeClassName;
+        }
+
+        if (null !== $this->securityContext) {
+            $res['SecurityContext'] = $this->securityContext;
         }
 
         if (null !== $this->sidecars) {
@@ -927,6 +937,10 @@ class DeployK8sApplicationRequest extends Model
 
         if (isset($map['RuntimeClassName'])) {
             $model->runtimeClassName = $map['RuntimeClassName'];
+        }
+
+        if (isset($map['SecurityContext'])) {
+            $model->securityContext = $map['SecurityContext'];
         }
 
         if (isset($map['Sidecars'])) {
