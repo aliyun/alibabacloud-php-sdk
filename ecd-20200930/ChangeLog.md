@@ -1,3 +1,10 @@
+2025-11-03 Version: 4.11.0
+- Support API DescribeCloudDiskGroupDrives.
+- Support API DescribeCloudDiskGroups.
+- Support API DescribeSecurityGroupAttribute.
+- Support API ListInstalledApps.
+
+
 2025-10-27 Version: 4.10.1
 - Update API CreateCenterPolicy: add request parameters ExternalDrive.
 - Update API DescribePolicyGroups: add response parameters Body.DescribePolicyGroups.$.ExternalDrive.

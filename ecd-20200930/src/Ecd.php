@@ -197,6 +197,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCenterPolicyListRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCenterPolicyListResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDiskGroupDrivesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDiskGroupDrivesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDiskGroupsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDiskGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDrivePermissionsRequest;
@@ -295,6 +299,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteEntryListRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteEntryListResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteTableListRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteTableListResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSecurityGroupAttributeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsRequest;
@@ -362,6 +368,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ListDirectoryUsersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListDirectoryUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListFilePermissionRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListFilePermissionResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListInstalledAppsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ListInstalledAppsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteOverviewRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteOverviewResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersRequest;
@@ -791,7 +799,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Shares a folder of a cloud disk with other users.
+     * Adds a shared folder to the network disk.
      *
      * @remarks
      * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
@@ -859,7 +867,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Shares a folder of a cloud disk with other users.
+     * Adds a shared folder to the network disk.
      *
      * @remarks
      * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
@@ -2221,7 +2229,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Completes a file uploading task.
+     * After you create an object upload task, call this operation to upload the object.
      *
      * @param request - CompleteCdsFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2280,7 +2288,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Completes a file uploading task.
+     * After you create an object upload task, call this operation to upload the object.
      *
      * @param request - CompleteCdsFileRequest
      *
@@ -5013,7 +5021,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建网盘.
+     * Creates a user-level storage resource.
      *
      * @param request - CreateDriveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5088,7 +5096,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建网盘.
+     * Creates a user-level storage resource.
      *
      * @param request - CreateDriveRequest
      *
@@ -5106,7 +5114,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建无影数据报表导出任务
+     * Creates a data report export task.
      *
      * @param request - CreateEcdReportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5161,7 +5169,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建无影数据报表导出任务
+     * Creates a data report export task.
      *
      * @param request - CreateEcdReportTaskRequest
      *
@@ -6514,7 +6522,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建模板
+     * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
      *
      * @param request - CreateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6640,7 +6648,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建模板
+     * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
      *
      * @param request - CreateTemplateRequest
      *
@@ -6780,7 +6788,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a file from a cloud disk in Cloud Drive Service.
+     * Delete files or folders from the network disk.
      *
      * @param request - DeleteCdsFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6835,7 +6843,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a file from a cloud disk in Cloud Drive Service.
+     * Delete files or folders from the network disk.
      *
      * @param request - DeleteCdsFileRequest
      *
@@ -7395,7 +7403,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 删除网盘.
+     * Deletes a drive.
      *
      * @param request - DeleteDriveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7438,7 +7446,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 删除网盘.
+     * Deletes a drive.
      *
      * @param request - DeleteDriveRequest
      *
@@ -9088,6 +9096,152 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 查询云盘团队空间列表.
+     *
+     * @param request - DescribeCloudDiskGroupDrivesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudDiskGroupDrivesResponse
+     *
+     * @param DescribeCloudDiskGroupDrivesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCloudDiskGroupDrivesResponse
+     */
+    public function describeCloudDiskGroupDrivesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cdsId) {
+            @$query['CdsId'] = $request->cdsId;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCloudDiskGroupDrives',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCloudDiskGroupDrivesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云盘团队空间列表.
+     *
+     * @param request - DescribeCloudDiskGroupDrivesRequest
+     *
+     * @returns DescribeCloudDiskGroupDrivesResponse
+     *
+     * @param DescribeCloudDiskGroupDrivesRequest $request
+     *
+     * @return DescribeCloudDiskGroupDrivesResponse
+     */
+    public function describeCloudDiskGroupDrives($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudDiskGroupDrivesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云盘团队列表.
+     *
+     * @param request - DescribeCloudDiskGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudDiskGroupsResponse
+     *
+     * @param DescribeCloudDiskGroupsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCloudDiskGroupsResponse
+     */
+    public function describeCloudDiskGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cdsId) {
+            @$query['CdsId'] = $request->cdsId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->parentOrgId) {
+            @$query['ParentOrgId'] = $request->parentOrgId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCloudDiskGroups',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCloudDiskGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云盘团队列表.
+     *
+     * @param request - DescribeCloudDiskGroupsRequest
+     *
+     * @returns DescribeCloudDiskGroupsResponse
+     *
+     * @param DescribeCloudDiskGroupsRequest $request
+     *
+     * @return DescribeCloudDiskGroupsResponse
+     */
+    public function describeCloudDiskGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudDiskGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of authorized team spaces.
      *
      * @param request - DescribeCloudDriveGroupsRequest
@@ -9473,7 +9627,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries sessions in a desktop group.
+     * Queries cloud computer shares.
      *
      * @param request - DescribeDesktopGroupSessionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9556,7 +9710,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries sessions in a desktop group.
+     * Queries cloud computer shares.
      *
      * @param request - DescribeDesktopGroupSessionsRequest
      *
@@ -10701,7 +10855,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询网盘列表.
+     * Queries user-level storage resources.
      *
      * @param request - DescribeDrivesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10760,7 +10914,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询网盘列表.
+     * Queries user-level storage resources.
      *
      * @param request - DescribeDrivesRequest
      *
@@ -10778,7 +10932,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询数据报表导出任务列表.
+     * Queries data report export tasks.
      *
      * @param request - DescribeEcdReportTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10837,7 +10991,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询数据报表导出任务列表.
+     * Queries data report export tasks.
      *
      * @param request - DescribeEcdReportTasksRequest
      *
@@ -11258,7 +11412,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询全局桌面记录.
+     * Queries the basic information of all cloud computers and the corresponding usage duration records.
+     *
+     * @remarks
+     *   Domestic site users query site selection Shanghai, international site users choose Singapore.
+     * *   By default, you can query all cloud computers that are deleted or not deleted.
+     * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
+     * *   Sort criteria cannot be shared with other criteria.
      *
      * @param request - DescribeGlobalDesktopRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11353,7 +11513,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询全局桌面记录.
+     * Queries the basic information of all cloud computers and the corresponding usage duration records.
+     *
+     * @remarks
+     *   Domestic site users query site selection Shanghai, international site users choose Singapore.
+     * *   By default, you can query all cloud computers that are deleted or not deleted.
+     * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
+     * *   Sort criteria cannot be shared with other criteria.
      *
      * @param request - DescribeGlobalDesktopRecordsRequest
      *
@@ -13301,6 +13467,67 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 查询办公网络维度安全组策略.
+     *
+     * @param request - DescribeSecurityGroupAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityGroupAttributeResponse
+     *
+     * @param DescribeSecurityGroupAttributeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeSecurityGroupAttributeResponse
+     */
+    public function describeSecurityGroupAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSecurityGroupAttribute',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSecurityGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询办公网络维度安全组策略.
+     *
+     * @param request - DescribeSecurityGroupAttributeRequest
+     *
+     * @returns DescribeSecurityGroupAttributeResponse
+     *
+     * @param DescribeSecurityGroupAttributeRequest $request
+     *
+     * @return DescribeSecurityGroupAttributeResponse
+     */
+    public function describeSecurityGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityGroupAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the session statistics of a region.
      *
      * @remarks
@@ -13645,7 +13872,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询模板列表.
+     * Queries the details of cloud computer templates.
      *
      * @param request - DescribeTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13720,7 +13947,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询模板列表.
+     * Queries the details of cloud computer templates.
      *
      * @param request - DescribeTemplatesRequest
      *
@@ -15653,7 +15880,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the files in a cloud disk.
+     * Queries the list of files in the network disk and obtain the download link of the file.
      *
      * @param tmpReq - ListCdsFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15734,7 +15961,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the files in a cloud disk.
+     * Queries the list of files in the network disk and obtain the download link of the file.
      *
      * @param request - ListCdsFilesRequest
      *
@@ -15847,7 +16074,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the information about shared files of cloud disks.
+     * Queries the permissions on a shared file on a drive.
      *
      * @param request - ListFilePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15902,7 +16129,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the information about shared files of cloud disks.
+     * Queries the permissions on a shared file on a drive.
      *
      * @param request - ListFilePermissionRequest
      *
@@ -15917,6 +16144,71 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFilePermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询桌面内安装的应用.
+     *
+     * @param request - ListInstalledAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstalledAppsResponse
+     *
+     * @param ListInstalledAppsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListInstalledAppsResponse
+     */
+    public function listInstalledAppsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstalledApps',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstalledAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询桌面内安装的应用.
+     *
+     * @param request - ListInstalledAppsRequest
+     *
+     * @returns ListInstalledAppsResponse
+     *
+     * @param ListInstalledAppsRequest $request
+     *
+     * @return ListInstalledAppsResponse
+     */
+    public function listInstalledApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstalledAppsWithOptions($request, $runtime);
     }
 
     /**
@@ -16169,7 +16461,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 获取文件下载地址
+     * Queries the file information of a file transmission task.
      *
      * @param request - ListTransferFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16216,7 +16508,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 获取文件下载地址
+     * Queries the file information of a file transmission task.
      *
      * @param request - ListTransferFilesRequest
      *
@@ -16961,7 +17253,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the files in a cloud disk.
+     * Modifies the attributes of a disk file or folder, such as the file name.
      *
      * @param request - ModifyCdsFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17024,7 +17316,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the files in a cloud disk.
+     * Modifies the attributes of a disk file or folder, such as the file name.
      *
      * @param request - ModifyCdsFileRequest
      *
@@ -19678,7 +19970,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 修改工作区DNS信息.
+     * Modifies the DNS information of an office network.
      *
      * @param request - ModifyOfficeSiteDnsInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19725,7 +20017,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 修改工作区DNS信息.
+     * Modifies the DNS information of an office network.
      *
      * @param request - ModifyOfficeSiteDnsInfoRequest
      *
@@ -20251,7 +20543,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 模板全量更新.
+     * Modifies a custom cloud computer template.
      *
      * @param request - ModifyTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20373,7 +20665,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 模板全量更新.
+     * Modifies a custom cloud computer template.
      *
      * @param request - ModifyTemplateRequest
      *
@@ -20394,7 +20686,7 @@ class Ecd extends OpenApiClient
      * Modifies the basic information of a custom cloud computer template, including the template name and template description.
      *
      * @remarks
-     * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+     * This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
      *
      * @param request - ModifyTemplateBaseInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20444,7 +20736,7 @@ class Ecd extends OpenApiClient
      * Modifies the basic information of a custom cloud computer template, including the template name and template description.
      *
      * @remarks
-     * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+     * This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
      *
      * @param request - ModifyTemplateBaseInfoRequest
      *
@@ -20985,7 +21277,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Removes the file sharing feature of a folder in a cloud disk.
+     * Unshare a folder on the network disk.
      *
      * @param tmpReq - RemoveFilePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21050,7 +21342,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Removes the file sharing feature of a folder in a cloud disk.
+     * Unshare a folder on the network disk.
      *
      * @param request - RemoveFilePermissionRequest
      *
@@ -22223,7 +22515,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 设置桌面维护模式.
+     * Set the cloud computer maintenance mode.
+     *
+     * @remarks
+     * If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
      *
      * @param request - SetDesktopMaintenanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22270,7 +22565,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 设置桌面维护模式.
+     * Set the cloud computer maintenance mode.
+     *
+     * @remarks
+     * If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
      *
      * @param request - SetDesktopMaintenanceRequest
      *
@@ -22862,7 +23160,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 文件传输审批回调.
+     * Queries the transmission and approval result for a submitted file.
      *
      * @param request - TransferTaskApprovalCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22913,7 +23211,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 文件传输审批回调.
+     * Queries the transmission and approval result for a submitted file.
      *
      * @param request - TransferTaskApprovalCallbackRequest
      *
