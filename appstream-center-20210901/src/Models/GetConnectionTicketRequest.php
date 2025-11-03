@@ -61,6 +61,11 @@ class GetConnectionTicketRequest extends Model
     /**
      * @var string
      */
+    public $environmentConfig;
+
+    /**
+     * @var string
+     */
     public $productType;
 
     /**
@@ -78,6 +83,7 @@ class GetConnectionTicketRequest extends Model
         'appVersion' => 'AppVersion',
         'bizRegionId' => 'BizRegionId',
         'endUserId' => 'EndUserId',
+        'environmentConfig' => 'EnvironmentConfig',
         'productType' => 'ProductType',
         'taskId' => 'TaskId',
     ];
@@ -138,6 +144,10 @@ class GetConnectionTicketRequest extends Model
 
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+
+        if (null !== $this->environmentConfig) {
+            $res['EnvironmentConfig'] = $this->environmentConfig;
         }
 
         if (null !== $this->productType) {
@@ -204,6 +214,10 @@ class GetConnectionTicketRequest extends Model
 
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+
+        if (isset($map['EnvironmentConfig'])) {
+            $model->environmentConfig = $map['EnvironmentConfig'];
         }
 
         if (isset($map['ProductType'])) {

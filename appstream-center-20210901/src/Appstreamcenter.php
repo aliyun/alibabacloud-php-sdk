@@ -321,7 +321,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 创建云应用交付组.
+     * Creates a delivery group.
      *
      * @param tmpReq - CreateAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -500,7 +500,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 创建云应用交付组.
+     * Creates a delivery group.
      *
      * @param request - CreateAppInstanceGroupRequest
      *
@@ -1173,7 +1173,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取交付组详情.
+     * Queries the details of a delivery group.
      *
      * @param request - GetAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1216,7 +1216,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取交付组详情.
+     * Queries the details of a delivery group.
      *
      * @param request - GetAppInstanceGroupRequest
      *
@@ -1293,6 +1293,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->endUserId) {
             @$body['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->environmentConfig) {
+            @$body['EnvironmentConfig'] = $request->environmentConfig;
         }
 
         if (null !== $request->productType) {
@@ -1884,7 +1888,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询绑定信息，支持分页.
+     * Queries the bindings between users and resources.
      *
      * @param request - ListBindInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1947,7 +1951,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询绑定信息，支持分页.
+     * Queries the bindings between users and resources.
      *
      * @param request - ListBindInfoRequest
      *
@@ -2351,7 +2355,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询交付组内持久会话列表.
+     * Queries app instances of the persistent session type in a delivery group.
      *
      * @param request - ListPersistentAppInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2406,7 +2410,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询交付组内持久会话列表.
+     * Queries app instances of the persistent session type in a delivery group.
      *
      * @param request - ListPersistentAppInstancesRequest
      *
