@@ -11,6 +11,11 @@ class UpdateOriginProtectionRequest extends Model
     /**
      * @var string
      */
+    public $autoConfirmIPList;
+
+    /**
+     * @var string
+     */
     public $originConverge;
 
     /**
@@ -18,6 +23,7 @@ class UpdateOriginProtectionRequest extends Model
      */
     public $siteId;
     protected $_name = [
+        'autoConfirmIPList' => 'AutoConfirmIPList',
         'originConverge' => 'OriginConverge',
         'siteId' => 'SiteId',
     ];
@@ -30,6 +36,10 @@ class UpdateOriginProtectionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoConfirmIPList) {
+            $res['AutoConfirmIPList'] = $this->autoConfirmIPList;
+        }
+
         if (null !== $this->originConverge) {
             $res['OriginConverge'] = $this->originConverge;
         }
@@ -49,6 +59,10 @@ class UpdateOriginProtectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoConfirmIPList'])) {
+            $model->autoConfirmIPList = $map['AutoConfirmIPList'];
+        }
+
         if (isset($map['OriginConverge'])) {
             $model->originConverge = $map['OriginConverge'];
         }

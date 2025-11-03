@@ -4096,6 +4096,10 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoConfirmIPList) {
+            @$query['AutoConfirmIPList'] = $request->autoConfirmIPList;
+        }
+
         if (null !== $request->siteId) {
             @$query['SiteId'] = $request->siteId;
         }
@@ -22495,6 +22499,10 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoConfirmIPList) {
+            @$query['AutoConfirmIPList'] = $request->autoConfirmIPList;
+        }
+
         if (null !== $request->originConverge) {
             @$query['OriginConverge'] = $request->originConverge;
         }

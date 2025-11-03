@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class CreateOriginProtectionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoConfirmIPList;
+
+    /**
      * @var int
      */
     public $siteId;
     protected $_name = [
+        'autoConfirmIPList' => 'AutoConfirmIPList',
         'siteId' => 'SiteId',
     ];
 
@@ -24,6 +30,10 @@ class CreateOriginProtectionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoConfirmIPList) {
+            $res['AutoConfirmIPList'] = $this->autoConfirmIPList;
+        }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -39,6 +49,10 @@ class CreateOriginProtectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoConfirmIPList'])) {
+            $model->autoConfirmIPList = $map['AutoConfirmIPList'];
+        }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
