@@ -3336,6 +3336,14 @@ class Live extends OpenApiClient
             @$query['NeedStatusNotify'] = $request->needStatusNotify;
         }
 
+        if (null !== $request->notifyAuthKey) {
+            @$query['NotifyAuthKey'] = $request->notifyAuthKey;
+        }
+
+        if (null !== $request->notifyReqAuth) {
+            @$query['NotifyReqAuth'] = $request->notifyReqAuth;
+        }
+
         if (null !== $request->notifyUrl) {
             @$query['NotifyUrl'] = $request->notifyUrl;
         }
@@ -36999,6 +37007,14 @@ class Live extends OpenApiClient
 
         if (null !== $request->needStatusNotify) {
             @$query['NeedStatusNotify'] = $request->needStatusNotify;
+        }
+
+        if (null !== $request->notifyAuthKey) {
+            @$query['NotifyAuthKey'] = $request->notifyAuthKey;
+        }
+
+        if (null !== $request->notifyReqAuth) {
+            @$query['NotifyReqAuth'] = $request->notifyReqAuth;
         }
 
         if (null !== $request->notifyUrl) {

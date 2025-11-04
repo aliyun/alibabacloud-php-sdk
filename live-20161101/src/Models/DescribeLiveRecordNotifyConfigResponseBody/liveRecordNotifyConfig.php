@@ -21,6 +21,16 @@ class liveRecordNotifyConfig extends Model
     /**
      * @var string
      */
+    public $notifyAuthKey;
+
+    /**
+     * @var bool
+     */
+    public $notifyReqAuth;
+
+    /**
+     * @var string
+     */
     public $notifyUrl;
 
     /**
@@ -30,6 +40,8 @@ class liveRecordNotifyConfig extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'needStatusNotify' => 'NeedStatusNotify',
+        'notifyAuthKey' => 'NotifyAuthKey',
+        'notifyReqAuth' => 'NotifyReqAuth',
         'notifyUrl' => 'NotifyUrl',
         'onDemandUrl' => 'OnDemandUrl',
     ];
@@ -48,6 +60,14 @@ class liveRecordNotifyConfig extends Model
 
         if (null !== $this->needStatusNotify) {
             $res['NeedStatusNotify'] = $this->needStatusNotify;
+        }
+
+        if (null !== $this->notifyAuthKey) {
+            $res['NotifyAuthKey'] = $this->notifyAuthKey;
+        }
+
+        if (null !== $this->notifyReqAuth) {
+            $res['NotifyReqAuth'] = $this->notifyReqAuth;
         }
 
         if (null !== $this->notifyUrl) {
@@ -75,6 +95,14 @@ class liveRecordNotifyConfig extends Model
 
         if (isset($map['NeedStatusNotify'])) {
             $model->needStatusNotify = $map['NeedStatusNotify'];
+        }
+
+        if (isset($map['NotifyAuthKey'])) {
+            $model->notifyAuthKey = $map['NotifyAuthKey'];
+        }
+
+        if (isset($map['NotifyReqAuth'])) {
+            $model->notifyReqAuth = $map['NotifyReqAuth'];
         }
 
         if (isset($map['NotifyUrl'])) {
