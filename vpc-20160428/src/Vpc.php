@@ -214,6 +214,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteCustomerGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteCustomerGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteDhcpOptionsSetResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosQueueRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosQueueResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosRequest;
@@ -354,6 +356,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGlobalAccelerationInstancesReq
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGlobalAccelerationInstancesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGrantRulesToCenRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGrantRulesToCenResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGrantRulesToEcrRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeGrantRulesToEcrResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeHaVipsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeHaVipsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeHighDefinitionMonitorLogAttributeRequest;
@@ -521,6 +525,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GrantInstanceToVbrResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GrantInstanceToVbrShrinkRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListBusinessAccessPointsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListBusinessAccessPointsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListBusinessRegionsRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListBusinessRegionsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListEnhanhcedNatGatewayAvailableZonesRequest;
@@ -540,6 +546,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatIpCidrsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatIpCidrsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatIpsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatIpsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPhysicalConnectionFeaturesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPhysicalConnectionFeaturesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPrefixListsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPrefixListsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolCidrBlocksRequest;
@@ -3680,6 +3688,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * 将DHCP选项集与VPC关联.
+     *
      * @remarks
      *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
      *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
@@ -3755,6 +3765,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * 将DHCP选项集与VPC关联.
+     *
      * @remarks
      *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
      *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
@@ -9423,8 +9435,8 @@ class Vpc extends OpenApiClient
      *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
      *     *   If the VPN gateway is in the **active** state, the SSL server is created.
      * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
-     * ### [](#)Prerequisite
-     * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+     * ### [](#prerequisite)[](#)Prerequisite
+     * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html) .
      * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
      *
      * @param request - CreateSslVpnServerRequest
@@ -9543,8 +9555,8 @@ class Vpc extends OpenApiClient
      *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
      *     *   If the VPN gateway is in the **active** state, the SSL server is created.
      * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
-     * ### [](#)Prerequisite
-     * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+     * ### [](#prerequisite)[](#)Prerequisite
+     * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html) .
      * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
      *
      * @param request - CreateSslVpnServerRequest
@@ -12578,6 +12590,91 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDhcpOptionsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a Express Connect instance, including the initiator and acceptor.
+     *
+     * @param request - DeleteExpressConnectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExpressConnectResponse
+     *
+     * @param DeleteExpressConnectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteExpressConnectResponse
+     */
+    public function deleteExpressConnectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->routerInterfaceId) {
+            @$query['RouterInterfaceId'] = $request->routerInterfaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteExpressConnect',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a Express Connect instance, including the initiator and acceptor.
+     *
+     * @param request - DeleteExpressConnectRequest
+     *
+     * @returns DeleteExpressConnectResponse
+     *
+     * @param DeleteExpressConnectRequest $request
+     *
+     * @return DeleteExpressConnectResponse
+     */
+    public function deleteExpressConnect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExpressConnectWithOptions($request, $runtime);
     }
 
     /**
@@ -19325,6 +19422,83 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Queries the cross-account authorization list of an Express Connect Router (ECR).
+     *
+     * @param request - DescribeGrantRulesToEcrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGrantRulesToEcrResponse
+     *
+     * @param DescribeGrantRulesToEcrRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeGrantRulesToEcrResponse
+     */
+    public function describeGrantRulesToEcrWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGrantRulesToEcr',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGrantRulesToEcrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the cross-account authorization list of an Express Connect Router (ECR).
+     *
+     * @param request - DescribeGrantRulesToEcrRequest
+     *
+     * @returns DescribeGrantRulesToEcrResponse
+     *
+     * @param DescribeGrantRulesToEcrRequest $request
+     *
+     * @return DescribeGrantRulesToEcrResponse
+     */
+    public function describeGrantRulesToEcr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGrantRulesToEcrWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries HaVips in a region.
      *
      * @param request - DescribeHaVipsRequest
@@ -20362,7 +20536,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询NAT已绑定ENI信息.
+     * Queries elastic network interfaces (ENIs) associated with a virtual private cloud (VPC) NAT gateway when the VPC NAT gateway serves as a PrivateLink service resource. This feature is not publicly available.
      *
      * @param request - DescribeNatGatewayAssociateNetworkInterfacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20449,7 +20623,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询NAT已绑定ENI信息.
+     * Queries elastic network interfaces (ENIs) associated with a virtual private cloud (VPC) NAT gateway when the VPC NAT gateway serves as a PrivateLink service resource. This feature is not publicly available.
      *
      * @param request - DescribeNatGatewayAssociateNetworkInterfacesRequest
      *
@@ -23271,7 +23445,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询VPC跨账号授权给ECR.
+     * Queries the cross-account authorization information of an ECR for a specified network instance.
      *
      * @param request - DescribeVpcGrantRulesToEcrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23358,7 +23532,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询VPC跨账号授权给ECR.
+     * Queries the cross-account authorization information of an ECR for a specified network instance.
      *
      * @param request - DescribeVpcGrantRulesToEcrRequest
      *
@@ -26998,6 +27172,63 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Query the list of regions available for an Express Connect circuit.
+     *
+     * @param request - ListBusinessRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBusinessRegionsResponse
+     *
+     * @param ListBusinessRegionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListBusinessRegionsResponse
+     */
+    public function listBusinessRegionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBusinessRegions',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBusinessRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the list of regions available for an Express Connect circuit.
+     *
+     * @param request - ListBusinessRegionsRequest
+     *
+     * @returns ListBusinessRegionsResponse
+     *
+     * @param ListBusinessRegionsRequest $request
+     *
+     * @return ListBusinessRegionsResponse
+     */
+    public function listBusinessRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBusinessRegionsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries Dynamic Host Configuration Protocol (DHCP) options sets.
      *
      * @param request - ListDhcpOptionsSetsRequest
@@ -27848,6 +28079,10 @@ class Vpc extends OpenApiClient
             @$query['DryRun'] = $request->dryRun;
         }
 
+        if (null !== $request->ipOrigin) {
+            @$query['IpOrigin'] = $request->ipOrigin;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -27934,6 +28169,87 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNatIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Querying the connection features supported by a Express Connect circuit.
+     *
+     * @param request - ListPhysicalConnectionFeaturesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPhysicalConnectionFeaturesResponse
+     *
+     * @param ListPhysicalConnectionFeaturesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListPhysicalConnectionFeaturesResponse
+     */
+    public function listPhysicalConnectionFeaturesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->physicalConnectionId) {
+            @$query['PhysicalConnectionId'] = $request->physicalConnectionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPhysicalConnectionFeatures',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPhysicalConnectionFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Querying the connection features supported by a Express Connect circuit.
+     *
+     * @param request - ListPhysicalConnectionFeaturesRequest
+     *
+     * @returns ListPhysicalConnectionFeaturesResponse
+     *
+     * @param ListPhysicalConnectionFeaturesRequest $request
+     *
+     * @return ListPhysicalConnectionFeaturesResponse
+     */
+    public function listPhysicalConnectionFeatures($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPhysicalConnectionFeaturesWithOptions($request, $runtime);
     }
 
     /**
@@ -35527,7 +35843,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 开通IP地址池功能。
+     * Enables the IP address pool feature.
      *
      * @param request - OpenPublicIpAddressPoolServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35590,7 +35906,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 开通IP地址池功能。
+     * Enables the IP address pool feature.
      *
      * @param request - OpenPublicIpAddressPoolServiceRequest
      *
@@ -37846,7 +38162,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
+     * Migrate a contiguous EIP group to an IP address pool.
      *
      * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37905,7 +38221,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
+     * Migrate a contiguous EIP group to an IP address pool.
      *
      * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
      *

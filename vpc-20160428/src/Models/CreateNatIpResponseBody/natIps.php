@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
+namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatIpResponseBody\natIps;
 
-class CreateNatIpResponseBody extends Model
+class natIps extends Model
 {
     /**
      * @var string
@@ -23,29 +22,14 @@ class CreateNatIpResponseBody extends Model
      * @var string
      */
     public $natIpId;
-
-    /**
-     * @var natIps[]
-     */
-    public $natIps;
-
-    /**
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'ipv4Prefix' => 'Ipv4Prefix',
         'natIp' => 'NatIp',
         'natIpId' => 'NatIpId',
-        'natIps' => 'NatIps',
-        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->natIps)) {
-            Model::validateArray($this->natIps);
-        }
         parent::validate();
     }
 
@@ -62,21 +46,6 @@ class CreateNatIpResponseBody extends Model
 
         if (null !== $this->natIpId) {
             $res['NatIpId'] = $this->natIpId;
-        }
-
-        if (null !== $this->natIps) {
-            if (\is_array($this->natIps)) {
-                $res['NatIps'] = [];
-                $n1 = 0;
-                foreach ($this->natIps as $item1) {
-                    $res['NatIps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -100,21 +69,6 @@ class CreateNatIpResponseBody extends Model
 
         if (isset($map['NatIpId'])) {
             $model->natIpId = $map['NatIpId'];
-        }
-
-        if (isset($map['NatIps'])) {
-            if (!empty($map['NatIps'])) {
-                $model->natIps = [];
-                $n1 = 0;
-                foreach ($map['NatIps'] as $item1) {
-                    $model->natIps[$n1] = natIps::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

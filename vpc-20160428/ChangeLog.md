@@ -1,3 +1,12 @@
+2025-11-04 Version: 6.13.0
+- Support API DeleteExpressConnect.
+- Support API DescribeGrantRulesToEcr.
+- Support API ListBusinessRegions.
+- Support API ListPhysicalConnectionFeatures.
+- Update API CreateNatIp: add response parameters Body.NatIps.
+- Update API ListNatIps: add request parameters IpOrigin.
+
+
 2025-09-02 Version: 6.12.0
 - Support API DescribeVpcGrantRulesToEcr.
 - Update API AssociateVpcCidrBlock: add request parameters Ipv6CidrMask.

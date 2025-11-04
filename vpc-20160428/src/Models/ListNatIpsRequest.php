@@ -21,6 +21,11 @@ class ListNatIpsRequest extends Model
     /**
      * @var string
      */
+    public $ipOrigin;
+
+    /**
+     * @var string
+     */
     public $maxResults;
 
     /**
@@ -80,6 +85,7 @@ class ListNatIpsRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
+        'ipOrigin' => 'IpOrigin',
         'maxResults' => 'MaxResults',
         'natGatewayId' => 'NatGatewayId',
         'natIpCidr' => 'NatIpCidr',
@@ -114,6 +120,10 @@ class ListNatIpsRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->ipOrigin) {
+            $res['IpOrigin'] = $this->ipOrigin;
         }
 
         if (null !== $this->maxResults) {
@@ -195,6 +205,10 @@ class ListNatIpsRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['IpOrigin'])) {
+            $model->ipOrigin = $map['IpOrigin'];
         }
 
         if (isset($map['MaxResults'])) {
