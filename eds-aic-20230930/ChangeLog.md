@@ -1,3 +1,6 @@
+2025-11-04 Version: 4.12.2
+- Generated php 2023-09-30 for eds-aic.
+
 2025-11-03 Version: 4.12.1
 - Update API CreateScreenshot: add request parameters ScreenshotId.
 - Update API CreateScreenshot: add response parameters Body.Tasks.$.ScreenshotId.
