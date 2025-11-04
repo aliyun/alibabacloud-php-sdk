@@ -2429,6 +2429,10 @@ class PaiStudio extends OpenApiClient
             @$query['Verbose'] = $request->verbose;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),

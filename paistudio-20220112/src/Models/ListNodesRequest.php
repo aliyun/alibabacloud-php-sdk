@@ -122,6 +122,11 @@ class ListNodesRequest extends Model
      * @var bool
      */
     public $verbose;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
         'availabilityZone' => 'AvailabilityZone',
@@ -146,6 +151,7 @@ class ListNodesRequest extends Model
         'resourceGroupIds' => 'ResourceGroupIds',
         'sortBy' => 'SortBy',
         'verbose' => 'Verbose',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -246,6 +252,10 @@ class ListNodesRequest extends Model
 
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -349,6 +359,10 @@ class ListNodesRequest extends Model
 
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

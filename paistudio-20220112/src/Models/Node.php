@@ -54,6 +54,16 @@ class Node extends Model
     public $descendantQuotaWorkloadNum;
 
     /**
+     * @var int
+     */
+    public $diskCapacity;
+
+    /**
+     * @var string
+     */
+    public $diskPL;
+
+    /**
      * @var string
      */
     public $GPU;
@@ -212,6 +222,8 @@ class Node extends Model
         'CPU' => 'CPU',
         'creatorId' => 'CreatorId',
         'descendantQuotaWorkloadNum' => 'DescendantQuotaWorkloadNum',
+        'diskCapacity' => 'DiskCapacity',
+        'diskPL' => 'DiskPL',
         'GPU' => 'GPU',
         'GPUMemory' => 'GPUMemory',
         'GPUType' => 'GPUType',
@@ -299,6 +311,14 @@ class Node extends Model
 
         if (null !== $this->descendantQuotaWorkloadNum) {
             $res['DescendantQuotaWorkloadNum'] = $this->descendantQuotaWorkloadNum;
+        }
+
+        if (null !== $this->diskCapacity) {
+            $res['DiskCapacity'] = $this->diskCapacity;
+        }
+
+        if (null !== $this->diskPL) {
+            $res['DiskPL'] = $this->diskPL;
         }
 
         if (null !== $this->GPU) {
@@ -480,6 +500,14 @@ class Node extends Model
 
         if (isset($map['DescendantQuotaWorkloadNum'])) {
             $model->descendantQuotaWorkloadNum = $map['DescendantQuotaWorkloadNum'];
+        }
+
+        if (isset($map['DiskCapacity'])) {
+            $model->diskCapacity = $map['DiskCapacity'];
+        }
+
+        if (isset($map['DiskPL'])) {
+            $model->diskPL = $map['DiskPL'];
         }
 
         if (isset($map['GPU'])) {

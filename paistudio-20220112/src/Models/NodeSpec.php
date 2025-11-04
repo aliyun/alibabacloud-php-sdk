@@ -21,10 +21,16 @@ class NodeSpec extends Model
     /**
      * @var string
      */
+    public $hyperType;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'bindingPolicy' => 'BindingPolicy',
         'count' => 'Count',
+        'hyperType' => 'HyperType',
         'type' => 'Type',
     ];
 
@@ -45,6 +51,10 @@ class NodeSpec extends Model
 
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+
+        if (null !== $this->hyperType) {
+            $res['HyperType'] = $this->hyperType;
         }
 
         if (null !== $this->type) {
@@ -68,6 +78,10 @@ class NodeSpec extends Model
 
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+
+        if (isset($map['HyperType'])) {
+            $model->hyperType = $map['HyperType'];
         }
 
         if (isset($map['Type'])) {
