@@ -39,7 +39,17 @@ class scalingGroups extends Model
     /**
      * @var bool
      */
+    public $autoRebalance;
+
+    /**
+     * @var bool
+     */
     public $azBalance;
+
+    /**
+     * @var string
+     */
+    public $balanceMode;
 
     /**
      * @var capacityOptions
@@ -335,7 +345,9 @@ class scalingGroups extends Model
         'activeScalingConfigurationId' => 'ActiveScalingConfigurationId',
         'albServerGroups' => 'AlbServerGroups',
         'allocationStrategy' => 'AllocationStrategy',
+        'autoRebalance' => 'AutoRebalance',
         'azBalance' => 'AzBalance',
+        'balanceMode' => 'BalanceMode',
         'capacityOptions' => 'CapacityOptions',
         'compensateWithOnDemand' => 'CompensateWithOnDemand',
         'creationTime' => 'CreationTime',
@@ -469,8 +481,16 @@ class scalingGroups extends Model
             $res['AllocationStrategy'] = $this->allocationStrategy;
         }
 
+        if (null !== $this->autoRebalance) {
+            $res['AutoRebalance'] = $this->autoRebalance;
+        }
+
         if (null !== $this->azBalance) {
             $res['AzBalance'] = $this->azBalance;
+        }
+
+        if (null !== $this->balanceMode) {
+            $res['BalanceMode'] = $this->balanceMode;
         }
 
         if (null !== $this->capacityOptions) {
@@ -823,8 +843,16 @@ class scalingGroups extends Model
             $model->allocationStrategy = $map['AllocationStrategy'];
         }
 
+        if (isset($map['AutoRebalance'])) {
+            $model->autoRebalance = $map['AutoRebalance'];
+        }
+
         if (isset($map['AzBalance'])) {
             $model->azBalance = $map['AzBalance'];
+        }
+
+        if (isset($map['BalanceMode'])) {
+            $model->balanceMode = $map['BalanceMode'];
         }
 
         if (isset($map['CapacityOptions'])) {

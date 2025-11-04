@@ -1,3 +1,12 @@
+2025-11-04 Version: 1.8.19
+- Update API CreateScalingGroup: add request parameters AutoRebalance.
+- Update API CreateScalingGroup: add request parameters BalanceMode.
+- Update API DescribeScalingGroups: add response parameters Body.ScalingGroups.$.AutoRebalance.
+- Update API DescribeScalingGroups: add response parameters Body.ScalingGroups.$.BalanceMode.
+- Update API ModifyScalingGroup: add request parameters AutoRebalance.
+- Update API ModifyScalingGroup: add request parameters BalanceMode.
+
+
 2025-09-12 Version: 1.8.18
 - Update API CreateNotificationConfiguration: add request parameters MessageEncoding.
 - Update API DescribeInstanceRefreshes: add response parameters Body.InstanceRefreshTasks.$.CheckpointPauseTime.

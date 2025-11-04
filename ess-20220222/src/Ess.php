@@ -2412,8 +2412,16 @@ class Ess extends OpenApiClient
             @$query['AllocationStrategy'] = $request->allocationStrategy;
         }
 
+        if (null !== $request->autoRebalance) {
+            @$query['AutoRebalance'] = $request->autoRebalance;
+        }
+
         if (null !== $request->azBalance) {
             @$query['AzBalance'] = $request->azBalance;
+        }
+
+        if (null !== $request->balanceMode) {
+            @$query['BalanceMode'] = $request->balanceMode;
         }
 
         if (null !== $request->capacityOptions) {
@@ -8125,8 +8133,16 @@ class Ess extends OpenApiClient
             @$query['AllocationStrategy'] = $request->allocationStrategy;
         }
 
+        if (null !== $request->autoRebalance) {
+            @$query['AutoRebalance'] = $request->autoRebalance;
+        }
+
         if (null !== $request->azBalance) {
             @$query['AzBalance'] = $request->azBalance;
+        }
+
+        if (null !== $request->balanceMode) {
+            @$query['BalanceMode'] = $request->balanceMode;
         }
 
         if (null !== $request->capacityOptions) {
@@ -9354,7 +9370,7 @@ class Ess extends OpenApiClient
      * Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\&M hurdles efficiently.
      *
      * @remarks
-     * Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from the corresponding scaling groups. If you want to retain a specific instance in the corresponding scaling group, you can put the instance into the Standby or Protected state. For more information, see [EnterStandby](~~EnterStandby~~) and [SetInstancesProtection](~~SetInstancesProtection~~).
+     * Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from their scaling groups. To prevent a specific instance from being removed, you can put it in either the Standby or Protected state. For more information, see [EnterStandby](https://help.aliyun.com/document_detail/459345.html) and [SetInstancesProtection](https://help.aliyun.com/document_detail/459342.html).
      *
      * @param request - SetInstanceHealthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9408,7 +9424,7 @@ class Ess extends OpenApiClient
      * Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\&M hurdles efficiently.
      *
      * @remarks
-     * Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from the corresponding scaling groups. If you want to retain a specific instance in the corresponding scaling group, you can put the instance into the Standby or Protected state. For more information, see [EnterStandby](~~EnterStandby~~) and [SetInstancesProtection](~~SetInstancesProtection~~).
+     * Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from their scaling groups. To prevent a specific instance from being removed, you can put it in either the Standby or Protected state. For more information, see [EnterStandby](https://help.aliyun.com/document_detail/459345.html) and [SetInstancesProtection](https://help.aliyun.com/document_detail/459342.html).
      *
      * @param request - SetInstanceHealthRequest
      *
