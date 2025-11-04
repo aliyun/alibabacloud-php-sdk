@@ -11,6 +11,11 @@ class DescribeSensitiveRequestLogRequest extends Model
     /**
      * @var string
      */
+    public $account;
+
+    /**
+     * @var string
+     */
     public $apiFormat;
 
     /**
@@ -73,6 +78,7 @@ class DescribeSensitiveRequestLogRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'account' => 'Account',
         'apiFormat' => 'ApiFormat',
         'clientIP' => 'ClientIP',
         'clusterId' => 'ClusterId',
@@ -96,6 +102,10 @@ class DescribeSensitiveRequestLogRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->account) {
+            $res['Account'] = $this->account;
+        }
+
         if (null !== $this->apiFormat) {
             $res['ApiFormat'] = $this->apiFormat;
         }
@@ -159,6 +169,10 @@ class DescribeSensitiveRequestLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Account'])) {
+            $model->account = $map['Account'];
+        }
+
         if (isset($map['ApiFormat'])) {
             $model->apiFormat = $map['ApiFormat'];
         }

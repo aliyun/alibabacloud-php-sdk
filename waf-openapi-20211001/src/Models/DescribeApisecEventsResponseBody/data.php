@@ -54,6 +54,11 @@ class data extends Model
     public $attackIps;
 
     /**
+     * @var string[]
+     */
+    public $attackerList;
+
+    /**
      * @var int
      */
     public $endTs;
@@ -137,6 +142,7 @@ class data extends Model
         'attackIp' => 'AttackIp',
         'attackIpInfo' => 'AttackIpInfo',
         'attackIps' => 'AttackIps',
+        'attackerList' => 'AttackerList',
         'endTs' => 'EndTs',
         'eventId' => 'EventId',
         'eventInfo' => 'EventInfo',
@@ -158,6 +164,9 @@ class data extends Model
     {
         if (\is_array($this->attackIps)) {
             Model::validateArray($this->attackIps);
+        }
+        if (\is_array($this->attackerList)) {
+            Model::validateArray($this->attackerList);
         }
         parent::validate();
     }
@@ -203,6 +212,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->attackIps as $item1) {
                     $res['AttackIps'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->attackerList) {
+            if (\is_array($this->attackerList)) {
+                $res['AttackerList'] = [];
+                $n1 = 0;
+                foreach ($this->attackerList as $item1) {
+                    $res['AttackerList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -317,6 +337,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['AttackIps'] as $item1) {
                     $model->attackIps[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AttackerList'])) {
+            if (!empty($map['AttackerList'])) {
+                $model->attackerList = [];
+                $n1 = 0;
+                foreach ($map['AttackerList'] as $item1) {
+                    $model->attackerList[$n1] = $item1;
                     ++$n1;
                 }
             }

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeUserEventTypeRequest extends Model
+class DescribeApisecEventDetailRequest extends Model
 {
     /**
      * @var string
@@ -14,9 +14,14 @@ class DescribeUserEventTypeRequest extends Model
     public $clusterId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $endTime;
+    public $detailType;
+
+    /**
+     * @var string
+     */
+    public $eventId;
 
     /**
      * @var string
@@ -37,32 +42,18 @@ class DescribeUserEventTypeRequest extends Model
      * @var string
      */
     public $resourceManagerResourceGroupId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var string[]
-     */
-    public $userStatusList;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'endTime' => 'EndTime',
+        'detailType' => 'DetailType',
+        'eventId' => 'EventId',
         'eventScope' => 'EventScope',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'startTime' => 'StartTime',
-        'userStatusList' => 'UserStatusList',
     ];
 
     public function validate()
     {
-        if (\is_array($this->userStatusList)) {
-            Model::validateArray($this->userStatusList);
-        }
         parent::validate();
     }
 
@@ -73,8 +64,12 @@ class DescribeUserEventTypeRequest extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->detailType) {
+            $res['DetailType'] = $this->detailType;
+        }
+
+        if (null !== $this->eventId) {
+            $res['EventId'] = $this->eventId;
         }
 
         if (null !== $this->eventScope) {
@@ -93,21 +88,6 @@ class DescribeUserEventTypeRequest extends Model
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
 
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-
-        if (null !== $this->userStatusList) {
-            if (\is_array($this->userStatusList)) {
-                $res['UserStatusList'] = [];
-                $n1 = 0;
-                foreach ($this->userStatusList as $item1) {
-                    $res['UserStatusList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         return $res;
     }
 
@@ -123,8 +103,12 @@ class DescribeUserEventTypeRequest extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['DetailType'])) {
+            $model->detailType = $map['DetailType'];
+        }
+
+        if (isset($map['EventId'])) {
+            $model->eventId = $map['EventId'];
         }
 
         if (isset($map['EventScope'])) {
@@ -141,21 +125,6 @@ class DescribeUserEventTypeRequest extends Model
 
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
-        }
-
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-
-        if (isset($map['UserStatusList'])) {
-            if (!empty($map['UserStatusList'])) {
-                $model->userStatusList = [];
-                $n1 = 0;
-                foreach ($map['UserStatusList'] as $item1) {
-                    $model->userStatusList[$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         return $model;

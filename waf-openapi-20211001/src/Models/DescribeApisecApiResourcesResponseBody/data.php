@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $accountEventNum;
+
+    /**
+     * @var int
+     */
     public $allCnt;
 
     /**
@@ -124,6 +129,7 @@ class data extends Model
     public $resources;
     protected $_name = [
         'abnormalNum' => 'AbnormalNum',
+        'accountEventNum' => 'AccountEventNum',
         'allCnt' => 'AllCnt',
         'apiFormat' => 'ApiFormat',
         'apiId' => 'ApiId',
@@ -164,6 +170,10 @@ class data extends Model
         $res = [];
         if (null !== $this->abnormalNum) {
             $res['AbnormalNum'] = $this->abnormalNum;
+        }
+
+        if (null !== $this->accountEventNum) {
+            $res['AccountEventNum'] = $this->accountEventNum;
         }
 
         if (null !== $this->allCnt) {
@@ -281,6 +291,10 @@ class data extends Model
         $model = new self();
         if (isset($map['AbnormalNum'])) {
             $model->abnormalNum = $map['AbnormalNum'];
+        }
+
+        if (isset($map['AccountEventNum'])) {
+            $model->accountEventNum = $map['AccountEventNum'];
         }
 
         if (isset($map['AllCnt'])) {

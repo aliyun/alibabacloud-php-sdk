@@ -40,8 +40,6 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateLogDeliveryConfigRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateLogDeliveryConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpResponse;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpV2Request;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpV2Response;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMemberAccountsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreatePocFunctionRequest;
@@ -92,6 +90,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecApiResourcesReque
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecApiResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAssetTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecAssetTrendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDetailRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDetailResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventDomainStatisticResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecEventsRequest;
@@ -1918,91 +1918,6 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * 添加重保场景黑IP.
-     *
-     * @param request - CreateMajorProtectionBlackIpV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateMajorProtectionBlackIpV2Response
-     *
-     * @param CreateMajorProtectionBlackIpV2Request $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreateMajorProtectionBlackIpV2Response
-     */
-    public function createMajorProtectionBlackIpV2WithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
-        }
-
-        if (null !== $request->expiredTime) {
-            @$query['ExpiredTime'] = $request->expiredTime;
-        }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
-        }
-
-        if (null !== $request->ipList) {
-            @$query['IpList'] = $request->ipList;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->resourceManagerResourceGroupId) {
-            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
-        }
-
-        if (null !== $request->ruleId) {
-            @$query['RuleId'] = $request->ruleId;
-        }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'CreateMajorProtectionBlackIpV2',
-            'version' => '2021-10-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateMajorProtectionBlackIpV2Response::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 添加重保场景黑IP.
-     *
-     * @param request - CreateMajorProtectionBlackIpV2Request
-     *
-     * @returns CreateMajorProtectionBlackIpV2Response
-     *
-     * @param CreateMajorProtectionBlackIpV2Request $request
-     *
-     * @return CreateMajorProtectionBlackIpV2Response
-     */
-    public function createMajorProtectionBlackIpV2($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createMajorProtectionBlackIpV2WithOptions($request, $runtime);
-    }
-
-    /**
      * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
      *
      * @param request - CreateMemberAccountsRequest
@@ -2386,6 +2301,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->eventIds) {
             @$query['EventIds'] = $request->eventIds;
+        }
+
+        if (null !== $request->eventScope) {
+            @$query['EventScope'] = $request->eventScope;
         }
 
         if (null !== $request->instanceId) {
@@ -3956,6 +3875,87 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 查询安全事件详情.
+     *
+     * @param request - DescribeApisecEventDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApisecEventDetailResponse
+     *
+     * @param DescribeApisecEventDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeApisecEventDetailResponse
+     */
+    public function describeApisecEventDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->detailType) {
+            @$query['DetailType'] = $request->detailType;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventScope) {
+            @$query['EventScope'] = $request->eventScope;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApisecEventDetail',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApisecEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询安全事件详情.
+     *
+     * @param request - DescribeApisecEventDetailRequest
+     *
+     * @returns DescribeApisecEventDetailResponse
+     *
+     * @param DescribeApisecEventDetailRequest $request
+     *
+     * @return DescribeApisecEventDetailResponse
+     */
+    public function describeApisecEventDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApisecEventDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the statistics on domain names on which security events are detected by the API security module.
      *
      * @param request - DescribeApisecEventDomainStatisticRequest
@@ -4061,6 +4061,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->account) {
+            @$query['Account'] = $request->account;
+        }
+
         if (null !== $request->apiFormat) {
             @$query['ApiFormat'] = $request->apiFormat;
         }
@@ -4091,6 +4095,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->eventLevel) {
             @$query['EventLevel'] = $request->eventLevel;
+        }
+
+        if (null !== $request->eventScope) {
+            @$query['EventScope'] = $request->eventScope;
         }
 
         if (null !== $request->eventTag) {
@@ -12303,6 +12311,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->account) {
+            @$query['Account'] = $request->account;
+        }
+
         if (null !== $request->apiFormat) {
             @$query['ApiFormat'] = $request->apiFormat;
         }
@@ -13259,6 +13271,10 @@ class Wafopenapi extends OpenApiClient
             @$query['ClusterId'] = $request->clusterId;
         }
 
+        if (null !== $request->eventScope) {
+            @$query['EventScope'] = $request->eventScope;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -13330,6 +13346,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->eventScope) {
+            @$query['EventScope'] = $request->eventScope;
         }
 
         if (null !== $request->instanceId) {
@@ -14340,6 +14360,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->eventIds) {
             @$query['EventIds'] = $request->eventIds;
+        }
+
+        if (null !== $request->eventScope) {
+            @$query['EventScope'] = $request->eventScope;
         }
 
         if (null !== $request->instanceId) {

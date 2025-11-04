@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateMajorProtectionBlackIpV2Response extends Model
+class DescribeApisecEventDetailResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateMajorProtectionBlackIpV2Response extends Model
     public $statusCode;
 
     /**
-     * @var CreateMajorProtectionBlackIpV2ResponseBody
+     * @var DescribeApisecEventDetailResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class CreateMajorProtectionBlackIpV2Response extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = CreateMajorProtectionBlackIpV2ResponseBody::fromMap($map['body']);
+            $model->body = DescribeApisecEventDetailResponseBody::fromMap($map['body']);
         }
 
         return $model;

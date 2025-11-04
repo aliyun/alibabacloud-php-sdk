@@ -21,6 +21,11 @@ class ModifyApisecEventsRequest extends Model
     /**
      * @var string
      */
+    public $eventScope;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -45,6 +50,7 @@ class ModifyApisecEventsRequest extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'eventIds' => 'EventIds',
+        'eventScope' => 'EventScope',
         'instanceId' => 'InstanceId',
         'note' => 'Note',
         'regionId' => 'RegionId',
@@ -76,6 +82,10 @@ class ModifyApisecEventsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->eventScope) {
+            $res['EventScope'] = $this->eventScope;
         }
 
         if (null !== $this->instanceId) {
@@ -122,6 +132,10 @@ class ModifyApisecEventsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EventScope'])) {
+            $model->eventScope = $map['EventScope'];
         }
 
         if (isset($map['InstanceId'])) {

@@ -21,6 +21,11 @@ class DeleteApisecEventsRequest extends Model
     /**
      * @var string
      */
+    public $eventScope;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -35,6 +40,7 @@ class DeleteApisecEventsRequest extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'eventIds' => 'EventIds',
+        'eventScope' => 'EventScope',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -64,6 +70,10 @@ class DeleteApisecEventsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->eventScope) {
+            $res['EventScope'] = $this->eventScope;
         }
 
         if (null !== $this->instanceId) {
@@ -102,6 +112,10 @@ class DeleteApisecEventsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EventScope'])) {
+            $model->eventScope = $map['EventScope'];
         }
 
         if (isset($map['InstanceId'])) {

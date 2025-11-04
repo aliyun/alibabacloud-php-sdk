@@ -11,6 +11,11 @@ class DescribeApisecEventsRequest extends Model
     /**
      * @var string
      */
+    public $account;
+
+    /**
+     * @var string
+     */
     public $apiFormat;
 
     /**
@@ -47,6 +52,11 @@ class DescribeApisecEventsRequest extends Model
      * @var string
      */
     public $eventLevel;
+
+    /**
+     * @var string
+     */
+    public $eventScope;
 
     /**
      * @var string
@@ -108,6 +118,7 @@ class DescribeApisecEventsRequest extends Model
      */
     public $userStatus;
     protected $_name = [
+        'account' => 'Account',
         'apiFormat' => 'ApiFormat',
         'apiId' => 'ApiId',
         'apiTag' => 'ApiTag',
@@ -116,6 +127,7 @@ class DescribeApisecEventsRequest extends Model
         'endTs' => 'EndTs',
         'eventId' => 'EventId',
         'eventLevel' => 'EventLevel',
+        'eventScope' => 'EventScope',
         'eventTag' => 'EventTag',
         'instanceId' => 'InstanceId',
         'matchedHost' => 'MatchedHost',
@@ -138,6 +150,10 @@ class DescribeApisecEventsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->account) {
+            $res['Account'] = $this->account;
+        }
+
         if (null !== $this->apiFormat) {
             $res['ApiFormat'] = $this->apiFormat;
         }
@@ -168,6 +184,10 @@ class DescribeApisecEventsRequest extends Model
 
         if (null !== $this->eventLevel) {
             $res['EventLevel'] = $this->eventLevel;
+        }
+
+        if (null !== $this->eventScope) {
+            $res['EventScope'] = $this->eventScope;
         }
 
         if (null !== $this->eventTag) {
@@ -229,6 +249,10 @@ class DescribeApisecEventsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Account'])) {
+            $model->account = $map['Account'];
+        }
+
         if (isset($map['ApiFormat'])) {
             $model->apiFormat = $map['ApiFormat'];
         }
@@ -259,6 +283,10 @@ class DescribeApisecEventsRequest extends Model
 
         if (isset($map['EventLevel'])) {
             $model->eventLevel = $map['EventLevel'];
+        }
+
+        if (isset($map['EventScope'])) {
+            $model->eventScope = $map['EventScope'];
         }
 
         if (isset($map['EventTag'])) {

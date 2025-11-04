@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $account;
+
+    /**
+     * @var int
+     */
     public $actioned;
 
     /**
@@ -103,6 +108,7 @@ class data extends Model
      */
     public $total;
     protected $_name = [
+        'account' => 'Account',
         'actioned' => 'Actioned',
         'api' => 'Api',
         'confirmed' => 'Confirmed',
@@ -132,6 +138,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->account) {
+            $res['Account'] = $this->account;
+        }
+
         if (null !== $this->actioned) {
             $res['Actioned'] = $this->actioned;
         }
@@ -219,6 +229,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Account'])) {
+            $model->account = $map['Account'];
+        }
+
         if (isset($map['Actioned'])) {
             $model->actioned = $map['Actioned'];
         }

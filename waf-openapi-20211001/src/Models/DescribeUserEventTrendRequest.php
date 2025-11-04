@@ -16,6 +16,11 @@ class DescribeUserEventTrendRequest extends Model
     /**
      * @var string
      */
+    public $eventScope;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -29,6 +34,7 @@ class DescribeUserEventTrendRequest extends Model
     public $resourceManagerResourceGroupId;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'eventScope' => 'EventScope',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
@@ -44,6 +50,10 @@ class DescribeUserEventTrendRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->eventScope) {
+            $res['EventScope'] = $this->eventScope;
         }
 
         if (null !== $this->instanceId) {
@@ -71,6 +81,10 @@ class DescribeUserEventTrendRequest extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['EventScope'])) {
+            $model->eventScope = $map['EventScope'];
         }
 
         if (isset($map['InstanceId'])) {
