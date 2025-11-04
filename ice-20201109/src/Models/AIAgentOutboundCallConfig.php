@@ -32,6 +32,11 @@ class AIAgentOutboundCallConfig extends Model
     /**
      * @var string
      */
+    public $experimentalConfig;
+
+    /**
+     * @var string
+     */
     public $greeting;
 
     /**
@@ -62,6 +67,7 @@ class AIAgentOutboundCallConfig extends Model
         'ambientSoundConfig' => 'AmbientSoundConfig',
         'asrConfig' => 'AsrConfig',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
+        'experimentalConfig' => 'ExperimentalConfig',
         'greeting' => 'Greeting',
         'greetingDelay' => 'GreetingDelay',
         'interruptConfig' => 'InterruptConfig',
@@ -106,6 +112,10 @@ class AIAgentOutboundCallConfig extends Model
 
         if (null !== $this->enableIntelligentSegment) {
             $res['EnableIntelligentSegment'] = $this->enableIntelligentSegment;
+        }
+
+        if (null !== $this->experimentalConfig) {
+            $res['ExperimentalConfig'] = $this->experimentalConfig;
         }
 
         if (null !== $this->greeting) {
@@ -153,6 +163,10 @@ class AIAgentOutboundCallConfig extends Model
 
         if (isset($map['EnableIntelligentSegment'])) {
             $model->enableIntelligentSegment = $map['EnableIntelligentSegment'];
+        }
+
+        if (isset($map['ExperimentalConfig'])) {
+            $model->experimentalConfig = $map['ExperimentalConfig'];
         }
 
         if (isset($map['Greeting'])) {

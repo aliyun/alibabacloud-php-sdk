@@ -11,6 +11,11 @@ class SearchMediaByMultimodalRequest extends Model
     /**
      * @var string
      */
+    public $customFilters;
+
+    /**
+     * @var string
+     */
     public $mediaType;
 
     /**
@@ -37,13 +42,20 @@ class SearchMediaByMultimodalRequest extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @var string
+     */
+    public $utcCreate;
     protected $_name = [
+        'customFilters' => 'CustomFilters',
         'mediaType' => 'MediaType',
         'namespace' => 'Namespace',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'searchLibName' => 'SearchLibName',
         'text' => 'Text',
+        'utcCreate' => 'UtcCreate',
     ];
 
     public function validate()
@@ -54,6 +66,10 @@ class SearchMediaByMultimodalRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customFilters) {
+            $res['CustomFilters'] = $this->customFilters;
+        }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
@@ -78,6 +94,10 @@ class SearchMediaByMultimodalRequest extends Model
             $res['Text'] = $this->text;
         }
 
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
+        }
+
         return $res;
     }
 
@@ -89,6 +109,10 @@ class SearchMediaByMultimodalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomFilters'])) {
+            $model->customFilters = $map['CustomFilters'];
+        }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
@@ -111,6 +135,10 @@ class SearchMediaByMultimodalRequest extends Model
 
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
         }
 
         return $model;

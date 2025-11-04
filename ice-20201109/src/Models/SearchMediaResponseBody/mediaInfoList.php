@@ -24,6 +24,11 @@ class mediaInfoList extends Model
     public $aiRoughData;
 
     /**
+     * @var string
+     */
+    public $customFields;
+
+    /**
      * @var fileInfoList[]
      */
     public $fileInfoList;
@@ -45,6 +50,7 @@ class mediaInfoList extends Model
     protected $_name = [
         'aiData' => 'AiData',
         'aiRoughData' => 'AiRoughData',
+        'customFields' => 'CustomFields',
         'fileInfoList' => 'FileInfoList',
         'indexStatusList' => 'IndexStatusList',
         'mediaBasicInfo' => 'MediaBasicInfo',
@@ -80,6 +86,10 @@ class mediaInfoList extends Model
 
         if (null !== $this->aiRoughData) {
             $res['AiRoughData'] = null !== $this->aiRoughData ? $this->aiRoughData->toArray($noStream) : $this->aiRoughData;
+        }
+
+        if (null !== $this->customFields) {
+            $res['CustomFields'] = $this->customFields;
         }
 
         if (null !== $this->fileInfoList) {
@@ -129,6 +139,10 @@ class mediaInfoList extends Model
 
         if (isset($map['AiRoughData'])) {
             $model->aiRoughData = aiRoughData::fromMap($map['AiRoughData']);
+        }
+
+        if (isset($map['CustomFields'])) {
+            $model->customFields = $map['CustomFields'];
         }
 
         if (isset($map['FileInfoList'])) {

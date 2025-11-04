@@ -242,6 +242,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateMessageChatTokenRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateMessageChatTokenResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAIWorkflowTaskRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAIWorkflowTaskResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarTrainingJobRequest;
@@ -578,6 +580,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentOutboundCallRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentOutboundCallResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentOutboundCallShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIWorkflowRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIWorkflowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartChannelRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartMediaLiveChannelRequest;
@@ -589,6 +593,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartWorkflowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopAIAgentInstanceResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StopAIWorkflowTaskRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\StopAIWorkflowTaskResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopChannelRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopChannelResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StopMediaLiveChannelRequest;
@@ -657,6 +663,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitProjectExportJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitProjectExportJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSceneMediaSelectionJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSceneMediaSelectionJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitScreenMediaHighlightsJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitScreenMediaHighlightsJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSegmentationJobRequest;
@@ -1452,7 +1460,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 打标流媒资.
+     * Adds tags for a specific live stream media asset.
      *
      * @param request - AddStreamTagToSearchLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1503,7 +1511,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 打标流媒资.
+     * Adds tags for a specific live stream media asset.
      *
      * @param request - AddStreamTagToSearchLibRequest
      *
@@ -1957,7 +1965,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 取消智能生产任务
+     * Cancels an intelligent production job.
      *
      * @param request - CancelIProductionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2000,7 +2008,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 取消智能生产任务
+     * Cancels an intelligent production job.
      *
      * @param request - CancelIProductionJobRequest
      *
@@ -2018,7 +2026,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 清除声纹ID对应的声纹.
+     * Deletes a voiceprint based on its ID.
+     *
+     * @remarks
+     * ## [](#)
+     * ``````````
      *
      * @param request - ClearAIAgentVoiceprintRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2057,7 +2069,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 清除声纹ID对应的声纹.
+     * Deletes a voiceprint based on its ID.
+     *
+     * @remarks
+     * ## [](#)
+     * ``````````
      *
      * @param request - ClearAIAgentVoiceprintRequest
      *
@@ -2075,7 +2091,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 关闭MediaConnect实例的双流灾备功能.
+     * Disables Source Failover for a MediaConnect flow.
+     *
+     * @remarks
+     *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
      *
      * @param request - CloseMediaConnectFlowFailoverRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2114,7 +2133,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 关闭MediaConnect实例的双流灾备功能.
+     * Disables Source Failover for a MediaConnect flow.
+     *
+     * @remarks
+     *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
      *
      * @param request - CloseMediaConnectFlowFailoverRequest
      *
@@ -2132,7 +2154,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 关闭流媒资.
+     * Stops the tagging and analysis process for a live stream media asset.
      *
      * @param request - CloseStreamToSearchLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2179,7 +2201,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 关闭流媒资.
+     * Stops the tagging and analysis process for a live stream media asset.
      *
      * @param request - CloseStreamToSearchLibRequest
      *
@@ -2744,7 +2766,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建热词库.
+     * Creates a hotword library.
      *
      * @param tmpReq - CreateHotwordLibraryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2801,7 +2823,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建热词库.
+     * Creates a hotword library.
      *
      * @param request - CreateHotwordLibraryRequest
      *
@@ -3805,7 +3827,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建自定义实体.
+     * Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - CreateRecognitionEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3872,7 +3898,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建自定义实体.
+     * Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - CreateRecognitionEntityRequest
      *
@@ -3890,7 +3920,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建自定义库。
+     * Creates a custom library to store the entity information for recognition.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - CreateRecognitionLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3953,7 +3988,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建自定义库。
+     * Creates a custom library to store the entity information for recognition.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - CreateRecognitionLibRequest
      *
@@ -3971,7 +4011,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 注册自定义实体照片.
+     * Adds a sample image or a text label to a specific entity within a recognition library.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - CreateRecognitionSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4042,7 +4086,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 注册自定义实体照片.
+     * Adds a sample image or a text label to a specific entity within a recognition library.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - CreateRecognitionSampleRequest
      *
@@ -4330,7 +4378,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建流媒资.
+     * Registers a live stream as a media asset.
      *
      * @param request - CreateStreamToSearchLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4377,7 +4425,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建流媒资.
+     * Registers a live stream as a media asset.
      *
      * @param request - CreateStreamToSearchLibRequest
      *
@@ -4853,7 +4901,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除智能体的对话历史记录。
+     * Deletes dialog records of an AI agent.
      *
      * @param request - DeleteAIAgentDialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4900,7 +4948,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除智能体的对话历史记录。
+     * Deletes dialog records of an AI agent.
      *
      * @param request - DeleteAIAgentDialogueRequest
      *
@@ -5538,7 +5586,13 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除热词词库.
+     * Deletes a specified hotword library based on the ID.
+     *
+     * @remarks
+     * ## [](#)
+     * *   You can call this operation to delete a specified hotword library.
+     * *   The delete operation is irreversible.
+     * *   You can create up to 100 hotword libraries in an account.
      *
      * @param request - DeleteHotwordLibraryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5577,7 +5631,13 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除热词词库.
+     * Deletes a specified hotword library based on the ID.
+     *
+     * @remarks
+     * ## [](#)
+     * *   You can call this operation to delete a specified hotword library.
+     * *   The delete operation is irreversible.
+     * *   You can create up to 100 hotword libraries in an account.
      *
      * @param request - DeleteHotwordLibraryRequest
      *
@@ -6954,7 +7014,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除自定义库实体.
+     * Deletes an entity from the specified custom recognition library.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - DeleteRecognitionEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7017,7 +7081,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除自定义库实体.
+     * Deletes an entity from the specified custom recognition library.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - DeleteRecognitionEntityRequest
      *
@@ -7035,7 +7103,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除自定义库.
+     * Deletes a custom recognition library, including all entities and samples within it.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - DeleteRecognitionLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7094,7 +7166,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除自定义库.
+     * Deletes a custom recognition library, including all entities and samples within it.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - DeleteRecognitionLibRequest
      *
@@ -7112,7 +7188,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除自定义实体照片.
+     * Deletes a sample for a custom entity.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - DeleteRecognitionSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7179,7 +7259,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除自定义实体照片.
+     * Deletes a sample for a custom entity.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - DeleteRecognitionSampleRequest
      *
@@ -8089,6 +8173,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * Retrieves playback records based on the player\\"s TraceId. This API supports pagination.
+     *
      * @param request - DescribePlayListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8158,6 +8244,8 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * Retrieves playback records based on the player\\"s TraceId. This API supports pagination.
+     *
      * @param request - DescribePlayListRequest
      *
      * @returns DescribePlayListResponse
@@ -8414,7 +8502,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 禁用某个MediaConnect实例的某个输出.
+     * Disables an output of a MediaConnect flow. When disabled, the output retains its configuration, but no live stream is delivered to the destination.
      *
      * @param request - ForbidMediaConnectFlowOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8457,7 +8545,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 禁用某个MediaConnect实例的某个输出.
+     * Disables an output of a MediaConnect flow. When disabled, the output retains its configuration, but no live stream is delivered to the destination.
      *
      * @param request - ForbidMediaConnectFlowOutputRequest
      *
@@ -8689,7 +8777,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 生成直播互动消息所需的token.
+     * Generates the token required for interactive messaging.
      *
      * @param request - GenerateMessageChatTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8740,7 +8828,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 生成直播互动消息所需的token.
+     * Generates the token required for interactive messaging.
      *
      * @param request - GenerateMessageChatTokenRequest
      *
@@ -8755,6 +8843,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateMessageChatTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a workflow task.
+     *
+     * @param request - GetAIWorkflowTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIWorkflowTaskResponse
+     *
+     * @param GetAIWorkflowTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAIWorkflowTaskResponse
+     */
+    public function getAIWorkflowTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAIWorkflowTask',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAIWorkflowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a workflow task.
+     *
+     * @param request - GetAIWorkflowTaskRequest
+     *
+     * @returns GetAIWorkflowTaskResponse
+     *
+     * @param GetAIWorkflowTaskRequest $request
+     *
+     * @return GetAIWorkflowTaskResponse
+     */
+    public function getAIWorkflowTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAIWorkflowTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -9725,7 +9870,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询热词词库.
+     * Queries the information about a specified hotword library based on the ID.
+     *
+     * @remarks
+     * ## [](#)
+     * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
      *
      * @param request - GetHotwordLibraryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9764,7 +9913,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询热词词库.
+     * Queries the information about a specified hotword library based on the ID.
+     *
+     * @remarks
+     * ## [](#)
+     * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
      *
      * @param request - GetHotwordLibraryRequest
      *
@@ -10439,7 +10592,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取MediaConnect可用的区域
+     * Retrieves all regions where MediaConnect is available.
      *
      * @param request - GetMediaConnectAvailableRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10469,7 +10622,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取MediaConnect可用的区域
+     * Retrieves all regions where MediaConnect is available.
      *
      * @returns GetMediaConnectAvailableRegionResponse
      *
@@ -10548,7 +10701,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取某个MediaConnect实例下的所有output的名字.
+     * Retrieves the names of all outputs for a MediaConnect flow.
      *
      * @param request - GetMediaConnectFlowAllOutputNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10587,7 +10740,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取某个MediaConnect实例下的所有output的名字.
+     * Retrieves the names of all outputs for a MediaConnect flow.
      *
      * @param request - GetMediaConnectFlowAllOutputNameRequest
      *
@@ -11483,7 +11636,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询工程导出任务
+     * Queries the information of a project export task.
      *
      * @param request - GetProjectExportJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11522,7 +11675,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询工程导出任务
+     * Queries the information of a project export task.
      *
      * @param request - GetProjectExportJobRequest
      *
@@ -11906,7 +12059,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取存储地址列表.
+     * Obtains storage configurations.
      *
      * @param request - GetStorageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11953,7 +12106,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取存储地址列表.
+     * Obtains storage configurations.
      *
      * @param request - GetStorageListRequest
      *
@@ -11971,7 +12124,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询流媒资打标.
+     * Retrieves tags of a live stream media asset.
      *
      * @param request - GetStreamTagListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12042,7 +12195,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询流媒资打标.
+     * Retrieves tags of a live stream media asset.
      *
      * @param request - GetStreamTagListRequest
      *
@@ -12824,7 +12977,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 列出智能体的对话历史记录。
+     * Lists the dialog records of an AI agent.
      *
      * @param request - ListAIAgentDialoguesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12887,7 +13040,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 列出智能体的对话历史记录。
+     * Lists the dialog records of an AI agent.
      *
      * @param request - ListAIAgentDialoguesRequest
      *
@@ -13059,7 +13212,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 更新回调配置.
+     * Lists the registered voiceprints.
      *
      * @param request - ListAIAgentVoiceprintsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13106,7 +13259,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 更新回调配置.
+     * Lists the registered voiceprints.
      *
      * @param request - ListAIAgentVoiceprintsRequest
      *
@@ -14273,7 +14426,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询所有热词库的列表.
+     * Queries hotword libraries that meet specific search conditions.
+     *
+     * @remarks
+     * ## [](#)
+     * *   You can call this operation to get information about all hotword libraries that you created.
+     * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+     * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+     * *   The maximum number of entries returned for each request is 100. Default value: 10.
+     * *   Use `NextToken` for pagination.
      *
      * @param request - ListHotwordLibrariesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14344,7 +14505,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询所有热词库的列表.
+     * Queries hotword libraries that meet specific search conditions.
+     *
+     * @remarks
+     * ## [](#)
+     * *   You can call this operation to get information about all hotword libraries that you created.
+     * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+     * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+     * *   The maximum number of entries returned for each request is 100. Default value: 10.
+     * *   Use `NextToken` for pagination.
      *
      * @param request - ListHotwordLibrariesRequest
      *
@@ -15200,7 +15369,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询 MediaConvertJob 列表.
+     * Retrieves MediaConvert tasks.
      *
      * @param request - ListMediaConvertJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15263,7 +15432,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询 MediaConvertJob 列表.
+     * Retrieves MediaConvert tasks.
      *
      * @param request - ListMediaConvertJobsRequest
      *
@@ -16059,7 +16228,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取自定义库下实体列表.
+     * Retrieves all entities in a specified recognition library. Pagination is supported.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - ListRecognitionEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16126,7 +16299,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取自定义库下实体列表.
+     * Retrieves all entities in a specified recognition library. Pagination is supported.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - ListRecognitionEntitiesRequest
      *
@@ -16144,7 +16321,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取自定义库列表.
+     * Retrieves all custom recognition libraries. Pagination is supported.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - ListRecognitionLibsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16207,7 +16388,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取自定义库列表.
+     * Retrieves all custom recognition libraries. Pagination is supported.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+     * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
      *
      * @param request - ListRecognitionLibsRequest
      *
@@ -16225,7 +16410,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取自定义库实体的图片列表.
+     * Retrieves all samples of a custom entity. Pagination is supported.
      *
      * @param request - ListRecognitionSamplesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16296,7 +16481,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取自定义库实体的图片列表.
+     * Retrieves all samples of a custom entity. Pagination is supported.
      *
      * @param request - ListRecognitionSamplesRequest
      *
@@ -17384,7 +17569,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 工作流任务实例列表.
+     * Retrieves workflow tasks.
+     *
+     * @remarks
+     * This API only returns data from the last 90 days.
      *
      * @param request - ListWorkflowTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17447,7 +17635,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 工作流任务实例列表.
+     * Retrieves workflow tasks.
+     *
+     * @remarks
+     * This API only returns data from the last 90 days.
      *
      * @param request - ListWorkflowTasksRequest
      *
@@ -17465,7 +17656,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 开启MediaConnect双流灾备.
+     * Enables Source Failover for a MediaConnect flow.
+     *
+     * @remarks
+     *   Before this operation, you must add a source to the flow.
+     * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
      *
      * @param request - OpenMediaConnectFlowFailoverRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17504,7 +17699,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 开启MediaConnect双流灾备.
+     * Enables Source Failover for a MediaConnect flow.
+     *
+     * @remarks
+     *   Before this operation, you must add a source to the flow.
+     * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
      *
      * @param request - OpenMediaConnectFlowFailoverRequest
      *
@@ -17522,7 +17721,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询版权水印提取任务
+     * Queries a job for extracting a copyright watermark.
      *
      * @param request - QueryCopyrightExtractJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17561,7 +17760,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询版权水印提取任务
+     * Queries a job for extracting a copyright watermark.
      *
      * @param request - QueryCopyrightExtractJobRequest
      *
@@ -17579,7 +17778,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询视频版权水印任务列表.
+     * Queries copyright watermarking jobs.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param request - QueryCopyrightJobListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17638,7 +17840,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询视频版权水印任务列表.
+     * Queries copyright watermarking jobs.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param request - QueryCopyrightJobListRequest
      *
@@ -18220,7 +18425,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询视频溯源水印ab流任务
+     * Queries A/B watermarking jobs.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param request - QueryTraceAbJobListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18279,7 +18487,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询视频溯源水印ab流任务
+     * Queries A/B watermarking jobs.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param request - QueryTraceAbJobListRequest
      *
@@ -18297,7 +18508,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询溯源水印提取任务
+     * Queries a job for extracting a trace watermark.
+     *
+     * @remarks
+     * This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param request - QueryTraceExtractJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18336,7 +18550,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询溯源水印提取任务
+     * Queries a job for extracting a trace watermark.
+     *
+     * @remarks
+     * This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param request - QueryTraceExtractJobRequest
      *
@@ -18354,7 +18571,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询视频溯源水印m3u8任务
+     * Queries jobs for generating M3U8 files containing specific trace watermark information.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+     * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
      *
      * @param request - QueryTraceM3u8JobListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18409,7 +18630,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询视频溯源水印m3u8任务
+     * Queries jobs for generating M3U8 files containing specific trace watermark information.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+     * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
      *
      * @param request - QueryTraceM3u8JobListRequest
      *
@@ -18427,7 +18652,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询视频理解任务结果.
+     * Retrieves the results of an AI analysis and processing task.
      *
      * @param tmpReq - QueryVideoCognitionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18480,7 +18705,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询视频理解任务结果.
+     * Retrieves the results of an AI analysis and processing task.
      *
      * @param request - QueryVideoCognitionJobRequest
      *
@@ -18755,7 +18980,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 恢复某个MediaConnect实例的某个输出.
+     * Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
      *
      * @param request - ResumeMediaConnectFlowOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18798,7 +19023,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 恢复某个MediaConnect实例的某个输出.
+     * Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
      *
      * @param request - ResumeMediaConnectFlowOutputRequest
      *
@@ -18993,6 +19218,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customFilters) {
+            @$query['CustomFilters'] = $request->customFilters;
+        }
+
         if (null !== $request->entityId) {
             @$query['EntityId'] = $request->entityId;
         }
@@ -19080,6 +19309,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customFilters) {
+            @$query['CustomFilters'] = $request->customFilters;
+        }
+
         if (null !== $request->matchingMode) {
             @$query['MatchingMode'] = $request->matchingMode;
         }
@@ -19122,6 +19355,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->text) {
             @$query['Text'] = $request->text;
+        }
+
+        if (null !== $request->utcCreate) {
+            @$query['UtcCreate'] = $request->utcCreate;
         }
 
         $req = new OpenApiRequest([
@@ -19183,6 +19420,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customFilters) {
+            @$query['CustomFilters'] = $request->customFilters;
+        }
+
         if (null !== $request->entityId) {
             @$query['EntityId'] = $request->entityId;
         }
@@ -19213,6 +19454,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->searchLibName) {
             @$query['SearchLibName'] = $request->searchLibName;
+        }
+
+        if (null !== $request->utcCreate) {
+            @$query['UtcCreate'] = $request->utcCreate;
         }
 
         $req = new OpenApiRequest([
@@ -19255,7 +19500,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
+     * Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
      *
      * @param request - SearchMediaByHybridRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19271,6 +19516,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customFilters) {
+            @$query['CustomFilters'] = $request->customFilters;
+        }
+
         if (null !== $request->mediaId) {
             @$query['MediaId'] = $request->mediaId;
         }
@@ -19299,6 +19548,10 @@ class ICE extends OpenApiClient
             @$query['Text'] = $request->text;
         }
 
+        if (null !== $request->utcCreate) {
+            @$query['UtcCreate'] = $request->utcCreate;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -19318,7 +19571,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
+     * Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
      *
      * @param request - SearchMediaByHybridRequest
      *
@@ -19355,6 +19608,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customFilters) {
+            @$query['CustomFilters'] = $request->customFilters;
+        }
+
         if (null !== $request->mediaType) {
             @$query['MediaType'] = $request->mediaType;
         }
@@ -19377,6 +19634,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->text) {
             @$query['Text'] = $request->text;
+        }
+
+        if (null !== $request->utcCreate) {
+            @$query['UtcCreate'] = $request->utcCreate;
         }
 
         $req = new OpenApiRequest([
@@ -19731,7 +19992,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 传入消息作为LLM输入。
+     * Sends a message as input to the large language model (LLM).
      *
      * @param request - SendAIAgentTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19774,7 +20035,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 传入消息作为LLM输入。
+     * Sends a message as input to the large language model (LLM).
      *
      * @param request - SendAIAgentTextRequest
      *
@@ -19914,7 +20175,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 向IM客户端发送消息。
+     * Sends a message to the client.
      *
      * @param request - SendMessageChatTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19977,7 +20238,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 向IM客户端发送消息。
+     * Sends a message to the client.
      *
      * @param request - SendMessageChatTextRequest
      *
@@ -19995,7 +20256,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 设置声纹.
+     * Registers a voiceprint.
      *
      * @param tmpReq - SetAIAgentVoiceprintRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20044,7 +20305,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 设置声纹.
+     * Registers a voiceprint.
      *
      * @param request - SetAIAgentVoiceprintRequest
      *
@@ -20607,6 +20868,81 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * Initiates a workflow task for automated media processing based on a workflow template.
+     *
+     * @remarks
+     *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+     *
+     * @param request - StartAIWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAIWorkflowResponse
+     *
+     * @param StartAIWorkflowRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StartAIWorkflowResponse
+     */
+    public function startAIWorkflowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dispatchTag) {
+            @$query['DispatchTag'] = $request->dispatchTag;
+        }
+
+        if (null !== $request->inputs) {
+            @$query['Inputs'] = $request->inputs;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartAIWorkflow',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartAIWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates a workflow task for automated media processing based on a workflow template.
+     *
+     * @remarks
+     *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+     *
+     * @param request - StartAIWorkflowRequest
+     *
+     * @returns StartAIWorkflowResponse
+     *
+     * @param StartAIWorkflowRequest $request
+     *
+     * @return StartAIWorkflowResponse
+     */
+    public function startAIWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startAIWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
      * Starts a channel.
      *
      * @param request - StartChannelRequest
@@ -20956,6 +21292,69 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * Manually stops a workflow task.
+     *
+     * @remarks
+     * This operation is only used to stop workflow tasks in real-time scenarios such as live streaming and RTC. It cannot be used to stop tasks in offline scenarios.
+     *
+     * @param request - StopAIWorkflowTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAIWorkflowTaskResponse
+     *
+     * @param StopAIWorkflowTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopAIWorkflowTaskResponse
+     */
+    public function stopAIWorkflowTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopAIWorkflowTask',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopAIWorkflowTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Manually stops a workflow task.
+     *
+     * @remarks
+     * This operation is only used to stop workflow tasks in real-time scenarios such as live streaming and RTC. It cannot be used to stop tasks in offline scenarios.
+     *
+     * @param request - StopAIWorkflowTaskRequest
+     *
+     * @returns StopAIWorkflowTaskResponse
+     *
+     * @param StopAIWorkflowTaskRequest $request
+     *
+     * @return StopAIWorkflowTaskResponse
+     */
+    public function stopAIWorkflowTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopAIWorkflowTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Stops a MediaWeaver channel.
      *
      * @param request - StopChannelRequest
@@ -21135,7 +21534,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交视频送审任务
+     * Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.
+     *
+     * @remarks
+     * Call SubmitAIAgentVideoAuditTask to submit a video moderation task with configurations such as a video URL, frame-capturing policies, and review interval. The system returns a unique JobId for tracking. When the task is complete, the service will push the results, including the moderation status and AI-generated analysis, to the configured callback URL. Only OSS URLs are supported as input. The underlying multi-modal large language model (MLLM) only supports interaction via the non-streaming OpenAI protocol.
      *
      * @param tmpReq - SubmitAIAgentVideoAuditTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21208,7 +21610,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交视频送审任务
+     * Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.
+     *
+     * @remarks
+     * Call SubmitAIAgentVideoAuditTask to submit a video moderation task with configurations such as a video URL, frame-capturing policies, and review interval. The system returns a unique JobId for tracking. When the task is complete, the service will push the results, including the moderation status and AI-generated analysis, to the configured callback URL. Only OSS URLs are supported as input. The underlying multi-modal large language model (MLLM) only supports interaction via the non-streaming OpenAI protocol.
      *
      * @param request - SubmitAIAgentVideoAuditTaskRequest
      *
@@ -21445,7 +21850,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
+     * Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+     *
+     * @remarks
+     * - The input supports only text or a human voice audio file in MP3 or WAV format.
+     * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
+     * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
      *
      * @param request - SubmitAvatarVideoJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21504,7 +21914,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
+     * Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+     *
+     * @remarks
+     * - The input supports only text or a human voice audio file in MP3 or WAV format.
+     * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
+     * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
      *
      * @param request - SubmitAvatarVideoJobRequest
      *
@@ -21601,7 +22016,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交版权水印提取作业.
+     * Submits a job that extracts a copyright watermark.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param tmpReq - SubmitCopyrightExtractJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21654,7 +22072,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交版权水印提取作业.
+     * Submits a job that extracts a copyright watermark.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param request - SubmitCopyrightExtractJobRequest
      *
@@ -21672,7 +22093,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交版权水印任务
+     * Submits a job for adding a copyright watermark to a video.
+     *
+     * @remarks
+     *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
+     * *   Each API call supports processing only one video.
+     * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param tmpReq - SubmitCopyrightJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21753,7 +22179,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交版权水印任务
+     * Submits a job for adding a copyright watermark to a video.
+     *
+     * @remarks
+     *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
+     * *   Each API call supports processing only one video.
+     * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
      *
      * @param request - SubmitCopyrightJobRequest
      *
@@ -23263,7 +23694,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交工程导出任务
+     * Submits a project export task.
      *
      * @param request - SubmitProjectExportJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23320,7 +23751,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交工程导出任务
+     * Submits a project export task.
      *
      * @param request - SubmitProjectExportJobRequest
      *
@@ -23335,6 +23766,89 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitProjectExportJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
+     *
+     * @remarks
+     *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+     * - The feature is in public preview and charges no fees.
+     *
+     * @param request - SubmitSceneMediaSelectionJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSceneMediaSelectionJobResponse
+     *
+     * @param SubmitSceneMediaSelectionJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitSceneMediaSelectionJobResponse
+     */
+    public function submitSceneMediaSelectionJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $body = [];
+        if (null !== $request->editingConfig) {
+            @$body['EditingConfig'] = $request->editingConfig;
+        }
+
+        if (null !== $request->inputConfig) {
+            @$body['InputConfig'] = $request->inputConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSceneMediaSelectionJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSceneMediaSelectionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
+     *
+     * @remarks
+     *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+     * - The feature is in public preview and charges no fees.
+     *
+     * @param request - SubmitSceneMediaSelectionJobRequest
+     *
+     * @returns SubmitSceneMediaSelectionJobResponse
+     *
+     * @param SubmitSceneMediaSelectionJobRequest $request
+     *
+     * @return SubmitSceneMediaSelectionJobResponse
+     */
+    public function submitSceneMediaSelectionJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSceneMediaSelectionJobWithOptions($request, $runtime);
     }
 
     /**
@@ -23409,7 +23923,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交拆条任务
+     * Splits a long video into multiple video clips and outputs as video files or media assets.
      *
      * @param request - SubmitSegmentationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23466,7 +23980,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交拆条任务
+     * Splits a long video into multiple video clips and outputs as video files or media assets.
      *
      * @param request - SubmitSegmentationJobRequest
      *
@@ -23990,7 +24504,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交视频溯源水印ab流任务
+     * Submits an A/B watermarking job.
+     *
+     * @remarks
+     *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
      *
      * @param tmpReq - SubmitTraceAbJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24063,7 +24580,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交视频溯源水印ab流任务
+     * Submits an A/B watermarking job.
+     *
+     * @remarks
+     *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
      *
      * @param request - SubmitTraceAbJobRequest
      *
@@ -24081,7 +24601,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交溯源水印提取任务
+     * Submits a job to extract the trace watermark.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+     * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
      *
      * @param tmpReq - SubmitTraceExtractJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24134,7 +24658,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交溯源水印提取任务
+     * Submits a job to extract the trace watermark.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+     * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
      *
      * @param request - SubmitTraceExtractJobRequest
      *
@@ -24152,7 +24680,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交视频溯源水印m3u8文件任务
+     * Submits a job that generates an M3U8 file containing specific trace watermark information.
+     *
+     * @remarks
+     *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
+     * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+     * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
      *
      * @param tmpReq - SubmitTraceM3u8JobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24213,7 +24746,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交视频溯源水印m3u8文件任务
+     * Submits a job that generates an M3U8 file containing specific trace watermark information.
+     *
+     * @remarks
+     *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
+     * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+     * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
      *
      * @param request - SubmitTraceM3u8JobRequest
      *
@@ -24322,7 +24860,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交视频理解任务
+     * Submits a video for AI analysis and processing.
      *
      * @param tmpReq - SubmitVideoCognitionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24383,7 +24921,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交视频理解任务
+     * Submits a video for AI analysis and processing.
      *
      * @param request - SubmitVideoCognitionJobRequest
      *
@@ -25187,7 +25725,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 更新热词库.
+     * Modifies a specified hotword library, including its name, description, and hotword list.
+     *
+     * @remarks
+     * ## [](#)
+     * *   You can call this operation to modify a specified hotword library.
+     * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+     * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+     * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+     * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
      *
      * @param tmpReq - UpdateHotwordLibraryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25244,7 +25790,15 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 更新热词库.
+     * Modifies a specified hotword library, including its name, description, and hotword list.
+     *
+     * @remarks
+     * ## [](#)
+     * *   You can call this operation to modify a specified hotword library.
+     * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+     * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+     * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+     * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
      *
      * @param request - UpdateHotwordLibraryRequest
      *

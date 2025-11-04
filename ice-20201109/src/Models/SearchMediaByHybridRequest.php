@@ -11,6 +11,11 @@ class SearchMediaByHybridRequest extends Model
     /**
      * @var string
      */
+    public $customFilters;
+
+    /**
+     * @var string
+     */
     public $mediaId;
 
     /**
@@ -42,7 +47,13 @@ class SearchMediaByHybridRequest extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @var string
+     */
+    public $utcCreate;
     protected $_name = [
+        'customFilters' => 'CustomFilters',
         'mediaId' => 'MediaId',
         'mediaType' => 'MediaType',
         'namespace' => 'Namespace',
@@ -50,6 +61,7 @@ class SearchMediaByHybridRequest extends Model
         'pageSize' => 'PageSize',
         'searchLibName' => 'SearchLibName',
         'text' => 'Text',
+        'utcCreate' => 'UtcCreate',
     ];
 
     public function validate()
@@ -60,6 +72,10 @@ class SearchMediaByHybridRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customFilters) {
+            $res['CustomFilters'] = $this->customFilters;
+        }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -88,6 +104,10 @@ class SearchMediaByHybridRequest extends Model
             $res['Text'] = $this->text;
         }
 
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
+        }
+
         return $res;
     }
 
@@ -99,6 +119,10 @@ class SearchMediaByHybridRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomFilters'])) {
+            $model->customFilters = $map['CustomFilters'];
+        }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
@@ -125,6 +149,10 @@ class SearchMediaByHybridRequest extends Model
 
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
         }
 
         return $model;

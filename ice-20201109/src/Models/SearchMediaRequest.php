@@ -11,6 +11,11 @@ class SearchMediaRequest extends Model
     /**
      * @var string
      */
+    public $customFilters;
+
+    /**
+     * @var string
+     */
     public $entityId;
 
     /**
@@ -43,6 +48,7 @@ class SearchMediaRequest extends Model
      */
     public $sortBy;
     protected $_name = [
+        'customFilters' => 'CustomFilters',
         'entityId' => 'EntityId',
         'match' => 'Match',
         'pageNo' => 'PageNo',
@@ -60,6 +66,10 @@ class SearchMediaRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customFilters) {
+            $res['CustomFilters'] = $this->customFilters;
+        }
+
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
@@ -99,6 +109,10 @@ class SearchMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomFilters'])) {
+            $model->customFilters = $map['CustomFilters'];
+        }
+
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }

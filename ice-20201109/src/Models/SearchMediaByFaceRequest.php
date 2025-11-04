@@ -11,6 +11,11 @@ class SearchMediaByFaceRequest extends Model
     /**
      * @var string
      */
+    public $customFilters;
+
+    /**
+     * @var string
+     */
     public $entityId;
 
     /**
@@ -47,7 +52,13 @@ class SearchMediaByFaceRequest extends Model
      * @var string
      */
     public $searchLibName;
+
+    /**
+     * @var string
+     */
+    public $utcCreate;
     protected $_name = [
+        'customFilters' => 'CustomFilters',
         'entityId' => 'EntityId',
         'faceSearchToken' => 'FaceSearchToken',
         'mediaType' => 'MediaType',
@@ -56,6 +67,7 @@ class SearchMediaByFaceRequest extends Model
         'pageSize' => 'PageSize',
         'personImageUrl' => 'PersonImageUrl',
         'searchLibName' => 'SearchLibName',
+        'utcCreate' => 'UtcCreate',
     ];
 
     public function validate()
@@ -66,6 +78,10 @@ class SearchMediaByFaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customFilters) {
+            $res['CustomFilters'] = $this->customFilters;
+        }
+
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
@@ -98,6 +114,10 @@ class SearchMediaByFaceRequest extends Model
             $res['SearchLibName'] = $this->searchLibName;
         }
 
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
+        }
+
         return $res;
     }
 
@@ -109,6 +129,10 @@ class SearchMediaByFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomFilters'])) {
+            $model->customFilters = $map['CustomFilters'];
+        }
+
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
@@ -139,6 +163,10 @@ class SearchMediaByFaceRequest extends Model
 
         if (isset($map['SearchLibName'])) {
             $model->searchLibName = $map['SearchLibName'];
+        }
+
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
         }
 
         return $model;

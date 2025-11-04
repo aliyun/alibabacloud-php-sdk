@@ -11,6 +11,11 @@ class SearchMediaByAILabelRequest extends Model
     /**
      * @var string
      */
+    public $customFilters;
+
+    /**
+     * @var string
+     */
     public $matchingMode;
 
     /**
@@ -62,7 +67,13 @@ class SearchMediaByAILabelRequest extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @var string
+     */
+    public $utcCreate;
     protected $_name = [
+        'customFilters' => 'CustomFilters',
         'matchingMode' => 'MatchingMode',
         'mediaId' => 'MediaId',
         'mediaType' => 'MediaType',
@@ -74,6 +85,7 @@ class SearchMediaByAILabelRequest extends Model
         'sortBy' => 'SortBy',
         'specificSearch' => 'SpecificSearch',
         'text' => 'Text',
+        'utcCreate' => 'UtcCreate',
     ];
 
     public function validate()
@@ -84,6 +96,10 @@ class SearchMediaByAILabelRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customFilters) {
+            $res['CustomFilters'] = $this->customFilters;
+        }
+
         if (null !== $this->matchingMode) {
             $res['MatchingMode'] = $this->matchingMode;
         }
@@ -128,6 +144,10 @@ class SearchMediaByAILabelRequest extends Model
             $res['Text'] = $this->text;
         }
 
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
+        }
+
         return $res;
     }
 
@@ -139,6 +159,10 @@ class SearchMediaByAILabelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomFilters'])) {
+            $model->customFilters = $map['CustomFilters'];
+        }
+
         if (isset($map['MatchingMode'])) {
             $model->matchingMode = $map['MatchingMode'];
         }
@@ -181,6 +205,10 @@ class SearchMediaByAILabelRequest extends Model
 
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
         }
 
         return $model;
