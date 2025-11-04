@@ -111,6 +111,8 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoThrottleRulesRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoThrottleRulesResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetBlockingDetailListRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetBlockingDetailListResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetDasAgentSSERequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetDasAgentSSEResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetDasProServiceUsageRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetDasProServiceUsageResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetDasSQLLogHotDataRequest;
@@ -4679,6 +4681,138 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDBInstanceConnectivityDiagnosisWithOptions($request, $runtime);
+    }
+
+    /**
+     * DAS大模型能力异步逻辑接口.
+     *
+     * @param request - GetDasAgentSSERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDasAgentSSEResponse
+     *
+     * @param GetDasAgentSSERequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetDasAgentSSEResponse
+     */
+    public function getDasAgentSSEWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDasAgentSSE',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield GetDasAgentSSEResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * DAS大模型能力异步逻辑接口.
+     *
+     * @param request - GetDasAgentSSERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDasAgentSSEResponse
+     *
+     * @param GetDasAgentSSERequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetDasAgentSSEResponse
+     */
+    public function getDasAgentSSEWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDasAgentSSE',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDasAgentSSEResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DAS大模型能力异步逻辑接口.
+     *
+     * @param request - GetDasAgentSSERequest
+     *
+     * @returns GetDasAgentSSEResponse
+     *
+     * @param GetDasAgentSSERequest $request
+     *
+     * @return GetDasAgentSSEResponse
+     */
+    public function getDasAgentSSE($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDasAgentSSEWithOptions($request, $runtime);
     }
 
     /**
