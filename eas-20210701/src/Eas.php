@@ -6730,6 +6730,10 @@ class Eas extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->hibernate) {
+            @$body['Hibernate'] = $request->hibernate;
+        }
+
         if (null !== $request->isolate) {
             @$body['Isolate'] = $request->isolate;
         }

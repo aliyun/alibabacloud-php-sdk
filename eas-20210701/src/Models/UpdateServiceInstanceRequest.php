@@ -11,8 +11,14 @@ class UpdateServiceInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $hibernate;
+
+    /**
+     * @var bool
+     */
     public $isolate;
     protected $_name = [
+        'hibernate' => 'Hibernate',
         'isolate' => 'Isolate',
     ];
 
@@ -24,6 +30,10 @@ class UpdateServiceInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->hibernate) {
+            $res['Hibernate'] = $this->hibernate;
+        }
+
         if (null !== $this->isolate) {
             $res['Isolate'] = $this->isolate;
         }
@@ -39,6 +49,10 @@ class UpdateServiceInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Hibernate'])) {
+            $model->hibernate = $map['Hibernate'];
+        }
+
         if (isset($map['Isolate'])) {
             $model->isolate = $map['Isolate'];
         }
