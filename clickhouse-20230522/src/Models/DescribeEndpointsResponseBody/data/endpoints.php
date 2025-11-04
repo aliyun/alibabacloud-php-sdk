@@ -12,6 +12,11 @@ class endpoints extends Model
     /**
      * @var string
      */
+    public $computingGroupId;
+
+    /**
+     * @var string
+     */
     public $connectionString;
 
     /**
@@ -49,6 +54,7 @@ class endpoints extends Model
      */
     public $vpcInstanceId;
     protected $_name = [
+        'computingGroupId' => 'ComputingGroupId',
         'connectionString' => 'ConnectionString',
         'IPAddress' => 'IPAddress',
         'netType' => 'NetType',
@@ -70,6 +76,10 @@ class endpoints extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->computingGroupId) {
+            $res['ComputingGroupId'] = $this->computingGroupId;
+        }
+
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
@@ -120,6 +130,10 @@ class endpoints extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputingGroupId'])) {
+            $model->computingGroupId = $map['ComputingGroupId'];
+        }
+
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
