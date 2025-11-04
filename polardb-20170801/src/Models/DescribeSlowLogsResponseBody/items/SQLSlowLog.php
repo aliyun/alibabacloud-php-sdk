@@ -29,6 +29,11 @@ class SQLSlowLog extends Model
     public $maxExecutionTime;
 
     /**
+     * @var string
+     */
+    public $maxExecutionTimeMs;
+
+    /**
      * @var int
      */
     public $maxLockTime;
@@ -82,6 +87,7 @@ class SQLSlowLog extends Model
         'DBName' => 'DBName',
         'DBNodeId' => 'DBNodeId',
         'maxExecutionTime' => 'MaxExecutionTime',
+        'maxExecutionTimeMs' => 'MaxExecutionTimeMs',
         'maxLockTime' => 'MaxLockTime',
         'parseMaxRowCount' => 'ParseMaxRowCount',
         'parseTotalRowCounts' => 'ParseTotalRowCounts',
@@ -116,6 +122,10 @@ class SQLSlowLog extends Model
 
         if (null !== $this->maxExecutionTime) {
             $res['MaxExecutionTime'] = $this->maxExecutionTime;
+        }
+
+        if (null !== $this->maxExecutionTimeMs) {
+            $res['MaxExecutionTimeMs'] = $this->maxExecutionTimeMs;
         }
 
         if (null !== $this->maxLockTime) {
@@ -183,6 +193,10 @@ class SQLSlowLog extends Model
 
         if (isset($map['MaxExecutionTime'])) {
             $model->maxExecutionTime = $map['MaxExecutionTime'];
+        }
+
+        if (isset($map['MaxExecutionTimeMs'])) {
+            $model->maxExecutionTimeMs = $map['MaxExecutionTimeMs'];
         }
 
         if (isset($map['MaxLockTime'])) {
