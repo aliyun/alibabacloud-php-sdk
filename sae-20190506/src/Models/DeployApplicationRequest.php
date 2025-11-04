@@ -21,6 +21,11 @@ class DeployApplicationRequest extends Model
     /**
      * @var string
      */
+    public $agentVersion;
+
+    /**
+     * @var string
+     */
     public $albIngressReadinessGate;
 
     /**
@@ -112,6 +117,11 @@ class DeployApplicationRequest extends Model
      * @var bool
      */
     public $enableGreyTagRoute;
+
+    /**
+     * @var bool
+     */
+    public $enableNamespaceAgentVersion;
 
     /**
      * @var bool
@@ -410,6 +420,7 @@ class DeployApplicationRequest extends Model
     protected $_name = [
         'acrAssumeRoleArn' => 'AcrAssumeRoleArn',
         'acrInstanceId' => 'AcrInstanceId',
+        'agentVersion' => 'AgentVersion',
         'albIngressReadinessGate' => 'AlbIngressReadinessGate',
         'appId' => 'AppId',
         'associateEip' => 'AssociateEip',
@@ -429,6 +440,7 @@ class DeployApplicationRequest extends Model
         'enableAhas' => 'EnableAhas',
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableGreyTagRoute' => 'EnableGreyTagRoute',
+        'enableNamespaceAgentVersion' => 'EnableNamespaceAgentVersion',
         'enableNewArms' => 'EnableNewArms',
         'enablePrometheus' => 'EnablePrometheus',
         'enableSidecarResourceIsolated' => 'EnableSidecarResourceIsolated',
@@ -512,6 +524,10 @@ class DeployApplicationRequest extends Model
             $res['AcrInstanceId'] = $this->acrInstanceId;
         }
 
+        if (null !== $this->agentVersion) {
+            $res['AgentVersion'] = $this->agentVersion;
+        }
+
         if (null !== $this->albIngressReadinessGate) {
             $res['AlbIngressReadinessGate'] = $this->albIngressReadinessGate;
         }
@@ -586,6 +602,10 @@ class DeployApplicationRequest extends Model
 
         if (null !== $this->enableGreyTagRoute) {
             $res['EnableGreyTagRoute'] = $this->enableGreyTagRoute;
+        }
+
+        if (null !== $this->enableNamespaceAgentVersion) {
+            $res['EnableNamespaceAgentVersion'] = $this->enableNamespaceAgentVersion;
         }
 
         if (null !== $this->enableNewArms) {
@@ -857,6 +877,10 @@ class DeployApplicationRequest extends Model
             $model->acrInstanceId = $map['AcrInstanceId'];
         }
 
+        if (isset($map['AgentVersion'])) {
+            $model->agentVersion = $map['AgentVersion'];
+        }
+
         if (isset($map['AlbIngressReadinessGate'])) {
             $model->albIngressReadinessGate = $map['AlbIngressReadinessGate'];
         }
@@ -931,6 +955,10 @@ class DeployApplicationRequest extends Model
 
         if (isset($map['EnableGreyTagRoute'])) {
             $model->enableGreyTagRoute = $map['EnableGreyTagRoute'];
+        }
+
+        if (isset($map['EnableNamespaceAgentVersion'])) {
+            $model->enableNamespaceAgentVersion = $map['EnableNamespaceAgentVersion'];
         }
 
         if (isset($map['EnableNewArms'])) {

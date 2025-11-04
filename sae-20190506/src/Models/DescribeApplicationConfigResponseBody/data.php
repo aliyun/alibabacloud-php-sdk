@@ -29,6 +29,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $agentVersion;
+
+    /**
+     * @var string
+     */
     public $albIngressReadinessGate;
 
     /**
@@ -150,6 +155,11 @@ class data extends Model
      * @var bool
      */
     public $enableIdle;
+
+    /**
+     * @var bool
+     */
+    public $enableNamespaceAgentVersion;
 
     /**
      * @var bool
@@ -498,6 +508,7 @@ class data extends Model
     protected $_name = [
         'acrAssumeRoleArn' => 'AcrAssumeRoleArn',
         'acrInstanceId' => 'AcrInstanceId',
+        'agentVersion' => 'AgentVersion',
         'albIngressReadinessGate' => 'AlbIngressReadinessGate',
         'appDescription' => 'AppDescription',
         'appId' => 'AppId',
@@ -523,6 +534,7 @@ class data extends Model
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableGreyTagRoute' => 'EnableGreyTagRoute',
         'enableIdle' => 'EnableIdle',
+        'enableNamespaceAgentVersion' => 'EnableNamespaceAgentVersion',
         'enableNewArms' => 'EnableNewArms',
         'enablePrometheus' => 'EnablePrometheus',
         'envs' => 'Envs',
@@ -637,6 +649,10 @@ class data extends Model
             $res['AcrInstanceId'] = $this->acrInstanceId;
         }
 
+        if (null !== $this->agentVersion) {
+            $res['AgentVersion'] = $this->agentVersion;
+        }
+
         if (null !== $this->albIngressReadinessGate) {
             $res['AlbIngressReadinessGate'] = $this->albIngressReadinessGate;
         }
@@ -749,6 +765,10 @@ class data extends Model
 
         if (null !== $this->enableIdle) {
             $res['EnableIdle'] = $this->enableIdle;
+        }
+
+        if (null !== $this->enableNamespaceAgentVersion) {
+            $res['EnableNamespaceAgentVersion'] = $this->enableNamespaceAgentVersion;
         }
 
         if (null !== $this->enableNewArms) {
@@ -1093,6 +1113,10 @@ class data extends Model
             $model->acrInstanceId = $map['AcrInstanceId'];
         }
 
+        if (isset($map['AgentVersion'])) {
+            $model->agentVersion = $map['AgentVersion'];
+        }
+
         if (isset($map['AlbIngressReadinessGate'])) {
             $model->albIngressReadinessGate = $map['AlbIngressReadinessGate'];
         }
@@ -1205,6 +1229,10 @@ class data extends Model
 
         if (isset($map['EnableIdle'])) {
             $model->enableIdle = $map['EnableIdle'];
+        }
+
+        if (isset($map['EnableNamespaceAgentVersion'])) {
+            $model->enableNamespaceAgentVersion = $map['EnableNamespaceAgentVersion'];
         }
 
         if (isset($map['EnableNewArms'])) {

@@ -21,6 +21,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $agentVersion;
+
+    /**
+     * @var string
+     */
     public $appDescription;
 
     /**
@@ -112,6 +117,16 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $enableEbpf;
+
+    /**
+     * @var bool
+     */
+    public $enableNamespaceAgentVersion;
+
+    /**
+     * @var bool
+     */
+    public $enableNamespaceSlsConfig;
 
     /**
      * @var bool
@@ -415,6 +430,7 @@ class CreateApplicationRequest extends Model
     protected $_name = [
         'acrAssumeRoleArn' => 'AcrAssumeRoleArn',
         'acrInstanceId' => 'AcrInstanceId',
+        'agentVersion' => 'AgentVersion',
         'appDescription' => 'AppDescription',
         'appName' => 'AppName',
         'appSource' => 'AppSource',
@@ -434,6 +450,8 @@ class CreateApplicationRequest extends Model
         'emptyDirDesc' => 'EmptyDirDesc',
         'enableCpuBurst' => 'EnableCpuBurst',
         'enableEbpf' => 'EnableEbpf',
+        'enableNamespaceAgentVersion' => 'EnableNamespaceAgentVersion',
+        'enableNamespaceSlsConfig' => 'EnableNamespaceSlsConfig',
         'enableNewArms' => 'EnableNewArms',
         'enablePrometheus' => 'EnablePrometheus',
         'enableSidecarResourceIsolated' => 'EnableSidecarResourceIsolated',
@@ -518,6 +536,10 @@ class CreateApplicationRequest extends Model
             $res['AcrInstanceId'] = $this->acrInstanceId;
         }
 
+        if (null !== $this->agentVersion) {
+            $res['AgentVersion'] = $this->agentVersion;
+        }
+
         if (null !== $this->appDescription) {
             $res['AppDescription'] = $this->appDescription;
         }
@@ -592,6 +614,14 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->enableEbpf) {
             $res['EnableEbpf'] = $this->enableEbpf;
+        }
+
+        if (null !== $this->enableNamespaceAgentVersion) {
+            $res['EnableNamespaceAgentVersion'] = $this->enableNamespaceAgentVersion;
+        }
+
+        if (null !== $this->enableNamespaceSlsConfig) {
+            $res['EnableNamespaceSlsConfig'] = $this->enableNamespaceSlsConfig;
         }
 
         if (null !== $this->enableNewArms) {
@@ -867,6 +897,10 @@ class CreateApplicationRequest extends Model
             $model->acrInstanceId = $map['AcrInstanceId'];
         }
 
+        if (isset($map['AgentVersion'])) {
+            $model->agentVersion = $map['AgentVersion'];
+        }
+
         if (isset($map['AppDescription'])) {
             $model->appDescription = $map['AppDescription'];
         }
@@ -941,6 +975,14 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['EnableEbpf'])) {
             $model->enableEbpf = $map['EnableEbpf'];
+        }
+
+        if (isset($map['EnableNamespaceAgentVersion'])) {
+            $model->enableNamespaceAgentVersion = $map['EnableNamespaceAgentVersion'];
+        }
+
+        if (isset($map['EnableNamespaceSlsConfig'])) {
+            $model->enableNamespaceSlsConfig = $map['EnableNamespaceSlsConfig'];
         }
 
         if (isset($map['EnableNewArms'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $apmJavaAgentVersion;
+
+    /**
      * @var int
      */
     public $appCount;
@@ -108,6 +113,7 @@ class data extends Model
      */
     public $vpcName;
     protected $_name = [
+        'apmJavaAgentVersion' => 'ApmJavaAgentVersion',
         'appCount' => 'AppCount',
         'belongRegion' => 'BelongRegion',
         'description' => 'Description',
@@ -138,6 +144,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apmJavaAgentVersion) {
+            $res['ApmJavaAgentVersion'] = $this->apmJavaAgentVersion;
+        }
+
         if (null !== $this->appCount) {
             $res['AppCount'] = $this->appCount;
         }
@@ -229,6 +239,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApmJavaAgentVersion'])) {
+            $model->apmJavaAgentVersion = $map['ApmJavaAgentVersion'];
+        }
+
         if (isset($map['AppCount'])) {
             $model->appCount = $map['AppCount'];
         }
