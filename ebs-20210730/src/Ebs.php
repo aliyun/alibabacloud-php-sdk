@@ -76,6 +76,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\GetReportRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\GetReportResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ListReplicaEdgeSupportedRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ListReplicaEdgeSupportedResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListReportsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListReportsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListTagResourcesRequest;
@@ -851,12 +853,13 @@ class Ebs extends OpenApiClient
      * Creates a replication pair to asynchronously replicate data between disks.
      *
      * @remarks
-     * Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity.
-     * Currently, the async replication feature can asynchronously replicate data only between enhanced SSDs (ESSDs). The functionality of disks in replication pairs is limited. You are charged on a subscription basis for the bandwidth that is used by the async replication feature.
-     * Before you call this operation, take note of the following items:
+     * ## [](#)Usage notes
+     * Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity. You are charged on a subscription basis for the bandwidth that is used by the async replication feature.
+     * Currently, the async replication feature can asynchronously replicate data only between enhanced SSDs (ESSDs). The functionality of disks in replication pairs is limited.
+     * Take note of the following items:
      * *   Make sure that the source disk (primary disk) from which to replicate data and the destination disk (secondary disk) to which to replicate data are created. You can call the [CreateDisk](https://help.aliyun.com/document_detail/25513.html) operation to create disks.
-     * *   The secondary disk cannot reside the same region as the primary disk. The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-     * *   After you call this operation to create a replication pair, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation to enable async replication to periodically replicate data from the primary disk to the secondary disk across regions.
+     * *   The secondary disk cannot reside in the same region as the primary disk. For information about the regions that support async replication, see [Overview](https://help.aliyun.com/document_detail/314563.html).
+     * *   After you call this operation to create a replication pair for the primary disk and the secondary disk, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation to enable async replication to replicate data from the primary disk to the secondary disk cross regions on a periodic basis.
      *
      * @param request - CreateDiskReplicaPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -962,12 +965,13 @@ class Ebs extends OpenApiClient
      * Creates a replication pair to asynchronously replicate data between disks.
      *
      * @remarks
-     * Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity.
-     * Currently, the async replication feature can asynchronously replicate data only between enhanced SSDs (ESSDs). The functionality of disks in replication pairs is limited. You are charged on a subscription basis for the bandwidth that is used by the async replication feature.
-     * Before you call this operation, take note of the following items:
+     * ## [](#)Usage notes
+     * Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity. You are charged on a subscription basis for the bandwidth that is used by the async replication feature.
+     * Currently, the async replication feature can asynchronously replicate data only between enhanced SSDs (ESSDs). The functionality of disks in replication pairs is limited.
+     * Take note of the following items:
      * *   Make sure that the source disk (primary disk) from which to replicate data and the destination disk (secondary disk) to which to replicate data are created. You can call the [CreateDisk](https://help.aliyun.com/document_detail/25513.html) operation to create disks.
-     * *   The secondary disk cannot reside the same region as the primary disk. The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
-     * *   After you call this operation to create a replication pair, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation to enable async replication to periodically replicate data from the primary disk to the secondary disk across regions.
+     * *   The secondary disk cannot reside in the same region as the primary disk. For information about the regions that support async replication, see [Overview](https://help.aliyun.com/document_detail/314563.html).
+     * *   After you call this operation to create a replication pair for the primary disk and the secondary disk, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation to enable async replication to replicate data from the primary disk to the secondary disk cross regions on a periodic basis.
      *
      * @param request - CreateDiskReplicaPairRequest
      *
@@ -3171,6 +3175,75 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询异步复制支持的目的地域和可用区.
+     *
+     * @param request - ListReplicaEdgeSupportedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListReplicaEdgeSupportedResponse
+     *
+     * @param ListReplicaEdgeSupportedRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListReplicaEdgeSupportedResponse
+     */
+    public function listReplicaEdgeSupportedWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->azone) {
+            @$query['Azone'] = $request->azone;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListReplicaEdgeSupported',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListReplicaEdgeSupportedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询异步复制支持的目的地域和可用区.
+     *
+     * @param request - ListReplicaEdgeSupportedRequest
+     *
+     * @returns ListReplicaEdgeSupportedResponse
+     *
+     * @param ListReplicaEdgeSupportedRequest $request
+     *
+     * @return ListReplicaEdgeSupportedResponse
+     */
+    public function listReplicaEdgeSupported($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listReplicaEdgeSupportedWithOptions($request, $runtime);
     }
 
     /**
