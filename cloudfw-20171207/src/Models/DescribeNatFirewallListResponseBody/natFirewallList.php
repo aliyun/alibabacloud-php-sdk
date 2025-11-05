@@ -52,7 +52,22 @@ class natFirewallList extends Model
     /**
      * @var string
      */
+    public $proxyNetworkInterfaceId;
+
+    /**
+     * @var string
+     */
+    public $proxyRouteTableId;
+
+    /**
+     * @var string
+     */
     public $proxyStatus;
+
+    /**
+     * @var string
+     */
+    public $proxyVSwitchId;
 
     /**
      * @var string
@@ -82,7 +97,10 @@ class natFirewallList extends Model
         'natRouteEntryList' => 'NatRouteEntryList',
         'proxyId' => 'ProxyId',
         'proxyName' => 'ProxyName',
+        'proxyNetworkInterfaceId' => 'ProxyNetworkInterfaceId',
+        'proxyRouteTableId' => 'ProxyRouteTableId',
         'proxyStatus' => 'ProxyStatus',
+        'proxyVSwitchId' => 'ProxyVSwitchId',
         'regionId' => 'RegionId',
         'strictMode' => 'StrictMode',
         'vpcId' => 'VpcId',
@@ -139,8 +157,20 @@ class natFirewallList extends Model
             $res['ProxyName'] = $this->proxyName;
         }
 
+        if (null !== $this->proxyNetworkInterfaceId) {
+            $res['ProxyNetworkInterfaceId'] = $this->proxyNetworkInterfaceId;
+        }
+
+        if (null !== $this->proxyRouteTableId) {
+            $res['ProxyRouteTableId'] = $this->proxyRouteTableId;
+        }
+
         if (null !== $this->proxyStatus) {
             $res['ProxyStatus'] = $this->proxyStatus;
+        }
+
+        if (null !== $this->proxyVSwitchId) {
+            $res['ProxyVSwitchId'] = $this->proxyVSwitchId;
         }
 
         if (null !== $this->regionId) {
@@ -209,8 +239,20 @@ class natFirewallList extends Model
             $model->proxyName = $map['ProxyName'];
         }
 
+        if (isset($map['ProxyNetworkInterfaceId'])) {
+            $model->proxyNetworkInterfaceId = $map['ProxyNetworkInterfaceId'];
+        }
+
+        if (isset($map['ProxyRouteTableId'])) {
+            $model->proxyRouteTableId = $map['ProxyRouteTableId'];
+        }
+
         if (isset($map['ProxyStatus'])) {
             $model->proxyStatus = $map['ProxyStatus'];
+        }
+
+        if (isset($map['ProxyVSwitchId'])) {
+            $model->proxyVSwitchId = $map['ProxyVSwitchId'];
         }
 
         if (isset($map['RegionId'])) {
