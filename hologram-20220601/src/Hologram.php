@@ -26,8 +26,16 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\GetCertificateAttributeResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetRootCertificateResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetWarehouseDetailResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GrantDatabasePermissionRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GrantDatabasePermissionResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GrantSchemaPermissionRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GrantSchemaPermissionResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GrantTablePermissionRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GrantTablePermissionResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListDatabasesRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehousesResponse;
@@ -44,6 +52,12 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\RestartInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ResumeHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ResumeHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ResumeInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RevokeDatabasePermissionRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RevokeDatabasePermissionResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RevokeSchemaPermissionRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RevokeSchemaPermissionResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RevokeTablePermissionRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\RevokeTablePermissionResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleInstanceRequest;
@@ -978,6 +992,235 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * DB授权.
+     *
+     * @param request - GrantDatabasePermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantDatabasePermissionResponse
+     *
+     * @param string                         $instanceId
+     * @param GrantDatabasePermissionRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GrantDatabasePermissionResponse
+     */
+    public function grantDatabasePermissionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->databaseName) {
+            @$body['databaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->privileges) {
+            @$body['privileges'] = $request->privileges;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GrantDatabasePermission',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/grantDatabasePermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GrantDatabasePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DB授权.
+     *
+     * @param request - GrantDatabasePermissionRequest
+     *
+     * @returns GrantDatabasePermissionResponse
+     *
+     * @param string                         $instanceId
+     * @param GrantDatabasePermissionRequest $request
+     *
+     * @return GrantDatabasePermissionResponse
+     */
+    public function grantDatabasePermission($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->grantDatabasePermissionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * DB授权.
+     *
+     * @param request - GrantSchemaPermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantSchemaPermissionResponse
+     *
+     * @param string                       $instanceId
+     * @param GrantSchemaPermissionRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GrantSchemaPermissionResponse
+     */
+    public function grantSchemaPermissionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->databaseName) {
+            @$body['databaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->privileges) {
+            @$body['privileges'] = $request->privileges;
+        }
+
+        if (null !== $request->schemaName) {
+            @$body['schemaName'] = $request->schemaName;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GrantSchemaPermission',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/grantSchemaPermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GrantSchemaPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DB授权.
+     *
+     * @param request - GrantSchemaPermissionRequest
+     *
+     * @returns GrantSchemaPermissionResponse
+     *
+     * @param string                       $instanceId
+     * @param GrantSchemaPermissionRequest $request
+     *
+     * @return GrantSchemaPermissionResponse
+     */
+    public function grantSchemaPermission($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->grantSchemaPermissionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * DB授权.
+     *
+     * @param request - GrantTablePermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantTablePermissionResponse
+     *
+     * @param string                      $instanceId
+     * @param GrantTablePermissionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GrantTablePermissionResponse
+     */
+    public function grantTablePermissionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allTable) {
+            @$body['allTable'] = $request->allTable;
+        }
+
+        if (null !== $request->databaseName) {
+            @$body['databaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->privileges) {
+            @$body['privileges'] = $request->privileges;
+        }
+
+        if (null !== $request->schemaName) {
+            @$body['schemaName'] = $request->schemaName;
+        }
+
+        if (null !== $request->tableName) {
+            @$body['tableName'] = $request->tableName;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GrantTablePermission',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/grantTablePermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GrantTablePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DB授权.
+     *
+     * @param request - GrantTablePermissionRequest
+     *
+     * @returns GrantTablePermissionResponse
+     *
+     * @param string                      $instanceId
+     * @param GrantTablePermissionRequest $request
+     *
+     * @return GrantTablePermissionResponse
+     */
+    public function grantTablePermission($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->grantTablePermissionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
      *
      * @param request - ListBackupDataRequest
@@ -1040,6 +1283,69 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->listBackupDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取DB列表.
+     *
+     * @param request - ListDatabasesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatabasesResponse
+     *
+     * @param string               $instanceId
+     * @param ListDatabasesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDatabasesResponse
+     */
+    public function listDatabasesWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->external) {
+            @$query['external'] = $request->external;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatabases',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/listDatabases',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取DB列表.
+     *
+     * @param request - ListDatabasesRequest
+     *
+     * @returns ListDatabasesResponse
+     *
+     * @param string               $instanceId
+     * @param ListDatabasesRequest $request
+     *
+     * @return ListDatabasesResponse
+     */
+    public function listDatabases($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDatabasesWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1648,6 +1954,235 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->resumeInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 取消DB授权.
+     *
+     * @param request - RevokeDatabasePermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeDatabasePermissionResponse
+     *
+     * @param string                          $instanceId
+     * @param RevokeDatabasePermissionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RevokeDatabasePermissionResponse
+     */
+    public function revokeDatabasePermissionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->databaseName) {
+            @$body['databaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->privileges) {
+            @$body['privileges'] = $request->privileges;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeDatabasePermission',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/revokeDatabasePermission',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeDatabasePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消DB授权.
+     *
+     * @param request - RevokeDatabasePermissionRequest
+     *
+     * @returns RevokeDatabasePermissionResponse
+     *
+     * @param string                          $instanceId
+     * @param RevokeDatabasePermissionRequest $request
+     *
+     * @return RevokeDatabasePermissionResponse
+     */
+    public function revokeDatabasePermission($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->revokeDatabasePermissionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 取消Schema授权.
+     *
+     * @param request - RevokeSchemaPermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeSchemaPermissionResponse
+     *
+     * @param string                        $instanceId
+     * @param RevokeSchemaPermissionRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RevokeSchemaPermissionResponse
+     */
+    public function revokeSchemaPermissionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->databaseName) {
+            @$body['databaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->privileges) {
+            @$body['privileges'] = $request->privileges;
+        }
+
+        if (null !== $request->schemaName) {
+            @$body['schemaName'] = $request->schemaName;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeSchemaPermission',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/revokeSchemaPermission',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeSchemaPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消Schema授权.
+     *
+     * @param request - RevokeSchemaPermissionRequest
+     *
+     * @returns RevokeSchemaPermissionResponse
+     *
+     * @param string                        $instanceId
+     * @param RevokeSchemaPermissionRequest $request
+     *
+     * @return RevokeSchemaPermissionResponse
+     */
+    public function revokeSchemaPermission($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->revokeSchemaPermissionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 取消表授权.
+     *
+     * @param request - RevokeTablePermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeTablePermissionResponse
+     *
+     * @param string                       $instanceId
+     * @param RevokeTablePermissionRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RevokeTablePermissionResponse
+     */
+    public function revokeTablePermissionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->allTable) {
+            @$body['allTable'] = $request->allTable;
+        }
+
+        if (null !== $request->databaseName) {
+            @$body['databaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->privileges) {
+            @$body['privileges'] = $request->privileges;
+        }
+
+        if (null !== $request->schemaName) {
+            @$body['schemaName'] = $request->schemaName;
+        }
+
+        if (null !== $request->tableName) {
+            @$body['tableName'] = $request->tableName;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeTablePermission',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/revokeTablePermission',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeTablePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消表授权.
+     *
+     * @param request - RevokeTablePermissionRequest
+     *
+     * @returns RevokeTablePermissionResponse
+     *
+     * @param string                       $instanceId
+     * @param RevokeTablePermissionRequest $request
+     *
+     * @return RevokeTablePermissionResponse
+     */
+    public function revokeTablePermission($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->revokeTablePermissionWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
