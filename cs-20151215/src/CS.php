@@ -155,6 +155,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterInspectReportsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterInspectReportsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterKubeconfigStatesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansForRegionRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansForRegionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListOperationPlansResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
@@ -1788,6 +1790,10 @@ class CS extends OpenApiClient
 
         if (null !== $request->maxNodes) {
             @$body['max_nodes'] = $request->maxNodes;
+        }
+
+        if (null !== $request->nodeComponents) {
+            @$body['node_components'] = $request->nodeComponents;
         }
 
         if (null !== $request->nodeConfig) {
@@ -6709,6 +6715,77 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->listOperationPlansWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取单个地域的自动运维执行计划列表.
+     *
+     * @param request - ListOperationPlansForRegionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOperationPlansForRegionResponse
+     *
+     * @param string                             $regionId
+     * @param ListOperationPlansForRegionRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListOperationPlansForRegionResponse
+     */
+    public function listOperationPlansForRegionWithOptions($regionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['cluster_id'] = $request->clusterId;
+        }
+
+        if (null !== $request->state) {
+            @$query['state'] = $request->state;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOperationPlansForRegion',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/regions/' . Url::percentEncode($regionId) . '/operation/plans',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOperationPlansForRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取单个地域的自动运维执行计划列表.
+     *
+     * @param request - ListOperationPlansForRegionRequest
+     *
+     * @returns ListOperationPlansForRegionResponse
+     *
+     * @param string                             $regionId
+     * @param ListOperationPlansForRegionRequest $request
+     *
+     * @return ListOperationPlansForRegionResponse
+     */
+    public function listOperationPlansForRegion($regionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOperationPlansForRegionWithOptions($regionId, $request, $headers, $runtime);
     }
 
     /**

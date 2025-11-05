@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBo
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\interconnectConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\kubernetesConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\management;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\nodeComponents;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\nodeConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\nodepoolInfo;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup;
@@ -64,6 +65,11 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $maxNodes;
 
     /**
+     * @var nodeComponents[]
+     */
+    public $nodeComponents;
+
+    /**
      * @var nodeConfig
      */
     public $nodeConfig;
@@ -97,6 +103,7 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
         'kubernetesConfig' => 'kubernetes_config',
         'management' => 'management',
         'maxNodes' => 'max_nodes',
+        'nodeComponents' => 'node_components',
         'nodeConfig' => 'node_config',
         'nodepoolInfo' => 'nodepool_info',
         'scalingGroup' => 'scaling_group',
@@ -120,6 +127,9 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
         }
         if (null !== $this->management) {
             $this->management->validate();
+        }
+        if (\is_array($this->nodeComponents)) {
+            Model::validateArray($this->nodeComponents);
         }
         if (null !== $this->nodeConfig) {
             $this->nodeConfig->validate();
@@ -176,6 +186,17 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
 
         if (null !== $this->maxNodes) {
             $res['max_nodes'] = $this->maxNodes;
+        }
+
+        if (null !== $this->nodeComponents) {
+            if (\is_array($this->nodeComponents)) {
+                $res['node_components'] = [];
+                $n1 = 0;
+                foreach ($this->nodeComponents as $item1) {
+                    $res['node_components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->nodeConfig) {
@@ -243,6 +264,17 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
 
         if (isset($map['max_nodes'])) {
             $model->maxNodes = $map['max_nodes'];
+        }
+
+        if (isset($map['node_components'])) {
+            if (!empty($map['node_components'])) {
+                $model->nodeComponents = [];
+                $n1 = 0;
+                foreach ($map['node_components'] as $item1) {
+                    $model->nodeComponents[$n1] = nodeComponents::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['node_config'])) {

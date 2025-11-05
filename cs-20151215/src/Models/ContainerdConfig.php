@@ -9,16 +9,46 @@ use AlibabaCloud\Dara\Model;
 class ContainerdConfig extends Model
 {
     /**
+     * @var bool
+     */
+    public $ignoreImageDefinedVolume;
+
+    /**
      * @var string[]
      */
     public $insecureRegistries;
+
+    /**
+     * @var int
+     */
+    public $limitCore;
+
+    /**
+     * @var int
+     */
+    public $limitMemLock;
+
+    /**
+     * @var int
+     */
+    public $limitNoFile;
+
+    /**
+     * @var int
+     */
+    public $maxConcurrentDownloads;
 
     /**
      * @var string[]
      */
     public $registryMirrors;
     protected $_name = [
+        'ignoreImageDefinedVolume' => 'ignoreImageDefinedVolume',
         'insecureRegistries' => 'insecureRegistries',
+        'limitCore' => 'limitCore',
+        'limitMemLock' => 'limitMemLock',
+        'limitNoFile' => 'limitNoFile',
+        'maxConcurrentDownloads' => 'maxConcurrentDownloads',
         'registryMirrors' => 'registryMirrors',
     ];
 
@@ -36,6 +66,10 @@ class ContainerdConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ignoreImageDefinedVolume) {
+            $res['ignoreImageDefinedVolume'] = $this->ignoreImageDefinedVolume;
+        }
+
         if (null !== $this->insecureRegistries) {
             if (\is_array($this->insecureRegistries)) {
                 $res['insecureRegistries'] = [];
@@ -45,6 +79,22 @@ class ContainerdConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->limitCore) {
+            $res['limitCore'] = $this->limitCore;
+        }
+
+        if (null !== $this->limitMemLock) {
+            $res['limitMemLock'] = $this->limitMemLock;
+        }
+
+        if (null !== $this->limitNoFile) {
+            $res['limitNoFile'] = $this->limitNoFile;
+        }
+
+        if (null !== $this->maxConcurrentDownloads) {
+            $res['maxConcurrentDownloads'] = $this->maxConcurrentDownloads;
         }
 
         if (null !== $this->registryMirrors) {
@@ -69,6 +119,10 @@ class ContainerdConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ignoreImageDefinedVolume'])) {
+            $model->ignoreImageDefinedVolume = $map['ignoreImageDefinedVolume'];
+        }
+
         if (isset($map['insecureRegistries'])) {
             if (!empty($map['insecureRegistries'])) {
                 $model->insecureRegistries = [];
@@ -78,6 +132,22 @@ class ContainerdConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['limitCore'])) {
+            $model->limitCore = $map['limitCore'];
+        }
+
+        if (isset($map['limitMemLock'])) {
+            $model->limitMemLock = $map['limitMemLock'];
+        }
+
+        if (isset($map['limitNoFile'])) {
+            $model->limitNoFile = $map['limitNoFile'];
+        }
+
+        if (isset($map['maxConcurrentDownloads'])) {
+            $model->maxConcurrentDownloads = $map['maxConcurrentDownloads'];
         }
 
         if (isset($map['registryMirrors'])) {
