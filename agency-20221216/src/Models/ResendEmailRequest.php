@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResendEmailRequest extends Model
 {
     /**
-     * @description Invitation ID, from interface InviteSubAccount </br>
-     * This parameter is required.
-     * @example 176
-     *
      * @var int
      */
     public $inviteId;
@@ -22,9 +18,10 @@ class ResendEmailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inviteId) {
@@ -34,11 +31,11 @@ class ResendEmailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResendEmailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

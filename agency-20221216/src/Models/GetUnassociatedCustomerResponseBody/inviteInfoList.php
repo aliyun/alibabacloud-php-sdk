@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponseBody\inviteInfoList\inviteInfo;
-use AlibabaCloud\Tea\Model;
 
 class inviteInfoList extends Model
 {
@@ -19,17 +19,22 @@ class inviteInfoList extends Model
 
     public function validate()
     {
+        if (\is_array($this->inviteInfo)) {
+            Model::validateArray($this->inviteInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inviteInfo) {
-            $res['InviteInfo'] = [];
-            if (null !== $this->inviteInfo && \is_array($this->inviteInfo)) {
-                $n = 0;
-                foreach ($this->inviteInfo as $item) {
-                    $res['InviteInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->inviteInfo)) {
+                $res['InviteInfo'] = [];
+                $n1 = 0;
+                foreach ($this->inviteInfo as $item1) {
+                    $res['InviteInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class inviteInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inviteInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InviteInfo'])) {
             if (!empty($map['InviteInfo'])) {
                 $model->inviteInfo = [];
-                $n                 = 0;
-                foreach ($map['InviteInfo'] as $item) {
-                    $model->inviteInfo[$n++] = null !== $item ? inviteInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InviteInfo'] as $item1) {
+                    $model->inviteInfo[$n1] = inviteInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

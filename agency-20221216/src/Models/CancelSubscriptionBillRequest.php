@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelSubscriptionBillRequest extends Model
 {
     /**
-     * @description The type of the bill to which you want to cancel the subscription. Valid values: PartnerBillingItemDetailForBillingPeriod, PartnerBillingItemDetailMonthly, PartnerInstanceDetailForBillingPeriod, and PartnerInstanceDetailMonthly.
-     *
-     * This parameter is required.
-     * @example PartnerBillingItemDetailForBillingPeriod
-     *
      * @var string
      */
     public $subscribeType;
@@ -23,9 +18,10 @@ class CancelSubscriptionBillRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subscribeType) {
@@ -35,11 +31,11 @@ class CancelSubscriptionBillRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelSubscriptionBillRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

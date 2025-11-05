@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuotaListExportPagedRequest extends Model
 {
     /**
-     * @description Pagination, current page number, starting from 1.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description Multilingual Parameters, the default language is English.</br>
-     * ja: Japanese </br>
-     * @example en
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description Pagination, record number on each page, maximum 100.
-     *
-     * This parameter is required.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'language'    => 'Language',
-        'pageSize'    => 'PageSize',
+        'language' => 'Language',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -62,20 +51,22 @@ class QuotaListExportPagedRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuotaListExportPagedRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

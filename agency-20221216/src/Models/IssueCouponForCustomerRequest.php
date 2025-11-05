@@ -4,53 +4,56 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IssueCouponForCustomerRequest extends Model
 {
     /**
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 5075915
-     *
      * @var int
      */
     public $couponTemplateId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 111,2222
-     *
+     * @var bool
+     */
+    public $isUseBenefit;
+
+    /**
      * @var string
      */
     public $uidlist;
     protected $_name = [
-        'acceptLanguage'   => 'AcceptLanguage',
+        'acceptLanguage' => 'AcceptLanguage',
         'couponTemplateId' => 'CouponTemplateId',
-        'uidlist'          => 'Uidlist',
+        'isUseBenefit' => 'IsUseBenefit',
+        'uidlist' => 'Uidlist',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->couponTemplateId) {
             $res['CouponTemplateId'] = $this->couponTemplateId;
         }
+
+        if (null !== $this->isUseBenefit) {
+            $res['IsUseBenefit'] = $this->isUseBenefit;
+        }
+
         if (null !== $this->uidlist) {
             $res['Uidlist'] = $this->uidlist;
         }
@@ -58,20 +61,26 @@ class IssueCouponForCustomerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IssueCouponForCustomerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['CouponTemplateId'])) {
             $model->couponTemplateId = $map['CouponTemplateId'];
         }
+
+        if (isset($map['IsUseBenefit'])) {
+            $model->isUseBenefit = $map['IsUseBenefit'];
+        }
+
         if (isset($map['Uidlist'])) {
             $model->uidlist = $map['Uidlist'];
         }

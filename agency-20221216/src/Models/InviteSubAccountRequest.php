@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest\accountInfoList;
-use AlibabaCloud\Tea\Model;
 
 class InviteSubAccountRequest extends Model
 {
     /**
-     * @description List of invited account information,  less than 5 accounts at a time.</br>
-     * This parameter is required.
      * @var accountInfoList[]
      */
     public $accountInfoList;
@@ -21,17 +19,22 @@ class InviteSubAccountRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->accountInfoList)) {
+            Model::validateArray($this->accountInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountInfoList) {
-            $res['AccountInfoList'] = [];
-            if (null !== $this->accountInfoList && \is_array($this->accountInfoList)) {
-                $n = 0;
-                foreach ($this->accountInfoList as $item) {
-                    $res['AccountInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accountInfoList)) {
+                $res['AccountInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->accountInfoList as $item1) {
+                    $res['AccountInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class InviteSubAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InviteSubAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountInfoList'])) {
             if (!empty($map['AccountInfoList'])) {
                 $model->accountInfoList = [];
-                $n                      = 0;
-                foreach ($map['AccountInfoList'] as $item) {
-                    $model->accountInfoList[$n++] = null !== $item ? accountInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AccountInfoList'] as $item1) {
+                    $model->accountInfoList[$n1] = accountInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

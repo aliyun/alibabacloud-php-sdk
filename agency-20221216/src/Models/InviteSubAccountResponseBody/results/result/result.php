@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponseBody\results\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Valid days of registration URL, count on daily basis.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $days;
 
     /**
-     * @description Invitation ID, The invitation status tracking code.
-     *
-     * @example 12345
-     *
      * @var int
      */
     public $inviteId;
 
     /**
-     * @description URL for Partner Customer Registration.
-     *
-     * @example http://agency-intl.console.aliyun.com/customer/register?intl=true&fxinfo=-4uT%2FMWHnnUdvr5GXVd1AYK8luTnGgH3M7Y3lSCd5M1fxRwAkViTWtDJDpckh0HL
-     *
      * @var string
      */
     public $regUrl;
     protected $_name = [
-        'days'     => 'Days',
+        'days' => 'Days',
         'inviteId' => 'InviteId',
-        'regUrl'   => 'RegUrl',
+        'regUrl' => 'RegUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->days) {
             $res['Days'] = $this->days;
         }
+
         if (null !== $this->inviteId) {
             $res['InviteId'] = $this->inviteId;
         }
+
         if (null !== $this->regUrl) {
             $res['RegUrl'] = $this->regUrl;
         }
@@ -60,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Days'])) {
             $model->days = $map['Days'];
         }
+
         if (isset($map['InviteId'])) {
             $model->inviteId = $map['InviteId'];
         }
+
         if (isset($map['RegUrl'])) {
             $model->regUrl = $map['RegUrl'];
         }

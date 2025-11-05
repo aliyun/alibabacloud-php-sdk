@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCouponTemplateDetailRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 5093156
-     *
      * @var int
      */
     public $templateId;
@@ -22,9 +18,10 @@ class GetCouponTemplateDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -34,11 +31,11 @@ class GetCouponTemplateDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCouponTemplateDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

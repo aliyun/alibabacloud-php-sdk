@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMonthlyBillRequest extends Model
 {
     /**
-     * @description Bill Owner type. Value Range:</br>
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $billOwner;
 
     /**
-     * @description Value Range:
-     *
-     * This parameter is required.
-     * @example MonthlyInvoice
-     *
      * @var string
      */
     public $billType;
 
     /**
-     * @description Billing Month, Format is YYYY-MM
-     *
-     * This parameter is required.
-     * @example 2022-11
-     *
      * @var string
      */
     public $month;
     protected $_name = [
         'billOwner' => 'BillOwner',
-        'billType'  => 'BillType',
-        'month'     => 'Month',
+        'billType' => 'BillType',
+        'month' => 'Month',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billOwner) {
             $res['BillOwner'] = $this->billOwner;
         }
+
         if (null !== $this->billType) {
             $res['BillType'] = $this->billType;
         }
+
         if (null !== $this->month) {
             $res['Month'] = $this->month;
         }
@@ -62,20 +51,22 @@ class GetMonthlyBillRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMonthlyBillRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillOwner'])) {
             $model->billOwner = $map['BillOwner'];
         }
+
         if (isset($map['BillType'])) {
             $model->billType = $map['BillType'];
         }
+
         if (isset($map['Month'])) {
             $model->month = $map['Month'];
         }

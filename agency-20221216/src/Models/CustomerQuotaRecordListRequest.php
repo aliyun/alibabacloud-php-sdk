@@ -4,112 +4,86 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CustomerQuotaRecordListRequest extends Model
 {
     /**
-     * @description End Date Format: yyyy-MM-dd
-     *
-     * This parameter is required.
-     * @example 2023-09-24
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description Customer UID
-     *
-     * This parameter is required.
-     * @example 5113766248601929
-     *
      * @var int
      */
     public $endUserPk;
 
     /**
-     * @description Multilingual Parameters, the default language is English.</br>
-     * ja: Japanese </br>
-     * @example en
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description Operation Type Enum</br>
-     * This parameter is required.
-     * @example all
-     *
      * @var string
      */
     public $operationType;
 
     /**
-     * @description Pagination, current page number, starting from 1.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description Pagination, record number on each page. Maximum 100.
-     *
-     * This parameter is required.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Start Date Format: yyyy-MM-dd
-     *
-     * This parameter is required.
-     * @example 2023-01-02
-     *
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'endDate'       => 'EndDate',
-        'endUserPk'     => 'EndUserPk',
-        'language'      => 'Language',
+        'endDate' => 'EndDate',
+        'endUserPk' => 'EndUserPk',
+        'language' => 'Language',
         'operationType' => 'OperationType',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
-        'startDate'     => 'StartDate',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->endUserPk) {
             $res['EndUserPk'] = $this->endUserPk;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -117,32 +91,38 @@ class CustomerQuotaRecordListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CustomerQuotaRecordListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['EndUserPk'])) {
             $model->endUserPk = $map['EndUserPk'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

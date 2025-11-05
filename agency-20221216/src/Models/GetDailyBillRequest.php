@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDailyBillRequest extends Model
 {
     /**
-     * @description Bill Owner type. Value Range:</br>
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $billOwner;
 
     /**
-     * @description BillType. Value Range:</br>
-     *
-     * This parameter is required.
-     * @example DailyInstanceBillV2
-     *
      * @var string
      */
     public $billType;
 
     /**
-     * @description Billing date. Format YYYY-MM-DD
-     *
-     * This parameter is required.
-     * @example 2022-11-24
-     *
      * @var string
      */
     public $date;
     protected $_name = [
         'billOwner' => 'BillOwner',
-        'billType'  => 'BillType',
-        'date'      => 'Date',
+        'billType' => 'BillType',
+        'date' => 'Date',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billOwner) {
             $res['BillOwner'] = $this->billOwner;
         }
+
         if (null !== $this->billType) {
             $res['BillType'] = $this->billType;
         }
+
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
@@ -62,20 +51,22 @@ class GetDailyBillRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDailyBillRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillOwner'])) {
             $model->billOwner = $map['BillOwner'];
         }
+
         if (isset($map['BillType'])) {
             $model->billType = $map['BillType'];
         }
+
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }

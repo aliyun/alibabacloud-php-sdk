@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetWarningThresholdRequest extends Model
 {
     /**
-     * @description The UID of the partner‘s customer.
-     *
-     * This parameter is required.
-     * @example 1792155717328010
-     *
      * @var int
      */
     public $uid;
 
     /**
-     * @description Percentage, 1 to 100. When the available credit limit is lower than the credit limit percentage, an email is sent to the main account.
-     *
-     * This parameter is required.
-     * @example 20
-     *
      * @var string
      */
     public $warningValue;
     protected $_name = [
-        'uid'          => 'Uid',
+        'uid' => 'Uid',
         'warningValue' => 'WarningValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
+
         if (null !== $this->warningValue) {
             $res['WarningValue'] = $this->warningValue;
         }
@@ -49,17 +41,18 @@ class SetWarningThresholdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetWarningThresholdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }
+
         if (isset($map['WarningValue'])) {
             $model->warningValue = $map['WarningValue'];
         }

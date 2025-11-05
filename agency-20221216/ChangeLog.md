@@ -1,3 +1,10 @@
+2025-11-05 Version: 1.9.0
+- Support API ExportReversedDeductionHistory.
+- Support API GetCommissionableProducts.
+- Support API ListExportTasks.
+- Support API QueryReversedDeductionHistory.
+
+
 2024-11-29 Version: 1.8.0
 - Support API CancelCoupon.
 - Support API CouponApprovalStatusList.

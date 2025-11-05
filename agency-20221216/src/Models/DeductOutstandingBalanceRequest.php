@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeductOutstandingBalanceRequest extends Model
 {
     /**
-     * @description The Deducted Credit to be offset.
-     *
-     * This parameter is required.
-     * @example 300
-     *
      * @var string
      */
     public $deductAmount;
 
     /**
-     * @description Account UID of Distribution Customer.
-     *
-     * This parameter is required.
-     * @example 1133166938931507
-     *
      * @var int
      */
     public $uid;
     protected $_name = [
         'deductAmount' => 'DeductAmount',
-        'uid'          => 'Uid',
+        'uid' => 'Uid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deductAmount) {
             $res['DeductAmount'] = $this->deductAmount;
         }
+
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
@@ -49,17 +41,18 @@ class DeductOutstandingBalanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeductOutstandingBalanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeductAmount'])) {
             $model->deductAmount = $map['DeductAmount'];
         }
+
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }

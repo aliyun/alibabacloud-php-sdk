@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Agency\V20221216\Models\ExportCustomerQuotaRecordResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description Estimated duration, in minutes.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $cost;
 
     /**
-     * @description ID of Export task
-     *
-     * @example 1231
-     *
      * @var int
      */
     public $id;
     protected $_name = [
         'cost' => 'Cost',
-        'id'   => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cost) {
             $res['Cost'] = $this->cost;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cost'])) {
             $model->cost = $map['Cost'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
