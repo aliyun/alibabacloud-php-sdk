@@ -223,6 +223,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\HoldCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HoldCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HotlineSessionQueryRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HotlineSessionQueryResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportOneTaskPhoneNumberRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportOneTaskPhoneNumberResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportOneTaskPhoneNumberShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportTaskNumberDatasRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportTaskNumberDatasResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ImportTaskNumberDatasShrinkRequest;
@@ -277,6 +280,7 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\PageQueryAgentListRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\PageQueryAgentListResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallDetailPageRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallDetailPageResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallDetailPageShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageRequest;
@@ -7154,6 +7158,93 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 语音智能体外呼任务导入单条数据.
+     *
+     * @param tmpReq - ImportOneTaskPhoneNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportOneTaskPhoneNumberResponse
+     *
+     * @param ImportOneTaskPhoneNumberRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ImportOneTaskPhoneNumberResponse
+     */
+    public function importOneTaskPhoneNumberWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ImportOneTaskPhoneNumberShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->variables) {
+            $request->variablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->variablesShrink) {
+            @$query['Variables'] = $request->variablesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ImportOneTaskPhoneNumber',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportOneTaskPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 语音智能体外呼任务导入单条数据.
+     *
+     * @param request - ImportOneTaskPhoneNumberRequest
+     *
+     * @returns ImportOneTaskPhoneNumberResponse
+     *
+     * @param ImportOneTaskPhoneNumberRequest $request
+     *
+     * @return ImportOneTaskPhoneNumberResponse
+     */
+    public function importOneTaskPhoneNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importOneTaskPhoneNumberWithOptions($request, $runtime);
+    }
+
+    /**
      * 导入任务号码数据.
      *
      * @param tmpReq - ImportTaskNumberDatasRequest
@@ -8870,19 +8961,25 @@ class Aiccs extends OpenApiClient
     /**
      * 查询明细记录.
      *
-     * @param request - QueryAiCallDetailPageRequest
+     * @param tmpReq - QueryAiCallDetailPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryAiCallDetailPageResponse
      *
-     * @param QueryAiCallDetailPageRequest $request
+     * @param QueryAiCallDetailPageRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return QueryAiCallDetailPageResponse
      */
-    public function queryAiCallDetailPageWithOptions($request, $runtime)
+    public function queryAiCallDetailPageWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new QueryAiCallDetailPageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->detailIds) {
+            $request->detailIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->detailIds, 'DetailIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->batchId) {
             @$query['BatchId'] = $request->batchId;
@@ -8894,6 +8991,10 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->calledNumber) {
             @$query['CalledNumber'] = $request->calledNumber;
+        }
+
+        if (null !== $request->detailIdsShrink) {
+            @$query['DetailIds'] = $request->detailIdsShrink;
         }
 
         if (null !== $request->endCallingTime) {
@@ -11800,6 +11901,10 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->startType) {
             @$query['StartType'] = $request->startType;
+        }
+
+        if (null !== $request->taskCps) {
+            @$query['TaskCps'] = $request->taskCps;
         }
 
         if (null !== $request->taskId) {

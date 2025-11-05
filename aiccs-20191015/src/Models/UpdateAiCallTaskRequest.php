@@ -59,6 +59,11 @@ class UpdateAiCallTaskRequest extends Model
     public $startType;
 
     /**
+     * @var int
+     */
+    public $taskCps;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -88,6 +93,7 @@ class UpdateAiCallTaskRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'startType' => 'StartType',
+        'taskCps' => 'TaskCps',
         'taskId' => 'TaskId',
         'taskName' => 'TaskName',
         'taskStartTime' => 'TaskStartTime',
@@ -170,6 +176,10 @@ class UpdateAiCallTaskRequest extends Model
 
         if (null !== $this->startType) {
             $res['StartType'] = $this->startType;
+        }
+
+        if (null !== $this->taskCps) {
+            $res['TaskCps'] = $this->taskCps;
         }
 
         if (null !== $this->taskId) {
@@ -258,6 +268,10 @@ class UpdateAiCallTaskRequest extends Model
 
         if (isset($map['StartType'])) {
             $model->startType = $map['StartType'];
+        }
+
+        if (isset($map['TaskCps'])) {
+            $model->taskCps = $map['TaskCps'];
         }
 
         if (isset($map['TaskId'])) {

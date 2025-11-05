@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QueryAiCallDetailPageRequest extends Model
+class QueryAiCallDetailPageShrinkRequest extends Model
 {
     /**
      * @var string
@@ -24,9 +24,9 @@ class QueryAiCallDetailPageRequest extends Model
     public $calledNumber;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $detailIds;
+    public $detailIdsShrink;
 
     /**
      * @var int
@@ -106,7 +106,7 @@ class QueryAiCallDetailPageRequest extends Model
         'batchId' => 'BatchId',
         'callResult' => 'CallResult',
         'calledNumber' => 'CalledNumber',
-        'detailIds' => 'DetailIds',
+        'detailIdsShrink' => 'DetailIds',
         'endCallingTime' => 'EndCallingTime',
         'endImportedTime' => 'EndImportedTime',
         'majorIntent' => 'MajorIntent',
@@ -126,9 +126,6 @@ class QueryAiCallDetailPageRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->detailIds)) {
-            Model::validateArray($this->detailIds);
-        }
         parent::validate();
     }
 
@@ -147,15 +144,8 @@ class QueryAiCallDetailPageRequest extends Model
             $res['CalledNumber'] = $this->calledNumber;
         }
 
-        if (null !== $this->detailIds) {
-            if (\is_array($this->detailIds)) {
-                $res['DetailIds'] = [];
-                $n1 = 0;
-                foreach ($this->detailIds as $item1) {
-                    $res['DetailIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->detailIdsShrink) {
+            $res['DetailIds'] = $this->detailIdsShrink;
         }
 
         if (null !== $this->endCallingTime) {
@@ -242,14 +232,7 @@ class QueryAiCallDetailPageRequest extends Model
         }
 
         if (isset($map['DetailIds'])) {
-            if (!empty($map['DetailIds'])) {
-                $model->detailIds = [];
-                $n1 = 0;
-                foreach ($map['DetailIds'] as $item1) {
-                    $model->detailIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->detailIdsShrink = $map['DetailIds'];
         }
 
         if (isset($map['EndCallingTime'])) {
