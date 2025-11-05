@@ -29,6 +29,11 @@ class ListUserRatePlanInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $planType;
+
+    /**
      * @var int
      */
     public $remainingExpireDays;
@@ -57,6 +62,7 @@ class ListUserRatePlanInstancesRequest extends Model
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'planType' => 'PlanType',
         'remainingExpireDays' => 'RemainingExpireDays',
         'sortBy' => 'SortBy',
         'sortOrder' => 'SortOrder',
@@ -86,6 +92,10 @@ class ListUserRatePlanInstancesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->planType) {
+            $res['PlanType'] = $this->planType;
         }
 
         if (null !== $this->remainingExpireDays) {
@@ -133,6 +143,10 @@ class ListUserRatePlanInstancesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['PlanType'])) {
+            $model->planType = $map['PlanType'];
         }
 
         if (isset($map['RemainingExpireDays'])) {
