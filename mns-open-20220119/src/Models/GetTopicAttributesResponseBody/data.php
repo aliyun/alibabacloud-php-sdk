@@ -47,12 +47,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $topicInnerUrl;
+
+    /**
+     * @var string
+     */
     public $topicName;
 
     /**
      * @var string
      */
     public $topicType;
+
+    /**
+     * @var string
+     */
+    public $topicUrl;
     protected $_name = [
         'createTime' => 'CreateTime',
         'lastModifyTime' => 'LastModifyTime',
@@ -61,8 +71,10 @@ class data extends Model
         'messageCount' => 'MessageCount',
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'tags' => 'Tags',
+        'topicInnerUrl' => 'TopicInnerUrl',
         'topicName' => 'TopicName',
         'topicType' => 'TopicType',
+        'topicUrl' => 'TopicUrl',
     ];
 
     public function validate()
@@ -111,12 +123,20 @@ class data extends Model
             }
         }
 
+        if (null !== $this->topicInnerUrl) {
+            $res['TopicInnerUrl'] = $this->topicInnerUrl;
+        }
+
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
 
         if (null !== $this->topicType) {
             $res['TopicType'] = $this->topicType;
+        }
+
+        if (null !== $this->topicUrl) {
+            $res['TopicUrl'] = $this->topicUrl;
         }
 
         return $res;
@@ -165,12 +185,20 @@ class data extends Model
             }
         }
 
+        if (isset($map['TopicInnerUrl'])) {
+            $model->topicInnerUrl = $map['TopicInnerUrl'];
+        }
+
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
         }
 
         if (isset($map['TopicType'])) {
             $model->topicType = $map['TopicType'];
+        }
+
+        if (isset($map['TopicUrl'])) {
+            $model->topicUrl = $map['TopicUrl'];
         }
 
         return $model;
