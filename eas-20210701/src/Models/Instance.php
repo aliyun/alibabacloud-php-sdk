@@ -14,6 +14,11 @@ class Instance extends Model
     public $currentAmount;
 
     /**
+     * @var bool
+     */
+    public $detached;
+
+    /**
      * @var string
      */
     public $externalIP;
@@ -61,6 +66,11 @@ class Instance extends Model
     /**
      * @var bool
      */
+    public $isReplica;
+
+    /**
+     * @var bool
+     */
     public $isSpot;
 
     /**
@@ -92,6 +102,11 @@ class Instance extends Model
      * @var string
      */
     public $reason;
+
+    /**
+     * @var string
+     */
+    public $replicaName;
 
     /**
      * @var string
@@ -144,6 +159,7 @@ class Instance extends Model
     public $zone;
     protected $_name = [
         'currentAmount' => 'CurrentAmount',
+        'detached' => 'Detached',
         'externalIP' => 'ExternalIP',
         'externalInstancePort' => 'ExternalInstancePort',
         'hostIP' => 'HostIP',
@@ -153,6 +169,7 @@ class Instance extends Model
         'instancePort' => 'InstancePort',
         'instanceType' => 'InstanceType',
         'isLatest' => 'IsLatest',
+        'isReplica' => 'IsReplica',
         'isSpot' => 'IsSpot',
         'isolated' => 'Isolated',
         'lastState' => 'LastState',
@@ -160,6 +177,7 @@ class Instance extends Model
         'originalAmount' => 'OriginalAmount',
         'readyProcesses' => 'ReadyProcesses',
         'reason' => 'Reason',
+        'replicaName' => 'ReplicaName',
         'resourceType' => 'ResourceType',
         'restartCount' => 'RestartCount',
         'role' => 'Role',
@@ -185,6 +203,10 @@ class Instance extends Model
         $res = [];
         if (null !== $this->currentAmount) {
             $res['CurrentAmount'] = $this->currentAmount;
+        }
+
+        if (null !== $this->detached) {
+            $res['Detached'] = $this->detached;
         }
 
         if (null !== $this->externalIP) {
@@ -221,6 +243,10 @@ class Instance extends Model
 
         if (null !== $this->isLatest) {
             $res['IsLatest'] = $this->isLatest;
+        }
+
+        if (null !== $this->isReplica) {
+            $res['IsReplica'] = $this->isReplica;
         }
 
         if (null !== $this->isSpot) {
@@ -261,6 +287,10 @@ class Instance extends Model
 
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->replicaName) {
+            $res['ReplicaName'] = $this->replicaName;
         }
 
         if (null !== $this->resourceType) {
@@ -318,6 +348,10 @@ class Instance extends Model
             $model->currentAmount = $map['CurrentAmount'];
         }
 
+        if (isset($map['Detached'])) {
+            $model->detached = $map['Detached'];
+        }
+
         if (isset($map['ExternalIP'])) {
             $model->externalIP = $map['ExternalIP'];
         }
@@ -352,6 +386,10 @@ class Instance extends Model
 
         if (isset($map['IsLatest'])) {
             $model->isLatest = $map['IsLatest'];
+        }
+
+        if (isset($map['IsReplica'])) {
+            $model->isReplica = $map['IsReplica'];
         }
 
         if (isset($map['IsSpot'])) {
@@ -392,6 +430,10 @@ class Instance extends Model
 
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['ReplicaName'])) {
+            $model->replicaName = $map['ReplicaName'];
         }
 
         if (isset($map['ResourceType'])) {

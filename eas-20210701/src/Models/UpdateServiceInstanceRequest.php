@@ -11,6 +11,16 @@ class UpdateServiceInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $isReplica;
+
+    /**
+     * @var bool
+     */
+    public $detach;
+
+    /**
+     * @var bool
+     */
     public $hibernate;
 
     /**
@@ -18,6 +28,8 @@ class UpdateServiceInstanceRequest extends Model
      */
     public $isolate;
     protected $_name = [
+        'isReplica' => 'IsReplica',
+        'detach' => 'Detach',
         'hibernate' => 'Hibernate',
         'isolate' => 'Isolate',
     ];
@@ -30,6 +42,14 @@ class UpdateServiceInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->isReplica) {
+            $res['IsReplica'] = $this->isReplica;
+        }
+
+        if (null !== $this->detach) {
+            $res['Detach'] = $this->detach;
+        }
+
         if (null !== $this->hibernate) {
             $res['Hibernate'] = $this->hibernate;
         }
@@ -49,6 +69,14 @@ class UpdateServiceInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsReplica'])) {
+            $model->isReplica = $map['IsReplica'];
+        }
+
+        if (isset($map['Detach'])) {
+            $model->detach = $map['Detach'];
+        }
+
         if (isset($map['Hibernate'])) {
             $model->hibernate = $map['Hibernate'];
         }

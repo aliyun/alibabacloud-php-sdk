@@ -44,6 +44,11 @@ class ListServiceInstancesRequest extends Model
     public $isSpot;
 
     /**
+     * @var bool
+     */
+    public $listReplica;
+
+    /**
      * @var string
      */
     public $memberType;
@@ -62,6 +67,11 @@ class ListServiceInstancesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $replicaName;
 
     /**
      * @var string
@@ -85,10 +95,12 @@ class ListServiceInstancesRequest extends Model
         'instanceStatus' => 'InstanceStatus',
         'instanceType' => 'InstanceType',
         'isSpot' => 'IsSpot',
+        'listReplica' => 'ListReplica',
         'memberType' => 'MemberType',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'replicaName' => 'ReplicaName',
         'resourceType' => 'ResourceType',
         'role' => 'Role',
         'sort' => 'Sort',
@@ -130,6 +142,10 @@ class ListServiceInstancesRequest extends Model
             $res['IsSpot'] = $this->isSpot;
         }
 
+        if (null !== $this->listReplica) {
+            $res['ListReplica'] = $this->listReplica;
+        }
+
         if (null !== $this->memberType) {
             $res['MemberType'] = $this->memberType;
         }
@@ -144,6 +160,10 @@ class ListServiceInstancesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->replicaName) {
+            $res['ReplicaName'] = $this->replicaName;
         }
 
         if (null !== $this->resourceType) {
@@ -197,6 +217,10 @@ class ListServiceInstancesRequest extends Model
             $model->isSpot = $map['IsSpot'];
         }
 
+        if (isset($map['ListReplica'])) {
+            $model->listReplica = $map['ListReplica'];
+        }
+
         if (isset($map['MemberType'])) {
             $model->memberType = $map['MemberType'];
         }
@@ -211,6 +235,10 @@ class ListServiceInstancesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ReplicaName'])) {
+            $model->replicaName = $map['ReplicaName'];
         }
 
         if (isset($map['ResourceType'])) {

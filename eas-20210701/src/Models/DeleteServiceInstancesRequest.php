@@ -21,10 +21,16 @@ class DeleteServiceInstancesRequest extends Model
     /**
      * @var bool
      */
+    public $isReplica;
+
+    /**
+     * @var bool
+     */
     public $softRestart;
     protected $_name = [
         'container' => 'Container',
         'instanceList' => 'InstanceList',
+        'isReplica' => 'IsReplica',
         'softRestart' => 'SoftRestart',
     ];
 
@@ -42,6 +48,10 @@ class DeleteServiceInstancesRequest extends Model
 
         if (null !== $this->instanceList) {
             $res['InstanceList'] = $this->instanceList;
+        }
+
+        if (null !== $this->isReplica) {
+            $res['IsReplica'] = $this->isReplica;
         }
 
         if (null !== $this->softRestart) {
@@ -65,6 +75,10 @@ class DeleteServiceInstancesRequest extends Model
 
         if (isset($map['InstanceList'])) {
             $model->instanceList = $map['InstanceList'];
+        }
+
+        if (isset($map['IsReplica'])) {
+            $model->isReplica = $map['IsReplica'];
         }
 
         if (isset($map['SoftRestart'])) {

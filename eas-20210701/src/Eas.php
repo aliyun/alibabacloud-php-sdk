@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateFaultInjectionRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateFaultInjectionResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcPeerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcPeerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcPeerShrinkRequest;
@@ -48,6 +50,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteFaultInjectionResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerShrinkRequest;
@@ -129,6 +132,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceServicesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourcesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceContainersResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstanceFaultInjectionInfoResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesRequest;
@@ -654,6 +658,77 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->createBenchmarkTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建故障注入任务
+     *
+     * @param request - CreateFaultInjectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFaultInjectionResponse
+     *
+     * @param string                      $ClusterId
+     * @param string                      $ServiceName
+     * @param string                      $InstanceName
+     * @param CreateFaultInjectionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateFaultInjectionResponse
+     */
+    public function createFaultInjectionWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->faultArgs) {
+            @$body['FaultArgs'] = $request->faultArgs;
+        }
+
+        if (null !== $request->faultType) {
+            @$body['FaultType'] = $request->faultType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFaultInjection',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/faults',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFaultInjectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建故障注入任务
+     *
+     * @param request - CreateFaultInjectionRequest
+     *
+     * @returns CreateFaultInjectionResponse
+     *
+     * @param string                      $ClusterId
+     * @param string                      $ServiceName
+     * @param string                      $InstanceName
+     * @param CreateFaultInjectionRequest $request
+     *
+     * @return CreateFaultInjectionResponse
+     */
+    public function createFaultInjection($ClusterId, $ServiceName, $InstanceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createFaultInjectionWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1663,6 +1738,63 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * 删除故障注入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFaultInjectionResponse
+     *
+     * @param string         $ClusterId
+     * @param string         $ServiceName
+     * @param string         $InstanceName
+     * @param string         $FaultType
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteFaultInjectionResponse
+     */
+    public function deleteFaultInjectionWithOptions($ClusterId, $ServiceName, $InstanceName, $FaultType, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFaultInjection',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/faults/' . Url::percentEncode($FaultType) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFaultInjectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除故障注入任务
+     *
+     * @returns DeleteFaultInjectionResponse
+     *
+     * @param string $ClusterId
+     * @param string $ServiceName
+     * @param string $InstanceName
+     * @param string $FaultType
+     *
+     * @return DeleteFaultInjectionResponse
+     */
+    public function deleteFaultInjection($ClusterId, $ServiceName, $InstanceName, $FaultType)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFaultInjectionWithOptions($ClusterId, $ServiceName, $InstanceName, $FaultType, $headers, $runtime);
+    }
+
+    /**
      * Deletes a private gateway.
      *
      * @param headers - map
@@ -2364,6 +2496,10 @@ class Eas extends OpenApiClient
 
         if (null !== $request->instanceList) {
             @$query['InstanceList'] = $request->instanceList;
+        }
+
+        if (null !== $request->isReplica) {
+            @$query['IsReplica'] = $request->isReplica;
         }
 
         if (null !== $request->softRestart) {
@@ -5021,6 +5157,61 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * 获取故障注入信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceInstanceFaultInjectionInfoResponse
+     *
+     * @param string         $ClusterId
+     * @param string         $ServiceName
+     * @param string         $InstanceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListServiceInstanceFaultInjectionInfoResponse
+     */
+    public function listServiceInstanceFaultInjectionInfoWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceInstanceFaultInjectionInfo',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/faults',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServiceInstanceFaultInjectionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取故障注入信息.
+     *
+     * @returns ListServiceInstanceFaultInjectionInfoResponse
+     *
+     * @param string $ClusterId
+     * @param string $ServiceName
+     * @param string $InstanceName
+     *
+     * @return ListServiceInstanceFaultInjectionInfoResponse
+     */
+    public function listServiceInstanceFaultInjectionInfo($ClusterId, $ServiceName, $InstanceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceInstanceFaultInjectionInfoWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime);
+    }
+
+    /**
      * Queries instances of a service.
      *
      * @param request - ListServiceInstancesRequest
@@ -5069,6 +5260,10 @@ class Eas extends OpenApiClient
             @$query['IsSpot'] = $request->isSpot;
         }
 
+        if (null !== $request->listReplica) {
+            @$query['ListReplica'] = $request->listReplica;
+        }
+
         if (null !== $request->memberType) {
             @$query['MemberType'] = $request->memberType;
         }
@@ -5083,6 +5278,10 @@ class Eas extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->replicaName) {
+            @$query['ReplicaName'] = $request->replicaName;
         }
 
         if (null !== $request->resourceType) {
@@ -6729,7 +6928,16 @@ class Eas extends OpenApiClient
     public function updateServiceInstanceWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->isReplica) {
+            @$query['IsReplica'] = $request->isReplica;
+        }
+
         $body = [];
+        if (null !== $request->detach) {
+            @$body['Detach'] = $request->detach;
+        }
+
         if (null !== $request->hibernate) {
             @$body['Hibernate'] = $request->hibernate;
         }
@@ -6740,6 +6948,7 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
