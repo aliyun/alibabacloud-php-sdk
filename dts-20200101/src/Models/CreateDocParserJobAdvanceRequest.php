@@ -22,6 +22,11 @@ class CreateDocParserJobAdvanceRequest extends Model
     /**
      * @var string
      */
+    public $ragInstanceId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -36,6 +41,7 @@ class CreateDocParserJobAdvanceRequest extends Model
     protected $_name = [
         'fileName' => 'FileName',
         'fileUrlObject' => 'FileUrl',
+        'ragInstanceId' => 'RagInstanceId',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resultType' => 'ResultType',
@@ -55,6 +61,10 @@ class CreateDocParserJobAdvanceRequest extends Model
 
         if (null !== $this->fileUrlObject) {
             $res['FileUrl'] = $this->fileUrlObject;
+        }
+
+        if (null !== $this->ragInstanceId) {
+            $res['RagInstanceId'] = $this->ragInstanceId;
         }
 
         if (null !== $this->regionId) {
@@ -86,6 +96,10 @@ class CreateDocParserJobAdvanceRequest extends Model
 
         if (isset($map['FileUrl'])) {
             $model->fileUrlObject = $map['FileUrl'];
+        }
+
+        if (isset($map['RagInstanceId'])) {
+            $model->ragInstanceId = $map['RagInstanceId'];
         }
 
         if (isset($map['RegionId'])) {

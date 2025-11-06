@@ -21,6 +21,11 @@ class CreateDocParserJobRequest extends Model
     /**
      * @var string
      */
+    public $ragInstanceId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -35,6 +40,7 @@ class CreateDocParserJobRequest extends Model
     protected $_name = [
         'fileName' => 'FileName',
         'fileUrl' => 'FileUrl',
+        'ragInstanceId' => 'RagInstanceId',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resultType' => 'ResultType',
@@ -54,6 +60,10 @@ class CreateDocParserJobRequest extends Model
 
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+
+        if (null !== $this->ragInstanceId) {
+            $res['RagInstanceId'] = $this->ragInstanceId;
         }
 
         if (null !== $this->regionId) {
@@ -85,6 +95,10 @@ class CreateDocParserJobRequest extends Model
 
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+
+        if (isset($map['RagInstanceId'])) {
+            $model->ragInstanceId = $map['RagInstanceId'];
         }
 
         if (isset($map['RegionId'])) {

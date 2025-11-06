@@ -16,6 +16,11 @@ class DescribeDocParserJobResultRequest extends Model
     /**
      * @var string
      */
+    public $ragInstanceId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -24,6 +29,7 @@ class DescribeDocParserJobResultRequest extends Model
     public $resourceGroupId;
     protected $_name = [
         'dtsJobId' => 'DtsJobId',
+        'ragInstanceId' => 'RagInstanceId',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
@@ -38,6 +44,10 @@ class DescribeDocParserJobResultRequest extends Model
         $res = [];
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
+        }
+
+        if (null !== $this->ragInstanceId) {
+            $res['RagInstanceId'] = $this->ragInstanceId;
         }
 
         if (null !== $this->regionId) {
@@ -61,6 +71,10 @@ class DescribeDocParserJobResultRequest extends Model
         $model = new self();
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
+        }
+
+        if (isset($map['RagInstanceId'])) {
+            $model->ragInstanceId = $map['RagInstanceId'];
         }
 
         if (isset($map['RegionId'])) {
