@@ -216,6 +216,11 @@ class GetInstanceResponseBody extends Model
     public $resourceName;
 
     /**
+     * @var ServiceConfig
+     */
+    public $serviceConfig;
+
+    /**
      * @var string
      */
     public $status;
@@ -314,6 +319,7 @@ class GetInstanceResponseBody extends Model
         'requestedResource' => 'RequestedResource',
         'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
+        'serviceConfig' => 'ServiceConfig',
         'status' => 'Status',
         'success' => 'Success',
         'tags' => 'Tags',
@@ -368,6 +374,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->requestedResource) {
             $this->requestedResource->validate();
+        }
+        if (null !== $this->serviceConfig) {
+            $this->serviceConfig->validate();
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -568,6 +577,10 @@ class GetInstanceResponseBody extends Model
 
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+
+        if (null !== $this->serviceConfig) {
+            $res['ServiceConfig'] = null !== $this->serviceConfig ? $this->serviceConfig->toArray($noStream) : $this->serviceConfig;
         }
 
         if (null !== $this->status) {
@@ -823,6 +836,10 @@ class GetInstanceResponseBody extends Model
 
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+
+        if (isset($map['ServiceConfig'])) {
+            $model->serviceConfig = ServiceConfig::fromMap($map['ServiceConfig']);
         }
 
         if (isset($map['Status'])) {

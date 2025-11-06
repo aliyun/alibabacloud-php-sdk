@@ -33,6 +33,11 @@ class userVpc extends Model
     /**
      * @var string
      */
+    public $ip;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -49,6 +54,7 @@ class userVpc extends Model
         'defaultRoute' => 'DefaultRoute',
         'extendedCIDRs' => 'ExtendedCIDRs',
         'forwardInfos' => 'ForwardInfos',
+        'ip' => 'Ip',
         'securityGroupId' => 'SecurityGroupId',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -99,6 +105,10 @@ class userVpc extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         if (null !== $this->securityGroupId) {
@@ -152,6 +162,10 @@ class userVpc extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         if (isset($map['SecurityGroupId'])) {
