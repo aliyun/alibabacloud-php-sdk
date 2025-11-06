@@ -11,6 +11,11 @@ class ListQuotasRequest extends Model
     /**
      * @var string
      */
+    public $clusterType;
+
+    /**
+     * @var string
+     */
     public $hasResource;
 
     /**
@@ -88,6 +93,7 @@ class ListQuotasRequest extends Model
      */
     public $workspaceName;
     protected $_name = [
+        'clusterType' => 'ClusterType',
         'hasResource' => 'HasResource',
         'labels' => 'Labels',
         'layoutMode' => 'LayoutMode',
@@ -114,6 +120,10 @@ class ListQuotasRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+
         if (null !== $this->hasResource) {
             $res['HasResource'] = $this->hasResource;
         }
@@ -189,6 +199,10 @@ class ListQuotasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+
         if (isset($map['HasResource'])) {
             $model->hasResource = $map['HasResource'];
         }

@@ -443,6 +443,10 @@ class PaiStudio extends OpenApiClient
             @$body['AllocateStrategy'] = $request->allocateStrategy;
         }
 
+        if (null !== $request->clusterSpec) {
+            @$body['ClusterSpec'] = $request->clusterSpec;
+        }
+
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
         }
@@ -2625,6 +2629,10 @@ class PaiStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
+        }
+
         if (null !== $request->hasResource) {
             @$query['HasResource'] = $request->hasResource;
         }

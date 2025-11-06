@@ -14,6 +14,11 @@ class CreateQuotaRequest extends Model
     public $allocateStrategy;
 
     /**
+     * @var ClusterSpec
+     */
+    public $clusterSpec;
+
+    /**
      * @var string
      */
     public $description;
@@ -59,6 +64,7 @@ class CreateQuotaRequest extends Model
     public $resourceType;
     protected $_name = [
         'allocateStrategy' => 'AllocateStrategy',
+        'clusterSpec' => 'ClusterSpec',
         'description' => 'Description',
         'labels' => 'Labels',
         'min' => 'Min',
@@ -72,6 +78,9 @@ class CreateQuotaRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->clusterSpec) {
+            $this->clusterSpec->validate();
+        }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
         }
@@ -92,6 +101,10 @@ class CreateQuotaRequest extends Model
         $res = [];
         if (null !== $this->allocateStrategy) {
             $res['AllocateStrategy'] = $this->allocateStrategy;
+        }
+
+        if (null !== $this->clusterSpec) {
+            $res['ClusterSpec'] = null !== $this->clusterSpec ? $this->clusterSpec->toArray($noStream) : $this->clusterSpec;
         }
 
         if (null !== $this->description) {
@@ -157,6 +170,10 @@ class CreateQuotaRequest extends Model
         $model = new self();
         if (isset($map['AllocateStrategy'])) {
             $model->allocateStrategy = $map['AllocateStrategy'];
+        }
+
+        if (isset($map['ClusterSpec'])) {
+            $model->clusterSpec = ClusterSpec::fromMap($map['ClusterSpec']);
         }
 
         if (isset($map['Description'])) {

@@ -64,6 +64,11 @@ class Quota extends Model
     public $queueStrategy;
 
     /**
+     * @var QuotaCluster
+     */
+    public $quotaCluster;
+
+    /**
      * @var QuotaConfig
      */
     public $quotaConfig;
@@ -134,6 +139,7 @@ class Quota extends Model
         'min' => 'Min',
         'parentQuotaId' => 'ParentQuotaId',
         'queueStrategy' => 'QueueStrategy',
+        'quotaCluster' => 'QuotaCluster',
         'quotaConfig' => 'QuotaConfig',
         'quotaDetails' => 'QuotaDetails',
         'quotaId' => 'QuotaId',
@@ -158,6 +164,9 @@ class Quota extends Model
         }
         if (null !== $this->min) {
             $this->min->validate();
+        }
+        if (null !== $this->quotaCluster) {
+            $this->quotaCluster->validate();
         }
         if (null !== $this->quotaConfig) {
             $this->quotaConfig->validate();
@@ -236,6 +245,10 @@ class Quota extends Model
 
         if (null !== $this->queueStrategy) {
             $res['QueueStrategy'] = $this->queueStrategy;
+        }
+
+        if (null !== $this->quotaCluster) {
+            $res['QuotaCluster'] = null !== $this->quotaCluster ? $this->quotaCluster->toArray($noStream) : $this->quotaCluster;
         }
 
         if (null !== $this->quotaConfig) {
@@ -374,6 +387,10 @@ class Quota extends Model
 
         if (isset($map['QueueStrategy'])) {
             $model->queueStrategy = $map['QueueStrategy'];
+        }
+
+        if (isset($map['QuotaCluster'])) {
+            $model->quotaCluster = QuotaCluster::fromMap($map['QuotaCluster']);
         }
 
         if (isset($map['QuotaConfig'])) {
