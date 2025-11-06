@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppRecordTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppViewTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppViewTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppViewTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateCloudNotePhrasesRequest;
@@ -39,6 +42,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppRecordTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppViewTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppViewTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppViewTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteChannelRequest;
@@ -81,6 +87,11 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppStreamingOutTemplatesShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppViewStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppViewStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppViewTemplatesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppViewTemplatesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppViewTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCallbacksRequest;
@@ -203,6 +214,11 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppStreamingOutTemplateShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppViewStatusRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppViewStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppViewTemplateRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppViewTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppViewTemplateShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaShrinkRequest;
@@ -211,6 +227,12 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCloudNotePhrasesResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCloudNotePhrasesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyStreamingPropertyRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyStreamingPropertyResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyStreamingPropertyShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyViewLayoutRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyViewLayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyViewLayoutShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\NotifyAgentRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\NotifyAgentResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\NotifyAgentShrinkRequest;
@@ -218,6 +240,12 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\RtcCancelSipInviteRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\RtcCancelSipInviteResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\RtcSipInviteMemberRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\RtcSipInviteMemberResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\RtcSipMuteRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\RtcSipMuteResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentShrinkRequest;
@@ -237,6 +265,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartViewRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartViewResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartViewShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopAgentRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopAgentResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackRequest;
@@ -254,6 +285,8 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopStreamingOutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopStreamingOutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopViewRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopViewResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAgentShrinkRequest;
@@ -777,6 +810,73 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppStreamingOutTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建应用合流模版.
+     *
+     * @param tmpReq - CreateAppViewTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppViewTemplateResponse
+     *
+     * @param CreateAppViewTemplateRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateAppViewTemplateResponse
+     */
+    public function createAppViewTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAppViewTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->template) {
+            $request->templateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->templateShrink) {
+            @$query['Template'] = $request->templateShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppViewTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppViewTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用合流模版.
+     *
+     * @param request - CreateAppViewTemplateRequest
+     *
+     * @returns CreateAppViewTemplateResponse
+     *
+     * @param CreateAppViewTemplateRequest $request
+     *
+     * @return CreateAppViewTemplateResponse
+     */
+    public function createAppViewTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppViewTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1349,6 +1449,73 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppStreamingOutTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除应用合流模版.
+     *
+     * @param tmpReq - DeleteAppViewTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppViewTemplateResponse
+     *
+     * @param DeleteAppViewTemplateRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteAppViewTemplateResponse
+     */
+    public function deleteAppViewTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteAppViewTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->template) {
+            $request->templateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->templateShrink) {
+            @$query['Template'] = $request->templateShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppViewTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppViewTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除应用合流模版.
+     *
+     * @param request - DeleteAppViewTemplateRequest
+     *
+     * @returns DeleteAppViewTemplateResponse
+     *
+     * @param DeleteAppViewTemplateRequest $request
+     *
+     * @return DeleteAppViewTemplateResponse
+     */
+    public function deleteAppViewTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppViewTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -2428,6 +2595,138 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppStreamingOutTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看合流开关.
+     *
+     * @param request - DescribeAppViewStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppViewStatusResponse
+     *
+     * @param DescribeAppViewStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAppViewStatusResponse
+     */
+    public function describeAppViewStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAppViewStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAppViewStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看合流开关.
+     *
+     * @param request - DescribeAppViewStatusRequest
+     *
+     * @returns DescribeAppViewStatusResponse
+     *
+     * @param DescribeAppViewStatusRequest $request
+     *
+     * @return DescribeAppViewStatusResponse
+     */
+    public function describeAppViewStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppViewStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用合流模版列表.
+     *
+     * @param tmpReq - DescribeAppViewTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppViewTemplatesResponse
+     *
+     * @param DescribeAppViewTemplatesRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAppViewTemplatesResponse
+     */
+    public function describeAppViewTemplatesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeAppViewTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->condition) {
+            $request->conditionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->condition, 'Condition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->conditionShrink) {
+            @$query['Condition'] = $request->conditionShrink;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAppViewTemplates',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAppViewTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用合流模版列表.
+     *
+     * @param request - DescribeAppViewTemplatesRequest
+     *
+     * @returns DescribeAppViewTemplatesResponse
+     *
+     * @param DescribeAppViewTemplatesRequest $request
+     *
+     * @return DescribeAppViewTemplatesResponse
+     */
+    public function describeAppViewTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppViewTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -6550,6 +6849,130 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * 修改合流开关.
+     *
+     * @param request - ModifyAppViewStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppViewStatusResponse
+     *
+     * @param ModifyAppViewStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyAppViewStatusResponse
+     */
+    public function modifyAppViewStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppViewStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppViewStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改合流开关.
+     *
+     * @param request - ModifyAppViewStatusRequest
+     *
+     * @returns ModifyAppViewStatusResponse
+     *
+     * @param ModifyAppViewStatusRequest $request
+     *
+     * @return ModifyAppViewStatusResponse
+     */
+    public function modifyAppViewStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppViewStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新应用合流模版.
+     *
+     * @param tmpReq - ModifyAppViewTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppViewTemplateResponse
+     *
+     * @param ModifyAppViewTemplateRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAppViewTemplateResponse
+     */
+    public function modifyAppViewTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyAppViewTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->template) {
+            $request->templateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->template, 'Template', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->templateShrink) {
+            @$query['Template'] = $request->templateShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppViewTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppViewTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新应用合流模版.
+     *
+     * @param request - ModifyAppViewTemplateRequest
+     *
+     * @returns ModifyAppViewTemplateResponse
+     *
+     * @param ModifyAppViewTemplateRequest $request
+     *
+     * @return ModifyAppViewTemplateResponse
+     */
+    public function modifyAppViewTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppViewTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新app回调.
      *
      * @param tmpReq - ModifyCallbackMetaRequest
@@ -6758,6 +7181,184 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyMPULayoutWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置流属性.
+     *
+     * @param tmpReq - ModifyStreamingPropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyStreamingPropertyResponse
+     *
+     * @param ModifyStreamingPropertyRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyStreamingPropertyResponse
+     */
+    public function modifyStreamingPropertyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyStreamingPropertyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->viewSubscribers) {
+            $request->viewSubscribersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->viewSubscribers, 'ViewSubscribers', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->viewContent) {
+            @$query['ViewContent'] = $request->viewContent;
+        }
+
+        if (null !== $request->viewSubscribersShrink) {
+            @$query['ViewSubscribers'] = $request->viewSubscribersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyStreamingProperty',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyStreamingPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置流属性.
+     *
+     * @param request - ModifyStreamingPropertyRequest
+     *
+     * @returns ModifyStreamingPropertyResponse
+     *
+     * @param ModifyStreamingPropertyRequest $request
+     *
+     * @return ModifyStreamingPropertyResponse
+     */
+    public function modifyStreamingProperty($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyStreamingPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置合流布局
+     *
+     * @param tmpReq - ModifyViewLayoutRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyViewLayoutResponse
+     *
+     * @param ModifyViewLayoutRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyViewLayoutResponse
+     */
+    public function modifyViewLayoutWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyViewLayoutShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->layoutSpecifiedUsers) {
+            $request->layoutSpecifiedUsersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->layoutSpecifiedUsers, 'LayoutSpecifiedUsers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->backgrounds) {
+            @$query['Backgrounds'] = $request->backgrounds;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->clockWidgets) {
+            @$query['ClockWidgets'] = $request->clockWidgets;
+        }
+
+        if (null !== $request->images) {
+            @$query['Images'] = $request->images;
+        }
+
+        if (null !== $request->layoutSpecifiedUsersShrink) {
+            @$query['LayoutSpecifiedUsers'] = $request->layoutSpecifiedUsersShrink;
+        }
+
+        if (null !== $request->panes) {
+            @$query['Panes'] = $request->panes;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->texts) {
+            @$query['Texts'] = $request->texts;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyViewLayout',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyViewLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置合流布局
+     *
+     * @param request - ModifyViewLayoutRequest
+     *
+     * @returns ModifyViewLayoutResponse
+     *
+     * @param ModifyViewLayoutRequest $request
+     *
+     * @return ModifyViewLayoutResponse
+     */
+    public function modifyViewLayout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyViewLayoutWithOptions($request, $runtime);
     }
 
     /**
@@ -6979,6 +7580,249 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消Sip邀请.
+     *
+     * @param request - RtcCancelSipInviteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RtcCancelSipInviteResponse
+     *
+     * @param RtcCancelSipInviteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RtcCancelSipInviteResponse
+     */
+    public function rtcCancelSipInviteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->deviceType) {
+            @$query['DeviceType'] = $request->deviceType;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RtcCancelSipInvite',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RtcCancelSipInviteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消Sip邀请.
+     *
+     * @param request - RtcCancelSipInviteRequest
+     *
+     * @returns RtcCancelSipInviteResponse
+     *
+     * @param RtcCancelSipInviteRequest $request
+     *
+     * @return RtcCancelSipInviteResponse
+     */
+    public function rtcCancelSipInvite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rtcCancelSipInviteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 邀请SIP加入频道.
+     *
+     * @param request - RtcSipInviteMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RtcSipInviteMemberResponse
+     *
+     * @param RtcSipInviteMemberRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RtcSipInviteMemberResponse
+     */
+    public function rtcSipInviteMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appToken) {
+            @$query['AppToken'] = $request->appToken;
+        }
+
+        if (null !== $request->callNumber) {
+            @$query['CallNumber'] = $request->callNumber;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->deviceType) {
+            @$query['DeviceType'] = $request->deviceType;
+        }
+
+        if (null !== $request->registered) {
+            @$query['Registered'] = $request->registered;
+        }
+
+        if (null !== $request->serverAddress) {
+            @$query['ServerAddress'] = $request->serverAddress;
+        }
+
+        if (null !== $request->sipDisplayName) {
+            @$query['SipDisplayName'] = $request->sipDisplayName;
+        }
+
+        if (null !== $request->sipRoomId) {
+            @$query['SipRoomId'] = $request->sipRoomId;
+        }
+
+        if (null !== $request->sipUri) {
+            @$query['SipUri'] = $request->sipUri;
+        }
+
+        if (null !== $request->sipUserAgent) {
+            @$query['SipUserAgent'] = $request->sipUserAgent;
+        }
+
+        if (null !== $request->sipUserId) {
+            @$query['SipUserId'] = $request->sipUserId;
+        }
+
+        if (null !== $request->sipUserPassword) {
+            @$query['SipUserPassword'] = $request->sipUserPassword;
+        }
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RtcSipInviteMember',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RtcSipInviteMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 邀请SIP加入频道.
+     *
+     * @param request - RtcSipInviteMemberRequest
+     *
+     * @returns RtcSipInviteMemberResponse
+     *
+     * @param RtcSipInviteMemberRequest $request
+     *
+     * @return RtcSipInviteMemberResponse
+     */
+    public function rtcSipInviteMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rtcSipInviteMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * Mute操作.
+     *
+     * @param request - RtcSipMuteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RtcSipMuteResponse
+     *
+     * @param RtcSipMuteRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RtcSipMuteResponse
+     */
+    public function rtcSipMuteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->operations) {
+            @$query['Operations'] = $request->operations;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RtcSipMute',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RtcSipMuteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Mute操作.
+     *
+     * @param request - RtcSipMuteRequest
+     *
+     * @returns RtcSipMuteResponse
+     *
+     * @param RtcSipMuteRequest $request
+     *
+     * @return RtcSipMuteResponse
+     */
+    public function rtcSipMute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rtcSipMuteWithOptions($request, $runtime);
     }
 
     /**
@@ -7876,6 +8720,109 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * 开始合流
+     *
+     * @param tmpReq - StartViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartViewResponse
+     *
+     * @param StartViewRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return StartViewResponse
+     */
+    public function startViewWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StartViewShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->viewSubscribers) {
+            $request->viewSubscribersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->viewSubscribers, 'ViewSubscribers', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->bgColor) {
+            @$query['BgColor'] = $request->bgColor;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->cropMode) {
+            @$query['CropMode'] = $request->cropMode;
+        }
+
+        if (null !== $request->regionColor) {
+            @$query['RegionColor'] = $request->regionColor;
+        }
+
+        if (null !== $request->startWithoutChannel) {
+            @$query['StartWithoutChannel'] = $request->startWithoutChannel;
+        }
+
+        if (null !== $request->startWithoutChannelWaitTime) {
+            @$query['StartWithoutChannelWaitTime'] = $request->startWithoutChannelWaitTime;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->viewContent) {
+            @$query['ViewContent'] = $request->viewContent;
+        }
+
+        if (null !== $request->viewSubscribersShrink) {
+            @$query['ViewSubscribers'] = $request->viewSubscribersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartView',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开始合流
+     *
+     * @param request - StartViewRequest
+     *
+     * @returns StartViewResponse
+     *
+     * @param StartViewRequest $request
+     *
+     * @return StartViewResponse
+     */
+    public function startView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startViewWithOptions($request, $runtime);
+    }
+
+    /**
      * 停止AI Agent.
      *
      * @param request - StopAgentRequest
@@ -8387,6 +9334,71 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopStreamingOutWithOptions($request, $runtime);
+    }
+
+    /**
+     * 停止合流
+     *
+     * @param request - StopViewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopViewResponse
+     *
+     * @param StopViewRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return StopViewResponse
+     */
+    public function stopViewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopView',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止合流
+     *
+     * @param request - StopViewRequest
+     *
+     * @returns StopViewResponse
+     *
+     * @param StopViewRequest $request
+     *
+     * @return StopViewResponse
+     */
+    public function stopView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopViewWithOptions($request, $runtime);
     }
 
     /**
