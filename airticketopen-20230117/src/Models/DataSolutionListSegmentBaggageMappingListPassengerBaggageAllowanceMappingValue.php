@@ -47,6 +47,46 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
      * @var bool
      */
     public $isAllCarryOnWeight;
+
+    /**
+     * @var int
+     */
+    public $carryLength;
+
+    /**
+     * @var int
+     */
+    public $carryWidth;
+
+    /**
+     * @var int
+     */
+    public $carryHeight;
+
+    /**
+     * @var int
+     */
+    public $carrySumOfLengthWidthHeight;
+
+    /**
+     * @var int
+     */
+    public $length;
+
+    /**
+     * @var int
+     */
+    public $width;
+
+    /**
+     * @var int
+     */
+    public $height;
+
+    /**
+     * @var int
+     */
+    public $sumOfLengthWidthHeight;
     protected $_name = [
         'baggageAmount' => 'baggage_amount',
         'baggageWeight' => 'baggage_weight',
@@ -56,6 +96,14 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
         'carryOnWeight' => 'carry_on_weight',
         'carryOnWeightUnit' => 'carry_on_weight_unit',
         'isAllCarryOnWeight' => 'is_all_carry_on_weight',
+        'carryLength' => 'carry_length',
+        'carryWidth' => 'carry_width',
+        'carryHeight' => 'carry_height',
+        'carrySumOfLengthWidthHeight' => 'carry_sum_of_length_width_height',
+        'length' => 'length',
+        'width' => 'width',
+        'height' => 'height',
+        'sumOfLengthWidthHeight' => 'sum_of_length_width_height',
     ];
 
     public function validate()
@@ -96,6 +144,38 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
 
         if (null !== $this->isAllCarryOnWeight) {
             $res['is_all_carry_on_weight'] = $this->isAllCarryOnWeight;
+        }
+
+        if (null !== $this->carryLength) {
+            $res['carry_length'] = $this->carryLength;
+        }
+
+        if (null !== $this->carryWidth) {
+            $res['carry_width'] = $this->carryWidth;
+        }
+
+        if (null !== $this->carryHeight) {
+            $res['carry_height'] = $this->carryHeight;
+        }
+
+        if (null !== $this->carrySumOfLengthWidthHeight) {
+            $res['carry_sum_of_length_width_height'] = $this->carrySumOfLengthWidthHeight;
+        }
+
+        if (null !== $this->length) {
+            $res['length'] = $this->length;
+        }
+
+        if (null !== $this->width) {
+            $res['width'] = $this->width;
+        }
+
+        if (null !== $this->height) {
+            $res['height'] = $this->height;
+        }
+
+        if (null !== $this->sumOfLengthWidthHeight) {
+            $res['sum_of_length_width_height'] = $this->sumOfLengthWidthHeight;
         }
 
         return $res;
@@ -139,6 +219,38 @@ class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingV
 
         if (isset($map['is_all_carry_on_weight'])) {
             $model->isAllCarryOnWeight = $map['is_all_carry_on_weight'];
+        }
+
+        if (isset($map['carry_length'])) {
+            $model->carryLength = $map['carry_length'];
+        }
+
+        if (isset($map['carry_width'])) {
+            $model->carryWidth = $map['carry_width'];
+        }
+
+        if (isset($map['carry_height'])) {
+            $model->carryHeight = $map['carry_height'];
+        }
+
+        if (isset($map['carry_sum_of_length_width_height'])) {
+            $model->carrySumOfLengthWidthHeight = $map['carry_sum_of_length_width_height'];
+        }
+
+        if (isset($map['length'])) {
+            $model->length = $map['length'];
+        }
+
+        if (isset($map['width'])) {
+            $model->width = $map['width'];
+        }
+
+        if (isset($map['height'])) {
+            $model->height = $map['height'];
+        }
+
+        if (isset($map['sum_of_length_width_height'])) {
+            $model->sumOfLengthWidthHeight = $map['sum_of_length_width_height'];
         }
 
         return $model;

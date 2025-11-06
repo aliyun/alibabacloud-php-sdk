@@ -41,6 +41,11 @@ class segmentParamList extends Model
     /**
      * @var string
      */
+    public $departureDate;
+
+    /**
+     * @var string
+     */
     public $departureTime;
 
     /**
@@ -54,6 +59,7 @@ class segmentParamList extends Model
         'childCabin' => 'child_cabin',
         'departureAirport' => 'departure_airport',
         'departureCity' => 'departure_city',
+        'departureDate' => 'departure_date',
         'departureTime' => 'departure_time',
         'marketingFlightNo' => 'marketing_flight_no',
     ];
@@ -88,6 +94,10 @@ class segmentParamList extends Model
 
         if (null !== $this->departureCity) {
             $res['departure_city'] = $this->departureCity;
+        }
+
+        if (null !== $this->departureDate) {
+            $res['departure_date'] = $this->departureDate;
         }
 
         if (null !== $this->departureTime) {
@@ -131,6 +141,10 @@ class segmentParamList extends Model
 
         if (isset($map['departure_city'])) {
             $model->departureCity = $map['departure_city'];
+        }
+
+        if (isset($map['departure_date'])) {
+            $model->departureDate = $map['departure_date'];
         }
 
         if (isset($map['departure_time'])) {
