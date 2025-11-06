@@ -23,6 +23,11 @@ class UpdateMcpServerRequest extends Model
     /**
      * @var string
      */
+    public $createFromType;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -57,6 +62,7 @@ class UpdateMcpServerRequest extends Model
     protected $_name = [
         'assembledSources' => 'assembledSources',
         'backendConfig' => 'backendConfig',
+        'createFromType' => 'createFromType',
         'description' => 'description',
         'domainIds' => 'domainIds',
         'exposedUriPath' => 'exposedUriPath',
@@ -99,6 +105,10 @@ class UpdateMcpServerRequest extends Model
 
         if (null !== $this->backendConfig) {
             $res['backendConfig'] = null !== $this->backendConfig ? $this->backendConfig->toArray($noStream) : $this->backendConfig;
+        }
+
+        if (null !== $this->createFromType) {
+            $res['createFromType'] = $this->createFromType;
         }
 
         if (null !== $this->description) {
@@ -160,6 +170,10 @@ class UpdateMcpServerRequest extends Model
 
         if (isset($map['backendConfig'])) {
             $model->backendConfig = backendConfig::fromMap($map['backendConfig']);
+        }
+
+        if (isset($map['createFromType'])) {
+            $model->createFromType = $map['createFromType'];
         }
 
         if (isset($map['description'])) {

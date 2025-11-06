@@ -1,3 +1,8 @@
+2025-11-06 Version: 5.0.2
+- Update API CreateMcpServer: add request parameters body.createFromType.
+- Update API UpdateMcpServer: add request parameters body.createFromType.
+
+
 2025-10-29 Version: 5.0.1
 - Update API GetGateway: add response parameters Body.data.loadBalancers.$.ipv4Addresses.
 - Update API GetGateway: add response parameters Body.data.loadBalancers.$.ipv6Addresses.

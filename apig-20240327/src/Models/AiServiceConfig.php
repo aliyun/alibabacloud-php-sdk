@@ -13,6 +13,11 @@ class AiServiceConfig extends Model
     /**
      * @var string
      */
+    public $apiKeyGenerateMode;
+
+    /**
+     * @var string
+     */
     public $address;
 
     /**
@@ -45,6 +50,7 @@ class AiServiceConfig extends Model
      */
     public $provider;
     protected $_name = [
+        'apiKeyGenerateMode' => 'ApiKeyGenerateMode',
         'address' => 'address',
         'apiKeys' => 'apiKeys',
         'bedrockServiceConfig' => 'bedrockServiceConfig',
@@ -74,6 +80,10 @@ class AiServiceConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKeyGenerateMode) {
+            $res['ApiKeyGenerateMode'] = $this->apiKeyGenerateMode;
+        }
+
         if (null !== $this->address) {
             $res['address'] = $this->address;
         }
@@ -127,6 +137,10 @@ class AiServiceConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiKeyGenerateMode'])) {
+            $model->apiKeyGenerateMode = $map['ApiKeyGenerateMode'];
+        }
+
         if (isset($map['address'])) {
             $model->address = $map['address'];
         }

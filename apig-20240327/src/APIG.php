@@ -1317,6 +1317,10 @@ class APIG extends OpenApiClient
             @$body['backendConfig'] = $request->backendConfig;
         }
 
+        if (null !== $request->createFromType) {
+            @$body['createFromType'] = $request->createFromType;
+        }
+
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
@@ -6272,6 +6276,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->backendConfig) {
             @$body['backendConfig'] = $request->backendConfig;
+        }
+
+        if (null !== $request->createFromType) {
+            @$body['createFromType'] = $request->createFromType;
         }
 
         if (null !== $request->description) {

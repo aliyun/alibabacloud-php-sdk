@@ -17,6 +17,11 @@ class HttpRoute extends Model
     public $backend;
 
     /**
+     * @var string
+     */
+    public $builtin;
+
+    /**
      * @var int
      */
     public $createTimestamp;
@@ -72,6 +77,7 @@ class HttpRoute extends Model
     public $updateTimestamp;
     protected $_name = [
         'backend' => 'backend',
+        'builtin' => 'builtin',
         'createTimestamp' => 'createTimestamp',
         'deployStatus' => 'deployStatus',
         'description' => 'description',
@@ -113,6 +119,10 @@ class HttpRoute extends Model
         $res = [];
         if (null !== $this->backend) {
             $res['backend'] = null !== $this->backend ? $this->backend->toArray($noStream) : $this->backend;
+        }
+
+        if (null !== $this->builtin) {
+            $res['builtin'] = $this->builtin;
         }
 
         if (null !== $this->createTimestamp) {
@@ -184,6 +194,10 @@ class HttpRoute extends Model
         $model = new self();
         if (isset($map['backend'])) {
             $model->backend = Backend::fromMap($map['backend']);
+        }
+
+        if (isset($map['builtin'])) {
+            $model->builtin = $map['builtin'];
         }
 
         if (isset($map['createTimestamp'])) {

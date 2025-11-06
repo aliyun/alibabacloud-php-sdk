@@ -13,6 +13,11 @@ class HttpApiApiInfo extends Model
     /**
      * @var string[]
      */
+    public $agentProtocols;
+
+    /**
+     * @var string[]
+     */
     public $aiProtocols;
 
     /**
@@ -68,6 +73,11 @@ class HttpApiApiInfo extends Model
     /**
      * @var string
      */
+    public $modelCategory;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -90,6 +100,7 @@ class HttpApiApiInfo extends Model
      */
     public $versionInfo;
     protected $_name = [
+        'agentProtocols' => 'agentProtocols',
         'aiProtocols' => 'aiProtocols',
         'authConfig' => 'authConfig',
         'basePath' => 'basePath',
@@ -101,6 +112,7 @@ class HttpApiApiInfo extends Model
         'gatewayId' => 'gatewayId',
         'httpApiId' => 'httpApiId',
         'ingressInfo' => 'ingressInfo',
+        'modelCategory' => 'modelCategory',
         'name' => 'name',
         'protocols' => 'protocols',
         'resourceGroupId' => 'resourceGroupId',
@@ -110,6 +122,9 @@ class HttpApiApiInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentProtocols)) {
+            Model::validateArray($this->agentProtocols);
+        }
         if (\is_array($this->aiProtocols)) {
             Model::validateArray($this->aiProtocols);
         }
@@ -140,6 +155,17 @@ class HttpApiApiInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentProtocols) {
+            if (\is_array($this->agentProtocols)) {
+                $res['agentProtocols'] = [];
+                $n1 = 0;
+                foreach ($this->agentProtocols as $item1) {
+                    $res['agentProtocols'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->aiProtocols) {
             if (\is_array($this->aiProtocols)) {
                 $res['aiProtocols'] = [];
@@ -210,6 +236,10 @@ class HttpApiApiInfo extends Model
             $res['ingressInfo'] = null !== $this->ingressInfo ? $this->ingressInfo->toArray($noStream) : $this->ingressInfo;
         }
 
+        if (null !== $this->modelCategory) {
+            $res['modelCategory'] = $this->modelCategory;
+        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -248,6 +278,17 @@ class HttpApiApiInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentProtocols'])) {
+            if (!empty($map['agentProtocols'])) {
+                $model->agentProtocols = [];
+                $n1 = 0;
+                foreach ($map['agentProtocols'] as $item1) {
+                    $model->agentProtocols[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['aiProtocols'])) {
             if (!empty($map['aiProtocols'])) {
                 $model->aiProtocols = [];
@@ -316,6 +357,10 @@ class HttpApiApiInfo extends Model
 
         if (isset($map['ingressInfo'])) {
             $model->ingressInfo = ingressInfo::fromMap($map['ingressInfo']);
+        }
+
+        if (isset($map['modelCategory'])) {
+            $model->modelCategory = $map['modelCategory'];
         }
 
         if (isset($map['name'])) {
