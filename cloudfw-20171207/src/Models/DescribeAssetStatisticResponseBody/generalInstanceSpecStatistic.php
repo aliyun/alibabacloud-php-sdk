@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticRespon
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticResponseBody\generalInstanceSpecStatistic\cfwGeneralInstanceRegionStatistic;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticResponseBody\generalInstanceSpecStatistic\cfwTotalGeneralInstanceRegionStatistic;
 
 class generalInstanceSpecStatistic extends Model
 {
@@ -13,6 +14,11 @@ class generalInstanceSpecStatistic extends Model
      * @var cfwGeneralInstanceRegionStatistic[]
      */
     public $cfwGeneralInstanceRegionStatistic;
+
+    /**
+     * @var cfwTotalGeneralInstanceRegionStatistic[]
+     */
+    public $cfwTotalGeneralInstanceRegionStatistic;
 
     /**
      * @var int
@@ -45,6 +51,7 @@ class generalInstanceSpecStatistic extends Model
     public $totalVfwGeneralInstanceUsedCnt;
     protected $_name = [
         'cfwGeneralInstanceRegionStatistic' => 'CfwGeneralInstanceRegionStatistic',
+        'cfwTotalGeneralInstanceRegionStatistic' => 'CfwTotalGeneralInstanceRegionStatistic',
         'totalCfwGeneralInstanceCnt' => 'TotalCfwGeneralInstanceCnt',
         'totalCfwGeneralInstanceUsedCnt' => 'TotalCfwGeneralInstanceUsedCnt',
         'totalGeneralInstanceUsedCnt' => 'TotalGeneralInstanceUsedCnt',
@@ -58,6 +65,9 @@ class generalInstanceSpecStatistic extends Model
         if (\is_array($this->cfwGeneralInstanceRegionStatistic)) {
             Model::validateArray($this->cfwGeneralInstanceRegionStatistic);
         }
+        if (\is_array($this->cfwTotalGeneralInstanceRegionStatistic)) {
+            Model::validateArray($this->cfwTotalGeneralInstanceRegionStatistic);
+        }
         parent::validate();
     }
 
@@ -70,6 +80,17 @@ class generalInstanceSpecStatistic extends Model
                 $n1 = 0;
                 foreach ($this->cfwGeneralInstanceRegionStatistic as $item1) {
                     $res['CfwGeneralInstanceRegionStatistic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->cfwTotalGeneralInstanceRegionStatistic) {
+            if (\is_array($this->cfwTotalGeneralInstanceRegionStatistic)) {
+                $res['CfwTotalGeneralInstanceRegionStatistic'] = [];
+                $n1 = 0;
+                foreach ($this->cfwTotalGeneralInstanceRegionStatistic as $item1) {
+                    $res['CfwTotalGeneralInstanceRegionStatistic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -116,6 +137,17 @@ class generalInstanceSpecStatistic extends Model
                 $n1 = 0;
                 foreach ($map['CfwGeneralInstanceRegionStatistic'] as $item1) {
                     $model->cfwGeneralInstanceRegionStatistic[$n1] = cfwGeneralInstanceRegionStatistic::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['CfwTotalGeneralInstanceRegionStatistic'])) {
+            if (!empty($map['CfwTotalGeneralInstanceRegionStatistic'])) {
+                $model->cfwTotalGeneralInstanceRegionStatistic = [];
+                $n1 = 0;
+                foreach ($map['CfwTotalGeneralInstanceRegionStatistic'] as $item1) {
+                    $model->cfwTotalGeneralInstanceRegionStatistic[$n1] = cfwTotalGeneralInstanceRegionStatistic::fromMap($item1);
                     ++$n1;
                 }
             }
