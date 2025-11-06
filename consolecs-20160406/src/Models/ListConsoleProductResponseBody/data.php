@@ -132,7 +132,8 @@ class data extends Model
                 $res['Categories'] = [];
                 $n1 = 0;
                 foreach ($this->categories as $item1) {
-                    $res['Categories'][$n1++] = $item1;
+                    $res['Categories'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +143,8 @@ class data extends Model
                 $res['ChannelLinks'] = [];
                 $n1 = 0;
                 foreach ($this->channelLinks as $item1) {
-                    $res['ChannelLinks'][$n1++] = $item1;
+                    $res['ChannelLinks'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -156,7 +158,8 @@ class data extends Model
                 $res['Keywords'] = [];
                 $n1 = 0;
                 foreach ($this->keywords as $item1) {
-                    $res['Keywords'][$n1++] = $item1;
+                    $res['Keywords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -190,7 +193,8 @@ class data extends Model
                 $res['SupportedAccounts'] = [];
                 $n1 = 0;
                 foreach ($this->supportedAccounts as $item1) {
-                    $res['SupportedAccounts'][$n1++] = $item1;
+                    $res['SupportedAccounts'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -200,7 +204,8 @@ class data extends Model
                 $res['SupportedChannels'] = [];
                 $n1 = 0;
                 foreach ($this->supportedChannels as $item1) {
-                    $res['SupportedChannels'][$n1++] = $item1;
+                    $res['SupportedChannels'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -233,7 +238,8 @@ class data extends Model
                 $model->categories = [];
                 $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
-                    $model->categories[$n1++] = $item1;
+                    $model->categories[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +249,8 @@ class data extends Model
                 $model->channelLinks = [];
                 $n1 = 0;
                 foreach ($map['ChannelLinks'] as $item1) {
-                    $model->channelLinks[$n1++] = $item1;
+                    $model->channelLinks[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -257,7 +264,8 @@ class data extends Model
                 $model->keywords = [];
                 $n1 = 0;
                 foreach ($map['Keywords'] as $item1) {
-                    $model->keywords[$n1++] = $item1;
+                    $model->keywords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +299,8 @@ class data extends Model
                 $model->supportedAccounts = [];
                 $n1 = 0;
                 foreach ($map['SupportedAccounts'] as $item1) {
-                    $model->supportedAccounts[$n1++] = $item1;
+                    $model->supportedAccounts[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -301,7 +310,8 @@ class data extends Model
                 $model->supportedChannels = [];
                 $n1 = 0;
                 foreach ($map['SupportedChannels'] as $item1) {
-                    $model->supportedChannels[$n1++] = $item1;
+                    $model->supportedChannels[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
