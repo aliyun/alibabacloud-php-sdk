@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim\classDescs\classDesc;
-use AlibabaCloud\Tea\Model;
 
 class classDescs extends Model
 {
@@ -19,17 +19,22 @@ class classDescs extends Model
 
     public function validate()
     {
+        if (\is_array($this->classDesc)) {
+            Model::validateArray($this->classDesc);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classDesc) {
-            $res['ClassDesc'] = [];
-            if (null !== $this->classDesc && \is_array($this->classDesc)) {
-                $n = 0;
-                foreach ($this->classDesc as $item) {
-                    $res['ClassDesc'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->classDesc)) {
+                $res['ClassDesc'] = [];
+                $n1 = 0;
+                foreach ($this->classDesc as $item1) {
+                    $res['ClassDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class classDescs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return classDescs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassDesc'])) {
             if (!empty($map['ClassDesc'])) {
                 $model->classDesc = [];
-                $n                = 0;
-                foreach ($map['ClassDesc'] as $item) {
-                    $model->classDesc[$n++] = null !== $item ? classDesc::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ClassDesc'] as $item1) {
+                    $model->classDesc[$n1] = classDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

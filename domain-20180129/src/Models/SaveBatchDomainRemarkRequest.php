@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveBatchDomainRemarkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example S12344567
-     *
      * @var string
      */
     public $instanceIds;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example MyRemarkInfo
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'instanceIds'  => 'InstanceIds',
-        'lang'         => 'Lang',
-        'remark'       => 'Remark',
+        'instanceIds' => 'InstanceIds',
+        'lang' => 'Lang',
+        'remark' => 'Remark',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -67,23 +61,26 @@ class SaveBatchDomainRemarkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveBatchDomainRemarkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

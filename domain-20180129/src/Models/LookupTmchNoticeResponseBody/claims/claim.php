@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim\classDescs;
 use AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim\contacts;
 use AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim\holders;
 use AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim\jurDesc;
-use AlibabaCloud\Tea\Model;
 
 class claim extends Model
 {
@@ -23,8 +23,6 @@ class claim extends Model
     public $contacts;
 
     /**
-     * @example Class 9: Calculators; bags, coverings,containers, carriers and holders for mobile phones, personal handheld computers and notebooks; headphones; speakers; blank storage media;batteries. Class 16: Paper
-     *
      * @var string
      */
     public $goodsAndServices;
@@ -40,42 +38,58 @@ class claim extends Model
     public $jurDesc;
 
     /**
-     * @example POTED
-     *
      * @var string
      */
     public $markName;
     protected $_name = [
-        'classDescs'       => 'ClassDescs',
-        'contacts'         => 'Contacts',
+        'classDescs' => 'ClassDescs',
+        'contacts' => 'Contacts',
         'goodsAndServices' => 'GoodsAndServices',
-        'holders'          => 'Holders',
-        'jurDesc'          => 'JurDesc',
-        'markName'         => 'MarkName',
+        'holders' => 'Holders',
+        'jurDesc' => 'JurDesc',
+        'markName' => 'MarkName',
     ];
 
     public function validate()
     {
+        if (null !== $this->classDescs) {
+            $this->classDescs->validate();
+        }
+        if (null !== $this->contacts) {
+            $this->contacts->validate();
+        }
+        if (null !== $this->holders) {
+            $this->holders->validate();
+        }
+        if (null !== $this->jurDesc) {
+            $this->jurDesc->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classDescs) {
-            $res['ClassDescs'] = null !== $this->classDescs ? $this->classDescs->toMap() : null;
+            $res['ClassDescs'] = null !== $this->classDescs ? $this->classDescs->toArray($noStream) : $this->classDescs;
         }
+
         if (null !== $this->contacts) {
-            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
+            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toArray($noStream) : $this->contacts;
         }
+
         if (null !== $this->goodsAndServices) {
             $res['GoodsAndServices'] = $this->goodsAndServices;
         }
+
         if (null !== $this->holders) {
-            $res['Holders'] = null !== $this->holders ? $this->holders->toMap() : null;
+            $res['Holders'] = null !== $this->holders ? $this->holders->toArray($noStream) : $this->holders;
         }
+
         if (null !== $this->jurDesc) {
-            $res['JurDesc'] = null !== $this->jurDesc ? $this->jurDesc->toMap() : null;
+            $res['JurDesc'] = null !== $this->jurDesc ? $this->jurDesc->toArray($noStream) : $this->jurDesc;
         }
+
         if (null !== $this->markName) {
             $res['MarkName'] = $this->markName;
         }
@@ -83,29 +97,34 @@ class claim extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return claim
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassDescs'])) {
             $model->classDescs = classDescs::fromMap($map['ClassDescs']);
         }
+
         if (isset($map['Contacts'])) {
             $model->contacts = contacts::fromMap($map['Contacts']);
         }
+
         if (isset($map['GoodsAndServices'])) {
             $model->goodsAndServices = $map['GoodsAndServices'];
         }
+
         if (isset($map['Holders'])) {
             $model->holders = holders::fromMap($map['Holders']);
         }
+
         if (isset($map['JurDesc'])) {
             $model->jurDesc = jurDesc::fromMap($map['JurDesc']);
         }
+
         if (isset($map['MarkName'])) {
             $model->markName = $map['MarkName'];
         }

@@ -4,60 +4,46 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveSingleTaskForGenerateDomainCertificateRequest extends Model
 {
     /**
-     * @description The domain name.
-     *
-     * This parameter is required.
-     * @example test.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The language of the error message to return if the request fails. Valid values:
-     *
-     *   **zh**: Chinese.
-     *   **en**: English.
-     *
-     * Default value: **en**.
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The IP address of the client.
-     *
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'domainName'   => 'DomainName',
-        'lang'         => 'Lang',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -65,20 +51,22 @@ class SaveSingleTaskForGenerateDomainCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveSingleTaskForGenerateDomainCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions;
-use AlibabaCloud\Tea\Model;
 
 class QueryDomainAdminDivisionResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class QueryDomainAdminDivisionResponseBody extends Model
     public $adminDivisions;
 
     /**
-     * @example 4EA05A10-D4BC-47EA-AD9E-370A46BB4FB9
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'adminDivisions' => 'AdminDivisions',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->adminDivisions) {
+            $this->adminDivisions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adminDivisions) {
-            $res['AdminDivisions'] = null !== $this->adminDivisions ? $this->adminDivisions->toMap() : null;
+            $res['AdminDivisions'] = null !== $this->adminDivisions ? $this->adminDivisions->toArray($noStream) : $this->adminDivisions;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class QueryDomainAdminDivisionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDomainAdminDivisionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdminDivisions'])) {
             $model->adminDivisions = adminDivisions::fromMap($map['AdminDivisions']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody extends Model
 {
     /**
-     * @example EDC28FEC-6BE0-4583-95BC-test
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 880f1579-be51-4dd3-a69d-test
-     *
      * @var string
      */
     public $taskNo;
     protected $_name = [
         'requestId' => 'RequestId',
-        'taskNo'    => 'TaskNo',
+        'taskNo' => 'TaskNo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskNo) {
             $res['TaskNo'] = $this->taskNo;
         }
@@ -43,17 +41,18 @@ class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody extends 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskNo'])) {
             $model->taskNo = $map['TaskNo'];
         }

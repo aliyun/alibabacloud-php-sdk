@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim;
-use AlibabaCloud\Tea\Model;
 
 class claims extends Model
 {
@@ -19,17 +19,22 @@ class claims extends Model
 
     public function validate()
     {
+        if (\is_array($this->claim)) {
+            Model::validateArray($this->claim);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->claim) {
-            $res['Claim'] = [];
-            if (null !== $this->claim && \is_array($this->claim)) {
-                $n = 0;
-                foreach ($this->claim as $item) {
-                    $res['Claim'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->claim)) {
+                $res['Claim'] = [];
+                $n1 = 0;
+                foreach ($this->claim as $item1) {
+                    $res['Claim'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class claims extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return claims
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Claim'])) {
             if (!empty($map['Claim'])) {
                 $model->claim = [];
-                $n            = 0;
-                foreach ($map['Claim'] as $item) {
-                    $model->claim[$n++] = null !== $item ? claim::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Claim'] as $item1) {
+                    $model->claim[$n1] = claim::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\BatchFuzzyMatchDomainSensitiveWordResponseBody\sensitiveWordMatchResultList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\BatchFuzzyMatchDomainSensitiveWordResponseBody\sensitiveWordMatchResultList\sensitiveWordMatchResult\matchedSentiveWords;
-use AlibabaCloud\Tea\Model;
 
 class sensitiveWordMatchResult extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $exist;
 
     /**
-     * @example example.com,aliyundoc.com
-     *
      * @var string
      */
     public $keyword;
@@ -28,45 +24,53 @@ class sensitiveWordMatchResult extends Model
      */
     public $matchedSentiveWords;
     protected $_name = [
-        'exist'               => 'Exist',
-        'keyword'             => 'Keyword',
+        'exist' => 'Exist',
+        'keyword' => 'Keyword',
         'matchedSentiveWords' => 'MatchedSentiveWords',
     ];
 
     public function validate()
     {
+        if (null !== $this->matchedSentiveWords) {
+            $this->matchedSentiveWords->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exist) {
             $res['Exist'] = $this->exist;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->matchedSentiveWords) {
-            $res['MatchedSentiveWords'] = null !== $this->matchedSentiveWords ? $this->matchedSentiveWords->toMap() : null;
+            $res['MatchedSentiveWords'] = null !== $this->matchedSentiveWords ? $this->matchedSentiveWords->toArray($noStream) : $this->matchedSentiveWords;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sensitiveWordMatchResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Exist'])) {
             $model->exist = $map['Exist'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['MatchedSentiveWords'])) {
             $model->matchedSentiveWords = matchedSentiveWords::fromMap($map['MatchedSentiveWords']);
         }

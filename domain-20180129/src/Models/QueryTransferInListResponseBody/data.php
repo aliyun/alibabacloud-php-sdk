@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryTransferInListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryTransferInListResponseBody\data\transferInInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->transferInInfo)) {
+            Model::validateArray($this->transferInInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->transferInInfo) {
-            $res['TransferInInfo'] = [];
-            if (null !== $this->transferInInfo && \is_array($this->transferInInfo)) {
-                $n = 0;
-                foreach ($this->transferInInfo as $item) {
-                    $res['TransferInInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transferInInfo)) {
+                $res['TransferInInfo'] = [];
+                $n1 = 0;
+                foreach ($this->transferInInfo as $item1) {
+                    $res['TransferInInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TransferInInfo'])) {
             if (!empty($map['TransferInInfo'])) {
                 $model->transferInInfo = [];
-                $n                     = 0;
-                foreach ($map['TransferInInfo'] as $item) {
-                    $model->transferInInfo[$n++] = null !== $item ? transferInInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TransferInInfo'] as $item1) {
+                    $model->transferInInfo[$n1] = transferInInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

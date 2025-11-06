@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchFuzzyMatchDomainSensitiveWordRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example example.com,aliyundoc.com
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'keyword'      => 'Keyword',
-        'lang'         => 'Lang',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -56,20 +51,22 @@ class BatchFuzzyMatchDomainSensitiveWordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchFuzzyMatchDomainSensitiveWordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

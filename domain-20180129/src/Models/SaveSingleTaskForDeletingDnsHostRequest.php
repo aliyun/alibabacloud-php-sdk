@@ -4,64 +4,56 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveSingleTaskForDeletingDnsHostRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example dns1
-     *
      * @var string
      */
     public $dnsName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example S2019270W570xxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'dnsName'      => 'DnsName',
-        'instanceId'   => 'InstanceId',
-        'lang'         => 'Lang',
+        'dnsName' => 'DnsName',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnsName) {
             $res['DnsName'] = $this->dnsName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -69,23 +61,26 @@ class SaveSingleTaskForDeletingDnsHostRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveSingleTaskForDeletingDnsHostRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsName'])) {
             $model->dnsName = $map['DnsName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

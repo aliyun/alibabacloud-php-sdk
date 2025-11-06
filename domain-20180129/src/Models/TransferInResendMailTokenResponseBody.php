@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TransferInResendMailTokenResponseBody extends Model
 {
     /**
-     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class TransferInResendMailTokenResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class TransferInResendMailTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TransferInResendMailTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

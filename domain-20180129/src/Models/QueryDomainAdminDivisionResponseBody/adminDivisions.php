@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions\adminDivision;
-use AlibabaCloud\Tea\Model;
 
 class adminDivisions extends Model
 {
@@ -19,17 +19,22 @@ class adminDivisions extends Model
 
     public function validate()
     {
+        if (\is_array($this->adminDivision)) {
+            Model::validateArray($this->adminDivision);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adminDivision) {
-            $res['AdminDivision'] = [];
-            if (null !== $this->adminDivision && \is_array($this->adminDivision)) {
-                $n = 0;
-                foreach ($this->adminDivision as $item) {
-                    $res['AdminDivision'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->adminDivision)) {
+                $res['AdminDivision'] = [];
+                $n1 = 0;
+                foreach ($this->adminDivision as $item1) {
+                    $res['AdminDivision'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class adminDivisions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return adminDivisions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdminDivision'])) {
             if (!empty($map['AdminDivision'])) {
                 $model->adminDivision = [];
-                $n                    = 0;
-                foreach ($map['AdminDivision'] as $item) {
-                    $model->adminDivision[$n++] = null !== $item ? adminDivision::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AdminDivision'] as $item1) {
+                    $model->adminDivision[$n1] = adminDivision::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

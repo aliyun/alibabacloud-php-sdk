@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Domain\V20180129\Models\AcknowledgeTaskResultRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\AcknowledgeTaskResultResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\BatchFuzzyMatchDomainSensitiveWordRequest;
@@ -86,6 +85,9 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainRealNameVerificationInfoRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainRealNameVerificationInfoResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainRealTimePriceRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainRealTimePriceResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainRealTimePriceShrinkRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSpecialBizDetailRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSpecialBizDetailResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSpecialBizInfoByDomainRequest;
@@ -269,11 +271,10 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\VerifyContactFieldRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\VerifyContactFieldResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\VerifyEmailRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\VerifyEmailResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Domain extends OpenApiClient
 {
@@ -298,61 +299,74 @@ class Domain extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 确认任务结果
-     *  *
-     * @param AcknowledgeTaskResultRequest $request AcknowledgeTaskResultRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 确认任务结果.
      *
-     * @return AcknowledgeTaskResultResponse AcknowledgeTaskResultResponse
+     * @param request - AcknowledgeTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AcknowledgeTaskResultResponse
+     *
+     * @param AcknowledgeTaskResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AcknowledgeTaskResultResponse
      */
     public function acknowledgeTaskResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->taskDetailNo)) {
-            $query['TaskDetailNo'] = $request->taskDetailNo;
+
+        if (null !== $request->taskDetailNo) {
+            @$query['TaskDetailNo'] = $request->taskDetailNo;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AcknowledgeTaskResult',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcknowledgeTaskResult',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AcknowledgeTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 确认任务结果
-     *  *
-     * @param AcknowledgeTaskResultRequest $request AcknowledgeTaskResultRequest
+     * 确认任务结果.
      *
-     * @return AcknowledgeTaskResultResponse AcknowledgeTaskResultResponse
+     * @param request - AcknowledgeTaskResultRequest
+     *
+     * @returns AcknowledgeTaskResultResponse
+     *
+     * @param AcknowledgeTaskResultRequest $request
+     *
+     * @return AcknowledgeTaskResultResponse
      */
     public function acknowledgeTaskResult($request)
     {
@@ -362,50 +376,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 通过关键字进行批量模糊匹配
-     *  *
-     * @param BatchFuzzyMatchDomainSensitiveWordRequest $request BatchFuzzyMatchDomainSensitiveWordRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 通过关键字进行批量模糊匹配.
      *
-     * @return BatchFuzzyMatchDomainSensitiveWordResponse BatchFuzzyMatchDomainSensitiveWordResponse
+     * @param request - BatchFuzzyMatchDomainSensitiveWordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchFuzzyMatchDomainSensitiveWordResponse
+     *
+     * @param BatchFuzzyMatchDomainSensitiveWordRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return BatchFuzzyMatchDomainSensitiveWordResponse
      */
     public function batchFuzzyMatchDomainSensitiveWordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchFuzzyMatchDomainSensitiveWord',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchFuzzyMatchDomainSensitiveWord',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchFuzzyMatchDomainSensitiveWordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过关键字进行批量模糊匹配
-     *  *
-     * @param BatchFuzzyMatchDomainSensitiveWordRequest $request BatchFuzzyMatchDomainSensitiveWordRequest
+     * 通过关键字进行批量模糊匹配.
      *
-     * @return BatchFuzzyMatchDomainSensitiveWordResponse BatchFuzzyMatchDomainSensitiveWordResponse
+     * @param request - BatchFuzzyMatchDomainSensitiveWordRequest
+     *
+     * @returns BatchFuzzyMatchDomainSensitiveWordResponse
+     *
+     * @param BatchFuzzyMatchDomainSensitiveWordRequest $request
+     *
+     * @return BatchFuzzyMatchDomainSensitiveWordResponse
      */
     public function batchFuzzyMatchDomainSensitiveWord($request)
     {
@@ -415,53 +441,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary Cancels real-name verification for a domain name.
-     *  *
-     * @param CancelDomainVerificationRequest $request CancelDomainVerificationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Cancels real-name verification for a domain name.
      *
-     * @return CancelDomainVerificationResponse CancelDomainVerificationResponse
+     * @param request - CancelDomainVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelDomainVerificationResponse
+     *
+     * @param CancelDomainVerificationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CancelDomainVerificationResponse
      */
     public function cancelDomainVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionType)) {
-            $query['ActionType'] = $request->actionType;
+        if (null !== $request->actionType) {
+            @$query['ActionType'] = $request->actionType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelDomainVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelDomainVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelDomainVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels real-name verification for a domain name.
-     *  *
-     * @param CancelDomainVerificationRequest $request CancelDomainVerificationRequest
+     * Cancels real-name verification for a domain name.
      *
-     * @return CancelDomainVerificationResponse CancelDomainVerificationResponse
+     * @param request - CancelDomainVerificationRequest
+     *
+     * @returns CancelDomainVerificationResponse
+     *
+     * @param CancelDomainVerificationRequest $request
+     *
+     * @return CancelDomainVerificationResponse
      */
     public function cancelDomainVerification($request)
     {
@@ -471,47 +510,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 取消审核
-     *  *
-     * @param CancelOperationAuditRequest $request CancelOperationAuditRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 取消审核.
      *
-     * @return CancelOperationAuditResponse CancelOperationAuditResponse
+     * @param request - CancelOperationAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelOperationAuditResponse
+     *
+     * @param CancelOperationAuditRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelOperationAuditResponse
      */
     public function cancelOperationAuditWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditRecordId)) {
-            $query['AuditRecordId'] = $request->auditRecordId;
+        if (null !== $request->auditRecordId) {
+            @$query['AuditRecordId'] = $request->auditRecordId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelOperationAudit',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelOperationAudit',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelOperationAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消审核
-     *  *
-     * @param CancelOperationAuditRequest $request CancelOperationAuditRequest
+     * 取消审核.
      *
-     * @return CancelOperationAuditResponse CancelOperationAuditResponse
+     * @param request - CancelOperationAuditRequest
+     *
+     * @returns CancelOperationAuditResponse
+     *
+     * @param CancelOperationAuditRequest $request
+     *
+     * @return CancelOperationAuditResponse
      */
     public function cancelOperationAudit($request)
     {
@@ -521,49 +571,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelQualificationVerificationRequest $request CancelQualificationVerificationRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - CancelQualificationVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CancelQualificationVerificationResponse CancelQualificationVerificationResponse
+     * @returns CancelQualificationVerificationResponse
+     *
+     * @param CancelQualificationVerificationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CancelQualificationVerificationResponse
      */
     public function cancelQualificationVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->qualificationType)) {
-            $query['QualificationType'] = $request->qualificationType;
+
+        if (null !== $request->qualificationType) {
+            @$query['QualificationType'] = $request->qualificationType;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelQualificationVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelQualificationVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelQualificationVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CancelQualificationVerificationRequest $request CancelQualificationVerificationRequest
+     * @param request - CancelQualificationVerificationRequest
      *
-     * @return CancelQualificationVerificationResponse CancelQualificationVerificationResponse
+     * @returns CancelQualificationVerificationResponse
+     *
+     * @param CancelQualificationVerificationRequest $request
+     *
+     * @return CancelQualificationVerificationResponse
      */
     public function cancelQualificationVerification($request)
     {
@@ -573,46 +636,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CancelTaskRequest $request CancelTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - CancelTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CancelTaskResponse CancelTaskResponse
+     * @returns CancelTaskResponse
+     *
+     * @param CancelTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CancelTaskResponse
      */
     public function cancelTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->taskNo)) {
-            $query['TaskNo'] = $request->taskNo;
+
+        if (null !== $request->taskNo) {
+            @$query['TaskNo'] = $request->taskNo;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelTask',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelTask',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CancelTaskRequest $request CancelTaskRequest
+     * @param request - CancelTaskRequest
      *
-     * @return CancelTaskResponse CancelTaskResponse
+     * @returns CancelTaskResponse
+     *
+     * @param CancelTaskRequest $request
+     *
+     * @return CancelTaskResponse
      */
     public function cancelTask($request)
     {
@@ -622,56 +697,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例所在资源组
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 修改实例所在资源组.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改实例所在资源组
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * 修改实例所在资源组.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -681,52 +770,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainRequest $request CheckDomainRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckDomainResponse CheckDomainResponse
+     * @returns CheckDomainResponse
+     *
+     * @param CheckDomainRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CheckDomainResponse
      */
     public function checkDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->feeCommand)) {
-            $query['FeeCommand'] = $request->feeCommand;
+
+        if (null !== $request->feeCommand) {
+            @$query['FeeCommand'] = $request->feeCommand;
         }
-        if (!Utils::isUnset($request->feeCurrency)) {
-            $query['FeeCurrency'] = $request->feeCurrency;
+
+        if (null !== $request->feeCurrency) {
+            @$query['FeeCurrency'] = $request->feeCurrency;
         }
-        if (!Utils::isUnset($request->feePeriod)) {
-            $query['FeePeriod'] = $request->feePeriod;
+
+        if (null !== $request->feePeriod) {
+            @$query['FeePeriod'] = $request->feePeriod;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckDomain',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckDomain',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckDomainRequest $request CheckDomainRequest
+     * @param request - CheckDomainRequest
      *
-     * @return CheckDomainResponse CheckDomainResponse
+     * @returns CheckDomainResponse
+     *
+     * @param CheckDomainRequest $request
+     *
+     * @return CheckDomainResponse
      */
     public function checkDomain($request)
     {
@@ -736,46 +839,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainSunriseClaimRequest $request CheckDomainSunriseClaimRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckDomainSunriseClaimRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckDomainSunriseClaimResponse CheckDomainSunriseClaimResponse
+     * @returns CheckDomainSunriseClaimResponse
+     *
+     * @param CheckDomainSunriseClaimRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckDomainSunriseClaimResponse
      */
     public function checkDomainSunriseClaimWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckDomainSunriseClaim',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckDomainSunriseClaim',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckDomainSunriseClaimResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckDomainSunriseClaimRequest $request CheckDomainSunriseClaimRequest
+     * @param request - CheckDomainSunriseClaimRequest
      *
-     * @return CheckDomainSunriseClaimResponse CheckDomainSunriseClaimResponse
+     * @returns CheckDomainSunriseClaimResponse
+     *
+     * @param CheckDomainSunriseClaimRequest $request
+     *
+     * @return CheckDomainSunriseClaimResponse
      */
     public function checkDomainSunriseClaim($request)
     {
@@ -785,44 +900,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 校验在售国际一口价域名状态和询价
-     *  *
-     * @param CheckIntlFixPriceDomainStatusRequest $request CheckIntlFixPriceDomainStatusRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 校验在售国际一口价域名状态和询价.
      *
-     * @return CheckIntlFixPriceDomainStatusResponse CheckIntlFixPriceDomainStatusResponse
+     * @param request - CheckIntlFixPriceDomainStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckIntlFixPriceDomainStatusResponse
+     *
+     * @param CheckIntlFixPriceDomainStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CheckIntlFixPriceDomainStatusResponse
      */
     public function checkIntlFixPriceDomainStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckIntlFixPriceDomainStatus',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckIntlFixPriceDomainStatus',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckIntlFixPriceDomainStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验在售国际一口价域名状态和询价
-     *  *
-     * @param CheckIntlFixPriceDomainStatusRequest $request CheckIntlFixPriceDomainStatusRequest
+     * 校验在售国际一口价域名状态和询价.
      *
-     * @return CheckIntlFixPriceDomainStatusResponse CheckIntlFixPriceDomainStatusResponse
+     * @param request - CheckIntlFixPriceDomainStatusRequest
+     *
+     * @returns CheckIntlFixPriceDomainStatusResponse
+     *
+     * @param CheckIntlFixPriceDomainStatusRequest $request
+     *
+     * @return CheckIntlFixPriceDomainStatusResponse
      */
     public function checkIntlFixPriceDomainStatus($request)
     {
@@ -832,49 +957,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckMaxYearOfServerLockRequest $request CheckMaxYearOfServerLockRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckMaxYearOfServerLockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckMaxYearOfServerLockResponse CheckMaxYearOfServerLockResponse
+     * @returns CheckMaxYearOfServerLockResponse
+     *
+     * @param CheckMaxYearOfServerLockRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CheckMaxYearOfServerLockResponse
      */
     public function checkMaxYearOfServerLockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->checkAction)) {
-            $query['CheckAction'] = $request->checkAction;
+        if (null !== $request->checkAction) {
+            @$query['CheckAction'] = $request->checkAction;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckMaxYearOfServerLock',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckMaxYearOfServerLock',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckMaxYearOfServerLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckMaxYearOfServerLockRequest $request CheckMaxYearOfServerLockRequest
+     * @param request - CheckMaxYearOfServerLockRequest
      *
-     * @return CheckMaxYearOfServerLockResponse CheckMaxYearOfServerLockResponse
+     * @returns CheckMaxYearOfServerLockResponse
+     *
+     * @param CheckMaxYearOfServerLockRequest $request
+     *
+     * @return CheckMaxYearOfServerLockResponse
      */
     public function checkMaxYearOfServerLock($request)
     {
@@ -884,49 +1022,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckProcessingServerLockApplyRequest $request CheckProcessingServerLockApplyRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckProcessingServerLockApplyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckProcessingServerLockApplyResponse CheckProcessingServerLockApplyResponse
+     * @returns CheckProcessingServerLockApplyResponse
+     *
+     * @param CheckProcessingServerLockApplyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CheckProcessingServerLockApplyResponse
      */
     public function checkProcessingServerLockApplyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->feePeriod)) {
-            $query['FeePeriod'] = $request->feePeriod;
+
+        if (null !== $request->feePeriod) {
+            @$query['FeePeriod'] = $request->feePeriod;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckProcessingServerLockApply',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckProcessingServerLockApply',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckProcessingServerLockApplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckProcessingServerLockApplyRequest $request CheckProcessingServerLockApplyRequest
+     * @param request - CheckProcessingServerLockApplyRequest
      *
-     * @return CheckProcessingServerLockApplyResponse CheckProcessingServerLockApplyResponse
+     * @returns CheckProcessingServerLockApplyResponse
+     *
+     * @param CheckProcessingServerLockApplyRequest $request
+     *
+     * @return CheckProcessingServerLockApplyResponse
      */
     public function checkProcessingServerLockApply($request)
     {
@@ -936,49 +1087,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param CheckTransferInFeasibilityRequest $request CheckTransferInFeasibilityRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckTransferInFeasibilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CheckTransferInFeasibilityResponse CheckTransferInFeasibilityResponse
+     * @returns CheckTransferInFeasibilityResponse
+     *
+     * @param CheckTransferInFeasibilityRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CheckTransferInFeasibilityResponse
      */
     public function checkTransferInFeasibilityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->transferAuthorizationCode)) {
-            $query['TransferAuthorizationCode'] = $request->transferAuthorizationCode;
+
+        if (null !== $request->transferAuthorizationCode) {
+            @$query['TransferAuthorizationCode'] = $request->transferAuthorizationCode;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckTransferInFeasibility',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckTransferInFeasibility',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckTransferInFeasibilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckTransferInFeasibilityRequest $request CheckTransferInFeasibilityRequest
+     * @param request - CheckTransferInFeasibilityRequest
      *
-     * @return CheckTransferInFeasibilityResponse CheckTransferInFeasibilityResponse
+     * @returns CheckTransferInFeasibilityResponse
+     *
+     * @param CheckTransferInFeasibilityRequest $request
+     *
+     * @return CheckTransferInFeasibilityResponse
      */
     public function checkTransferInFeasibility($request)
     {
@@ -988,49 +1152,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ConfirmTransferInEmailRequest $request ConfirmTransferInEmailRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ConfirmTransferInEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfirmTransferInEmailResponse ConfirmTransferInEmailResponse
+     * @returns ConfirmTransferInEmailResponse
+     *
+     * @param ConfirmTransferInEmailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ConfirmTransferInEmailResponse
      */
     public function confirmTransferInEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfirmTransferInEmail',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfirmTransferInEmail',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfirmTransferInEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ConfirmTransferInEmailRequest $request ConfirmTransferInEmailRequest
+     * @param request - ConfirmTransferInEmailRequest
      *
-     * @return ConfirmTransferInEmailResponse ConfirmTransferInEmailResponse
+     * @returns ConfirmTransferInEmailResponse
+     *
+     * @param ConfirmTransferInEmailRequest $request
+     *
+     * @return ConfirmTransferInEmailResponse
      */
     public function confirmTransferInEmail($request)
     {
@@ -1040,53 +1217,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 创建国际一口价订单
-     *  *
-     * @param CreateIntlFixedPriceDomainOrderRequest $request CreateIntlFixedPriceDomainOrderRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 创建国际一口价订单.
      *
-     * @return CreateIntlFixedPriceDomainOrderResponse CreateIntlFixedPriceDomainOrderResponse
+     * @param request - CreateIntlFixedPriceDomainOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIntlFixedPriceDomainOrderResponse
+     *
+     * @param CreateIntlFixedPriceDomainOrderRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateIntlFixedPriceDomainOrderResponse
      */
     public function createIntlFixedPriceDomainOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->contactId)) {
-            $query['ContactId'] = $request->contactId;
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->expectedPrice)) {
-            $query['ExpectedPrice'] = $request->expectedPrice;
+
+        if (null !== $request->expectedPrice) {
+            @$query['ExpectedPrice'] = $request->expectedPrice;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIntlFixedPriceDomainOrder',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIntlFixedPriceDomainOrder',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateIntlFixedPriceDomainOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建国际一口价订单
-     *  *
-     * @param CreateIntlFixedPriceDomainOrderRequest $request CreateIntlFixedPriceDomainOrderRequest
+     * 创建国际一口价订单.
      *
-     * @return CreateIntlFixedPriceDomainOrderResponse CreateIntlFixedPriceDomainOrderResponse
+     * @param request - CreateIntlFixedPriceDomainOrderRequest
+     *
+     * @returns CreateIntlFixedPriceDomainOrderResponse
+     *
+     * @param CreateIntlFixedPriceDomainOrderRequest $request
+     *
+     * @return CreateIntlFixedPriceDomainOrderResponse
      */
     public function createIntlFixedPriceDomainOrder($request)
     {
@@ -1096,47 +1286,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除联系人模板
-     *  *
-     * @param DeleteContactTemplatesRequest $request DeleteContactTemplatesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 批量删除联系人模板
      *
-     * @return DeleteContactTemplatesResponse DeleteContactTemplatesResponse
+     * @param request - DeleteContactTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContactTemplatesResponse
+     *
+     * @param DeleteContactTemplatesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteContactTemplatesResponse
      */
     public function deleteContactTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->registrantProfileIds)) {
-            $query['RegistrantProfileIds'] = $request->registrantProfileIds;
+        if (null !== $request->registrantProfileIds) {
+            @$query['RegistrantProfileIds'] = $request->registrantProfileIds;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteContactTemplates',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteContactTemplates',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteContactTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量删除联系人模板
-     *  *
-     * @param DeleteContactTemplatesRequest $request DeleteContactTemplatesRequest
+     * 批量删除联系人模板
      *
-     * @return DeleteContactTemplatesResponse DeleteContactTemplatesResponse
+     * @param request - DeleteContactTemplatesRequest
+     *
+     * @returns DeleteContactTemplatesResponse
+     *
+     * @param DeleteContactTemplatesRequest $request
+     *
+     * @return DeleteContactTemplatesResponse
      */
     public function deleteContactTemplates($request)
     {
@@ -1146,50 +1347,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 删除域名分组
-     *  *
-     * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 删除域名分组.
      *
-     * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
+     * @param request - DeleteDomainGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDomainGroupResponse
+     *
+     * @param DeleteDomainGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteDomainGroupResponse
      */
     public function deleteDomainGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainGroupId)) {
-            $query['DomainGroupId'] = $request->domainGroupId;
+        if (null !== $request->domainGroupId) {
+            @$query['DomainGroupId'] = $request->domainGroupId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomainGroup',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDomainGroup',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除域名分组
-     *  *
-     * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
+     * 删除域名分组.
      *
-     * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
+     * @param request - DeleteDomainGroupRequest
+     *
+     * @returns DeleteDomainGroupResponse
+     *
+     * @param DeleteDomainGroupRequest $request
+     *
+     * @return DeleteDomainGroupResponse
      */
     public function deleteDomainGroup($request)
     {
@@ -1199,50 +1412,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 删除邮箱验证
-     *  *
-     * @param DeleteEmailVerificationRequest $request DeleteEmailVerificationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除邮箱验证
      *
-     * @return DeleteEmailVerificationResponse DeleteEmailVerificationResponse
+     * @param request - DeleteEmailVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEmailVerificationResponse
+     *
+     * @param DeleteEmailVerificationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteEmailVerificationResponse
      */
     public function deleteEmailVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEmailVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEmailVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteEmailVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除邮箱验证
-     *  *
-     * @param DeleteEmailVerificationRequest $request DeleteEmailVerificationRequest
+     * 删除邮箱验证
      *
-     * @return DeleteEmailVerificationResponse DeleteEmailVerificationResponse
+     * @param request - DeleteEmailVerificationRequest
+     *
+     * @returns DeleteEmailVerificationResponse
+     *
+     * @param DeleteEmailVerificationRequest $request
+     *
+     * @return DeleteEmailVerificationResponse
      */
     public function deleteEmailVerification($request)
     {
@@ -1252,50 +1477,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 删除联系人模板
-     *  *
-     * @param DeleteRegistrantProfileRequest $request DeleteRegistrantProfileRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除联系人模板
      *
-     * @return DeleteRegistrantProfileResponse DeleteRegistrantProfileResponse
+     * @param request - DeleteRegistrantProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRegistrantProfileResponse
+     *
+     * @param DeleteRegistrantProfileRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteRegistrantProfileResponse
      */
     public function deleteRegistrantProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRegistrantProfile',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRegistrantProfile',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRegistrantProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除联系人模板
-     *  *
-     * @param DeleteRegistrantProfileRequest $request DeleteRegistrantProfileRequest
+     * 删除联系人模板
      *
-     * @return DeleteRegistrantProfileResponse DeleteRegistrantProfileResponse
+     * @param request - DeleteRegistrantProfileRequest
+     *
+     * @returns DeleteRegistrantProfileResponse
+     *
+     * @param DeleteRegistrantProfileRequest $request
+     *
+     * @return DeleteRegistrantProfileResponse
      */
     public function deleteRegistrantProfile($request)
     {
@@ -1305,49 +1542,60 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 取消域名特殊业务流程
-     *  *
-     * @param DomainSpecialBizCancelRequest $request DomainSpecialBizCancelRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 取消域名特殊业务流程.
      *
-     * @return DomainSpecialBizCancelResponse DomainSpecialBizCancelResponse
+     * @param request - DomainSpecialBizCancelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DomainSpecialBizCancelResponse
+     *
+     * @param DomainSpecialBizCancelRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DomainSpecialBizCancelResponse
      */
     public function domainSpecialBizCancelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $body['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DomainSpecialBizCancel',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DomainSpecialBizCancel',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DomainSpecialBizCancelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消域名特殊业务流程
-     *  *
-     * @param DomainSpecialBizCancelRequest $request DomainSpecialBizCancelRequest
+     * 取消域名特殊业务流程.
      *
-     * @return DomainSpecialBizCancelResponse DomainSpecialBizCancelResponse
+     * @param request - DomainSpecialBizCancelRequest
+     *
+     * @returns DomainSpecialBizCancelResponse
+     *
+     * @param DomainSpecialBizCancelRequest $request
+     *
+     * @return DomainSpecialBizCancelResponse
      */
     public function domainSpecialBizCancel($request)
     {
@@ -1357,50 +1605,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 邮箱验证通过
-     *  *
-     * @param EmailVerifiedRequest $request EmailVerifiedRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 邮箱验证通过.
      *
-     * @return EmailVerifiedResponse EmailVerifiedResponse
+     * @param request - EmailVerifiedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EmailVerifiedResponse
+     *
+     * @param EmailVerifiedRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return EmailVerifiedResponse
      */
     public function emailVerifiedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EmailVerified',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EmailVerified',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EmailVerifiedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 邮箱验证通过
-     *  *
-     * @param EmailVerifiedRequest $request EmailVerifiedRequest
+     * 邮箱验证通过.
      *
-     * @return EmailVerifiedResponse EmailVerifiedResponse
+     * @param request - EmailVerifiedRequest
+     *
+     * @returns EmailVerifiedResponse
+     *
+     * @param EmailVerifiedRequest $request
+     *
+     * @return EmailVerifiedResponse
      */
     public function emailVerified($request)
     {
@@ -1410,50 +1670,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 通过关键字进行模糊匹配
-     *  *
-     * @param FuzzyMatchDomainSensitiveWordRequest $request FuzzyMatchDomainSensitiveWordRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 通过关键字进行模糊匹配.
      *
-     * @return FuzzyMatchDomainSensitiveWordResponse FuzzyMatchDomainSensitiveWordResponse
+     * @param request - FuzzyMatchDomainSensitiveWordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FuzzyMatchDomainSensitiveWordResponse
+     *
+     * @param FuzzyMatchDomainSensitiveWordRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return FuzzyMatchDomainSensitiveWordResponse
      */
     public function fuzzyMatchDomainSensitiveWordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FuzzyMatchDomainSensitiveWord',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FuzzyMatchDomainSensitiveWord',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FuzzyMatchDomainSensitiveWordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过关键字进行模糊匹配
-     *  *
-     * @param FuzzyMatchDomainSensitiveWordRequest $request FuzzyMatchDomainSensitiveWordRequest
+     * 通过关键字进行模糊匹配.
      *
-     * @return FuzzyMatchDomainSensitiveWordResponse FuzzyMatchDomainSensitiveWordResponse
+     * @param request - FuzzyMatchDomainSensitiveWordRequest
+     *
+     * @returns FuzzyMatchDomainSensitiveWordResponse
+     *
+     * @param FuzzyMatchDomainSensitiveWordRequest $request
+     *
+     * @return FuzzyMatchDomainSensitiveWordResponse
      */
     public function fuzzyMatchDomainSensitiveWord($request)
     {
@@ -1463,44 +1735,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 查询国际一口价在售域名列表
-     *  *
-     * @param GetIntlFixPriceDomainListUrlRequest $request GetIntlFixPriceDomainListUrlRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 查询国际一口价在售域名列表.
      *
-     * @return GetIntlFixPriceDomainListUrlResponse GetIntlFixPriceDomainListUrlResponse
+     * @param request - GetIntlFixPriceDomainListUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIntlFixPriceDomainListUrlResponse
+     *
+     * @param GetIntlFixPriceDomainListUrlRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetIntlFixPriceDomainListUrlResponse
      */
     public function getIntlFixPriceDomainListUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listDate)) {
-            $query['ListDate'] = $request->listDate;
+        if (null !== $request->listDate) {
+            @$query['ListDate'] = $request->listDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIntlFixPriceDomainListUrl',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIntlFixPriceDomainListUrl',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetIntlFixPriceDomainListUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询国际一口价在售域名列表
-     *  *
-     * @param GetIntlFixPriceDomainListUrlRequest $request GetIntlFixPriceDomainListUrlRequest
+     * 查询国际一口价在售域名列表.
      *
-     * @return GetIntlFixPriceDomainListUrlResponse GetIntlFixPriceDomainListUrlResponse
+     * @param request - GetIntlFixPriceDomainListUrlRequest
+     *
+     * @returns GetIntlFixPriceDomainListUrlResponse
+     *
+     * @param GetIntlFixPriceDomainListUrlRequest $request
+     *
+     * @return GetIntlFixPriceDomainListUrlResponse
      */
     public function getIntlFixPriceDomainListUrl($request)
     {
@@ -1510,43 +1792,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param GetOperationOssUploadPolicyRequest $request GetOperationOssUploadPolicyRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - GetOperationOssUploadPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetOperationOssUploadPolicyResponse GetOperationOssUploadPolicyResponse
+     * @returns GetOperationOssUploadPolicyResponse
+     *
+     * @param GetOperationOssUploadPolicyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetOperationOssUploadPolicyResponse
      */
     public function getOperationOssUploadPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditType)) {
-            $query['AuditType'] = $request->auditType;
+        if (null !== $request->auditType) {
+            @$query['AuditType'] = $request->auditType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOperationOssUploadPolicy',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOperationOssUploadPolicy',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOperationOssUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetOperationOssUploadPolicyRequest $request GetOperationOssUploadPolicyRequest
+     * @param request - GetOperationOssUploadPolicyRequest
      *
-     * @return GetOperationOssUploadPolicyResponse GetOperationOssUploadPolicyResponse
+     * @returns GetOperationOssUploadPolicyResponse
+     *
+     * @param GetOperationOssUploadPolicyRequest $request
+     *
+     * @return GetOperationOssUploadPolicyResponse
      */
     public function getOperationOssUploadPolicy($request)
     {
@@ -1556,43 +1849,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param GetQualificationUploadPolicyRequest $request GetQualificationUploadPolicyRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQualificationUploadPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetQualificationUploadPolicyResponse GetQualificationUploadPolicyResponse
+     * @returns GetQualificationUploadPolicyResponse
+     *
+     * @param GetQualificationUploadPolicyRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetQualificationUploadPolicyResponse
      */
     public function getQualificationUploadPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualificationUploadPolicy',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualificationUploadPolicy',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetQualificationUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetQualificationUploadPolicyRequest $request GetQualificationUploadPolicyRequest
+     * @param request - GetQualificationUploadPolicyRequest
      *
-     * @return GetQualificationUploadPolicyResponse GetQualificationUploadPolicyResponse
+     * @returns GetQualificationUploadPolicyResponse
+     *
+     * @param GetQualificationUploadPolicyRequest $request
+     *
+     * @return GetQualificationUploadPolicyResponse
      */
     public function getQualificationUploadPolicy($request)
     {
@@ -1602,61 +1906,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param ListEmailVerificationRequest $request ListEmailVerificationRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ListEmailVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListEmailVerificationResponse ListEmailVerificationResponse
+     * @returns ListEmailVerificationResponse
+     *
+     * @param ListEmailVerificationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListEmailVerificationResponse
      */
     public function listEmailVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginCreateTime)) {
-            $query['BeginCreateTime'] = $request->beginCreateTime;
+        if (null !== $request->beginCreateTime) {
+            @$query['BeginCreateTime'] = $request->beginCreateTime;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->endCreateTime)) {
-            $query['EndCreateTime'] = $request->endCreateTime;
+
+        if (null !== $request->endCreateTime) {
+            @$query['EndCreateTime'] = $request->endCreateTime;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->verificationStatus)) {
-            $query['VerificationStatus'] = $request->verificationStatus;
+
+        if (null !== $request->verificationStatus) {
+            @$query['VerificationStatus'] = $request->verificationStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEmailVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEmailVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListEmailVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListEmailVerificationRequest $request ListEmailVerificationRequest
+     * @param request - ListEmailVerificationRequest
      *
-     * @return ListEmailVerificationResponse ListEmailVerificationResponse
+     * @returns ListEmailVerificationResponse
+     *
+     * @param ListEmailVerificationRequest $request
+     *
+     * @return ListEmailVerificationResponse
      */
     public function listEmailVerification($request)
     {
@@ -1666,80 +1987,102 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about domain names for which registry locks are enabled.
-     *  *
-     * @param ListServerLockRequest $request ListServerLockRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries information about domain names for which registry locks are enabled.
      *
-     * @return ListServerLockResponse ListServerLockResponse
+     * @param request - ListServerLockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServerLockResponse
+     *
+     * @param ListServerLockRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListServerLockResponse
      */
     public function listServerLockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginStartDate)) {
-            $query['BeginStartDate'] = $request->beginStartDate;
+        if (null !== $request->beginStartDate) {
+            @$query['BeginStartDate'] = $request->beginStartDate;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endExpireDate)) {
-            $query['EndExpireDate'] = $request->endExpireDate;
+
+        if (null !== $request->endExpireDate) {
+            @$query['EndExpireDate'] = $request->endExpireDate;
         }
-        if (!Utils::isUnset($request->endStartDate)) {
-            $query['EndStartDate'] = $request->endStartDate;
+
+        if (null !== $request->endStartDate) {
+            @$query['EndStartDate'] = $request->endStartDate;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->lockProductId)) {
-            $query['LockProductId'] = $request->lockProductId;
+
+        if (null !== $request->lockProductId) {
+            @$query['LockProductId'] = $request->lockProductId;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderByType)) {
-            $query['OrderByType'] = $request->orderByType;
+
+        if (null !== $request->orderByType) {
+            @$query['OrderByType'] = $request->orderByType;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->serverLockStatus)) {
-            $query['ServerLockStatus'] = $request->serverLockStatus;
+
+        if (null !== $request->serverLockStatus) {
+            @$query['ServerLockStatus'] = $request->serverLockStatus;
         }
-        if (!Utils::isUnset($request->startExpireDate)) {
-            $query['StartExpireDate'] = $request->startExpireDate;
+
+        if (null !== $request->startExpireDate) {
+            @$query['StartExpireDate'] = $request->startExpireDate;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServerLock',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServerLock',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListServerLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about domain names for which registry locks are enabled.
-     *  *
-     * @param ListServerLockRequest $request ListServerLockRequest
+     * Queries information about domain names for which registry locks are enabled.
      *
-     * @return ListServerLockResponse ListServerLockResponse
+     * @param request - ListServerLockRequest
+     *
+     * @returns ListServerLockResponse
+     *
+     * @param ListServerLockRequest $request
+     *
+     * @return ListServerLockResponse
      */
     public function listServerLock($request)
     {
@@ -1749,46 +2092,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param LookupTmchNoticeRequest $request LookupTmchNoticeRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - LookupTmchNoticeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return LookupTmchNoticeResponse LookupTmchNoticeResponse
+     * @returns LookupTmchNoticeResponse
+     *
+     * @param LookupTmchNoticeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return LookupTmchNoticeResponse
      */
     public function lookupTmchNoticeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->claimKey)) {
-            $query['ClaimKey'] = $request->claimKey;
+        if (null !== $request->claimKey) {
+            @$query['ClaimKey'] = $request->claimKey;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LookupTmchNotice',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LookupTmchNotice',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LookupTmchNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param LookupTmchNoticeRequest $request LookupTmchNoticeRequest
+     * @param request - LookupTmchNoticeRequest
      *
-     * @return LookupTmchNoticeResponse LookupTmchNoticeResponse
+     * @returns LookupTmchNoticeResponse
+     *
+     * @param LookupTmchNoticeRequest $request
+     *
+     * @return LookupTmchNoticeResponse
      */
     public function lookupTmchNotice($request)
     {
@@ -1798,61 +2153,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param PollTaskResultRequest $request PollTaskResultRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - PollTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PollTaskResultResponse PollTaskResultResponse
+     * @returns PollTaskResultResponse
+     *
+     * @param PollTaskResultRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PollTaskResultResponse
      */
     public function pollTaskResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskNo)) {
-            $query['TaskNo'] = $request->taskNo;
+
+        if (null !== $request->taskNo) {
+            @$query['TaskNo'] = $request->taskNo;
         }
-        if (!Utils::isUnset($request->taskResultStatus)) {
-            $query['TaskResultStatus'] = $request->taskResultStatus;
+
+        if (null !== $request->taskResultStatus) {
+            @$query['TaskResultStatus'] = $request->taskResultStatus;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PollTaskResult',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PollTaskResult',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PollTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PollTaskResultRequest $request PollTaskResultRequest
+     * @param request - PollTaskResultRequest
      *
-     * @return PollTaskResultResponse PollTaskResultResponse
+     * @returns PollTaskResultResponse
+     *
+     * @param PollTaskResultRequest $request
+     *
+     * @return PollTaskResultResponse
      */
     public function pollTaskResult($request)
     {
@@ -1862,128 +2234,166 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 搜索域名列表
-     *  *
-     * @param QueryAdvancedDomainListRequest $request QueryAdvancedDomainListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 搜索域名列表.
      *
-     * @return QueryAdvancedDomainListResponse QueryAdvancedDomainListResponse
+     * @param request - QueryAdvancedDomainListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAdvancedDomainListResponse
+     *
+     * @param QueryAdvancedDomainListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryAdvancedDomainListResponse
      */
     public function queryAdvancedDomainListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainGroupId)) {
-            $query['DomainGroupId'] = $request->domainGroupId;
+        if (null !== $request->domainGroupId) {
+            @$query['DomainGroupId'] = $request->domainGroupId;
         }
-        if (!Utils::isUnset($request->domainNameSort)) {
-            $query['DomainNameSort'] = $request->domainNameSort;
+
+        if (null !== $request->domainNameSort) {
+            @$query['DomainNameSort'] = $request->domainNameSort;
         }
-        if (!Utils::isUnset($request->domainStatus)) {
-            $query['DomainStatus'] = $request->domainStatus;
+
+        if (null !== $request->domainStatus) {
+            @$query['DomainStatus'] = $request->domainStatus;
         }
-        if (!Utils::isUnset($request->endExpirationDate)) {
-            $query['EndExpirationDate'] = $request->endExpirationDate;
+
+        if (null !== $request->endExpirationDate) {
+            @$query['EndExpirationDate'] = $request->endExpirationDate;
         }
-        if (!Utils::isUnset($request->endLength)) {
-            $query['EndLength'] = $request->endLength;
+
+        if (null !== $request->endLength) {
+            @$query['EndLength'] = $request->endLength;
         }
-        if (!Utils::isUnset($request->endRegistrationDate)) {
-            $query['EndRegistrationDate'] = $request->endRegistrationDate;
+
+        if (null !== $request->endRegistrationDate) {
+            @$query['EndRegistrationDate'] = $request->endRegistrationDate;
         }
-        if (!Utils::isUnset($request->excluded)) {
-            $query['Excluded'] = $request->excluded;
+
+        if (null !== $request->excluded) {
+            @$query['Excluded'] = $request->excluded;
         }
-        if (!Utils::isUnset($request->excludedPrefix)) {
-            $query['ExcludedPrefix'] = $request->excludedPrefix;
+
+        if (null !== $request->excludedPrefix) {
+            @$query['ExcludedPrefix'] = $request->excludedPrefix;
         }
-        if (!Utils::isUnset($request->excludedSuffix)) {
-            $query['ExcludedSuffix'] = $request->excludedSuffix;
+
+        if (null !== $request->excludedSuffix) {
+            @$query['ExcludedSuffix'] = $request->excludedSuffix;
         }
-        if (!Utils::isUnset($request->expirationDateSort)) {
-            $query['ExpirationDateSort'] = $request->expirationDateSort;
+
+        if (null !== $request->expirationDateSort) {
+            @$query['ExpirationDateSort'] = $request->expirationDateSort;
         }
-        if (!Utils::isUnset($request->form)) {
-            $query['Form'] = $request->form;
+
+        if (null !== $request->form) {
+            @$query['Form'] = $request->form;
         }
-        if (!Utils::isUnset($request->isPremiumDomain)) {
-            $query['IsPremiumDomain'] = $request->isPremiumDomain;
+
+        if (null !== $request->isPremiumDomain) {
+            @$query['IsPremiumDomain'] = $request->isPremiumDomain;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->keyWordPrefix)) {
-            $query['KeyWordPrefix'] = $request->keyWordPrefix;
+
+        if (null !== $request->keyWordPrefix) {
+            @$query['KeyWordPrefix'] = $request->keyWordPrefix;
         }
-        if (!Utils::isUnset($request->keyWordSuffix)) {
-            $query['KeyWordSuffix'] = $request->keyWordSuffix;
+
+        if (null !== $request->keyWordSuffix) {
+            @$query['KeyWordSuffix'] = $request->keyWordSuffix;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productDomainType)) {
-            $query['ProductDomainType'] = $request->productDomainType;
+
+        if (null !== $request->productDomainType) {
+            @$query['ProductDomainType'] = $request->productDomainType;
         }
-        if (!Utils::isUnset($request->productDomainTypeSort)) {
-            $query['ProductDomainTypeSort'] = $request->productDomainTypeSort;
+
+        if (null !== $request->productDomainTypeSort) {
+            @$query['ProductDomainTypeSort'] = $request->productDomainTypeSort;
         }
-        if (!Utils::isUnset($request->registrationDateSort)) {
-            $query['RegistrationDateSort'] = $request->registrationDateSort;
+
+        if (null !== $request->registrationDateSort) {
+            @$query['RegistrationDateSort'] = $request->registrationDateSort;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startExpirationDate)) {
-            $query['StartExpirationDate'] = $request->startExpirationDate;
+
+        if (null !== $request->startExpirationDate) {
+            @$query['StartExpirationDate'] = $request->startExpirationDate;
         }
-        if (!Utils::isUnset($request->startLength)) {
-            $query['StartLength'] = $request->startLength;
+
+        if (null !== $request->startLength) {
+            @$query['StartLength'] = $request->startLength;
         }
-        if (!Utils::isUnset($request->startRegistrationDate)) {
-            $query['StartRegistrationDate'] = $request->startRegistrationDate;
+
+        if (null !== $request->startRegistrationDate) {
+            @$query['StartRegistrationDate'] = $request->startRegistrationDate;
         }
-        if (!Utils::isUnset($request->suffixs)) {
-            $query['Suffixs'] = $request->suffixs;
+
+        if (null !== $request->suffixs) {
+            @$query['Suffixs'] = $request->suffixs;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->tradeType)) {
-            $query['TradeType'] = $request->tradeType;
+
+        if (null !== $request->tradeType) {
+            @$query['TradeType'] = $request->tradeType;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAdvancedDomainList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAdvancedDomainList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryAdvancedDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 搜索域名列表
-     *  *
-     * @param QueryAdvancedDomainListRequest $request QueryAdvancedDomainListRequest
+     * 搜索域名列表.
      *
-     * @return QueryAdvancedDomainListResponse QueryAdvancedDomainListResponse
+     * @param request - QueryAdvancedDomainListRequest
+     *
+     * @returns QueryAdvancedDomainListResponse
+     *
+     * @param QueryAdvancedDomainListRequest $request
+     *
+     * @return QueryAdvancedDomainListResponse
      */
     public function queryAdvancedDomainList($request)
     {
@@ -1993,46 +2403,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryArtExtensionRequest $request QueryArtExtensionRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryArtExtensionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryArtExtensionResponse QueryArtExtensionResponse
+     * @returns QueryArtExtensionResponse
+     *
+     * @param QueryArtExtensionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryArtExtensionResponse
      */
     public function queryArtExtensionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryArtExtension',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryArtExtension',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryArtExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryArtExtensionRequest $request QueryArtExtensionRequest
+     * @param request - QueryArtExtensionRequest
      *
-     * @return QueryArtExtensionResponse QueryArtExtensionResponse
+     * @returns QueryArtExtensionResponse
+     *
+     * @param QueryArtExtensionRequest $request
+     *
+     * @return QueryArtExtensionResponse
      */
     public function queryArtExtension($request)
     {
@@ -2042,58 +2464,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryChangeLogListRequest $request QueryChangeLogListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询操作记录.
      *
-     * @return QueryChangeLogListResponse QueryChangeLogListResponse
+     * @param request - QueryChangeLogListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryChangeLogListResponse
+     *
+     * @param QueryChangeLogListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryChangeLogListResponse
      */
     public function queryChangeLogListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryChangeLogList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryChangeLogList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryChangeLogListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryChangeLogListRequest $request QueryChangeLogListRequest
+     * 查询操作记录.
      *
-     * @return QueryChangeLogListResponse QueryChangeLogListResponse
+     * @param request - QueryChangeLogListRequest
+     *
+     * @returns QueryChangeLogListResponse
+     *
+     * @param QueryChangeLogListRequest $request
+     *
+     * @return QueryChangeLogListResponse
      */
     public function queryChangeLogList($request)
     {
@@ -2103,49 +2545,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryContactInfoRequest $request QueryContactInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryContactInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryContactInfoResponse QueryContactInfoResponse
+     * @returns QueryContactInfoResponse
+     *
+     * @param QueryContactInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryContactInfoResponse
      */
     public function queryContactInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactType)) {
-            $query['ContactType'] = $request->contactType;
+        if (null !== $request->contactType) {
+            @$query['ContactType'] = $request->contactType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryContactInfo',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryContactInfo',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryContactInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryContactInfoRequest $request QueryContactInfoRequest
+     * @param request - QueryContactInfoRequest
      *
-     * @return QueryContactInfoResponse QueryContactInfoResponse
+     * @returns QueryContactInfoResponse
+     *
+     * @param QueryContactInfoRequest $request
+     *
+     * @return QueryContactInfoResponse
      */
     public function queryContactInfo($request)
     {
@@ -2155,46 +2610,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDSRecordRequest $request QueryDSRecordRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryDSRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryDSRecordResponse QueryDSRecordResponse
+     * @returns QueryDSRecordResponse
+     *
+     * @param QueryDSRecordRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryDSRecordResponse
      */
     public function queryDSRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDSRecord',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDSRecord',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryDSRecordRequest $request QueryDSRecordRequest
+     * @param request - QueryDSRecordRequest
      *
-     * @return QueryDSRecordResponse QueryDSRecordResponse
+     * @returns QueryDSRecordResponse
+     *
+     * @param QueryDSRecordRequest $request
+     *
+     * @return QueryDSRecordResponse
      */
     public function queryDSRecord($request)
     {
@@ -2204,46 +2671,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDnsHostRequest $request QueryDnsHostRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryDnsHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryDnsHostResponse QueryDnsHostResponse
+     * @returns QueryDnsHostResponse
+     *
+     * @param QueryDnsHostRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryDnsHostResponse
      */
     public function queryDnsHostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDnsHost',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDnsHost',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDnsHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryDnsHostRequest $request QueryDnsHostRequest
+     * @param request - QueryDnsHostRequest
      *
-     * @return QueryDnsHostResponse QueryDnsHostResponse
+     * @returns QueryDnsHostResponse
+     *
+     * @param QueryDnsHostRequest $request
+     *
+     * @return QueryDnsHostResponse
      */
     public function queryDnsHost($request)
     {
@@ -2253,43 +2732,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainAdminDivisionRequest $request QueryDomainAdminDivisionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryDomainAdminDivisionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainAdminDivisionResponse QueryDomainAdminDivisionResponse
+     * @returns QueryDomainAdminDivisionResponse
+     *
+     * @param QueryDomainAdminDivisionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryDomainAdminDivisionResponse
      */
     public function queryDomainAdminDivisionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainAdminDivision',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainAdminDivision',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainAdminDivisionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryDomainAdminDivisionRequest $request QueryDomainAdminDivisionRequest
+     * @param request - QueryDomainAdminDivisionRequest
      *
-     * @return QueryDomainAdminDivisionResponse QueryDomainAdminDivisionResponse
+     * @returns QueryDomainAdminDivisionResponse
+     *
+     * @param QueryDomainAdminDivisionRequest $request
+     *
+     * @return QueryDomainAdminDivisionResponse
      */
     public function queryDomainAdminDivision($request)
     {
@@ -2299,50 +2789,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a domain name.
-     *  *
-     * @param QueryDomainByDomainNameRequest $request QueryDomainByDomainNameRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a domain name.
      *
-     * @return QueryDomainByDomainNameResponse QueryDomainByDomainNameResponse
+     * @param request - QueryDomainByDomainNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDomainByDomainNameResponse
+     *
+     * @param QueryDomainByDomainNameRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryDomainByDomainNameResponse
      */
     public function queryDomainByDomainNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainByDomainName',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainByDomainName',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainByDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a domain name.
-     *  *
-     * @param QueryDomainByDomainNameRequest $request QueryDomainByDomainNameRequest
+     * Queries the information about a domain name.
      *
-     * @return QueryDomainByDomainNameResponse QueryDomainByDomainNameResponse
+     * @param request - QueryDomainByDomainNameRequest
+     *
+     * @returns QueryDomainByDomainNameResponse
+     *
+     * @param QueryDomainByDomainNameRequest $request
+     *
+     * @return QueryDomainByDomainNameResponse
      */
     public function queryDomainByDomainName($request)
     {
@@ -2352,50 +2854,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 根据实例id查询域名信息
-     *  *
-     * @param QueryDomainByInstanceIdRequest $request QueryDomainByInstanceIdRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 根据实例id查询域名信息.
      *
-     * @return QueryDomainByInstanceIdResponse QueryDomainByInstanceIdResponse
+     * @param request - QueryDomainByInstanceIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDomainByInstanceIdResponse
+     *
+     * @param QueryDomainByInstanceIdRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryDomainByInstanceIdResponse
      */
     public function queryDomainByInstanceIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainByInstanceId',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainByInstanceId',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据实例id查询域名信息
-     *  *
-     * @param QueryDomainByInstanceIdRequest $request QueryDomainByInstanceIdRequest
+     * 根据实例id查询域名信息.
      *
-     * @return QueryDomainByInstanceIdResponse QueryDomainByInstanceIdResponse
+     * @param request - QueryDomainByInstanceIdRequest
+     *
+     * @returns QueryDomainByInstanceIdResponse
+     *
+     * @param QueryDomainByInstanceIdRequest $request
+     *
+     * @return QueryDomainByInstanceIdResponse
      */
     public function queryDomainByInstanceId($request)
     {
@@ -2405,49 +2919,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainGroupListRequest $request QueryDomainGroupListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryDomainGroupListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainGroupListResponse QueryDomainGroupListResponse
+     * @returns QueryDomainGroupListResponse
+     *
+     * @param QueryDomainGroupListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryDomainGroupListResponse
      */
     public function queryDomainGroupListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainGroupName)) {
-            $query['DomainGroupName'] = $request->domainGroupName;
+        if (null !== $request->domainGroupName) {
+            @$query['DomainGroupName'] = $request->domainGroupName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->showDeletingGroup)) {
-            $query['ShowDeletingGroup'] = $request->showDeletingGroup;
+
+        if (null !== $request->showDeletingGroup) {
+            @$query['ShowDeletingGroup'] = $request->showDeletingGroup;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainGroupList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainGroupList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryDomainGroupListRequest $request QueryDomainGroupListRequest
+     * @param request - QueryDomainGroupListRequest
      *
-     * @return QueryDomainGroupListResponse QueryDomainGroupListResponse
+     * @returns QueryDomainGroupListResponse
+     *
+     * @param QueryDomainGroupListRequest $request
+     *
+     * @return QueryDomainGroupListResponse
      */
     public function queryDomainGroupList($request)
     {
@@ -2457,92 +2984,122 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of domain names within your Alibaba Cloud account by page.
-     *  *
-     * @param QueryDomainListRequest $request QueryDomainListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of domain names within your Alibaba Cloud account by page.
      *
-     * @return QueryDomainListResponse QueryDomainListResponse
+     * @param request - QueryDomainListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDomainListResponse
+     *
+     * @param QueryDomainListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryDomainListResponse
      */
     public function queryDomainListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ccompany)) {
-            $query['Ccompany'] = $request->ccompany;
+        if (null !== $request->ccompany) {
+            @$query['Ccompany'] = $request->ccompany;
         }
-        if (!Utils::isUnset($request->domainGroupId)) {
-            $query['DomainGroupId'] = $request->domainGroupId;
+
+        if (null !== $request->domainGroupId) {
+            @$query['DomainGroupId'] = $request->domainGroupId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endExpirationDate)) {
-            $query['EndExpirationDate'] = $request->endExpirationDate;
+
+        if (null !== $request->endExpirationDate) {
+            @$query['EndExpirationDate'] = $request->endExpirationDate;
         }
-        if (!Utils::isUnset($request->endRegistrationDate)) {
-            $query['EndRegistrationDate'] = $request->endRegistrationDate;
+
+        if (null !== $request->endRegistrationDate) {
+            @$query['EndRegistrationDate'] = $request->endRegistrationDate;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->orderByType)) {
-            $query['OrderByType'] = $request->orderByType;
+
+        if (null !== $request->orderByType) {
+            @$query['OrderByType'] = $request->orderByType;
         }
-        if (!Utils::isUnset($request->orderKeyType)) {
-            $query['OrderKeyType'] = $request->orderKeyType;
+
+        if (null !== $request->orderKeyType) {
+            @$query['OrderKeyType'] = $request->orderKeyType;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productDomainType)) {
-            $query['ProductDomainType'] = $request->productDomainType;
+
+        if (null !== $request->productDomainType) {
+            @$query['ProductDomainType'] = $request->productDomainType;
         }
-        if (!Utils::isUnset($request->queryType)) {
-            $query['QueryType'] = $request->queryType;
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->registrar) {
+            @$query['Registrar'] = $request->registrar;
         }
-        if (!Utils::isUnset($request->startExpirationDate)) {
-            $query['StartExpirationDate'] = $request->startExpirationDate;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startRegistrationDate)) {
-            $query['StartRegistrationDate'] = $request->startRegistrationDate;
+
+        if (null !== $request->startExpirationDate) {
+            @$query['StartExpirationDate'] = $request->startExpirationDate;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->startRegistrationDate) {
+            @$query['StartRegistrationDate'] = $request->startRegistrationDate;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of domain names within your Alibaba Cloud account by page.
-     *  *
-     * @param QueryDomainListRequest $request QueryDomainListRequest
+     * Queries a list of domain names within your Alibaba Cloud account by page.
      *
-     * @return QueryDomainListResponse QueryDomainListResponse
+     * @param request - QueryDomainListRequest
+     *
+     * @returns QueryDomainListResponse
+     *
+     * @param QueryDomainListRequest $request
+     *
+     * @return QueryDomainListResponse
      */
     public function queryDomainList($request)
     {
@@ -2552,49 +3109,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainRealNameVerificationInfoRequest $request QueryDomainRealNameVerificationInfoRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryDomainRealNameVerificationInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainRealNameVerificationInfoResponse QueryDomainRealNameVerificationInfoResponse
+     * @returns QueryDomainRealNameVerificationInfoResponse
+     *
+     * @param QueryDomainRealNameVerificationInfoRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return QueryDomainRealNameVerificationInfoResponse
      */
     public function queryDomainRealNameVerificationInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->fetchImage)) {
-            $query['FetchImage'] = $request->fetchImage;
+
+        if (null !== $request->fetchImage) {
+            @$query['FetchImage'] = $request->fetchImage;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainRealNameVerificationInfo',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainRealNameVerificationInfo',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainRealNameVerificationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryDomainRealNameVerificationInfoRequest $request QueryDomainRealNameVerificationInfoRequest
+     * @param request - QueryDomainRealNameVerificationInfoRequest
      *
-     * @return QueryDomainRealNameVerificationInfoResponse QueryDomainRealNameVerificationInfoResponse
+     * @returns QueryDomainRealNameVerificationInfoResponse
+     *
+     * @param QueryDomainRealNameVerificationInfoRequest $request
+     *
+     * @return QueryDomainRealNameVerificationInfoResponse
      */
     public function queryDomainRealNameVerificationInfo($request)
     {
@@ -2604,49 +3174,127 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 查询域名特殊业务详情
-     *  *
-     * @param QueryDomainSpecialBizDetailRequest $request QueryDomainSpecialBizDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 实时查询域名价格
      *
-     * @return QueryDomainSpecialBizDetailResponse QueryDomainSpecialBizDetailResponse
+     * @param tmpReq - QueryDomainRealTimePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDomainRealTimePriceResponse
+     *
+     * @param QueryDomainRealTimePriceRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryDomainRealTimePriceResponse
+     */
+    public function queryDomainRealTimePriceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryDomainRealTimePriceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->domainItem) {
+            $request->domainItemShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->domainItem, 'DomainItem', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->currency) {
+            @$query['Currency'] = $request->currency;
+        }
+
+        if (null !== $request->domainItemShrink) {
+            @$query['DomainItem'] = $request->domainItemShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryDomainRealTimePrice',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryDomainRealTimePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 实时查询域名价格
+     *
+     * @param request - QueryDomainRealTimePriceRequest
+     *
+     * @returns QueryDomainRealTimePriceResponse
+     *
+     * @param QueryDomainRealTimePriceRequest $request
+     *
+     * @return QueryDomainRealTimePriceResponse
+     */
+    public function queryDomainRealTimePrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDomainRealTimePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询域名特殊业务详情.
+     *
+     * @param request - QueryDomainSpecialBizDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDomainSpecialBizDetailResponse
+     *
+     * @param QueryDomainSpecialBizDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryDomainSpecialBizDetailResponse
      */
     public function queryDomainSpecialBizDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $body['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainSpecialBizDetail',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainSpecialBizDetail',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainSpecialBizDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询域名特殊业务详情
-     *  *
-     * @param QueryDomainSpecialBizDetailRequest $request QueryDomainSpecialBizDetailRequest
+     * 查询域名特殊业务详情.
      *
-     * @return QueryDomainSpecialBizDetailResponse QueryDomainSpecialBizDetailResponse
+     * @param request - QueryDomainSpecialBizDetailRequest
+     *
+     * @returns QueryDomainSpecialBizDetailResponse
+     *
+     * @param QueryDomainSpecialBizDetailRequest $request
+     *
+     * @return QueryDomainSpecialBizDetailResponse
      */
     public function queryDomainSpecialBizDetail($request)
     {
@@ -2656,52 +3304,64 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 通过域名查询域名特殊业务详情
-     *  *
-     * @param QueryDomainSpecialBizInfoByDomainRequest $request QueryDomainSpecialBizInfoByDomainRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 通过域名查询域名特殊业务详情.
      *
-     * @return QueryDomainSpecialBizInfoByDomainResponse QueryDomainSpecialBizInfoByDomainResponse
+     * @param request - QueryDomainSpecialBizInfoByDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDomainSpecialBizInfoByDomainResponse
+     *
+     * @param QueryDomainSpecialBizInfoByDomainRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return QueryDomainSpecialBizInfoByDomainResponse
      */
     public function queryDomainSpecialBizInfoByDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainSpecialBizInfoByDomain',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainSpecialBizInfoByDomain',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainSpecialBizInfoByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过域名查询域名特殊业务详情
-     *  *
-     * @param QueryDomainSpecialBizInfoByDomainRequest $request QueryDomainSpecialBizInfoByDomainRequest
+     * 通过域名查询域名特殊业务详情.
      *
-     * @return QueryDomainSpecialBizInfoByDomainResponse QueryDomainSpecialBizInfoByDomainResponse
+     * @param request - QueryDomainSpecialBizInfoByDomainRequest
+     *
+     * @returns QueryDomainSpecialBizInfoByDomainResponse
+     *
+     * @param QueryDomainSpecialBizInfoByDomainRequest $request
+     *
+     * @return QueryDomainSpecialBizInfoByDomainResponse
      */
     public function queryDomainSpecialBizInfoByDomain($request)
     {
@@ -2711,43 +3371,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainSuffixRequest $request QueryDomainSuffixRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryDomainSuffixRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainSuffixResponse QueryDomainSuffixResponse
+     * @returns QueryDomainSuffixResponse
+     *
+     * @param QueryDomainSuffixRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryDomainSuffixResponse
      */
     public function queryDomainSuffixWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDomainSuffix',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDomainSuffix',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryDomainSuffixResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryDomainSuffixRequest $request QueryDomainSuffixRequest
+     * @param request - QueryDomainSuffixRequest
      *
-     * @return QueryDomainSuffixResponse QueryDomainSuffixResponse
+     * @returns QueryDomainSuffixResponse
+     *
+     * @param QueryDomainSuffixRequest $request
+     *
+     * @return QueryDomainSuffixResponse
      */
     public function queryDomainSuffix($request)
     {
@@ -2757,50 +3428,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 查询邮箱验证状态
-     *  *
-     * @param QueryEmailVerificationRequest $request QueryEmailVerificationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询邮箱验证状态
      *
-     * @return QueryEmailVerificationResponse QueryEmailVerificationResponse
+     * @param request - QueryEmailVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEmailVerificationResponse
+     *
+     * @param QueryEmailVerificationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryEmailVerificationResponse
      */
     public function queryEmailVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryEmailVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryEmailVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryEmailVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询邮箱验证状态
-     *  *
-     * @param QueryEmailVerificationRequest $request QueryEmailVerificationRequest
+     * 查询邮箱验证状态
      *
-     * @return QueryEmailVerificationResponse QueryEmailVerificationResponse
+     * @param request - QueryEmailVerificationRequest
+     *
+     * @returns QueryEmailVerificationResponse
+     *
+     * @param QueryEmailVerificationRequest $request
+     *
+     * @return QueryEmailVerificationResponse
      */
     public function queryEmailVerification($request)
     {
@@ -2810,46 +3493,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryEnsAssociationRequest $request QueryEnsAssociationRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryEnsAssociationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryEnsAssociationResponse QueryEnsAssociationResponse
+     * @returns QueryEnsAssociationResponse
+     *
+     * @param QueryEnsAssociationRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryEnsAssociationResponse
      */
     public function queryEnsAssociationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryEnsAssociation',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryEnsAssociation',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryEnsAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryEnsAssociationRequest $request QueryEnsAssociationRequest
+     * @param request - QueryEnsAssociationRequest
      *
-     * @return QueryEnsAssociationResponse QueryEnsAssociationResponse
+     * @returns QueryEnsAssociationResponse
+     *
+     * @param QueryEnsAssociationRequest $request
+     *
+     * @return QueryEnsAssociationResponse
      */
     public function queryEnsAssociation($request)
     {
@@ -2859,49 +3554,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailReasonForDomainRealNameVerificationRequest $request QueryFailReasonForDomainRealNameVerificationRequest
-     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryFailReasonForDomainRealNameVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryFailReasonForDomainRealNameVerificationResponse QueryFailReasonForDomainRealNameVerificationResponse
+     * @returns QueryFailReasonForDomainRealNameVerificationResponse
+     *
+     * @param QueryFailReasonForDomainRealNameVerificationRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return QueryFailReasonForDomainRealNameVerificationResponse
      */
     public function queryFailReasonForDomainRealNameVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->realNameVerificationAction)) {
-            $query['RealNameVerificationAction'] = $request->realNameVerificationAction;
+
+        if (null !== $request->realNameVerificationAction) {
+            @$query['RealNameVerificationAction'] = $request->realNameVerificationAction;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryFailReasonForDomainRealNameVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryFailReasonForDomainRealNameVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryFailReasonForDomainRealNameVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryFailReasonForDomainRealNameVerificationRequest $request QueryFailReasonForDomainRealNameVerificationRequest
+     * @param request - QueryFailReasonForDomainRealNameVerificationRequest
      *
-     * @return QueryFailReasonForDomainRealNameVerificationResponse QueryFailReasonForDomainRealNameVerificationResponse
+     * @returns QueryFailReasonForDomainRealNameVerificationResponse
+     *
+     * @param QueryFailReasonForDomainRealNameVerificationRequest $request
+     *
+     * @return QueryFailReasonForDomainRealNameVerificationResponse
      */
     public function queryFailReasonForDomainRealNameVerification($request)
     {
@@ -2911,46 +3619,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailReasonForRegistrantProfileRealNameVerificationRequest $request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
-     * @param RuntimeOptions                                                 $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryFailReasonForRegistrantProfileRealNameVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse QueryFailReasonForRegistrantProfileRealNameVerificationResponse
+     * @returns QueryFailReasonForRegistrantProfileRealNameVerificationResponse
+     *
+     * @param QueryFailReasonForRegistrantProfileRealNameVerificationRequest $request
+     * @param RuntimeOptions                                                 $runtime
+     *
+     * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
      */
     public function queryFailReasonForRegistrantProfileRealNameVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->registrantProfileID)) {
-            $query['RegistrantProfileID'] = $request->registrantProfileID;
+
+        if (null !== $request->registrantProfileID) {
+            @$query['RegistrantProfileID'] = $request->registrantProfileID;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryFailReasonForRegistrantProfileRealNameVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryFailReasonForRegistrantProfileRealNameVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryFailReasonForRegistrantProfileRealNameVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryFailReasonForRegistrantProfileRealNameVerificationRequest $request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
+     * @param request - QueryFailReasonForRegistrantProfileRealNameVerificationRequest
      *
-     * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse QueryFailReasonForRegistrantProfileRealNameVerificationResponse
+     * @returns QueryFailReasonForRegistrantProfileRealNameVerificationResponse
+     *
+     * @param QueryFailReasonForRegistrantProfileRealNameVerificationRequest $request
+     *
+     * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
      */
     public function queryFailReasonForRegistrantProfileRealNameVerification($request)
     {
@@ -2960,52 +3680,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryFailingReasonListForQualificationRequest $request QueryFailingReasonListForQualificationRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryFailingReasonListForQualificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryFailingReasonListForQualificationResponse QueryFailingReasonListForQualificationResponse
+     * @returns QueryFailingReasonListForQualificationResponse
+     *
+     * @param QueryFailingReasonListForQualificationRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return QueryFailingReasonListForQualificationResponse
      */
     public function queryFailingReasonListForQualificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->qualificationType)) {
-            $query['QualificationType'] = $request->qualificationType;
+
+        if (null !== $request->qualificationType) {
+            @$query['QualificationType'] = $request->qualificationType;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryFailingReasonListForQualification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryFailingReasonListForQualification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryFailingReasonListForQualificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryFailingReasonListForQualificationRequest $request QueryFailingReasonListForQualificationRequest
+     * @param request - QueryFailingReasonListForQualificationRequest
      *
-     * @return QueryFailingReasonListForQualificationResponse QueryFailingReasonListForQualificationResponse
+     * @returns QueryFailingReasonListForQualificationResponse
+     *
+     * @param QueryFailingReasonListForQualificationRequest $request
+     *
+     * @return QueryFailingReasonListForQualificationResponse
      */
     public function queryFailingReasonListForQualification($request)
     {
@@ -3015,53 +3749,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 查询国际一口价订单列表
-     *  *
-     * @param QueryIntlFixedPriceOrderListRequest $request QueryIntlFixedPriceOrderListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 查询国际一口价订单列表.
      *
-     * @return QueryIntlFixedPriceOrderListResponse QueryIntlFixedPriceOrderListResponse
+     * @param request - QueryIntlFixedPriceOrderListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryIntlFixedPriceOrderListResponse
+     *
+     * @param QueryIntlFixedPriceOrderListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryIntlFixedPriceOrderListResponse
      */
     public function queryIntlFixedPriceOrderListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryIntlFixedPriceOrderList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryIntlFixedPriceOrderList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryIntlFixedPriceOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询国际一口价订单列表
-     *  *
-     * @param QueryIntlFixedPriceOrderListRequest $request QueryIntlFixedPriceOrderListRequest
+     * 查询国际一口价订单列表.
      *
-     * @return QueryIntlFixedPriceOrderListResponse QueryIntlFixedPriceOrderListResponse
+     * @param request - QueryIntlFixedPriceOrderListRequest
+     *
+     * @returns QueryIntlFixedPriceOrderListResponse
+     *
+     * @param QueryIntlFixedPriceOrderListRequest $request
+     *
+     * @return QueryIntlFixedPriceOrderListResponse
      */
     public function queryIntlFixedPriceOrderList($request)
     {
@@ -3071,46 +3818,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryLocalEnsAssociationRequest $request QueryLocalEnsAssociationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryLocalEnsAssociationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryLocalEnsAssociationResponse QueryLocalEnsAssociationResponse
+     * @returns QueryLocalEnsAssociationResponse
+     *
+     * @param QueryLocalEnsAssociationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryLocalEnsAssociationResponse
      */
     public function queryLocalEnsAssociationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryLocalEnsAssociation',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryLocalEnsAssociation',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryLocalEnsAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryLocalEnsAssociationRequest $request QueryLocalEnsAssociationRequest
+     * @param request - QueryLocalEnsAssociationRequest
      *
-     * @return QueryLocalEnsAssociationResponse QueryLocalEnsAssociationResponse
+     * @returns QueryLocalEnsAssociationResponse
+     *
+     * @param QueryLocalEnsAssociationRequest $request
+     *
+     * @return QueryLocalEnsAssociationResponse
      */
     public function queryLocalEnsAssociation($request)
     {
@@ -3120,43 +3879,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryOperationAuditInfoDetailRequest $request QueryOperationAuditInfoDetailRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryOperationAuditInfoDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryOperationAuditInfoDetailResponse QueryOperationAuditInfoDetailResponse
+     * @returns QueryOperationAuditInfoDetailResponse
+     *
+     * @param QueryOperationAuditInfoDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryOperationAuditInfoDetailResponse
      */
     public function queryOperationAuditInfoDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditRecordId)) {
-            $query['AuditRecordId'] = $request->auditRecordId;
+        if (null !== $request->auditRecordId) {
+            @$query['AuditRecordId'] = $request->auditRecordId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryOperationAuditInfoDetail',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryOperationAuditInfoDetail',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryOperationAuditInfoDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryOperationAuditInfoDetailRequest $request QueryOperationAuditInfoDetailRequest
+     * @param request - QueryOperationAuditInfoDetailRequest
      *
-     * @return QueryOperationAuditInfoDetailResponse QueryOperationAuditInfoDetailResponse
+     * @returns QueryOperationAuditInfoDetailResponse
+     *
+     * @param QueryOperationAuditInfoDetailRequest $request
+     *
+     * @return QueryOperationAuditInfoDetailResponse
      */
     public function queryOperationAuditInfoDetail($request)
     {
@@ -3166,55 +3936,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryOperationAuditInfoListRequest $request QueryOperationAuditInfoListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryOperationAuditInfoListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryOperationAuditInfoListResponse QueryOperationAuditInfoListResponse
+     * @returns QueryOperationAuditInfoListResponse
+     *
+     * @param QueryOperationAuditInfoListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryOperationAuditInfoListResponse
      */
     public function queryOperationAuditInfoListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['AuditStatus'] = $request->auditStatus;
+        if (null !== $request->auditStatus) {
+            @$query['AuditStatus'] = $request->auditStatus;
         }
-        if (!Utils::isUnset($request->auditType)) {
-            $query['AuditType'] = $request->auditType;
+
+        if (null !== $request->auditType) {
+            @$query['AuditType'] = $request->auditType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryOperationAuditInfoList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryOperationAuditInfoList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryOperationAuditInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryOperationAuditInfoListRequest $request QueryOperationAuditInfoListRequest
+     * @param request - QueryOperationAuditInfoListRequest
      *
-     * @return QueryOperationAuditInfoListResponse QueryOperationAuditInfoListResponse
+     * @returns QueryOperationAuditInfoListResponse
+     *
+     * @param QueryOperationAuditInfoListRequest $request
+     *
+     * @return QueryOperationAuditInfoListResponse
      */
     public function queryOperationAuditInfoList($request)
     {
@@ -3224,49 +4009,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryQualificationDetailRequest $request QueryQualificationDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryQualificationDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryQualificationDetailResponse QueryQualificationDetailResponse
+     * @returns QueryQualificationDetailResponse
+     *
+     * @param QueryQualificationDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryQualificationDetailResponse
      */
     public function queryQualificationDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->qualificationType)) {
-            $query['QualificationType'] = $request->qualificationType;
+
+        if (null !== $request->qualificationType) {
+            @$query['QualificationType'] = $request->qualificationType;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryQualificationDetail',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryQualificationDetail',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryQualificationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryQualificationDetailRequest $request QueryQualificationDetailRequest
+     * @param request - QueryQualificationDetailRequest
      *
-     * @return QueryQualificationDetailResponse QueryQualificationDetailResponse
+     * @returns QueryQualificationDetailResponse
+     *
+     * @param QueryQualificationDetailRequest $request
+     *
+     * @return QueryQualificationDetailResponse
      */
     public function queryQualificationDetail($request)
     {
@@ -3276,49 +4074,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryRegistrantProfileRealNameVerificationInfoRequest $request QueryRegistrantProfileRealNameVerificationInfoRequest
-     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryRegistrantProfileRealNameVerificationInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryRegistrantProfileRealNameVerificationInfoResponse QueryRegistrantProfileRealNameVerificationInfoResponse
+     * @returns QueryRegistrantProfileRealNameVerificationInfoResponse
+     *
+     * @param QueryRegistrantProfileRealNameVerificationInfoRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return QueryRegistrantProfileRealNameVerificationInfoResponse
      */
     public function queryRegistrantProfileRealNameVerificationInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fetchImage)) {
-            $query['FetchImage'] = $request->fetchImage;
+        if (null !== $request->fetchImage) {
+            @$query['FetchImage'] = $request->fetchImage;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRegistrantProfileRealNameVerificationInfo',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRegistrantProfileRealNameVerificationInfo',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRegistrantProfileRealNameVerificationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryRegistrantProfileRealNameVerificationInfoRequest $request QueryRegistrantProfileRealNameVerificationInfoRequest
+     * @param request - QueryRegistrantProfileRealNameVerificationInfoRequest
      *
-     * @return QueryRegistrantProfileRealNameVerificationInfoResponse QueryRegistrantProfileRealNameVerificationInfoResponse
+     * @returns QueryRegistrantProfileRealNameVerificationInfoResponse
+     *
+     * @param QueryRegistrantProfileRealNameVerificationInfoRequest $request
+     *
+     * @return QueryRegistrantProfileRealNameVerificationInfoResponse
      */
     public function queryRegistrantProfileRealNameVerificationInfo($request)
     {
@@ -3328,76 +4139,112 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryRegistrantProfilesRequest $request QueryRegistrantProfilesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the registrant profiles that belong to your Alibaba Cloud account.
      *
-     * @return QueryRegistrantProfilesResponse QueryRegistrantProfilesResponse
+     * @remarks
+     * You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
+     * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
+     * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+     *
+     * @param request - QueryRegistrantProfilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRegistrantProfilesResponse
+     *
+     * @param QueryRegistrantProfilesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryRegistrantProfilesResponse
      */
     public function queryRegistrantProfilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defaultRegistrantProfile)) {
-            $query['DefaultRegistrantProfile'] = $request->defaultRegistrantProfile;
+        if (null !== $request->defaultRegistrantProfile) {
+            @$query['DefaultRegistrantProfile'] = $request->defaultRegistrantProfile;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->realNameStatus)) {
-            $query['RealNameStatus'] = $request->realNameStatus;
+
+        if (null !== $request->realNameStatus) {
+            @$query['RealNameStatus'] = $request->realNameStatus;
         }
-        if (!Utils::isUnset($request->registrantOrganization)) {
-            $query['RegistrantOrganization'] = $request->registrantOrganization;
+
+        if (null !== $request->registrantOrganization) {
+            @$query['RegistrantOrganization'] = $request->registrantOrganization;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->registrantProfileType)) {
-            $query['RegistrantProfileType'] = $request->registrantProfileType;
+
+        if (null !== $request->registrantProfileType) {
+            @$query['RegistrantProfileType'] = $request->registrantProfileType;
         }
-        if (!Utils::isUnset($request->registrantType)) {
-            $query['RegistrantType'] = $request->registrantType;
+
+        if (null !== $request->registrantType) {
+            @$query['RegistrantType'] = $request->registrantType;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zhRegistrantOrganization)) {
-            $query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
+
+        if (null !== $request->zhRegistrantOrganization) {
+            @$query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRegistrantProfiles',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRegistrantProfiles',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryRegistrantProfilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryRegistrantProfilesRequest $request QueryRegistrantProfilesRequest
+     * Queries the registrant profiles that belong to your Alibaba Cloud account.
      *
-     * @return QueryRegistrantProfilesResponse QueryRegistrantProfilesResponse
+     * @remarks
+     * You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
+     * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
+     * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+     *
+     * @param request - QueryRegistrantProfilesRequest
+     *
+     * @returns QueryRegistrantProfilesResponse
+     *
+     * @param QueryRegistrantProfilesRequest $request
+     *
+     * @return QueryRegistrantProfilesResponse
      */
     public function queryRegistrantProfiles($request)
     {
@@ -3407,46 +4254,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryServerLockRequest $request QueryServerLockRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryServerLockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryServerLockResponse QueryServerLockResponse
+     * @returns QueryServerLockResponse
+     *
+     * @param QueryServerLockRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryServerLockResponse
      */
     public function queryServerLockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryServerLock',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryServerLock',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryServerLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryServerLockRequest $request QueryServerLockRequest
+     * @param request - QueryServerLockRequest
      *
-     * @return QueryServerLockResponse QueryServerLockResponse
+     * @returns QueryServerLockResponse
+     *
+     * @param QueryServerLockRequest $request
+     *
+     * @return QueryServerLockResponse
      */
     public function queryServerLock($request)
     {
@@ -3456,61 +4315,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskDetailHistoryRequest $request QueryTaskDetailHistoryRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryTaskDetailHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryTaskDetailHistoryResponse QueryTaskDetailHistoryResponse
+     * @returns QueryTaskDetailHistoryResponse
+     *
+     * @param QueryTaskDetailHistoryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryTaskDetailHistoryResponse
      */
     public function queryTaskDetailHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->domainNameCursor)) {
-            $query['DomainNameCursor'] = $request->domainNameCursor;
+
+        if (null !== $request->domainNameCursor) {
+            @$query['DomainNameCursor'] = $request->domainNameCursor;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskDetailNoCursor)) {
-            $query['TaskDetailNoCursor'] = $request->taskDetailNoCursor;
+
+        if (null !== $request->taskDetailNoCursor) {
+            @$query['TaskDetailNoCursor'] = $request->taskDetailNoCursor;
         }
-        if (!Utils::isUnset($request->taskNo)) {
-            $query['TaskNo'] = $request->taskNo;
+
+        if (null !== $request->taskNo) {
+            @$query['TaskNo'] = $request->taskNo;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$query['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTaskDetailHistory',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTaskDetailHistory',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTaskDetailHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTaskDetailHistoryRequest $request QueryTaskDetailHistoryRequest
+     * @param request - QueryTaskDetailHistoryRequest
      *
-     * @return QueryTaskDetailHistoryResponse QueryTaskDetailHistoryResponse
+     * @returns QueryTaskDetailHistoryResponse
+     *
+     * @param QueryTaskDetailHistoryRequest $request
+     *
+     * @return QueryTaskDetailHistoryResponse
      */
     public function queryTaskDetailHistory($request)
     {
@@ -3520,61 +4396,82 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskDetailListRequest $request QueryTaskDetailListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a specific domain name task by page.
      *
-     * @return QueryTaskDetailListResponse QueryTaskDetailListResponse
+     * @param request - QueryTaskDetailListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTaskDetailListResponse
+     *
+     * @param QueryTaskDetailListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryTaskDetailListResponse
      */
     public function queryTaskDetailListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskNo)) {
-            $query['TaskNo'] = $request->taskNo;
+
+        if (null !== $request->taskNo) {
+            @$query['TaskNo'] = $request->taskNo;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$query['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTaskDetailList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTaskDetailList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTaskDetailListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTaskDetailListRequest $request QueryTaskDetailListRequest
+     * Queries the details of a specific domain name task by page.
      *
-     * @return QueryTaskDetailListResponse QueryTaskDetailListResponse
+     * @param request - QueryTaskDetailListRequest
+     *
+     * @returns QueryTaskDetailListResponse
+     *
+     * @param QueryTaskDetailListRequest $request
+     *
+     * @return QueryTaskDetailListResponse
      */
     public function queryTaskDetailList($request)
     {
@@ -3584,58 +4481,74 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskInfoHistoryRequest $request QueryTaskInfoHistoryRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryTaskInfoHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryTaskInfoHistoryResponse QueryTaskInfoHistoryResponse
+     * @returns QueryTaskInfoHistoryResponse
+     *
+     * @param QueryTaskInfoHistoryRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryTaskInfoHistoryResponse
      */
     public function queryTaskInfoHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginCreateTime)) {
-            $query['BeginCreateTime'] = $request->beginCreateTime;
+        if (null !== $request->beginCreateTime) {
+            @$query['BeginCreateTime'] = $request->beginCreateTime;
         }
-        if (!Utils::isUnset($request->createTimeCursor)) {
-            $query['CreateTimeCursor'] = $request->createTimeCursor;
+
+        if (null !== $request->createTimeCursor) {
+            @$query['CreateTimeCursor'] = $request->createTimeCursor;
         }
-        if (!Utils::isUnset($request->endCreateTime)) {
-            $query['EndCreateTime'] = $request->endCreateTime;
+
+        if (null !== $request->endCreateTime) {
+            @$query['EndCreateTime'] = $request->endCreateTime;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskNoCursor)) {
-            $query['TaskNoCursor'] = $request->taskNoCursor;
+
+        if (null !== $request->taskNoCursor) {
+            @$query['TaskNoCursor'] = $request->taskNoCursor;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTaskInfoHistory',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTaskInfoHistory',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTaskInfoHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTaskInfoHistoryRequest $request QueryTaskInfoHistoryRequest
+     * @param request - QueryTaskInfoHistoryRequest
      *
-     * @return QueryTaskInfoHistoryResponse QueryTaskInfoHistoryResponse
+     * @returns QueryTaskInfoHistoryResponse
+     *
+     * @param QueryTaskInfoHistoryRequest $request
+     *
+     * @return QueryTaskInfoHistoryResponse
      */
     public function queryTaskInfoHistory($request)
     {
@@ -3645,55 +4558,74 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskListRequest $request QueryTaskListRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询任务列表.
      *
-     * @return QueryTaskListResponse QueryTaskListResponse
+     * @param request - QueryTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTaskListResponse
+     *
+     * @param QueryTaskListRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryTaskListResponse
      */
     public function queryTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginCreateTime)) {
-            $query['BeginCreateTime'] = $request->beginCreateTime;
+        if (null !== $request->beginCreateTime) {
+            @$query['BeginCreateTime'] = $request->beginCreateTime;
         }
-        if (!Utils::isUnset($request->endCreateTime)) {
-            $query['EndCreateTime'] = $request->endCreateTime;
+
+        if (null !== $request->endCreateTime) {
+            @$query['EndCreateTime'] = $request->endCreateTime;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTaskList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTaskList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTaskListRequest $request QueryTaskListRequest
+     * 查询任务列表.
      *
-     * @return QueryTaskListResponse QueryTaskListResponse
+     * @param request - QueryTaskListRequest
+     *
+     * @returns QueryTaskListResponse
+     *
+     * @param QueryTaskListRequest $request
+     *
+     * @return QueryTaskListResponse
      */
     public function queryTaskList($request)
     {
@@ -3703,46 +4635,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferInByInstanceIdRequest $request QueryTransferInByInstanceIdRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryTransferInByInstanceIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryTransferInByInstanceIdResponse QueryTransferInByInstanceIdResponse
+     * @returns QueryTransferInByInstanceIdResponse
+     *
+     * @param QueryTransferInByInstanceIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryTransferInByInstanceIdResponse
      */
     public function queryTransferInByInstanceIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTransferInByInstanceId',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTransferInByInstanceId',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTransferInByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTransferInByInstanceIdRequest $request QueryTransferInByInstanceIdRequest
+     * @param request - QueryTransferInByInstanceIdRequest
      *
-     * @return QueryTransferInByInstanceIdResponse QueryTransferInByInstanceIdResponse
+     * @returns QueryTransferInByInstanceIdResponse
+     *
+     * @param QueryTransferInByInstanceIdRequest $request
+     *
+     * @return QueryTransferInByInstanceIdResponse
      */
     public function queryTransferInByInstanceId($request)
     {
@@ -3752,61 +4696,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferInListRequest $request QueryTransferInListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryTransferInListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryTransferInListResponse QueryTransferInListResponse
+     * @returns QueryTransferInListResponse
+     *
+     * @param QueryTransferInListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryTransferInListResponse
      */
     public function queryTransferInListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->simpleTransferInStatus)) {
-            $query['SimpleTransferInStatus'] = $request->simpleTransferInStatus;
+
+        if (null !== $request->simpleTransferInStatus) {
+            @$query['SimpleTransferInStatus'] = $request->simpleTransferInStatus;
         }
-        if (!Utils::isUnset($request->submissionEndDate)) {
-            $query['SubmissionEndDate'] = $request->submissionEndDate;
+
+        if (null !== $request->submissionEndDate) {
+            @$query['SubmissionEndDate'] = $request->submissionEndDate;
         }
-        if (!Utils::isUnset($request->submissionStartDate)) {
-            $query['SubmissionStartDate'] = $request->submissionStartDate;
+
+        if (null !== $request->submissionStartDate) {
+            @$query['SubmissionStartDate'] = $request->submissionStartDate;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTransferInList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTransferInList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTransferInListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTransferInListRequest $request QueryTransferInListRequest
+     * @param request - QueryTransferInListRequest
      *
-     * @return QueryTransferInListResponse QueryTransferInListResponse
+     * @returns QueryTransferInListResponse
+     *
+     * @param QueryTransferInListRequest $request
+     *
+     * @return QueryTransferInListResponse
      */
     public function queryTransferInList($request)
     {
@@ -3816,46 +4777,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param QueryTransferOutInfoRequest $request QueryTransferOutInfoRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryTransferOutInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryTransferOutInfoResponse QueryTransferOutInfoResponse
+     * @returns QueryTransferOutInfoResponse
+     *
+     * @param QueryTransferOutInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryTransferOutInfoResponse
      */
     public function queryTransferOutInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTransferOutInfo',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTransferOutInfo',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryTransferOutInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTransferOutInfoRequest $request QueryTransferOutInfoRequest
+     * @param request - QueryTransferOutInfoRequest
      *
-     * @return QueryTransferOutInfoResponse QueryTransferOutInfoResponse
+     * @returns QueryTransferOutInfoResponse
+     *
+     * @param QueryTransferOutInfoRequest $request
+     *
+     * @return QueryTransferOutInfoResponse
      */
     public function queryTransferOutInfo($request)
     {
@@ -3865,61 +4838,76 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存联系人模板实名资料
-     *  *
-     * @param RegistrantProfileRealNameVerificationRequest $request RegistrantProfileRealNameVerificationRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 保存联系人模板实名资料.
      *
-     * @return RegistrantProfileRealNameVerificationResponse RegistrantProfileRealNameVerificationResponse
+     * @param request - RegistrantProfileRealNameVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RegistrantProfileRealNameVerificationResponse
+     *
+     * @param RegistrantProfileRealNameVerificationRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RegistrantProfileRealNameVerificationResponse
      */
     public function registrantProfileRealNameVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identityCredentialNo)) {
-            $query['IdentityCredentialNo'] = $request->identityCredentialNo;
+        if (null !== $request->identityCredentialNo) {
+            @$query['IdentityCredentialNo'] = $request->identityCredentialNo;
         }
-        if (!Utils::isUnset($request->identityCredentialType)) {
-            $query['IdentityCredentialType'] = $request->identityCredentialType;
+
+        if (null !== $request->identityCredentialType) {
+            @$query['IdentityCredentialType'] = $request->identityCredentialType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->registrantProfileID)) {
-            $query['RegistrantProfileID'] = $request->registrantProfileID;
+
+        if (null !== $request->registrantProfileID) {
+            @$query['RegistrantProfileID'] = $request->registrantProfileID;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->identityCredential)) {
-            $body['IdentityCredential'] = $request->identityCredential;
+        if (null !== $request->identityCredential) {
+            @$body['IdentityCredential'] = $request->identityCredential;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RegistrantProfileRealNameVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegistrantProfileRealNameVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RegistrantProfileRealNameVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存联系人模板实名资料
-     *  *
-     * @param RegistrantProfileRealNameVerificationRequest $request RegistrantProfileRealNameVerificationRequest
+     * 保存联系人模板实名资料.
      *
-     * @return RegistrantProfileRealNameVerificationResponse RegistrantProfileRealNameVerificationResponse
+     * @param request - RegistrantProfileRealNameVerificationRequest
+     *
+     * @returns RegistrantProfileRealNameVerificationResponse
+     *
+     * @param RegistrantProfileRealNameVerificationRequest $request
+     *
+     * @return RegistrantProfileRealNameVerificationResponse
      */
     public function registrantProfileRealNameVerification($request)
     {
@@ -3929,50 +4917,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 重新发送验证邮件
-     *  *
-     * @param ResendEmailVerificationRequest $request ResendEmailVerificationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 重新发送验证邮件.
      *
-     * @return ResendEmailVerificationResponse ResendEmailVerificationResponse
+     * @param request - ResendEmailVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResendEmailVerificationResponse
+     *
+     * @param ResendEmailVerificationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ResendEmailVerificationResponse
      */
     public function resendEmailVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResendEmailVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResendEmailVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResendEmailVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 重新发送验证邮件
-     *  *
-     * @param ResendEmailVerificationRequest $request ResendEmailVerificationRequest
+     * 重新发送验证邮件.
      *
-     * @return ResendEmailVerificationResponse ResendEmailVerificationResponse
+     * @param request - ResendEmailVerificationRequest
+     *
+     * @returns ResendEmailVerificationResponse
+     *
+     * @param ResendEmailVerificationRequest $request
+     *
+     * @return ResendEmailVerificationResponse
      */
     public function resendEmailVerification($request)
     {
@@ -3982,50 +4982,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 重置资质审核状态
-     *  *
-     * @param ResetQualificationVerificationRequest $request ResetQualificationVerificationRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 重置资质审核状态
      *
-     * @return ResetQualificationVerificationResponse ResetQualificationVerificationResponse
+     * @param request - ResetQualificationVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetQualificationVerificationResponse
+     *
+     * @param ResetQualificationVerificationRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ResetQualificationVerificationResponse
      */
     public function resetQualificationVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetQualificationVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetQualificationVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResetQualificationVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 重置资质审核状态
-     *  *
-     * @param ResetQualificationVerificationRequest $request ResetQualificationVerificationRequest
+     * 重置资质审核状态
      *
-     * @return ResetQualificationVerificationResponse ResetQualificationVerificationResponse
+     * @param request - ResetQualificationVerificationRequest
+     *
+     * @returns ResetQualificationVerificationResponse
+     *
+     * @param ResetQualificationVerificationRequest $request
+     *
+     * @return ResetQualificationVerificationResponse
      */
     public function resetQualificationVerification($request)
     {
@@ -4035,53 +5047,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 批量保存域名备注信息
-     *  *
-     * @param SaveBatchDomainRemarkRequest $request SaveBatchDomainRemarkRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 批量保存域名备注信息.
      *
-     * @return SaveBatchDomainRemarkResponse SaveBatchDomainRemarkResponse
+     * @param request - SaveBatchDomainRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchDomainRemarkResponse
+     *
+     * @param SaveBatchDomainRemarkRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SaveBatchDomainRemarkResponse
      */
     public function saveBatchDomainRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchDomainRemark',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchDomainRemark',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量保存域名备注信息
-     *  *
-     * @param SaveBatchDomainRemarkRequest $request SaveBatchDomainRemarkRequest
+     * 批量保存域名备注信息.
      *
-     * @return SaveBatchDomainRemarkResponse SaveBatchDomainRemarkResponse
+     * @param request - SaveBatchDomainRemarkRequest
+     *
+     * @returns SaveBatchDomainRemarkResponse
+     *
+     * @param SaveBatchDomainRemarkRequest $request
+     *
+     * @return SaveBatchDomainRemarkResponse
      */
     public function saveBatchDomainRemark($request)
     {
@@ -4091,50 +5116,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 批量申请域名快速转出
-     *  *
-     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     * 批量申请域名快速转出.
      *
-     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
+     * @param request - SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
+     *
+     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
      */
     public function saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForApplyQuickTransferOutOpenly',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForApplyQuickTransferOutOpenly',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量申请域名快速转出
-     *  *
-     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
+     * 批量申请域名快速转出.
      *
-     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
+     * @param request - SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
+     *
+     * @returns SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
+     *
+     * @param SaveBatchTaskForApplyQuickTransferOutOpenlyRequest $request
+     *
+     * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
      */
     public function saveBatchTaskForApplyQuickTransferOutOpenly($request)
     {
@@ -4144,62 +5181,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存批量任务-注册订单
-     *  *
-     * @param SaveBatchTaskForCreatingOrderActivateRequest $request SaveBatchTaskForCreatingOrderActivateRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 保存批量任务-注册订单.
      *
-     * @return SaveBatchTaskForCreatingOrderActivateResponse SaveBatchTaskForCreatingOrderActivateResponse
+     * @param request - SaveBatchTaskForCreatingOrderActivateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForCreatingOrderActivateResponse
+     *
+     * @param SaveBatchTaskForCreatingOrderActivateRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveBatchTaskForCreatingOrderActivateResponse
      */
     public function saveBatchTaskForCreatingOrderActivateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->orderActivateParam)) {
-            $query['OrderActivateParam'] = $request->orderActivateParam;
+
+        if (null !== $request->orderActivateParam) {
+            @$query['OrderActivateParam'] = $request->orderActivateParam;
         }
-        if (!Utils::isUnset($request->promotionNo)) {
-            $query['PromotionNo'] = $request->promotionNo;
+
+        if (null !== $request->promotionNo) {
+            @$query['PromotionNo'] = $request->promotionNo;
         }
-        if (!Utils::isUnset($request->useCoupon)) {
-            $query['UseCoupon'] = $request->useCoupon;
+
+        if (null !== $request->useCoupon) {
+            @$query['UseCoupon'] = $request->useCoupon;
         }
-        if (!Utils::isUnset($request->usePromotion)) {
-            $query['UsePromotion'] = $request->usePromotion;
+
+        if (null !== $request->usePromotion) {
+            @$query['UsePromotion'] = $request->usePromotion;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForCreatingOrderActivate',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForCreatingOrderActivate',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForCreatingOrderActivateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存批量任务-注册订单
-     *  *
-     * @param SaveBatchTaskForCreatingOrderActivateRequest $request SaveBatchTaskForCreatingOrderActivateRequest
+     * 保存批量任务-注册订单.
      *
-     * @return SaveBatchTaskForCreatingOrderActivateResponse SaveBatchTaskForCreatingOrderActivateResponse
+     * @param request - SaveBatchTaskForCreatingOrderActivateRequest
+     *
+     * @returns SaveBatchTaskForCreatingOrderActivateResponse
+     *
+     * @param SaveBatchTaskForCreatingOrderActivateRequest $request
+     *
+     * @return SaveBatchTaskForCreatingOrderActivateResponse
      */
     public function saveBatchTaskForCreatingOrderActivate($request)
     {
@@ -4209,58 +5262,74 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderRedeemRequest $request SaveBatchTaskForCreatingOrderRedeemRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveBatchTaskForCreatingOrderRedeemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForCreatingOrderRedeemResponse SaveBatchTaskForCreatingOrderRedeemResponse
+     * @returns SaveBatchTaskForCreatingOrderRedeemResponse
+     *
+     * @param SaveBatchTaskForCreatingOrderRedeemRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return SaveBatchTaskForCreatingOrderRedeemResponse
      */
     public function saveBatchTaskForCreatingOrderRedeemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->orderRedeemParam)) {
-            $query['OrderRedeemParam'] = $request->orderRedeemParam;
+
+        if (null !== $request->orderRedeemParam) {
+            @$query['OrderRedeemParam'] = $request->orderRedeemParam;
         }
-        if (!Utils::isUnset($request->promotionNo)) {
-            $query['PromotionNo'] = $request->promotionNo;
+
+        if (null !== $request->promotionNo) {
+            @$query['PromotionNo'] = $request->promotionNo;
         }
-        if (!Utils::isUnset($request->useCoupon)) {
-            $query['UseCoupon'] = $request->useCoupon;
+
+        if (null !== $request->useCoupon) {
+            @$query['UseCoupon'] = $request->useCoupon;
         }
-        if (!Utils::isUnset($request->usePromotion)) {
-            $query['UsePromotion'] = $request->usePromotion;
+
+        if (null !== $request->usePromotion) {
+            @$query['UsePromotion'] = $request->usePromotion;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForCreatingOrderRedeem',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForCreatingOrderRedeem',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForCreatingOrderRedeemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderRedeemRequest $request SaveBatchTaskForCreatingOrderRedeemRequest
+     * @param request - SaveBatchTaskForCreatingOrderRedeemRequest
      *
-     * @return SaveBatchTaskForCreatingOrderRedeemResponse SaveBatchTaskForCreatingOrderRedeemResponse
+     * @returns SaveBatchTaskForCreatingOrderRedeemResponse
+     *
+     * @param SaveBatchTaskForCreatingOrderRedeemRequest $request
+     *
+     * @return SaveBatchTaskForCreatingOrderRedeemResponse
      */
     public function saveBatchTaskForCreatingOrderRedeem($request)
     {
@@ -4270,62 +5339,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存批量任务-续费订单
-     *  *
-     * @param SaveBatchTaskForCreatingOrderRenewRequest $request SaveBatchTaskForCreatingOrderRenewRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 保存批量任务-续费订单.
      *
-     * @return SaveBatchTaskForCreatingOrderRenewResponse SaveBatchTaskForCreatingOrderRenewResponse
+     * @param request - SaveBatchTaskForCreatingOrderRenewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForCreatingOrderRenewResponse
+     *
+     * @param SaveBatchTaskForCreatingOrderRenewRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SaveBatchTaskForCreatingOrderRenewResponse
      */
     public function saveBatchTaskForCreatingOrderRenewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->orderRenewParam)) {
-            $query['OrderRenewParam'] = $request->orderRenewParam;
+
+        if (null !== $request->orderRenewParam) {
+            @$query['OrderRenewParam'] = $request->orderRenewParam;
         }
-        if (!Utils::isUnset($request->promotionNo)) {
-            $query['PromotionNo'] = $request->promotionNo;
+
+        if (null !== $request->promotionNo) {
+            @$query['PromotionNo'] = $request->promotionNo;
         }
-        if (!Utils::isUnset($request->useCoupon)) {
-            $query['UseCoupon'] = $request->useCoupon;
+
+        if (null !== $request->useCoupon) {
+            @$query['UseCoupon'] = $request->useCoupon;
         }
-        if (!Utils::isUnset($request->usePromotion)) {
-            $query['UsePromotion'] = $request->usePromotion;
+
+        if (null !== $request->usePromotion) {
+            @$query['UsePromotion'] = $request->usePromotion;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForCreatingOrderRenew',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForCreatingOrderRenew',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForCreatingOrderRenewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存批量任务-续费订单
-     *  *
-     * @param SaveBatchTaskForCreatingOrderRenewRequest $request SaveBatchTaskForCreatingOrderRenewRequest
+     * 保存批量任务-续费订单.
      *
-     * @return SaveBatchTaskForCreatingOrderRenewResponse SaveBatchTaskForCreatingOrderRenewResponse
+     * @param request - SaveBatchTaskForCreatingOrderRenewRequest
+     *
+     * @returns SaveBatchTaskForCreatingOrderRenewResponse
+     *
+     * @param SaveBatchTaskForCreatingOrderRenewRequest $request
+     *
+     * @return SaveBatchTaskForCreatingOrderRenewResponse
      */
     public function saveBatchTaskForCreatingOrderRenew($request)
     {
@@ -4335,58 +5420,74 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderTransferRequest $request SaveBatchTaskForCreatingOrderTransferRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveBatchTaskForCreatingOrderTransferRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForCreatingOrderTransferResponse SaveBatchTaskForCreatingOrderTransferResponse
+     * @returns SaveBatchTaskForCreatingOrderTransferResponse
+     *
+     * @param SaveBatchTaskForCreatingOrderTransferRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveBatchTaskForCreatingOrderTransferResponse
      */
     public function saveBatchTaskForCreatingOrderTransferWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->orderTransferParam)) {
-            $query['OrderTransferParam'] = $request->orderTransferParam;
+
+        if (null !== $request->orderTransferParam) {
+            @$query['OrderTransferParam'] = $request->orderTransferParam;
         }
-        if (!Utils::isUnset($request->promotionNo)) {
-            $query['PromotionNo'] = $request->promotionNo;
+
+        if (null !== $request->promotionNo) {
+            @$query['PromotionNo'] = $request->promotionNo;
         }
-        if (!Utils::isUnset($request->useCoupon)) {
-            $query['UseCoupon'] = $request->useCoupon;
+
+        if (null !== $request->useCoupon) {
+            @$query['UseCoupon'] = $request->useCoupon;
         }
-        if (!Utils::isUnset($request->usePromotion)) {
-            $query['UsePromotion'] = $request->usePromotion;
+
+        if (null !== $request->usePromotion) {
+            @$query['UsePromotion'] = $request->usePromotion;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForCreatingOrderTransfer',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForCreatingOrderTransfer',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForCreatingOrderTransferResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveBatchTaskForCreatingOrderTransferRequest $request SaveBatchTaskForCreatingOrderTransferRequest
+     * @param request - SaveBatchTaskForCreatingOrderTransferRequest
      *
-     * @return SaveBatchTaskForCreatingOrderTransferResponse SaveBatchTaskForCreatingOrderTransferResponse
+     * @returns SaveBatchTaskForCreatingOrderTransferResponse
+     *
+     * @param SaveBatchTaskForCreatingOrderTransferRequest $request
+     *
+     * @return SaveBatchTaskForCreatingOrderTransferResponse
      */
     public function saveBatchTaskForCreatingOrderTransfer($request)
     {
@@ -4396,53 +5497,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存批量任务-开启/关闭whois隐私保护锁
-     *  *
-     * @param SaveBatchTaskForDomainNameProxyServiceRequest $request SaveBatchTaskForDomainNameProxyServiceRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * 保存批量任务-开启/关闭whois隐私保护锁
      *
-     * @return SaveBatchTaskForDomainNameProxyServiceResponse SaveBatchTaskForDomainNameProxyServiceResponse
+     * @param request - SaveBatchTaskForDomainNameProxyServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForDomainNameProxyServiceResponse
+     *
+     * @param SaveBatchTaskForDomainNameProxyServiceRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SaveBatchTaskForDomainNameProxyServiceResponse
      */
     public function saveBatchTaskForDomainNameProxyServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForDomainNameProxyService',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForDomainNameProxyService',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForDomainNameProxyServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存批量任务-开启/关闭whois隐私保护锁
-     *  *
-     * @param SaveBatchTaskForDomainNameProxyServiceRequest $request SaveBatchTaskForDomainNameProxyServiceRequest
+     * 保存批量任务-开启/关闭whois隐私保护锁
      *
-     * @return SaveBatchTaskForDomainNameProxyServiceResponse SaveBatchTaskForDomainNameProxyServiceResponse
+     * @param request - SaveBatchTaskForDomainNameProxyServiceRequest
+     *
+     * @returns SaveBatchTaskForDomainNameProxyServiceResponse
+     *
+     * @param SaveBatchTaskForDomainNameProxyServiceRequest $request
+     *
+     * @return SaveBatchTaskForDomainNameProxyServiceResponse
      */
     public function saveBatchTaskForDomainNameProxyService($request)
     {
@@ -4452,55 +5566,68 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 提交批量生成证书的任务
-     *  *
-     * @param SaveBatchTaskForGenerateDomainCertificateRequest $tmpReq  SaveBatchTaskForGenerateDomainCertificateRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     * 提交批量生成证书的任务
      *
-     * @return SaveBatchTaskForGenerateDomainCertificateResponse SaveBatchTaskForGenerateDomainCertificateResponse
+     * @param tmpReq - SaveBatchTaskForGenerateDomainCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForGenerateDomainCertificateResponse
+     *
+     * @param SaveBatchTaskForGenerateDomainCertificateRequest $tmpReq
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return SaveBatchTaskForGenerateDomainCertificateResponse
      */
     public function saveBatchTaskForGenerateDomainCertificateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SaveBatchTaskForGenerateDomainCertificateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->domainNames)) {
-            $request->domainNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->domainNames, 'DomainNames', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->domainNames) {
+            $request->domainNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->domainNames, 'DomainNames', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->domainNamesShrink)) {
-            $query['DomainNames'] = $request->domainNamesShrink;
+        if (null !== $request->domainNamesShrink) {
+            @$query['DomainNames'] = $request->domainNamesShrink;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForGenerateDomainCertificate',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForGenerateDomainCertificate',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForGenerateDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交批量生成证书的任务
-     *  *
-     * @param SaveBatchTaskForGenerateDomainCertificateRequest $request SaveBatchTaskForGenerateDomainCertificateRequest
+     * 提交批量生成证书的任务
      *
-     * @return SaveBatchTaskForGenerateDomainCertificateResponse SaveBatchTaskForGenerateDomainCertificateResponse
+     * @param request - SaveBatchTaskForGenerateDomainCertificateRequest
+     *
+     * @returns SaveBatchTaskForGenerateDomainCertificateResponse
+     *
+     * @param SaveBatchTaskForGenerateDomainCertificateRequest $request
+     *
+     * @return SaveBatchTaskForGenerateDomainCertificateResponse
      */
     public function saveBatchTaskForGenerateDomainCertificate($request)
     {
@@ -4510,56 +5637,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 批量修改dns
-     *  *
-     * @param SaveBatchTaskForModifyingDomainDnsRequest $request SaveBatchTaskForModifyingDomainDnsRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 批量修改dns.
      *
-     * @return SaveBatchTaskForModifyingDomainDnsResponse SaveBatchTaskForModifyingDomainDnsResponse
+     * @param request - SaveBatchTaskForModifyingDomainDnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForModifyingDomainDnsResponse
+     *
+     * @param SaveBatchTaskForModifyingDomainDnsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SaveBatchTaskForModifyingDomainDnsResponse
      */
     public function saveBatchTaskForModifyingDomainDnsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunDns)) {
-            $query['AliyunDns'] = $request->aliyunDns;
+        if (null !== $request->aliyunDns) {
+            @$query['AliyunDns'] = $request->aliyunDns;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->domainNameServer)) {
-            $query['DomainNameServer'] = $request->domainNameServer;
+
+        if (null !== $request->domainNameServer) {
+            @$query['DomainNameServer'] = $request->domainNameServer;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForModifyingDomainDns',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForModifyingDomainDns',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForModifyingDomainDnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量修改dns
-     *  *
-     * @param SaveBatchTaskForModifyingDomainDnsRequest $request SaveBatchTaskForModifyingDomainDnsRequest
+     * 批量修改dns.
      *
-     * @return SaveBatchTaskForModifyingDomainDnsResponse SaveBatchTaskForModifyingDomainDnsResponse
+     * @param request - SaveBatchTaskForModifyingDomainDnsRequest
+     *
+     * @returns SaveBatchTaskForModifyingDomainDnsResponse
+     *
+     * @param SaveBatchTaskForModifyingDomainDnsRequest $request
+     *
+     * @return SaveBatchTaskForModifyingDomainDnsResponse
      */
     public function saveBatchTaskForModifyingDomainDns($request)
     {
@@ -4569,43 +5710,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForReserveDropListDomainRequest $request SaveBatchTaskForReserveDropListDomainRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 提交批量预定删除抢注域名任务
      *
-     * @return SaveBatchTaskForReserveDropListDomainResponse SaveBatchTaskForReserveDropListDomainResponse
+     * @param request - SaveBatchTaskForReserveDropListDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForReserveDropListDomainResponse
+     *
+     * @param SaveBatchTaskForReserveDropListDomainRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveBatchTaskForReserveDropListDomainResponse
      */
     public function saveBatchTaskForReserveDropListDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactTemplateId)) {
-            $query['ContactTemplateId'] = $request->contactTemplateId;
+        if (null !== $request->contactTemplateId) {
+            @$query['ContactTemplateId'] = $request->contactTemplateId;
         }
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForReserveDropListDomain',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForReserveDropListDomain',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForReserveDropListDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveBatchTaskForReserveDropListDomainRequest $request SaveBatchTaskForReserveDropListDomainRequest
+     * 提交批量预定删除抢注域名任务
      *
-     * @return SaveBatchTaskForReserveDropListDomainResponse SaveBatchTaskForReserveDropListDomainResponse
+     * @param request - SaveBatchTaskForReserveDropListDomainRequest
+     *
+     * @returns SaveBatchTaskForReserveDropListDomainResponse
+     *
+     * @param SaveBatchTaskForReserveDropListDomainRequest $request
+     *
+     * @return SaveBatchTaskForReserveDropListDomainResponse
      */
     public function saveBatchTaskForReserveDropListDomain($request)
     {
@@ -4615,50 +5771,54 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 基于转移码的批量转出任务提交
-     *  *
-     * @param SaveBatchTaskForTransferOutByAuthorizationCodeRequest $request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
-     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     * 基于转移码的批量转出任务提交.
      *
-     * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse SaveBatchTaskForTransferOutByAuthorizationCodeResponse
+     * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForTransferOutByAuthorizationCodeResponse
+     *
+     * @param SaveBatchTaskForTransferOutByAuthorizationCodeRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse
      */
     public function saveBatchTaskForTransferOutByAuthorizationCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->long)) {
-            $query['Long'] = $request->long;
+        if (null !== $request->transferOutParamList) {
+            @$query['TransferOutParamList'] = $request->transferOutParamList;
         }
-        if (!Utils::isUnset($request->transferOutParamList)) {
-            $query['TransferOutParamList'] = $request->transferOutParamList;
-        }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
-        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForTransferOutByAuthorizationCode',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForTransferOutByAuthorizationCode',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForTransferOutByAuthorizationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 基于转移码的批量转出任务提交
-     *  *
-     * @param SaveBatchTaskForTransferOutByAuthorizationCodeRequest $request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
+     * 基于转移码的批量转出任务提交.
      *
-     * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse SaveBatchTaskForTransferOutByAuthorizationCodeResponse
+     * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
+     *
+     * @returns SaveBatchTaskForTransferOutByAuthorizationCodeResponse
+     *
+     * @param SaveBatchTaskForTransferOutByAuthorizationCodeRequest $request
+     *
+     * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse
      */
     public function saveBatchTaskForTransferOutByAuthorizationCode($request)
     {
@@ -4668,53 +5828,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存批量任务-开启/关闭禁止转移锁
-     *  *
-     * @param SaveBatchTaskForTransferProhibitionLockRequest $request SaveBatchTaskForTransferProhibitionLockRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * 保存批量任务-开启/关闭禁止转移锁
      *
-     * @return SaveBatchTaskForTransferProhibitionLockResponse SaveBatchTaskForTransferProhibitionLockResponse
+     * @param request - SaveBatchTaskForTransferProhibitionLockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForTransferProhibitionLockResponse
+     *
+     * @param SaveBatchTaskForTransferProhibitionLockRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return SaveBatchTaskForTransferProhibitionLockResponse
      */
     public function saveBatchTaskForTransferProhibitionLockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForTransferProhibitionLock',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForTransferProhibitionLock',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForTransferProhibitionLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存批量任务-开启/关闭禁止转移锁
-     *  *
-     * @param SaveBatchTaskForTransferProhibitionLockRequest $request SaveBatchTaskForTransferProhibitionLockRequest
+     * 保存批量任务-开启/关闭禁止转移锁
      *
-     * @return SaveBatchTaskForTransferProhibitionLockResponse SaveBatchTaskForTransferProhibitionLockResponse
+     * @param request - SaveBatchTaskForTransferProhibitionLockRequest
+     *
+     * @returns SaveBatchTaskForTransferProhibitionLockResponse
+     *
+     * @param SaveBatchTaskForTransferProhibitionLockRequest $request
+     *
+     * @return SaveBatchTaskForTransferProhibitionLockResponse
      */
     public function saveBatchTaskForTransferProhibitionLock($request)
     {
@@ -4724,49 +5897,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveBatchTaskForUpdateProhibitionLockRequest $request SaveBatchTaskForUpdateProhibitionLockRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveBatchTaskForUpdateProhibitionLockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveBatchTaskForUpdateProhibitionLockResponse SaveBatchTaskForUpdateProhibitionLockResponse
+     * @returns SaveBatchTaskForUpdateProhibitionLockResponse
+     *
+     * @param SaveBatchTaskForUpdateProhibitionLockRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveBatchTaskForUpdateProhibitionLockResponse
      */
     public function saveBatchTaskForUpdateProhibitionLockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForUpdateProhibitionLock',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForUpdateProhibitionLock',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForUpdateProhibitionLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveBatchTaskForUpdateProhibitionLockRequest $request SaveBatchTaskForUpdateProhibitionLockRequest
+     * @param request - SaveBatchTaskForUpdateProhibitionLockRequest
      *
-     * @return SaveBatchTaskForUpdateProhibitionLockResponse SaveBatchTaskForUpdateProhibitionLockResponse
+     * @returns SaveBatchTaskForUpdateProhibitionLockResponse
+     *
+     * @param SaveBatchTaskForUpdateProhibitionLockRequest $request
+     *
+     * @return SaveBatchTaskForUpdateProhibitionLockResponse
      */
     public function saveBatchTaskForUpdateProhibitionLock($request)
     {
@@ -4776,107 +5962,138 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 使用联系人信息修改联系人的批量任务
-     *  *
-     * @param SaveBatchTaskForUpdatingContactInfoByNewContactRequest $request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
-     * @param RuntimeOptions                                         $runtime runtime options for this request RuntimeOptions
+     * 使用联系人信息修改联系人的批量任务
      *
-     * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse SaveBatchTaskForUpdatingContactInfoByNewContactResponse
+     * @param request - SaveBatchTaskForUpdatingContactInfoByNewContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForUpdatingContactInfoByNewContactResponse
+     *
+     * @param SaveBatchTaskForUpdatingContactInfoByNewContactRequest $request
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse
      */
     public function saveBatchTaskForUpdatingContactInfoByNewContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->contactType)) {
-            $query['ContactType'] = $request->contactType;
+
+        if (null !== $request->contactType) {
+            @$query['ContactType'] = $request->contactType;
         }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->postalCode)) {
-            $query['PostalCode'] = $request->postalCode;
+
+        if (null !== $request->postalCode) {
+            @$query['PostalCode'] = $request->postalCode;
         }
-        if (!Utils::isUnset($request->province)) {
-            $query['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
         }
-        if (!Utils::isUnset($request->registrantName)) {
-            $query['RegistrantName'] = $request->registrantName;
+
+        if (null !== $request->registrantName) {
+            @$query['RegistrantName'] = $request->registrantName;
         }
-        if (!Utils::isUnset($request->registrantOrganization)) {
-            $query['RegistrantOrganization'] = $request->registrantOrganization;
+
+        if (null !== $request->registrantOrganization) {
+            @$query['RegistrantOrganization'] = $request->registrantOrganization;
         }
-        if (!Utils::isUnset($request->registrantType)) {
-            $query['RegistrantType'] = $request->registrantType;
+
+        if (null !== $request->registrantType) {
+            @$query['RegistrantType'] = $request->registrantType;
         }
-        if (!Utils::isUnset($request->telArea)) {
-            $query['TelArea'] = $request->telArea;
+
+        if (null !== $request->telArea) {
+            @$query['TelArea'] = $request->telArea;
         }
-        if (!Utils::isUnset($request->telExt)) {
-            $query['TelExt'] = $request->telExt;
+
+        if (null !== $request->telExt) {
+            @$query['TelExt'] = $request->telExt;
         }
-        if (!Utils::isUnset($request->telephone)) {
-            $query['Telephone'] = $request->telephone;
+
+        if (null !== $request->telephone) {
+            @$query['Telephone'] = $request->telephone;
         }
-        if (!Utils::isUnset($request->transferOutProhibited)) {
-            $query['TransferOutProhibited'] = $request->transferOutProhibited;
+
+        if (null !== $request->transferOutProhibited) {
+            @$query['TransferOutProhibited'] = $request->transferOutProhibited;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zhAddress)) {
-            $query['ZhAddress'] = $request->zhAddress;
+
+        if (null !== $request->zhAddress) {
+            @$query['ZhAddress'] = $request->zhAddress;
         }
-        if (!Utils::isUnset($request->zhCity)) {
-            $query['ZhCity'] = $request->zhCity;
+
+        if (null !== $request->zhCity) {
+            @$query['ZhCity'] = $request->zhCity;
         }
-        if (!Utils::isUnset($request->zhProvince)) {
-            $query['ZhProvince'] = $request->zhProvince;
+
+        if (null !== $request->zhProvince) {
+            @$query['ZhProvince'] = $request->zhProvince;
         }
-        if (!Utils::isUnset($request->zhRegistrantName)) {
-            $query['ZhRegistrantName'] = $request->zhRegistrantName;
+
+        if (null !== $request->zhRegistrantName) {
+            @$query['ZhRegistrantName'] = $request->zhRegistrantName;
         }
-        if (!Utils::isUnset($request->zhRegistrantOrganization)) {
-            $query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
+
+        if (null !== $request->zhRegistrantOrganization) {
+            @$query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForUpdatingContactInfoByNewContact',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForUpdatingContactInfoByNewContact',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForUpdatingContactInfoByNewContactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 使用联系人信息修改联系人的批量任务
-     *  *
-     * @param SaveBatchTaskForUpdatingContactInfoByNewContactRequest $request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
+     * 使用联系人信息修改联系人的批量任务
      *
-     * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse SaveBatchTaskForUpdatingContactInfoByNewContactResponse
+     * @param request - SaveBatchTaskForUpdatingContactInfoByNewContactRequest
+     *
+     * @returns SaveBatchTaskForUpdatingContactInfoByNewContactResponse
+     *
+     * @param SaveBatchTaskForUpdatingContactInfoByNewContactRequest $request
+     *
+     * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse
      */
     public function saveBatchTaskForUpdatingContactInfoByNewContact($request)
     {
@@ -4886,59 +6103,74 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 使用模板修改联系人的批量任务
-     *  *
-     * @param SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest $request SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
-     * @param RuntimeOptions                                                  $runtime runtime options for this request RuntimeOptions
+     * 使用模板修改联系人的批量任务
      *
-     * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
+     * @param request - SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
+     *
+     * @param SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest $request
+     * @param RuntimeOptions                                                  $runtime
+     *
+     * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
      */
     public function saveBatchTaskForUpdatingContactInfoByRegistrantProfileIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactType)) {
-            $query['ContactType'] = $request->contactType;
+        if (null !== $request->contactType) {
+            @$query['ContactType'] = $request->contactType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->transferOutProhibited)) {
-            $query['TransferOutProhibited'] = $request->transferOutProhibited;
+
+        if (null !== $request->transferOutProhibited) {
+            @$query['TransferOutProhibited'] = $request->transferOutProhibited;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 使用模板修改联系人的批量任务
-     *  *
-     * @param SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest $request SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
+     * 使用模板修改联系人的批量任务
      *
-     * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
+     * @param request - SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
+     *
+     * @returns SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
+     *
+     * @param SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest $request
+     *
+     * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
      */
     public function saveBatchTaskForUpdatingContactInfoByRegistrantProfileId($request)
     {
@@ -4948,53 +6180,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 创建/更新域名分组
-     *  *
-     * @param SaveDomainGroupRequest $request SaveDomainGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建/更新域名分组.
      *
-     * @return SaveDomainGroupResponse SaveDomainGroupResponse
+     * @param request - SaveDomainGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveDomainGroupResponse
+     *
+     * @param SaveDomainGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SaveDomainGroupResponse
      */
     public function saveDomainGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainGroupId)) {
-            $query['DomainGroupId'] = $request->domainGroupId;
+        if (null !== $request->domainGroupId) {
+            @$query['DomainGroupId'] = $request->domainGroupId;
         }
-        if (!Utils::isUnset($request->domainGroupName)) {
-            $query['DomainGroupName'] = $request->domainGroupName;
+
+        if (null !== $request->domainGroupName) {
+            @$query['DomainGroupName'] = $request->domainGroupName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveDomainGroup',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveDomainGroup',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建/更新域名分组
-     *  *
-     * @param SaveDomainGroupRequest $request SaveDomainGroupRequest
+     * 创建/更新域名分组.
      *
-     * @return SaveDomainGroupResponse SaveDomainGroupResponse
+     * @param request - SaveDomainGroupRequest
+     *
+     * @returns SaveDomainGroupResponse
+     *
+     * @param SaveDomainGroupRequest $request
+     *
+     * @return SaveDomainGroupResponse
      */
     public function saveDomainGroup($request)
     {
@@ -5004,107 +6249,138 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存联系人模板
-     *  *
-     * @param SaveRegistrantProfileRequest $request SaveRegistrantProfileRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 保存联系人模板
      *
-     * @return SaveRegistrantProfileResponse SaveRegistrantProfileResponse
+     * @param request - SaveRegistrantProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveRegistrantProfileResponse
+     *
+     * @param SaveRegistrantProfileRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SaveRegistrantProfileResponse
      */
     public function saveRegistrantProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->defaultRegistrantProfile)) {
-            $query['DefaultRegistrantProfile'] = $request->defaultRegistrantProfile;
+
+        if (null !== $request->defaultRegistrantProfile) {
+            @$query['DefaultRegistrantProfile'] = $request->defaultRegistrantProfile;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->postalCode)) {
-            $query['PostalCode'] = $request->postalCode;
+
+        if (null !== $request->postalCode) {
+            @$query['PostalCode'] = $request->postalCode;
         }
-        if (!Utils::isUnset($request->province)) {
-            $query['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
         }
-        if (!Utils::isUnset($request->registrantName)) {
-            $query['RegistrantName'] = $request->registrantName;
+
+        if (null !== $request->registrantName) {
+            @$query['RegistrantName'] = $request->registrantName;
         }
-        if (!Utils::isUnset($request->registrantOrganization)) {
-            $query['RegistrantOrganization'] = $request->registrantOrganization;
+
+        if (null !== $request->registrantOrganization) {
+            @$query['RegistrantOrganization'] = $request->registrantOrganization;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->registrantProfileType)) {
-            $query['RegistrantProfileType'] = $request->registrantProfileType;
+
+        if (null !== $request->registrantProfileType) {
+            @$query['RegistrantProfileType'] = $request->registrantProfileType;
         }
-        if (!Utils::isUnset($request->registrantType)) {
-            $query['RegistrantType'] = $request->registrantType;
+
+        if (null !== $request->registrantType) {
+            @$query['RegistrantType'] = $request->registrantType;
         }
-        if (!Utils::isUnset($request->telArea)) {
-            $query['TelArea'] = $request->telArea;
+
+        if (null !== $request->telArea) {
+            @$query['TelArea'] = $request->telArea;
         }
-        if (!Utils::isUnset($request->telExt)) {
-            $query['TelExt'] = $request->telExt;
+
+        if (null !== $request->telExt) {
+            @$query['TelExt'] = $request->telExt;
         }
-        if (!Utils::isUnset($request->telephone)) {
-            $query['Telephone'] = $request->telephone;
+
+        if (null !== $request->telephone) {
+            @$query['Telephone'] = $request->telephone;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zhAddress)) {
-            $query['ZhAddress'] = $request->zhAddress;
+
+        if (null !== $request->zhAddress) {
+            @$query['ZhAddress'] = $request->zhAddress;
         }
-        if (!Utils::isUnset($request->zhCity)) {
-            $query['ZhCity'] = $request->zhCity;
+
+        if (null !== $request->zhCity) {
+            @$query['ZhCity'] = $request->zhCity;
         }
-        if (!Utils::isUnset($request->zhProvince)) {
-            $query['ZhProvince'] = $request->zhProvince;
+
+        if (null !== $request->zhProvince) {
+            @$query['ZhProvince'] = $request->zhProvince;
         }
-        if (!Utils::isUnset($request->zhRegistrantName)) {
-            $query['ZhRegistrantName'] = $request->zhRegistrantName;
+
+        if (null !== $request->zhRegistrantName) {
+            @$query['ZhRegistrantName'] = $request->zhRegistrantName;
         }
-        if (!Utils::isUnset($request->zhRegistrantOrganization)) {
-            $query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
+
+        if (null !== $request->zhRegistrantOrganization) {
+            @$query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveRegistrantProfile',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveRegistrantProfile',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveRegistrantProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存联系人模板
-     *  *
-     * @param SaveRegistrantProfileRequest $request SaveRegistrantProfileRequest
+     * 保存联系人模板
      *
-     * @return SaveRegistrantProfileResponse SaveRegistrantProfileResponse
+     * @param request - SaveRegistrantProfileRequest
+     *
+     * @returns SaveRegistrantProfileResponse
+     *
+     * @param SaveRegistrantProfileRequest $request
+     *
+     * @return SaveRegistrantProfileResponse
      */
     public function saveRegistrantProfile($request)
     {
@@ -5114,113 +6390,146 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存联系人模板和凭据
-     *  *
-     * @param SaveRegistrantProfileRealNameVerificationRequest $request SaveRegistrantProfileRealNameVerificationRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     * 保存联系人模板和凭据.
      *
-     * @return SaveRegistrantProfileRealNameVerificationResponse SaveRegistrantProfileRealNameVerificationResponse
+     * @param request - SaveRegistrantProfileRealNameVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveRegistrantProfileRealNameVerificationResponse
+     *
+     * @param SaveRegistrantProfileRealNameVerificationRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return SaveRegistrantProfileRealNameVerificationResponse
      */
     public function saveRegistrantProfileRealNameVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->identityCredential)) {
-            $query['IdentityCredential'] = $request->identityCredential;
+
+        if (null !== $request->identityCredential) {
+            @$query['IdentityCredential'] = $request->identityCredential;
         }
-        if (!Utils::isUnset($request->identityCredentialNo)) {
-            $query['IdentityCredentialNo'] = $request->identityCredentialNo;
+
+        if (null !== $request->identityCredentialNo) {
+            @$query['IdentityCredentialNo'] = $request->identityCredentialNo;
         }
-        if (!Utils::isUnset($request->identityCredentialType)) {
-            $query['IdentityCredentialType'] = $request->identityCredentialType;
+
+        if (null !== $request->identityCredentialType) {
+            @$query['IdentityCredentialType'] = $request->identityCredentialType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->postalCode)) {
-            $query['PostalCode'] = $request->postalCode;
+
+        if (null !== $request->postalCode) {
+            @$query['PostalCode'] = $request->postalCode;
         }
-        if (!Utils::isUnset($request->province)) {
-            $query['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
         }
-        if (!Utils::isUnset($request->registrantName)) {
-            $query['RegistrantName'] = $request->registrantName;
+
+        if (null !== $request->registrantName) {
+            @$query['RegistrantName'] = $request->registrantName;
         }
-        if (!Utils::isUnset($request->registrantOrganization)) {
-            $query['RegistrantOrganization'] = $request->registrantOrganization;
+
+        if (null !== $request->registrantOrganization) {
+            @$query['RegistrantOrganization'] = $request->registrantOrganization;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->registrantProfileType)) {
-            $query['RegistrantProfileType'] = $request->registrantProfileType;
+
+        if (null !== $request->registrantProfileType) {
+            @$query['RegistrantProfileType'] = $request->registrantProfileType;
         }
-        if (!Utils::isUnset($request->registrantType)) {
-            $query['RegistrantType'] = $request->registrantType;
+
+        if (null !== $request->registrantType) {
+            @$query['RegistrantType'] = $request->registrantType;
         }
-        if (!Utils::isUnset($request->telArea)) {
-            $query['TelArea'] = $request->telArea;
+
+        if (null !== $request->telArea) {
+            @$query['TelArea'] = $request->telArea;
         }
-        if (!Utils::isUnset($request->telExt)) {
-            $query['TelExt'] = $request->telExt;
+
+        if (null !== $request->telExt) {
+            @$query['TelExt'] = $request->telExt;
         }
-        if (!Utils::isUnset($request->telephone)) {
-            $query['Telephone'] = $request->telephone;
+
+        if (null !== $request->telephone) {
+            @$query['Telephone'] = $request->telephone;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zhAddress)) {
-            $query['ZhAddress'] = $request->zhAddress;
+
+        if (null !== $request->zhAddress) {
+            @$query['ZhAddress'] = $request->zhAddress;
         }
-        if (!Utils::isUnset($request->zhCity)) {
-            $query['ZhCity'] = $request->zhCity;
+
+        if (null !== $request->zhCity) {
+            @$query['ZhCity'] = $request->zhCity;
         }
-        if (!Utils::isUnset($request->zhProvince)) {
-            $query['ZhProvince'] = $request->zhProvince;
+
+        if (null !== $request->zhProvince) {
+            @$query['ZhProvince'] = $request->zhProvince;
         }
-        if (!Utils::isUnset($request->zhRegistrantName)) {
-            $query['ZhRegistrantName'] = $request->zhRegistrantName;
+
+        if (null !== $request->zhRegistrantName) {
+            @$query['ZhRegistrantName'] = $request->zhRegistrantName;
         }
-        if (!Utils::isUnset($request->zhRegistrantOrganization)) {
-            $query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
+
+        if (null !== $request->zhRegistrantOrganization) {
+            @$query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveRegistrantProfileRealNameVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveRegistrantProfileRealNameVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveRegistrantProfileRealNameVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存联系人模板和凭据
-     *  *
-     * @param SaveRegistrantProfileRealNameVerificationRequest $request SaveRegistrantProfileRealNameVerificationRequest
+     * 保存联系人模板和凭据.
      *
-     * @return SaveRegistrantProfileRealNameVerificationResponse SaveRegistrantProfileRealNameVerificationResponse
+     * @param request - SaveRegistrantProfileRealNameVerificationRequest
+     *
+     * @returns SaveRegistrantProfileRealNameVerificationResponse
+     *
+     * @param SaveRegistrantProfileRealNameVerificationRequest $request
+     *
+     * @return SaveRegistrantProfileRealNameVerificationResponse
      */
     public function saveRegistrantProfileRealNameVerification($request)
     {
@@ -5230,62 +6539,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 添加dnsSec记录
-     *  *
-     * @param SaveSingleTaskForAddingDSRecordRequest $request SaveSingleTaskForAddingDSRecordRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 添加dnsSec记录.
      *
-     * @return SaveSingleTaskForAddingDSRecordResponse SaveSingleTaskForAddingDSRecordResponse
+     * @param request - SaveSingleTaskForAddingDSRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForAddingDSRecordResponse
+     *
+     * @param SaveSingleTaskForAddingDSRecordRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SaveSingleTaskForAddingDSRecordResponse
      */
     public function saveSingleTaskForAddingDSRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $query['Algorithm'] = $request->algorithm;
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
         }
-        if (!Utils::isUnset($request->digest)) {
-            $query['Digest'] = $request->digest;
+
+        if (null !== $request->digest) {
+            @$query['Digest'] = $request->digest;
         }
-        if (!Utils::isUnset($request->digestType)) {
-            $query['DigestType'] = $request->digestType;
+
+        if (null !== $request->digestType) {
+            @$query['DigestType'] = $request->digestType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->keyTag)) {
-            $query['KeyTag'] = $request->keyTag;
+
+        if (null !== $request->keyTag) {
+            @$query['KeyTag'] = $request->keyTag;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForAddingDSRecord',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForAddingDSRecord',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForAddingDSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加dnsSec记录
-     *  *
-     * @param SaveSingleTaskForAddingDSRecordRequest $request SaveSingleTaskForAddingDSRecordRequest
+     * 添加dnsSec记录.
      *
-     * @return SaveSingleTaskForAddingDSRecordResponse SaveSingleTaskForAddingDSRecordResponse
+     * @param request - SaveSingleTaskForAddingDSRecordRequest
+     *
+     * @returns SaveSingleTaskForAddingDSRecordResponse
+     *
+     * @param SaveSingleTaskForAddingDSRecordRequest $request
+     *
+     * @return SaveSingleTaskForAddingDSRecordResponse
      */
     public function saveSingleTaskForAddingDSRecord($request)
     {
@@ -5295,50 +6620,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 申请域名快速转出
-     *  *
-     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
-     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     * 申请域名快速转出.
      *
-     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
+     * @param request - SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
+     *
+     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
      */
     public function saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForApplyQuickTransferOutOpenly',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForApplyQuickTransferOutOpenly',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 申请域名快速转出
-     *  *
-     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
+     * 申请域名快速转出.
      *
-     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
+     * @param request - SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
+     *
+     * @returns SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
+     *
+     * @param SaveSingleTaskForApplyQuickTransferOutOpenlyRequest $request
+     *
+     * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
      */
     public function saveSingleTaskForApplyQuickTransferOutOpenly($request)
     {
@@ -5348,50 +6685,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 确认转出
-     *  *
-     * @param SaveSingleTaskForApprovingTransferOutRequest $request SaveSingleTaskForApprovingTransferOutRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 确认转出.
      *
-     * @return SaveSingleTaskForApprovingTransferOutResponse SaveSingleTaskForApprovingTransferOutResponse
+     * @param request - SaveSingleTaskForApprovingTransferOutRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForApprovingTransferOutResponse
+     *
+     * @param SaveSingleTaskForApprovingTransferOutRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveSingleTaskForApprovingTransferOutResponse
      */
     public function saveSingleTaskForApprovingTransferOutWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForApprovingTransferOut',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForApprovingTransferOut',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForApprovingTransferOutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 确认转出
-     *  *
-     * @param SaveSingleTaskForApprovingTransferOutRequest $request SaveSingleTaskForApprovingTransferOutRequest
+     * 确认转出.
      *
-     * @return SaveSingleTaskForApprovingTransferOutResponse SaveSingleTaskForApprovingTransferOutResponse
+     * @param request - SaveSingleTaskForApprovingTransferOutRequest
+     *
+     * @returns SaveSingleTaskForApprovingTransferOutResponse
+     *
+     * @param SaveSingleTaskForApprovingTransferOutRequest $request
+     *
+     * @return SaveSingleTaskForApprovingTransferOutResponse
      */
     public function saveSingleTaskForApprovingTransferOut($request)
     {
@@ -5401,49 +6750,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForAssociatingEnsRequest $request SaveSingleTaskForAssociatingEnsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveSingleTaskForAssociatingEnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForAssociatingEnsResponse SaveSingleTaskForAssociatingEnsResponse
+     * @returns SaveSingleTaskForAssociatingEnsResponse
+     *
+     * @param SaveSingleTaskForAssociatingEnsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SaveSingleTaskForAssociatingEnsResponse
      */
     public function saveSingleTaskForAssociatingEnsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForAssociatingEns',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForAssociatingEns',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForAssociatingEnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveSingleTaskForAssociatingEnsRequest $request SaveSingleTaskForAssociatingEnsRequest
+     * @param request - SaveSingleTaskForAssociatingEnsRequest
      *
-     * @return SaveSingleTaskForAssociatingEnsResponse SaveSingleTaskForAssociatingEnsResponse
+     * @returns SaveSingleTaskForAssociatingEnsResponse
+     *
+     * @param SaveSingleTaskForAssociatingEnsRequest $request
+     *
+     * @return SaveSingleTaskForAssociatingEnsResponse
      */
     public function saveSingleTaskForAssociatingEns($request)
     {
@@ -5453,46 +6815,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCancelingTransferInRequest $request SaveSingleTaskForCancelingTransferInRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveSingleTaskForCancelingTransferInRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCancelingTransferInResponse SaveSingleTaskForCancelingTransferInResponse
+     * @returns SaveSingleTaskForCancelingTransferInResponse
+     *
+     * @param SaveSingleTaskForCancelingTransferInRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return SaveSingleTaskForCancelingTransferInResponse
      */
     public function saveSingleTaskForCancelingTransferInWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForCancelingTransferIn',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForCancelingTransferIn',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForCancelingTransferInResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveSingleTaskForCancelingTransferInRequest $request SaveSingleTaskForCancelingTransferInRequest
+     * @param request - SaveSingleTaskForCancelingTransferInRequest
      *
-     * @return SaveSingleTaskForCancelingTransferInResponse SaveSingleTaskForCancelingTransferInResponse
+     * @returns SaveSingleTaskForCancelingTransferInResponse
+     *
+     * @param SaveSingleTaskForCancelingTransferInRequest $request
+     *
+     * @return SaveSingleTaskForCancelingTransferInResponse
      */
     public function saveSingleTaskForCancelingTransferIn($request)
     {
@@ -5502,50 +6876,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 取消转出
-     *  *
-     * @param SaveSingleTaskForCancelingTransferOutRequest $request SaveSingleTaskForCancelingTransferOutRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 取消转出.
      *
-     * @return SaveSingleTaskForCancelingTransferOutResponse SaveSingleTaskForCancelingTransferOutResponse
+     * @param request - SaveSingleTaskForCancelingTransferOutRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForCancelingTransferOutResponse
+     *
+     * @param SaveSingleTaskForCancelingTransferOutRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveSingleTaskForCancelingTransferOutResponse
      */
     public function saveSingleTaskForCancelingTransferOutWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForCancelingTransferOut',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForCancelingTransferOut',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForCancelingTransferOutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消转出
-     *  *
-     * @param SaveSingleTaskForCancelingTransferOutRequest $request SaveSingleTaskForCancelingTransferOutRequest
+     * 取消转出.
      *
-     * @return SaveSingleTaskForCancelingTransferOutResponse SaveSingleTaskForCancelingTransferOutResponse
+     * @param request - SaveSingleTaskForCancelingTransferOutRequest
+     *
+     * @returns SaveSingleTaskForCancelingTransferOutResponse
+     *
+     * @param SaveSingleTaskForCancelingTransferOutRequest $request
+     *
+     * @return SaveSingleTaskForCancelingTransferOutResponse
      */
     public function saveSingleTaskForCancelingTransferOut($request)
     {
@@ -5555,56 +6941,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存创建dns服务器的任务请求
-     *  *
-     * @param SaveSingleTaskForCreatingDnsHostRequest $request SaveSingleTaskForCreatingDnsHostRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 保存创建dns服务器的任务请求
      *
-     * @return SaveSingleTaskForCreatingDnsHostResponse SaveSingleTaskForCreatingDnsHostResponse
+     * @param request - SaveSingleTaskForCreatingDnsHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForCreatingDnsHostResponse
+     *
+     * @param SaveSingleTaskForCreatingDnsHostRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SaveSingleTaskForCreatingDnsHostResponse
      */
     public function saveSingleTaskForCreatingDnsHostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dnsName)) {
-            $query['DnsName'] = $request->dnsName;
+        if (null !== $request->dnsName) {
+            @$query['DnsName'] = $request->dnsName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForCreatingDnsHost',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForCreatingDnsHost',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForCreatingDnsHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存创建dns服务器的任务请求
-     *  *
-     * @param SaveSingleTaskForCreatingDnsHostRequest $request SaveSingleTaskForCreatingDnsHostRequest
+     * 保存创建dns服务器的任务请求
      *
-     * @return SaveSingleTaskForCreatingDnsHostResponse SaveSingleTaskForCreatingDnsHostResponse
+     * @param request - SaveSingleTaskForCreatingDnsHostRequest
+     *
+     * @returns SaveSingleTaskForCreatingDnsHostResponse
+     *
+     * @param SaveSingleTaskForCreatingDnsHostRequest $request
+     *
+     * @return SaveSingleTaskForCreatingDnsHostResponse
      */
     public function saveSingleTaskForCreatingDnsHost($request)
     {
@@ -5614,140 +7014,182 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存单个任务-注册订单
-     *  *
-     * @param SaveSingleTaskForCreatingOrderActivateRequest $request SaveSingleTaskForCreatingOrderActivateRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * 保存单个任务-注册订单.
      *
-     * @return SaveSingleTaskForCreatingOrderActivateResponse SaveSingleTaskForCreatingOrderActivateResponse
+     * @param request - SaveSingleTaskForCreatingOrderActivateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForCreatingOrderActivateResponse
+     *
+     * @param SaveSingleTaskForCreatingOrderActivateRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SaveSingleTaskForCreatingOrderActivateResponse
      */
     public function saveSingleTaskForCreatingOrderActivateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->aliyunDns)) {
-            $query['AliyunDns'] = $request->aliyunDns;
+
+        if (null !== $request->aliyunDns) {
+            @$query['AliyunDns'] = $request->aliyunDns;
         }
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
+
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
-        if (!Utils::isUnset($request->dns1)) {
-            $query['Dns1'] = $request->dns1;
+
+        if (null !== $request->dns1) {
+            @$query['Dns1'] = $request->dns1;
         }
-        if (!Utils::isUnset($request->dns2)) {
-            $query['Dns2'] = $request->dns2;
+
+        if (null !== $request->dns2) {
+            @$query['Dns2'] = $request->dns2;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->enableDomainProxy)) {
-            $query['EnableDomainProxy'] = $request->enableDomainProxy;
+
+        if (null !== $request->enableDomainProxy) {
+            @$query['EnableDomainProxy'] = $request->enableDomainProxy;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->permitPremiumActivation)) {
-            $query['PermitPremiumActivation'] = $request->permitPremiumActivation;
+
+        if (null !== $request->permitPremiumActivation) {
+            @$query['PermitPremiumActivation'] = $request->permitPremiumActivation;
         }
-        if (!Utils::isUnset($request->postalCode)) {
-            $query['PostalCode'] = $request->postalCode;
+
+        if (null !== $request->postalCode) {
+            @$query['PostalCode'] = $request->postalCode;
         }
-        if (!Utils::isUnset($request->promotionNo)) {
-            $query['PromotionNo'] = $request->promotionNo;
+
+        if (null !== $request->promotionNo) {
+            @$query['PromotionNo'] = $request->promotionNo;
         }
-        if (!Utils::isUnset($request->province)) {
-            $query['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
         }
-        if (!Utils::isUnset($request->registrantName)) {
-            $query['RegistrantName'] = $request->registrantName;
+
+        if (null !== $request->registrantName) {
+            @$query['RegistrantName'] = $request->registrantName;
         }
-        if (!Utils::isUnset($request->registrantOrganization)) {
-            $query['RegistrantOrganization'] = $request->registrantOrganization;
+
+        if (null !== $request->registrantOrganization) {
+            @$query['RegistrantOrganization'] = $request->registrantOrganization;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->registrantType)) {
-            $query['RegistrantType'] = $request->registrantType;
+
+        if (null !== $request->registrantType) {
+            @$query['RegistrantType'] = $request->registrantType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->subscriptionDuration)) {
-            $query['SubscriptionDuration'] = $request->subscriptionDuration;
+
+        if (null !== $request->subscriptionDuration) {
+            @$query['SubscriptionDuration'] = $request->subscriptionDuration;
         }
-        if (!Utils::isUnset($request->telArea)) {
-            $query['TelArea'] = $request->telArea;
+
+        if (null !== $request->telArea) {
+            @$query['TelArea'] = $request->telArea;
         }
-        if (!Utils::isUnset($request->telExt)) {
-            $query['TelExt'] = $request->telExt;
+
+        if (null !== $request->telExt) {
+            @$query['TelExt'] = $request->telExt;
         }
-        if (!Utils::isUnset($request->telephone)) {
-            $query['Telephone'] = $request->telephone;
+
+        if (null !== $request->telephone) {
+            @$query['Telephone'] = $request->telephone;
         }
-        if (!Utils::isUnset($request->trademarkDomainActivation)) {
-            $query['TrademarkDomainActivation'] = $request->trademarkDomainActivation;
+
+        if (null !== $request->trademarkDomainActivation) {
+            @$query['TrademarkDomainActivation'] = $request->trademarkDomainActivation;
         }
-        if (!Utils::isUnset($request->useCoupon)) {
-            $query['UseCoupon'] = $request->useCoupon;
+
+        if (null !== $request->useCoupon) {
+            @$query['UseCoupon'] = $request->useCoupon;
         }
-        if (!Utils::isUnset($request->usePromotion)) {
-            $query['UsePromotion'] = $request->usePromotion;
+
+        if (null !== $request->usePromotion) {
+            @$query['UsePromotion'] = $request->usePromotion;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zhAddress)) {
-            $query['ZhAddress'] = $request->zhAddress;
+
+        if (null !== $request->zhAddress) {
+            @$query['ZhAddress'] = $request->zhAddress;
         }
-        if (!Utils::isUnset($request->zhCity)) {
-            $query['ZhCity'] = $request->zhCity;
+
+        if (null !== $request->zhCity) {
+            @$query['ZhCity'] = $request->zhCity;
         }
-        if (!Utils::isUnset($request->zhProvince)) {
-            $query['ZhProvince'] = $request->zhProvince;
+
+        if (null !== $request->zhProvince) {
+            @$query['ZhProvince'] = $request->zhProvince;
         }
-        if (!Utils::isUnset($request->zhRegistrantName)) {
-            $query['ZhRegistrantName'] = $request->zhRegistrantName;
+
+        if (null !== $request->zhRegistrantName) {
+            @$query['ZhRegistrantName'] = $request->zhRegistrantName;
         }
-        if (!Utils::isUnset($request->zhRegistrantOrganization)) {
-            $query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
+
+        if (null !== $request->zhRegistrantOrganization) {
+            @$query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForCreatingOrderActivate',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForCreatingOrderActivate',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForCreatingOrderActivateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存单个任务-注册订单
-     *  *
-     * @param SaveSingleTaskForCreatingOrderActivateRequest $request SaveSingleTaskForCreatingOrderActivateRequest
+     * 保存单个任务-注册订单.
      *
-     * @return SaveSingleTaskForCreatingOrderActivateResponse SaveSingleTaskForCreatingOrderActivateResponse
+     * @param request - SaveSingleTaskForCreatingOrderActivateRequest
+     *
+     * @returns SaveSingleTaskForCreatingOrderActivateResponse
+     *
+     * @param SaveSingleTaskForCreatingOrderActivateRequest $request
+     *
+     * @return SaveSingleTaskForCreatingOrderActivateResponse
      */
     public function saveSingleTaskForCreatingOrderActivate($request)
     {
@@ -5757,61 +7199,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderRedeemRequest $request SaveSingleTaskForCreatingOrderRedeemRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveSingleTaskForCreatingOrderRedeemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCreatingOrderRedeemResponse SaveSingleTaskForCreatingOrderRedeemResponse
+     * @returns SaveSingleTaskForCreatingOrderRedeemResponse
+     *
+     * @param SaveSingleTaskForCreatingOrderRedeemRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return SaveSingleTaskForCreatingOrderRedeemResponse
      */
     public function saveSingleTaskForCreatingOrderRedeemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
-        if (!Utils::isUnset($request->currentExpirationDate)) {
-            $query['CurrentExpirationDate'] = $request->currentExpirationDate;
+
+        if (null !== $request->currentExpirationDate) {
+            @$query['CurrentExpirationDate'] = $request->currentExpirationDate;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->promotionNo)) {
-            $query['PromotionNo'] = $request->promotionNo;
+
+        if (null !== $request->promotionNo) {
+            @$query['PromotionNo'] = $request->promotionNo;
         }
-        if (!Utils::isUnset($request->useCoupon)) {
-            $query['UseCoupon'] = $request->useCoupon;
+
+        if (null !== $request->useCoupon) {
+            @$query['UseCoupon'] = $request->useCoupon;
         }
-        if (!Utils::isUnset($request->usePromotion)) {
-            $query['UsePromotion'] = $request->usePromotion;
+
+        if (null !== $request->usePromotion) {
+            @$query['UsePromotion'] = $request->usePromotion;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForCreatingOrderRedeem',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForCreatingOrderRedeem',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForCreatingOrderRedeemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderRedeemRequest $request SaveSingleTaskForCreatingOrderRedeemRequest
+     * @param request - SaveSingleTaskForCreatingOrderRedeemRequest
      *
-     * @return SaveSingleTaskForCreatingOrderRedeemResponse SaveSingleTaskForCreatingOrderRedeemResponse
+     * @returns SaveSingleTaskForCreatingOrderRedeemResponse
+     *
+     * @param SaveSingleTaskForCreatingOrderRedeemRequest $request
+     *
+     * @return SaveSingleTaskForCreatingOrderRedeemResponse
      */
     public function saveSingleTaskForCreatingOrderRedeem($request)
     {
@@ -5821,68 +7280,86 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存单个任务-续费订单
-     *  *
-     * @param SaveSingleTaskForCreatingOrderRenewRequest $request SaveSingleTaskForCreatingOrderRenewRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * 保存单个任务-续费订单.
      *
-     * @return SaveSingleTaskForCreatingOrderRenewResponse SaveSingleTaskForCreatingOrderRenewResponse
+     * @param request - SaveSingleTaskForCreatingOrderRenewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForCreatingOrderRenewResponse
+     *
+     * @param SaveSingleTaskForCreatingOrderRenewRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return SaveSingleTaskForCreatingOrderRenewResponse
      */
     public function saveSingleTaskForCreatingOrderRenewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
-        if (!Utils::isUnset($request->currentExpirationDate)) {
-            $query['CurrentExpirationDate'] = $request->currentExpirationDate;
+
+        if (null !== $request->currentExpirationDate) {
+            @$query['CurrentExpirationDate'] = $request->currentExpirationDate;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->promotionNo)) {
-            $query['PromotionNo'] = $request->promotionNo;
+
+        if (null !== $request->promotionNo) {
+            @$query['PromotionNo'] = $request->promotionNo;
         }
-        if (!Utils::isUnset($request->subscriptionDuration)) {
-            $query['SubscriptionDuration'] = $request->subscriptionDuration;
+
+        if (null !== $request->subscriptionDuration) {
+            @$query['SubscriptionDuration'] = $request->subscriptionDuration;
         }
-        if (!Utils::isUnset($request->useCoupon)) {
-            $query['UseCoupon'] = $request->useCoupon;
+
+        if (null !== $request->useCoupon) {
+            @$query['UseCoupon'] = $request->useCoupon;
         }
-        if (!Utils::isUnset($request->usePromotion)) {
-            $query['UsePromotion'] = $request->usePromotion;
+
+        if (null !== $request->usePromotion) {
+            @$query['UsePromotion'] = $request->usePromotion;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForCreatingOrderRenew',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForCreatingOrderRenew',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForCreatingOrderRenewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存单个任务-续费订单
-     *  *
-     * @param SaveSingleTaskForCreatingOrderRenewRequest $request SaveSingleTaskForCreatingOrderRenewRequest
+     * 保存单个任务-续费订单.
      *
-     * @return SaveSingleTaskForCreatingOrderRenewResponse SaveSingleTaskForCreatingOrderRenewResponse
+     * @param request - SaveSingleTaskForCreatingOrderRenewRequest
+     *
+     * @returns SaveSingleTaskForCreatingOrderRenewResponse
+     *
+     * @param SaveSingleTaskForCreatingOrderRenewRequest $request
+     *
+     * @return SaveSingleTaskForCreatingOrderRenewResponse
      */
     public function saveSingleTaskForCreatingOrderRenew($request)
     {
@@ -5892,67 +7369,86 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderTransferRequest $request SaveSingleTaskForCreatingOrderTransferRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveSingleTaskForCreatingOrderTransferRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForCreatingOrderTransferResponse SaveSingleTaskForCreatingOrderTransferResponse
+     * @returns SaveSingleTaskForCreatingOrderTransferResponse
+     *
+     * @param SaveSingleTaskForCreatingOrderTransferRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SaveSingleTaskForCreatingOrderTransferResponse
      */
     public function saveSingleTaskForCreatingOrderTransferWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authorizationCode)) {
-            $query['AuthorizationCode'] = $request->authorizationCode;
+        if (null !== $request->authorizationCode) {
+            @$query['AuthorizationCode'] = $request->authorizationCode;
         }
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
+
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->permitPremiumTransfer)) {
-            $query['PermitPremiumTransfer'] = $request->permitPremiumTransfer;
+
+        if (null !== $request->permitPremiumTransfer) {
+            @$query['PermitPremiumTransfer'] = $request->permitPremiumTransfer;
         }
-        if (!Utils::isUnset($request->promotionNo)) {
-            $query['PromotionNo'] = $request->promotionNo;
+
+        if (null !== $request->promotionNo) {
+            @$query['PromotionNo'] = $request->promotionNo;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->useCoupon)) {
-            $query['UseCoupon'] = $request->useCoupon;
+
+        if (null !== $request->useCoupon) {
+            @$query['UseCoupon'] = $request->useCoupon;
         }
-        if (!Utils::isUnset($request->usePromotion)) {
-            $query['UsePromotion'] = $request->usePromotion;
+
+        if (null !== $request->usePromotion) {
+            @$query['UsePromotion'] = $request->usePromotion;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForCreatingOrderTransfer',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForCreatingOrderTransfer',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForCreatingOrderTransferResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveSingleTaskForCreatingOrderTransferRequest $request SaveSingleTaskForCreatingOrderTransferRequest
+     * @param request - SaveSingleTaskForCreatingOrderTransferRequest
      *
-     * @return SaveSingleTaskForCreatingOrderTransferResponse SaveSingleTaskForCreatingOrderTransferResponse
+     * @returns SaveSingleTaskForCreatingOrderTransferResponse
+     *
+     * @param SaveSingleTaskForCreatingOrderTransferRequest $request
+     *
+     * @return SaveSingleTaskForCreatingOrderTransferResponse
      */
     public function saveSingleTaskForCreatingOrderTransfer($request)
     {
@@ -5962,53 +7458,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 删除dnsSec记录
-     *  *
-     * @param SaveSingleTaskForDeletingDSRecordRequest $request SaveSingleTaskForDeletingDSRecordRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 删除dnsSec记录.
      *
-     * @return SaveSingleTaskForDeletingDSRecordResponse SaveSingleTaskForDeletingDSRecordResponse
+     * @param request - SaveSingleTaskForDeletingDSRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForDeletingDSRecordResponse
+     *
+     * @param SaveSingleTaskForDeletingDSRecordRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SaveSingleTaskForDeletingDSRecordResponse
      */
     public function saveSingleTaskForDeletingDSRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->keyTag)) {
-            $query['KeyTag'] = $request->keyTag;
+
+        if (null !== $request->keyTag) {
+            @$query['KeyTag'] = $request->keyTag;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForDeletingDSRecord',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForDeletingDSRecord',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForDeletingDSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除dnsSec记录
-     *  *
-     * @param SaveSingleTaskForDeletingDSRecordRequest $request SaveSingleTaskForDeletingDSRecordRequest
+     * 删除dnsSec记录.
      *
-     * @return SaveSingleTaskForDeletingDSRecordResponse SaveSingleTaskForDeletingDSRecordResponse
+     * @param request - SaveSingleTaskForDeletingDSRecordRequest
+     *
+     * @returns SaveSingleTaskForDeletingDSRecordResponse
+     *
+     * @param SaveSingleTaskForDeletingDSRecordRequest $request
+     *
+     * @return SaveSingleTaskForDeletingDSRecordResponse
      */
     public function saveSingleTaskForDeletingDSRecord($request)
     {
@@ -6018,53 +7527,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 删除DNS HOST任务
-     *  *
-     * @param SaveSingleTaskForDeletingDnsHostRequest $request SaveSingleTaskForDeletingDnsHostRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 删除DNS HOST任务
      *
-     * @return SaveSingleTaskForDeletingDnsHostResponse SaveSingleTaskForDeletingDnsHostResponse
+     * @param request - SaveSingleTaskForDeletingDnsHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForDeletingDnsHostResponse
+     *
+     * @param SaveSingleTaskForDeletingDnsHostRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SaveSingleTaskForDeletingDnsHostResponse
      */
     public function saveSingleTaskForDeletingDnsHostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dnsName)) {
-            $query['DnsName'] = $request->dnsName;
+        if (null !== $request->dnsName) {
+            @$query['DnsName'] = $request->dnsName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForDeletingDnsHost',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForDeletingDnsHost',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForDeletingDnsHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除DNS HOST任务
-     *  *
-     * @param SaveSingleTaskForDeletingDnsHostRequest $request SaveSingleTaskForDeletingDnsHostRequest
+     * 删除DNS HOST任务
      *
-     * @return SaveSingleTaskForDeletingDnsHostResponse SaveSingleTaskForDeletingDnsHostResponse
+     * @param request - SaveSingleTaskForDeletingDnsHostRequest
+     *
+     * @returns SaveSingleTaskForDeletingDnsHostResponse
+     *
+     * @param SaveSingleTaskForDeletingDnsHostRequest $request
+     *
+     * @return SaveSingleTaskForDeletingDnsHostResponse
      */
     public function saveSingleTaskForDeletingDnsHost($request)
     {
@@ -6074,46 +7596,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param SaveSingleTaskForDisassociatingEnsRequest $request SaveSingleTaskForDisassociatingEnsRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveSingleTaskForDisassociatingEnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveSingleTaskForDisassociatingEnsResponse SaveSingleTaskForDisassociatingEnsResponse
+     * @returns SaveSingleTaskForDisassociatingEnsResponse
+     *
+     * @param SaveSingleTaskForDisassociatingEnsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SaveSingleTaskForDisassociatingEnsResponse
      */
     public function saveSingleTaskForDisassociatingEnsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForDisassociatingEns',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForDisassociatingEns',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForDisassociatingEnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveSingleTaskForDisassociatingEnsRequest $request SaveSingleTaskForDisassociatingEnsRequest
+     * @param request - SaveSingleTaskForDisassociatingEnsRequest
      *
-     * @return SaveSingleTaskForDisassociatingEnsResponse SaveSingleTaskForDisassociatingEnsResponse
+     * @returns SaveSingleTaskForDisassociatingEnsResponse
+     *
+     * @param SaveSingleTaskForDisassociatingEnsRequest $request
+     *
+     * @return SaveSingleTaskForDisassociatingEnsResponse
      */
     public function saveSingleTaskForDisassociatingEns($request)
     {
@@ -6123,53 +7657,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存单个任务-开启/关闭whois隐私保护锁
-     *  *
-     * @param SaveSingleTaskForDomainNameProxyServiceRequest $request SaveSingleTaskForDomainNameProxyServiceRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * 保存单个任务-开启/关闭whois隐私保护锁
      *
-     * @return SaveSingleTaskForDomainNameProxyServiceResponse SaveSingleTaskForDomainNameProxyServiceResponse
+     * @param request - SaveSingleTaskForDomainNameProxyServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForDomainNameProxyServiceResponse
+     *
+     * @param SaveSingleTaskForDomainNameProxyServiceRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return SaveSingleTaskForDomainNameProxyServiceResponse
      */
     public function saveSingleTaskForDomainNameProxyServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForDomainNameProxyService',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForDomainNameProxyService',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForDomainNameProxyServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存单个任务-开启/关闭whois隐私保护锁
-     *  *
-     * @param SaveSingleTaskForDomainNameProxyServiceRequest $request SaveSingleTaskForDomainNameProxyServiceRequest
+     * 保存单个任务-开启/关闭whois隐私保护锁
      *
-     * @return SaveSingleTaskForDomainNameProxyServiceResponse SaveSingleTaskForDomainNameProxyServiceResponse
+     * @param request - SaveSingleTaskForDomainNameProxyServiceRequest
+     *
+     * @returns SaveSingleTaskForDomainNameProxyServiceResponse
+     *
+     * @param SaveSingleTaskForDomainNameProxyServiceRequest $request
+     *
+     * @return SaveSingleTaskForDomainNameProxyServiceResponse
      */
     public function saveSingleTaskForDomainNameProxyService($request)
     {
@@ -6179,50 +7726,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 提交生成域名证书任务
-     *  *
-     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request SaveSingleTaskForGenerateDomainCertificateRequest
-     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
+     * 提交生成域名证书任务
      *
-     * @return SaveSingleTaskForGenerateDomainCertificateResponse SaveSingleTaskForGenerateDomainCertificateResponse
+     * @param request - SaveSingleTaskForGenerateDomainCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForGenerateDomainCertificateResponse
+     *
+     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return SaveSingleTaskForGenerateDomainCertificateResponse
      */
     public function saveSingleTaskForGenerateDomainCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForGenerateDomainCertificate',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForGenerateDomainCertificate',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForGenerateDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交生成域名证书任务
-     *  *
-     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request SaveSingleTaskForGenerateDomainCertificateRequest
+     * 提交生成域名证书任务
      *
-     * @return SaveSingleTaskForGenerateDomainCertificateResponse SaveSingleTaskForGenerateDomainCertificateResponse
+     * @param request - SaveSingleTaskForGenerateDomainCertificateRequest
+     *
+     * @returns SaveSingleTaskForGenerateDomainCertificateResponse
+     *
+     * @param SaveSingleTaskForGenerateDomainCertificateRequest $request
+     *
+     * @return SaveSingleTaskForGenerateDomainCertificateResponse
      */
     public function saveSingleTaskForGenerateDomainCertificate($request)
     {
@@ -6232,62 +7791,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 修改DnsSec记录
-     *  *
-     * @param SaveSingleTaskForModifyingDSRecordRequest $request SaveSingleTaskForModifyingDSRecordRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 修改DnsSec记录.
      *
-     * @return SaveSingleTaskForModifyingDSRecordResponse SaveSingleTaskForModifyingDSRecordResponse
+     * @param request - SaveSingleTaskForModifyingDSRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForModifyingDSRecordResponse
+     *
+     * @param SaveSingleTaskForModifyingDSRecordRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SaveSingleTaskForModifyingDSRecordResponse
      */
     public function saveSingleTaskForModifyingDSRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $query['Algorithm'] = $request->algorithm;
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
         }
-        if (!Utils::isUnset($request->digest)) {
-            $query['Digest'] = $request->digest;
+
+        if (null !== $request->digest) {
+            @$query['Digest'] = $request->digest;
         }
-        if (!Utils::isUnset($request->digestType)) {
-            $query['DigestType'] = $request->digestType;
+
+        if (null !== $request->digestType) {
+            @$query['DigestType'] = $request->digestType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->keyTag)) {
-            $query['KeyTag'] = $request->keyTag;
+
+        if (null !== $request->keyTag) {
+            @$query['KeyTag'] = $request->keyTag;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForModifyingDSRecord',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForModifyingDSRecord',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForModifyingDSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改DnsSec记录
-     *  *
-     * @param SaveSingleTaskForModifyingDSRecordRequest $request SaveSingleTaskForModifyingDSRecordRequest
+     * 修改DnsSec记录.
      *
-     * @return SaveSingleTaskForModifyingDSRecordResponse SaveSingleTaskForModifyingDSRecordResponse
+     * @param request - SaveSingleTaskForModifyingDSRecordRequest
+     *
+     * @returns SaveSingleTaskForModifyingDSRecordResponse
+     *
+     * @param SaveSingleTaskForModifyingDSRecordRequest $request
+     *
+     * @return SaveSingleTaskForModifyingDSRecordResponse
      */
     public function saveSingleTaskForModifyingDSRecord($request)
     {
@@ -6297,56 +7872,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存修改dns服务器的任务请求
-     *  *
-     * @param SaveSingleTaskForModifyingDnsHostRequest $request SaveSingleTaskForModifyingDnsHostRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 保存修改dns服务器的任务请求
      *
-     * @return SaveSingleTaskForModifyingDnsHostResponse SaveSingleTaskForModifyingDnsHostResponse
+     * @param request - SaveSingleTaskForModifyingDnsHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForModifyingDnsHostResponse
+     *
+     * @param SaveSingleTaskForModifyingDnsHostRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SaveSingleTaskForModifyingDnsHostResponse
      */
     public function saveSingleTaskForModifyingDnsHostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dnsName)) {
-            $query['DnsName'] = $request->dnsName;
+        if (null !== $request->dnsName) {
+            @$query['DnsName'] = $request->dnsName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForModifyingDnsHost',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForModifyingDnsHost',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForModifyingDnsHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存修改dns服务器的任务请求
-     *  *
-     * @param SaveSingleTaskForModifyingDnsHostRequest $request SaveSingleTaskForModifyingDnsHostRequest
+     * 保存修改dns服务器的任务请求
      *
-     * @return SaveSingleTaskForModifyingDnsHostResponse SaveSingleTaskForModifyingDnsHostResponse
+     * @param request - SaveSingleTaskForModifyingDnsHostRequest
+     *
+     * @returns SaveSingleTaskForModifyingDnsHostResponse
+     *
+     * @param SaveSingleTaskForModifyingDnsHostRequest $request
+     *
+     * @return SaveSingleTaskForModifyingDnsHostResponse
      */
     public function saveSingleTaskForModifyingDnsHost($request)
     {
@@ -6356,50 +7945,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 发送转移码
-     *  *
-     * @param SaveSingleTaskForQueryingTransferAuthorizationCodeRequest $request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
-     * @param RuntimeOptions                                            $runtime runtime options for this request RuntimeOptions
+     * 发送转移码
      *
-     * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
+     * @param request - SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
+     *
+     * @param SaveSingleTaskForQueryingTransferAuthorizationCodeRequest $request
+     * @param RuntimeOptions                                            $runtime
+     *
+     * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
      */
     public function saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForQueryingTransferAuthorizationCode',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForQueryingTransferAuthorizationCode',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 发送转移码
-     *  *
-     * @param SaveSingleTaskForQueryingTransferAuthorizationCodeRequest $request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
+     * 发送转移码
      *
-     * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
+     * @param request - SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
+     *
+     * @returns SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
+     *
+     * @param SaveSingleTaskForQueryingTransferAuthorizationCodeRequest $request
+     *
+     * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
      */
     public function saveSingleTaskForQueryingTransferAuthorizationCode($request)
     {
@@ -6409,53 +8010,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 单笔抢注批量接口
-     *  *
-     * @param SaveSingleTaskForReserveDropListDomainRequest $request SaveSingleTaskForReserveDropListDomainRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * 单笔抢注批量接口.
      *
-     * @return SaveSingleTaskForReserveDropListDomainResponse SaveSingleTaskForReserveDropListDomainResponse
+     * @param request - SaveSingleTaskForReserveDropListDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForReserveDropListDomainResponse
+     *
+     * @param SaveSingleTaskForReserveDropListDomainRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SaveSingleTaskForReserveDropListDomainResponse
      */
     public function saveSingleTaskForReserveDropListDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactTemplateId)) {
-            $query['ContactTemplateId'] = $request->contactTemplateId;
+        if (null !== $request->contactTemplateId) {
+            @$query['ContactTemplateId'] = $request->contactTemplateId;
         }
-        if (!Utils::isUnset($request->dns1)) {
-            $query['Dns1'] = $request->dns1;
+
+        if (null !== $request->dns1) {
+            @$query['Dns1'] = $request->dns1;
         }
-        if (!Utils::isUnset($request->dns2)) {
-            $query['Dns2'] = $request->dns2;
+
+        if (null !== $request->dns2) {
+            @$query['Dns2'] = $request->dns2;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForReserveDropListDomain',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForReserveDropListDomain',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForReserveDropListDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 单笔抢注批量接口
-     *  *
-     * @param SaveSingleTaskForReserveDropListDomainRequest $request SaveSingleTaskForReserveDropListDomainRequest
+     * 单笔抢注批量接口.
      *
-     * @return SaveSingleTaskForReserveDropListDomainResponse SaveSingleTaskForReserveDropListDomainResponse
+     * @param request - SaveSingleTaskForReserveDropListDomainRequest
+     *
+     * @returns SaveSingleTaskForReserveDropListDomainResponse
+     *
+     * @param SaveSingleTaskForReserveDropListDomainRequest $request
+     *
+     * @return SaveSingleTaskForReserveDropListDomainResponse
      */
     public function saveSingleTaskForReserveDropListDomain($request)
     {
@@ -6465,77 +8079,98 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存art扩展信息任务
-     *  *
-     * @param SaveSingleTaskForSaveArtExtensionRequest $request SaveSingleTaskForSaveArtExtensionRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 保存art扩展信息任务
      *
-     * @return SaveSingleTaskForSaveArtExtensionResponse SaveSingleTaskForSaveArtExtensionResponse
+     * @param request - SaveSingleTaskForSaveArtExtensionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForSaveArtExtensionResponse
+     *
+     * @param SaveSingleTaskForSaveArtExtensionRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SaveSingleTaskForSaveArtExtensionResponse
      */
     public function saveSingleTaskForSaveArtExtensionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dateOrPeriod)) {
-            $query['DateOrPeriod'] = $request->dateOrPeriod;
+        if (null !== $request->dateOrPeriod) {
+            @$query['DateOrPeriod'] = $request->dateOrPeriod;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->features)) {
-            $query['Features'] = $request->features;
+
+        if (null !== $request->features) {
+            @$query['Features'] = $request->features;
         }
-        if (!Utils::isUnset($request->inscriptionsAndMarkings)) {
-            $query['InscriptionsAndMarkings'] = $request->inscriptionsAndMarkings;
+
+        if (null !== $request->inscriptionsAndMarkings) {
+            @$query['InscriptionsAndMarkings'] = $request->inscriptionsAndMarkings;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->maker)) {
-            $query['Maker'] = $request->maker;
+
+        if (null !== $request->maker) {
+            @$query['Maker'] = $request->maker;
         }
-        if (!Utils::isUnset($request->materialsAndTechniques)) {
-            $query['MaterialsAndTechniques'] = $request->materialsAndTechniques;
+
+        if (null !== $request->materialsAndTechniques) {
+            @$query['MaterialsAndTechniques'] = $request->materialsAndTechniques;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->reference)) {
-            $query['Reference'] = $request->reference;
+
+        if (null !== $request->reference) {
+            @$query['Reference'] = $request->reference;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $query['Subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForSaveArtExtension',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForSaveArtExtension',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForSaveArtExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存art扩展信息任务
-     *  *
-     * @param SaveSingleTaskForSaveArtExtensionRequest $request SaveSingleTaskForSaveArtExtensionRequest
+     * 保存art扩展信息任务
      *
-     * @return SaveSingleTaskForSaveArtExtensionResponse SaveSingleTaskForSaveArtExtensionResponse
+     * @param request - SaveSingleTaskForSaveArtExtensionRequest
+     *
+     * @returns SaveSingleTaskForSaveArtExtensionResponse
+     *
+     * @param SaveSingleTaskForSaveArtExtensionRequest $request
+     *
+     * @return SaveSingleTaskForSaveArtExtensionResponse
      */
     public function saveSingleTaskForSaveArtExtension($request)
     {
@@ -6545,50 +8180,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 同步DnsSec记录
-     *  *
-     * @param SaveSingleTaskForSynchronizingDSRecordRequest $request SaveSingleTaskForSynchronizingDSRecordRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * 同步DnsSec记录.
      *
-     * @return SaveSingleTaskForSynchronizingDSRecordResponse SaveSingleTaskForSynchronizingDSRecordResponse
+     * @param request - SaveSingleTaskForSynchronizingDSRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForSynchronizingDSRecordResponse
+     *
+     * @param SaveSingleTaskForSynchronizingDSRecordRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SaveSingleTaskForSynchronizingDSRecordResponse
      */
     public function saveSingleTaskForSynchronizingDSRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForSynchronizingDSRecord',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForSynchronizingDSRecord',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForSynchronizingDSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 同步DnsSec记录
-     *  *
-     * @param SaveSingleTaskForSynchronizingDSRecordRequest $request SaveSingleTaskForSynchronizingDSRecordRequest
+     * 同步DnsSec记录.
      *
-     * @return SaveSingleTaskForSynchronizingDSRecordResponse SaveSingleTaskForSynchronizingDSRecordResponse
+     * @param request - SaveSingleTaskForSynchronizingDSRecordRequest
+     *
+     * @returns SaveSingleTaskForSynchronizingDSRecordResponse
+     *
+     * @param SaveSingleTaskForSynchronizingDSRecordRequest $request
+     *
+     * @return SaveSingleTaskForSynchronizingDSRecordResponse
      */
     public function saveSingleTaskForSynchronizingDSRecord($request)
     {
@@ -6598,50 +8245,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存同步dns服务器的任务请求
-     *  *
-     * @param SaveSingleTaskForSynchronizingDnsHostRequest $request SaveSingleTaskForSynchronizingDnsHostRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 保存同步dns服务器的任务请求
      *
-     * @return SaveSingleTaskForSynchronizingDnsHostResponse SaveSingleTaskForSynchronizingDnsHostResponse
+     * @param request - SaveSingleTaskForSynchronizingDnsHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForSynchronizingDnsHostResponse
+     *
+     * @param SaveSingleTaskForSynchronizingDnsHostRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveSingleTaskForSynchronizingDnsHostResponse
      */
     public function saveSingleTaskForSynchronizingDnsHostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForSynchronizingDnsHost',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForSynchronizingDnsHost',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForSynchronizingDnsHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存同步dns服务器的任务请求
-     *  *
-     * @param SaveSingleTaskForSynchronizingDnsHostRequest $request SaveSingleTaskForSynchronizingDnsHostRequest
+     * 保存同步dns服务器的任务请求
      *
-     * @return SaveSingleTaskForSynchronizingDnsHostResponse SaveSingleTaskForSynchronizingDnsHostResponse
+     * @param request - SaveSingleTaskForSynchronizingDnsHostRequest
+     *
+     * @returns SaveSingleTaskForSynchronizingDnsHostResponse
+     *
+     * @param SaveSingleTaskForSynchronizingDnsHostRequest $request
+     *
+     * @return SaveSingleTaskForSynchronizingDnsHostResponse
      */
     public function saveSingleTaskForSynchronizingDnsHost($request)
     {
@@ -6651,53 +8310,64 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 基于转移码的单个转出任务提交
-     *  *
-     * @param SaveSingleTaskForTransferOutByAuthorizationCodeRequest $request SaveSingleTaskForTransferOutByAuthorizationCodeRequest
-     * @param RuntimeOptions                                         $runtime runtime options for this request RuntimeOptions
+     * Submit a single transfer-out task based on the transfer key of domain names.
      *
-     * @return SaveSingleTaskForTransferOutByAuthorizationCodeResponse SaveSingleTaskForTransferOutByAuthorizationCodeResponse
+     * @remarks
+     * The task ID.
+     *
+     * @param request - SaveSingleTaskForTransferOutByAuthorizationCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForTransferOutByAuthorizationCodeResponse
+     *
+     * @param SaveSingleTaskForTransferOutByAuthorizationCodeRequest $request
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return SaveSingleTaskForTransferOutByAuthorizationCodeResponse
      */
     public function saveSingleTaskForTransferOutByAuthorizationCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authorizationCode)) {
-            $query['AuthorizationCode'] = $request->authorizationCode;
+        if (null !== $request->authorizationCode) {
+            @$query['AuthorizationCode'] = $request->authorizationCode;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
-        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForTransferOutByAuthorizationCode',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForTransferOutByAuthorizationCode',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForTransferOutByAuthorizationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 基于转移码的单个转出任务提交
-     *  *
-     * @param SaveSingleTaskForTransferOutByAuthorizationCodeRequest $request SaveSingleTaskForTransferOutByAuthorizationCodeRequest
+     * Submit a single transfer-out task based on the transfer key of domain names.
      *
-     * @return SaveSingleTaskForTransferOutByAuthorizationCodeResponse SaveSingleTaskForTransferOutByAuthorizationCodeResponse
+     * @remarks
+     * The task ID.
+     *
+     * @param request - SaveSingleTaskForTransferOutByAuthorizationCodeRequest
+     *
+     * @returns SaveSingleTaskForTransferOutByAuthorizationCodeResponse
+     *
+     * @param SaveSingleTaskForTransferOutByAuthorizationCodeRequest $request
+     *
+     * @return SaveSingleTaskForTransferOutByAuthorizationCodeResponse
      */
     public function saveSingleTaskForTransferOutByAuthorizationCode($request)
     {
@@ -6707,53 +8377,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存单个任务-开启/关闭禁止转移锁
-     *  *
-     * @param SaveSingleTaskForTransferProhibitionLockRequest $request SaveSingleTaskForTransferProhibitionLockRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * 保存单个任务-开启/关闭禁止转移锁
      *
-     * @return SaveSingleTaskForTransferProhibitionLockResponse SaveSingleTaskForTransferProhibitionLockResponse
+     * @param request - SaveSingleTaskForTransferProhibitionLockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForTransferProhibitionLockResponse
+     *
+     * @param SaveSingleTaskForTransferProhibitionLockRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return SaveSingleTaskForTransferProhibitionLockResponse
      */
     public function saveSingleTaskForTransferProhibitionLockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForTransferProhibitionLock',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForTransferProhibitionLock',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForTransferProhibitionLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存单个任务-开启/关闭禁止转移锁
-     *  *
-     * @param SaveSingleTaskForTransferProhibitionLockRequest $request SaveSingleTaskForTransferProhibitionLockRequest
+     * 保存单个任务-开启/关闭禁止转移锁
      *
-     * @return SaveSingleTaskForTransferProhibitionLockResponse SaveSingleTaskForTransferProhibitionLockResponse
+     * @param request - SaveSingleTaskForTransferProhibitionLockRequest
+     *
+     * @returns SaveSingleTaskForTransferProhibitionLockResponse
+     *
+     * @param SaveSingleTaskForTransferProhibitionLockRequest $request
+     *
+     * @return SaveSingleTaskForTransferProhibitionLockResponse
      */
     public function saveSingleTaskForTransferProhibitionLock($request)
     {
@@ -6763,53 +8446,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存单个任务-开启/关闭信息安全锁
-     *  *
-     * @param SaveSingleTaskForUpdateProhibitionLockRequest $request SaveSingleTaskForUpdateProhibitionLockRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * 保存单个任务-开启/关闭信息安全锁
      *
-     * @return SaveSingleTaskForUpdateProhibitionLockResponse SaveSingleTaskForUpdateProhibitionLockResponse
+     * @param request - SaveSingleTaskForUpdateProhibitionLockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForUpdateProhibitionLockResponse
+     *
+     * @param SaveSingleTaskForUpdateProhibitionLockRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SaveSingleTaskForUpdateProhibitionLockResponse
      */
     public function saveSingleTaskForUpdateProhibitionLockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForUpdateProhibitionLock',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForUpdateProhibitionLock',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForUpdateProhibitionLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存单个任务-开启/关闭信息安全锁
-     *  *
-     * @param SaveSingleTaskForUpdateProhibitionLockRequest $request SaveSingleTaskForUpdateProhibitionLockRequest
+     * 保存单个任务-开启/关闭信息安全锁
      *
-     * @return SaveSingleTaskForUpdateProhibitionLockResponse SaveSingleTaskForUpdateProhibitionLockResponse
+     * @param request - SaveSingleTaskForUpdateProhibitionLockRequest
+     *
+     * @returns SaveSingleTaskForUpdateProhibitionLockResponse
+     *
+     * @param SaveSingleTaskForUpdateProhibitionLockRequest $request
+     *
+     * @return SaveSingleTaskForUpdateProhibitionLockResponse
      */
     public function saveSingleTaskForUpdateProhibitionLock($request)
     {
@@ -6819,62 +8515,78 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存修改联系人的任务
-     *  *
-     * @param SaveSingleTaskForUpdatingContactInfoRequest $request SaveSingleTaskForUpdatingContactInfoRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * 保存修改联系人的任务
      *
-     * @return SaveSingleTaskForUpdatingContactInfoResponse SaveSingleTaskForUpdatingContactInfoResponse
+     * @param request - SaveSingleTaskForUpdatingContactInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveSingleTaskForUpdatingContactInfoResponse
+     *
+     * @param SaveSingleTaskForUpdatingContactInfoRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return SaveSingleTaskForUpdatingContactInfoResponse
      */
     public function saveSingleTaskForUpdatingContactInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addTransferLock)) {
-            $query['AddTransferLock'] = $request->addTransferLock;
+        if (null !== $request->addTransferLock) {
+            @$query['AddTransferLock'] = $request->addTransferLock;
         }
-        if (!Utils::isUnset($request->contactType)) {
-            $query['ContactType'] = $request->contactType;
+
+        if (null !== $request->contactType) {
+            @$query['ContactType'] = $request->contactType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveSingleTaskForUpdatingContactInfo',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveSingleTaskForUpdatingContactInfo',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveSingleTaskForUpdatingContactInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存修改联系人的任务
-     *  *
-     * @param SaveSingleTaskForUpdatingContactInfoRequest $request SaveSingleTaskForUpdatingContactInfoRequest
+     * 保存修改联系人的任务
      *
-     * @return SaveSingleTaskForUpdatingContactInfoResponse SaveSingleTaskForUpdatingContactInfoResponse
+     * @param request - SaveSingleTaskForUpdatingContactInfoRequest
+     *
+     * @returns SaveSingleTaskForUpdatingContactInfoResponse
+     *
+     * @param SaveSingleTaskForUpdatingContactInfoRequest $request
+     *
+     * @return SaveSingleTaskForUpdatingContactInfoResponse
      */
     public function saveSingleTaskForUpdatingContactInfo($request)
     {
@@ -6884,50 +8596,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 保存删除域名的任务
-     *  *
-     * @param SaveTaskForSubmittingDomainDeleteRequest $request SaveTaskForSubmittingDomainDeleteRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 保存删除域名的任务
      *
-     * @return SaveTaskForSubmittingDomainDeleteResponse SaveTaskForSubmittingDomainDeleteResponse
+     * @param request - SaveTaskForSubmittingDomainDeleteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveTaskForSubmittingDomainDeleteResponse
+     *
+     * @param SaveTaskForSubmittingDomainDeleteRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SaveTaskForSubmittingDomainDeleteResponse
      */
     public function saveTaskForSubmittingDomainDeleteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveTaskForSubmittingDomainDelete',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveTaskForSubmittingDomainDelete',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveTaskForSubmittingDomainDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 保存删除域名的任务
-     *  *
-     * @param SaveTaskForSubmittingDomainDeleteRequest $request SaveTaskForSubmittingDomainDeleteRequest
+     * 保存删除域名的任务
      *
-     * @return SaveTaskForSubmittingDomainDeleteResponse SaveTaskForSubmittingDomainDeleteResponse
+     * @param request - SaveTaskForSubmittingDomainDeleteRequest
+     *
+     * @returns SaveTaskForSubmittingDomainDeleteResponse
+     *
+     * @param SaveTaskForSubmittingDomainDeleteRequest $request
+     *
+     * @return SaveTaskForSubmittingDomainDeleteResponse
      */
     public function saveTaskForSubmittingDomainDelete($request)
     {
@@ -6937,61 +8661,76 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 批量提交域名资料
-     *  *
-     * @param SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest $request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
-     * @param RuntimeOptions                                                             $runtime runtime options for this request RuntimeOptions
+     * 批量提交域名资料.
      *
-     * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
+     * @param request - SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
+     *
+     * @param SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest $request
+     * @param RuntimeOptions                                                             $runtime
+     *
+     * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
      */
     public function saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->identityCredentialNo)) {
-            $query['IdentityCredentialNo'] = $request->identityCredentialNo;
+
+        if (null !== $request->identityCredentialNo) {
+            @$query['IdentityCredentialNo'] = $request->identityCredentialNo;
         }
-        if (!Utils::isUnset($request->identityCredentialType)) {
-            $query['IdentityCredentialType'] = $request->identityCredentialType;
+
+        if (null !== $request->identityCredentialType) {
+            @$query['IdentityCredentialType'] = $request->identityCredentialType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->identityCredential)) {
-            $body['IdentityCredential'] = $request->identityCredential;
+        if (null !== $request->identityCredential) {
+            @$body['IdentityCredential'] = $request->identityCredential;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量提交域名资料
-     *  *
-     * @param SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest $request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
+     * 批量提交域名资料.
      *
-     * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
+     * @param request - SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
+     *
+     * @returns SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
+     *
+     * @param SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest $request
+     *
+     * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
      */
     public function saveTaskForSubmittingDomainRealNameVerificationByIdentityCredential($request)
     {
@@ -7001,56 +8740,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 根据模板保存域名的实名认证信息
-     *  *
-     * @param SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest $request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
-     * @param RuntimeOptions                                                              $runtime runtime options for this request RuntimeOptions
+     * 根据模板保存域名的实名认证信息.
      *
-     * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
+     * @param request - SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
+     *
+     * @param SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest $request
+     * @param RuntimeOptions                                                              $runtime
+     *
+     * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
      */
     public function saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据模板保存域名的实名认证信息
-     *  *
-     * @param SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest $request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
+     * 根据模板保存域名的实名认证信息.
      *
-     * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
+     * @param request - SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
+     *
+     * @returns SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
+     *
+     * @param SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest $request
+     *
+     * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
      */
     public function saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID($request)
     {
@@ -7060,115 +8813,148 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 根据联系人信息批量修改注册联系人信息
-     *  *
-     * @param SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest $request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
-     * @param RuntimeOptions                                               $runtime runtime options for this request RuntimeOptions
+     * 根据联系人信息批量修改注册联系人信息.
      *
-     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
+     * @param request - SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
+     *
+     * @param SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest $request
+     * @param RuntimeOptions                                               $runtime
+     *
+     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
      */
     public function saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->identityCredentialNo)) {
-            $query['IdentityCredentialNo'] = $request->identityCredentialNo;
+
+        if (null !== $request->identityCredentialNo) {
+            @$query['IdentityCredentialNo'] = $request->identityCredentialNo;
         }
-        if (!Utils::isUnset($request->identityCredentialType)) {
-            $query['IdentityCredentialType'] = $request->identityCredentialType;
+
+        if (null !== $request->identityCredentialType) {
+            @$query['IdentityCredentialType'] = $request->identityCredentialType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->postalCode)) {
-            $query['PostalCode'] = $request->postalCode;
+
+        if (null !== $request->postalCode) {
+            @$query['PostalCode'] = $request->postalCode;
         }
-        if (!Utils::isUnset($request->province)) {
-            $query['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
         }
-        if (!Utils::isUnset($request->registrantName)) {
-            $query['RegistrantName'] = $request->registrantName;
+
+        if (null !== $request->registrantName) {
+            @$query['RegistrantName'] = $request->registrantName;
         }
-        if (!Utils::isUnset($request->registrantOrganization)) {
-            $query['RegistrantOrganization'] = $request->registrantOrganization;
+
+        if (null !== $request->registrantOrganization) {
+            @$query['RegistrantOrganization'] = $request->registrantOrganization;
         }
-        if (!Utils::isUnset($request->registrantType)) {
-            $query['RegistrantType'] = $request->registrantType;
+
+        if (null !== $request->registrantType) {
+            @$query['RegistrantType'] = $request->registrantType;
         }
-        if (!Utils::isUnset($request->telArea)) {
-            $query['TelArea'] = $request->telArea;
+
+        if (null !== $request->telArea) {
+            @$query['TelArea'] = $request->telArea;
         }
-        if (!Utils::isUnset($request->telExt)) {
-            $query['TelExt'] = $request->telExt;
+
+        if (null !== $request->telExt) {
+            @$query['TelExt'] = $request->telExt;
         }
-        if (!Utils::isUnset($request->telephone)) {
-            $query['Telephone'] = $request->telephone;
+
+        if (null !== $request->telephone) {
+            @$query['Telephone'] = $request->telephone;
         }
-        if (!Utils::isUnset($request->transferOutProhibited)) {
-            $query['TransferOutProhibited'] = $request->transferOutProhibited;
+
+        if (null !== $request->transferOutProhibited) {
+            @$query['TransferOutProhibited'] = $request->transferOutProhibited;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zhAddress)) {
-            $query['ZhAddress'] = $request->zhAddress;
+
+        if (null !== $request->zhAddress) {
+            @$query['ZhAddress'] = $request->zhAddress;
         }
-        if (!Utils::isUnset($request->zhCity)) {
-            $query['ZhCity'] = $request->zhCity;
+
+        if (null !== $request->zhCity) {
+            @$query['ZhCity'] = $request->zhCity;
         }
-        if (!Utils::isUnset($request->zhProvince)) {
-            $query['ZhProvince'] = $request->zhProvince;
+
+        if (null !== $request->zhProvince) {
+            @$query['ZhProvince'] = $request->zhProvince;
         }
-        if (!Utils::isUnset($request->zhRegistrantName)) {
-            $query['ZhRegistrantName'] = $request->zhRegistrantName;
+
+        if (null !== $request->zhRegistrantName) {
+            @$query['ZhRegistrantName'] = $request->zhRegistrantName;
         }
-        if (!Utils::isUnset($request->zhRegistrantOrganization)) {
-            $query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
+
+        if (null !== $request->zhRegistrantOrganization) {
+            @$query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->identityCredential)) {
-            $body['IdentityCredential'] = $request->identityCredential;
+        if (null !== $request->identityCredential) {
+            @$body['IdentityCredential'] = $request->identityCredential;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveTaskForUpdatingRegistrantInfoByIdentityCredential',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveTaskForUpdatingRegistrantInfoByIdentityCredential',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据联系人信息批量修改注册联系人信息
-     *  *
-     * @param SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest $request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
+     * 根据联系人信息批量修改注册联系人信息.
      *
-     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
+     * @param request - SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
+     *
+     * @returns SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
+     *
+     * @param SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest $request
+     *
+     * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
      */
     public function saveTaskForUpdatingRegistrantInfoByIdentityCredential($request)
     {
@@ -7178,56 +8964,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 根据模板批量修改注册联系人
-     *  *
-     * @param SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest $request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
-     * @param RuntimeOptions                                                $runtime runtime options for this request RuntimeOptions
+     * 根据模板批量修改注册联系人.
      *
-     * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
+     * @param request - SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
+     *
+     * @param SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest $request
+     * @param RuntimeOptions                                                $runtime
+     *
+     * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
      */
     public function saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->transferOutProhibited)) {
-            $query['TransferOutProhibited'] = $request->transferOutProhibited;
+
+        if (null !== $request->transferOutProhibited) {
+            @$query['TransferOutProhibited'] = $request->transferOutProhibited;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据模板批量修改注册联系人
-     *  *
-     * @param SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest $request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
+     * 根据模板批量修改注册联系人.
      *
-     * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
+     * @param request - SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
+     *
+     * @returns SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
+     *
+     * @param SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest $request
+     *
+     * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
      */
     public function saveTaskForUpdatingRegistrantInfoByRegistrantProfileID($request)
     {
@@ -7237,114 +9037,148 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary Traverses domain names.
-     *  *
-     * @description If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
-     *  *
-     * @param ScrollDomainListRequest $request ScrollDomainListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Traverses domain names.
      *
-     * @return ScrollDomainListResponse ScrollDomainListResponse
+     * @remarks
+     * If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
+     *
+     * @param request - ScrollDomainListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScrollDomainListResponse
+     *
+     * @param ScrollDomainListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ScrollDomainListResponse
      */
     public function scrollDomainListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainGroupId)) {
-            $query['DomainGroupId'] = $request->domainGroupId;
+        if (null !== $request->domainGroupId) {
+            @$query['DomainGroupId'] = $request->domainGroupId;
         }
-        if (!Utils::isUnset($request->domainStatus)) {
-            $query['DomainStatus'] = $request->domainStatus;
+
+        if (null !== $request->domainStatus) {
+            @$query['DomainStatus'] = $request->domainStatus;
         }
-        if (!Utils::isUnset($request->endExpirationDate)) {
-            $query['EndExpirationDate'] = $request->endExpirationDate;
+
+        if (null !== $request->endExpirationDate) {
+            @$query['EndExpirationDate'] = $request->endExpirationDate;
         }
-        if (!Utils::isUnset($request->endLength)) {
-            $query['EndLength'] = $request->endLength;
+
+        if (null !== $request->endLength) {
+            @$query['EndLength'] = $request->endLength;
         }
-        if (!Utils::isUnset($request->endRegistrationDate)) {
-            $query['EndRegistrationDate'] = $request->endRegistrationDate;
+
+        if (null !== $request->endRegistrationDate) {
+            @$query['EndRegistrationDate'] = $request->endRegistrationDate;
         }
-        if (!Utils::isUnset($request->excluded)) {
-            $query['Excluded'] = $request->excluded;
+
+        if (null !== $request->excluded) {
+            @$query['Excluded'] = $request->excluded;
         }
-        if (!Utils::isUnset($request->excludedPrefix)) {
-            $query['ExcludedPrefix'] = $request->excludedPrefix;
+
+        if (null !== $request->excludedPrefix) {
+            @$query['ExcludedPrefix'] = $request->excludedPrefix;
         }
-        if (!Utils::isUnset($request->excludedSuffix)) {
-            $query['ExcludedSuffix'] = $request->excludedSuffix;
+
+        if (null !== $request->excludedSuffix) {
+            @$query['ExcludedSuffix'] = $request->excludedSuffix;
         }
-        if (!Utils::isUnset($request->form)) {
-            $query['Form'] = $request->form;
+
+        if (null !== $request->form) {
+            @$query['Form'] = $request->form;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->keyWordPrefix)) {
-            $query['KeyWordPrefix'] = $request->keyWordPrefix;
+
+        if (null !== $request->keyWordPrefix) {
+            @$query['KeyWordPrefix'] = $request->keyWordPrefix;
         }
-        if (!Utils::isUnset($request->keyWordSuffix)) {
-            $query['KeyWordSuffix'] = $request->keyWordSuffix;
+
+        if (null !== $request->keyWordSuffix) {
+            @$query['KeyWordSuffix'] = $request->keyWordSuffix;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productDomainType)) {
-            $query['ProductDomainType'] = $request->productDomainType;
+
+        if (null !== $request->productDomainType) {
+            @$query['ProductDomainType'] = $request->productDomainType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->scrollId)) {
-            $query['ScrollId'] = $request->scrollId;
+
+        if (null !== $request->scrollId) {
+            @$query['ScrollId'] = $request->scrollId;
         }
-        if (!Utils::isUnset($request->startExpirationDate)) {
-            $query['StartExpirationDate'] = $request->startExpirationDate;
+
+        if (null !== $request->startExpirationDate) {
+            @$query['StartExpirationDate'] = $request->startExpirationDate;
         }
-        if (!Utils::isUnset($request->startLength)) {
-            $query['StartLength'] = $request->startLength;
+
+        if (null !== $request->startLength) {
+            @$query['StartLength'] = $request->startLength;
         }
-        if (!Utils::isUnset($request->startRegistrationDate)) {
-            $query['StartRegistrationDate'] = $request->startRegistrationDate;
+
+        if (null !== $request->startRegistrationDate) {
+            @$query['StartRegistrationDate'] = $request->startRegistrationDate;
         }
-        if (!Utils::isUnset($request->suffixs)) {
-            $query['Suffixs'] = $request->suffixs;
+
+        if (null !== $request->suffixs) {
+            @$query['Suffixs'] = $request->suffixs;
         }
-        if (!Utils::isUnset($request->tradeType)) {
-            $query['TradeType'] = $request->tradeType;
+
+        if (null !== $request->tradeType) {
+            @$query['TradeType'] = $request->tradeType;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ScrollDomainList',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ScrollDomainList',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ScrollDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Traverses domain names.
-     *  *
-     * @description If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
-     *  *
-     * @param ScrollDomainListRequest $request ScrollDomainListRequest
+     * Traverses domain names.
      *
-     * @return ScrollDomainListResponse ScrollDomainListResponse
+     * @remarks
+     * If you have a large number of domain names, a slow response may occur when you call an API operation to query domain names. In this case, you can call this operation to query domain names more quickly. When you call this operation for the first time, specify the request parameters except ScrollId. A scroll ID is returned without other data. In the second request, use the scroll ID obtained from the previous response. In subsequent requests, the newly specified request parameters do not take effect, and the request parameters that are specified in the first request prevail.
+     *
+     * @param request - ScrollDomainListRequest
+     *
+     * @returns ScrollDomainListResponse
+     *
+     * @param ScrollDomainListRequest $request
+     *
+     * @return ScrollDomainListResponse
      */
     public function scrollDomainList($request)
     {
@@ -7354,47 +9188,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 设置默认模板
-     *  *
-     * @param SetDefaultRegistrantProfileRequest $request SetDefaultRegistrantProfileRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 设置默认模板
      *
-     * @return SetDefaultRegistrantProfileResponse SetDefaultRegistrantProfileResponse
+     * @param request - SetDefaultRegistrantProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDefaultRegistrantProfileResponse
+     *
+     * @param SetDefaultRegistrantProfileRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetDefaultRegistrantProfileResponse
      */
     public function setDefaultRegistrantProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->registrantProfileId)) {
-            $query['RegistrantProfileId'] = $request->registrantProfileId;
+        if (null !== $request->registrantProfileId) {
+            @$query['RegistrantProfileId'] = $request->registrantProfileId;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDefaultRegistrantProfile',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDefaultRegistrantProfile',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetDefaultRegistrantProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置默认模板
-     *  *
-     * @param SetDefaultRegistrantProfileRequest $request SetDefaultRegistrantProfileRequest
+     * 设置默认模板
      *
-     * @return SetDefaultRegistrantProfileResponse SetDefaultRegistrantProfileResponse
+     * @param request - SetDefaultRegistrantProfileRequest
+     *
+     * @returns SetDefaultRegistrantProfileResponse
+     *
+     * @param SetDefaultRegistrantProfileRequest $request
+     *
+     * @return SetDefaultRegistrantProfileResponse
      */
     public function setDefaultRegistrantProfile($request)
     {
@@ -7404,47 +9249,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 域名设置自动续费
-     *  *
-     * @param SetupDomainAutoRenewRequest $request SetupDomainAutoRenewRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 域名设置自动续费.
      *
-     * @return SetupDomainAutoRenewResponse SetupDomainAutoRenewResponse
+     * @param request - SetupDomainAutoRenewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetupDomainAutoRenewResponse
+     *
+     * @param SetupDomainAutoRenewRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetupDomainAutoRenewResponse
      */
     public function setupDomainAutoRenewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetupDomainAutoRenew',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetupDomainAutoRenew',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetupDomainAutoRenewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 域名设置自动续费
-     *  *
-     * @param SetupDomainAutoRenewRequest $request SetupDomainAutoRenewRequest
+     * 域名设置自动续费.
      *
-     * @return SetupDomainAutoRenewResponse SetupDomainAutoRenewResponse
+     * @param request - SetupDomainAutoRenewRequest
+     *
+     * @returns SetupDomainAutoRenewResponse
+     *
+     * @param SetupDomainAutoRenewRequest $request
+     *
+     * @return SetupDomainAutoRenewResponse
      */
     public function setupDomainAutoRenew($request)
     {
@@ -7454,55 +9310,68 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 域名特殊业务提交资料
-     *  *
-     * @param SubmitDomainSpecialBizCredentialsRequest $request SubmitDomainSpecialBizCredentialsRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 域名特殊业务提交资料.
      *
-     * @return SubmitDomainSpecialBizCredentialsResponse SubmitDomainSpecialBizCredentialsResponse
+     * @param request - SubmitDomainSpecialBizCredentialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitDomainSpecialBizCredentialsResponse
+     *
+     * @param SubmitDomainSpecialBizCredentialsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SubmitDomainSpecialBizCredentialsResponse
      */
     public function submitDomainSpecialBizCredentialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $body['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
         }
-        if (!Utils::isUnset($request->credentials)) {
-            $body['Credentials'] = $request->credentials;
+
+        if (null !== $request->credentials) {
+            @$body['Credentials'] = $request->credentials;
         }
-        if (!Utils::isUnset($request->extend)) {
-            $body['Extend'] = $request->extend;
+
+        if (null !== $request->extend) {
+            @$body['Extend'] = $request->extend;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitDomainSpecialBizCredentials',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitDomainSpecialBizCredentials',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitDomainSpecialBizCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 域名特殊业务提交资料
-     *  *
-     * @param SubmitDomainSpecialBizCredentialsRequest $request SubmitDomainSpecialBizCredentialsRequest
+     * 域名特殊业务提交资料.
      *
-     * @return SubmitDomainSpecialBizCredentialsResponse SubmitDomainSpecialBizCredentialsResponse
+     * @param request - SubmitDomainSpecialBizCredentialsRequest
+     *
+     * @returns SubmitDomainSpecialBizCredentialsResponse
+     *
+     * @param SubmitDomainSpecialBizCredentialsRequest $request
+     *
+     * @return SubmitDomainSpecialBizCredentialsResponse
      */
     public function submitDomainSpecialBizCredentials($request)
     {
@@ -7512,53 +9381,66 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 提交邮箱验证
-     *  *
-     * @param SubmitEmailVerificationRequest $request SubmitEmailVerificationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 提交邮箱验证
      *
-     * @return SubmitEmailVerificationResponse SubmitEmailVerificationResponse
+     * @param request - SubmitEmailVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitEmailVerificationResponse
+     *
+     * @param SubmitEmailVerificationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitEmailVerificationResponse
      */
     public function submitEmailVerificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sendIfExist)) {
-            $query['SendIfExist'] = $request->sendIfExist;
+
+        if (null !== $request->sendIfExist) {
+            @$query['SendIfExist'] = $request->sendIfExist;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitEmailVerification',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitEmailVerification',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitEmailVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交邮箱验证
-     *  *
-     * @param SubmitEmailVerificationRequest $request SubmitEmailVerificationRequest
+     * 提交邮箱验证
      *
-     * @return SubmitEmailVerificationResponse SubmitEmailVerificationResponse
+     * @param request - SubmitEmailVerificationRequest
+     *
+     * @returns SubmitEmailVerificationResponse
+     *
+     * @param SubmitEmailVerificationRequest $request
+     *
+     * @return SubmitEmailVerificationResponse
      */
     public function submitEmailVerification($request)
     {
@@ -7568,56 +9450,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 提交申请信息
-     *  *
-     * @param SubmitOperationAuditInfoRequest $request SubmitOperationAuditInfoRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 提交申请信息.
      *
-     * @return SubmitOperationAuditInfoResponse SubmitOperationAuditInfoResponse
+     * @param request - SubmitOperationAuditInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitOperationAuditInfoResponse
+     *
+     * @param SubmitOperationAuditInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitOperationAuditInfoResponse
      */
     public function submitOperationAuditInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditInfo)) {
-            $query['AuditInfo'] = $request->auditInfo;
+        if (null !== $request->auditInfo) {
+            @$query['AuditInfo'] = $request->auditInfo;
         }
-        if (!Utils::isUnset($request->auditType)) {
-            $query['AuditType'] = $request->auditType;
+
+        if (null !== $request->auditType) {
+            @$query['AuditType'] = $request->auditType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitOperationAuditInfo',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitOperationAuditInfo',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitOperationAuditInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交申请信息
-     *  *
-     * @param SubmitOperationAuditInfoRequest $request SubmitOperationAuditInfoRequest
+     * 提交申请信息.
      *
-     * @return SubmitOperationAuditInfoResponse SubmitOperationAuditInfoResponse
+     * @param request - SubmitOperationAuditInfoRequest
+     *
+     * @returns SubmitOperationAuditInfoResponse
+     *
+     * @param SubmitOperationAuditInfoRequest $request
+     *
+     * @return SubmitOperationAuditInfoResponse
      */
     public function submitOperationAuditInfo($request)
     {
@@ -7627,56 +9523,70 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 提交证件资料
-     *  *
-     * @param SubmitOperationCredentialsRequest $request SubmitOperationCredentialsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 提交证件资料.
      *
-     * @return SubmitOperationCredentialsResponse SubmitOperationCredentialsResponse
+     * @param request - SubmitOperationCredentialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitOperationCredentialsResponse
+     *
+     * @param SubmitOperationCredentialsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitOperationCredentialsResponse
      */
     public function submitOperationCredentialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditRecordId)) {
-            $query['AuditRecordId'] = $request->auditRecordId;
+        if (null !== $request->auditRecordId) {
+            @$query['AuditRecordId'] = $request->auditRecordId;
         }
-        if (!Utils::isUnset($request->auditType)) {
-            $query['AuditType'] = $request->auditType;
+
+        if (null !== $request->auditType) {
+            @$query['AuditType'] = $request->auditType;
         }
-        if (!Utils::isUnset($request->credentials)) {
-            $query['Credentials'] = $request->credentials;
+
+        if (null !== $request->credentials) {
+            @$query['Credentials'] = $request->credentials;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regType)) {
-            $query['RegType'] = $request->regType;
+
+        if (null !== $request->regType) {
+            @$query['RegType'] = $request->regType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitOperationCredentials',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitOperationCredentials',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitOperationCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交证件资料
-     *  *
-     * @param SubmitOperationCredentialsRequest $request SubmitOperationCredentialsRequest
+     * 提交证件资料.
      *
-     * @return SubmitOperationCredentialsResponse SubmitOperationCredentialsResponse
+     * @param request - SubmitOperationCredentialsRequest
+     *
+     * @returns SubmitOperationCredentialsResponse
+     *
+     * @param SubmitOperationCredentialsRequest $request
+     *
+     * @return SubmitOperationCredentialsResponse
      */
     public function submitOperationCredentials($request)
     {
@@ -7686,46 +9596,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInCheckMailTokenRequest $request TransferInCheckMailTokenRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - TransferInCheckMailTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TransferInCheckMailTokenResponse TransferInCheckMailTokenResponse
+     * @returns TransferInCheckMailTokenResponse
+     *
+     * @param TransferInCheckMailTokenRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return TransferInCheckMailTokenResponse
      */
     public function transferInCheckMailTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferInCheckMailToken',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferInCheckMailToken',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TransferInCheckMailTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TransferInCheckMailTokenRequest $request TransferInCheckMailTokenRequest
+     * @param request - TransferInCheckMailTokenRequest
      *
-     * @return TransferInCheckMailTokenResponse TransferInCheckMailTokenResponse
+     * @returns TransferInCheckMailTokenResponse
+     *
+     * @param TransferInCheckMailTokenRequest $request
+     *
+     * @return TransferInCheckMailTokenResponse
      */
     public function transferInCheckMailToken($request)
     {
@@ -7735,49 +9657,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInReenterTransferAuthorizationCodeRequest $request TransferInReenterTransferAuthorizationCodeRequest
-     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
+     * @param request - TransferInReenterTransferAuthorizationCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TransferInReenterTransferAuthorizationCodeResponse TransferInReenterTransferAuthorizationCodeResponse
+     * @returns TransferInReenterTransferAuthorizationCodeResponse
+     *
+     * @param TransferInReenterTransferAuthorizationCodeRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return TransferInReenterTransferAuthorizationCodeResponse
      */
     public function transferInReenterTransferAuthorizationCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->transferAuthorizationCode)) {
-            $query['TransferAuthorizationCode'] = $request->transferAuthorizationCode;
+
+        if (null !== $request->transferAuthorizationCode) {
+            @$query['TransferAuthorizationCode'] = $request->transferAuthorizationCode;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferInReenterTransferAuthorizationCode',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferInReenterTransferAuthorizationCode',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TransferInReenterTransferAuthorizationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TransferInReenterTransferAuthorizationCodeRequest $request TransferInReenterTransferAuthorizationCodeRequest
+     * @param request - TransferInReenterTransferAuthorizationCodeRequest
      *
-     * @return TransferInReenterTransferAuthorizationCodeResponse TransferInReenterTransferAuthorizationCodeResponse
+     * @returns TransferInReenterTransferAuthorizationCodeResponse
+     *
+     * @param TransferInReenterTransferAuthorizationCodeRequest $request
+     *
+     * @return TransferInReenterTransferAuthorizationCodeResponse
      */
     public function transferInReenterTransferAuthorizationCode($request)
     {
@@ -7787,46 +9722,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInRefetchWhoisEmailRequest $request TransferInRefetchWhoisEmailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - TransferInRefetchWhoisEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TransferInRefetchWhoisEmailResponse TransferInRefetchWhoisEmailResponse
+     * @returns TransferInRefetchWhoisEmailResponse
+     *
+     * @param TransferInRefetchWhoisEmailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return TransferInRefetchWhoisEmailResponse
      */
     public function transferInRefetchWhoisEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferInRefetchWhoisEmail',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferInRefetchWhoisEmail',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TransferInRefetchWhoisEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TransferInRefetchWhoisEmailRequest $request TransferInRefetchWhoisEmailRequest
+     * @param request - TransferInRefetchWhoisEmailRequest
      *
-     * @return TransferInRefetchWhoisEmailResponse TransferInRefetchWhoisEmailResponse
+     * @returns TransferInRefetchWhoisEmailResponse
+     *
+     * @param TransferInRefetchWhoisEmailRequest $request
+     *
+     * @return TransferInRefetchWhoisEmailResponse
      */
     public function transferInRefetchWhoisEmail($request)
     {
@@ -7836,46 +9783,58 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param TransferInResendMailTokenRequest $request TransferInResendMailTokenRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - TransferInResendMailTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TransferInResendMailTokenResponse TransferInResendMailTokenResponse
+     * @returns TransferInResendMailTokenResponse
+     *
+     * @param TransferInResendMailTokenRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return TransferInResendMailTokenResponse
      */
     public function transferInResendMailTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferInResendMailToken',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferInResendMailToken',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TransferInResendMailTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TransferInResendMailTokenRequest $request TransferInResendMailTokenRequest
+     * @param request - TransferInResendMailTokenRequest
      *
-     * @return TransferInResendMailTokenResponse TransferInResendMailTokenResponse
+     * @returns TransferInResendMailTokenResponse
+     *
+     * @param TransferInResendMailTokenRequest $request
+     *
+     * @return TransferInResendMailTokenResponse
      */
     public function transferInResendMailToken($request)
     {
@@ -7885,64 +9844,80 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 向分组设置域名
-     *  *
-     * @param UpdateDomainToDomainGroupRequest $request UpdateDomainToDomainGroupRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 向分组设置域名.
      *
-     * @return UpdateDomainToDomainGroupResponse UpdateDomainToDomainGroupResponse
+     * @param request - UpdateDomainToDomainGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDomainToDomainGroupResponse
+     *
+     * @param UpdateDomainToDomainGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateDomainToDomainGroupResponse
      */
     public function updateDomainToDomainGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataSource)) {
-            $query['DataSource'] = $request->dataSource;
+        if (null !== $request->dataSource) {
+            @$query['DataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->domainGroupId)) {
-            $query['DomainGroupId'] = $request->domainGroupId;
+
+        if (null !== $request->domainGroupId) {
+            @$query['DomainGroupId'] = $request->domainGroupId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->replace)) {
-            $query['Replace'] = $request->replace;
+
+        if (null !== $request->replace) {
+            @$query['Replace'] = $request->replace;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->fileToUpload)) {
-            $body['FileToUpload'] = $request->fileToUpload;
+        if (null !== $request->fileToUpload) {
+            @$body['FileToUpload'] = $request->fileToUpload;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDomainToDomainGroup',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDomainToDomainGroup',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDomainToDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 向分组设置域名
-     *  *
-     * @param UpdateDomainToDomainGroupRequest $request UpdateDomainToDomainGroupRequest
+     * 向分组设置域名.
      *
-     * @return UpdateDomainToDomainGroupResponse UpdateDomainToDomainGroupResponse
+     * @param request - UpdateDomainToDomainGroupRequest
+     *
+     * @returns UpdateDomainToDomainGroupResponse
+     *
+     * @param UpdateDomainToDomainGroupRequest $request
+     *
+     * @return UpdateDomainToDomainGroupResponse
      */
     public function updateDomainToDomainGroup($request)
     {
@@ -7952,101 +9927,130 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 校验联系人信息
-     *  *
-     * @param VerifyContactFieldRequest $request VerifyContactFieldRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 校验联系人信息.
      *
-     * @return VerifyContactFieldResponse VerifyContactFieldResponse
+     * @param request - VerifyContactFieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyContactFieldResponse
+     *
+     * @param VerifyContactFieldRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return VerifyContactFieldResponse
      */
     public function verifyContactFieldWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->postalCode)) {
-            $query['PostalCode'] = $request->postalCode;
+
+        if (null !== $request->postalCode) {
+            @$query['PostalCode'] = $request->postalCode;
         }
-        if (!Utils::isUnset($request->province)) {
-            $query['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
         }
-        if (!Utils::isUnset($request->registrantName)) {
-            $query['RegistrantName'] = $request->registrantName;
+
+        if (null !== $request->registrantName) {
+            @$query['RegistrantName'] = $request->registrantName;
         }
-        if (!Utils::isUnset($request->registrantOrganization)) {
-            $query['RegistrantOrganization'] = $request->registrantOrganization;
+
+        if (null !== $request->registrantOrganization) {
+            @$query['RegistrantOrganization'] = $request->registrantOrganization;
         }
-        if (!Utils::isUnset($request->registrantType)) {
-            $query['RegistrantType'] = $request->registrantType;
+
+        if (null !== $request->registrantType) {
+            @$query['RegistrantType'] = $request->registrantType;
         }
-        if (!Utils::isUnset($request->telArea)) {
-            $query['TelArea'] = $request->telArea;
+
+        if (null !== $request->telArea) {
+            @$query['TelArea'] = $request->telArea;
         }
-        if (!Utils::isUnset($request->telExt)) {
-            $query['TelExt'] = $request->telExt;
+
+        if (null !== $request->telExt) {
+            @$query['TelExt'] = $request->telExt;
         }
-        if (!Utils::isUnset($request->telephone)) {
-            $query['Telephone'] = $request->telephone;
+
+        if (null !== $request->telephone) {
+            @$query['Telephone'] = $request->telephone;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
-        if (!Utils::isUnset($request->zhAddress)) {
-            $query['ZhAddress'] = $request->zhAddress;
+
+        if (null !== $request->zhAddress) {
+            @$query['ZhAddress'] = $request->zhAddress;
         }
-        if (!Utils::isUnset($request->zhCity)) {
-            $query['ZhCity'] = $request->zhCity;
+
+        if (null !== $request->zhCity) {
+            @$query['ZhCity'] = $request->zhCity;
         }
-        if (!Utils::isUnset($request->zhProvince)) {
-            $query['ZhProvince'] = $request->zhProvince;
+
+        if (null !== $request->zhProvince) {
+            @$query['ZhProvince'] = $request->zhProvince;
         }
-        if (!Utils::isUnset($request->zhRegistrantName)) {
-            $query['ZhRegistrantName'] = $request->zhRegistrantName;
+
+        if (null !== $request->zhRegistrantName) {
+            @$query['ZhRegistrantName'] = $request->zhRegistrantName;
         }
-        if (!Utils::isUnset($request->zhRegistrantOrganization)) {
-            $query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
+
+        if (null !== $request->zhRegistrantOrganization) {
+            @$query['ZhRegistrantOrganization'] = $request->zhRegistrantOrganization;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyContactField',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyContactField',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyContactFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验联系人信息
-     *  *
-     * @param VerifyContactFieldRequest $request VerifyContactFieldRequest
+     * 校验联系人信息.
      *
-     * @return VerifyContactFieldResponse VerifyContactFieldResponse
+     * @param request - VerifyContactFieldRequest
+     *
+     * @returns VerifyContactFieldResponse
+     *
+     * @param VerifyContactFieldRequest $request
+     *
+     * @return VerifyContactFieldResponse
      */
     public function verifyContactField($request)
     {
@@ -8056,50 +10060,62 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @summary 验证邮箱Token
-     *  *
-     * @param VerifyEmailRequest $request VerifyEmailRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 验证邮箱Token.
      *
-     * @return VerifyEmailResponse VerifyEmailResponse
+     * @param request - VerifyEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyEmailResponse
+     *
+     * @param VerifyEmailRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return VerifyEmailResponse
      */
     public function verifyEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
-        if (!Utils::isUnset($request->userClientIp)) {
-            $query['UserClientIp'] = $request->userClientIp;
+
+        if (null !== $request->userClientIp) {
+            @$query['UserClientIp'] = $request->userClientIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyEmail',
-            'version'     => '2018-01-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyEmail',
+            'version' => '2018-01-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyEmailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 验证邮箱Token
-     *  *
-     * @param VerifyEmailRequest $request VerifyEmailRequest
+     * 验证邮箱Token.
      *
-     * @return VerifyEmailResponse VerifyEmailResponse
+     * @param request - VerifyEmailRequest
+     *
+     * @returns VerifyEmailResponse
+     *
+     * @param VerifyEmailRequest $request
+     *
+     * @return VerifyEmailResponse
      */
     public function verifyEmail($request)
     {

@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckTransferInFeasibilityRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $transferAuthorizationCode;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'domainName'                => 'DomainName',
-        'lang'                      => 'Lang',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
         'transferAuthorizationCode' => 'TransferAuthorizationCode',
-        'userClientIp'              => 'UserClientIp',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->transferAuthorizationCode) {
             $res['TransferAuthorizationCode'] = $this->transferAuthorizationCode;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -67,23 +61,26 @@ class CheckTransferInFeasibilityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckTransferInFeasibilityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['TransferAuthorizationCode'])) {
             $model->transferAuthorizationCode = $map['TransferAuthorizationCode'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainSuffixResponseBody\suffixList;
-use AlibabaCloud\Tea\Model;
 
 class QueryDomainSuffixResponseBody extends Model
 {
     /**
-     * @example D1C9DE44-1D7F-4F66-9653-00000
-     *
      * @var string
      */
     public $requestId;
@@ -21,38 +19,44 @@ class QueryDomainSuffixResponseBody extends Model
      */
     public $suffixList;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'suffixList' => 'SuffixList',
     ];
 
     public function validate()
     {
+        if (null !== $this->suffixList) {
+            $this->suffixList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->suffixList) {
-            $res['SuffixList'] = null !== $this->suffixList ? $this->suffixList->toMap() : null;
+            $res['SuffixList'] = null !== $this->suffixList ? $this->suffixList->toArray($noStream) : $this->suffixList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDomainSuffixResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuffixList'])) {
             $model->suffixList = suffixList::fromMap($map['SuffixList']);
         }

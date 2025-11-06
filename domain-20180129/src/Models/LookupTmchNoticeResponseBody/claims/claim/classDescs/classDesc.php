@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim\classDescs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class classDesc extends Model
 {
     /**
-     * @example 18
-     *
      * @var int
      */
     public $classNum;
 
     /**
-     * @example New Zealand
-     *
      * @var string
      */
     public $desc;
     protected $_name = [
         'classNum' => 'ClassNum',
-        'desc'     => 'Desc',
+        'desc' => 'Desc',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classNum) {
             $res['ClassNum'] = $this->classNum;
         }
+
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
@@ -43,17 +41,18 @@ class classDesc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return classDesc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassNum'])) {
             $model->classNum = $map['ClassNum'];
         }
+
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }

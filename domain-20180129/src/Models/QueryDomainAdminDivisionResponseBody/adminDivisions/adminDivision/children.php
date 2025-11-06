@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions\adminDivision;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class children extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions\adminDivision\children\children[]
+     * @var children\children[]
      */
     public $children;
     protected $_name = [
@@ -18,17 +18,22 @@ class children extends Model
 
     public function validate()
     {
+        if (\is_array($this->children)) {
+            Model::validateArray($this->children);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->children) {
-            $res['Children'] = [];
-            if (null !== $this->children && \is_array($this->children)) {
-                $n = 0;
-                foreach ($this->children as $item) {
-                    $res['Children'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->children)) {
+                $res['Children'] = [];
+                $n1 = 0;
+                foreach ($this->children as $item1) {
+                    $res['Children'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class children extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return children
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Children'])) {
             if (!empty($map['Children'])) {
                 $model->children = [];
-                $n               = 0;
-                foreach ($map['Children'] as $item) {
-                    $model->children[$n++] = null !== $item ? \AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions\adminDivision\children\children::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Children'] as $item1) {
+                    $model->children[$n1] = children\children::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

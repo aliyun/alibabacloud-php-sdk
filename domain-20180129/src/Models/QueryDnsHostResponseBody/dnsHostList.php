@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryDnsHostResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dnsHostList extends Model
 {
     /**
-     * @example ns3
-     *
      * @var string
      */
     public $dnsName;
@@ -21,40 +19,58 @@ class dnsHostList extends Model
     public $ipList;
     protected $_name = [
         'dnsName' => 'DnsName',
-        'ipList'  => 'IpList',
+        'ipList' => 'IpList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ipList)) {
+            Model::validateArray($this->ipList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnsName) {
             $res['DnsName'] = $this->dnsName;
         }
+
         if (null !== $this->ipList) {
-            $res['IpList'] = $this->ipList;
+            if (\is_array($this->ipList)) {
+                $res['IpList'] = [];
+                $n1 = 0;
+                foreach ($this->ipList as $item1) {
+                    $res['IpList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dnsHostList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsName'])) {
             $model->dnsName = $map['DnsName'];
         }
+
         if (isset($map['IpList'])) {
             if (!empty($map['IpList'])) {
-                $model->ipList = $map['IpList'];
+                $model->ipList = [];
+                $n1 = 0;
+                foreach ($map['IpList'] as $item1) {
+                    $model->ipList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

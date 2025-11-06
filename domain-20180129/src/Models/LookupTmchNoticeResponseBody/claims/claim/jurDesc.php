@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\LookupTmchNoticeResponseBody\claims\claim;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class jurDesc extends Model
 {
     /**
-     * @example New Zealand
-     *
      * @var string
      */
     public $desc;
 
     /**
-     * @example NZ
-     *
      * @var string
      */
     public $jurCC;
     protected $_name = [
-        'desc'  => 'Desc',
+        'desc' => 'Desc',
         'jurCC' => 'JurCC',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+
         if (null !== $this->jurCC) {
             $res['JurCC'] = $this->jurCC;
         }
@@ -43,17 +41,18 @@ class jurDesc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jurDesc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+
         if (isset($map['JurCC'])) {
             $model->jurCC = $map['JurCC'];
         }

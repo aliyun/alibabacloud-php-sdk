@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveSingleTaskForAssociatingEnsResponseBody extends Model
 {
     /**
-     * @example E2598CAF-DBFE-494E-95EF-B42A33C178AA
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example e893148f-6343-4ae1-9eba-6e2a4116e142
-     *
      * @var string
      */
     public $taskNo;
     protected $_name = [
         'requestId' => 'RequestId',
-        'taskNo'    => 'TaskNo',
+        'taskNo' => 'TaskNo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskNo) {
             $res['TaskNo'] = $this->taskNo;
         }
@@ -43,17 +41,18 @@ class SaveSingleTaskForAssociatingEnsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveSingleTaskForAssociatingEnsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskNo'])) {
             $model->taskNo = $map['TaskNo'];
         }

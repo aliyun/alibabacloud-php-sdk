@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDefaultRegistrantProfileResponseBody extends Model
 {
     /**
-     * @example 4D73432C-7600-4779-ACBB-C3B5CA145D32
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class SetDefaultRegistrantProfileResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class SetDefaultRegistrantProfileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDefaultRegistrantProfileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

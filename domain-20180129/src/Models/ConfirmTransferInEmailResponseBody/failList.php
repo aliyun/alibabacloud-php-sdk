@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\ConfirmTransferInEmailResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failList extends Model
 {
@@ -18,29 +18,45 @@ class failList extends Model
 
     public function validate()
     {
+        if (\is_array($this->failDomain)) {
+            Model::validateArray($this->failDomain);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failDomain) {
-            $res['FailDomain'] = $this->failDomain;
+            if (\is_array($this->failDomain)) {
+                $res['FailDomain'] = [];
+                $n1 = 0;
+                foreach ($this->failDomain as $item1) {
+                    $res['FailDomain'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailDomain'])) {
             if (!empty($map['FailDomain'])) {
-                $model->failDomain = $map['FailDomain'];
+                $model->failDomain = [];
+                $n1 = 0;
+                foreach ($map['FailDomain'] as $item1) {
+                    $model->failDomain[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

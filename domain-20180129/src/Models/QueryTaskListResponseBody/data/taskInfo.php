@@ -4,124 +4,146 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryTaskListResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taskInfo extends Model
 {
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $clientip;
 
     /**
-     * @example Dec 26,2017 11:00:54
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example INIT
-     *
+     * @var string
+     */
+    public $taskBizType;
+
+    /**
      * @var string
      */
     public $taskCancelStatus;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $taskCancelStatusCode;
 
     /**
-     * @example 8b1cd755-4928-4b02-adee-e5d41d7b1939
-     *
      * @var string
      */
     public $taskNo;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $taskNum;
 
     /**
-     * @example COMPLETE
-     *
+     * @var string
+     */
+    public $taskResult;
+
+    /**
      * @var string
      */
     public $taskStatus;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $taskStatusCode;
 
     /**
-     * @example CREATE_DNSHOST
-     *
      * @var string
      */
     public $taskType;
+
+    /**
+     * @var int
+     */
+    public $taskTypeCode;
 
     /**
      * @var string
      */
     public $taskTypeDescription;
     protected $_name = [
-        'clientip'             => 'Clientip',
-        'createTime'           => 'CreateTime',
-        'taskCancelStatus'     => 'TaskCancelStatus',
+        'clientip' => 'Clientip',
+        'createTime' => 'CreateTime',
+        'taskBizType' => 'TaskBizType',
+        'taskCancelStatus' => 'TaskCancelStatus',
         'taskCancelStatusCode' => 'TaskCancelStatusCode',
-        'taskNo'               => 'TaskNo',
-        'taskNum'              => 'TaskNum',
-        'taskStatus'           => 'TaskStatus',
-        'taskStatusCode'       => 'TaskStatusCode',
-        'taskType'             => 'TaskType',
-        'taskTypeDescription'  => 'TaskTypeDescription',
+        'taskNo' => 'TaskNo',
+        'taskNum' => 'TaskNum',
+        'taskResult' => 'TaskResult',
+        'taskStatus' => 'TaskStatus',
+        'taskStatusCode' => 'TaskStatusCode',
+        'taskType' => 'TaskType',
+        'taskTypeCode' => 'TaskTypeCode',
+        'taskTypeDescription' => 'TaskTypeDescription',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientip) {
             $res['Clientip'] = $this->clientip;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
+        if (null !== $this->taskBizType) {
+            $res['TaskBizType'] = $this->taskBizType;
+        }
+
         if (null !== $this->taskCancelStatus) {
             $res['TaskCancelStatus'] = $this->taskCancelStatus;
         }
+
         if (null !== $this->taskCancelStatusCode) {
             $res['TaskCancelStatusCode'] = $this->taskCancelStatusCode;
         }
+
         if (null !== $this->taskNo) {
             $res['TaskNo'] = $this->taskNo;
         }
+
         if (null !== $this->taskNum) {
             $res['TaskNum'] = $this->taskNum;
         }
+
+        if (null !== $this->taskResult) {
+            $res['TaskResult'] = $this->taskResult;
+        }
+
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
+
         if (null !== $this->taskStatusCode) {
             $res['TaskStatusCode'] = $this->taskStatusCode;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
+
+        if (null !== $this->taskTypeCode) {
+            $res['TaskTypeCode'] = $this->taskTypeCode;
+        }
+
         if (null !== $this->taskTypeDescription) {
             $res['TaskTypeDescription'] = $this->taskTypeDescription;
         }
@@ -129,41 +151,62 @@ class taskInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clientip'])) {
             $model->clientip = $map['Clientip'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
+        if (isset($map['TaskBizType'])) {
+            $model->taskBizType = $map['TaskBizType'];
+        }
+
         if (isset($map['TaskCancelStatus'])) {
             $model->taskCancelStatus = $map['TaskCancelStatus'];
         }
+
         if (isset($map['TaskCancelStatusCode'])) {
             $model->taskCancelStatusCode = $map['TaskCancelStatusCode'];
         }
+
         if (isset($map['TaskNo'])) {
             $model->taskNo = $map['TaskNo'];
         }
+
         if (isset($map['TaskNum'])) {
             $model->taskNum = $map['TaskNum'];
         }
+
+        if (isset($map['TaskResult'])) {
+            $model->taskResult = $map['TaskResult'];
+        }
+
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }
+
         if (isset($map['TaskStatusCode'])) {
             $model->taskStatusCode = $map['TaskStatusCode'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
+
+        if (isset($map['TaskTypeCode'])) {
+            $model->taskTypeCode = $map['TaskTypeCode'];
+        }
+
         if (isset($map['TaskTypeDescription'])) {
             $model->taskTypeDescription = $map['TaskTypeDescription'];
         }

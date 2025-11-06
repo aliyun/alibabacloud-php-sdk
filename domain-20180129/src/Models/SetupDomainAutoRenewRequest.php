@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetupDomainAutoRenewRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example S2019270W570xxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example SET
-     *
      * @var string
      */
     public $operation;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'operation'  => 'Operation',
+        'operation' => 'Operation',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
@@ -47,17 +41,18 @@ class SetupDomainAutoRenewRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetupDomainAutoRenewRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }

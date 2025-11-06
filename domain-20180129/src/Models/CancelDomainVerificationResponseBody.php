@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelDomainVerificationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0AC0AF67-D303-4EB9-B20E-B4D4B2C3F97B
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CancelDomainVerificationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CancelDomainVerificationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelDomainVerificationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

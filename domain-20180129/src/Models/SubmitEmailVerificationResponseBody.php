@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitEmailVerificationResponseBody\existList;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitEmailVerificationResponseBody\failList;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitEmailVerificationResponseBody\successList;
-use AlibabaCloud\Tea\Model;
 
 class SubmitEmailVerificationResponseBody extends Model
 {
@@ -22,8 +22,6 @@ class SubmitEmailVerificationResponseBody extends Model
     public $failList;
 
     /**
-     * @example E2A8A5EF-DF8A-4C48-8FD4-9F6BD71AB26D
-     *
      * @var string
      */
     public $requestId;
@@ -33,46 +31,62 @@ class SubmitEmailVerificationResponseBody extends Model
      */
     public $successList;
     protected $_name = [
-        'existList'   => 'ExistList',
-        'failList'    => 'FailList',
-        'requestId'   => 'RequestId',
+        'existList' => 'ExistList',
+        'failList' => 'FailList',
+        'requestId' => 'RequestId',
         'successList' => 'SuccessList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->existList)) {
+            Model::validateArray($this->existList);
+        }
+        if (\is_array($this->failList)) {
+            Model::validateArray($this->failList);
+        }
+        if (\is_array($this->successList)) {
+            Model::validateArray($this->successList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->existList) {
-            $res['ExistList'] = [];
-            if (null !== $this->existList && \is_array($this->existList)) {
-                $n = 0;
-                foreach ($this->existList as $item) {
-                    $res['ExistList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->existList)) {
+                $res['ExistList'] = [];
+                $n1 = 0;
+                foreach ($this->existList as $item1) {
+                    $res['ExistList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->failList) {
-            $res['FailList'] = [];
-            if (null !== $this->failList && \is_array($this->failList)) {
-                $n = 0;
-                foreach ($this->failList as $item) {
-                    $res['FailList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failList)) {
+                $res['FailList'] = [];
+                $n1 = 0;
+                foreach ($this->failList as $item1) {
+                    $res['FailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->successList) {
-            $res['SuccessList'] = [];
-            if (null !== $this->successList && \is_array($this->successList)) {
-                $n = 0;
-                foreach ($this->successList as $item) {
-                    $res['SuccessList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->successList)) {
+                $res['SuccessList'] = [];
+                $n1 = 0;
+                foreach ($this->successList as $item1) {
+                    $res['SuccessList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,41 +94,47 @@ class SubmitEmailVerificationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitEmailVerificationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExistList'])) {
             if (!empty($map['ExistList'])) {
                 $model->existList = [];
-                $n                = 0;
-                foreach ($map['ExistList'] as $item) {
-                    $model->existList[$n++] = null !== $item ? existList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ExistList'] as $item1) {
+                    $model->existList[$n1] = existList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['FailList'])) {
             if (!empty($map['FailList'])) {
                 $model->failList = [];
-                $n               = 0;
-                foreach ($map['FailList'] as $item) {
-                    $model->failList[$n++] = null !== $item ? failList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailList'] as $item1) {
+                    $model->failList[$n1] = failList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuccessList'])) {
             if (!empty($map['SuccessList'])) {
                 $model->successList = [];
-                $n                  = 0;
-                foreach ($map['SuccessList'] as $item) {
-                    $model->successList[$n++] = null !== $item ? successList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SuccessList'] as $item1) {
+                    $model->successList[$n1] = successList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

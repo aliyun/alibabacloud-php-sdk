@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TransferInCheckMailTokenRequest extends Model
 {
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 3bdbaa0e-faa2-4ad2-98f4-bcfeb0237054
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'token'        => 'Token',
+        'lang' => 'Lang',
+        'token' => 'Token',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -56,20 +51,22 @@ class TransferInCheckMailTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TransferInCheckMailTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

@@ -4,58 +4,56 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveBatchTaskForGenerateDomainCertificateRequest extends Model
 {
     /**
-     * @description The domain names.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $domainNames;
 
     /**
-     * @description The language of the error message to return if the request fails. Valid values:
-     *
-     *   **zh**: Chinese.
-     *   **en**: English.
-     *
-     * Default value: **en**.
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The IP address of the client.
-     *
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'domainNames'  => 'DomainNames',
-        'lang'         => 'Lang',
+        'domainNames' => 'DomainNames',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainNames)) {
+            Model::validateArray($this->domainNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNames) {
-            $res['DomainNames'] = $this->domainNames;
+            if (\is_array($this->domainNames)) {
+                $res['DomainNames'] = [];
+                $n1 = 0;
+                foreach ($this->domainNames as $item1) {
+                    $res['DomainNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -63,22 +61,29 @@ class SaveBatchTaskForGenerateDomainCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveBatchTaskForGenerateDomainCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainNames'])) {
             if (!empty($map['DomainNames'])) {
-                $model->domainNames = $map['DomainNames'];
+                $model->domainNames = [];
+                $n1 = 0;
+                foreach ($map['DomainNames'] as $item1) {
+                    $model->domainNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

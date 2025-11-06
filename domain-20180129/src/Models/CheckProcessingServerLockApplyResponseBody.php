@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckProcessingServerLockApplyResponseBody extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $exists;
 
     /**
-     * @example 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'exists'    => 'Exists',
+        'exists' => 'Exists',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exists) {
             $res['Exists'] = $this->exists;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CheckProcessingServerLockApplyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckProcessingServerLockApplyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Exists'])) {
             $model->exists = $map['Exists'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

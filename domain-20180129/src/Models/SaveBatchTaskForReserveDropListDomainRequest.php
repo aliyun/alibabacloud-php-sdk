@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForReserveDropListDomainRequest\domains;
-use AlibabaCloud\Tea\Model;
 
 class SaveBatchTaskForReserveDropListDomainRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123123
-     *
      * @var string
      */
     public $contactTemplateId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var domains[]
      */
     public $domains;
     protected $_name = [
         'contactTemplateId' => 'ContactTemplateId',
-        'domains'           => 'Domains',
+        'domains' => 'Domains',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactTemplateId) {
             $res['ContactTemplateId'] = $this->contactTemplateId;
         }
+
         if (null !== $this->domains) {
-            $res['Domains'] = [];
-            if (null !== $this->domains && \is_array($this->domains)) {
-                $n = 0;
-                foreach ($this->domains as $item) {
-                    $res['Domains'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domains)) {
+                $res['Domains'] = [];
+                $n1 = 0;
+                foreach ($this->domains as $item1) {
+                    $res['Domains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class SaveBatchTaskForReserveDropListDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveBatchTaskForReserveDropListDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactTemplateId'])) {
             $model->contactTemplateId = $map['ContactTemplateId'];
         }
+
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = [];
-                $n              = 0;
-                foreach ($map['Domains'] as $item) {
-                    $model->domains[$n++] = null !== $item ? domains::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Domains'] as $item1) {
+                    $model->domains[$n1] = domains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

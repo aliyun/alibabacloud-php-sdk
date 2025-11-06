@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryTaskDetailHistoryResponseBody\currentPageCursor;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryTaskDetailHistoryResponseBody\nextPageCursor;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryTaskDetailHistoryResponseBody\objects;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryTaskDetailHistoryResponseBody\prePageCursor;
-use AlibabaCloud\Tea\Model;
 
 class QueryTaskDetailHistoryResponseBody extends Model
 {
@@ -28,8 +28,6 @@ class QueryTaskDetailHistoryResponseBody extends Model
     public $objects;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $pageSize;
@@ -40,48 +38,65 @@ class QueryTaskDetailHistoryResponseBody extends Model
     public $prePageCursor;
 
     /**
-     * @example 548CAE74-88F8-402F-8C12-97E747389C51
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'currentPageCursor' => 'CurrentPageCursor',
-        'nextPageCursor'    => 'NextPageCursor',
-        'objects'           => 'Objects',
-        'pageSize'          => 'PageSize',
-        'prePageCursor'     => 'PrePageCursor',
-        'requestId'         => 'RequestId',
+        'nextPageCursor' => 'NextPageCursor',
+        'objects' => 'Objects',
+        'pageSize' => 'PageSize',
+        'prePageCursor' => 'PrePageCursor',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->currentPageCursor) {
+            $this->currentPageCursor->validate();
+        }
+        if (null !== $this->nextPageCursor) {
+            $this->nextPageCursor->validate();
+        }
+        if (\is_array($this->objects)) {
+            Model::validateArray($this->objects);
+        }
+        if (null !== $this->prePageCursor) {
+            $this->prePageCursor->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPageCursor) {
-            $res['CurrentPageCursor'] = null !== $this->currentPageCursor ? $this->currentPageCursor->toMap() : null;
+            $res['CurrentPageCursor'] = null !== $this->currentPageCursor ? $this->currentPageCursor->toArray($noStream) : $this->currentPageCursor;
         }
+
         if (null !== $this->nextPageCursor) {
-            $res['NextPageCursor'] = null !== $this->nextPageCursor ? $this->nextPageCursor->toMap() : null;
+            $res['NextPageCursor'] = null !== $this->nextPageCursor ? $this->nextPageCursor->toArray($noStream) : $this->nextPageCursor;
         }
+
         if (null !== $this->objects) {
-            $res['Objects'] = [];
-            if (null !== $this->objects && \is_array($this->objects)) {
-                $n = 0;
-                foreach ($this->objects as $item) {
-                    $res['Objects'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->objects)) {
+                $res['Objects'] = [];
+                $n1 = 0;
+                foreach ($this->objects as $item1) {
+                    $res['Objects'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->prePageCursor) {
-            $res['PrePageCursor'] = null !== $this->prePageCursor ? $this->prePageCursor->toMap() : null;
+            $res['PrePageCursor'] = null !== $this->prePageCursor ? $this->prePageCursor->toArray($noStream) : $this->prePageCursor;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -89,35 +104,41 @@ class QueryTaskDetailHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTaskDetailHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPageCursor'])) {
             $model->currentPageCursor = currentPageCursor::fromMap($map['CurrentPageCursor']);
         }
+
         if (isset($map['NextPageCursor'])) {
             $model->nextPageCursor = nextPageCursor::fromMap($map['NextPageCursor']);
         }
+
         if (isset($map['Objects'])) {
             if (!empty($map['Objects'])) {
                 $model->objects = [];
-                $n              = 0;
-                foreach ($map['Objects'] as $item) {
-                    $model->objects[$n++] = null !== $item ? objects::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Objects'] as $item1) {
+                    $model->objects[$n1] = objects::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PrePageCursor'])) {
             $model->prePageCursor = prePageCursor::fromMap($map['PrePageCursor']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

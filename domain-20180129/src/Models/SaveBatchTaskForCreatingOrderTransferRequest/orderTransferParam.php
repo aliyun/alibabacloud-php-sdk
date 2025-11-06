@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForCreatingOrderTransferRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderTransferParam extends Model
 {
     /**
-     * @example testCode
-     *
      * @var string
      */
     public $authorizationCode;
 
     /**
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $permitPremiumTransfer;
 
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $registrantProfileId;
     protected $_name = [
-        'authorizationCode'     => 'AuthorizationCode',
-        'domainName'            => 'DomainName',
+        'authorizationCode' => 'AuthorizationCode',
+        'domainName' => 'DomainName',
         'permitPremiumTransfer' => 'PermitPremiumTransfer',
-        'registrantProfileId'   => 'RegistrantProfileId',
+        'registrantProfileId' => 'RegistrantProfileId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizationCode) {
             $res['AuthorizationCode'] = $this->authorizationCode;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->permitPremiumTransfer) {
             $res['PermitPremiumTransfer'] = $this->permitPremiumTransfer;
         }
+
         if (null !== $this->registrantProfileId) {
             $res['RegistrantProfileId'] = $this->registrantProfileId;
         }
@@ -65,23 +61,26 @@ class orderTransferParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderTransferParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizationCode'])) {
             $model->authorizationCode = $map['AuthorizationCode'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['PermitPremiumTransfer'])) {
             $model->permitPremiumTransfer = $map['PermitPremiumTransfer'];
         }
+
         if (isset($map['RegistrantProfileId'])) {
             $model->registrantProfileId = $map['RegistrantProfileId'];
         }

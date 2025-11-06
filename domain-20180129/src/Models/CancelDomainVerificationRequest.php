@@ -4,77 +4,56 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelDomainVerificationRequest extends Model
 {
     /**
-     * @description The action type. Valid values:
-     *
-     *   **DOMAINAUDIT**: review a domain name review.
-     *   **AUDITCONTACT**: review a contact.
-     *
-     * This parameter is required.
-     * @example AUDITCONTACT
-     *
      * @var string
      */
     public $actionType;
 
     /**
-     * @description Thee instance ID of the domain name. You can call the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example S2019270W570xxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The language of the error message to return if the request fails. Valid values:
-     *
-     *   **zh**: Chinese.
-     *   **en**: English.
-     *
-     * Default value: **en**.
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The IP address of the client. Set the value to **127.0.0.1**.
-     *
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'actionType'   => 'ActionType',
-        'instanceId'   => 'InstanceId',
-        'lang'         => 'Lang',
+        'actionType' => 'ActionType',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -82,23 +61,26 @@ class CancelDomainVerificationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelDomainVerificationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

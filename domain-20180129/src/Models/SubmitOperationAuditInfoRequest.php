@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitOperationAuditInfoRequest extends Model
 {
@@ -14,63 +14,56 @@ class SubmitOperationAuditInfoRequest extends Model
     public $auditInfo;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $auditType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example example.com,example.org
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
     protected $_name = [
-        'auditInfo'  => 'AuditInfo',
-        'auditType'  => 'AuditType',
+        'auditInfo' => 'AuditInfo',
+        'auditType' => 'AuditType',
         'domainName' => 'DomainName',
-        'id'         => 'Id',
-        'lang'       => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auditInfo) {
             $res['AuditInfo'] = $this->auditInfo;
         }
+
         if (null !== $this->auditType) {
             $res['AuditType'] = $this->auditType;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -78,26 +71,30 @@ class SubmitOperationAuditInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitOperationAuditInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuditInfo'])) {
             $model->auditInfo = $map['AuditInfo'];
         }
+
         if (isset($map['AuditType'])) {
             $model->auditType = $map['AuditType'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

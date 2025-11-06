@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckMaxYearOfServerLockResponseBody extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxYear;
 
     /**
-     * @example 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'maxYear'   => 'MaxYear',
+        'maxYear' => 'MaxYear',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxYear) {
             $res['MaxYear'] = $this->maxYear;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CheckMaxYearOfServerLockResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckMaxYearOfServerLockResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxYear'])) {
             $model->maxYear = $map['MaxYear'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

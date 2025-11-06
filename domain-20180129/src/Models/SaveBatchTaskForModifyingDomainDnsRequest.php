@@ -4,75 +4,86 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveBatchTaskForModifyingDomainDnsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $aliyunDns;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string[]
      */
     public $domainName;
 
     /**
-     * @example ns1.test.com
-     *
      * @var string[]
      */
     public $domainNameServer;
 
     /**
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'aliyunDns'        => 'AliyunDns',
-        'domainName'       => 'DomainName',
+        'aliyunDns' => 'AliyunDns',
+        'domainName' => 'DomainName',
         'domainNameServer' => 'DomainNameServer',
-        'lang'             => 'Lang',
-        'userClientIp'     => 'UserClientIp',
+        'lang' => 'Lang',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainName)) {
+            Model::validateArray($this->domainName);
+        }
+        if (\is_array($this->domainNameServer)) {
+            Model::validateArray($this->domainNameServer);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunDns) {
             $res['AliyunDns'] = $this->aliyunDns;
         }
+
         if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+            if (\is_array($this->domainName)) {
+                $res['DomainName'] = [];
+                $n1 = 0;
+                foreach ($this->domainName as $item1) {
+                    $res['DomainName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->domainNameServer) {
-            $res['DomainNameServer'] = $this->domainNameServer;
+            if (\is_array($this->domainNameServer)) {
+                $res['DomainNameServer'] = [];
+                $n1 = 0;
+                foreach ($this->domainNameServer as $item1) {
+                    $res['DomainNameServer'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -80,30 +91,44 @@ class SaveBatchTaskForModifyingDomainDnsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveBatchTaskForModifyingDomainDnsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunDns'])) {
             $model->aliyunDns = $map['AliyunDns'];
         }
+
         if (isset($map['DomainName'])) {
             if (!empty($map['DomainName'])) {
-                $model->domainName = $map['DomainName'];
+                $model->domainName = [];
+                $n1 = 0;
+                foreach ($map['DomainName'] as $item1) {
+                    $model->domainName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DomainNameServer'])) {
             if (!empty($map['DomainNameServer'])) {
-                $model->domainNameServer = $map['DomainNameServer'];
+                $model->domainNameServer = [];
+                $n1 = 0;
+                foreach ($map['DomainNameServer'] as $item1) {
+                    $model->domainNameServer[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DomainSpecialBizCancelRequest extends Model
 {
     /**
-     * @description The business ID.
-     *
-     * This parameter is required.
-     * @example 3666
-     *
      * @var int
      */
     public $bizId;
 
     /**
-     * @description The IP address of the client.
-     *
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'bizId'        => 'BizId',
+        'bizId' => 'BizId',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -48,17 +41,18 @@ class DomainSpecialBizCancelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DomainSpecialBizCancelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

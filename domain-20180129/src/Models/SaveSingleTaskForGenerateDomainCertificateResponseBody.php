@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveSingleTaskForGenerateDomainCertificateResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 3E68AB12-3D1F-5B9A-A358-F6B7852AD0B6
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
-     * @example 2741a831-d9ea-4dfb-af94-61948c0478c3
-     *
      * @var string
      */
     public $taskNo;
     protected $_name = [
         'requestId' => 'RequestId',
-        'taskNo'    => 'TaskNo',
+        'taskNo' => 'TaskNo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskNo) {
             $res['TaskNo'] = $this->taskNo;
         }
@@ -47,17 +41,18 @@ class SaveSingleTaskForGenerateDomainCertificateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveSingleTaskForGenerateDomainCertificateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskNo'])) {
             $model->taskNo = $map['TaskNo'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\PollTaskResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\PollTaskResultResponseBody\data\taskDetail;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskDetail)) {
+            Model::validateArray($this->taskDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskDetail) {
-            $res['TaskDetail'] = [];
-            if (null !== $this->taskDetail && \is_array($this->taskDetail)) {
-                $n = 0;
-                foreach ($this->taskDetail as $item) {
-                    $res['TaskDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskDetail)) {
+                $res['TaskDetail'] = [];
+                $n1 = 0;
+                foreach ($this->taskDetail as $item1) {
+                    $res['TaskDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskDetail'])) {
             if (!empty($map['TaskDetail'])) {
                 $model->taskDetail = [];
-                $n                 = 0;
-                foreach ($map['TaskDetail'] as $item) {
-                    $model->taskDetail[$n++] = null !== $item ? taskDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskDetail'] as $item1) {
+                    $model->taskDetail[$n1] = taskDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

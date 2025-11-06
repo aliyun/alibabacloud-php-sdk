@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\TransferInCheckMailTokenResponseBody\failList;
 use AlibabaCloud\SDK\Domain\V20180129\Models\TransferInCheckMailTokenResponseBody\successList;
-use AlibabaCloud\Tea\Model;
 
 class TransferInCheckMailTokenResponseBody extends Model
 {
@@ -16,8 +16,6 @@ class TransferInCheckMailTokenResponseBody extends Model
     public $failList;
 
     /**
-     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-     *
      * @var string
      */
     public $requestId;
@@ -27,45 +25,56 @@ class TransferInCheckMailTokenResponseBody extends Model
      */
     public $successList;
     protected $_name = [
-        'failList'    => 'FailList',
-        'requestId'   => 'RequestId',
+        'failList' => 'FailList',
+        'requestId' => 'RequestId',
         'successList' => 'SuccessList',
     ];
 
     public function validate()
     {
+        if (null !== $this->failList) {
+            $this->failList->validate();
+        }
+        if (null !== $this->successList) {
+            $this->successList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failList) {
-            $res['FailList'] = null !== $this->failList ? $this->failList->toMap() : null;
+            $res['FailList'] = null !== $this->failList ? $this->failList->toArray($noStream) : $this->failList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->successList) {
-            $res['SuccessList'] = null !== $this->successList ? $this->successList->toMap() : null;
+            $res['SuccessList'] = null !== $this->successList ? $this->successList->toArray($noStream) : $this->successList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TransferInCheckMailTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailList'])) {
             $model->failList = failList::fromMap($map['FailList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuccessList'])) {
             $model->successList = successList::fromMap($map['SuccessList']);
         }

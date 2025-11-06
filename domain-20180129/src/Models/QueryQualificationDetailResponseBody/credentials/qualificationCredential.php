@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryQualificationDetailResponseBody\credentials;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class qualificationCredential extends Model
 {
     /**
-     * @example 92610725MA7G2E****
-     *
      * @var string
      */
     public $credentialNo;
 
     /**
-     * @example SHSQB
-     *
      * @var string
      */
     public $credentialType;
@@ -27,24 +23,27 @@ class qualificationCredential extends Model
      */
     public $credentialUrl;
     protected $_name = [
-        'credentialNo'   => 'CredentialNo',
+        'credentialNo' => 'CredentialNo',
         'credentialType' => 'CredentialType',
-        'credentialUrl'  => 'CredentialUrl',
+        'credentialUrl' => 'CredentialUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->credentialNo) {
             $res['CredentialNo'] = $this->credentialNo;
         }
+
         if (null !== $this->credentialType) {
             $res['CredentialType'] = $this->credentialType;
         }
+
         if (null !== $this->credentialUrl) {
             $res['CredentialUrl'] = $this->credentialUrl;
         }
@@ -52,20 +51,22 @@ class qualificationCredential extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qualificationCredential
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CredentialNo'])) {
             $model->credentialNo = $map['CredentialNo'];
         }
+
         if (isset($map['CredentialType'])) {
             $model->credentialType = $map['CredentialType'];
         }
+
         if (isset($map['CredentialUrl'])) {
             $model->credentialUrl = $map['CredentialUrl'];
         }

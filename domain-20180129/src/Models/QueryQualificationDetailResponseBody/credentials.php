@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryQualificationDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryQualificationDetailResponseBody\credentials\qualificationCredential;
-use AlibabaCloud\Tea\Model;
 
 class credentials extends Model
 {
@@ -19,17 +19,22 @@ class credentials extends Model
 
     public function validate()
     {
+        if (\is_array($this->qualificationCredential)) {
+            Model::validateArray($this->qualificationCredential);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qualificationCredential) {
-            $res['QualificationCredential'] = [];
-            if (null !== $this->qualificationCredential && \is_array($this->qualificationCredential)) {
-                $n = 0;
-                foreach ($this->qualificationCredential as $item) {
-                    $res['QualificationCredential'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qualificationCredential)) {
+                $res['QualificationCredential'] = [];
+                $n1 = 0;
+                foreach ($this->qualificationCredential as $item1) {
+                    $res['QualificationCredential'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class credentials extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return credentials
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QualificationCredential'])) {
             if (!empty($map['QualificationCredential'])) {
                 $model->qualificationCredential = [];
-                $n                              = 0;
-                foreach ($map['QualificationCredential'] as $item) {
-                    $model->qualificationCredential[$n++] = null !== $item ? qualificationCredential::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QualificationCredential'] as $item1) {
+                    $model->qualificationCredential[$n1] = qualificationCredential::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

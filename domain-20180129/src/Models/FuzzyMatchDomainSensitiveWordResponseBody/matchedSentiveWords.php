@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\FuzzyMatchDomainSensitiveWordResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\FuzzyMatchDomainSensitiveWordResponseBody\matchedSentiveWords\matchedSensitiveWord;
-use AlibabaCloud\Tea\Model;
 
 class matchedSentiveWords extends Model
 {
@@ -19,17 +19,22 @@ class matchedSentiveWords extends Model
 
     public function validate()
     {
+        if (\is_array($this->matchedSensitiveWord)) {
+            Model::validateArray($this->matchedSensitiveWord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->matchedSensitiveWord) {
-            $res['MatchedSensitiveWord'] = [];
-            if (null !== $this->matchedSensitiveWord && \is_array($this->matchedSensitiveWord)) {
-                $n = 0;
-                foreach ($this->matchedSensitiveWord as $item) {
-                    $res['MatchedSensitiveWord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->matchedSensitiveWord)) {
+                $res['MatchedSensitiveWord'] = [];
+                $n1 = 0;
+                foreach ($this->matchedSensitiveWord as $item1) {
+                    $res['MatchedSensitiveWord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class matchedSentiveWords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return matchedSentiveWords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchedSensitiveWord'])) {
             if (!empty($map['MatchedSensitiveWord'])) {
                 $model->matchedSensitiveWord = [];
-                $n                           = 0;
-                foreach ($map['MatchedSensitiveWord'] as $item) {
-                    $model->matchedSensitiveWord[$n++] = null !== $item ? matchedSensitiveWord::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MatchedSensitiveWord'] as $item1) {
+                    $model->matchedSensitiveWord[$n1] = matchedSensitiveWord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

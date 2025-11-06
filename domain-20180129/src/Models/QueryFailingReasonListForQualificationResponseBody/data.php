@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryFailingReasonListForQualificationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 2017-03-17 11:08:02
-     *
      * @var string
      */
     public $date;
@@ -20,20 +18,22 @@ class data extends Model
      */
     public $failReason;
     protected $_name = [
-        'date'       => 'Date',
+        'date' => 'Date',
         'failReason' => 'FailReason',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->failReason) {
             $res['FailReason'] = $this->failReason;
         }
@@ -41,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['FailReason'])) {
             $model->failReason = $map['FailReason'];
         }

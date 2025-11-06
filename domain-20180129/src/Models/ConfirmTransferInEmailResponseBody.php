@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ConfirmTransferInEmailResponseBody\failList;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ConfirmTransferInEmailResponseBody\successList;
-use AlibabaCloud\Tea\Model;
 
 class ConfirmTransferInEmailResponseBody extends Model
 {
@@ -16,8 +16,6 @@ class ConfirmTransferInEmailResponseBody extends Model
     public $failList;
 
     /**
-     * @example 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-     *
      * @var string
      */
     public $requestId;
@@ -27,45 +25,56 @@ class ConfirmTransferInEmailResponseBody extends Model
      */
     public $successList;
     protected $_name = [
-        'failList'    => 'FailList',
-        'requestId'   => 'RequestId',
+        'failList' => 'FailList',
+        'requestId' => 'RequestId',
         'successList' => 'SuccessList',
     ];
 
     public function validate()
     {
+        if (null !== $this->failList) {
+            $this->failList->validate();
+        }
+        if (null !== $this->successList) {
+            $this->successList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failList) {
-            $res['FailList'] = null !== $this->failList ? $this->failList->toMap() : null;
+            $res['FailList'] = null !== $this->failList ? $this->failList->toArray($noStream) : $this->failList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->successList) {
-            $res['SuccessList'] = null !== $this->successList ? $this->successList->toMap() : null;
+            $res['SuccessList'] = null !== $this->successList ? $this->successList->toArray($noStream) : $this->successList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfirmTransferInEmailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailList'])) {
             $model->failList = failList::fromMap($map['FailList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuccessList'])) {
             $model->successList = successList::fromMap($map['SuccessList']);
         }
