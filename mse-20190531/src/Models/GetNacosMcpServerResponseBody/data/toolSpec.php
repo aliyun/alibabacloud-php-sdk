@@ -21,6 +21,11 @@ class toolSpec extends Model
     public $specificationType;
 
     /**
+     * @var string
+     */
+    public $toolDecryptStatus;
+
+    /**
      * @var tools[]
      */
     public $tools;
@@ -32,6 +37,7 @@ class toolSpec extends Model
     protected $_name = [
         'securitySchemes' => 'SecuritySchemes',
         'specificationType' => 'SpecificationType',
+        'toolDecryptStatus' => 'ToolDecryptStatus',
         'tools' => 'Tools',
         'toolsMeta' => 'ToolsMeta',
     ];
@@ -56,6 +62,10 @@ class toolSpec extends Model
 
         if (null !== $this->specificationType) {
             $res['SpecificationType'] = $this->specificationType;
+        }
+
+        if (null !== $this->toolDecryptStatus) {
+            $res['ToolDecryptStatus'] = $this->toolDecryptStatus;
         }
 
         if (null !== $this->tools) {
@@ -95,6 +105,10 @@ class toolSpec extends Model
 
         if (isset($map['SpecificationType'])) {
             $model->specificationType = $map['SpecificationType'];
+        }
+
+        if (isset($map['ToolDecryptStatus'])) {
+            $model->toolDecryptStatus = $map['ToolDecryptStatus'];
         }
 
         if (isset($map['Tools'])) {
