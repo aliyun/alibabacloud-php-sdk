@@ -22,6 +22,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $creationTime;
+
+    /**
+     * @var string
+     */
     public $DBNodeClass;
 
     /**
@@ -81,6 +86,7 @@ class DBNodes extends Model
     protected $_name = [
         'childVolumes' => 'ChildVolumes',
         'cpuCores' => 'CpuCores',
+        'creationTime' => 'CreationTime',
         'DBNodeClass' => 'DBNodeClass',
         'DBNodeDescription' => 'DBNodeDescription',
         'DBNodeId' => 'DBNodeId',
@@ -119,6 +125,10 @@ class DBNodes extends Model
 
         if (null !== $this->cpuCores) {
             $res['CpuCores'] = $this->cpuCores;
+        }
+
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
 
         if (null !== $this->DBNodeClass) {
@@ -193,6 +203,10 @@ class DBNodes extends Model
 
         if (isset($map['CpuCores'])) {
             $model->cpuCores = $map['CpuCores'];
+        }
+
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
 
         if (isset($map['DBNodeClass'])) {

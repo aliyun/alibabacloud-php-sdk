@@ -14567,6 +14567,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询vpc.
+     *
      * @param request - DescribeRdsVpcsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14632,6 +14634,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询vpc.
+     *
      * @param request - DescribeRdsVpcsRequest
      *
      * @returns DescribeRdsVpcsResponse
