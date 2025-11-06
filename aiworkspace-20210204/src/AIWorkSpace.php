@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateDatasetVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateExperimentRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateExperimentResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateImageBuildRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateImageBuildResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateMemberRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateMemberResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateModelLabelsRequest;
@@ -1538,6 +1540,109 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->createExperimentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建镜像构建任务
+     *
+     * @param request - CreateImageBuildRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageBuildResponse
+     *
+     * @param CreateImageBuildRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateImageBuildResponse
+     */
+    public function createImageBuildWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->buildConfig) {
+            @$body['BuildConfig'] = $request->buildConfig;
+        }
+
+        if (null !== $request->image) {
+            @$body['Image'] = $request->image;
+        }
+
+        if (null !== $request->imageBuildJobName) {
+            @$body['ImageBuildJobName'] = $request->imageBuildJobName;
+        }
+
+        if (null !== $request->overwriteImageTag) {
+            @$body['OverwriteImageTag'] = $request->overwriteImageTag;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resource) {
+            @$body['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->targetRegistry) {
+            @$body['TargetRegistry'] = $request->targetRegistry;
+        }
+
+        if (null !== $request->userVpc) {
+            @$body['UserVpc'] = $request->userVpc;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateImageBuild',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/imagebuilds',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateImageBuildResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建镜像构建任务
+     *
+     * @param request - CreateImageBuildRequest
+     *
+     * @returns CreateImageBuildResponse
+     *
+     * @param CreateImageBuildRequest $request
+     *
+     * @return CreateImageBuildResponse
+     */
+    public function createImageBuild($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createImageBuildWithOptions($request, $headers, $runtime);
     }
 
     /**
