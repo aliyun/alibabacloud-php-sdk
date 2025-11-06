@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateRoleResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteComputeQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteMmsDataSourceResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteMmsJobResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteProjectRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteQuotaPlanRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetComputeEffectivePlanResponse;
@@ -1070,6 +1072,69 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->deleteMmsJobWithOptions($sourceId, $jobId, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a MaxCompute project.
+     *
+     * @param request - DeleteProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param string               $projectName
+     * @param DeleteProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($projectName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->isLogical) {
+            @$query['isLogical'] = $request->isLogical;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProject',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a MaxCompute project.
+     *
+     * @param request - DeleteProjectRequest
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param string               $projectName
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProject($projectName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteProjectWithOptions($projectName, $request, $headers, $runtime);
     }
 
     /**
