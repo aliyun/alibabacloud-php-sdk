@@ -77,6 +77,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeUpgradeResourceRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeUpgradeResourceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeWhitelistRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeWhitelistResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMdsCubeTemplateRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMdsCubeTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMdsWhitelistContentRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMdsWhitelistContentResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteTemplateRequest;
@@ -3321,6 +3323,71 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMcubeWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DeleteMdsCubeTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMdsCubeTemplateResponse
+     *
+     * @param DeleteMdsCubeTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteMdsCubeTemplateResponse
+     */
+    public function deleteMdsCubeTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMdsCubeTemplate',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMdsCubeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteMdsCubeTemplateRequest
+     *
+     * @returns DeleteMdsCubeTemplateResponse
+     *
+     * @param DeleteMdsCubeTemplateRequest $request
+     *
+     * @return DeleteMdsCubeTemplateResponse
+     */
+    public function deleteMdsCubeTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMdsCubeTemplateWithOptions($request, $runtime);
     }
 
     /**
