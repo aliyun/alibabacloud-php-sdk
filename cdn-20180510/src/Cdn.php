@@ -25,10 +25,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchStopCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchStopCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchUpdateCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchUpdateCdnDomainResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\CdnMigrateRegisterRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\CdnMigrateRegisterResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ChangeCdnDomainToDcdnRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ChangeCdnDomainToDcdnResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CheckCdnDomainExistRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CheckCdnDomainExistResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CheckCdnDomainICPRequest;
@@ -100,8 +96,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnFullDomainsBlockIPHistoryRe
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnFullDomainsBlockIPHistoryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnHttpsDomainListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnHttpsDomainListResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnMigrateRegisterStatusRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnMigrateRegisterStatusResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnOrderCommodityCodeRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnOrderCommodityCodeResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnRegionAndIspRequest;
@@ -1235,136 +1229,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchUpdateCdnDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * Registers the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for an Alibaba Cloud CDN-accelerated domain name. After the registration is successful, the routing center generates the dynamic routing information and send it to DCDN points of presence (POPs). This is a prerequisite for you to transfer a domain name from Alibaba Cloud CDN to DCDN.
-     *
-     * @param request - CdnMigrateRegisterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CdnMigrateRegisterResponse
-     *
-     * @param CdnMigrateRegisterRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CdnMigrateRegisterResponse
-     */
-    public function cdnMigrateRegisterWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'CdnMigrateRegister',
-            'version' => '2018-05-10',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CdnMigrateRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Registers the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for an Alibaba Cloud CDN-accelerated domain name. After the registration is successful, the routing center generates the dynamic routing information and send it to DCDN points of presence (POPs). This is a prerequisite for you to transfer a domain name from Alibaba Cloud CDN to DCDN.
-     *
-     * @param request - CdnMigrateRegisterRequest
-     *
-     * @returns CdnMigrateRegisterResponse
-     *
-     * @param CdnMigrateRegisterRequest $request
-     *
-     * @return CdnMigrateRegisterResponse
-     */
-    public function cdnMigrateRegister($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cdnMigrateRegisterWithOptions($request, $runtime);
-    }
-
-    /**
-     * Transfer a domain name from Alibaba Cloud CDN to DCDN.
-     *
-     * @param request - ChangeCdnDomainToDcdnRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ChangeCdnDomainToDcdnResponse
-     *
-     * @param ChangeCdnDomainToDcdnRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ChangeCdnDomainToDcdnResponse
-     */
-    public function changeCdnDomainToDcdnWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
-        }
-
-        if (null !== $request->operation) {
-            @$query['Operation'] = $request->operation;
-        }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ChangeCdnDomainToDcdn',
-            'version' => '2018-05-10',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ChangeCdnDomainToDcdnResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Transfer a domain name from Alibaba Cloud CDN to DCDN.
-     *
-     * @param request - ChangeCdnDomainToDcdnRequest
-     *
-     * @returns ChangeCdnDomainToDcdnResponse
-     *
-     * @param ChangeCdnDomainToDcdnRequest $request
-     *
-     * @return ChangeCdnDomainToDcdnResponse
-     */
-    public function changeCdnDomainToDcdn($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->changeCdnDomainToDcdnWithOptions($request, $runtime);
     }
 
     /**
@@ -3867,69 +3731,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnHttpsDomainListWithOptions($request, $runtime);
-    }
-
-    /**
-     * Queries the registration status of the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for a domain name that is added to Alibaba Cloud CDN.
-     *
-     * @remarks
-     * >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
-     *
-     * @param request - DescribeCdnMigrateRegisterStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCdnMigrateRegisterStatusResponse
-     *
-     * @param DescribeCdnMigrateRegisterStatusRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeCdnMigrateRegisterStatusResponse
-     */
-    public function describeCdnMigrateRegisterStatusWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeCdnMigrateRegisterStatus',
-            'version' => '2018-05-10',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeCdnMigrateRegisterStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Queries the registration status of the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for a domain name that is added to Alibaba Cloud CDN.
-     *
-     * @remarks
-     * >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
-     *
-     * @param request - DescribeCdnMigrateRegisterStatusRequest
-     *
-     * @returns DescribeCdnMigrateRegisterStatusResponse
-     *
-     * @param DescribeCdnMigrateRegisterStatusRequest $request
-     *
-     * @return DescribeCdnMigrateRegisterStatusResponse
-     */
-    public function describeCdnMigrateRegisterStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCdnMigrateRegisterStatusWithOptions($request, $runtime);
     }
 
     /**

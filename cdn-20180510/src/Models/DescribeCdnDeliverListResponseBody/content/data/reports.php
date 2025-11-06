@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
+namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListResponseBody\content\data;
 
 use AlibabaCloud\Dara\Model;
 
-class CdnMigrateRegisterRequest extends Model
+class reports extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $domainName;
+    public $reportId;
     protected $_name = [
-        'domainName' => 'DomainName',
+        'reportId' => 'reportId',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class CdnMigrateRegisterRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->reportId) {
+            $res['reportId'] = $this->reportId;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class CdnMigrateRegisterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['reportId'])) {
+            $model->reportId = $map['reportId'];
         }
 
         return $model;

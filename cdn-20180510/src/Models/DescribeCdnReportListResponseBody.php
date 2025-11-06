@@ -5,11 +5,12 @@
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportListResponseBody\content;
 
 class DescribeCdnReportListResponseBody extends Model
 {
     /**
-     * @var string
+     * @var content
      */
     public $content;
 
@@ -24,6 +25,9 @@ class DescribeCdnReportListResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->content) {
+            $this->content->validate();
+        }
         parent::validate();
     }
 
@@ -31,7 +35,7 @@ class DescribeCdnReportListResponseBody extends Model
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = $this->content;
+            $res['Content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
 
         if (null !== $this->requestId) {
@@ -50,7 +54,7 @@ class DescribeCdnReportListResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+            $model->content = content::fromMap($map['Content']);
         }
 
         if (isset($map['RequestId'])) {

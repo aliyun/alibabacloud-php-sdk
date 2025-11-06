@@ -5,11 +5,12 @@
 namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportResponseBody\content;
 
 class DescribeCdnReportResponseBody extends Model
 {
     /**
-     * @var mixed[]
+     * @var content
      */
     public $content;
 
@@ -24,8 +25,8 @@ class DescribeCdnReportResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->content)) {
-            Model::validateArray($this->content);
+        if (null !== $this->content) {
+            $this->content->validate();
         }
         parent::validate();
     }
@@ -34,12 +35,7 @@ class DescribeCdnReportResponseBody extends Model
     {
         $res = [];
         if (null !== $this->content) {
-            if (\is_array($this->content)) {
-                $res['Content'] = [];
-                foreach ($this->content as $key1 => $value1) {
-                    $res['Content'][$key1] = $value1;
-                }
-            }
+            $res['Content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
 
         if (null !== $this->requestId) {
@@ -58,12 +54,7 @@ class DescribeCdnReportResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Content'])) {
-            if (!empty($map['Content'])) {
-                $model->content = [];
-                foreach ($map['Content'] as $key1 => $value1) {
-                    $model->content[$key1] = $value1;
-                }
-            }
+            $model->content = content::fromMap($map['Content']);
         }
 
         if (isset($map['RequestId'])) {
