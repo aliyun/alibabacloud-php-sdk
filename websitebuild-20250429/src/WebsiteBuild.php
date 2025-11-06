@@ -15,12 +15,16 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainRedirectReques
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainRedirectResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsRequest;
@@ -406,6 +410,79 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * DispatchConsoleAPIForPartner.
+     *
+     * @param request - DispatchConsoleAPIForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DispatchConsoleAPIForPartnerResponse
+     *
+     * @param DispatchConsoleAPIForPartnerRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DispatchConsoleAPIForPartnerResponse
+     */
+    public function dispatchConsoleAPIForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->liveToken) {
+            @$query['LiveToken'] = $request->liveToken;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
+        }
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
+        }
+
+        if (null !== $request->siteHost) {
+            @$query['SiteHost'] = $request->siteHost;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DispatchConsoleAPIForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DispatchConsoleAPIForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DispatchConsoleAPIForPartner.
+     *
+     * @param request - DispatchConsoleAPIForPartnerRequest
+     *
+     * @returns DispatchConsoleAPIForPartnerResponse
+     *
+     * @param DispatchConsoleAPIForPartnerRequest $request
+     *
+     * @return DispatchConsoleAPIForPartnerResponse
+     */
+    public function dispatchConsoleAPIForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dispatchConsoleAPIForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询Logo创建任务
      *
      * @param request - GetCreateLogoTaskRequest
@@ -586,6 +663,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIcpFilingInfoForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过授权码得到accessToken.
+     *
+     * @param request - GetUserAccessTokenForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserAccessTokenForPartnerResponse
+     *
+     * @param GetUserAccessTokenForPartnerRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetUserAccessTokenForPartnerResponse
+     */
+    public function getUserAccessTokenForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteHost) {
+            @$query['SiteHost'] = $request->siteHost;
+        }
+
+        if (null !== $request->ticket) {
+            @$query['Ticket'] = $request->ticket;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserAccessTokenForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserAccessTokenForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过授权码得到accessToken.
+     *
+     * @param request - GetUserAccessTokenForPartnerRequest
+     *
+     * @returns GetUserAccessTokenForPartnerResponse
+     *
+     * @param GetUserAccessTokenForPartnerRequest $request
+     *
+     * @return GetUserAccessTokenForPartnerResponse
+     */
+    public function getUserAccessTokenForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserAccessTokenForPartnerWithOptions($request, $runtime);
     }
 
     /**
