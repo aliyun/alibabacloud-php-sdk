@@ -29,6 +29,11 @@ class CreateMdsMiniprogramTaskRequest extends Model
     public $greyNum;
 
     /**
+     * @var string
+     */
+    public $h5Id;
+
+    /**
      * @var int
      */
     public $id;
@@ -77,6 +82,7 @@ class CreateMdsMiniprogramTaskRequest extends Model
         'greyConfigInfo' => 'GreyConfigInfo',
         'greyEndtimeData' => 'GreyEndtimeData',
         'greyNum' => 'GreyNum',
+        'h5Id' => 'H5Id',
         'id' => 'Id',
         'memo' => 'Memo',
         'packageId' => 'PackageId',
@@ -110,6 +116,10 @@ class CreateMdsMiniprogramTaskRequest extends Model
 
         if (null !== $this->greyNum) {
             $res['GreyNum'] = $this->greyNum;
+        }
+
+        if (null !== $this->h5Id) {
+            $res['H5Id'] = $this->h5Id;
         }
 
         if (null !== $this->id) {
@@ -173,6 +183,10 @@ class CreateMdsMiniprogramTaskRequest extends Model
 
         if (isset($map['GreyNum'])) {
             $model->greyNum = $map['GreyNum'];
+        }
+
+        if (isset($map['H5Id'])) {
+            $model->h5Id = $map['H5Id'];
         }
 
         if (isset($map['Id'])) {

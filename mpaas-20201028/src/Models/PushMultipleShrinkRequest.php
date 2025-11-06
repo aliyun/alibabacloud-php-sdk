@@ -62,6 +62,11 @@ class PushMultipleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $notifyLevelShrink;
+
+    /**
+     * @var string
+     */
     public $notifyType;
 
     /**
@@ -134,6 +139,7 @@ class PushMultipleShrinkRequest extends Model
         'expiredSeconds' => 'ExpiredSeconds',
         'extendedParams' => 'ExtendedParams',
         'miChannelId' => 'MiChannelId',
+        'notifyLevelShrink' => 'NotifyLevel',
         'notifyType' => 'NotifyType',
         'pushAction' => 'PushAction',
         'silent' => 'Silent',
@@ -198,6 +204,10 @@ class PushMultipleShrinkRequest extends Model
 
         if (null !== $this->miChannelId) {
             $res['MiChannelId'] = $this->miChannelId;
+        }
+
+        if (null !== $this->notifyLevelShrink) {
+            $res['NotifyLevel'] = $this->notifyLevelShrink;
         }
 
         if (null !== $this->notifyType) {
@@ -308,6 +318,10 @@ class PushMultipleShrinkRequest extends Model
 
         if (isset($map['MiChannelId'])) {
             $model->miChannelId = $map['MiChannelId'];
+        }
+
+        if (isset($map['NotifyLevel'])) {
+            $model->notifyLevelShrink = $map['NotifyLevel'];
         }
 
         if (isset($map['NotifyType'])) {

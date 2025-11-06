@@ -76,6 +76,11 @@ class PushSimpleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $notifyLevelShrink;
+
+    /**
+     * @var string
+     */
     public $notifyType;
 
     /**
@@ -181,6 +186,7 @@ class PushSimpleShrinkRequest extends Model
         'iconUrls' => 'IconUrls',
         'imageUrls' => 'ImageUrls',
         'miChannelId' => 'MiChannelId',
+        'notifyLevelShrink' => 'NotifyLevel',
         'notifyType' => 'NotifyType',
         'pushAction' => 'PushAction',
         'pushStyle' => 'PushStyle',
@@ -260,6 +266,10 @@ class PushSimpleShrinkRequest extends Model
 
         if (null !== $this->miChannelId) {
             $res['MiChannelId'] = $this->miChannelId;
+        }
+
+        if (null !== $this->notifyLevelShrink) {
+            $res['NotifyLevel'] = $this->notifyLevelShrink;
         }
 
         if (null !== $this->notifyType) {
@@ -399,6 +409,10 @@ class PushSimpleShrinkRequest extends Model
 
         if (isset($map['MiChannelId'])) {
             $model->miChannelId = $map['MiChannelId'];
+        }
+
+        if (isset($map['NotifyLevel'])) {
+            $model->notifyLevelShrink = $map['NotifyLevel'];
         }
 
         if (isset($map['NotifyType'])) {

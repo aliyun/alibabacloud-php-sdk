@@ -21,7 +21,17 @@ class PushBroadcastRequest extends Model
     /**
      * @var int
      */
+    public $bindEndTime;
+
+    /**
+     * @var int
+     */
     public $bindPeriod;
+
+    /**
+     * @var int
+     */
+    public $bindStartTime;
 
     /**
      * @var string
@@ -57,6 +67,11 @@ class PushBroadcastRequest extends Model
      * @var string
      */
     public $msgkey;
+
+    /**
+     * @var mixed[]
+     */
+    public $notifyLevel;
 
     /**
      * @var string
@@ -114,6 +129,11 @@ class PushBroadcastRequest extends Model
     public $thirdChannelCategory;
 
     /**
+     * @var int
+     */
+    public $timeMode;
+
+    /**
      * @var mixed
      */
     public $transparentMessagePayload;
@@ -126,7 +146,17 @@ class PushBroadcastRequest extends Model
     /**
      * @var int
      */
+    public $unBindEndTime;
+
+    /**
+     * @var int
+     */
     public $unBindPeriod;
+
+    /**
+     * @var int
+     */
+    public $unBindStartTime;
 
     /**
      * @var string
@@ -135,7 +165,9 @@ class PushBroadcastRequest extends Model
     protected $_name = [
         'androidChannel' => 'AndroidChannel',
         'appId' => 'AppId',
+        'bindEndTime' => 'BindEndTime',
         'bindPeriod' => 'BindPeriod',
+        'bindStartTime' => 'BindStartTime',
         'channelId' => 'ChannelId',
         'classification' => 'Classification',
         'deliveryType' => 'DeliveryType',
@@ -143,6 +175,7 @@ class PushBroadcastRequest extends Model
         'extendedParams' => 'ExtendedParams',
         'miChannelId' => 'MiChannelId',
         'msgkey' => 'Msgkey',
+        'notifyLevel' => 'NotifyLevel',
         'notifyType' => 'NotifyType',
         'pushAction' => 'PushAction',
         'pushStatus' => 'PushStatus',
@@ -154,14 +187,20 @@ class PushBroadcastRequest extends Model
         'templateName' => 'TemplateName',
         'tenantId' => 'TenantId',
         'thirdChannelCategory' => 'ThirdChannelCategory',
+        'timeMode' => 'TimeMode',
         'transparentMessagePayload' => 'TransparentMessagePayload',
         'transparentMessageUrgency' => 'TransparentMessageUrgency',
+        'unBindEndTime' => 'UnBindEndTime',
         'unBindPeriod' => 'UnBindPeriod',
+        'unBindStartTime' => 'UnBindStartTime',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->notifyLevel)) {
+            Model::validateArray($this->notifyLevel);
+        }
         if (\is_array($this->thirdChannelCategory)) {
             Model::validateArray($this->thirdChannelCategory);
         }
@@ -179,8 +218,16 @@ class PushBroadcastRequest extends Model
             $res['AppId'] = $this->appId;
         }
 
+        if (null !== $this->bindEndTime) {
+            $res['BindEndTime'] = $this->bindEndTime;
+        }
+
         if (null !== $this->bindPeriod) {
             $res['BindPeriod'] = $this->bindPeriod;
+        }
+
+        if (null !== $this->bindStartTime) {
+            $res['BindStartTime'] = $this->bindStartTime;
         }
 
         if (null !== $this->channelId) {
@@ -209,6 +256,15 @@ class PushBroadcastRequest extends Model
 
         if (null !== $this->msgkey) {
             $res['Msgkey'] = $this->msgkey;
+        }
+
+        if (null !== $this->notifyLevel) {
+            if (\is_array($this->notifyLevel)) {
+                $res['NotifyLevel'] = [];
+                foreach ($this->notifyLevel as $key1 => $value1) {
+                    $res['NotifyLevel'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->notifyType) {
@@ -260,6 +316,10 @@ class PushBroadcastRequest extends Model
             }
         }
 
+        if (null !== $this->timeMode) {
+            $res['TimeMode'] = $this->timeMode;
+        }
+
         if (null !== $this->transparentMessagePayload) {
             $res['TransparentMessagePayload'] = $this->transparentMessagePayload;
         }
@@ -268,8 +328,16 @@ class PushBroadcastRequest extends Model
             $res['TransparentMessageUrgency'] = $this->transparentMessageUrgency;
         }
 
+        if (null !== $this->unBindEndTime) {
+            $res['UnBindEndTime'] = $this->unBindEndTime;
+        }
+
         if (null !== $this->unBindPeriod) {
             $res['UnBindPeriod'] = $this->unBindPeriod;
+        }
+
+        if (null !== $this->unBindStartTime) {
+            $res['UnBindStartTime'] = $this->unBindStartTime;
         }
 
         if (null !== $this->workspaceId) {
@@ -295,8 +363,16 @@ class PushBroadcastRequest extends Model
             $model->appId = $map['AppId'];
         }
 
+        if (isset($map['BindEndTime'])) {
+            $model->bindEndTime = $map['BindEndTime'];
+        }
+
         if (isset($map['BindPeriod'])) {
             $model->bindPeriod = $map['BindPeriod'];
+        }
+
+        if (isset($map['BindStartTime'])) {
+            $model->bindStartTime = $map['BindStartTime'];
         }
 
         if (isset($map['ChannelId'])) {
@@ -325,6 +401,15 @@ class PushBroadcastRequest extends Model
 
         if (isset($map['Msgkey'])) {
             $model->msgkey = $map['Msgkey'];
+        }
+
+        if (isset($map['NotifyLevel'])) {
+            if (!empty($map['NotifyLevel'])) {
+                $model->notifyLevel = [];
+                foreach ($map['NotifyLevel'] as $key1 => $value1) {
+                    $model->notifyLevel[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['NotifyType'])) {
@@ -376,6 +461,10 @@ class PushBroadcastRequest extends Model
             }
         }
 
+        if (isset($map['TimeMode'])) {
+            $model->timeMode = $map['TimeMode'];
+        }
+
         if (isset($map['TransparentMessagePayload'])) {
             $model->transparentMessagePayload = $map['TransparentMessagePayload'];
         }
@@ -384,8 +473,16 @@ class PushBroadcastRequest extends Model
             $model->transparentMessageUrgency = $map['TransparentMessageUrgency'];
         }
 
+        if (isset($map['UnBindEndTime'])) {
+            $model->unBindEndTime = $map['UnBindEndTime'];
+        }
+
         if (isset($map['UnBindPeriod'])) {
             $model->unBindPeriod = $map['UnBindPeriod'];
+        }
+
+        if (isset($map['UnBindStartTime'])) {
+            $model->unBindStartTime = $map['UnBindStartTime'];
         }
 
         if (isset($map['WorkspaceId'])) {

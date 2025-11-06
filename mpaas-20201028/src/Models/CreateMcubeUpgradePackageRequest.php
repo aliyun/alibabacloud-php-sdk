@@ -51,6 +51,11 @@ class CreateMcubeUpgradePackageRequest extends Model
     /**
      * @var string
      */
+    public $harmonyLabel;
+
+    /**
+     * @var string
+     */
     public $iconFileUrl;
 
     /**
@@ -67,6 +72,11 @@ class CreateMcubeUpgradePackageRequest extends Model
      * @var int
      */
     public $isEnterprise;
+
+    /**
+     * @var string
+     */
+    public $largeIconUrl;
 
     /**
      * @var int
@@ -106,10 +116,12 @@ class CreateMcubeUpgradePackageRequest extends Model
         'desc' => 'Desc',
         'downloadUrl' => 'DownloadUrl',
         'fileUrl' => 'FileUrl',
+        'harmonyLabel' => 'HarmonyLabel',
         'iconFileUrl' => 'IconFileUrl',
         'installAmount' => 'InstallAmount',
         'iosSymbolfileUrl' => 'IosSymbolfileUrl',
         'isEnterprise' => 'IsEnterprise',
+        'largeIconUrl' => 'LargeIconUrl',
         'needCheck' => 'NeedCheck',
         'onexFlag' => 'OnexFlag',
         'platform' => 'Platform',
@@ -158,6 +170,10 @@ class CreateMcubeUpgradePackageRequest extends Model
             $res['FileUrl'] = $this->fileUrl;
         }
 
+        if (null !== $this->harmonyLabel) {
+            $res['HarmonyLabel'] = $this->harmonyLabel;
+        }
+
         if (null !== $this->iconFileUrl) {
             $res['IconFileUrl'] = $this->iconFileUrl;
         }
@@ -172,6 +188,10 @@ class CreateMcubeUpgradePackageRequest extends Model
 
         if (null !== $this->isEnterprise) {
             $res['IsEnterprise'] = $this->isEnterprise;
+        }
+
+        if (null !== $this->largeIconUrl) {
+            $res['LargeIconUrl'] = $this->largeIconUrl;
         }
 
         if (null !== $this->needCheck) {
@@ -241,6 +261,10 @@ class CreateMcubeUpgradePackageRequest extends Model
             $model->fileUrl = $map['FileUrl'];
         }
 
+        if (isset($map['HarmonyLabel'])) {
+            $model->harmonyLabel = $map['HarmonyLabel'];
+        }
+
         if (isset($map['IconFileUrl'])) {
             $model->iconFileUrl = $map['IconFileUrl'];
         }
@@ -255,6 +279,10 @@ class CreateMcubeUpgradePackageRequest extends Model
 
         if (isset($map['IsEnterprise'])) {
             $model->isEnterprise = $map['IsEnterprise'];
+        }
+
+        if (isset($map['LargeIconUrl'])) {
+            $model->largeIconUrl = $map['LargeIconUrl'];
         }
 
         if (isset($map['NeedCheck'])) {

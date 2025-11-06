@@ -60,6 +60,11 @@ class PushMultipleRequest extends Model
     public $miChannelId;
 
     /**
+     * @var mixed[]
+     */
+    public $notifyLevel;
+
+    /**
      * @var string
      */
     public $notifyType;
@@ -134,6 +139,7 @@ class PushMultipleRequest extends Model
         'expiredSeconds' => 'ExpiredSeconds',
         'extendedParams' => 'ExtendedParams',
         'miChannelId' => 'MiChannelId',
+        'notifyLevel' => 'NotifyLevel',
         'notifyType' => 'NotifyType',
         'pushAction' => 'PushAction',
         'silent' => 'Silent',
@@ -151,6 +157,9 @@ class PushMultipleRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->notifyLevel)) {
+            Model::validateArray($this->notifyLevel);
+        }
         if (\is_array($this->targetMsg)) {
             Model::validateArray($this->targetMsg);
         }
@@ -201,6 +210,15 @@ class PushMultipleRequest extends Model
 
         if (null !== $this->miChannelId) {
             $res['MiChannelId'] = $this->miChannelId;
+        }
+
+        if (null !== $this->notifyLevel) {
+            if (\is_array($this->notifyLevel)) {
+                $res['NotifyLevel'] = [];
+                foreach ($this->notifyLevel as $key1 => $value1) {
+                    $res['NotifyLevel'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->notifyType) {
@@ -316,6 +334,15 @@ class PushMultipleRequest extends Model
 
         if (isset($map['MiChannelId'])) {
             $model->miChannelId = $map['MiChannelId'];
+        }
+
+        if (isset($map['NotifyLevel'])) {
+            if (!empty($map['NotifyLevel'])) {
+                $model->notifyLevel = [];
+                foreach ($map['NotifyLevel'] as $key1 => $value1) {
+                    $model->notifyLevel[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['NotifyType'])) {

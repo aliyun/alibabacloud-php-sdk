@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubeNebulaTaskStatusRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubeNebulaTaskStatusResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubePublicTaskStatusRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubePublicTaskStatusResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMdsCubeTaskStatusRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMdsCubeTaskStatusResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkRequest;
@@ -45,12 +47,20 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeWhitelistForIdeRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeWhitelistForIdeResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeWhitelistRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeWhitelistResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsCubeResourceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsCubeResourceResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsCubeTaskRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsCubeTaskResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsCubeTemplateRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsCubeTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsMiniprogramTaskRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsMiniprogramTaskResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenGlobalDataRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenGlobalDataResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenSingleDataRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenSingleDataResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateTemplateRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteCubecardWhitelistContentRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteCubecardWhitelistContentResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpAimRequest;
@@ -69,6 +79,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeWhitelistRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeWhitelistResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMdsWhitelistContentRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMdsWhitelistContentResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteTemplateRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExistMcubeRsaKeyRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExistMcubeRsaKeyResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportMappCenterAppConfigRequest;
@@ -89,12 +101,17 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMcubeUpgradeTaskInfoRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMcubeUpgradeTaskInfoResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMdsMiniConfigRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMdsMiniConfigResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetTemplateRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppDonwloadUrlInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppDonwloadUrlInMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppEnhanceProcessInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppEnhanceProcessInMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppUploadProcessInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppUploadProcessInMsaResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListAnalysisCoreIndexRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListAnalysisCoreIndexResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListCubecardAppsResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterAppsResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterWorkspacesResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcdpAimRequest;
@@ -117,8 +134,16 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeUpgradeTasksRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeUpgradeTasksResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeWhitelistsRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeWhitelistsResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMdsCubeResourcesRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMdsCubeResourcesResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMdsCubeTasksRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMdsCubeTasksResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMdsCubeTemplatesRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMdsCubeTemplatesResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMgsApiRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMgsApiResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListTemplatePageRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListTemplatePageResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\MTRSOCRServiceRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\MTRSOCRServiceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushBindRequest;
@@ -129,6 +154,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushBroadcastShrinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushMultipleRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushMultipleResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushMultipleShrinkRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushQueryDeviceStateRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushQueryDeviceStateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushReportRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushReportResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushSimpleRequest;
@@ -139,6 +166,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushTemplateShrinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushUnBindRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushUnBindResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryCubecardFiletokenRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryCubecardFiletokenResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryInfoFromMdpRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryInfoFromMdpResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryLinkRequest;
@@ -187,6 +216,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeWhitelistRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeWhitelistResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMdsCubeResourceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMdsCubeResourceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMpaasAppInfoRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMpaasAppInfoResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadBitcodeToMsaRequest;
@@ -647,6 +678,79 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeMcubePublicTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ChangeMdsCubeTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeMdsCubeTaskStatusResponse
+     *
+     * @param ChangeMdsCubeTaskStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ChangeMdsCubeTaskStatusResponse
+     */
+    public function changeMdsCubeTaskStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
+        }
+
+        if (null !== $request->templateResourceId) {
+            @$body['TemplateResourceId'] = $request->templateResourceId;
+        }
+
+        if (null !== $request->templateTaskId) {
+            @$body['TemplateTaskId'] = $request->templateTaskId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeMdsCubeTaskStatus',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeMdsCubeTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ChangeMdsCubeTaskStatusRequest
+     *
+     * @returns ChangeMdsCubeTaskStatusResponse
+     *
+     * @param ChangeMdsCubeTaskStatusRequest $request
+     *
+     * @return ChangeMdsCubeTaskStatusResponse
+     */
+    public function changeMdsCubeTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeMdsCubeTaskStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1594,6 +1698,10 @@ class MPaaS extends OpenApiClient
             @$body['FileUrl'] = $request->fileUrl;
         }
 
+        if (null !== $request->harmonyLabel) {
+            @$body['HarmonyLabel'] = $request->harmonyLabel;
+        }
+
         if (null !== $request->iconFileUrl) {
             @$body['IconFileUrl'] = $request->iconFileUrl;
         }
@@ -1608,6 +1716,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->isEnterprise) {
             @$body['IsEnterprise'] = $request->isEnterprise;
+        }
+
+        if (null !== $request->largeIconUrl) {
+            @$body['LargeIconUrl'] = $request->largeIconUrl;
         }
 
         if (null !== $request->needCheck) {
@@ -1977,6 +2089,285 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * @param request - CreateMdsCubeResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMdsCubeResourceResponse
+     *
+     * @param CreateMdsCubeResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateMdsCubeResourceResponse
+     */
+    public function createMdsCubeResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->androidMaxVersion) {
+            @$body['AndroidMaxVersion'] = $request->androidMaxVersion;
+        }
+
+        if (null !== $request->androidMinVersion) {
+            @$body['AndroidMinVersion'] = $request->androidMinVersion;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->extendInfo) {
+            @$body['ExtendInfo'] = $request->extendInfo;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->iosMaxVersion) {
+            @$body['IosMaxVersion'] = $request->iosMaxVersion;
+        }
+
+        if (null !== $request->iosMinVersion) {
+            @$body['IosMinVersion'] = $request->iosMinVersion;
+        }
+
+        if (null !== $request->mockDataUrl) {
+            @$body['MockDataUrl'] = $request->mockDataUrl;
+        }
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
+        }
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->previewPictureUrl) {
+            @$body['PreviewPictureUrl'] = $request->previewPictureUrl;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateResourceDesc) {
+            @$body['TemplateResourceDesc'] = $request->templateResourceDesc;
+        }
+
+        if (null !== $request->templateResourceVersion) {
+            @$body['TemplateResourceVersion'] = $request->templateResourceVersion;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMdsCubeResource',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMdsCubeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateMdsCubeResourceRequest
+     *
+     * @returns CreateMdsCubeResourceResponse
+     *
+     * @param CreateMdsCubeResourceRequest $request
+     *
+     * @return CreateMdsCubeResourceResponse
+     */
+    public function createMdsCubeResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMdsCubeResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CreateMdsCubeTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMdsCubeTaskResponse
+     *
+     * @param CreateMdsCubeTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMdsCubeTaskResponse
+     */
+    public function createMdsCubeTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->greyConfigInfo) {
+            @$body['GreyConfigInfo'] = $request->greyConfigInfo;
+        }
+
+        if (null !== $request->greyEndtimeData) {
+            @$body['GreyEndtimeData'] = $request->greyEndtimeData;
+        }
+
+        if (null !== $request->greyNum) {
+            @$body['GreyNum'] = $request->greyNum;
+        }
+
+        if (null !== $request->publishMode) {
+            @$body['PublishMode'] = $request->publishMode;
+        }
+
+        if (null !== $request->publishType) {
+            @$body['PublishType'] = $request->publishType;
+        }
+
+        if (null !== $request->taskDesc) {
+            @$body['TaskDesc'] = $request->taskDesc;
+        }
+
+        if (null !== $request->templateResourceId) {
+            @$body['TemplateResourceId'] = $request->templateResourceId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->whitelistIds) {
+            @$body['WhitelistIds'] = $request->whitelistIds;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMdsCubeTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMdsCubeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateMdsCubeTaskRequest
+     *
+     * @returns CreateMdsCubeTaskResponse
+     *
+     * @param CreateMdsCubeTaskRequest $request
+     *
+     * @return CreateMdsCubeTaskResponse
+     */
+    public function createMdsCubeTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMdsCubeTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - CreateMdsCubeTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMdsCubeTemplateResponse
+     *
+     * @param CreateMdsCubeTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateMdsCubeTemplateResponse
+     */
+    public function createMdsCubeTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->templateDesc) {
+            @$body['TemplateDesc'] = $request->templateDesc;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMdsCubeTemplate',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMdsCubeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - CreateMdsCubeTemplateRequest
+     *
+     * @returns CreateMdsCubeTemplateResponse
+     *
+     * @param CreateMdsCubeTemplateRequest $request
+     *
+     * @return CreateMdsCubeTemplateResponse
+     */
+    public function createMdsCubeTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMdsCubeTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - CreateMdsMiniprogramTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2005,6 +2396,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->greyNum) {
             @$body['GreyNum'] = $request->greyNum;
+        }
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
 
         if (null !== $request->id) {
@@ -2289,6 +2684,115 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOpenSingleDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建模版.
+     *
+     * @param request - CreateTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->descInfo) {
+            @$body['DescInfo'] = $request->descInfo;
+        }
+
+        if (null !== $request->iconUrls) {
+            @$body['IconUrls'] = $request->iconUrls;
+        }
+
+        if (null !== $request->imageUrls) {
+            @$body['ImageUrls'] = $request->imageUrls;
+        }
+
+        if (null !== $request->jumpAction) {
+            @$body['JumpAction'] = $request->jumpAction;
+        }
+
+        if (null !== $request->pushStyle) {
+            @$body['PushStyle'] = $request->pushStyle;
+        }
+
+        if (null !== $request->showStyle) {
+            @$body['ShowStyle'] = $request->showStyle;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
+        }
+
+        if (null !== $request->uri) {
+            @$body['Uri'] = $request->uri;
+        }
+
+        if (null !== $request->variables) {
+            @$body['Variables'] = $request->variables;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTemplate',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模版.
+     *
+     * @param request - CreateTemplateRequest
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -2886,6 +3390,79 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMdsWhitelistContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除模版.
+     *
+     * @param request - DeleteTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTemplateResponse
+     *
+     * @param DeleteTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTemplateResponse
+     */
+    public function deleteTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTemplate',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模版.
+     *
+     * @param request - DeleteTemplateRequest
+     *
+     * @returns DeleteTemplateResponse
+     *
+     * @param DeleteTemplateRequest $request
+     *
+     * @return DeleteTemplateResponse
+     */
+    public function deleteTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -3547,6 +4124,79 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 获取模版.
+     *
+     * @param request - GetTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemplateResponse
+     *
+     * @param GetTemplateRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTemplate',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模版.
+     *
+     * @param request - GetTemplateRequest
+     *
+     * @returns GetTemplateResponse
+     *
+     * @param GetTemplateRequest $request
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - GetUserAppDonwloadUrlInMsaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3739,6 +4389,135 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserAppUploadProcessInMsaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询报表.
+     *
+     * @param request - ListAnalysisCoreIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnalysisCoreIndexResponse
+     *
+     * @param ListAnalysisCoreIndexRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAnalysisCoreIndexResponse
+     */
+    public function listAnalysisCoreIndexWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channel) {
+            @$body['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAnalysisCoreIndex',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAnalysisCoreIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询报表.
+     *
+     * @param request - ListAnalysisCoreIndexRequest
+     *
+     * @returns ListAnalysisCoreIndexResponse
+     *
+     * @param ListAnalysisCoreIndexRequest $request
+     *
+     * @return ListAnalysisCoreIndexResponse
+     */
+    public function listAnalysisCoreIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAnalysisCoreIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ListCubecardAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCubecardAppsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListCubecardAppsResponse
+     */
+    public function listCubecardAppsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListCubecardApps',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCubecardAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @returns ListCubecardAppsResponse
+     *
+     * @return ListCubecardAppsResponse
+     */
+    public function listCubecardApps()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCubecardAppsWithOptions($runtime);
     }
 
     /**
@@ -4548,6 +5327,229 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * @param request - ListMdsCubeResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMdsCubeResourcesResponse
+     *
+     * @param ListMdsCubeResourcesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListMdsCubeResourcesResponse
+     */
+    public function listMdsCubeResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->test) {
+            @$body['test'] = $request->test;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMdsCubeResources',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMdsCubeResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListMdsCubeResourcesRequest
+     *
+     * @returns ListMdsCubeResourcesResponse
+     *
+     * @param ListMdsCubeResourcesRequest $request
+     *
+     * @return ListMdsCubeResourcesResponse
+     */
+    public function listMdsCubeResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMdsCubeResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ListMdsCubeTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMdsCubeTasksResponse
+     *
+     * @param ListMdsCubeTasksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMdsCubeTasksResponse
+     */
+    public function listMdsCubeTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->templateResourceId) {
+            @$body['TemplateResourceId'] = $request->templateResourceId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMdsCubeTasks',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMdsCubeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListMdsCubeTasksRequest
+     *
+     * @returns ListMdsCubeTasksResponse
+     *
+     * @param ListMdsCubeTasksRequest $request
+     *
+     * @return ListMdsCubeTasksResponse
+     */
+    public function listMdsCubeTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMdsCubeTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ListMdsCubeTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMdsCubeTemplatesResponse
+     *
+     * @param ListMdsCubeTemplatesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListMdsCubeTemplatesResponse
+     */
+    public function listMdsCubeTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMdsCubeTemplates',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMdsCubeTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ListMdsCubeTemplatesRequest
+     *
+     * @returns ListMdsCubeTemplatesResponse
+     *
+     * @param ListMdsCubeTemplatesRequest $request
+     *
+     * @return ListMdsCubeTemplatesResponse
+     */
+    public function listMdsCubeTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMdsCubeTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ListMgsApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4658,6 +5660,79 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMgsApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询模版列表.
+     *
+     * @param request - ListTemplatePageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTemplatePageResponse
+     *
+     * @param ListTemplatePageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTemplatePageResponse
+     */
+    public function listTemplatePageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListTemplatePage',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTemplatePageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询模版列表.
+     *
+     * @param request - ListTemplatePageRequest
+     *
+     * @returns ListTemplatePageResponse
+     *
+     * @param ListTemplatePageRequest $request
+     *
+     * @return ListTemplatePageResponse
+     */
+    public function listTemplatePage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTemplatePageWithOptions($request, $runtime);
     }
 
     /**
@@ -4830,6 +5905,10 @@ class MPaaS extends OpenApiClient
         $tmpReq->validate();
         $request = new PushBroadcastShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notifyLevel) {
+            $request->notifyLevelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notifyLevel, 'NotifyLevel', 'json');
+        }
+
         if (null !== $tmpReq->thirdChannelCategory) {
             $request->thirdChannelCategoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
@@ -4843,8 +5922,16 @@ class MPaaS extends OpenApiClient
             @$body['AppId'] = $request->appId;
         }
 
+        if (null !== $request->bindEndTime) {
+            @$body['BindEndTime'] = $request->bindEndTime;
+        }
+
         if (null !== $request->bindPeriod) {
             @$body['BindPeriod'] = $request->bindPeriod;
+        }
+
+        if (null !== $request->bindStartTime) {
+            @$body['BindStartTime'] = $request->bindStartTime;
         }
 
         if (null !== $request->channelId) {
@@ -4873,6 +5960,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->msgkey) {
             @$body['Msgkey'] = $request->msgkey;
+        }
+
+        if (null !== $request->notifyLevelShrink) {
+            @$body['NotifyLevel'] = $request->notifyLevelShrink;
         }
 
         if (null !== $request->notifyType) {
@@ -4919,6 +6010,10 @@ class MPaaS extends OpenApiClient
             @$body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
         }
 
+        if (null !== $request->timeMode) {
+            @$body['TimeMode'] = $request->timeMode;
+        }
+
         if (null !== $request->transparentMessagePayload) {
             @$body['TransparentMessagePayload'] = $request->transparentMessagePayload;
         }
@@ -4927,8 +6022,16 @@ class MPaaS extends OpenApiClient
             @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
         }
 
+        if (null !== $request->unBindEndTime) {
+            @$body['UnBindEndTime'] = $request->unBindEndTime;
+        }
+
         if (null !== $request->unBindPeriod) {
             @$body['UnBindPeriod'] = $request->unBindPeriod;
+        }
+
+        if (null !== $request->unBindStartTime) {
+            @$body['UnBindStartTime'] = $request->unBindStartTime;
         }
 
         if (null !== $request->workspaceId) {
@@ -4985,6 +6088,10 @@ class MPaaS extends OpenApiClient
         $tmpReq->validate();
         $request = new PushMultipleShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notifyLevel) {
+            $request->notifyLevelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notifyLevel, 'NotifyLevel', 'json');
+        }
+
         if (null !== $tmpReq->thirdChannelCategory) {
             $request->thirdChannelCategoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
@@ -5028,6 +6135,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->miChannelId) {
             @$body['MiChannelId'] = $request->miChannelId;
+        }
+
+        if (null !== $request->notifyLevelShrink) {
+            @$body['NotifyLevel'] = $request->notifyLevelShrink;
         }
 
         if (null !== $request->notifyType) {
@@ -5114,6 +6225,79 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pushMultipleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询设备状态信息.
+     *
+     * @param request - PushQueryDeviceStateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushQueryDeviceStateResponse
+     *
+     * @param PushQueryDeviceStateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PushQueryDeviceStateResponse
+     */
+    public function pushQueryDeviceStateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->target) {
+            @$body['Target'] = $request->target;
+        }
+
+        if (null !== $request->targetType) {
+            @$body['TargetType'] = $request->targetType;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PushQueryDeviceState',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PushQueryDeviceStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询设备状态信息.
+     *
+     * @param request - PushQueryDeviceStateRequest
+     *
+     * @returns PushQueryDeviceStateResponse
+     *
+     * @param PushQueryDeviceStateRequest $request
+     *
+     * @return PushQueryDeviceStateResponse
+     */
+    public function pushQueryDeviceState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pushQueryDeviceStateWithOptions($request, $runtime);
     }
 
     /**
@@ -5239,6 +6423,10 @@ class MPaaS extends OpenApiClient
         $tmpReq->validate();
         $request = new PushSimpleShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notifyLevel) {
+            $request->notifyLevelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notifyLevel, 'NotifyLevel', 'json');
+        }
+
         if (null !== $tmpReq->thirdChannelCategory) {
             $request->thirdChannelCategoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
@@ -5294,6 +6482,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->miChannelId) {
             @$body['MiChannelId'] = $request->miChannelId;
+        }
+
+        if (null !== $request->notifyLevelShrink) {
+            @$body['NotifyLevel'] = $request->notifyLevelShrink;
         }
 
         if (null !== $request->notifyType) {
@@ -5424,6 +6616,10 @@ class MPaaS extends OpenApiClient
         $tmpReq->validate();
         $request = new PushTemplateShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notifyLevel) {
+            $request->notifyLevelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notifyLevel, 'NotifyLevel', 'json');
+        }
+
         if (null !== $tmpReq->thirdChannelCategory) {
             $request->thirdChannelCategoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
@@ -5467,6 +6663,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->miChannelId) {
             @$body['MiChannelId'] = $request->miChannelId;
+        }
+
+        if (null !== $request->notifyLevelShrink) {
+            @$body['NotifyLevel'] = $request->notifyLevelShrink;
         }
 
         if (null !== $request->notifyType) {
@@ -5642,6 +6842,71 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pushUnBindWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - QueryCubecardFiletokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCubecardFiletokenResponse
+     *
+     * @param QueryCubecardFiletokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryCubecardFiletokenResponse
+     */
+    public function queryCubecardFiletokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCubecardFiletoken',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCubecardFiletokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - QueryCubecardFiletokenRequest
+     *
+     * @returns QueryCubecardFiletokenResponse
+     *
+     * @param QueryCubecardFiletokenRequest $request
+     *
+     * @return QueryCubecardFiletokenResponse
+     */
+    public function queryCubecardFiletoken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCubecardFiletokenWithOptions($request, $runtime);
     }
 
     /**
@@ -7441,6 +8706,79 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * @param request - UpdateMdsCubeResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMdsCubeResourceResponse
+     *
+     * @param UpdateMdsCubeResourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateMdsCubeResourceResponse
+     */
+    public function updateMdsCubeResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->mockDataUrl) {
+            @$body['MockDataUrl'] = $request->mockDataUrl;
+        }
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
+        }
+
+        if (null !== $request->templateResourceId) {
+            @$body['TemplateResourceId'] = $request->templateResourceId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMdsCubeResource',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMdsCubeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateMdsCubeResourceRequest
+     *
+     * @returns UpdateMdsCubeResourceResponse
+     *
+     * @param UpdateMdsCubeResourceRequest $request
+     *
+     * @return UpdateMdsCubeResourceResponse
+     */
+    public function updateMdsCubeResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMdsCubeResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - UpdateMpaasAppInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7833,6 +9171,10 @@ class MPaaS extends OpenApiClient
         $body = [];
         if (null !== $request->appId) {
             @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
         }
 
         if (null !== $request->fileUrl) {

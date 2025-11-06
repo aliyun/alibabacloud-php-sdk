@@ -21,7 +21,17 @@ class PushBroadcastShrinkRequest extends Model
     /**
      * @var int
      */
+    public $bindEndTime;
+
+    /**
+     * @var int
+     */
     public $bindPeriod;
+
+    /**
+     * @var int
+     */
+    public $bindStartTime;
 
     /**
      * @var string
@@ -57,6 +67,11 @@ class PushBroadcastShrinkRequest extends Model
      * @var string
      */
     public $msgkey;
+
+    /**
+     * @var string
+     */
+    public $notifyLevelShrink;
 
     /**
      * @var string
@@ -114,6 +129,11 @@ class PushBroadcastShrinkRequest extends Model
     public $thirdChannelCategoryShrink;
 
     /**
+     * @var int
+     */
+    public $timeMode;
+
+    /**
      * @var mixed
      */
     public $transparentMessagePayload;
@@ -126,7 +146,17 @@ class PushBroadcastShrinkRequest extends Model
     /**
      * @var int
      */
+    public $unBindEndTime;
+
+    /**
+     * @var int
+     */
     public $unBindPeriod;
+
+    /**
+     * @var int
+     */
+    public $unBindStartTime;
 
     /**
      * @var string
@@ -135,7 +165,9 @@ class PushBroadcastShrinkRequest extends Model
     protected $_name = [
         'androidChannel' => 'AndroidChannel',
         'appId' => 'AppId',
+        'bindEndTime' => 'BindEndTime',
         'bindPeriod' => 'BindPeriod',
+        'bindStartTime' => 'BindStartTime',
         'channelId' => 'ChannelId',
         'classification' => 'Classification',
         'deliveryType' => 'DeliveryType',
@@ -143,6 +175,7 @@ class PushBroadcastShrinkRequest extends Model
         'extendedParams' => 'ExtendedParams',
         'miChannelId' => 'MiChannelId',
         'msgkey' => 'Msgkey',
+        'notifyLevelShrink' => 'NotifyLevel',
         'notifyType' => 'NotifyType',
         'pushAction' => 'PushAction',
         'pushStatus' => 'PushStatus',
@@ -154,9 +187,12 @@ class PushBroadcastShrinkRequest extends Model
         'templateName' => 'TemplateName',
         'tenantId' => 'TenantId',
         'thirdChannelCategoryShrink' => 'ThirdChannelCategory',
+        'timeMode' => 'TimeMode',
         'transparentMessagePayload' => 'TransparentMessagePayload',
         'transparentMessageUrgency' => 'TransparentMessageUrgency',
+        'unBindEndTime' => 'UnBindEndTime',
         'unBindPeriod' => 'UnBindPeriod',
+        'unBindStartTime' => 'UnBindStartTime',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -176,8 +212,16 @@ class PushBroadcastShrinkRequest extends Model
             $res['AppId'] = $this->appId;
         }
 
+        if (null !== $this->bindEndTime) {
+            $res['BindEndTime'] = $this->bindEndTime;
+        }
+
         if (null !== $this->bindPeriod) {
             $res['BindPeriod'] = $this->bindPeriod;
+        }
+
+        if (null !== $this->bindStartTime) {
+            $res['BindStartTime'] = $this->bindStartTime;
         }
 
         if (null !== $this->channelId) {
@@ -206,6 +250,10 @@ class PushBroadcastShrinkRequest extends Model
 
         if (null !== $this->msgkey) {
             $res['Msgkey'] = $this->msgkey;
+        }
+
+        if (null !== $this->notifyLevelShrink) {
+            $res['NotifyLevel'] = $this->notifyLevelShrink;
         }
 
         if (null !== $this->notifyType) {
@@ -252,6 +300,10 @@ class PushBroadcastShrinkRequest extends Model
             $res['ThirdChannelCategory'] = $this->thirdChannelCategoryShrink;
         }
 
+        if (null !== $this->timeMode) {
+            $res['TimeMode'] = $this->timeMode;
+        }
+
         if (null !== $this->transparentMessagePayload) {
             $res['TransparentMessagePayload'] = $this->transparentMessagePayload;
         }
@@ -260,8 +312,16 @@ class PushBroadcastShrinkRequest extends Model
             $res['TransparentMessageUrgency'] = $this->transparentMessageUrgency;
         }
 
+        if (null !== $this->unBindEndTime) {
+            $res['UnBindEndTime'] = $this->unBindEndTime;
+        }
+
         if (null !== $this->unBindPeriod) {
             $res['UnBindPeriod'] = $this->unBindPeriod;
+        }
+
+        if (null !== $this->unBindStartTime) {
+            $res['UnBindStartTime'] = $this->unBindStartTime;
         }
 
         if (null !== $this->workspaceId) {
@@ -287,8 +347,16 @@ class PushBroadcastShrinkRequest extends Model
             $model->appId = $map['AppId'];
         }
 
+        if (isset($map['BindEndTime'])) {
+            $model->bindEndTime = $map['BindEndTime'];
+        }
+
         if (isset($map['BindPeriod'])) {
             $model->bindPeriod = $map['BindPeriod'];
+        }
+
+        if (isset($map['BindStartTime'])) {
+            $model->bindStartTime = $map['BindStartTime'];
         }
 
         if (isset($map['ChannelId'])) {
@@ -317,6 +385,10 @@ class PushBroadcastShrinkRequest extends Model
 
         if (isset($map['Msgkey'])) {
             $model->msgkey = $map['Msgkey'];
+        }
+
+        if (isset($map['NotifyLevel'])) {
+            $model->notifyLevelShrink = $map['NotifyLevel'];
         }
 
         if (isset($map['NotifyType'])) {
@@ -363,6 +435,10 @@ class PushBroadcastShrinkRequest extends Model
             $model->thirdChannelCategoryShrink = $map['ThirdChannelCategory'];
         }
 
+        if (isset($map['TimeMode'])) {
+            $model->timeMode = $map['TimeMode'];
+        }
+
         if (isset($map['TransparentMessagePayload'])) {
             $model->transparentMessagePayload = $map['TransparentMessagePayload'];
         }
@@ -371,8 +447,16 @@ class PushBroadcastShrinkRequest extends Model
             $model->transparentMessageUrgency = $map['TransparentMessageUrgency'];
         }
 
+        if (isset($map['UnBindEndTime'])) {
+            $model->unBindEndTime = $map['UnBindEndTime'];
+        }
+
         if (isset($map['UnBindPeriod'])) {
             $model->unBindPeriod = $map['UnBindPeriod'];
+        }
+
+        if (isset($map['UnBindStartTime'])) {
+            $model->unBindStartTime = $map['UnBindStartTime'];
         }
 
         if (isset($map['WorkspaceId'])) {

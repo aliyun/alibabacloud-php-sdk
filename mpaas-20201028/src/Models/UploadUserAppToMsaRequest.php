@@ -16,6 +16,11 @@ class UploadUserAppToMsaRequest extends Model
     /**
      * @var string
      */
+    public $fileName;
+
+    /**
+     * @var string
+     */
     public $fileUrl;
 
     /**
@@ -29,6 +34,7 @@ class UploadUserAppToMsaRequest extends Model
     public $workspaceId;
     protected $_name = [
         'appId' => 'AppId',
+        'fileName' => 'FileName',
         'fileUrl' => 'FileUrl',
         'tenantId' => 'TenantId',
         'workspaceId' => 'WorkspaceId',
@@ -44,6 +50,10 @@ class UploadUserAppToMsaRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
 
         if (null !== $this->fileUrl) {
@@ -71,6 +81,10 @@ class UploadUserAppToMsaRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
 
         if (isset($map['FileUrl'])) {
