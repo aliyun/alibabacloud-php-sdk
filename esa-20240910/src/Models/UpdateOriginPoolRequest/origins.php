@@ -32,6 +32,11 @@ class origins extends Model
     /**
      * @var string
      */
+    public $ipVersionPolicy;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -48,6 +53,7 @@ class origins extends Model
         'authConf' => 'AuthConf',
         'enabled' => 'Enabled',
         'header' => 'Header',
+        'ipVersionPolicy' => 'IpVersionPolicy',
         'name' => 'Name',
         'type' => 'Type',
         'weight' => 'Weight',
@@ -78,6 +84,10 @@ class origins extends Model
 
         if (null !== $this->header) {
             $res['Header'] = $this->header;
+        }
+
+        if (null !== $this->ipVersionPolicy) {
+            $res['IpVersionPolicy'] = $this->ipVersionPolicy;
         }
 
         if (null !== $this->name) {
@@ -117,6 +127,10 @@ class origins extends Model
 
         if (isset($map['Header'])) {
             $model->header = $map['Header'];
+        }
+
+        if (isset($map['IpVersionPolicy'])) {
+            $model->ipVersionPolicy = $map['IpVersionPolicy'];
         }
 
         if (isset($map['Name'])) {
