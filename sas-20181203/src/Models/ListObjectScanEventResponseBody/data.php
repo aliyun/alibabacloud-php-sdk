@@ -25,6 +25,11 @@ class data extends Model
     public $displaySandboxResult;
 
     /**
+     * @var string
+     */
+    public $errorMsg;
+
+    /**
      * @var int
      */
     public $eventId;
@@ -57,12 +62,27 @@ class data extends Model
     /**
      * @var string
      */
+    public $matchedWhiteListRuleI18nStr;
+
+    /**
+     * @var string
+     */
     public $md5;
 
     /**
      * @var string
      */
+    public $operateResult;
+
+    /**
+     * @var string
+     */
     public $ossKey;
+
+    /**
+     * @var string
+     */
+    public $remark;
 
     /**
      * @var string
@@ -83,22 +103,32 @@ class data extends Model
      * @var string
      */
     public $source;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
         'bucketName' => 'BucketName',
         'details' => 'Details',
         'displaySandboxResult' => 'DisplaySandboxResult',
+        'errorMsg' => 'ErrorMsg',
         'eventId' => 'EventId',
         'eventName' => 'EventName',
         'filePath' => 'FilePath',
         'firstTime' => 'FirstTime',
         'hasSubEvent' => 'HasSubEvent',
         'lastTime' => 'LastTime',
+        'matchedWhiteListRuleI18nStr' => 'MatchedWhiteListRuleI18nStr',
         'md5' => 'Md5',
+        'operateResult' => 'OperateResult',
         'ossKey' => 'OssKey',
+        'remark' => 'Remark',
         'riskLevel' => 'RiskLevel',
         'sha1' => 'Sha1',
         'sha256' => 'Sha256',
         'source' => 'Source',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -131,6 +161,10 @@ class data extends Model
             $res['DisplaySandboxResult'] = $this->displaySandboxResult;
         }
 
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
+        }
+
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
@@ -155,12 +189,24 @@ class data extends Model
             $res['LastTime'] = $this->lastTime;
         }
 
+        if (null !== $this->matchedWhiteListRuleI18nStr) {
+            $res['MatchedWhiteListRuleI18nStr'] = $this->matchedWhiteListRuleI18nStr;
+        }
+
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
         }
 
+        if (null !== $this->operateResult) {
+            $res['OperateResult'] = $this->operateResult;
+        }
+
         if (null !== $this->ossKey) {
             $res['OssKey'] = $this->ossKey;
+        }
+
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         if (null !== $this->riskLevel) {
@@ -177,6 +223,10 @@ class data extends Model
 
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -209,6 +259,10 @@ class data extends Model
             $model->displaySandboxResult = $map['DisplaySandboxResult'];
         }
 
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
+        }
+
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
@@ -233,12 +287,24 @@ class data extends Model
             $model->lastTime = $map['LastTime'];
         }
 
+        if (isset($map['MatchedWhiteListRuleI18nStr'])) {
+            $model->matchedWhiteListRuleI18nStr = $map['MatchedWhiteListRuleI18nStr'];
+        }
+
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
         }
 
+        if (isset($map['OperateResult'])) {
+            $model->operateResult = $map['OperateResult'];
+        }
+
         if (isset($map['OssKey'])) {
             $model->ossKey = $map['OssKey'];
+        }
+
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         if (isset($map['RiskLevel'])) {
@@ -255,6 +321,10 @@ class data extends Model
 
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

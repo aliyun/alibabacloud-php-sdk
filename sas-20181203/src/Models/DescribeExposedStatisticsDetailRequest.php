@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeExposedStatisticsDetailRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $criteria;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -37,13 +42,20 @@ class DescribeExposedStatisticsDetailRequest extends Model
      * @var string
      */
     public $statisticsTypeInstanceValue;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
+        'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
         'pageSize' => 'PageSize',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'statisticsType' => 'StatisticsType',
         'statisticsTypeGatewayType' => 'StatisticsTypeGatewayType',
         'statisticsTypeInstanceValue' => 'StatisticsTypeInstanceValue',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()
@@ -54,6 +66,10 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->criteria) {
+            $res['Criteria'] = $this->criteria;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -78,6 +94,10 @@ class DescribeExposedStatisticsDetailRequest extends Model
             $res['StatisticsTypeInstanceValue'] = $this->statisticsTypeInstanceValue;
         }
 
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+
         return $res;
     }
 
@@ -89,6 +109,10 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Criteria'])) {
+            $model->criteria = $map['Criteria'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -111,6 +135,10 @@ class DescribeExposedStatisticsDetailRequest extends Model
 
         if (isset($map['StatisticsTypeInstanceValue'])) {
             $model->statisticsTypeInstanceValue = $map['StatisticsTypeInstanceValue'];
+        }
+
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

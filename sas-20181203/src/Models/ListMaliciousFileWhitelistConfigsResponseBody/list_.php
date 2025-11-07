@@ -51,6 +51,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $source;
 
     /**
@@ -71,6 +76,7 @@ class list_ extends Model
         'gmtModified' => 'GmtModified',
         'id' => 'Id',
         'operator' => 'Operator',
+        'remark' => 'Remark',
         'source' => 'Source',
         'targetType' => 'TargetType',
         'targetValue' => 'TargetValue',
@@ -114,6 +120,10 @@ class list_ extends Model
 
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
+        }
+
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         if (null !== $this->source) {
@@ -169,6 +179,10 @@ class list_ extends Model
 
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
+        }
+
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         if (isset($map['Source'])) {

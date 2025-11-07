@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class pathEventNodeList extends Model
 {
     /**
+     * @var int
+     */
+    public $aiAssetFlag;
+
+    /**
      * @var string
      */
     public $elementType;
@@ -38,6 +43,7 @@ class pathEventNodeList extends Model
      */
     public $sensitiveAssetFlag;
     protected $_name = [
+        'aiAssetFlag' => 'AiAssetFlag',
         'elementType' => 'ElementType',
         'nodeDetail' => 'NodeDetail',
         'nodeName' => 'NodeName',
@@ -54,6 +60,10 @@ class pathEventNodeList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiAssetFlag) {
+            $res['AiAssetFlag'] = $this->aiAssetFlag;
+        }
+
         if (null !== $this->elementType) {
             $res['ElementType'] = $this->elementType;
         }
@@ -89,6 +99,10 @@ class pathEventNodeList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiAssetFlag'])) {
+            $model->aiAssetFlag = $map['AiAssetFlag'];
+        }
+
         if (isset($map['ElementType'])) {
             $model->elementType = $map['ElementType'];
         }

@@ -16,6 +16,11 @@ class GrantSwitchAgreementRequest extends Model
     /**
      * @var bool
      */
+    public $isConfirmed;
+
+    /**
+     * @var bool
+     */
     public $isImmediate;
 
     /**
@@ -29,6 +34,7 @@ class GrantSwitchAgreementRequest extends Model
     public $type;
     protected $_name = [
         'isAgree' => 'IsAgree',
+        'isConfirmed' => 'IsConfirmed',
         'isImmediate' => 'IsImmediate',
         'lang' => 'Lang',
         'type' => 'Type',
@@ -44,6 +50,10 @@ class GrantSwitchAgreementRequest extends Model
         $res = [];
         if (null !== $this->isAgree) {
             $res['IsAgree'] = $this->isAgree;
+        }
+
+        if (null !== $this->isConfirmed) {
+            $res['IsConfirmed'] = $this->isConfirmed;
         }
 
         if (null !== $this->isImmediate) {
@@ -71,6 +81,10 @@ class GrantSwitchAgreementRequest extends Model
         $model = new self();
         if (isset($map['IsAgree'])) {
             $model->isAgree = $map['IsAgree'];
+        }
+
+        if (isset($map['IsConfirmed'])) {
+            $model->isConfirmed = $map['IsConfirmed'];
         }
 
         if (isset($map['IsImmediate'])) {

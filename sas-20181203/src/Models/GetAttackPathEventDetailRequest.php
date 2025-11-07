@@ -16,9 +16,15 @@ class GetAttackPathEventDetailRequest extends Model
     /**
      * @var string
      */
+    public $eventSource;
+
+    /**
+     * @var string
+     */
     public $lang;
     protected $_name = [
         'eventId' => 'EventId',
+        'eventSource' => 'EventSource',
         'lang' => 'Lang',
     ];
 
@@ -32,6 +38,10 @@ class GetAttackPathEventDetailRequest extends Model
         $res = [];
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
+        }
+
+        if (null !== $this->eventSource) {
+            $res['EventSource'] = $this->eventSource;
         }
 
         if (null !== $this->lang) {
@@ -51,6 +61,10 @@ class GetAttackPathEventDetailRequest extends Model
         $model = new self();
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
+        }
+
+        if (isset($map['EventSource'])) {
+            $model->eventSource = $map['EventSource'];
         }
 
         if (isset($map['Lang'])) {

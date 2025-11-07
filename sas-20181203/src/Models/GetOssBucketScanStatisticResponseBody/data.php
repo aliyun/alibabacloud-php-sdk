@@ -36,6 +36,21 @@ class data extends Model
     /**
      * @var int
      */
+    public $postPayInvokeCount;
+
+    /**
+     * @var int
+     */
+    public $prePayAuthCount;
+
+    /**
+     * @var int
+     */
+    public $prePayInvokeCount;
+
+    /**
+     * @var int
+     */
     public $remainAuth;
 
     /**
@@ -63,6 +78,9 @@ class data extends Model
         'lowRisk' => 'LowRisk',
         'mediumRisk' => 'MediumRisk',
         'noScanBucket' => 'NoScanBucket',
+        'postPayInvokeCount' => 'PostPayInvokeCount',
+        'prePayAuthCount' => 'PrePayAuthCount',
+        'prePayInvokeCount' => 'PrePayInvokeCount',
         'remainAuth' => 'RemainAuth',
         'riskBucket' => 'RiskBucket',
         'scanObject' => 'ScanObject',
@@ -96,6 +114,18 @@ class data extends Model
 
         if (null !== $this->noScanBucket) {
             $res['NoScanBucket'] = $this->noScanBucket;
+        }
+
+        if (null !== $this->postPayInvokeCount) {
+            $res['PostPayInvokeCount'] = $this->postPayInvokeCount;
+        }
+
+        if (null !== $this->prePayAuthCount) {
+            $res['PrePayAuthCount'] = $this->prePayAuthCount;
+        }
+
+        if (null !== $this->prePayInvokeCount) {
+            $res['PrePayInvokeCount'] = $this->prePayInvokeCount;
         }
 
         if (null !== $this->remainAuth) {
@@ -147,6 +177,18 @@ class data extends Model
 
         if (isset($map['NoScanBucket'])) {
             $model->noScanBucket = $map['NoScanBucket'];
+        }
+
+        if (isset($map['PostPayInvokeCount'])) {
+            $model->postPayInvokeCount = $map['PostPayInvokeCount'];
+        }
+
+        if (isset($map['PrePayAuthCount'])) {
+            $model->prePayAuthCount = $map['PrePayAuthCount'];
+        }
+
+        if (isset($map['PrePayInvokeCount'])) {
+            $model->prePayInvokeCount = $map['PrePayInvokeCount'];
         }
 
         if (isset($map['RemainAuth'])) {

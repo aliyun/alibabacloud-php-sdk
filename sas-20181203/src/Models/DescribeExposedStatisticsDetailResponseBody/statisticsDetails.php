@@ -46,6 +46,11 @@ class statisticsDetails extends Model
     /**
      * @var string
      */
+    public $forwardPort;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'exposedCount' => 'ExposedCount',
@@ -55,6 +60,7 @@ class statisticsDetails extends Model
         'exposureType' => 'ExposureType',
         'exposureTypeId' => 'ExposureTypeId',
         'exposureTypeInstanceName' => 'ExposureTypeInstanceName',
+        'forwardPort' => 'ForwardPort',
         'regionId' => 'RegionId',
     ];
 
@@ -92,6 +98,10 @@ class statisticsDetails extends Model
 
         if (null !== $this->exposureTypeInstanceName) {
             $res['ExposureTypeInstanceName'] = $this->exposureTypeInstanceName;
+        }
+
+        if (null !== $this->forwardPort) {
+            $res['ForwardPort'] = $this->forwardPort;
         }
 
         if (null !== $this->regionId) {
@@ -135,6 +145,10 @@ class statisticsDetails extends Model
 
         if (isset($map['ExposureTypeInstanceName'])) {
             $model->exposureTypeInstanceName = $map['ExposureTypeInstanceName'];
+        }
+
+        if (isset($map['ForwardPort'])) {
+            $model->forwardPort = $map['ForwardPort'];
         }
 
         if (isset($map['RegionId'])) {

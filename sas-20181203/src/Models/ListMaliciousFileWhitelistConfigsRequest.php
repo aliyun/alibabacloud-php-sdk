@@ -19,6 +19,11 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
     public $eventName;
 
     /**
+     * @var int
+     */
+    public $idList;
+
+    /**
      * @var string
      */
     public $lang;
@@ -35,6 +40,7 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'eventName' => 'EventName',
+        'idList' => 'IdList',
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
         'source' => 'Source',
@@ -54,6 +60,10 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
 
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
+        }
+
+        if (null !== $this->idList) {
+            $res['IdList'] = $this->idList;
         }
 
         if (null !== $this->lang) {
@@ -85,6 +95,10 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
 
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
+        }
+
+        if (isset($map['IdList'])) {
+            $model->idList = $map['IdList'];
         }
 
         if (isset($map['Lang'])) {

@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningMachineResponseBod
 class list_ extends Model
 {
     /**
+     * @var string
+     */
+    public $assetType;
+
+    /**
      * @var int
      */
     public $authVersion;
@@ -115,6 +120,7 @@ class list_ extends Model
      */
     public $warningRiskList;
     protected $_name = [
+        'assetType' => 'AssetType',
         'authVersion' => 'AuthVersion',
         'bind' => 'Bind',
         'containerId' => 'ContainerId',
@@ -152,6 +158,10 @@ class list_ extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->assetType) {
+            $res['AssetType'] = $this->assetType;
+        }
+
         if (null !== $this->authVersion) {
             $res['AuthVersion'] = $this->authVersion;
         }
@@ -261,6 +271,10 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetType'])) {
+            $model->assetType = $map['AssetType'];
+        }
+
         if (isset($map['AuthVersion'])) {
             $model->authVersion = $map['AuthVersion'];
         }

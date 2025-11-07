@@ -7034,6 +7034,10 @@ class Sas extends OpenApiClient
             @$query['Operator'] = $request->operator;
         }
 
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
         if (null !== $request->source) {
             @$query['Source'] = $request->source;
         }
@@ -19496,6 +19500,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->criteria) {
+            @$query['Criteria'] = $request->criteria;
+        }
+
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
         }
@@ -19518,6 +19526,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->statisticsTypeInstanceValue) {
             @$query['StatisticsTypeInstanceValue'] = $request->statisticsTypeInstanceValue;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
 
         $req = new OpenApiRequest([
@@ -26606,7 +26618,7 @@ class Sas extends OpenApiClient
      * Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
      *
      * @remarks
-     * This operation is phased out. You can use the ListCheckInstanceResult operation.
+     * 该接口已下线，使用升级接口ListCheckInstanceResult替换。
      *
      * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
      *
@@ -26671,7 +26683,7 @@ class Sas extends OpenApiClient
      * Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
      *
      * @remarks
-     * This operation is phased out. You can use the ListCheckInstanceResult operation.
+     * 该接口已下线，使用升级接口ListCheckInstanceResult替换。
      *
      * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
      *
@@ -35801,6 +35813,10 @@ class Sas extends OpenApiClient
             @$query['EventId'] = $request->eventId;
         }
 
+        if (null !== $request->eventSource) {
+            @$query['EventSource'] = $request->eventSource;
+        }
+
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
         }
@@ -37849,7 +37865,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the statistical counts of images across various dimensions.
+     * Queries the risk statistics of Docker Hub images.
      *
      * @param request - GetDockerhubImageRiskStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37888,7 +37904,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the statistical counts of images across various dimensions.
+     * Queries the risk statistics of Docker Hub images.
      *
      * @param request - GetDockerhubImageRiskStatisticRequest
      *
@@ -39956,7 +39972,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询集群镜像.
+     * Get cluster image information.
      *
      * @param request - GetOpaClusterImageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40007,7 +40023,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询集群镜像.
+     * Get cluster image information.
      *
      * @param request - GetOpaClusterImageListRequest
      *
@@ -40598,7 +40614,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Image Scan Period.
+     * Queries the time range of image scans.
      *
      * @param request - GetRegistryScanDayNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40628,7 +40644,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Image Scan Period.
+     * Queries the time range of image scans.
      *
      * @returns GetRegistryScanDayNumResponse
      *
@@ -41739,6 +41755,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->isAgree) {
             @$query['IsAgree'] = $request->isAgree;
+        }
+
+        if (null !== $request->isConfirmed) {
+            @$query['IsConfirmed'] = $request->isConfirmed;
         }
 
         if (null !== $request->isImmediate) {
@@ -46783,7 +46803,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询已安装的探针.
+     * Query installed probes.
      *
      * @param request - ListHoneypotProbeUuidRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -46830,7 +46850,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询已安装的探针.
+     * Query installed probes.
      *
      * @param request - ListHoneypotProbeUuidRequest
      *
@@ -46905,7 +46925,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Image Registry Extended Information.
+     * Queries the additional configuration information about an image repository.
      *
      * @param request - ListImageRegistryExtraRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -46944,7 +46964,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Image Registry Extended Information.
+     * Queries the additional configuration information about an image repository.
      *
      * @param request - ListImageRegistryExtraRequest
      *
@@ -47653,7 +47673,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Paginate to query the application list.
+     * Queries Serverless App Engine (SAE) applications.
      *
      * @param request - ListMachineAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -47720,7 +47740,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Paginate to query the application list.
+     * Queries Serverless App Engine (SAE) applications.
      *
      * @param request - ListMachineAppsRequest
      *
@@ -47760,6 +47780,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->eventName) {
             @$query['EventName'] = $request->eventName;
+        }
+
+        if (null !== $request->idList) {
+            @$query['IdList'] = $request->idList;
         }
 
         if (null !== $request->lang) {
@@ -47827,12 +47851,20 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->batchType) {
+            @$query['BatchType'] = $request->batchType;
+        }
+
         if (null !== $request->bucketName) {
             @$query['BucketName'] = $request->bucketName;
         }
 
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
 
         if (null !== $request->eventName) {
@@ -47865,6 +47897,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->source) {
             @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
 
         if (null !== $request->timeEnd) {
@@ -49637,7 +49673,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the list of instance UUIDs based on the application ID.
+     * Queries the UUIDs of Serverless App Engine (SAE) instances based on an application ID.
      *
      * @param request - ListUuidsByAppIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -49696,7 +49732,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query the list of instance UUIDs based on the application ID.
+     * Queries the UUIDs of Serverless App Engine (SAE) instances based on an application ID.
      *
      * @param request - ListUuidsByAppIdRequest
      *
@@ -52431,7 +52467,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改代理集群.
+     * Modify proxy cluster.
      *
      * @param request - ModifyHybridProxyClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -52474,7 +52510,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改代理集群.
+     * Modify proxy cluster.
      *
      * @param request - ModifyHybridProxyClusterRequest
      *
@@ -52492,7 +52528,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改代理策略.
+     * Modify proxy policy.
      *
      * @param request - ModifyHybridProxyPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -52535,7 +52571,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改代理策略.
+     * Modify proxy policy.
      *
      * @param request - ModifyHybridProxyPolicyRequest
      *
@@ -62162,6 +62198,10 @@ class Sas extends OpenApiClient
             @$query['Operator'] = $request->operator;
         }
 
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
         if (null !== $request->source) {
             @$query['Source'] = $request->source;
         }
@@ -62951,7 +62991,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modify Image Service Whitelist.
+     * Updates the IP address whitelist of an image repository.
      *
      * @param request - UpdateWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -62994,7 +63034,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modify Image Service Whitelist.
+     * Updates the IP address whitelist of an image repository.
      *
      * @param request - UpdateWhiteListRequest
      *

@@ -32,6 +32,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $needNotice;
+
+    /**
+     * @var bool
+     */
     public $needSwitch;
 
     /**
@@ -43,6 +48,7 @@ class data extends Model
         'gmtNoticed' => 'GmtNoticed',
         'isAgree' => 'IsAgree',
         'isNoticed' => 'IsNoticed',
+        'needNotice' => 'NeedNotice',
         'needSwitch' => 'NeedSwitch',
         'regionStatus' => 'RegionStatus',
     ];
@@ -72,6 +78,10 @@ class data extends Model
 
         if (null !== $this->isNoticed) {
             $res['IsNoticed'] = $this->isNoticed;
+        }
+
+        if (null !== $this->needNotice) {
+            $res['NeedNotice'] = $this->needNotice;
         }
 
         if (null !== $this->needSwitch) {
@@ -114,6 +124,10 @@ class data extends Model
 
         if (isset($map['IsNoticed'])) {
             $model->isNoticed = $map['IsNoticed'];
+        }
+
+        if (isset($map['NeedNotice'])) {
+            $model->needNotice = $map['NeedNotice'];
         }
 
         if (isset($map['NeedSwitch'])) {
