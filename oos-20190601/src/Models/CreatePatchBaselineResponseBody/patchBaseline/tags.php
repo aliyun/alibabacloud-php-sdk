@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineResponseBody\patchBaseline;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The key of the tag.
-     *
-     * @example key
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @description The value of the tag.
-     *
-     * @example value
-     *
      * @var string
      */
     public $tagValue;
@@ -30,14 +22,18 @@ class tags extends Model
         'tagValue' => 'TagValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -45,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

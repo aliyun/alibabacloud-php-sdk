@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeApplicationGroupBillResponseBody\applicationGroupConsume;
-use AlibabaCloud\Tea\Model;
 
 class DescribeApplicationGroupBillResponseBody extends Model
 {
     /**
-     * @description The consume of application group.
-     *
      * @var applicationGroupConsume[]
      */
     public $applicationGroupConsume;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example E897A1AB-4701-5B71-93AD-38FD703763A3
-     *
      * @var string
      */
     public $requestId;
@@ -49,26 +35,36 @@ class DescribeApplicationGroupBillResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->applicationGroupConsume)) {
+            Model::validateArray($this->applicationGroupConsume);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationGroupConsume) {
-            $res['ApplicationGroupConsume'] = [];
-            if (null !== $this->applicationGroupConsume && \is_array($this->applicationGroupConsume)) {
-                $n = 0;
-                foreach ($this->applicationGroupConsume as $item) {
-                    $res['ApplicationGroupConsume'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->applicationGroupConsume)) {
+                $res['ApplicationGroupConsume'] = [];
+                $n1 = 0;
+                foreach ($this->applicationGroupConsume as $item1) {
+                    $res['ApplicationGroupConsume'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -76,29 +72,33 @@ class DescribeApplicationGroupBillResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApplicationGroupBillResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationGroupConsume'])) {
             if (!empty($map['ApplicationGroupConsume'])) {
                 $model->applicationGroupConsume = [];
-                $n = 0;
-                foreach ($map['ApplicationGroupConsume'] as $item) {
-                    $model->applicationGroupConsume[$n++] = null !== $item ? applicationGroupConsume::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApplicationGroupConsume'] as $item1) {
+                    $model->applicationGroupConsume[$n1] = applicationGroupConsume::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

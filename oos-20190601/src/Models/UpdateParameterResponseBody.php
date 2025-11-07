@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterResponseBody\parameter;
-use AlibabaCloud\Tea\Model;
 
 class UpdateParameterResponseBody extends Model
 {
     /**
-     * @description The information about the common parameter.
-     *
      * @var parameter
      */
     public $parameter;
 
     /**
-     * @description The request ID.
-     *
-     * @example AF1AE6DE-61C4-435E-8687-072CFACCCEC7
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class UpdateParameterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->parameter) {
+            $this->parameter->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameter) {
-            $res['Parameter'] = null !== $this->parameter ? $this->parameter->toMap() : null;
+            $res['Parameter'] = null !== $this->parameter ? $this->parameter->toArray($noStream) : $this->parameter;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class UpdateParameterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateParameterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Parameter'])) {
             $model->parameter = parameter::fromMap($map['Parameter']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,75 +4,46 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstancePackageStateRequest extends Model
 {
     /**
-     * @description The operation type.
-     *
-     * Valid values:
-     *
-     *   uninstall
-     *   install
-     *
-     * This parameter is required.
-     *
-     * @example install
-     *
+     * @var string
+     */
+    public $configurationInfo;
+
+    /**
      * @var string
      */
     public $configureAction;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance.
-     *
-     * This parameter is required.
-     *
-     * @example i-bp1jaxa2bs4bps7*****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The parameters for installing or uninstalling the extensions.
-     *
-     * @example {"username": "xx"}
-     *
      * @var mixed[]
      */
     public $parameters;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the template.
-     *
-     * This parameter is required.
-     *
-     * @example ACS-ECS-InventoryDataCollection
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description The version of the template.
-     *
-     * @example v1
-     *
      * @var string
      */
     public $templateVersion;
     protected $_name = [
+        'configurationInfo' => 'ConfigurationInfo',
         'configureAction' => 'ConfigureAction',
         'instanceId' => 'InstanceId',
         'parameters' => 'Parameters',
@@ -81,26 +52,46 @@ class UpdateInstancePackageStateRequest extends Model
         'templateVersion' => 'TemplateVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->configurationInfo) {
+            $res['ConfigurationInfo'] = $this->configurationInfo;
+        }
+
         if (null !== $this->configureAction) {
             $res['ConfigureAction'] = $this->configureAction;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
@@ -108,29 +99,43 @@ class UpdateInstancePackageStateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstancePackageStateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigurationInfo'])) {
+            $model->configurationInfo = $map['ConfigurationInfo'];
+        }
+
         if (isset($map['ConfigureAction'])) {
             $model->configureAction = $map['ConfigureAction'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }

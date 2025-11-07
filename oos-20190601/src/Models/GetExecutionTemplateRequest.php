@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetExecutionTemplateRequest extends Model
 {
     /**
-     * @description The ID of the execution.
-     *
-     * This parameter is required.
-     *
-     * @example exec-046490ff88f242
-     *
      * @var string
      */
     public $executionId;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -32,14 +22,18 @@ class GetExecutionTemplateRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,17 +41,18 @@ class GetExecutionTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetExecutionTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

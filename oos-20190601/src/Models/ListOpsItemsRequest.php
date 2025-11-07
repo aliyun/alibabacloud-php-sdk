@@ -4,62 +4,37 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListOpsItemsRequest\filter;
-use AlibabaCloud\Tea\Model;
 
 class ListOpsItemsRequest extends Model
 {
     /**
-     * @description The filter rules for the component.
-     *
      * @var filter[]
      */
     public $filter;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
-     *
-     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The information about resource tags.
-     *
-     * @example {
-     * "k1": "v1",
-     * "k2": "v2"
-     * }
-     *
      * @var mixed[]
      */
     public $resourceTags;
 
     /**
-     * @description The tags.
-     *
-     * @example {"k1": "v1", "k2": "v2"}
-     *
      * @var mixed[]
      */
     public $tags;
@@ -72,70 +47,114 @@ class ListOpsItemsRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->filter)) {
+            Model::validateArray($this->filter);
+        }
+        if (\is_array($this->resourceTags)) {
+            Model::validateArray($this->resourceTags);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
-            $res['Filter'] = [];
-            if (null !== $this->filter && \is_array($this->filter)) {
-                $n = 0;
-                foreach ($this->filter as $item) {
-                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filter)) {
+                $res['Filter'] = [];
+                $n1 = 0;
+                foreach ($this->filter as $item1) {
+                    $res['Filter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceTags) {
-            $res['ResourceTags'] = $this->resourceTags;
+            if (\is_array($this->resourceTags)) {
+                $res['ResourceTags'] = [];
+                foreach ($this->resourceTags as $key1 => $value1) {
+                    $res['ResourceTags'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOpsItemsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n = 0;
-                foreach ($map['Filter'] as $item) {
-                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Filter'] as $item1) {
+                    $model->filter[$n1] = filter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceTags'])) {
-            $model->resourceTags = $map['ResourceTags'];
+            if (!empty($map['ResourceTags'])) {
+                $model->resourceTags = [];
+                foreach ($map['ResourceTags'] as $key1 => $value1) {
+                    $model->resourceTags[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\GetInventorySchemaResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetInventorySchemaResponseBody\schemas\attributes;
-use AlibabaCloud\Tea\Model;
 
 class schemas extends Model
 {
     /**
-     * @description The properties of the configuration list.
-     *
      * @var attributes[]
      */
     public $attributes;
 
     /**
-     * @description The name of the configuration list.
-     *
-     * @example ACS:Application
-     *
      * @var string
      */
     public $typeName;
 
     /**
-     * @description The version of the configuration list.
-     *
-     * @example 1.0
-     *
      * @var string
      */
     public $version;
@@ -39,23 +29,32 @@ class schemas extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributes) {
-            $res['Attributes'] = [];
-            if (null !== $this->attributes && \is_array($this->attributes)) {
-                $n = 0;
-                foreach ($this->attributes as $item) {
-                    $res['Attributes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attributes)) {
+                $res['Attributes'] = [];
+                $n1 = 0;
+                foreach ($this->attributes as $item1) {
+                    $res['Attributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -63,26 +62,29 @@ class schemas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schemas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
-                $n = 0;
-                foreach ($map['Attributes'] as $item) {
-                    $model->attributes[$n++] = null !== $item ? attributes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Attributes'] as $item1) {
+                    $model->attributes[$n1] = attributes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

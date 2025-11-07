@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class patches extends Model
 {
     /**
-     * @description The classification of the patch.
-     *
-     * @example “”
-     *
      * @var string
      */
     public $classification;
 
     /**
-     * @description The time when the patch was installed.
-     *
-     * @example 2021-01-28T07:07:20Z
-     *
      * @var string
      */
     public $installedTime;
 
     /**
-     * @description The Id of KBId.
-     *
-     * @example apt-utils.amd64
-     *
      * @var string
      */
     public $KBId;
 
     /**
-     * @description The level of the severity.
-     *
-     * @example important
-     *
      * @var string
      */
     public $severity;
 
     /**
-     * @description The status of the installation.
-     *
-     * @example Installed
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The name of the patch.
-     *
-     * @example isc-dhcp-common.amd64:4.3.5-3ubuntu7.3
-     *
      * @var string
      */
     public $title;
@@ -70,26 +46,34 @@ class patches extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classification) {
             $res['Classification'] = $this->classification;
         }
+
         if (null !== $this->installedTime) {
             $res['InstalledTime'] = $this->installedTime;
         }
+
         if (null !== $this->KBId) {
             $res['KBId'] = $this->KBId;
         }
+
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -97,29 +81,34 @@ class patches extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return patches
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Classification'])) {
             $model->classification = $map['Classification'];
         }
+
         if (isset($map['InstalledTime'])) {
             $model->installedTime = $map['InstalledTime'];
         }
+
         if (isset($map['KBId'])) {
             $model->KBId = $map['KBId'];
         }
+
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

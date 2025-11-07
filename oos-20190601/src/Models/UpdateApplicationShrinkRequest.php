@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateApplicationShrinkRequest extends Model
 {
     /**
-     * @description The configurations of application alerts.
-     *
      * @var string
      */
     public $alarmConfigShrink;
 
     /**
-     * @description Specifies whether to delete existing alert rules before applying the alert template. Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $deleteAlarmRulesBeforeUpdate;
 
     /**
-     * @description The description to be updated for the application.
-     *
-     * @example test application
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The application name.
-     *
-     * This parameter is required.
-     *
-     * @example My-Application
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The region ID. Set the value to cn-hangzhou.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The tags.
-     *
-     * @example {"k1":"v1","k2":"v2"}
-     *
      * @var string
      */
     public $tagsShrink;
@@ -70,26 +46,34 @@ class UpdateApplicationShrinkRequest extends Model
         'tagsShrink' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmConfigShrink) {
             $res['AlarmConfig'] = $this->alarmConfigShrink;
         }
+
         if (null !== $this->deleteAlarmRulesBeforeUpdate) {
             $res['DeleteAlarmRulesBeforeUpdate'] = $this->deleteAlarmRulesBeforeUpdate;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
         }
@@ -97,29 +81,34 @@ class UpdateApplicationShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateApplicationShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmConfig'])) {
             $model->alarmConfigShrink = $map['AlarmConfig'];
         }
+
         if (isset($map['DeleteAlarmRulesBeforeUpdate'])) {
             $model->deleteAlarmRulesBeforeUpdate = $map['DeleteAlarmRulesBeforeUpdate'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
         }

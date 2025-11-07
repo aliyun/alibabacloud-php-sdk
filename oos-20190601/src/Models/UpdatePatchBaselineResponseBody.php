@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdatePatchBaselineResponseBody\patchBaseline;
-use AlibabaCloud\Tea\Model;
 
 class UpdatePatchBaselineResponseBody extends Model
 {
     /**
-     * @description The details of the patch baseline.
-     *
      * @var patchBaseline
      */
     public $patchBaseline;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1457F46C-7AAE-59FA-BD12-0BDB3751E6F8
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class UpdatePatchBaselineResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->patchBaseline) {
+            $this->patchBaseline->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->patchBaseline) {
-            $res['PatchBaseline'] = null !== $this->patchBaseline ? $this->patchBaseline->toMap() : null;
+            $res['PatchBaseline'] = null !== $this->patchBaseline ? $this->patchBaseline->toArray($noStream) : $this->patchBaseline;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class UpdatePatchBaselineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePatchBaselineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PatchBaseline'])) {
             $model->patchBaseline = patchBaseline::fromMap($map['PatchBaseline']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

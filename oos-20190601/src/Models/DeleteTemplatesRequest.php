@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTemplatesRequest extends Model
 {
     /**
-     * @description Specifies whether to delete the related executions when a template is deleted.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $autoDeleteExecutions;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The names of the templates to be deleted.
-     *
-     * This parameter is required.
-     *
-     * @example ["t1","t2"]
-     *
      * @var string
      */
     public $templateNames;
@@ -42,17 +28,22 @@ class DeleteTemplatesRequest extends Model
         'templateNames' => 'TemplateNames',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoDeleteExecutions) {
             $res['AutoDeleteExecutions'] = $this->autoDeleteExecutions;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->templateNames) {
             $res['TemplateNames'] = $this->templateNames;
         }
@@ -60,20 +51,22 @@ class DeleteTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoDeleteExecutions'])) {
             $model->autoDeleteExecutions = $map['AutoDeleteExecutions'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TemplateNames'])) {
             $model->templateNames = $map['TemplateNames'];
         }

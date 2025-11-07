@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesResponseBody\patches;
-use AlibabaCloud\Tea\Model;
 
 class ListInstancePatchesResponseBody extends Model
 {
     /**
-     * @description The number of entries returned on each page.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
-     *
-     * @example -
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The information about the patch.
-     *
      * @var patches[]
      */
     public $patches;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 0A615755-9C86-5EA6-BF9E-6E8F1AFF9403
-     *
      * @var string
      */
     public $requestId;
@@ -49,26 +35,36 @@ class ListInstancePatchesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->patches)) {
+            Model::validateArray($this->patches);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->patches) {
-            $res['Patches'] = [];
-            if (null !== $this->patches && \is_array($this->patches)) {
-                $n = 0;
-                foreach ($this->patches as $item) {
-                    $res['Patches'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->patches)) {
+                $res['Patches'] = [];
+                $n1 = 0;
+                foreach ($this->patches as $item1) {
+                    $res['Patches'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -76,29 +72,33 @@ class ListInstancePatchesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancePatchesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Patches'])) {
             if (!empty($map['Patches'])) {
                 $model->patches = [];
-                $n = 0;
-                foreach ($map['Patches'] as $item) {
-                    $model->patches[$n++] = null !== $item ? patches::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Patches'] as $item1) {
+                    $model->patches[$n1] = patches::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

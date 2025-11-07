@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListSecretParametersResponseBody\parameters;
-use AlibabaCloud\Tea\Model;
 
 class ListSecretParametersResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
-     *
-     * @example sPH90GZOVGC6KPDUL0FIIbEtMQHq_19S6_4O_XqA
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The information about the parameters.
-     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example CA9C6248-AF2A-4AE9-A166-88FD901BBB90
-     *
      * @var string
      */
     public $requestId;
@@ -49,26 +35,36 @@ class ListSecretParametersResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1 = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -76,29 +72,33 @@ class ListSecretParametersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSecretParametersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
