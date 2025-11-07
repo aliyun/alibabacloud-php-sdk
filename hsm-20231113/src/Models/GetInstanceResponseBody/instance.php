@@ -94,6 +94,11 @@ class instance extends Model
     public $tenantIsolationType;
 
     /**
+     * @var int
+     */
+    public $tpsEnabled;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -135,6 +140,7 @@ class instance extends Model
         'remark' => 'Remark',
         'status' => 'Status',
         'tenantIsolationType' => 'TenantIsolationType',
+        'tpsEnabled' => 'TpsEnabled',
         'vSwitchId' => 'VSwitchId',
         'vendor' => 'Vendor',
         'vpcId' => 'VpcId',
@@ -216,6 +222,10 @@ class instance extends Model
 
         if (null !== $this->tenantIsolationType) {
             $res['TenantIsolationType'] = $this->tenantIsolationType;
+        }
+
+        if (null !== $this->tpsEnabled) {
+            $res['TpsEnabled'] = $this->tpsEnabled;
         }
 
         if (null !== $this->vSwitchId) {
@@ -315,6 +325,10 @@ class instance extends Model
 
         if (isset($map['TenantIsolationType'])) {
             $model->tenantIsolationType = $map['TenantIsolationType'];
+        }
+
+        if (isset($map['TpsEnabled'])) {
+            $model->tpsEnabled = $map['TpsEnabled'];
         }
 
         if (isset($map['VSwitchId'])) {
