@@ -14,6 +14,11 @@ class dataPoints extends Model
     public $average;
 
     /**
+     * @var string
+     */
+    public $gpuId;
+
+    /**
      * @var float
      */
     public $maximum;
@@ -29,6 +34,7 @@ class dataPoints extends Model
     public $timestamp;
     protected $_name = [
         'average' => 'Average',
+        'gpuId' => 'GpuId',
         'maximum' => 'Maximum',
         'minimum' => 'Minimum',
         'timestamp' => 'Timestamp',
@@ -44,6 +50,10 @@ class dataPoints extends Model
         $res = [];
         if (null !== $this->average) {
             $res['Average'] = $this->average;
+        }
+
+        if (null !== $this->gpuId) {
+            $res['GpuId'] = $this->gpuId;
         }
 
         if (null !== $this->maximum) {
@@ -71,6 +81,10 @@ class dataPoints extends Model
         $model = new self();
         if (isset($map['Average'])) {
             $model->average = $map['Average'];
+        }
+
+        if (isset($map['GpuId'])) {
+            $model->gpuId = $map['GpuId'];
         }
 
         if (isset($map['Maximum'])) {
