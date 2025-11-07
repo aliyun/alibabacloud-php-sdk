@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\DeviceRegisterRequest;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\DeviceRegisterResponse;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetTokenRequest;
 use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\GetTokenResponse;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ModelTypeDetermineRequest;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ModelTypeDetermineResponse;
+use AlibabaCloud\SDK\BailianModelOnChip\V20240816\Models\ModelTypeDetermineShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -267,5 +270,76 @@ class BailianModelOnChip extends OpenApiClient
         $headers = [];
 
         return $this->getTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 模型类型识别.
+     *
+     * @param tmpReq - ModelTypeDetermineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelTypeDetermineResponse
+     *
+     * @param ModelTypeDetermineRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModelTypeDetermineResponse
+     */
+    public function modelTypeDetermineWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModelTypeDetermineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->history) {
+            $request->historyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->history, 'history', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->historyShrink) {
+            @$body['history'] = $request->historyShrink;
+        }
+
+        if (null !== $request->inputText) {
+            @$body['inputText'] = $request->inputText;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelTypeDetermine',
+            'version' => '2024-08-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/api/v1/model/type/determine',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelTypeDetermineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型类型识别.
+     *
+     * @param request - ModelTypeDetermineRequest
+     *
+     * @returns ModelTypeDetermineResponse
+     *
+     * @param ModelTypeDetermineRequest $request
+     *
+     * @return ModelTypeDetermineResponse
+     */
+    public function modelTypeDetermine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelTypeDetermineWithOptions($request, $headers, $runtime);
     }
 }
