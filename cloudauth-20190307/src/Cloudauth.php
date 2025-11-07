@@ -5,9 +5,12 @@
 namespace AlibabaCloud\SDK\Cloudauth\V20190307;
 
 use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Exception\DaraException;
+use AlibabaCloud\Dara\Exception\DaraUnableRetryException;
 use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
@@ -22,10 +25,18 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CompareFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ContrastFaceVerifyAdvanceRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ContrastFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ContrastFaceVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateAntCloudAuthSceneRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateAntCloudAuthSceneResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateAuthKeyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateAuthKeyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateCloudauthstSceneRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateCloudauthstSceneResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateSceneConfigRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateSceneConfigResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateWhitelistSettingRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateWhitelistSettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialProductVerifyV2AdvanceRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialProductVerifyV2Request;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialProductVerifyV2Response;
@@ -38,29 +49,88 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyV2Response;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyV2ShrinkRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteAllCustomizeFlowStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteAllCustomizeFlowStrategyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteAntCloudAuthSceneRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteAntCloudAuthSceneResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteBlackListStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteBlackListStrategyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteCloudauthstSceneRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteCloudauthstSceneResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteControlStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteControlStrategyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteCustomizeFlowStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteCustomizeFlowStrategyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteSceneConfigRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteSceneConfigResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteWhitelistSettingRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteWhitelistSettingResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeAntAndCloudAuthUserStatusResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCardVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCardVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCloudauthstSceneListRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeCloudauthstSceneListResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceGuardRiskRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceGuardRiskResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeFaceVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeInfoCheckExportRecordRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeInfoCheckExportRecordResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeListAntCloudAuthScenesRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeListAntCloudAuthScenesResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeListFaceVerifyDataRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeListFaceVerifyDataResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeListFaceVerifyInfosRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeListFaceVerifyInfosResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeMetaSearchPageListRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeMetaSearchPageListResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeMetaStatisticsListRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeMetaStatisticsListResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeMetaStatisticsPageListRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeMetaStatisticsPageListResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssStatusRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssStatusResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssStatusV2Request;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssStatusV2Response;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeOssUploadTokenResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribePageFaceVerifyDataRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribePageFaceVerifyDataResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribePageSettingResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeProductCodeResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeSmartStatisticsPageListRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeSmartStatisticsPageListResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyDeviceRiskStatisticsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyDeviceRiskStatisticsResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyFailStatisticsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyFailStatisticsResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyPersonasDeviceModelStatisticsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyPersonasDeviceModelStatisticsResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyPersonasOsStatisticsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyPersonasOsStatisticsResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyPersonasProvinceStatisticsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyPersonasProvinceStatisticsResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyPersonasSexStatisticsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyPersonasSexStatisticsResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySDKRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySDKResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySearchPageListRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifySearchPageListResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyStatisticsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyStatisticsResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeWhitelistSettingRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeWhitelistSettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DownloadVerifyRecordsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DownloadVerifyRecordsResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaPeriodVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaPeriodVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaStandardVerifyRequest;
@@ -73,6 +143,9 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyWithOCRResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyAdvanceRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyWithOCRAdvanceRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyWithOCRRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id3MetaVerifyWithOCRResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitCardVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitCardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyRequest;
@@ -97,13 +170,40 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineStatusRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineStatusResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileOnlineTimeResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyBlackListStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyBlackListStrategyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyBlackListStrategyShrinkRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyControlStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyControlStrategyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyControlStrategyShrinkRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyCustomizeFlowStrategyListRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyCustomizeFlowStrategyListResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyCustomizeFlowStrategyListShrinkRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\PageQueryWhiteListSettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\PageQueryWhiteListSettingResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryBlackListStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryBlackListStrategyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryControlStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryControlStrategyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryCustomizeFlowStrategyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryCustomizeFlowStrategyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QuerySceneConfigsRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QuerySceneConfigsResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryVerifyDownloadTaskRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryVerifyDownloadTaskResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryVerifyFlowPackageRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryVerifyFlowPackageResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryVerifyInvokeSatisticRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\QueryVerifyInvokeSatisticResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\RemoveWhiteListSettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\RemoveWhiteListSettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\RemoveWhiteListSettingShrinkRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\UpdateAntCloudAuthSceneRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\UpdateAntCloudAuthSceneResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\UpdateSceneConfigRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\UpdateSceneConfigResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Vehicle5ItemQueryRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Vehicle5ItemQueryResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VehicleInsureQueryRequest;
@@ -134,48 +234,98 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param string  $bucketName
-     * @param mixed[] $form
+     * @param string         $bucketName
+     * @param mixed[]        $form
+     * @param RuntimeOptions $runtime
      *
      * @return mixed[]
      */
-    public function _postOSSObject($bucketName, $form)
+    public function _postOSSObject($bucketName, $form, $runtime)
     {
-        $_request = new Request();
-        $boundary = FormUtil::getBoundary();
-        $_request->protocol = 'HTTPS';
-        $_request->method = 'POST';
-        $_request->pathname = '/';
-        $_request->headers = [
-            'host' => '' . @$form['host'],
-            'date' => Utils::getDateUTCString(),
-            'user-agent' => Utils::getUserAgent(''),
+        $_runtime = [
+            'key' => '' . ($runtime->key ?: $this->_key),
+            'cert' => '' . ($runtime->cert ?: $this->_cert),
+            'ca' => '' . ($runtime->ca ?: $this->_ca),
+            'readTimeout' => (($runtime->readTimeout ?: $this->_readTimeout) + 0),
+            'connectTimeout' => (($runtime->connectTimeout ?: $this->_connectTimeout) + 0),
+            'httpProxy' => '' . ($runtime->httpProxy ?: $this->_httpProxy),
+            'httpsProxy' => '' . ($runtime->httpsProxy ?: $this->_httpsProxy),
+            'noProxy' => '' . ($runtime->noProxy ?: $this->_noProxy),
+            'socks5Proxy' => '' . ($runtime->socks5Proxy ?: $this->_socks5Proxy),
+            'socks5NetWork' => '' . ($runtime->socks5NetWork ?: $this->_socks5NetWork),
+            'maxIdleConns' => (($runtime->maxIdleConns ?: $this->_maxIdleConns) + 0),
+            'retryOptions' => $this->_retryOptions,
+            'ignoreSSL' => (bool) (($runtime->ignoreSSL ?: false)),
+            'tlsMinVersion' => $this->_tlsMinVersion,
         ];
-        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
-        $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request);
 
-        $respMap = null;
-        $bodyStr = StreamUtil::readAsString($_response->body);
-        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
-            $respMap = XML::parseXml($bodyStr, null);
-            $err = @$respMap['Error'];
+        $_retriesAttempted = 0;
+        $_lastRequest = null;
+        $_lastResponse = null;
+        $_context = new RetryPolicyContext([
+            'retriesAttempted' => $_retriesAttempted,
+        ]);
+        while (Dara::shouldRetry($_runtime['retryOptions'], $_context)) {
+            if ($_retriesAttempted > 0) {
+                $_backoffTime = Dara::getBackoffDelay($_runtime['retryOptions'], $_context);
+                if ($_backoffTime > 0) {
+                    Dara::sleep($_backoffTime);
+                }
+            }
 
-            throw new ClientException([
-                'code' => '' . @$err['Code'],
-                'message' => '' . @$err['Message'],
-                'data' => [
-                    'httpCode' => $_response->statusCode,
-                    'requestId' => '' . @$err['RequestId'],
-                    'hostId' => '' . @$err['HostId'],
-                ],
-            ]);
+            ++$_retriesAttempted;
+
+            try {
+                $_request = new Request();
+                $boundary = FormUtil::getBoundary();
+                $_request->protocol = 'HTTPS';
+                $_request->method = 'POST';
+                $_request->pathname = '/';
+                $_request->headers = [
+                    'host' => '' . @$form['host'],
+                    'date' => Utils::getDateUTCString(),
+                    'user-agent' => Utils::getUserAgent(''),
+                ];
+                @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+                $_request->body = FormUtil::toFileForm($form, $boundary);
+                $_lastRequest = $_request;
+                $_response = Dara::send($_request, $_runtime);
+                $_lastResponse = $_response;
+
+                $respMap = null;
+                $bodyStr = StreamUtil::readAsString($_response->body);
+                if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+                    $respMap = XML::parseXml($bodyStr, null);
+                    $err = @$respMap['Error'];
+
+                    throw new ClientException([
+                        'code' => '' . @$err['Code'],
+                        'message' => '' . @$err['Message'],
+                        'data' => [
+                            'httpCode' => $_response->statusCode,
+                            'requestId' => '' . @$err['RequestId'],
+                            'hostId' => '' . @$err['HostId'],
+                        ],
+                    ]);
+                }
+
+                $respMap = XML::parseXml($bodyStr, null);
+
+                return Dara::merge([
+                ], $respMap);
+            } catch (DaraException $e) {
+                $_context = new RetryPolicyContext([
+                    'retriesAttempted' => $_retriesAttempted,
+                    'lastRequest' => $_lastRequest,
+                    'lastResponse' => $_lastResponse,
+                    'exception' => $e,
+                ]);
+
+                continue;
+            }
         }
 
-        $respMap = XML::parseXml($bodyStr, null);
-
-        return Dara::merge([
-        ], $respMap);
+        throw new DaraUnableRetryException($_context);
     }
 
     /**
@@ -862,11 +1012,100 @@ class Cloudauth extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $contrastFaceVerifyReq->faceContrastFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->contrastFaceVerifyWithOptions($contrastFaceVerifyReq, $runtime);
+    }
+
+    /**
+     * Create a financial-grade authentication scenario.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - CreateAntCloudAuthSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAntCloudAuthSceneResponse
+     *
+     * @param CreateAntCloudAuthSceneRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAntCloudAuthSceneResponse
+     */
+    public function createAntCloudAuthSceneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bindMiniProgram) {
+            @$query['BindMiniProgram'] = $request->bindMiniProgram;
+        }
+
+        if (null !== $request->checkFileBody) {
+            @$query['CheckFileBody'] = $request->checkFileBody;
+        }
+
+        if (null !== $request->checkFileName) {
+            @$query['CheckFileName'] = $request->checkFileName;
+        }
+
+        if (null !== $request->miniProgramName) {
+            @$query['MiniProgramName'] = $request->miniProgramName;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->sceneName) {
+            @$query['SceneName'] = $request->sceneName;
+        }
+
+        if (null !== $request->storeImage) {
+            @$query['StoreImage'] = $request->storeImage;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAntCloudAuthScene',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAntCloudAuthSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create a financial-grade authentication scenario.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - CreateAntCloudAuthSceneRequest
+     *
+     * @returns CreateAntCloudAuthSceneResponse
+     *
+     * @param CreateAntCloudAuthSceneRequest $request
+     *
+     * @return CreateAntCloudAuthSceneResponse
+     */
+    public function createAntCloudAuthScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAntCloudAuthSceneWithOptions($request, $runtime);
     }
 
     /**
@@ -944,6 +1183,154 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAuthKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Create Cloud Scene.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - CreateCloudauthstSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloudauthstSceneResponse
+     *
+     * @param CreateCloudauthstSceneRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateCloudauthstSceneResponse
+     */
+    public function createCloudauthstSceneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneName) {
+            @$query['SceneName'] = $request->sceneName;
+        }
+
+        if (null !== $request->storeImage) {
+            @$query['StoreImage'] = $request->storeImage;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloudauthstScene',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloudauthstSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create Cloud Scene.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - CreateCloudauthstSceneRequest
+     *
+     * @returns CreateCloudauthstSceneResponse
+     *
+     * @param CreateCloudauthstSceneRequest $request
+     *
+     * @return CreateCloudauthstSceneResponse
+     */
+    public function createCloudauthstScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudauthstSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Create Scene Configuration.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST.
+     * Request Address: cloudauth.aliyuncs.com.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - CreateSceneConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSceneConfigResponse
+     *
+     * @param CreateSceneConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSceneConfigResponse
+     */
+    public function createSceneConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['sceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSceneConfig',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSceneConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create Scene Configuration.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST.
+     * Request Address: cloudauth.aliyuncs.com.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - CreateSceneConfigRequest
+     *
+     * @returns CreateSceneConfigResponse
+     *
+     * @param CreateSceneConfigRequest $request
+     *
+     * @return CreateSceneConfigResponse
+     */
+    public function createSceneConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSceneConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1027,6 +1414,97 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVerifySettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Create Whitelist.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST.
+     *
+     * @param Request - CreateWhitelistSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWhitelistSettingResponse
+     *
+     * @param CreateWhitelistSettingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateWhitelistSettingResponse
+     */
+    public function createWhitelistSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certNo) {
+            @$query['CertNo'] = $request->certNo;
+        }
+
+        if (null !== $request->certifyId) {
+            @$query['CertifyId'] = $request->certifyId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->validDay) {
+            @$query['ValidDay'] = $request->validDay;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWhitelistSetting',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWhitelistSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create Whitelist.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST.
+     *
+     * @param Request - CreateWhitelistSettingRequest
+     *
+     * @returns CreateWhitelistSettingResponse
+     *
+     * @param CreateWhitelistSettingRequest $request
+     *
+     * @return CreateWhitelistSettingResponse
+     */
+    public function createWhitelistSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWhitelistSettingWithOptions($request, $runtime);
     }
 
     /**
@@ -1199,7 +1677,7 @@ class Cloudauth extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $credentialProductVerifyV2Req->imageFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -1535,7 +2013,7 @@ class Cloudauth extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $credentialVerifyV2Req->imageFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -1626,6 +2104,434 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * Delete All Custom Flow Control Strategies.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - DeleteAllCustomizeFlowStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAllCustomizeFlowStrategyResponse
+     *
+     * @param DeleteAllCustomizeFlowStrategyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteAllCustomizeFlowStrategyResponse
+     */
+    public function deleteAllCustomizeFlowStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAllCustomizeFlowStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAllCustomizeFlowStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete All Custom Flow Control Strategies.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - DeleteAllCustomizeFlowStrategyRequest
+     *
+     * @returns DeleteAllCustomizeFlowStrategyResponse
+     *
+     * @param DeleteAllCustomizeFlowStrategyRequest $request
+     *
+     * @return DeleteAllCustomizeFlowStrategyResponse
+     */
+    public function deleteAllCustomizeFlowStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAllCustomizeFlowStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Watermark Scene.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DeleteAntCloudAuthSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAntCloudAuthSceneResponse
+     *
+     * @param DeleteAntCloudAuthSceneRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAntCloudAuthSceneResponse
+     */
+    public function deleteAntCloudAuthSceneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAntCloudAuthScene',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAntCloudAuthSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Watermark Scene.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DeleteAntCloudAuthSceneRequest
+     *
+     * @returns DeleteAntCloudAuthSceneResponse
+     *
+     * @param DeleteAntCloudAuthSceneRequest $request
+     *
+     * @return DeleteAntCloudAuthSceneResponse
+     */
+    public function deleteAntCloudAuthScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAntCloudAuthSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Black and White List Policy.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST method.
+     *
+     * @param Request - DeleteBlackListStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBlackListStrategyResponse
+     *
+     * @param DeleteBlackListStrategyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteBlackListStrategyResponse
+     */
+    public function deleteBlackListStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->productName) {
+            @$query['ProductName'] = $request->productName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBlackListStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBlackListStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Black and White List Policy.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST method.
+     *
+     * @param Request - DeleteBlackListStrategyRequest
+     *
+     * @returns DeleteBlackListStrategyResponse
+     *
+     * @param DeleteBlackListStrategyRequest $request
+     *
+     * @return DeleteBlackListStrategyResponse
+     */
+    public function deleteBlackListStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBlackListStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Cloud Scene.
+     *
+     * @remarks
+     * Request Method: Supports sending requests using HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+     *
+     * @param Request - DeleteCloudauthstSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudauthstSceneResponse
+     *
+     * @param DeleteCloudauthstSceneRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteCloudauthstSceneResponse
+     */
+    public function deleteCloudauthstSceneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloudauthstScene',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloudauthstSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Cloud Scene.
+     *
+     * @remarks
+     * Request Method: Supports sending requests using HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+     *
+     * @param Request - DeleteCloudauthstSceneRequest
+     *
+     * @returns DeleteCloudauthstSceneResponse
+     *
+     * @param DeleteCloudauthstSceneRequest $request
+     *
+     * @return DeleteCloudauthstSceneResponse
+     */
+    public function deleteCloudauthstScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudauthstSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Security Control Strategy.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST.
+     * Request URL: cloudauth.aliyuncs.com.
+     *
+     * @param Request - DeleteControlStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteControlStrategyResponse
+     *
+     * @param DeleteControlStrategyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteControlStrategyResponse
+     */
+    public function deleteControlStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiName) {
+            @$query['ApiName'] = $request->apiName;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteControlStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteControlStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Security Control Strategy.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST.
+     * Request URL: cloudauth.aliyuncs.com.
+     *
+     * @param Request - DeleteControlStrategyRequest
+     *
+     * @returns DeleteControlStrategyResponse
+     *
+     * @param DeleteControlStrategyRequest $request
+     *
+     * @return DeleteControlStrategyResponse
+     */
+    public function deleteControlStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteControlStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Customized Flow Control Strategy.
+     *
+     * @remarks
+     * Request Method: Supports sending requests using HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - DeleteCustomizeFlowStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomizeFlowStrategyResponse
+     *
+     * @param DeleteCustomizeFlowStrategyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteCustomizeFlowStrategyResponse
+     */
+    public function deleteCustomizeFlowStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiName) {
+            @$query['ApiName'] = $request->apiName;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomizeFlowStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomizeFlowStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Customized Flow Control Strategy.
+     *
+     * @remarks
+     * Request Method: Supports sending requests using HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - DeleteCustomizeFlowStrategyRequest
+     *
+     * @returns DeleteCustomizeFlowStrategyResponse
+     *
+     * @param DeleteCustomizeFlowStrategyRequest $request
+     *
+     * @return DeleteCustomizeFlowStrategyResponse
+     */
+    public function deleteCustomizeFlowStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomizeFlowStrategyWithOptions($request, $runtime);
+    }
+
+    /**
      * Financial Level Sensitive Data Deletion Interface.
      *
      * @remarks
@@ -1693,6 +2599,200 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * Delete Scene Configuration.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Request URL: cloudauth.aliyuncs.com.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+     *
+     * @param Request - DeleteSceneConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSceneConfigResponse
+     *
+     * @param DeleteSceneConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteSceneConfigResponse
+     */
+    public function deleteSceneConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->sceneConfigId) {
+            @$body['sceneConfigId'] = $request->sceneConfigId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSceneConfig',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSceneConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Scene Configuration.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Request URL: cloudauth.aliyuncs.com.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+     *
+     * @param Request - DeleteSceneConfigRequest
+     *
+     * @returns DeleteSceneConfigResponse
+     *
+     * @param DeleteSceneConfigRequest $request
+     *
+     * @return DeleteSceneConfigResponse
+     */
+    public function deleteSceneConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSceneConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete Whitelist Configuration.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST method.
+     *
+     * @param Request - DeleteWhitelistSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWhitelistSettingResponse
+     *
+     * @param DeleteWhitelistSettingRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteWhitelistSettingResponse
+     */
+    public function deleteWhitelistSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWhitelistSetting',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWhitelistSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete Whitelist Configuration.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST method.
+     *
+     * @param Request - DeleteWhitelistSettingRequest
+     *
+     * @returns DeleteWhitelistSettingResponse
+     *
+     * @param DeleteWhitelistSettingRequest $request
+     *
+     * @return DeleteWhitelistSettingResponse
+     */
+    public function deleteWhitelistSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWhitelistSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query the User Status of Ant Blockchain.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+     *
+     * @param Request - DescribeAntAndCloudAuthUserStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAntAndCloudAuthUserStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeAntAndCloudAuthUserStatusResponse
+     */
+    public function describeAntAndCloudAuthUserStatusWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeAntAndCloudAuthUserStatus',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAntAndCloudAuthUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the User Status of Ant Blockchain.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+     *
+     * @returns DescribeAntAndCloudAuthUserStatusResponse
+     *
+     * @return DescribeAntAndCloudAuthUserStatusResponse
+     */
+    public function describeAntAndCloudAuthUserStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAntAndCloudAuthUserStatusWithOptions($runtime);
+    }
+
+    /**
      * Obtain Authentication Results from Image Element Verification.
      *
      * @remarks
@@ -1753,6 +2853,71 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCardVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Dashboard Data.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - DescribeCloudauthstSceneListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudauthstSceneListResponse
+     *
+     * @param DescribeCloudauthstSceneListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCloudauthstSceneListResponse
+     */
+    public function describeCloudauthstSceneListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCloudauthstSceneList',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCloudauthstSceneListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Dashboard Data.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+     *
+     * @param Request - DescribeCloudauthstSceneListRequest
+     *
+     * @returns DescribeCloudauthstSceneListResponse
+     *
+     * @param DescribeCloudauthstSceneListRequest $request
+     *
+     * @return DescribeCloudauthstSceneListResponse
+     */
+    public function describeCloudauthstSceneList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudauthstSceneListWithOptions($request, $runtime);
     }
 
     /**
@@ -1985,6 +3150,691 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * 查询任务导出记录.
+     *
+     * @param Request - DescribeInfoCheckExportRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInfoCheckExportRecordResponse
+     *
+     * @param DescribeInfoCheckExportRecordRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeInfoCheckExportRecordResponse
+     */
+    public function describeInfoCheckExportRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInfoCheckExportRecord',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInfoCheckExportRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询任务导出记录.
+     *
+     * @param Request - DescribeInfoCheckExportRecordRequest
+     *
+     * @returns DescribeInfoCheckExportRecordResponse
+     *
+     * @param DescribeInfoCheckExportRecordRequest $request
+     *
+     * @return DescribeInfoCheckExportRecordResponse
+     */
+    public function describeInfoCheckExportRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInfoCheckExportRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query the cloud scenario authentication records of a specific region.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+     *
+     * @param Request - DescribeListAntCloudAuthScenesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeListAntCloudAuthScenesResponse
+     *
+     * @param DescribeListAntCloudAuthScenesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeListAntCloudAuthScenesResponse
+     */
+    public function describeListAntCloudAuthScenesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeListAntCloudAuthScenes',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeListAntCloudAuthScenesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the cloud scenario authentication records of a specific region.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+     *
+     * @param Request - DescribeListAntCloudAuthScenesRequest
+     *
+     * @returns DescribeListAntCloudAuthScenesResponse
+     *
+     * @param DescribeListAntCloudAuthScenesRequest $request
+     *
+     * @return DescribeListAntCloudAuthScenesResponse
+     */
+    public function describeListAntCloudAuthScenes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeListAntCloudAuthScenesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Face Verification Data.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeListFaceVerifyDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeListFaceVerifyDataResponse
+     *
+     * @param DescribeListFaceVerifyDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeListFaceVerifyDataResponse
+     */
+    public function describeListFaceVerifyDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gmtEnd) {
+            @$query['GmtEnd'] = $request->gmtEnd;
+        }
+
+        if (null !== $request->gmtStart) {
+            @$query['GmtStart'] = $request->gmtStart;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeListFaceVerifyData',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeListFaceVerifyDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Face Verification Data.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeListFaceVerifyDataRequest
+     *
+     * @returns DescribeListFaceVerifyDataResponse
+     *
+     * @param DescribeListFaceVerifyDataRequest $request
+     *
+     * @return DescribeListFaceVerifyDataResponse
+     */
+    public function describeListFaceVerifyData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeListFaceVerifyDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get Face Verification Information.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeListFaceVerifyInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeListFaceVerifyInfosResponse
+     *
+     * @param DescribeListFaceVerifyInfosRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeListFaceVerifyInfosResponse
+     */
+    public function describeListFaceVerifyInfosWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certifyId) {
+            @$query['CertifyId'] = $request->certifyId;
+        }
+
+        if (null !== $request->gmtEnd) {
+            @$query['GmtEnd'] = $request->gmtEnd;
+        }
+
+        if (null !== $request->gmtStart) {
+            @$query['GmtStart'] = $request->gmtStart;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeListFaceVerifyInfos',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeListFaceVerifyInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Face Verification Information.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeListFaceVerifyInfosRequest
+     *
+     * @returns DescribeListFaceVerifyInfosResponse
+     *
+     * @param DescribeListFaceVerifyInfosRequest $request
+     *
+     * @return DescribeListFaceVerifyInfosResponse
+     */
+    public function describeListFaceVerifyInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeListFaceVerifyInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询页面元数据.
+     *
+     * @param Request - DescribeMetaSearchPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetaSearchPageListResponse
+     *
+     * @param DescribeMetaSearchPageListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeMetaSearchPageListResponse
+     */
+    public function describeMetaSearchPageListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->api) {
+            @$query['Api'] = $request->api;
+        }
+
+        if (null !== $request->bankCard) {
+            @$query['BankCard'] = $request->bankCard;
+        }
+
+        if (null !== $request->bizCode) {
+            @$query['BizCode'] = $request->bizCode;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->identifyNum) {
+            @$query['IdentifyNum'] = $request->identifyNum;
+        }
+
+        if (null !== $request->ispName) {
+            @$query['IspName'] = $request->ispName;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->subCode) {
+            @$query['SubCode'] = $request->subCode;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->vehicleNum) {
+            @$query['VehicleNum'] = $request->vehicleNum;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMetaSearchPageList',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMetaSearchPageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询页面元数据.
+     *
+     * @param Request - DescribeMetaSearchPageListRequest
+     *
+     * @returns DescribeMetaSearchPageListResponse
+     *
+     * @param DescribeMetaSearchPageListRequest $request
+     *
+     * @return DescribeMetaSearchPageListResponse
+     */
+    public function describeMetaSearchPageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetaSearchPageListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询认证统计信息.
+     *
+     * @param Request - DescribeMetaStatisticsListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetaStatisticsListResponse
+     *
+     * @param DescribeMetaStatisticsListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeMetaStatisticsListResponse
+     */
+    public function describeMetaStatisticsListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->api) {
+            @$query['Api'] = $request->api;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMetaStatisticsList',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMetaStatisticsListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询认证统计信息.
+     *
+     * @param Request - DescribeMetaStatisticsListRequest
+     *
+     * @returns DescribeMetaStatisticsListResponse
+     *
+     * @param DescribeMetaStatisticsListRequest $request
+     *
+     * @return DescribeMetaStatisticsListResponse
+     */
+    public function describeMetaStatisticsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetaStatisticsListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询认证统计页面.
+     *
+     * @param Request - DescribeMetaStatisticsPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetaStatisticsPageListResponse
+     *
+     * @param DescribeMetaStatisticsPageListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeMetaStatisticsPageListResponse
+     */
+    public function describeMetaStatisticsPageListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->api) {
+            @$query['Api'] = $request->api;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMetaStatisticsPageList',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMetaStatisticsPageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询认证统计页面.
+     *
+     * @param Request - DescribeMetaStatisticsPageListRequest
+     *
+     * @returns DescribeMetaStatisticsPageListResponse
+     *
+     * @param DescribeMetaStatisticsPageListRequest $request
+     *
+     * @return DescribeMetaStatisticsPageListResponse
+     */
+    public function describeMetaStatisticsPageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetaStatisticsPageListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query OSS status.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Service Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - DescribeOssStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOssStatusResponse
+     *
+     * @param DescribeOssStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeOssStatusResponse
+     */
+    public function describeOssStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOssStatus',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOssStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query OSS status.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Service Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - DescribeOssStatusRequest
+     *
+     * @returns DescribeOssStatusResponse
+     *
+     * @param DescribeOssStatusRequest $request
+     *
+     * @return DescribeOssStatusResponse
+     */
+    public function describeOssStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOssStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get OSS Activation Status.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Service Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - DescribeOssStatusV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOssStatusV2Response
+     *
+     * @param DescribeOssStatusV2Request $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeOssStatusV2Response
+     */
+    public function describeOssStatusV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOssStatusV2',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOssStatusV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get OSS Activation Status.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Service Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - DescribeOssStatusV2Request
+     *
+     * @returns DescribeOssStatusV2Response
+     *
+     * @param DescribeOssStatusV2Request $request
+     *
+     * @return DescribeOssStatusV2Response
+     */
+    public function describeOssStatusV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOssStatusV2WithOptions($request, $runtime);
+    }
+
+    /**
      * Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
      *
      * @param Request - DescribeOssUploadTokenRequest
@@ -2106,6 +3956,106 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * Query Page Settings.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST method.
+     *
+     * @param Request - DescribePageSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePageSettingResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribePageSettingResponse
+     */
+    public function describePageSettingWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribePageSetting',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePageSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Page Settings.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST method.
+     *
+     * @returns DescribePageSettingResponse
+     *
+     * @return DescribePageSettingResponse
+     */
+    public function describePageSetting()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePageSettingWithOptions($runtime);
+    }
+
+    /**
+     * Get Product Code.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS GET/POST methods.
+     *
+     * @param Request - DescribeProductCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProductCodeResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeProductCodeResponse
+     */
+    public function describeProductCodeWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeProductCode',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeProductCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Product Code.
+     *
+     * @remarks
+     * Request Method: Supports sending requests via HTTPS GET/POST methods.
+     *
+     * @returns DescribeProductCodeResponse
+     *
+     * @return DescribeProductCodeResponse
+     */
+    public function describeProductCode()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProductCodeWithOptions($runtime);
+    }
+
+    /**
      * Enhanced Real Person Authentication Call Statistics Pagination Query Interface.
      *
      * @param Request - DescribeSmartStatisticsPageListRequest
@@ -2180,6 +4130,484 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSmartStatisticsPageListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get Verification Device Statistics.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyDeviceRiskStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifyDeviceRiskStatisticsResponse
+     *
+     * @param DescribeVerifyDeviceRiskStatisticsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeVerifyDeviceRiskStatisticsResponse
+     */
+    public function describeVerifyDeviceRiskStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifyDeviceRiskStatistics',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifyDeviceRiskStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Verification Device Statistics.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyDeviceRiskStatisticsRequest
+     *
+     * @returns DescribeVerifyDeviceRiskStatisticsResponse
+     *
+     * @param DescribeVerifyDeviceRiskStatisticsRequest $request
+     *
+     * @return DescribeVerifyDeviceRiskStatisticsResponse
+     */
+    public function describeVerifyDeviceRiskStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyDeviceRiskStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Overview of authentication request statistics.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyFailStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifyFailStatisticsResponse
+     *
+     * @param DescribeVerifyFailStatisticsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeVerifyFailStatisticsResponse
+     */
+    public function describeVerifyFailStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ageGt) {
+            @$query['AgeGt'] = $request->ageGt;
+        }
+
+        if (null !== $request->api) {
+            @$query['Api'] = $request->api;
+        }
+
+        if (null !== $request->deviceType) {
+            @$query['DeviceType'] = $request->deviceType;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifyFailStatistics',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifyFailStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Overview of authentication request statistics.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyFailStatisticsRequest
+     *
+     * @returns DescribeVerifyFailStatisticsResponse
+     *
+     * @param DescribeVerifyFailStatisticsRequest $request
+     *
+     * @return DescribeVerifyFailStatisticsResponse
+     */
+    public function describeVerifyFailStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyFailStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Statistics on Device Face Comparison.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyPersonasDeviceModelStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifyPersonasDeviceModelStatisticsResponse
+     *
+     * @param DescribeVerifyPersonasDeviceModelStatisticsRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return DescribeVerifyPersonasDeviceModelStatisticsResponse
+     */
+    public function describeVerifyPersonasDeviceModelStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifyPersonasDeviceModelStatistics',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifyPersonasDeviceModelStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Statistics on Device Face Comparison.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyPersonasDeviceModelStatisticsRequest
+     *
+     * @returns DescribeVerifyPersonasDeviceModelStatisticsResponse
+     *
+     * @param DescribeVerifyPersonasDeviceModelStatisticsRequest $request
+     *
+     * @return DescribeVerifyPersonasDeviceModelStatisticsResponse
+     */
+    public function describeVerifyPersonasDeviceModelStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyPersonasDeviceModelStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Authentication Personnel Statistics.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyPersonasOsStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifyPersonasOsStatisticsResponse
+     *
+     * @param DescribeVerifyPersonasOsStatisticsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeVerifyPersonasOsStatisticsResponse
+     */
+    public function describeVerifyPersonasOsStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifyPersonasOsStatistics',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifyPersonasOsStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Authentication Personnel Statistics.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyPersonasOsStatisticsRequest
+     *
+     * @returns DescribeVerifyPersonasOsStatisticsResponse
+     *
+     * @param DescribeVerifyPersonasOsStatisticsRequest $request
+     *
+     * @return DescribeVerifyPersonasOsStatisticsResponse
+     */
+    public function describeVerifyPersonasOsStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyPersonasOsStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Obtain statistical information on the location of authenticated individuals.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyPersonasProvinceStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifyPersonasProvinceStatisticsResponse
+     *
+     * @param DescribeVerifyPersonasProvinceStatisticsRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeVerifyPersonasProvinceStatisticsResponse
+     */
+    public function describeVerifyPersonasProvinceStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifyPersonasProvinceStatistics',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifyPersonasProvinceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Obtain statistical information on the location of authenticated individuals.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyPersonasProvinceStatisticsRequest
+     *
+     * @returns DescribeVerifyPersonasProvinceStatisticsResponse
+     *
+     * @param DescribeVerifyPersonasProvinceStatisticsRequest $request
+     *
+     * @return DescribeVerifyPersonasProvinceStatisticsResponse
+     */
+    public function describeVerifyPersonasProvinceStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyPersonasProvinceStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query gender statistics of authentication.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyPersonasSexStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifyPersonasSexStatisticsResponse
+     *
+     * @param DescribeVerifyPersonasSexStatisticsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeVerifyPersonasSexStatisticsResponse
+     */
+    public function describeVerifyPersonasSexStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifyPersonasSexStatistics',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifyPersonasSexStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query gender statistics of authentication.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifyPersonasSexStatisticsRequest
+     *
+     * @returns DescribeVerifyPersonasSexStatisticsResponse
+     *
+     * @param DescribeVerifyPersonasSexStatisticsRequest $request
+     *
+     * @return DescribeVerifyPersonasSexStatisticsResponse
+     */
+    public function describeVerifyPersonasSexStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyPersonasSexStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -2323,6 +4751,216 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * Query the list of authentication schemes.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifySearchPageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifySearchPageListResponse
+     *
+     * @param DescribeVerifySearchPageListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeVerifySearchPageListResponse
+     */
+    public function describeVerifySearchPageListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certNo) {
+            @$query['CertNo'] = $request->certNo;
+        }
+
+        if (null !== $request->certifyId) {
+            @$query['CertifyId'] = $request->certifyId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->hasDeviceRisk) {
+            @$query['HasDeviceRisk'] = $request->hasDeviceRisk;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->outerOrderNo) {
+            @$query['OuterOrderNo'] = $request->outerOrderNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->passed) {
+            @$query['Passed'] = $request->passed;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->root) {
+            @$query['Root'] = $request->root;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->simulator) {
+            @$query['Simulator'] = $request->simulator;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->subCode) {
+            @$query['SubCode'] = $request->subCode;
+        }
+
+        if (null !== $request->subCodes) {
+            @$query['SubCodes'] = $request->subCodes;
+        }
+
+        if (null !== $request->virtualVideo) {
+            @$query['VirtualVideo'] = $request->virtualVideo;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifySearchPageList',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifySearchPageListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the list of authentication schemes.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     *
+     * @param Request - DescribeVerifySearchPageListRequest
+     *
+     * @returns DescribeVerifySearchPageListResponse
+     *
+     * @param DescribeVerifySearchPageListRequest $request
+     *
+     * @return DescribeVerifySearchPageListResponse
+     */
+    public function describeVerifySearchPageList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifySearchPageListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Authentication Statistics.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests using HTTPS POST and GET methods.
+     * - Service Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - DescribeVerifyStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVerifyStatisticsResponse
+     *
+     * @param DescribeVerifyStatisticsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVerifyStatisticsResponse
+     */
+    public function describeVerifyStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ageGt) {
+            @$query['AgeGt'] = $request->ageGt;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVerifyStatistics',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVerifyStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Authentication Statistics.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests using HTTPS POST and GET methods.
+     * - Service Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - DescribeVerifyStatisticsRequest
+     *
+     * @returns DescribeVerifyStatisticsResponse
+     *
+     * @param DescribeVerifyStatisticsRequest $request
+     *
+     * @return DescribeVerifyStatisticsResponse
+     */
+    public function describeVerifyStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVerifyStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
      * Call DescribeVerifyToken to initiate an authentication request and obtain an authentication Token. This interface is suitable for authentication solutions using SDK + server-side integration.
      *
      * @remarks
@@ -2460,6 +5098,109 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * Get Whitelist Collection Get Whitelist Collection.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST method.
+     *
+     * @param Request - DescribeWhitelistSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWhitelistSettingResponse
+     *
+     * @param DescribeWhitelistSettingRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeWhitelistSettingResponse
+     */
+    public function describeWhitelistSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certNo) {
+            @$query['CertNo'] = $request->certNo;
+        }
+
+        if (null !== $request->certifyId) {
+            @$query['CertifyId'] = $request->certifyId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->validEndDate) {
+            @$query['ValidEndDate'] = $request->validEndDate;
+        }
+
+        if (null !== $request->validStartDate) {
+            @$query['ValidStartDate'] = $request->validStartDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWhitelistSetting',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWhitelistSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Whitelist Collection Get Whitelist Collection.
+     *
+     * @remarks
+     * Request Method: Only supports sending requests via HTTPS POST method.
+     *
+     * @param Request - DescribeWhitelistSettingRequest
+     *
+     * @returns DescribeWhitelistSettingResponse
+     *
+     * @param DescribeWhitelistSettingRequest $request
+     *
+     * @return DescribeWhitelistSettingResponse
+     */
+    public function describeWhitelistSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhitelistSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * Detect Validity Attributes in Face Photos.
      *
      * @remarks
@@ -2542,6 +5283,79 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectFaceAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Real-person Authentication Record Download.
+     *
+     * @remarks
+     * Obtain the download link for statistical call data files under the product plan based on query conditions.
+     * - Method: HTTPS POST
+     * - Service Address: cloudauth.aliyuncs.com
+     * > Real-person authentication products use CertifyId to count call volumes. For ease of reconciliation, please retain the CertifyId field in your system.
+     *
+     * @param Request - DownloadVerifyRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadVerifyRecordsResponse
+     *
+     * @param DownloadVerifyRecordsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DownloadVerifyRecordsResponse
+     */
+    public function downloadVerifyRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizParam) {
+            @$query['BizParam'] = $request->bizParam;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadVerifyRecords',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadVerifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Real-person Authentication Record Download.
+     *
+     * @remarks
+     * Obtain the download link for statistical call data files under the product plan based on query conditions.
+     * - Method: HTTPS POST
+     * - Service Address: cloudauth.aliyuncs.com
+     * > Real-person authentication products use CertifyId to count call volumes. For ease of reconciliation, please retain the CertifyId field in your system.
+     *
+     * @param Request - DownloadVerifyRecordsRequest
+     *
+     * @returns DownloadVerifyRecordsResponse
+     *
+     * @param DownloadVerifyRecordsRequest $request
+     *
+     * @return DownloadVerifyRecordsResponse
+     */
+    public function downloadVerifyRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadVerifyRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -2917,7 +5731,7 @@ class Cloudauth extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $id2MetaVerifyWithOCRReq->certFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -2940,7 +5754,7 @@ class Cloudauth extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $id2MetaVerifyWithOCRReq->certNationalFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -3115,11 +5929,201 @@ class Cloudauth extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $id3MetaVerifyReq->faceFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->id3MetaVerifyWithOptions($id3MetaVerifyReq, $runtime);
+    }
+
+    /**
+     * Identity Three Elements Image Verification.
+     *
+     * @remarks
+     * Upload both sides of the ID card to get the verification result of the three identity elements from an authoritative data source.
+     *
+     * @param Request - Id3MetaVerifyWithOCRRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns Id3MetaVerifyWithOCRResponse
+     *
+     * @param Id3MetaVerifyWithOCRRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return Id3MetaVerifyWithOCRResponse
+     */
+    public function id3MetaVerifyWithOCRWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->certFile) {
+            @$body['CertFile'] = $request->certFile;
+        }
+
+        if (null !== $request->certNationalFile) {
+            @$body['CertNationalFile'] = $request->certNationalFile;
+        }
+
+        if (null !== $request->certNationalUrl) {
+            @$body['CertNationalUrl'] = $request->certNationalUrl;
+        }
+
+        if (null !== $request->certUrl) {
+            @$body['CertUrl'] = $request->certUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'Id3MetaVerifyWithOCR',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return Id3MetaVerifyWithOCRResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Identity Three Elements Image Verification.
+     *
+     * @remarks
+     * Upload both sides of the ID card to get the verification result of the three identity elements from an authoritative data source.
+     *
+     * @param Request - Id3MetaVerifyWithOCRRequest
+     *
+     * @returns Id3MetaVerifyWithOCRResponse
+     *
+     * @param Id3MetaVerifyWithOCRRequest $request
+     *
+     * @return Id3MetaVerifyWithOCRResponse
+     */
+    public function id3MetaVerifyWithOCR($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->id3MetaVerifyWithOCRWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Id3MetaVerifyWithOCRAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return Id3MetaVerifyWithOCRResponse
+     */
+    public function id3MetaVerifyWithOCRAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $id3MetaVerifyWithOCRReq = new Id3MetaVerifyWithOCRRequest([]);
+        Utils::convert($request, $id3MetaVerifyWithOCRReq);
+        if (null !== $request->certFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->certFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $id3MetaVerifyWithOCRReq->certFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        if (null !== $request->certNationalFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->certNationalFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $id3MetaVerifyWithOCRReq->certNationalFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->id3MetaVerifyWithOCRWithOptions($id3MetaVerifyWithOCRReq, $runtime);
     }
 
     /**
@@ -3304,6 +6308,10 @@ class Cloudauth extends OpenApiClient
 
         if (null !== $request->faceGuardOutput) {
             @$query['FaceGuardOutput'] = $request->faceGuardOutput;
+        }
+
+        if (null !== $request->h5DegradeConfirmBtn) {
+            @$query['H5DegradeConfirmBtn'] = $request->h5DegradeConfirmBtn;
         }
 
         if (null !== $request->ip) {
@@ -4209,6 +7217,237 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * Modify Black and White List Policy.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     * - Interface Description: Add or modify blacklist rule.
+     *
+     * @param tmpReq - ModifyBlackListStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBlackListStrategyResponse
+     *
+     * @param ModifyBlackListStrategyRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyBlackListStrategyResponse
+     */
+    public function modifyBlackListStrategyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyBlackListStrategyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->blackListStrategy) {
+            $request->blackListStrategyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->blackListStrategy, 'BlackListStrategy', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->blackListStrategyShrink) {
+            @$query['BlackListStrategy'] = $request->blackListStrategyShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBlackListStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBlackListStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modify Black and White List Policy.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com.
+     * - Request Method: HTTPS POST and GET.
+     * - Interface Description: Add or modify blacklist rule.
+     *
+     * @param Request - ModifyBlackListStrategyRequest
+     *
+     * @returns ModifyBlackListStrategyResponse
+     *
+     * @param ModifyBlackListStrategyRequest $request
+     *
+     * @return ModifyBlackListStrategyResponse
+     */
+    public function modifyBlackListStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBlackListStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modify Security Control Strategy.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST method.
+     * - Request Address: cloudauth.aliyuncs.com.
+     *
+     * @param tmpReq - ModifyControlStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyControlStrategyResponse
+     *
+     * @param ModifyControlStrategyRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyControlStrategyResponse
+     */
+    public function modifyControlStrategyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyControlStrategyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->controlStrategyList) {
+            $request->controlStrategyListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->controlStrategyList, 'ControlStrategyList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->controlStrategyListShrink) {
+            @$query['ControlStrategyList'] = $request->controlStrategyListShrink;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyControlStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyControlStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modify Security Control Strategy.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST method.
+     * - Request Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - ModifyControlStrategyRequest
+     *
+     * @returns ModifyControlStrategyResponse
+     *
+     * @param ModifyControlStrategyRequest $request
+     *
+     * @return ModifyControlStrategyResponse
+     */
+    public function modifyControlStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyControlStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Information Verification Security Management.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Service Address: cloudauth.aliyuncs.com.
+     *
+     * @param tmpReq - ModifyCustomizeFlowStrategyListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCustomizeFlowStrategyListResponse
+     *
+     * @param ModifyCustomizeFlowStrategyListRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyCustomizeFlowStrategyListResponse
+     */
+    public function modifyCustomizeFlowStrategyListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyCustomizeFlowStrategyListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->strategyObject) {
+            $request->strategyObjectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->strategyObject, 'StrategyObject', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->strategyObjectShrink) {
+            @$query['StrategyObject'] = $request->strategyObjectShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCustomizeFlowStrategyList',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCustomizeFlowStrategyListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Information Verification Security Management.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Service Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - ModifyCustomizeFlowStrategyListRequest
+     *
+     * @returns ModifyCustomizeFlowStrategyListResponse
+     *
+     * @param ModifyCustomizeFlowStrategyListRequest $request
+     *
+     * @return ModifyCustomizeFlowStrategyListResponse
+     */
+    public function modifyCustomizeFlowStrategyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomizeFlowStrategyListWithOptions($request, $runtime);
+    }
+
+    /**
      * Call ModifyDeviceInfo to update device-related information, such as extending the device authorization validity period, updating the business party\\"s custom business identifier, and device ID. Suitable for scenarios like renewing the device validity period.
      *
      * @remarks
@@ -4377,6 +7616,511 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * Query Blacklist and Whitelist Policies.
+     *
+     * @remarks
+     * - Request URL: cloudauth.aliyuncs.com
+     * - Request Method: HTTPS POST and GET.
+     * > Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+     * Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+     *
+     * @param Request - QueryBlackListStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryBlackListStrategyResponse
+     *
+     * @param QueryBlackListStrategyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryBlackListStrategyResponse
+     */
+    public function queryBlackListStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryBlackListStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryBlackListStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Blacklist and Whitelist Policies.
+     *
+     * @remarks
+     * - Request URL: cloudauth.aliyuncs.com
+     * - Request Method: HTTPS POST and GET.
+     * > Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+     * Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+     *
+     * @param Request - QueryBlackListStrategyRequest
+     *
+     * @returns QueryBlackListStrategyResponse
+     *
+     * @param QueryBlackListStrategyRequest $request
+     *
+     * @return QueryBlackListStrategyResponse
+     */
+    public function queryBlackListStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryBlackListStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Security Control Strategy.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Request Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - QueryControlStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryControlStrategyResponse
+     *
+     * @param QueryControlStrategyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryControlStrategyResponse
+     */
+    public function queryControlStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryControlStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryControlStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Security Control Strategy.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+     * - Request Address: cloudauth.aliyuncs.com.
+     *
+     * @param Request - QueryControlStrategyRequest
+     *
+     * @returns QueryControlStrategyResponse
+     *
+     * @param QueryControlStrategyRequest $request
+     *
+     * @return QueryControlStrategyResponse
+     */
+    public function queryControlStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryControlStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Custom Flow Control Strategy.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com
+     * - Request Method: HTTPS POST and GET.
+     * - Security Rules: These are rules to ensure system security, such as monitoring for API abuse, account theft, etc. When a threshold is triggered, the system supports alerting.
+     *
+     * @param Request - QueryCustomizeFlowStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCustomizeFlowStrategyResponse
+     *
+     * @param QueryCustomizeFlowStrategyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryCustomizeFlowStrategyResponse
+     */
+    public function queryCustomizeFlowStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCustomizeFlowStrategy',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCustomizeFlowStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Custom Flow Control Strategy.
+     *
+     * @remarks
+     * - Service Address: cloudauth.aliyuncs.com
+     * - Request Method: HTTPS POST and GET.
+     * - Security Rules: These are rules to ensure system security, such as monitoring for API abuse, account theft, etc. When a threshold is triggered, the system supports alerting.
+     *
+     * @param Request - QueryCustomizeFlowStrategyRequest
+     *
+     * @returns QueryCustomizeFlowStrategyResponse
+     *
+     * @param QueryCustomizeFlowStrategyRequest $request
+     *
+     * @return QueryCustomizeFlowStrategyResponse
+     */
+    public function queryCustomizeFlowStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCustomizeFlowStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Scene Configuration.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - QuerySceneConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySceneConfigsResponse
+     *
+     * @param QuerySceneConfigsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QuerySceneConfigsResponse
+     */
+    public function querySceneConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySceneConfigs',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySceneConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Scene Configuration.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST and GET.
+     *
+     * @param Request - QuerySceneConfigsRequest
+     *
+     * @returns QuerySceneConfigsResponse
+     *
+     * @param QuerySceneConfigsRequest $request
+     *
+     * @return QuerySceneConfigsResponse
+     */
+    public function querySceneConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySceneConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Real-Person Download Task.
+     *
+     * @remarks
+     * Obtain the download link for statistical call data files under the product plan based on query conditions.
+     * - Method: HTTPS POST
+     * - Service Address: cloudauth.aliyuncs.com
+     * > The real-person authentication product uses CertifyId to count the number of calls. For ease of reconciliation, please retain the CertifyId field in your system.
+     *
+     * @param Request - QueryVerifyDownloadTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVerifyDownloadTaskResponse
+     *
+     * @param QueryVerifyDownloadTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryVerifyDownloadTaskResponse
+     */
+    public function queryVerifyDownloadTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryVerifyDownloadTask',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryVerifyDownloadTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Real-Person Download Task.
+     *
+     * @remarks
+     * Obtain the download link for statistical call data files under the product plan based on query conditions.
+     * - Method: HTTPS POST
+     * - Service Address: cloudauth.aliyuncs.com
+     * > The real-person authentication product uses CertifyId to count the number of calls. For ease of reconciliation, please retain the CertifyId field in your system.
+     *
+     * @param Request - QueryVerifyDownloadTaskRequest
+     *
+     * @returns QueryVerifyDownloadTaskResponse
+     *
+     * @param QueryVerifyDownloadTaskRequest $request
+     *
+     * @return QueryVerifyDownloadTaskResponse
+     */
+    public function queryVerifyDownloadTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVerifyDownloadTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Flow Package.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com
+     * - Request method: HTTPS POST and GET.
+     * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+     *
+     * @param Request - QueryVerifyFlowPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVerifyFlowPackageResponse
+     *
+     * @param QueryVerifyFlowPackageRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryVerifyFlowPackageResponse
+     */
+    public function queryVerifyFlowPackageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryVerifyFlowPackage',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryVerifyFlowPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Flow Package.
+     *
+     * @remarks
+     * - Service address: cloudauth.aliyuncs.com
+     * - Request method: HTTPS POST and GET.
+     * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+     *
+     * @param Request - QueryVerifyFlowPackageRequest
+     *
+     * @returns QueryVerifyFlowPackageResponse
+     *
+     * @param QueryVerifyFlowPackageRequest $request
+     *
+     * @return QueryVerifyFlowPackageResponse
+     */
+    public function queryVerifyFlowPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVerifyFlowPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Call Volume Statistics.
+     *
+     * @remarks
+     * - Request URL: cloudauth.aliyuncs.com
+     * - Request Method: HTTPS POST and GET.
+     * > Real-person authentication products use CertifyId to count call volume. For ease of reconciliation, please retain the CertifyId field in your system.
+     *
+     * @param Request - QueryVerifyInvokeSatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVerifyInvokeSatisticResponse
+     *
+     * @param QueryVerifyInvokeSatisticRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryVerifyInvokeSatisticResponse
+     */
+    public function queryVerifyInvokeSatisticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productProgramList) {
+            @$query['ProductProgramList'] = $request->productProgramList;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->sceneIdList) {
+            @$query['SceneIdList'] = $request->sceneIdList;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->statisticsType) {
+            @$query['StatisticsType'] = $request->statisticsType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryVerifyInvokeSatistic',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryVerifyInvokeSatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Call Volume Statistics.
+     *
+     * @remarks
+     * - Request URL: cloudauth.aliyuncs.com
+     * - Request Method: HTTPS POST and GET.
+     * > Real-person authentication products use CertifyId to count call volume. For ease of reconciliation, please retain the CertifyId field in your system.
+     *
+     * @param Request - QueryVerifyInvokeSatisticRequest
+     *
+     * @returns QueryVerifyInvokeSatisticResponse
+     *
+     * @param QueryVerifyInvokeSatisticRequest $request
+     *
+     * @return QueryVerifyInvokeSatisticResponse
+     */
+    public function queryVerifyInvokeSatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVerifyInvokeSatisticWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete Real Person Whitelist.
      *
      * @param tmpReq - RemoveWhiteListSettingRequest
@@ -4441,6 +8185,178 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeWhiteListSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update Ant Blockchain Transaction Scenario.
+     *
+     * @remarks
+     * Update the information of a financial-level authentication scenario based on the scenario ID.
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST.
+     *
+     * @param Request - UpdateAntCloudAuthSceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAntCloudAuthSceneResponse
+     *
+     * @param UpdateAntCloudAuthSceneRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAntCloudAuthSceneResponse
+     */
+    public function updateAntCloudAuthSceneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bindMiniProgram) {
+            @$query['BindMiniProgram'] = $request->bindMiniProgram;
+        }
+
+        if (null !== $request->checkFileBody) {
+            @$query['CheckFileBody'] = $request->checkFileBody;
+        }
+
+        if (null !== $request->checkFileName) {
+            @$query['CheckFileName'] = $request->checkFileName;
+        }
+
+        if (null !== $request->miniProgramName) {
+            @$query['MiniProgramName'] = $request->miniProgramName;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->sceneId) {
+            @$query['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->sceneName) {
+            @$query['SceneName'] = $request->sceneName;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->storeImage) {
+            @$query['StoreImage'] = $request->storeImage;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAntCloudAuthScene',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAntCloudAuthSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update Ant Blockchain Transaction Scenario.
+     *
+     * @remarks
+     * Update the information of a financial-level authentication scenario based on the scenario ID.
+     * - Service address: cloudauth.aliyuncs.com.
+     * - Request method: HTTPS POST.
+     *
+     * @param Request - UpdateAntCloudAuthSceneRequest
+     *
+     * @returns UpdateAntCloudAuthSceneResponse
+     *
+     * @param UpdateAntCloudAuthSceneRequest $request
+     *
+     * @return UpdateAntCloudAuthSceneResponse
+     */
+    public function updateAntCloudAuthScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAntCloudAuthSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update Scene Configuration.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST.
+     * - Request URL: cloudauth.aliyuncs.com.
+     *
+     * @param Request - UpdateSceneConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSceneConfigResponse
+     *
+     * @param UpdateSceneConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateSceneConfigResponse
+     */
+    public function updateSceneConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['sceneId'] = $request->sceneId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSceneConfig',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSceneConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update Scene Configuration.
+     *
+     * @remarks
+     * - Request Method: Supports sending requests via HTTPS POST.
+     * - Request URL: cloudauth.aliyuncs.com.
+     *
+     * @param Request - UpdateSceneConfigRequest
+     *
+     * @returns UpdateSceneConfigResponse
+     *
+     * @param UpdateSceneConfigRequest $request
+     *
+     * @return UpdateSceneConfigResponse
+     */
+    public function updateSceneConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSceneConfigWithOptions($request, $runtime);
     }
 
     /**

@@ -96,6 +96,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $h5DegradeConfirmBtn;
+
+    /**
+     * @var string
+     */
     public $ip;
 
     /**
@@ -215,6 +220,7 @@ class InitFaceVerifyRequest extends Model
         'faceContrastPicture' => 'FaceContrastPicture',
         'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
         'faceGuardOutput' => 'FaceGuardOutput',
+        'h5DegradeConfirmBtn' => 'H5DegradeConfirmBtn',
         'ip' => 'Ip',
         'metaInfo' => 'MetaInfo',
         'mobile' => 'Mobile',
@@ -312,6 +318,10 @@ class InitFaceVerifyRequest extends Model
 
         if (null !== $this->faceGuardOutput) {
             $res['FaceGuardOutput'] = $this->faceGuardOutput;
+        }
+
+        if (null !== $this->h5DegradeConfirmBtn) {
+            $res['H5DegradeConfirmBtn'] = $this->h5DegradeConfirmBtn;
         }
 
         if (null !== $this->ip) {
@@ -475,6 +485,10 @@ class InitFaceVerifyRequest extends Model
 
         if (isset($map['FaceGuardOutput'])) {
             $model->faceGuardOutput = $map['FaceGuardOutput'];
+        }
+
+        if (isset($map['H5DegradeConfirmBtn'])) {
+            $model->h5DegradeConfirmBtn = $map['H5DegradeConfirmBtn'];
         }
 
         if (isset($map['Ip'])) {
