@@ -933,7 +933,6 @@ class Nis extends OpenApiClient
         return $this->describeNisInspectionTaskWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *
@@ -1090,7 +1089,6 @@ class Nis extends OpenApiClient
         return $this->getInternetTupleWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the real-time SNAT performance ranking of a NAT gateway.
      *
@@ -1454,7 +1452,6 @@ class Nis extends OpenApiClient
         return $this->getNisNetworkRankingWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *
@@ -1591,7 +1588,6 @@ class Nis extends OpenApiClient
         return $this->getTransitRouterFlowTopNWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
      * Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
      *

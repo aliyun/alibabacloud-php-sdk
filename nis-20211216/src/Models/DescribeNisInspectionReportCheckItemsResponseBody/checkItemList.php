@@ -36,6 +36,11 @@ class checkItemList extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $descriptionCode;
+
+    /**
      * @var recommendationList[]
      */
     public $recommendationList;
@@ -50,6 +55,7 @@ class checkItemList extends Model
         'checkItemName' => 'CheckItemName',
         'checkResultList' => 'CheckResultList',
         'description' => 'Description',
+        'descriptionCode' => 'DescriptionCode',
         'recommendationList' => 'RecommendationList',
         'resourceType' => 'ResourceType',
     ];
@@ -93,6 +99,10 @@ class checkItemList extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->descriptionCode) {
+            $res['DescriptionCode'] = $this->descriptionCode;
         }
 
         if (null !== $this->recommendationList) {
@@ -146,6 +156,10 @@ class checkItemList extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DescriptionCode'])) {
+            $model->descriptionCode = $map['DescriptionCode'];
         }
 
         if (isset($map['RecommendationList'])) {
