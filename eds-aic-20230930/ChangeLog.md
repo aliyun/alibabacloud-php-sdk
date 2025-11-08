@@ -1,4 +1,4 @@
-2025-11-07 Version: 4.12.3
+2025-11-08 Version: 4.12.3
 - Update API DescribeMetricLast: add response parameters Body.MetricTotalModel.$.MetricModelList.$.DataPoints.$.GpuId.
 
 
