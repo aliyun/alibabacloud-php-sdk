@@ -1,4 +1,4 @@
-2025-11-07 Version: 1.2.2
+2025-11-08 Version: 1.2.2
 - Update API GetInstance: add response parameters Body.Instance.TpsEnabled.
 
 
