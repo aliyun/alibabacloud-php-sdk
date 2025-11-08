@@ -31,6 +31,11 @@ class liveStreamNotifyRecordsInfo extends Model
     /**
      * @var string
      */
+    public $notifyHeader;
+
+    /**
+     * @var string
+     */
     public $notifyResponse;
 
     /**
@@ -62,6 +67,7 @@ class liveStreamNotifyRecordsInfo extends Model
         'description' => 'Description',
         'domainName' => 'DomainName',
         'notifyContent' => 'NotifyContent',
+        'notifyHeader' => 'NotifyHeader',
         'notifyResponse' => 'NotifyResponse',
         'notifyResult' => 'NotifyResult',
         'notifyTime' => 'NotifyTime',
@@ -92,6 +98,10 @@ class liveStreamNotifyRecordsInfo extends Model
 
         if (null !== $this->notifyContent) {
             $res['NotifyContent'] = $this->notifyContent;
+        }
+
+        if (null !== $this->notifyHeader) {
+            $res['NotifyHeader'] = $this->notifyHeader;
         }
 
         if (null !== $this->notifyResponse) {
@@ -143,6 +153,10 @@ class liveStreamNotifyRecordsInfo extends Model
 
         if (isset($map['NotifyContent'])) {
             $model->notifyContent = $map['NotifyContent'];
+        }
+
+        if (isset($map['NotifyHeader'])) {
+            $model->notifyHeader = $map['NotifyHeader'];
         }
 
         if (isset($map['NotifyResponse'])) {
