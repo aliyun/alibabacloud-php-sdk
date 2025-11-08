@@ -186,6 +186,11 @@ class instances extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $os;
 
     /**
@@ -333,6 +338,7 @@ class instances extends Model
         'lastLoginTimestamp' => 'LastLoginTimestamp',
         'macListString' => 'MacListString',
         'mem' => 'Mem',
+        'namespace' => 'Namespace',
         'os' => 'Os',
         'osName' => 'OsName',
         'podCount' => 'PodCount',
@@ -504,6 +510,10 @@ class instances extends Model
 
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
+        }
+
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
 
         if (null !== $this->os) {
@@ -747,6 +757,10 @@ class instances extends Model
 
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
+        }
+
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
 
         if (isset($map['Os'])) {

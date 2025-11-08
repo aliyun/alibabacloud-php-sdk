@@ -1,3 +1,7 @@
+2025-11-08 Version: 6.0.3
+- Update API DescribeCloudCenterInstances: add response parameters Body.Instances.$.Namespace.
+
+
 2025-11-07 Version: 6.0.2
 - Update API CreateMaliciousFileWhitelistConfig: add request parameters Remark.
 - Update API DescribeExposedStatisticsDetail: add request parameters Criteria.
