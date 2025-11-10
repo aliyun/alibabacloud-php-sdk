@@ -12,12 +12,13 @@ class responses extends Model
      * @var string
      */
     public $responseBody;
+
     /**
      * @var string
      */
     public $responseBodyFormat;
     protected $_name = [
-        'responseBody'       => 'responseBody',
+        'responseBody' => 'responseBody',
         'responseBodyFormat' => 'responseBodyFormat',
     ];
 

@@ -13,12 +13,13 @@ class GetOwnRequestLogResponseBody extends Model
      * @var logInfo
      */
     public $logInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'logInfo'   => 'logInfo',
+        'logInfo' => 'logInfo',
         'requestId' => 'requestId',
     ];
 

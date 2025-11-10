@@ -15,93 +15,110 @@ class basicInfo extends Model
      * @var accessDeniedDetail
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $api;
+
     /**
      * @var apiDoc
      */
     public $apiDoc;
+
     /**
      * @var string
      */
     public $apiStyle;
+
     /**
      * @var string
      */
     public $apiVersion;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $gatewayProcessTime;
+
     /**
      * @var string
      */
     public $httpMethod;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $logRequestId;
+
     /**
      * @var string
      */
     public $product;
+
     /**
      * @var productName
      */
     public $productName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestDuration;
+
     /**
      * @var string
      */
     public $sdkRequestTime;
+
     /**
      * @var string
      */
     public $throttlingResult;
     protected $_name = [
         'accessDeniedDetail' => 'accessDeniedDetail',
-        'api'                => 'api',
-        'apiDoc'             => 'apiDoc',
-        'apiStyle'           => 'apiStyle',
-        'apiVersion'         => 'apiVersion',
-        'endpoint'           => 'endpoint',
-        'errorCode'          => 'errorCode',
-        'errorMessage'       => 'errorMessage',
+        'api' => 'api',
+        'apiDoc' => 'apiDoc',
+        'apiStyle' => 'apiStyle',
+        'apiVersion' => 'apiVersion',
+        'endpoint' => 'endpoint',
+        'errorCode' => 'errorCode',
+        'errorMessage' => 'errorMessage',
         'gatewayProcessTime' => 'gatewayProcessTime',
-        'httpMethod'         => 'httpMethod',
-        'httpStatusCode'     => 'httpStatusCode',
-        'logRequestId'       => 'logRequestId',
-        'product'            => 'product',
-        'productName'        => 'productName',
-        'regionId'           => 'regionId',
-        'requestDuration'    => 'requestDuration',
-        'sdkRequestTime'     => 'sdkRequestTime',
-        'throttlingResult'   => 'throttlingResult',
+        'httpMethod' => 'httpMethod',
+        'httpStatusCode' => 'httpStatusCode',
+        'logRequestId' => 'logRequestId',
+        'product' => 'product',
+        'productName' => 'productName',
+        'regionId' => 'regionId',
+        'requestDuration' => 'requestDuration',
+        'sdkRequestTime' => 'sdkRequestTime',
+        'throttlingResult' => 'throttlingResult',
     ];
 
     public function validate()

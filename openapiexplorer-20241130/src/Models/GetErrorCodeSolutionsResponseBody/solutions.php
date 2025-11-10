@@ -12,33 +12,38 @@ class solutions extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $product;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var string
      */
     public $solutionId;
     protected $_name = [
-        'content'      => 'content',
-        'errorCode'    => 'errorCode',
+        'content' => 'content',
+        'errorCode' => 'errorCode',
         'errorMessage' => 'errorMessage',
-        'product'      => 'product',
-        'productName'  => 'productName',
-        'solutionId'   => 'solutionId',
+        'product' => 'product',
+        'productName' => 'productName',
+        'solutionId' => 'solutionId',
     ];
 
     public function validate()

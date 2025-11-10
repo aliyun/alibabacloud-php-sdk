@@ -12,23 +12,26 @@ class GetErrorCodeSolutionsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $product;
     protected $_name = [
         'acceptLanguage' => 'acceptLanguage',
-        'errorCode'      => 'errorCode',
-        'errorMessage'   => 'errorMessage',
-        'product'        => 'product',
+        'errorCode' => 'errorCode',
+        'errorMessage' => 'errorMessage',
+        'product' => 'product',
     ];
 
     public function validate()

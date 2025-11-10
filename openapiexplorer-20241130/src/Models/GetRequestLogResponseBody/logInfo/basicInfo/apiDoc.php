@@ -12,13 +12,14 @@ class apiDoc extends Model
      * @var string
      */
     public $alibabacloudSite;
+
     /**
      * @var string
      */
     public $aliyunSite;
     protected $_name = [
         'alibabacloudSite' => 'alibabacloudSite',
-        'aliyunSite'       => 'aliyunSite',
+        'aliyunSite' => 'aliyunSite',
     ];
 
     public function validate()

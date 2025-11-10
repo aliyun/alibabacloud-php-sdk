@@ -12,28 +12,32 @@ class callerInfo extends Model
      * @var string
      */
     public $callerAccountId;
+
     /**
      * @var string
      */
     public $callerIp;
+
     /**
      * @var string
      */
     public $callerType;
+
     /**
      * @var string
      */
     public $masterAccountId;
+
     /**
      * @var string
      */
     public $userAgent;
     protected $_name = [
         'callerAccountId' => 'callerAccountId',
-        'callerIp'        => 'callerIp',
-        'callerType'      => 'callerType',
+        'callerIp' => 'callerIp',
+        'callerType' => 'callerType',
         'masterAccountId' => 'masterAccountId',
-        'userAgent'       => 'userAgent',
+        'userAgent' => 'userAgent',
     ];
 
     public function validate()

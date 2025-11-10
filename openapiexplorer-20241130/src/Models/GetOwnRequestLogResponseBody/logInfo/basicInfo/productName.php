@@ -12,6 +12,7 @@ class productName extends Model
      * @var string
      */
     public $cnName;
+
     /**
      * @var string
      */

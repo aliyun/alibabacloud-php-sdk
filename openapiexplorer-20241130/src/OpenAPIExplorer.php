@@ -5,12 +5,35 @@
 namespace AlibabaCloud\SDK\OpenAPIExplorer\V20241130;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ApiMcpServerValidateHclRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ApiMcpServerValidateHclResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\CreateApiMcpServerRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\CreateApiMcpServerResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\DeleteApiMcpServerRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\DeleteApiMcpServerResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GenerateCLICommandRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GenerateCLICommandResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GenerateCLICommandShrinkRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiDefinitionRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiDefinitionResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiMcpServerRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetApiMcpServerResponse;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetErrorCodeSolutionsRequest;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetErrorCodeSolutionsResponse;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetOwnRequestLogRequest;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetOwnRequestLogResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetProductEndpointsRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetProductEndpointsResponse;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetRequestLogRequest;
 use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\GetRequestLogResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ListApiDefinitionsRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ListApiDefinitionsResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ListApiMcpServersRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ListApiMcpServersResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ListApiMcpServerSystemToolsRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\ListApiMcpServerSystemToolsResponse;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\UpdateApiMcpServerRequest;
+use AlibabaCloud\SDK\OpenAPIExplorer\V20241130\Models\UpdateApiMcpServerResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -51,19 +74,467 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 根据提供的错误码获取对应的解决方案.
+     * 验证 Terraform HCL 语法.
+     *
+     * @param request - ApiMcpServerValidateHclRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApiMcpServerValidateHclResponse
+     *
+     * @param ApiMcpServerValidateHclRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ApiMcpServerValidateHclResponse
+     */
+    public function apiMcpServerValidateHclWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ApiMcpServerValidateHcl',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraform/validate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ApiMcpServerValidateHclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证 Terraform HCL 语法.
+     *
+     * @param request - ApiMcpServerValidateHclRequest
+     *
+     * @returns ApiMcpServerValidateHclResponse
+     *
+     * @param ApiMcpServerValidateHclRequest $request
+     *
+     * @return ApiMcpServerValidateHclResponse
+     */
+    public function apiMcpServerValidateHcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->apiMcpServerValidateHclWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建ApiMcpServer.
+     *
+     * @param request - CreateApiMcpServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApiMcpServerResponse
+     *
+     * @param CreateApiMcpServerRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateApiMcpServerResponse
+     */
+    public function createApiMcpServerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->additionalApiDescriptions) {
+            @$body['additionalApiDescriptions'] = $request->additionalApiDescriptions;
+        }
+
+        if (null !== $request->apis) {
+            @$body['apis'] = $request->apis;
+        }
+
+        if (null !== $request->assumeRoleExtraPolicy) {
+            @$body['assumeRoleExtraPolicy'] = $request->assumeRoleExtraPolicy;
+        }
+
+        if (null !== $request->assumeRoleName) {
+            @$body['assumeRoleName'] = $request->assumeRoleName;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->enableAssumeRole) {
+            @$body['enableAssumeRole'] = $request->enableAssumeRole;
+        }
+
+        if (null !== $request->instructions) {
+            @$body['instructions'] = $request->instructions;
+        }
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->oauthClientId) {
+            @$body['oauthClientId'] = $request->oauthClientId;
+        }
+
+        if (null !== $request->prompts) {
+            @$body['prompts'] = $request->prompts;
+        }
+
+        if (null !== $request->systemTools) {
+            @$body['systemTools'] = $request->systemTools;
+        }
+
+        if (null !== $request->terraformTools) {
+            @$body['terraformTools'] = $request->terraformTools;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApiMcpServer',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apimcpserver',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApiMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建ApiMcpServer.
+     *
+     * @param request - CreateApiMcpServerRequest
+     *
+     * @returns CreateApiMcpServerResponse
+     *
+     * @param CreateApiMcpServerRequest $request
+     *
+     * @return CreateApiMcpServerResponse
+     */
+    public function createApiMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createApiMcpServerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除ApiMcpServer.
+     *
+     * @param request - DeleteApiMcpServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApiMcpServerResponse
+     *
+     * @param DeleteApiMcpServerRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteApiMcpServerResponse
+     */
+    public function deleteApiMcpServerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApiMcpServer',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apimcpserver',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApiMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除ApiMcpServer.
+     *
+     * @param request - DeleteApiMcpServerRequest
+     *
+     * @returns DeleteApiMcpServerResponse
+     *
+     * @param DeleteApiMcpServerRequest $request
+     *
+     * @return DeleteApiMcpServerResponse
+     */
+    public function deleteApiMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteApiMcpServerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 动态生成Aliyun CLI命令.
+     *
+     * @param tmpReq - GenerateCLICommandRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateCLICommandResponse
+     *
+     * @param GenerateCLICommandRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GenerateCLICommandResponse
+     */
+    public function generateCLICommandWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GenerateCLICommandShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->apiParams) {
+            $request->apiParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiParams, 'apiParams', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->api) {
+            @$body['api'] = $request->api;
+        }
+
+        if (null !== $request->apiParamsShrink) {
+            @$body['apiParams'] = $request->apiParamsShrink;
+        }
+
+        if (null !== $request->apiVersion) {
+            @$body['apiVersion'] = $request->apiVersion;
+        }
+
+        if (null !== $request->product) {
+            @$body['product'] = $request->product;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateCLICommand',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/cli/makeCode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateCLICommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 动态生成Aliyun CLI命令.
+     *
+     * @param request - GenerateCLICommandRequest
+     *
+     * @returns GenerateCLICommandResponse
+     *
+     * @param GenerateCLICommandRequest $request
+     *
+     * @return GenerateCLICommandResponse
+     */
+    public function generateCLICommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateCLICommandWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取产品相关接口的开放元数据.
+     *
+     * @param request - GetApiDefinitionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiDefinitionResponse
+     *
+     * @param GetApiDefinitionRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetApiDefinitionResponse
+     */
+    public function getApiDefinitionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->api) {
+            @$query['api'] = $request->api;
+        }
+
+        if (null !== $request->apiVersion) {
+            @$query['apiVersion'] = $request->apiVersion;
+        }
+
+        if (null !== $request->product) {
+            @$query['product'] = $request->product;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApiDefinition',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/definition',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApiDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取产品相关接口的开放元数据.
+     *
+     * @param request - GetApiDefinitionRequest
+     *
+     * @returns GetApiDefinitionResponse
+     *
+     * @param GetApiDefinitionRequest $request
+     *
+     * @return GetApiDefinitionResponse
+     */
+    public function getApiDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getApiDefinitionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询 ApiMcpServer.
+     *
+     * @param request - GetApiMcpServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiMcpServerResponse
+     *
+     * @param GetApiMcpServerRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetApiMcpServerResponse
+     */
+    public function getApiMcpServerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApiMcpServer',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apimcpserver',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApiMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 ApiMcpServer.
+     *
+     * @param request - GetApiMcpServerRequest
+     *
+     * @returns GetApiMcpServerResponse
+     *
+     * @param GetApiMcpServerRequest $request
+     *
+     * @return GetApiMcpServerResponse
+     */
+    public function getApiMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getApiMcpServerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries an error solution by error code.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口支持通过POST或GET方法调用。
-     * - `Accept-Language`请求头必须设置为`zh-CN`或`en-US`之一，用于指定返回结果的语言类型。
-     * - 错误码格式需符合特定规则，特别是针对OSS的错误码应遵循正则表达式`[0-9]{4}-[0-9]{8}`。
-     * - 当前实现中未使用`maxResults`和`nextToken`参数。
-     * - 如果请求失败，将根据不同的错误情况返回相应的错误代码及描述信息。
+     * You can call this API operation to query public information instead of special information, such as the account ownership. Permissions on this API operation cannot be granted to other members.
      *
      * @param request - GetErrorCodeSolutionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetErrorCodeSolutionsResponse
      *
      * @param GetErrorCodeSolutionsRequest $request
@@ -94,38 +565,31 @@ class OpenAPIExplorer extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetErrorCodeSolutions',
-            'version'     => '2024-11-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/getErrorCodeSolutions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetErrorCodeSolutions',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/getErrorCodeSolutions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetErrorCodeSolutionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetErrorCodeSolutionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetErrorCodeSolutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 根据提供的错误码获取对应的解决方案.
+     * Queries an error solution by error code.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口支持通过POST或GET方法调用。
-     * - `Accept-Language`请求头必须设置为`zh-CN`或`en-US`之一，用于指定返回结果的语言类型。
-     * - 错误码格式需符合特定规则，特别是针对OSS的错误码应遵循正则表达式`[0-9]{4}-[0-9]{8}`。
-     * - 当前实现中未使用`maxResults`和`nextToken`参数。
-     * - 如果请求失败，将根据不同的错误情况返回相应的错误代码及描述信息。
+     * You can call this API operation to query public information instead of special information, such as the account ownership. Permissions on this API operation cannot be granted to other members.
      *
      * @param request - GetErrorCodeSolutionsRequest
+     *
      * @returns GetErrorCodeSolutionsResponse
      *
      * @param GetErrorCodeSolutionsRequest $request
@@ -141,18 +605,15 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 通过API RequestId 查询当前账号调用OpenAPI的日志详情，用于故障排查。
+     * Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口主要用于帮助用户通过提供具体的`apiRequestId`来获取相关API请求的详细日志信息。
-     * - `apiRequestId`必须是大写形式的UUID，并且应确保该ID确实来自于您之前对某个OpenAPI的实际调用。
-     * - 如果提供的`apiRequestId`无效或者没有找到对应的日志记录，系统将返回相应的错误提示。
-     * - 在使用此接口时，请注意检查您的网络环境以及权限设置，以保证能够顺利访问到所需资源。
+     * Permissions on this API cannot be granted to other members.
      *
      * @param request - GetOwnRequestLogRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOwnRequestLogResponse
      *
      * @param GetOwnRequestLogRequest $request
@@ -171,37 +632,31 @@ class OpenAPIExplorer extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOwnRequestLog',
-            'version'     => '2024-11-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/getOwnRequestLog',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOwnRequestLog',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/getOwnRequestLog',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOwnRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOwnRequestLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOwnRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 通过API RequestId 查询当前账号调用OpenAPI的日志详情，用于故障排查。
+     * Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口主要用于帮助用户通过提供具体的`apiRequestId`来获取相关API请求的详细日志信息。
-     * - `apiRequestId`必须是大写形式的UUID，并且应确保该ID确实来自于您之前对某个OpenAPI的实际调用。
-     * - 如果提供的`apiRequestId`无效或者没有找到对应的日志记录，系统将返回相应的错误提示。
-     * - 在使用此接口时，请注意检查您的网络环境以及权限设置，以保证能够顺利访问到所需资源。
+     * Permissions on this API cannot be granted to other members.
      *
      * @param request - GetOwnRequestLogRequest
+     *
      * @returns GetOwnRequestLogResponse
      *
      * @param GetOwnRequestLogRequest $request
@@ -217,18 +672,76 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 通过API请求ID查询特定请求的日志详情，用于故障排查。
+     * 获取产品的接入点信息.
+     *
+     * @param request - GetProductEndpointsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductEndpointsResponse
+     *
+     * @param GetProductEndpointsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetProductEndpointsResponse
+     */
+    public function getProductEndpointsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->product) {
+            @$query['product'] = $request->product;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProductEndpoints',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/product/endpoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProductEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取产品的接入点信息.
+     *
+     * @param request - GetProductEndpointsRequest
+     *
+     * @returns GetProductEndpointsResponse
+     *
+     * @param GetProductEndpointsRequest $request
+     *
+     * @return GetProductEndpointsResponse
+     */
+    public function getProductEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getProductEndpointsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口主要用于帮助用户通过提供具体的`apiRequestId`来获取相关API请求的详细日志信息。
-     * - `apiRequestId`必须是大写形式的UUID，并且应确保该ID确实来自于您之前对某个OpenAPI的实际调用。
-     * - 如果提供的`apiRequestId`无效或者没有找到对应的日志记录，系统将返回相应的错误提示。
-     * - 在使用此接口时，请注意检查您的网络环境以及权限设置，以保证能够顺利访问到所需资源。
+     * You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
      *
      * @param request - GetRequestLogRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRequestLogResponse
      *
      * @param GetRequestLogRequest $request
@@ -247,37 +760,31 @@ class OpenAPIExplorer extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRequestLog',
-            'version'     => '2024-11-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/getRequestLog',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRequestLog',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/getRequestLog',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRequestLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 通过API请求ID查询特定请求的日志详情，用于故障排查。
+     * Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口主要用于帮助用户通过提供具体的`apiRequestId`来获取相关API请求的详细日志信息。
-     * - `apiRequestId`必须是大写形式的UUID，并且应确保该ID确实来自于您之前对某个OpenAPI的实际调用。
-     * - 如果提供的`apiRequestId`无效或者没有找到对应的日志记录，系统将返回相应的错误提示。
-     * - 在使用此接口时，请注意检查您的网络环境以及权限设置，以保证能够顺利访问到所需资源。
+     * You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
      *
      * @param request - GetRequestLogRequest
+     *
      * @returns GetRequestLogResponse
      *
      * @param GetRequestLogRequest $request
@@ -290,5 +797,351 @@ class OpenAPIExplorer extends OpenApiClient
         $headers = [];
 
         return $this->getRequestLogWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取产品的开放元数据.
+     *
+     * @param request - ListApiDefinitionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiDefinitionsResponse
+     *
+     * @param ListApiDefinitionsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListApiDefinitionsResponse
+     */
+    public function listApiDefinitionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiVersion) {
+            @$query['apiVersion'] = $request->apiVersion;
+        }
+
+        if (null !== $request->product) {
+            @$query['product'] = $request->product;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApiDefinitions',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/definitions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApiDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取产品的开放元数据.
+     *
+     * @param request - ListApiDefinitionsRequest
+     *
+     * @returns ListApiDefinitionsResponse
+     *
+     * @param ListApiDefinitionsRequest $request
+     *
+     * @return ListApiDefinitionsResponse
+     */
+    public function listApiDefinitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApiDefinitionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询系统工具列表.
+     *
+     * @param request - ListApiMcpServerSystemToolsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiMcpServerSystemToolsResponse
+     *
+     * @param ListApiMcpServerSystemToolsRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListApiMcpServerSystemToolsResponse
+     */
+    public function listApiMcpServerSystemToolsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->skip) {
+            @$query['skip'] = $request->skip;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApiMcpServerSystemTools',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/mcpSystemTools',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApiMcpServerSystemToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询系统工具列表.
+     *
+     * @param request - ListApiMcpServerSystemToolsRequest
+     *
+     * @returns ListApiMcpServerSystemToolsResponse
+     *
+     * @param ListApiMcpServerSystemToolsRequest $request
+     *
+     * @return ListApiMcpServerSystemToolsResponse
+     */
+    public function listApiMcpServerSystemTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApiMcpServerSystemToolsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出资源ApiMcpServer.
+     *
+     * @param request - ListApiMcpServersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiMcpServersResponse
+     *
+     * @param ListApiMcpServersRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListApiMcpServersResponse
+     */
+    public function listApiMcpServersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->createTime) {
+            @$query['createTime'] = $request->createTime;
+        }
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->skip) {
+            @$query['skip'] = $request->skip;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->updateTime) {
+            @$query['updateTime'] = $request->updateTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApiMcpServers',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apimcpservers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApiMcpServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出资源ApiMcpServer.
+     *
+     * @param request - ListApiMcpServersRequest
+     *
+     * @returns ListApiMcpServersResponse
+     *
+     * @param ListApiMcpServersRequest $request
+     *
+     * @return ListApiMcpServersResponse
+     */
+    public function listApiMcpServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApiMcpServersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新UpdateApiMcpServer.
+     *
+     * @param request - UpdateApiMcpServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApiMcpServerResponse
+     *
+     * @param UpdateApiMcpServerRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateApiMcpServerResponse
+     */
+    public function updateApiMcpServerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
+        }
+
+        $body = [];
+        if (null !== $request->additionalApiDescriptions) {
+            @$body['additionalApiDescriptions'] = $request->additionalApiDescriptions;
+        }
+
+        if (null !== $request->apis) {
+            @$body['apis'] = $request->apis;
+        }
+
+        if (null !== $request->assumeRoleExtraPolicy) {
+            @$body['assumeRoleExtraPolicy'] = $request->assumeRoleExtraPolicy;
+        }
+
+        if (null !== $request->assumeRoleName) {
+            @$body['assumeRoleName'] = $request->assumeRoleName;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->enableAssumeRole) {
+            @$body['enableAssumeRole'] = $request->enableAssumeRole;
+        }
+
+        if (null !== $request->instructions) {
+            @$body['instructions'] = $request->instructions;
+        }
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
+        }
+
+        if (null !== $request->oauthClientId) {
+            @$body['oauthClientId'] = $request->oauthClientId;
+        }
+
+        if (null !== $request->prompts) {
+            @$body['prompts'] = $request->prompts;
+        }
+
+        if (null !== $request->systemTools) {
+            @$body['systemTools'] = $request->systemTools;
+        }
+
+        if (null !== $request->terraformTools) {
+            @$body['terraformTools'] = $request->terraformTools;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApiMcpServer',
+            'version' => '2024-11-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/apimcpserver',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApiMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新UpdateApiMcpServer.
+     *
+     * @param request - UpdateApiMcpServerRequest
+     *
+     * @returns UpdateApiMcpServerResponse
+     *
+     * @param UpdateApiMcpServerRequest $request
+     *
+     * @return UpdateApiMcpServerResponse
+     */
+    public function updateApiMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateApiMcpServerWithOptions($request, $headers, $runtime);
     }
 }

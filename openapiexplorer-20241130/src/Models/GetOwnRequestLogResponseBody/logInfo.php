@@ -17,28 +17,32 @@ class logInfo extends Model
      * @var authenticationInfo
      */
     public $authenticationInfo;
+
     /**
      * @var basicInfo
      */
     public $basicInfo;
+
     /**
      * @var callerInfo
      */
     public $callerInfo;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var responses
      */
     public $responses;
     protected $_name = [
         'authenticationInfo' => 'authenticationInfo',
-        'basicInfo'          => 'basicInfo',
-        'callerInfo'         => 'callerInfo',
-        'parameters'         => 'parameters',
-        'responses'          => 'responses',
+        'basicInfo' => 'basicInfo',
+        'callerInfo' => 'callerInfo',
+        'parameters' => 'parameters',
+        'responses' => 'responses',
     ];
 
     public function validate()
@@ -79,9 +83,10 @@ class logInfo extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
-                    $res['parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -116,9 +121,10 @@ class logInfo extends Model
         if (isset($map['parameters'])) {
             if (!empty($map['parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

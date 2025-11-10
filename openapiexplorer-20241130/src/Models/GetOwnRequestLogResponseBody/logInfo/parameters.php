@@ -12,23 +12,26 @@ class parameters extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $required;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var mixed
      */
     public $value;
     protected $_name = [
-        'name'     => 'name',
+        'name' => 'name',
         'required' => 'required',
-        'type'     => 'type',
-        'value'    => 'value',
+        'type' => 'type',
+        'value' => 'value',
     ];
 
     public function validate()

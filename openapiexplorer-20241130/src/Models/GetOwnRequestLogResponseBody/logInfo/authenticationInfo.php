@@ -12,18 +12,20 @@ class authenticationInfo extends Model
      * @var string
      */
     public $authenticationType;
+
     /**
      * @var string
      */
     public $signatureMethod;
+
     /**
      * @var string
      */
     public $signatureVersion;
     protected $_name = [
         'authenticationType' => 'authenticationType',
-        'signatureMethod'    => 'signatureMethod',
-        'signatureVersion'   => 'signatureVersion',
+        'signatureMethod' => 'signatureMethod',
+        'signatureVersion' => 'signatureVersion',
     ];
 
     public function validate()
