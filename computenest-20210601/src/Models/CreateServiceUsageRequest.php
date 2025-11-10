@@ -16,6 +16,11 @@ class CreateServiceUsageRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $serviceId;
 
     /**
@@ -24,6 +29,7 @@ class CreateServiceUsageRequest extends Model
     public $userInformation;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'serviceId' => 'ServiceId',
         'userInformation' => 'UserInformation',
     ];
@@ -41,6 +47,10 @@ class CreateServiceUsageRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->serviceId) {
@@ -69,6 +79,10 @@ class CreateServiceUsageRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['ServiceId'])) {

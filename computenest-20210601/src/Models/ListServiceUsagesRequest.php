@@ -23,10 +23,16 @@ class ListServiceUsagesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'filter' => 'Filter',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -59,6 +65,10 @@ class ListServiceUsagesRequest extends Model
             $res['NextToken'] = $this->nextToken;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         return $res;
     }
 
@@ -87,6 +97,10 @@ class ListServiceUsagesRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

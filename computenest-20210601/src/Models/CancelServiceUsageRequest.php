@@ -21,10 +21,16 @@ class CancelServiceUsageRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $serviceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'needDelete' => 'NeedDelete',
+        'regionId' => 'RegionId',
         'serviceId' => 'ServiceId',
     ];
 
@@ -42,6 +48,10 @@ class CancelServiceUsageRequest extends Model
 
         if (null !== $this->needDelete) {
             $res['NeedDelete'] = $this->needDelete;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->serviceId) {
@@ -65,6 +75,10 @@ class CancelServiceUsageRequest extends Model
 
         if (isset($map['NeedDelete'])) {
             $model->needDelete = $map['NeedDelete'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['ServiceId'])) {

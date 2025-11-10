@@ -16,6 +16,11 @@ class CreateServiceUsageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $serviceId;
 
     /**
@@ -24,6 +29,7 @@ class CreateServiceUsageShrinkRequest extends Model
     public $userInformationShrink;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'serviceId' => 'ServiceId',
         'userInformationShrink' => 'UserInformation',
     ];
@@ -38,6 +44,10 @@ class CreateServiceUsageShrinkRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->serviceId) {
@@ -61,6 +71,10 @@ class CreateServiceUsageShrinkRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['ServiceId'])) {

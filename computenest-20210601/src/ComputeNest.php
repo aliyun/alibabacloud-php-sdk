@@ -173,6 +173,10 @@ class ComputeNest extends OpenApiClient
             @$query['NeedDelete'] = $request->needDelete;
         }
 
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         if (null !== $request->serviceId) {
             @$query['ServiceId'] = $request->serviceId;
         }
@@ -748,6 +752,10 @@ class ComputeNest extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
 
         if (null !== $request->serviceId) {
@@ -2513,6 +2521,10 @@ class ComputeNest extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3345,6 +3357,10 @@ class ComputeNest extends OpenApiClient
             @$query['EnableOperation'] = $request->enableOperation;
         }
 
+        if (null !== $request->grantedPermission) {
+            @$query['GrantedPermission'] = $request->grantedPermission;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -3513,6 +3529,10 @@ class ComputeNest extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
 
         if (null !== $request->serviceId) {

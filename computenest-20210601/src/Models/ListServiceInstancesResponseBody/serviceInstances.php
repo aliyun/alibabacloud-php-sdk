@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponseBody\serviceInstances\grantedPermission;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponseBody\serviceInstances\service;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponseBody\serviceInstances\tags;
 
@@ -29,6 +30,11 @@ class serviceInstances extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var grantedPermission
+     */
+    public $grantedPermission;
 
     /**
      * @var string
@@ -74,6 +80,11 @@ class serviceInstances extends Model
      * @var string
      */
     public $payType;
+
+    /**
+     * @var string
+     */
+    public $policyNames;
 
     /**
      * @var int
@@ -144,6 +155,7 @@ class serviceInstances extends Model
         'createTime' => 'CreateTime',
         'enableInstanceOps' => 'EnableInstanceOps',
         'endTime' => 'EndTime',
+        'grantedPermission' => 'GrantedPermission',
         'marketInstanceId' => 'MarketInstanceId',
         'name' => 'Name',
         'operatedServiceInstanceId' => 'OperatedServiceInstanceId',
@@ -153,6 +165,7 @@ class serviceInstances extends Model
         'outputs' => 'Outputs',
         'parameters' => 'Parameters',
         'payType' => 'PayType',
+        'policyNames' => 'PolicyNames',
         'progress' => 'Progress',
         'resourceGroupId' => 'ResourceGroupId',
         'resources' => 'Resources',
@@ -170,6 +183,9 @@ class serviceInstances extends Model
 
     public function validate()
     {
+        if (null !== $this->grantedPermission) {
+            $this->grantedPermission->validate();
+        }
         if (null !== $this->service) {
             $this->service->validate();
         }
@@ -196,6 +212,10 @@ class serviceInstances extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->grantedPermission) {
+            $res['GrantedPermission'] = null !== $this->grantedPermission ? $this->grantedPermission->toArray($noStream) : $this->grantedPermission;
         }
 
         if (null !== $this->marketInstanceId) {
@@ -232,6 +252,10 @@ class serviceInstances extends Model
 
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->policyNames) {
+            $res['PolicyNames'] = $this->policyNames;
         }
 
         if (null !== $this->progress) {
@@ -320,6 +344,10 @@ class serviceInstances extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['GrantedPermission'])) {
+            $model->grantedPermission = grantedPermission::fromMap($map['GrantedPermission']);
+        }
+
         if (isset($map['MarketInstanceId'])) {
             $model->marketInstanceId = $map['MarketInstanceId'];
         }
@@ -354,6 +382,10 @@ class serviceInstances extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['PolicyNames'])) {
+            $model->policyNames = $map['PolicyNames'];
         }
 
         if (isset($map['Progress'])) {

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceAttributesRequest\grantedPermission;
 
 class UpdateServiceInstanceAttributesRequest extends Model
 {
@@ -12,6 +13,11 @@ class UpdateServiceInstanceAttributesRequest extends Model
      * @var bool
      */
     public $enableOperation;
+
+    /**
+     * @var grantedPermission
+     */
+    public $grantedPermission;
 
     /**
      * @var string
@@ -24,12 +30,16 @@ class UpdateServiceInstanceAttributesRequest extends Model
     public $serviceInstanceId;
     protected $_name = [
         'enableOperation' => 'EnableOperation',
+        'grantedPermission' => 'GrantedPermission',
         'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
     public function validate()
     {
+        if (null !== $this->grantedPermission) {
+            $this->grantedPermission->validate();
+        }
         parent::validate();
     }
 
@@ -38,6 +48,10 @@ class UpdateServiceInstanceAttributesRequest extends Model
         $res = [];
         if (null !== $this->enableOperation) {
             $res['EnableOperation'] = $this->enableOperation;
+        }
+
+        if (null !== $this->grantedPermission) {
+            $res['GrantedPermission'] = null !== $this->grantedPermission ? $this->grantedPermission->toArray($noStream) : $this->grantedPermission;
         }
 
         if (null !== $this->regionId) {
@@ -61,6 +75,10 @@ class UpdateServiceInstanceAttributesRequest extends Model
         $model = new self();
         if (isset($map['EnableOperation'])) {
             $model->enableOperation = $map['EnableOperation'];
+        }
+
+        if (isset($map['GrantedPermission'])) {
+            $model->grantedPermission = grantedPermission::fromMap($map['GrantedPermission']);
         }
 
         if (isset($map['RegionId'])) {
