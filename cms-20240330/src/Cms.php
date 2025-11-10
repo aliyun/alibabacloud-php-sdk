@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelResponse;
@@ -51,6 +53,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelResponse;
@@ -99,14 +102,20 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateSubscriptionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateSubscriptionResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateUmodelResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelCommonSchemaRefRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelDataResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1479,6 +1488,69 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 删除Umodel配置信息.
+     *
+     * @param request - DeleteUmodelCommonSchemaRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUmodelCommonSchemaRefResponse
+     *
+     * @param string                             $workspace
+     * @param DeleteUmodelCommonSchemaRefRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteUmodelCommonSchemaRefResponse
+     */
+    public function deleteUmodelCommonSchemaRefWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->group) {
+            @$query['group'] = $request->group;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUmodelCommonSchemaRef',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/umodel/common-schema-ref',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUmodelCommonSchemaRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Umodel配置信息.
+     *
+     * @param request - DeleteUmodelCommonSchemaRefRequest
+     *
+     * @returns DeleteUmodelCommonSchemaRefResponse
+     *
+     * @param string                             $workspace
+     * @param DeleteUmodelCommonSchemaRefRequest $request
+     *
+     * @return DeleteUmodelCommonSchemaRefResponse
+     */
+    public function deleteUmodelCommonSchemaRef($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteUmodelCommonSchemaRefWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
      * Delete Umodel Elements.
      *
      * @remarks
@@ -2204,6 +2276,57 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 获取Umodel配置信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUmodelCommonSchemaRefResponse
+     *
+     * @param string         $workspace
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUmodelCommonSchemaRefResponse
+     */
+    public function getUmodelCommonSchemaRefWithOptions($workspace, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetUmodelCommonSchemaRef',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/umodel/common-schema-ref',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUmodelCommonSchemaRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Umodel配置信息.
+     *
+     * @returns GetUmodelCommonSchemaRefResponse
+     *
+     * @param string $workspace
+     *
+     * @return GetUmodelCommonSchemaRefResponse
+     */
+    public function getUmodelCommonSchemaRef($workspace)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getUmodelCommonSchemaRefWithOptions($workspace, $headers, $runtime);
+    }
+
+    /**
      * Retrieve associated Umodel graph data.
      *
      * @remarks
@@ -2586,7 +2709,7 @@ class Cms extends OpenApiClient
      * Query Access Center Policy List Information.
      *
      * @remarks
-     * Query Integration List
+     * Query integration list
      *
      * @param tmpReq - ListIntegrationPoliciesRequest
      * @param headers - map
@@ -2689,7 +2812,7 @@ class Cms extends OpenApiClient
      * Query Access Center Policy List Information.
      *
      * @remarks
-     * Query Integration List
+     * Query integration list
      *
      * @param request - ListIntegrationPoliciesRequest
      *
@@ -3935,6 +4058,70 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 更新订阅.
+     *
+     * @param request - UpdateNotifyStrategyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNotifyStrategyResponse
+     *
+     * @param string                      $notifyStrategyId
+     * @param UpdateNotifyStrategyRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateNotifyStrategyResponse
+     */
+    public function updateNotifyStrategyWithOptions($notifyStrategyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNotifyStrategy',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/notifyStrategies/' . Url::percentEncode($notifyStrategyId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNotifyStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新订阅.
+     *
+     * @param request - UpdateNotifyStrategyRequest
+     *
+     * @returns UpdateNotifyStrategyResponse
+     *
+     * @param string                      $notifyStrategyId
+     * @param UpdateNotifyStrategyRequest $request
+     *
+     * @return UpdateNotifyStrategyResponse
+     */
+    public function updateNotifyStrategy($notifyStrategyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateNotifyStrategyWithOptions($notifyStrategyId, $request, $headers, $runtime);
+    }
+
+    /**
      * Update Prometheus instance information.
      *
      * @remarks
@@ -4214,6 +4401,70 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 更新订阅.
+     *
+     * @param request - UpdateSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSubscriptionResponse
+     *
+     * @param string                    $subscriptionId
+     * @param UpdateSubscriptionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateSubscriptionResponse
+     */
+    public function updateSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSubscription',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/subscriptions/' . Url::percentEncode($subscriptionId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新订阅.
+     *
+     * @param request - UpdateSubscriptionRequest
+     *
+     * @returns UpdateSubscriptionResponse
+     *
+     * @param string                    $subscriptionId
+     * @param UpdateSubscriptionRequest $request
+     *
+     * @return UpdateSubscriptionResponse
+     */
+    public function updateSubscription($subscriptionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime);
+    }
+
+    /**
      * Update Umodel configuration information.
      *
      * @remarks
@@ -4280,6 +4531,73 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateUmodelWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新Umodel配置信息.
+     *
+     * @param request - UpsertUmodelCommonSchemaRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertUmodelCommonSchemaRefResponse
+     *
+     * @param string                             $workspace
+     * @param UpsertUmodelCommonSchemaRefRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpsertUmodelCommonSchemaRefResponse
+     */
+    public function upsertUmodelCommonSchemaRefWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->group) {
+            @$query['group'] = $request->group;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertUmodelCommonSchemaRef',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/umodel/common-schema-ref',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertUmodelCommonSchemaRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Umodel配置信息.
+     *
+     * @param request - UpsertUmodelCommonSchemaRefRequest
+     *
+     * @returns UpsertUmodelCommonSchemaRefResponse
+     *
+     * @param string                             $workspace
+     * @param UpsertUmodelCommonSchemaRefRequest $request
+     *
+     * @return UpsertUmodelCommonSchemaRefResponse
+     */
+    public function upsertUmodelCommonSchemaRef($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upsertUmodelCommonSchemaRefWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
