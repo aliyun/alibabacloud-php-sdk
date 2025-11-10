@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupLagResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DataLiteTopicLagMapValue;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DataTopicLagMapValue;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupLagResponseBody\data\totalLag;
 
@@ -21,6 +22,11 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @var DataLiteTopicLagMapValue[]
+     */
+    public $liteTopicLagMap;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -31,19 +37,29 @@ class data extends Model
     public $topicLagMap;
 
     /**
+     * @var string
+     */
+    public $topicName;
+
+    /**
      * @var totalLag
      */
     public $totalLag;
     protected $_name = [
         'consumerGroupId' => 'consumerGroupId',
         'instanceId' => 'instanceId',
+        'liteTopicLagMap' => 'liteTopicLagMap',
         'regionId' => 'regionId',
         'topicLagMap' => 'topicLagMap',
+        'topicName' => 'topicName',
         'totalLag' => 'totalLag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->liteTopicLagMap)) {
+            Model::validateArray($this->liteTopicLagMap);
+        }
         if (\is_array($this->topicLagMap)) {
             Model::validateArray($this->topicLagMap);
         }
@@ -64,6 +80,15 @@ class data extends Model
             $res['instanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->liteTopicLagMap) {
+            if (\is_array($this->liteTopicLagMap)) {
+                $res['liteTopicLagMap'] = [];
+                foreach ($this->liteTopicLagMap as $key1 => $value1) {
+                    $res['liteTopicLagMap'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
+        }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -75,6 +100,10 @@ class data extends Model
                     $res['topicLagMap'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
+        }
+
+        if (null !== $this->topicName) {
+            $res['topicName'] = $this->topicName;
         }
 
         if (null !== $this->totalLag) {
@@ -100,6 +129,15 @@ class data extends Model
             $model->instanceId = $map['instanceId'];
         }
 
+        if (isset($map['liteTopicLagMap'])) {
+            if (!empty($map['liteTopicLagMap'])) {
+                $model->liteTopicLagMap = [];
+                foreach ($map['liteTopicLagMap'] as $key1 => $value1) {
+                    $model->liteTopicLagMap[$key1] = DataLiteTopicLagMapValue::fromMap($value1);
+                }
+            }
+        }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
@@ -111,6 +149,10 @@ class data extends Model
                     $model->topicLagMap[$key1] = DataTopicLagMapValue::fromMap($value1);
                 }
             }
+        }
+
+        if (isset($map['topicName'])) {
+            $model->topicName = $map['topicName'];
         }
 
         if (isset($map['totalLag'])) {

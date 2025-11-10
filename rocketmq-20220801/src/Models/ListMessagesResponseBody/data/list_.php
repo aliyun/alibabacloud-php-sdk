@@ -36,6 +36,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $liteTopicName;
+
+    /**
+     * @var string
+     */
     public $messageGroup;
 
     /**
@@ -88,6 +93,7 @@ class list_ extends Model
         'bornHost' => 'bornHost',
         'bornTime' => 'bornTime',
         'instanceId' => 'instanceId',
+        'liteTopicName' => 'liteTopicName',
         'messageGroup' => 'messageGroup',
         'messageId' => 'messageId',
         'messageKeys' => 'messageKeys',
@@ -132,6 +138,10 @@ class list_ extends Model
 
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->liteTopicName) {
+            $res['liteTopicName'] = $this->liteTopicName;
         }
 
         if (null !== $this->messageGroup) {
@@ -215,6 +225,10 @@ class list_ extends Model
 
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+
+        if (isset($map['liteTopicName'])) {
+            $model->liteTopicName = $map['liteTopicName'];
         }
 
         if (isset($map['messageGroup'])) {

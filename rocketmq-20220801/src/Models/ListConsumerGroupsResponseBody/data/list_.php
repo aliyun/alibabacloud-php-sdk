@@ -31,6 +31,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $messageModel;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -46,15 +51,22 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $topicName;
+
+    /**
+     * @var string
+     */
     public $updateTime;
     protected $_name = [
         'consumerGroupId' => 'consumerGroupId',
         'createTime' => 'createTime',
         'instanceId' => 'instanceId',
         'maxReceiveTps' => 'maxReceiveTps',
+        'messageModel' => 'messageModel',
         'regionId' => 'regionId',
         'remark' => 'remark',
         'status' => 'status',
+        'topicName' => 'topicName',
         'updateTime' => 'updateTime',
     ];
 
@@ -82,6 +94,10 @@ class list_ extends Model
             $res['maxReceiveTps'] = $this->maxReceiveTps;
         }
 
+        if (null !== $this->messageModel) {
+            $res['messageModel'] = $this->messageModel;
+        }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -92,6 +108,10 @@ class list_ extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->topicName) {
+            $res['topicName'] = $this->topicName;
         }
 
         if (null !== $this->updateTime) {
@@ -125,6 +145,10 @@ class list_ extends Model
             $model->maxReceiveTps = $map['maxReceiveTps'];
         }
 
+        if (isset($map['messageModel'])) {
+            $model->messageModel = $map['messageModel'];
+        }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
@@ -135,6 +159,10 @@ class list_ extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['topicName'])) {
+            $model->topicName = $map['topicName'];
         }
 
         if (isset($map['updateTime'])) {

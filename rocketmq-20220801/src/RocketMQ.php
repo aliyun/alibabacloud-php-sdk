@@ -47,6 +47,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupSubscriptionResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerStackRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerStackResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumeTimespanResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetDisasterRecoveryItemResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetDisasterRecoveryPlanResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceAccountRequest;
@@ -62,6 +63,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTopicResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListAvailableZonesResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerConnectionsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerConnectionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsResponse;
@@ -88,6 +90,8 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationOperationsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationOperationsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationsRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTagResourcesResponse;
@@ -339,8 +343,16 @@ class RocketMQ extends OpenApiClient
             @$body['maxReceiveTps'] = $request->maxReceiveTps;
         }
 
+        if (null !== $request->messageModel) {
+            @$body['messageModel'] = $request->messageModel;
+        }
+
         if (null !== $request->remark) {
             @$body['remark'] = $request->remark;
+        }
+
+        if (null !== $request->topicName) {
+            @$body['topicName'] = $request->topicName;
         }
 
         $req = new OpenApiRequest([
@@ -832,6 +844,10 @@ class RocketMQ extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->liteTopicExpiration) {
+            @$body['liteTopicExpiration'] = $request->liteTopicExpiration;
+        }
+
         if (null !== $request->maxSendTps) {
             @$body['maxSendTps'] = $request->maxSendTps;
         }
@@ -1576,6 +1592,61 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * 查询topic可重置时间范围.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConsumeTimespanResponse
+     *
+     * @param string         $instanceId
+     * @param string         $consumerGroupId
+     * @param string         $topicName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetConsumeTimespanResponse
+     */
+    public function getConsumeTimespanWithOptions($instanceId, $consumerGroupId, $topicName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetConsumeTimespan',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '/consumeTimespan/' . Url::percentEncode($topicName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConsumeTimespanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询topic可重置时间范围.
+     *
+     * @returns GetConsumeTimespanResponse
+     *
+     * @param string $instanceId
+     * @param string $consumerGroupId
+     * @param string $topicName
+     *
+     * @return GetConsumeTimespanResponse
+     */
+    public function getConsumeTimespan($instanceId, $consumerGroupId, $topicName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConsumeTimespanWithOptions($instanceId, $consumerGroupId, $topicName, $headers, $runtime);
+    }
+
+    /**
      * Queries the details of a specified consumer group.
      *
      * @remarks
@@ -1655,6 +1726,10 @@ class RocketMQ extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->liteTopicName) {
+            @$query['liteTopicName'] = $request->liteTopicName;
+        }
+
         if (null !== $request->topicName) {
             @$query['topicName'] = $request->topicName;
         }
@@ -2411,22 +2486,35 @@ class RocketMQ extends OpenApiClient
     /**
      * 查询消费者客户端连接信息.
      *
+     * @param request - ListConsumerConnectionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListConsumerConnectionsResponse
      *
-     * @param string         $instanceId
-     * @param string         $consumerGroupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                         $instanceId
+     * @param string                         $consumerGroupId
+     * @param ListConsumerConnectionsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
      * @return ListConsumerConnectionsResponse
      */
-    public function listConsumerConnectionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime)
+    public function listConsumerConnectionsWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->liteTopicName) {
+            @$query['liteTopicName'] = $request->liteTopicName;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['topicName'] = $request->topicName;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListConsumerConnections',
@@ -2446,19 +2534,22 @@ class RocketMQ extends OpenApiClient
     /**
      * 查询消费者客户端连接信息.
      *
+     * @param request - ListConsumerConnectionsRequest
+     *
      * @returns ListConsumerConnectionsResponse
      *
-     * @param string $instanceId
-     * @param string $consumerGroupId
+     * @param string                         $instanceId
+     * @param string                         $consumerGroupId
+     * @param ListConsumerConnectionsRequest $request
      *
      * @return ListConsumerConnectionsResponse
      */
-    public function listConsumerConnections($instanceId, $consumerGroupId)
+    public function listConsumerConnections($instanceId, $consumerGroupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConsumerConnectionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime);
+        return $this->listConsumerConnectionsWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime);
     }
 
     /**
@@ -3171,6 +3262,10 @@ class RocketMQ extends OpenApiClient
             @$query['endTime'] = $request->endTime;
         }
 
+        if (null !== $request->liteTopicName) {
+            @$query['liteTopicName'] = $request->liteTopicName;
+        }
+
         if (null !== $request->messageId) {
             @$query['messageId'] = $request->messageId;
         }
@@ -3379,6 +3474,83 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->listMigrationOperationsWithOptions($migrationId, $stageType, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询迁移列表.
+     *
+     * @param request - ListMigrationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMigrationsResponse
+     *
+     * @param ListMigrationsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListMigrationsResponse
+     */
+    public function listMigrationsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['filter'] = $request->filter;
+        }
+
+        if (null !== $request->migrationType) {
+            @$query['migrationType'] = $request->migrationType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMigrations',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/migrations',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMigrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询迁移列表.
+     *
+     * @param request - ListMigrationsRequest
+     *
+     * @returns ListMigrationsResponse
+     *
+     * @param ListMigrationsRequest $request
+     *
+     * @return ListMigrationsResponse
+     */
+    public function listMigrations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMigrationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3667,6 +3839,10 @@ class RocketMQ extends OpenApiClient
         $query = [];
         if (null !== $request->endTime) {
             @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->liteTopicName) {
+            @$query['liteTopicName'] = $request->liteTopicName;
         }
 
         if (null !== $request->messageId) {
@@ -4602,6 +4778,10 @@ class RocketMQ extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->liteTopicExpiration) {
+            @$body['liteTopicExpiration'] = $request->liteTopicExpiration;
+        }
+
         if (null !== $request->maxSendTps) {
             @$body['maxSendTps'] = $request->maxSendTps;
         }
@@ -4742,6 +4922,10 @@ class RocketMQ extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->liteTopicName) {
+            @$body['liteTopicName'] = $request->liteTopicName;
+        }
+
         if (null !== $request->message) {
             @$body['message'] = $request->message;
         }

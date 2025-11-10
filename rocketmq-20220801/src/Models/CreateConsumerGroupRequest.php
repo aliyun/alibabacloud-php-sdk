@@ -27,12 +27,24 @@ class CreateConsumerGroupRequest extends Model
     /**
      * @var string
      */
+    public $messageModel;
+
+    /**
+     * @var string
+     */
     public $remark;
+
+    /**
+     * @var string
+     */
+    public $topicName;
     protected $_name = [
         'consumeRetryPolicy' => 'consumeRetryPolicy',
         'deliveryOrderType' => 'deliveryOrderType',
         'maxReceiveTps' => 'maxReceiveTps',
+        'messageModel' => 'messageModel',
         'remark' => 'remark',
+        'topicName' => 'topicName',
     ];
 
     public function validate()
@@ -58,8 +70,16 @@ class CreateConsumerGroupRequest extends Model
             $res['maxReceiveTps'] = $this->maxReceiveTps;
         }
 
+        if (null !== $this->messageModel) {
+            $res['messageModel'] = $this->messageModel;
+        }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
+        }
+
+        if (null !== $this->topicName) {
+            $res['topicName'] = $this->topicName;
         }
 
         return $res;
@@ -85,8 +105,16 @@ class CreateConsumerGroupRequest extends Model
             $model->maxReceiveTps = $map['maxReceiveTps'];
         }
 
+        if (isset($map['messageModel'])) {
+            $model->messageModel = $map['messageModel'];
+        }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
+        }
+
+        if (isset($map['topicName'])) {
+            $model->topicName = $map['topicName'];
         }
 
         return $model;

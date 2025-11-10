@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetConsumerGroupLagRequest extends Model
+class DataLiteTopicLagMapValue extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $liteTopicName;
+    public $readyCount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $topicName;
+    public $deliveryDuration;
     protected $_name = [
-        'liteTopicName' => 'liteTopicName',
-        'topicName' => 'topicName',
+        'readyCount' => 'readyCount',
+        'deliveryDuration' => 'deliveryDuration',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class GetConsumerGroupLagRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->liteTopicName) {
-            $res['liteTopicName'] = $this->liteTopicName;
+        if (null !== $this->readyCount) {
+            $res['readyCount'] = $this->readyCount;
         }
 
-        if (null !== $this->topicName) {
-            $res['topicName'] = $this->topicName;
+        if (null !== $this->deliveryDuration) {
+            $res['deliveryDuration'] = $this->deliveryDuration;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class GetConsumerGroupLagRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['liteTopicName'])) {
-            $model->liteTopicName = $map['liteTopicName'];
+        if (isset($map['readyCount'])) {
+            $model->readyCount = $map['readyCount'];
         }
 
-        if (isset($map['topicName'])) {
-            $model->topicName = $map['topicName'];
+        if (isset($map['deliveryDuration'])) {
+            $model->deliveryDuration = $map['deliveryDuration'];
         }
 
         return $model;

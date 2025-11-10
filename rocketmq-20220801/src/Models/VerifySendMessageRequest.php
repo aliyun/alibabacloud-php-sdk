@@ -11,6 +11,11 @@ class VerifySendMessageRequest extends Model
     /**
      * @var string
      */
+    public $liteTopicName;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -23,6 +28,7 @@ class VerifySendMessageRequest extends Model
      */
     public $messageTag;
     protected $_name = [
+        'liteTopicName' => 'liteTopicName',
         'message' => 'message',
         'messageKey' => 'messageKey',
         'messageTag' => 'messageTag',
@@ -36,6 +42,10 @@ class VerifySendMessageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->liteTopicName) {
+            $res['liteTopicName'] = $this->liteTopicName;
+        }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
@@ -59,6 +69,10 @@ class VerifySendMessageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['liteTopicName'])) {
+            $model->liteTopicName = $map['liteTopicName'];
+        }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }

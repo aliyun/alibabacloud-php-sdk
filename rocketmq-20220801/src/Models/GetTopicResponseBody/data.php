@@ -21,6 +21,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $liteTopicExpiration;
+
+    /**
+     * @var int
+     */
     public $maxSendTps;
 
     /**
@@ -55,6 +60,7 @@ class data extends Model
     protected $_name = [
         'createTime' => 'createTime',
         'instanceId' => 'instanceId',
+        'liteTopicExpiration' => 'liteTopicExpiration',
         'maxSendTps' => 'maxSendTps',
         'messageType' => 'messageType',
         'regionId' => 'regionId',
@@ -78,6 +84,10 @@ class data extends Model
 
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->liteTopicExpiration) {
+            $res['liteTopicExpiration'] = $this->liteTopicExpiration;
         }
 
         if (null !== $this->maxSendTps) {
@@ -125,6 +135,10 @@ class data extends Model
 
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+
+        if (isset($map['liteTopicExpiration'])) {
+            $model->liteTopicExpiration = $map['liteTopicExpiration'];
         }
 
         if (isset($map['maxSendTps'])) {

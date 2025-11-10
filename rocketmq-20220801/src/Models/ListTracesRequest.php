@@ -16,6 +16,11 @@ class ListTracesRequest extends Model
     /**
      * @var string
      */
+    public $liteTopicName;
+
+    /**
+     * @var string
+     */
     public $messageId;
 
     /**
@@ -44,6 +49,7 @@ class ListTracesRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime' => 'endTime',
+        'liteTopicName' => 'liteTopicName',
         'messageId' => 'messageId',
         'messageKey' => 'messageKey',
         'pageNumber' => 'pageNumber',
@@ -62,6 +68,10 @@ class ListTracesRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->liteTopicName) {
+            $res['liteTopicName'] = $this->liteTopicName;
         }
 
         if (null !== $this->messageId) {
@@ -101,6 +111,10 @@ class ListTracesRequest extends Model
         $model = new self();
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+
+        if (isset($map['liteTopicName'])) {
+            $model->liteTopicName = $map['liteTopicName'];
         }
 
         if (isset($map['messageId'])) {

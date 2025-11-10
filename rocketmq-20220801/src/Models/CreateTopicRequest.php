@@ -11,6 +11,11 @@ class CreateTopicRequest extends Model
     /**
      * @var int
      */
+    public $liteTopicExpiration;
+
+    /**
+     * @var int
+     */
     public $maxSendTps;
 
     /**
@@ -23,6 +28,7 @@ class CreateTopicRequest extends Model
      */
     public $remark;
     protected $_name = [
+        'liteTopicExpiration' => 'liteTopicExpiration',
         'maxSendTps' => 'maxSendTps',
         'messageType' => 'messageType',
         'remark' => 'remark',
@@ -36,6 +42,10 @@ class CreateTopicRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->liteTopicExpiration) {
+            $res['liteTopicExpiration'] = $this->liteTopicExpiration;
+        }
+
         if (null !== $this->maxSendTps) {
             $res['maxSendTps'] = $this->maxSendTps;
         }
@@ -59,6 +69,10 @@ class CreateTopicRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['liteTopicExpiration'])) {
+            $model->liteTopicExpiration = $map['liteTopicExpiration'];
+        }
+
         if (isset($map['maxSendTps'])) {
             $model->maxSendTps = $map['maxSendTps'];
         }

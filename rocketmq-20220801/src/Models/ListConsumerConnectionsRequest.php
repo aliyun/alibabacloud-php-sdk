@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetConsumerGroupLagRequest extends Model
+class ListConsumerConnectionsRequest extends Model
 {
     /**
      * @var string
