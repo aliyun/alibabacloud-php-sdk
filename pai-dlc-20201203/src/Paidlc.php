@@ -538,7 +538,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 获取 Dashboard 链接.
+     * Gets the DLC task\\"s Dashboard URL, if one exists.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
      *
      * @param request - GetDashboardRequest
      * @param headers - map
@@ -585,7 +588,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 获取 Dashboard 链接.
+     * Gets the DLC task\\"s Dashboard URL, if one exists.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
      *
      * @param request - GetDashboardRequest
      *
@@ -2042,6 +2048,10 @@ class Paidlc extends OpenApiClient
         $body = [];
         if (null !== $request->accessibility) {
             @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->jobSpecs) {
+            @$body['JobSpecs'] = $request->jobSpecs;
         }
 
         if (null !== $request->priority) {

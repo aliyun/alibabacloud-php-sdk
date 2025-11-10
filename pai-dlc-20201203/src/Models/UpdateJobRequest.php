@@ -14,16 +14,25 @@ class UpdateJobRequest extends Model
     public $accessibility;
 
     /**
+     * @var JobSpec[]
+     */
+    public $jobSpecs;
+
+    /**
      * @var int
      */
     public $priority;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'jobSpecs' => 'JobSpecs',
         'priority' => 'Priority',
     ];
 
     public function validate()
     {
+        if (\is_array($this->jobSpecs)) {
+            Model::validateArray($this->jobSpecs);
+        }
         parent::validate();
     }
 
@@ -32,6 +41,17 @@ class UpdateJobRequest extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->jobSpecs) {
+            if (\is_array($this->jobSpecs)) {
+                $res['JobSpecs'] = [];
+                $n1 = 0;
+                foreach ($this->jobSpecs as $item1) {
+                    $res['JobSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->priority) {
@@ -51,6 +71,17 @@ class UpdateJobRequest extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['JobSpecs'])) {
+            if (!empty($map['JobSpecs'])) {
+                $model->jobSpecs = [];
+                $n1 = 0;
+                foreach ($map['JobSpecs'] as $item1) {
+                    $model->jobSpecs[$n1] = JobSpec::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Priority'])) {
