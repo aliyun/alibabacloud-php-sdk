@@ -1,3 +1,8 @@
+2025-11-10 Version: 6.0.4
+- Update API DescribeImageRepoList: add request parameters Selected.
+- Update API DescribeImageRepoList: add response parameters Body.ImageRepoList.$.ImageCount.
+
+
 2025-11-08 Version: 6.0.3
 - Update API DescribeCloudCenterInstances: add response parameters Body.Instances.$.Namespace.
 

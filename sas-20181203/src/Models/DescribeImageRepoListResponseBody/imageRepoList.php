@@ -14,6 +14,11 @@ class imageRepoList extends Model
     public $flag;
 
     /**
+     * @var int
+     */
+    public $imageCount;
+
+    /**
      * @var string
      */
     public $repoName;
@@ -24,6 +29,7 @@ class imageRepoList extends Model
     public $repoNamespace;
     protected $_name = [
         'flag' => 'Flag',
+        'imageCount' => 'ImageCount',
         'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
     ];
@@ -38,6 +44,10 @@ class imageRepoList extends Model
         $res = [];
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
+        }
+
+        if (null !== $this->imageCount) {
+            $res['ImageCount'] = $this->imageCount;
         }
 
         if (null !== $this->repoName) {
@@ -61,6 +71,10 @@ class imageRepoList extends Model
         $model = new self();
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
+        }
+
+        if (isset($map['ImageCount'])) {
+            $model->imageCount = $map['ImageCount'];
         }
 
         if (isset($map['RepoName'])) {

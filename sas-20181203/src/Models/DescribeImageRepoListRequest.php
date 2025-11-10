@@ -44,6 +44,11 @@ class DescribeImageRepoListRequest extends Model
     public $repoNamespace;
 
     /**
+     * @var int
+     */
+    public $selected;
+
+    /**
      * @var string
      */
     public $targetType;
@@ -60,6 +65,7 @@ class DescribeImageRepoListRequest extends Model
         'pageSize' => 'PageSize',
         'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
+        'selected' => 'Selected',
         'targetType' => 'TargetType',
         'type' => 'Type',
     ];
@@ -98,6 +104,10 @@ class DescribeImageRepoListRequest extends Model
 
         if (null !== $this->repoNamespace) {
             $res['RepoNamespace'] = $this->repoNamespace;
+        }
+
+        if (null !== $this->selected) {
+            $res['Selected'] = $this->selected;
         }
 
         if (null !== $this->targetType) {
@@ -145,6 +155,10 @@ class DescribeImageRepoListRequest extends Model
 
         if (isset($map['RepoNamespace'])) {
             $model->repoNamespace = $map['RepoNamespace'];
+        }
+
+        if (isset($map['Selected'])) {
+            $model->selected = $map['Selected'];
         }
 
         if (isset($map['TargetType'])) {

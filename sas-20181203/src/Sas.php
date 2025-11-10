@@ -22743,6 +22743,10 @@ class Sas extends OpenApiClient
             @$query['RepoNamespace'] = $request->repoNamespace;
         }
 
+        if (null !== $request->selected) {
+            @$query['Selected'] = $request->selected;
+        }
+
         if (null !== $request->targetType) {
             @$query['TargetType'] = $request->targetType;
         }
