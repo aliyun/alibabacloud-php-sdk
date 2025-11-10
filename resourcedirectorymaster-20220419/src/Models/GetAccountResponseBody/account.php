@@ -77,6 +77,11 @@ class account extends Model
     /**
      * @var string
      */
+    public $secureMobilePhone;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -102,6 +107,7 @@ class account extends Model
         'modifyTime' => 'ModifyTime',
         'resourceDirectoryId' => 'ResourceDirectoryId',
         'resourceDirectoryPath' => 'ResourceDirectoryPath',
+        'secureMobilePhone' => 'SecureMobilePhone',
         'status' => 'Status',
         'tags' => 'Tags',
         'type' => 'Type',
@@ -168,6 +174,10 @@ class account extends Model
 
         if (null !== $this->resourceDirectoryPath) {
             $res['ResourceDirectoryPath'] = $this->resourceDirectoryPath;
+        }
+
+        if (null !== $this->secureMobilePhone) {
+            $res['SecureMobilePhone'] = $this->secureMobilePhone;
         }
 
         if (null !== $this->status) {
@@ -250,6 +260,10 @@ class account extends Model
 
         if (isset($map['ResourceDirectoryPath'])) {
             $model->resourceDirectoryPath = $map['ResourceDirectoryPath'];
+        }
+
+        if (isset($map['SecureMobilePhone'])) {
+            $model->secureMobilePhone = $map['SecureMobilePhone'];
         }
 
         if (isset($map['Status'])) {
