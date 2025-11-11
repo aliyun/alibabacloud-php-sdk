@@ -31,12 +31,18 @@ class AddAuditTermsRequest extends Model
     /**
      * @var string
      */
+    public $termsName;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'exceptionWord' => 'ExceptionWord',
         'keyword' => 'Keyword',
         'suggestWord' => 'SuggestWord',
         'termsDesc' => 'TermsDesc',
+        'termsName' => 'TermsName',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -72,6 +78,10 @@ class AddAuditTermsRequest extends Model
 
         if (null !== $this->termsDesc) {
             $res['TermsDesc'] = $this->termsDesc;
+        }
+
+        if (null !== $this->termsName) {
+            $res['TermsName'] = $this->termsName;
         }
 
         if (null !== $this->workspaceId) {
@@ -110,6 +120,10 @@ class AddAuditTermsRequest extends Model
 
         if (isset($map['TermsDesc'])) {
             $model->termsDesc = $map['TermsDesc'];
+        }
+
+        if (isset($map['TermsName'])) {
+            $model->termsName = $map['TermsName'];
         }
 
         if (isset($map['WorkspaceId'])) {

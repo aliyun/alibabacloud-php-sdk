@@ -16,9 +16,15 @@ class SubmitImportTermsTaskRequest extends Model
     /**
      * @var string
      */
+    public $termsName;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'fileKey' => 'FileKey',
+        'termsName' => 'TermsName',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -32,6 +38,10 @@ class SubmitImportTermsTaskRequest extends Model
         $res = [];
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
+        }
+
+        if (null !== $this->termsName) {
+            $res['TermsName'] = $this->termsName;
         }
 
         if (null !== $this->workspaceId) {
@@ -51,6 +61,10 @@ class SubmitImportTermsTaskRequest extends Model
         $model = new self();
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
+        }
+
+        if (isset($map['TermsName'])) {
+            $model->termsName = $map['TermsName'];
         }
 
         if (isset($map['WorkspaceId'])) {

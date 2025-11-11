@@ -16,7 +16,17 @@ class SubmitSmartAuditShrinkRequest extends Model
     /**
      * @var string
      */
+    public $noteId;
+
+    /**
+     * @var string
+     */
     public $subCodesShrink;
+
+    /**
+     * @var string
+     */
+    public $termsName;
 
     /**
      * @var string
@@ -34,7 +44,9 @@ class SubmitSmartAuditShrinkRequest extends Model
     public $imageUrlsShrink;
     protected $_name = [
         'imageUrlListShrink' => 'ImageUrlList',
+        'noteId' => 'NoteId',
         'subCodesShrink' => 'SubCodes',
+        'termsName' => 'TermsName',
         'text' => 'Text',
         'workspaceId' => 'WorkspaceId',
         'imageUrlsShrink' => 'imageUrls',
@@ -52,8 +64,16 @@ class SubmitSmartAuditShrinkRequest extends Model
             $res['ImageUrlList'] = $this->imageUrlListShrink;
         }
 
+        if (null !== $this->noteId) {
+            $res['NoteId'] = $this->noteId;
+        }
+
         if (null !== $this->subCodesShrink) {
             $res['SubCodes'] = $this->subCodesShrink;
+        }
+
+        if (null !== $this->termsName) {
+            $res['TermsName'] = $this->termsName;
         }
 
         if (null !== $this->text) {
@@ -83,8 +103,16 @@ class SubmitSmartAuditShrinkRequest extends Model
             $model->imageUrlListShrink = $map['ImageUrlList'];
         }
 
+        if (isset($map['NoteId'])) {
+            $model->noteId = $map['NoteId'];
+        }
+
         if (isset($map['SubCodes'])) {
             $model->subCodesShrink = $map['SubCodes'];
+        }
+
+        if (isset($map['TermsName'])) {
+            $model->termsName = $map['TermsName'];
         }
 
         if (isset($map['Text'])) {

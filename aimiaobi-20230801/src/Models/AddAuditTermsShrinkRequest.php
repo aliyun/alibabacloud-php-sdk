@@ -31,12 +31,18 @@ class AddAuditTermsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $termsName;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'exceptionWordShrink' => 'ExceptionWord',
         'keyword' => 'Keyword',
         'suggestWord' => 'SuggestWord',
         'termsDesc' => 'TermsDesc',
+        'termsName' => 'TermsName',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -62,6 +68,10 @@ class AddAuditTermsShrinkRequest extends Model
 
         if (null !== $this->termsDesc) {
             $res['TermsDesc'] = $this->termsDesc;
+        }
+
+        if (null !== $this->termsName) {
+            $res['TermsName'] = $this->termsName;
         }
 
         if (null !== $this->workspaceId) {
@@ -93,6 +103,10 @@ class AddAuditTermsShrinkRequest extends Model
 
         if (isset($map['TermsDesc'])) {
             $model->termsDesc = $map['TermsDesc'];
+        }
+
+        if (isset($map['TermsName'])) {
+            $model->termsName = $map['TermsName'];
         }
 
         if (isset($map['WorkspaceId'])) {

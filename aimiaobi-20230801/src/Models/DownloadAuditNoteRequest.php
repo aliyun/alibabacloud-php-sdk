@@ -11,6 +11,11 @@ class DownloadAuditNoteRequest extends Model
     /**
      * @var string
      */
+    public $noteId;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -18,6 +23,7 @@ class DownloadAuditNoteRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'noteId' => 'NoteId',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -30,6 +36,10 @@ class DownloadAuditNoteRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->noteId) {
+            $res['NoteId'] = $this->noteId;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -49,6 +59,10 @@ class DownloadAuditNoteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NoteId'])) {
+            $model->noteId = $map['NoteId'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

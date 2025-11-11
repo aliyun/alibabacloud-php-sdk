@@ -517,6 +517,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['TermsDesc'] = $request->termsDesc;
         }
 
+        if (null !== $request->termsName) {
+            @$body['TermsName'] = $request->termsName;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -1673,6 +1677,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->noteId) {
+            @$body['NoteId'] = $request->noteId;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -2577,6 +2585,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->noteId) {
+            @$body['NoteId'] = $request->noteId;
+        }
+
         if (null !== $request->taskId) {
             @$body['TaskId'] = $request->taskId;
         }
@@ -4142,6 +4154,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->noteId) {
+            @$body['NoteId'] = $request->noteId;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -6672,6 +6688,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->termsName) {
+            @$body['TermsName'] = $request->termsName;
         }
 
         if (null !== $request->workspaceId) {
@@ -15142,6 +15162,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['FileKey'] = $request->fileKey;
         }
 
+        if (null !== $request->noteId) {
+            @$body['NoteId'] = $request->noteId;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -15792,6 +15816,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->termsName) {
+            @$body['TermsName'] = $request->termsName;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -15914,6 +15942,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['FileKey'] = $request->fileKey;
         }
 
+        if (null !== $request->termsName) {
+            @$body['TermsName'] = $request->termsName;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -15989,8 +16021,16 @@ class AiMiaoBi extends OpenApiClient
             @$body['ImageUrlList'] = $request->imageUrlListShrink;
         }
 
+        if (null !== $request->noteId) {
+            @$body['NoteId'] = $request->noteId;
+        }
+
         if (null !== $request->subCodesShrink) {
             @$body['SubCodes'] = $request->subCodesShrink;
+        }
+
+        if (null !== $request->termsName) {
+            @$body['TermsName'] = $request->termsName;
         }
 
         if (null !== $request->text) {

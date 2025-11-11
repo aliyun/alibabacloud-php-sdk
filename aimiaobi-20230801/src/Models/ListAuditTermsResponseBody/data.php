@@ -32,12 +32,18 @@ class data extends Model
      * @var string
      */
     public $termsDesc;
+
+    /**
+     * @var string
+     */
+    public $termsName;
     protected $_name = [
         'exceptionWord' => 'ExceptionWord',
         'id' => 'Id',
         'keyword' => 'Keyword',
         'suggestWord' => 'SuggestWord',
         'termsDesc' => 'TermsDesc',
+        'termsName' => 'TermsName',
     ];
 
     public function validate()
@@ -78,6 +84,10 @@ class data extends Model
             $res['TermsDesc'] = $this->termsDesc;
         }
 
+        if (null !== $this->termsName) {
+            $res['TermsName'] = $this->termsName;
+        }
+
         return $res;
     }
 
@@ -114,6 +124,10 @@ class data extends Model
 
         if (isset($map['TermsDesc'])) {
             $model->termsDesc = $map['TermsDesc'];
+        }
+
+        if (isset($map['TermsName'])) {
+            $model->termsName = $map['TermsName'];
         }
 
         return $model;

@@ -16,9 +16,19 @@ class SubmitSmartAuditRequest extends Model
     public $imageUrlList;
 
     /**
+     * @var string
+     */
+    public $noteId;
+
+    /**
      * @var string[]
      */
     public $subCodes;
+
+    /**
+     * @var string
+     */
+    public $termsName;
 
     /**
      * @var string
@@ -36,7 +46,9 @@ class SubmitSmartAuditRequest extends Model
     public $imageUrls;
     protected $_name = [
         'imageUrlList' => 'ImageUrlList',
+        'noteId' => 'NoteId',
         'subCodes' => 'SubCodes',
+        'termsName' => 'TermsName',
         'text' => 'Text',
         'workspaceId' => 'WorkspaceId',
         'imageUrls' => 'imageUrls',
@@ -70,6 +82,10 @@ class SubmitSmartAuditRequest extends Model
             }
         }
 
+        if (null !== $this->noteId) {
+            $res['NoteId'] = $this->noteId;
+        }
+
         if (null !== $this->subCodes) {
             if (\is_array($this->subCodes)) {
                 $res['SubCodes'] = [];
@@ -79,6 +95,10 @@ class SubmitSmartAuditRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->termsName) {
+            $res['TermsName'] = $this->termsName;
         }
 
         if (null !== $this->text) {
@@ -122,6 +142,10 @@ class SubmitSmartAuditRequest extends Model
             }
         }
 
+        if (isset($map['NoteId'])) {
+            $model->noteId = $map['NoteId'];
+        }
+
         if (isset($map['SubCodes'])) {
             if (!empty($map['SubCodes'])) {
                 $model->subCodes = [];
@@ -131,6 +155,10 @@ class SubmitSmartAuditRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TermsName'])) {
+            $model->termsName = $map['TermsName'];
         }
 
         if (isset($map['Text'])) {

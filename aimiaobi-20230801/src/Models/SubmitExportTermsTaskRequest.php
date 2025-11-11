@@ -11,8 +11,14 @@ class SubmitExportTermsTaskRequest extends Model
     /**
      * @var string
      */
+    public $termsName;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
+        'termsName' => 'TermsName',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -24,6 +30,10 @@ class SubmitExportTermsTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->termsName) {
+            $res['TermsName'] = $this->termsName;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -39,6 +49,10 @@ class SubmitExportTermsTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TermsName'])) {
+            $model->termsName = $map['TermsName'];
+        }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

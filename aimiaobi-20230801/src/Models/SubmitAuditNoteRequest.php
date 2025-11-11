@@ -16,9 +16,15 @@ class SubmitAuditNoteRequest extends Model
     /**
      * @var string
      */
+    public $noteId;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'fileKey' => 'FileKey',
+        'noteId' => 'NoteId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -32,6 +38,10 @@ class SubmitAuditNoteRequest extends Model
         $res = [];
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
+        }
+
+        if (null !== $this->noteId) {
+            $res['NoteId'] = $this->noteId;
         }
 
         if (null !== $this->workspaceId) {
@@ -51,6 +61,10 @@ class SubmitAuditNoteRequest extends Model
         $model = new self();
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
+        }
+
+        if (isset($map['NoteId'])) {
+            $model->noteId = $map['NoteId'];
         }
 
         if (isset($map['WorkspaceId'])) {

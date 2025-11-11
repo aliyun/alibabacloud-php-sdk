@@ -21,10 +21,16 @@ class ListAuditTermsRequest extends Model
     /**
      * @var string
      */
+    public $termsName;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'termsName' => 'TermsName',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -42,6 +48,10 @@ class ListAuditTermsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->termsName) {
+            $res['TermsName'] = $this->termsName;
         }
 
         if (null !== $this->workspaceId) {
@@ -65,6 +75,10 @@ class ListAuditTermsRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['TermsName'])) {
+            $model->termsName = $map['TermsName'];
         }
 
         if (isset($map['WorkspaceId'])) {

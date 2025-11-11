@@ -11,8 +11,14 @@ class GetAvailableAuditNotesRequest extends Model
     /**
      * @var string
      */
+    public $noteId;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
+        'noteId' => 'NoteId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -24,6 +30,10 @@ class GetAvailableAuditNotesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->noteId) {
+            $res['NoteId'] = $this->noteId;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -39,6 +49,10 @@ class GetAvailableAuditNotesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NoteId'])) {
+            $model->noteId = $map['NoteId'];
+        }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
