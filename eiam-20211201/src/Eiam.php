@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToOrganizationalU
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToUsersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToUsersResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\BindUserAuthnSourceMappingRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\BindUserAuthnSourceMappingResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationClientSecretResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationFederatedCredentialRequest;
@@ -292,6 +294,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUserAuthnSourceMappingsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUserAuthnSourceMappingsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForGroupRequest;
@@ -346,6 +350,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordInitializationConfiguratio
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordInitializationConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetUserPrimaryOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetUserPrimaryOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindUserAuthnSourceMappingRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindUserAuthnSourceMappingResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnlockUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnlockUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationAuthorizationTypeRequest;
@@ -900,6 +906,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authorizeApplicationToUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 绑定三方登录账户.
+     *
+     * @param request - BindUserAuthnSourceMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindUserAuthnSourceMappingResponse
+     *
+     * @param BindUserAuthnSourceMappingRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BindUserAuthnSourceMappingResponse
+     */
+    public function bindUserAuthnSourceMappingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userExternalId) {
+            @$query['UserExternalId'] = $request->userExternalId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindUserAuthnSourceMapping',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindUserAuthnSourceMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 绑定三方登录账户.
+     *
+     * @param request - BindUserAuthnSourceMappingRequest
+     *
+     * @returns BindUserAuthnSourceMappingResponse
+     *
+     * @param BindUserAuthnSourceMappingRequest $request
+     *
+     * @return BindUserAuthnSourceMappingResponse
+     */
+    public function bindUserAuthnSourceMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindUserAuthnSourceMappingWithOptions($request, $runtime);
     }
 
     /**
@@ -10012,6 +10087,87 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 查询三方登录账户绑定关系.
+     *
+     * @param request - ListUserAuthnSourceMappingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserAuthnSourceMappingsResponse
+     *
+     * @param ListUserAuthnSourceMappingsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListUserAuthnSourceMappingsResponse
+     */
+    public function listUserAuthnSourceMappingsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        if (null !== $request->userExternalId) {
+            @$query['UserExternalId'] = $request->userExternalId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserAuthnSourceMappings',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserAuthnSourceMappingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询三方登录账户绑定关系.
+     *
+     * @param request - ListUserAuthnSourceMappingsRequest
+     *
+     * @returns ListUserAuthnSourceMappingsResponse
+     *
+     * @param ListUserAuthnSourceMappingsRequest $request
+     *
+     * @return ListUserAuthnSourceMappingsResponse
+     */
+    public function listUserAuthnSourceMappings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserAuthnSourceMappingsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
      *
      * @param request - ListUsersRequest
@@ -11938,6 +12094,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setUserPrimaryOrganizationalUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 解绑三方登录账户.
+     *
+     * @param request - UnbindUserAuthnSourceMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindUserAuthnSourceMappingResponse
+     *
+     * @param UnbindUserAuthnSourceMappingRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UnbindUserAuthnSourceMappingResponse
+     */
+    public function unbindUserAuthnSourceMappingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userExternalId) {
+            @$query['UserExternalId'] = $request->userExternalId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindUserAuthnSourceMapping',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindUserAuthnSourceMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解绑三方登录账户.
+     *
+     * @param request - UnbindUserAuthnSourceMappingRequest
+     *
+     * @returns UnbindUserAuthnSourceMappingResponse
+     *
+     * @param UnbindUserAuthnSourceMappingRequest $request
+     *
+     * @return UnbindUserAuthnSourceMappingResponse
+     */
+    public function unbindUserAuthnSourceMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindUserAuthnSourceMappingWithOptions($request, $runtime);
     }
 
     /**
