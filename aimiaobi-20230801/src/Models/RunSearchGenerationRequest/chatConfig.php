@@ -30,6 +30,16 @@ class chatConfig extends Model
     public $generateTechnology;
 
     /**
+     * @var string
+     */
+    public $modelCustomPromptTemplate;
+
+    /**
+     * @var string
+     */
+    public $modelCustomVlPromptTemplate;
+
+    /**
      * @var string[]
      */
     public $searchModels;
@@ -43,6 +53,8 @@ class chatConfig extends Model
         'excludeGenerateOptions' => 'ExcludeGenerateOptions',
         'generateLevel' => 'GenerateLevel',
         'generateTechnology' => 'GenerateTechnology',
+        'modelCustomPromptTemplate' => 'ModelCustomPromptTemplate',
+        'modelCustomVlPromptTemplate' => 'ModelCustomVlPromptTemplate',
         'searchModels' => 'SearchModels',
         'searchParam' => 'SearchParam',
     ];
@@ -85,6 +97,14 @@ class chatConfig extends Model
 
         if (null !== $this->generateTechnology) {
             $res['GenerateTechnology'] = $this->generateTechnology;
+        }
+
+        if (null !== $this->modelCustomPromptTemplate) {
+            $res['ModelCustomPromptTemplate'] = $this->modelCustomPromptTemplate;
+        }
+
+        if (null !== $this->modelCustomVlPromptTemplate) {
+            $res['ModelCustomVlPromptTemplate'] = $this->modelCustomVlPromptTemplate;
         }
 
         if (null !== $this->searchModels) {
@@ -134,6 +154,14 @@ class chatConfig extends Model
 
         if (isset($map['GenerateTechnology'])) {
             $model->generateTechnology = $map['GenerateTechnology'];
+        }
+
+        if (isset($map['ModelCustomPromptTemplate'])) {
+            $model->modelCustomPromptTemplate = $map['ModelCustomPromptTemplate'];
+        }
+
+        if (isset($map['ModelCustomVlPromptTemplate'])) {
+            $model->modelCustomVlPromptTemplate = $map['ModelCustomVlPromptTemplate'];
         }
 
         if (isset($map['SearchModels'])) {

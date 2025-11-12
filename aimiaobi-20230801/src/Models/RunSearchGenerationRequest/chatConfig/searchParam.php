@@ -20,9 +20,29 @@ class searchParam extends Model
     public $multimodalSearchTypes;
 
     /**
+     * @var float
+     */
+    public $searchAudioMinScore;
+
+    /**
+     * @var float
+     */
+    public $searchImageMinScore;
+
+    /**
      * @var searchSources[]
      */
     public $searchSources;
+
+    /**
+     * @var float
+     */
+    public $searchTextMinScore;
+
+    /**
+     * @var float
+     */
+    public $searchVideoMinScore;
 
     /**
      * @var int
@@ -31,7 +51,11 @@ class searchParam extends Model
     protected $_name = [
         'endTime' => 'EndTime',
         'multimodalSearchTypes' => 'MultimodalSearchTypes',
+        'searchAudioMinScore' => 'SearchAudioMinScore',
+        'searchImageMinScore' => 'SearchImageMinScore',
         'searchSources' => 'SearchSources',
+        'searchTextMinScore' => 'SearchTextMinScore',
+        'searchVideoMinScore' => 'SearchVideoMinScore',
         'startTime' => 'StartTime',
     ];
 
@@ -64,6 +88,14 @@ class searchParam extends Model
             }
         }
 
+        if (null !== $this->searchAudioMinScore) {
+            $res['SearchAudioMinScore'] = $this->searchAudioMinScore;
+        }
+
+        if (null !== $this->searchImageMinScore) {
+            $res['SearchImageMinScore'] = $this->searchImageMinScore;
+        }
+
         if (null !== $this->searchSources) {
             if (\is_array($this->searchSources)) {
                 $res['SearchSources'] = [];
@@ -73,6 +105,14 @@ class searchParam extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->searchTextMinScore) {
+            $res['SearchTextMinScore'] = $this->searchTextMinScore;
+        }
+
+        if (null !== $this->searchVideoMinScore) {
+            $res['SearchVideoMinScore'] = $this->searchVideoMinScore;
         }
 
         if (null !== $this->startTime) {
@@ -105,6 +145,14 @@ class searchParam extends Model
             }
         }
 
+        if (isset($map['SearchAudioMinScore'])) {
+            $model->searchAudioMinScore = $map['SearchAudioMinScore'];
+        }
+
+        if (isset($map['SearchImageMinScore'])) {
+            $model->searchImageMinScore = $map['SearchImageMinScore'];
+        }
+
         if (isset($map['SearchSources'])) {
             if (!empty($map['SearchSources'])) {
                 $model->searchSources = [];
@@ -114,6 +162,14 @@ class searchParam extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SearchTextMinScore'])) {
+            $model->searchTextMinScore = $map['SearchTextMinScore'];
+        }
+
+        if (isset($map['SearchVideoMinScore'])) {
+            $model->searchVideoMinScore = $map['SearchVideoMinScore'];
         }
 
         if (isset($map['StartTime'])) {
