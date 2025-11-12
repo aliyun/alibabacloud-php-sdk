@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetHyperNodeRequest extends Model
+class DescribeHyperNodeRequest extends Model
 {
     /**
      * @var string

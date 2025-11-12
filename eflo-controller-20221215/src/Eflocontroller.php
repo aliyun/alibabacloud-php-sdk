@@ -10,6 +10,9 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ApproveOperationResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeGroupShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeTypesRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeTypesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeNodeTypesShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CloseSessionRequest;
@@ -32,6 +35,8 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateVscRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateVscResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteHyperNodeRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteHyperNodeResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeRequest;
@@ -42,10 +47,14 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeDiagnosticResultRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeDiagnosticResultResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeHyperNodeRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeHyperNodeResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeInvocationsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeInvocationsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNetTestResultRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNetTestResultResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeGroupRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeTypeRequest;
@@ -63,8 +72,6 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterShrinkRequest;
-use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeRequest;
-use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClusterHyperNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClusterHyperNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClusterNodesRequest;
@@ -90,6 +97,8 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNetTestResultsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNetTestResultsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupsResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListSyslogsRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListSyslogsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListUserClusterTypesResponse;
@@ -297,6 +306,73 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeNodeGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 节点规格变配.
+     *
+     * @param tmpReq - ChangeNodeTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeNodeTypesResponse
+     *
+     * @param ChangeNodeTypesRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ChangeNodeTypesResponse
+     */
+    public function changeNodeTypesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ChangeNodeTypesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeIds) {
+            $request->nodeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeIds, 'NodeIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->nodeIdsShrink) {
+            @$body['NodeIds'] = $request->nodeIdsShrink;
+        }
+
+        if (null !== $request->nodeType) {
+            @$body['NodeType'] = $request->nodeType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeNodeTypes',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeNodeTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 节点规格变配.
+     *
+     * @param request - ChangeNodeTypesRequest
+     *
+     * @returns ChangeNodeTypesResponse
+     *
+     * @param ChangeNodeTypesRequest $request
+     *
+     * @return ChangeNodeTypesResponse
+     */
+    public function changeNodeTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeNodeTypesWithOptions($request, $runtime);
     }
 
     /**
@@ -1017,6 +1093,63 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * 删除一个未使用超节点.
+     *
+     * @param request - DeleteHyperNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHyperNodeResponse
+     *
+     * @param DeleteHyperNodeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteHyperNodeResponse
+     */
+    public function deleteHyperNodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hyperNodeId) {
+            @$body['HyperNodeId'] = $request->hyperNodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteHyperNode',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteHyperNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除一个未使用超节点.
+     *
+     * @param request - DeleteHyperNodeRequest
+     *
+     * @returns DeleteHyperNodeResponse
+     *
+     * @param DeleteHyperNodeRequest $request
+     *
+     * @return DeleteHyperNodeResponse
+     */
+    public function deleteHyperNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHyperNodeWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除一个未使用节点.
      *
      * @param request - DeleteNodeRequest
@@ -1318,6 +1451,63 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * 查询节点列表.
+     *
+     * @param request - DescribeHyperNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHyperNodeResponse
+     *
+     * @param DescribeHyperNodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeHyperNodeResponse
+     */
+    public function describeHyperNodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->hyperNodeId) {
+            @$body['HyperNodeId'] = $request->hyperNodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHyperNode',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHyperNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询节点列表.
+     *
+     * @param request - DescribeHyperNodeRequest
+     *
+     * @returns DescribeHyperNodeResponse
+     *
+     * @param DescribeHyperNodeRequest $request
+     *
+     * @return DescribeHyperNodeResponse
+     */
+    public function describeHyperNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHyperNodeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the execution list and status of O\\&M Assistant commands.
      *
      * @param request - DescribeInvocationsRequest
@@ -1498,6 +1688,63 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询节点分组.
+     *
+     * @param request - DescribeNodeGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNodeGroupResponse
+     *
+     * @param DescribeNodeGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeNodeGroupResponse
+     */
+    public function describeNodeGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNodeGroup',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询节点分组.
+     *
+     * @param request - DescribeNodeGroupRequest
+     *
+     * @returns DescribeNodeGroupResponse
+     *
+     * @param DescribeNodeGroupRequest $request
+     *
+     * @return DescribeNodeGroupResponse
+     */
+    public function describeNodeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNodeGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1935,63 +2182,6 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->extendClusterWithOptions($request, $runtime);
-    }
-
-    /**
-     * 查询节点列表.
-     *
-     * @param request - GetHyperNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetHyperNodeResponse
-     *
-     * @param GetHyperNodeRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetHyperNodeResponse
-     */
-    public function getHyperNodeWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->hyperNodeId) {
-            @$body['HyperNodeId'] = $request->hyperNodeId;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'GetHyperNode',
-            'version' => '2022-12-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetHyperNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 查询节点列表.
-     *
-     * @param request - GetHyperNodeRequest
-     *
-     * @returns GetHyperNodeResponse
-     *
-     * @param GetHyperNodeRequest $request
-     *
-     * @return GetHyperNodeResponse
-     */
-    public function getHyperNode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHyperNodeWithOptions($request, $runtime);
     }
 
     /**
@@ -2880,6 +3070,83 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNodeGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询系统日志.
+     *
+     * @param request - ListSyslogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSyslogsResponse
+     *
+     * @param ListSyslogsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSyslogsResponse
+     */
+    public function listSyslogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fromTime) {
+            @$body['FromTime'] = $request->fromTime;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
+        }
+
+        if (null !== $request->reverse) {
+            @$body['Reverse'] = $request->reverse;
+        }
+
+        if (null !== $request->toTime) {
+            @$body['ToTime'] = $request->toTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSyslogs',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSyslogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询系统日志.
+     *
+     * @param request - ListSyslogsRequest
+     *
+     * @returns ListSyslogsResponse
+     *
+     * @param ListSyslogsRequest $request
+     *
+     * @return ListSyslogsResponse
+     */
+    public function listSyslogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSyslogsWithOptions($request, $runtime);
     }
 
     /**

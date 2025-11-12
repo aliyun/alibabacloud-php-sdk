@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetHyperNodeResponse extends Model
+class DescribeNodeGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetHyperNodeResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetHyperNodeResponseBody
+     * @var DescribeNodeGroupResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class GetHyperNodeResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GetHyperNodeResponseBody::fromMap($map['body']);
+            $model->body = DescribeNodeGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponseBody\nodes;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeHyperNodeResponseBody\nodes;
 
-class GetHyperNodeResponseBody extends Model
+class DescribeHyperNodeResponseBody extends Model
 {
     /**
      * @var string
@@ -72,6 +72,11 @@ class GetHyperNodeResponseBody extends Model
     /**
      * @var string
      */
+    public $operatingState;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -101,6 +106,7 @@ class GetHyperNodeResponseBody extends Model
         'nodeGroupId' => 'NodeGroupId',
         'nodeGroupName' => 'NodeGroupName',
         'nodes' => 'Nodes',
+        'operatingState' => 'OperatingState',
         'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
         'status' => 'Status',
@@ -171,6 +177,10 @@ class GetHyperNodeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->operatingState) {
+            $res['OperatingState'] = $this->operatingState;
         }
 
         if (null !== $this->requestId) {
@@ -253,6 +263,10 @@ class GetHyperNodeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['OperatingState'])) {
+            $model->operatingState = $map['OperatingState'];
         }
 
         if (isset($map['RequestId'])) {

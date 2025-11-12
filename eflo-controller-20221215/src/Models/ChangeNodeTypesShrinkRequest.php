@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponseBody\nodes;
+namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class networks extends Model
+class ChangeNodeTypesShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $bondName;
+    public $nodeIdsShrink;
 
     /**
      * @var string
      */
-    public $ip;
+    public $nodeType;
     protected $_name = [
-        'bondName' => 'BondName',
-        'ip' => 'Ip',
+        'nodeIdsShrink' => 'NodeIds',
+        'nodeType' => 'NodeType',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class networks extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->bondName) {
-            $res['BondName'] = $this->bondName;
+        if (null !== $this->nodeIdsShrink) {
+            $res['NodeIds'] = $this->nodeIdsShrink;
         }
 
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class networks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BondName'])) {
-            $model->bondName = $map['BondName'];
+        if (isset($map['NodeIds'])) {
+            $model->nodeIdsShrink = $map['NodeIds'];
         }
 
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         return $model;

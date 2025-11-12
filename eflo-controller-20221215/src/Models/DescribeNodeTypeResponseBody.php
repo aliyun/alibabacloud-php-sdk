@@ -11,6 +11,11 @@ class DescribeNodeTypeResponseBody extends Model
     /**
      * @var int
      */
+    public $diskQuantity;
+
+    /**
+     * @var int
+     */
     public $eniHighDenseQuantity;
 
     /**
@@ -33,6 +38,7 @@ class DescribeNodeTypeResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'diskQuantity' => 'DiskQuantity',
         'eniHighDenseQuantity' => 'EniHighDenseQuantity',
         'eniIpv6AddressQuantity' => 'EniIpv6AddressQuantity',
         'eniPrivateIpAddressQuantity' => 'EniPrivateIpAddressQuantity',
@@ -48,6 +54,10 @@ class DescribeNodeTypeResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->diskQuantity) {
+            $res['DiskQuantity'] = $this->diskQuantity;
+        }
+
         if (null !== $this->eniHighDenseQuantity) {
             $res['EniHighDenseQuantity'] = $this->eniHighDenseQuantity;
         }
@@ -79,6 +89,10 @@ class DescribeNodeTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DiskQuantity'])) {
+            $model->diskQuantity = $map['DiskQuantity'];
+        }
+
         if (isset($map['EniHighDenseQuantity'])) {
             $model->eniHighDenseQuantity = $map['EniHighDenseQuantity'];
         }

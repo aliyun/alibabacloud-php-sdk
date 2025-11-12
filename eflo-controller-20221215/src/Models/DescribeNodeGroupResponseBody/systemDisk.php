@@ -2,21 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponseBody\nodes;
+namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeGroupResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class disks extends Model
+class systemDisk extends Model
 {
     /**
      * @var string
      */
     public $category;
-
-    /**
-     * @var string
-     */
-    public $diskId;
 
     /**
      * @var string
@@ -27,17 +22,10 @@ class disks extends Model
      * @var int
      */
     public $size;
-
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
         'category' => 'Category',
-        'diskId' => 'DiskId',
         'performanceLevel' => 'PerformanceLevel',
         'size' => 'Size',
-        'type' => 'Type',
     ];
 
     public function validate()
@@ -52,20 +40,12 @@ class disks extends Model
             $res['Category'] = $this->category;
         }
 
-        if (null !== $this->diskId) {
-            $res['DiskId'] = $this->diskId;
-        }
-
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
-        }
-
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,20 +63,12 @@ class disks extends Model
             $model->category = $map['Category'];
         }
 
-        if (isset($map['DiskId'])) {
-            $model->diskId = $map['DiskId'];
-        }
-
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
-        }
-
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

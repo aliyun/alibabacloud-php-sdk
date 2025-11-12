@@ -62,6 +62,11 @@ class hyperNodes extends Model
     /**
      * @var string
      */
+    public $operatingState;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -99,6 +104,7 @@ class hyperNodes extends Model
         'machineType' => 'MachineType',
         'nodeGroupId' => 'NodeGroupId',
         'nodeGroupName' => 'NodeGroupName',
+        'operatingState' => 'OperatingState',
         'status' => 'Status',
         'tags' => 'Tags',
         'taskId' => 'TaskId',
@@ -156,6 +162,10 @@ class hyperNodes extends Model
 
         if (null !== $this->nodeGroupName) {
             $res['NodeGroupName'] = $this->nodeGroupName;
+        }
+
+        if (null !== $this->operatingState) {
+            $res['OperatingState'] = $this->operatingState;
         }
 
         if (null !== $this->status) {
@@ -238,6 +248,10 @@ class hyperNodes extends Model
 
         if (isset($map['NodeGroupName'])) {
             $model->nodeGroupName = $map['NodeGroupName'];
+        }
+
+        if (isset($map['OperatingState'])) {
+            $model->operatingState = $map['OperatingState'];
         }
 
         if (isset($map['Status'])) {

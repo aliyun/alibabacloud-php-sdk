@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponseBody;
+namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeHyperNodeResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponseBody\nodes\disks;
-use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\GetHyperNodeResponseBody\nodes\networks;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeHyperNodeResponseBody\nodes\disks;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeHyperNodeResponseBody\nodes\networks;
 
 class nodes extends Model
 {
@@ -43,6 +43,11 @@ class nodes extends Model
     /**
      * @var string
      */
+    public $operatingState;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -56,6 +61,7 @@ class nodes extends Model
         'imageName' => 'ImageName',
         'networks' => 'Networks',
         'nodeId' => 'NodeId',
+        'operatingState' => 'OperatingState',
         'status' => 'Status',
         'userData' => 'UserData',
     ];
@@ -103,6 +109,10 @@ class nodes extends Model
 
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->operatingState) {
+            $res['OperatingState'] = $this->operatingState;
         }
 
         if (null !== $this->status) {
@@ -153,6 +163,10 @@ class nodes extends Model
 
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['OperatingState'])) {
+            $model->operatingState = $map['OperatingState'];
         }
 
         if (isset($map['Status'])) {
