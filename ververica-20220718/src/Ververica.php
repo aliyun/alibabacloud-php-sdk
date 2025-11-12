@@ -125,6 +125,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetLineageInfoRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetLineageInfoResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPreSignedUrlForPutObjectHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPreSignedUrlForPutObjectRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetPreSignedUrlForPutObjectResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSessionClusterHeaders;
@@ -3424,6 +3427,78 @@ class Ververica extends OpenApiClient
         $headers = new GetMemberHeaders([]);
 
         return $this->getMemberWithOptions($namespace_, $member, $headers, $runtime);
+    }
+
+    /**
+     * 获取上传文件URL.
+     *
+     * @param request - GetPreSignedUrlForPutObjectRequest
+     * @param headers - GetPreSignedUrlForPutObjectHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPreSignedUrlForPutObjectResponse
+     *
+     * @param string                             $namespace_
+     * @param GetPreSignedUrlForPutObjectRequest $request
+     * @param GetPreSignedUrlForPutObjectHeaders $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetPreSignedUrlForPutObjectResponse
+     */
+    public function getPreSignedUrlForPutObjectWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPreSignedUrlForPutObject',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/artifacts/v2/namespaces/' . Url::percentEncode($namespace_) . '/getPreSignedUrlForPutObject',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPreSignedUrlForPutObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取上传文件URL.
+     *
+     * @param request - GetPreSignedUrlForPutObjectRequest
+     *
+     * @returns GetPreSignedUrlForPutObjectResponse
+     *
+     * @param string                             $namespace_
+     * @param GetPreSignedUrlForPutObjectRequest $request
+     *
+     * @return GetPreSignedUrlForPutObjectResponse
+     */
+    public function getPreSignedUrlForPutObject($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetPreSignedUrlForPutObjectHeaders([]);
+
+        return $this->getPreSignedUrlForPutObjectWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
