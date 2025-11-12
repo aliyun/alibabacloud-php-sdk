@@ -4369,7 +4369,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert groups.
+     * Call the DescribeContactGroupList interface to query the list of alarm contact groups.
      *
      * @param request - DescribeContactGroupListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4412,7 +4412,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert groups.
+     * Call the DescribeContactGroupList interface to query the list of alarm contact groups.
      *
      * @param request - DescribeContactGroupListRequest
      *
