@@ -12,8 +12,14 @@ class GetQuotaRequest extends Model
      * @var bool
      */
     public $verbose;
+
+    /**
+     * @var bool
+     */
+    public $withNodeMeta;
     protected $_name = [
         'verbose' => 'Verbose',
+        'withNodeMeta' => 'WithNodeMeta',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class GetQuotaRequest extends Model
         $res = [];
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
+        }
+
+        if (null !== $this->withNodeMeta) {
+            $res['WithNodeMeta'] = $this->withNodeMeta;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class GetQuotaRequest extends Model
         $model = new self();
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
+        }
+
+        if (isset($map['WithNodeMeta'])) {
+            $model->withNodeMeta = $map['WithNodeMeta'];
         }
 
         return $model;

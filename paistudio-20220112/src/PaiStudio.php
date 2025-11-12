@@ -1451,6 +1451,10 @@ class PaiStudio extends OpenApiClient
             @$query['Verbose'] = $request->verbose;
         }
 
+        if (null !== $request->withNodeMeta) {
+            @$query['WithNodeMeta'] = $request->withNodeMeta;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
