@@ -466,6 +466,10 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRecursionZoneProxyPatternRequ
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRecursionZoneProxyPatternResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRecursionZoneRemarkRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRecursionZoneRemarkResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerHoldStatusOteRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerHoldStatusOteResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainStatusOteResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentRequest;
@@ -17028,6 +17032,192 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRecursionZoneRemarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于更新域名的状态属性.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - UpdateRspDomainServerHoldStatusOteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRspDomainServerHoldStatusOteResponse
+     *
+     * @param UpdateRspDomainServerHoldStatusOteRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateRspDomainServerHoldStatusOteResponse
+     */
+    public function updateRspDomainServerHoldStatusOteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->operatorId) {
+            @$query['OperatorId'] = $request->operatorId;
+        }
+
+        if (null !== $request->operatorType) {
+            @$query['OperatorType'] = $request->operatorType;
+        }
+
+        if (null !== $request->serverHoldStatus) {
+            @$query['ServerHoldStatus'] = $request->serverHoldStatus;
+        }
+
+        if (null !== $request->statusMsg) {
+            @$query['StatusMsg'] = $request->statusMsg;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRspDomainServerHoldStatusOte',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRspDomainServerHoldStatusOteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于更新域名的状态属性.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - UpdateRspDomainServerHoldStatusOteRequest
+     *
+     * @returns UpdateRspDomainServerHoldStatusOteResponse
+     *
+     * @param UpdateRspDomainServerHoldStatusOteRequest $request
+     *
+     * @return UpdateRspDomainServerHoldStatusOteResponse
+     */
+    public function updateRspDomainServerHoldStatusOte($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRspDomainServerHoldStatusOteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于更新域名的状态属性.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - UpdateRspDomainStatusOteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRspDomainStatusOteResponse
+     *
+     * @param UpdateRspDomainStatusOteRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateRspDomainStatusOteResponse
+     */
+    public function updateRspDomainStatusOteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addStatusList) {
+            @$query['AddStatusList'] = $request->addStatusList;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deleteStatusList) {
+            @$query['DeleteStatusList'] = $request->deleteStatusList;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->operatorId) {
+            @$query['OperatorId'] = $request->operatorId;
+        }
+
+        if (null !== $request->operatorType) {
+            @$query['OperatorType'] = $request->operatorType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRspDomainStatusOte',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRspDomainStatusOteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于更新域名的状态属性.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - UpdateRspDomainStatusOteRequest
+     *
+     * @returns UpdateRspDomainStatusOteResponse
+     *
+     * @param UpdateRspDomainStatusOteRequest $request
+     *
+     * @return UpdateRspDomainStatusOteResponse
+     */
+    public function updateRspDomainStatusOte($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRspDomainStatusOteWithOptions($request, $runtime);
     }
 
     /**
