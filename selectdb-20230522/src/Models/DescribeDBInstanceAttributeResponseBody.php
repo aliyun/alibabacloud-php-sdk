@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\DBClusterList;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\multiZone;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\tags;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponseBody\virtualClusterList;
 
 class DescribeDBInstanceAttributeResponseBody extends Model
 {
@@ -157,6 +158,11 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $vSwitchId;
 
     /**
+     * @var virtualClusterList[]
+     */
+    public $virtualClusterList;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -195,6 +201,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'subDomain' => 'SubDomain',
         'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
+        'virtualClusterList' => 'VirtualClusterList',
         'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
     ];
@@ -212,6 +219,9 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->virtualClusterList)) {
+            Model::validateArray($this->virtualClusterList);
         }
         parent::validate();
     }
@@ -361,6 +371,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->virtualClusterList) {
+            if (\is_array($this->virtualClusterList)) {
+                $res['VirtualClusterList'] = [];
+                $n1 = 0;
+                foreach ($this->virtualClusterList as $item1) {
+                    $res['VirtualClusterList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vpcId) {
@@ -524,6 +545,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VirtualClusterList'])) {
+            if (!empty($map['VirtualClusterList'])) {
+                $model->virtualClusterList = [];
+                $n1 = 0;
+                foreach ($map['VirtualClusterList'] as $item1) {
+                    $model->virtualClusterList[$n1] = virtualClusterList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VpcId'])) {
