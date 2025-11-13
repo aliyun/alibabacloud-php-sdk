@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPushConfig\periodicSyncConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPushConfig\udSyncScopeConfigs;
 
 class udPushConfig extends Model
@@ -13,6 +14,11 @@ class udPushConfig extends Model
      * @var string
      */
     public $incrementalCallbackStatus;
+
+    /**
+     * @var periodicSyncConfig
+     */
+    public $periodicSyncConfig;
 
     /**
      * @var string
@@ -25,12 +31,16 @@ class udPushConfig extends Model
     public $udSyncScopeConfigs;
     protected $_name = [
         'incrementalCallbackStatus' => 'IncrementalCallbackStatus',
+        'periodicSyncConfig' => 'PeriodicSyncConfig',
         'periodicSyncStatus' => 'PeriodicSyncStatus',
         'udSyncScopeConfigs' => 'UdSyncScopeConfigs',
     ];
 
     public function validate()
     {
+        if (null !== $this->periodicSyncConfig) {
+            $this->periodicSyncConfig->validate();
+        }
         if (\is_array($this->udSyncScopeConfigs)) {
             Model::validateArray($this->udSyncScopeConfigs);
         }
@@ -42,6 +52,10 @@ class udPushConfig extends Model
         $res = [];
         if (null !== $this->incrementalCallbackStatus) {
             $res['IncrementalCallbackStatus'] = $this->incrementalCallbackStatus;
+        }
+
+        if (null !== $this->periodicSyncConfig) {
+            $res['PeriodicSyncConfig'] = null !== $this->periodicSyncConfig ? $this->periodicSyncConfig->toArray($noStream) : $this->periodicSyncConfig;
         }
 
         if (null !== $this->periodicSyncStatus) {
@@ -72,6 +86,10 @@ class udPushConfig extends Model
         $model = new self();
         if (isset($map['IncrementalCallbackStatus'])) {
             $model->incrementalCallbackStatus = $map['IncrementalCallbackStatus'];
+        }
+
+        if (isset($map['PeriodicSyncConfig'])) {
+            $model->periodicSyncConfig = periodicSyncConfig::fromMap($map['PeriodicSyncConfig']);
         }
 
         if (isset($map['PeriodicSyncStatus'])) {

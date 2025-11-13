@@ -11,6 +11,11 @@ class ListIdentityProvidersRequest extends Model
     /**
      * @var string
      */
+    public $direction;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -23,6 +28,7 @@ class ListIdentityProvidersRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'direction' => 'Direction',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -36,6 +42,10 @@ class ListIdentityProvidersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -59,6 +69,10 @@ class ListIdentityProvidersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

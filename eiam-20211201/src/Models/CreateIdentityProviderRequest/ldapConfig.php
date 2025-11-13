@@ -66,6 +66,16 @@ class ldapConfig extends Model
     /**
      * @var string
      */
+    public $organizationalUnitRdn;
+
+    /**
+     * @var string
+     */
+    public $passwordSyncStatus;
+
+    /**
+     * @var string
+     */
     public $startTlsStatus;
 
     /**
@@ -82,6 +92,11 @@ class ldapConfig extends Model
      * @var string
      */
     public $userObjectClassCustomFilter;
+
+    /**
+     * @var string
+     */
+    public $userRdn;
     protected $_name = [
         'administratorPassword' => 'AdministratorPassword',
         'administratorUsername' => 'AdministratorUsername',
@@ -94,10 +109,13 @@ class ldapConfig extends Model
         'ldapServerHost' => 'LdapServerHost',
         'ldapServerPort' => 'LdapServerPort',
         'organizationUnitObjectClass' => 'OrganizationUnitObjectClass',
+        'organizationalUnitRdn' => 'OrganizationalUnitRdn',
+        'passwordSyncStatus' => 'PasswordSyncStatus',
         'startTlsStatus' => 'StartTlsStatus',
         'userLoginIdentifier' => 'UserLoginIdentifier',
         'userObjectClass' => 'UserObjectClass',
         'userObjectClassCustomFilter' => 'UserObjectClassCustomFilter',
+        'userRdn' => 'UserRdn',
     ];
 
     public function validate()
@@ -162,6 +180,14 @@ class ldapConfig extends Model
             $res['OrganizationUnitObjectClass'] = $this->organizationUnitObjectClass;
         }
 
+        if (null !== $this->organizationalUnitRdn) {
+            $res['OrganizationalUnitRdn'] = $this->organizationalUnitRdn;
+        }
+
+        if (null !== $this->passwordSyncStatus) {
+            $res['PasswordSyncStatus'] = $this->passwordSyncStatus;
+        }
+
         if (null !== $this->startTlsStatus) {
             $res['StartTlsStatus'] = $this->startTlsStatus;
         }
@@ -176,6 +202,10 @@ class ldapConfig extends Model
 
         if (null !== $this->userObjectClassCustomFilter) {
             $res['UserObjectClassCustomFilter'] = $this->userObjectClassCustomFilter;
+        }
+
+        if (null !== $this->userRdn) {
+            $res['UserRdn'] = $this->userRdn;
         }
 
         return $res;
@@ -240,6 +270,14 @@ class ldapConfig extends Model
             $model->organizationUnitObjectClass = $map['OrganizationUnitObjectClass'];
         }
 
+        if (isset($map['OrganizationalUnitRdn'])) {
+            $model->organizationalUnitRdn = $map['OrganizationalUnitRdn'];
+        }
+
+        if (isset($map['PasswordSyncStatus'])) {
+            $model->passwordSyncStatus = $map['PasswordSyncStatus'];
+        }
+
         if (isset($map['StartTlsStatus'])) {
             $model->startTlsStatus = $map['StartTlsStatus'];
         }
@@ -254,6 +292,10 @@ class ldapConfig extends Model
 
         if (isset($map['UserObjectClassCustomFilter'])) {
             $model->userObjectClassCustomFilter = $map['UserObjectClassCustomFilter'];
+        }
+
+        if (isset($map['UserRdn'])) {
+            $model->userRdn = $map['UserRdn'];
         }
 
         return $model;
