@@ -46,6 +46,11 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $canTryPostPaidPackage;
+
+    /**
+     * @var int
+     */
     public $cspmCapacity;
 
     /**
@@ -240,6 +245,7 @@ class DescribeVersionConfigResponseBody extends Model
         'appWhiteList' => 'AppWhiteList',
         'appWhiteListAuthCount' => 'AppWhiteListAuthCount',
         'assetLevel' => 'AssetLevel',
+        'canTryPostPaidPackage' => 'CanTryPostPaidPackage',
         'cspmCapacity' => 'CspmCapacity',
         'highestVersion' => 'HighestVersion',
         'honeypotCapacity' => 'HoneypotCapacity',
@@ -314,6 +320,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (null !== $this->assetLevel) {
             $res['AssetLevel'] = $this->assetLevel;
+        }
+
+        if (null !== $this->canTryPostPaidPackage) {
+            $res['CanTryPostPaidPackage'] = $this->canTryPostPaidPackage;
         }
 
         if (null !== $this->cspmCapacity) {
@@ -505,6 +515,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (isset($map['AssetLevel'])) {
             $model->assetLevel = $map['AssetLevel'];
+        }
+
+        if (isset($map['CanTryPostPaidPackage'])) {
+            $model->canTryPostPaidPackage = $map['CanTryPostPaidPackage'];
         }
 
         if (isset($map['CspmCapacity'])) {

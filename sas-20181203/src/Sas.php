@@ -106,6 +106,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBatchUploadUrlRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBatchUploadUrlResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBinarySecurityPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBinarySecurityPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCheckItemRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCheckItemResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCheckItemShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskByAppNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskByAppNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskRequest;
@@ -216,6 +219,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBaselineCheckWhiteRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBaselineCheckWhiteRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBinarySecurityPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBinarySecurityPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCheckItemRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCheckItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCheckPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCheckPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteClientUserDefineRuleRequest;
@@ -413,6 +418,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterInfoListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterInfoListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterNetworkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterNetworkResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterScannerListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterScannerListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterVulStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterVulStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonOverallConfigListRequest;
@@ -454,6 +461,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockRecordsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockRecordsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedDictRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedDictResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedDictUploadInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedDictUploadInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizedStrategyTargetsRequest;
@@ -925,6 +934,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\FinishGuidTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FinishGuidTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateClusterScannerWebhookYamlRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateClusterScannerWebhookYamlResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateDynamicDictRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateDynamicDictResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateK8sAccessInfoRequest;
@@ -939,6 +950,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetAegisContainerPluginRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAegisContainerPluginRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAgentlessTaskCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAgentlessTaskCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAgentlessTaskUsedSizeEstimateRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAgentlessTaskUsedSizeEstimateResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAppNetworkRequest;
@@ -998,6 +1011,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsRe
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterRuleSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterRuleSummaryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterScannerYamlRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterScannerYamlResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterStrategyCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterSuspEventStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterSuspEventStatisticsResponse;
@@ -1140,6 +1155,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\HandleMaliciousFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleMaliciousFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarMaliciousFilesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarMaliciousFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarSecurityEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreCheckItemsRequest;
@@ -1208,10 +1225,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningSummaryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckPoliciesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckPoliciesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckRuleInstanceRequest;
@@ -1350,6 +1371,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListTargetByBatchRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListTargetByBatchResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnfinishedOnceTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnfinishedOnceTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUniBackupRecordRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUniBackupRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUninstallAegisMachinesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUninstallAegisMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUserVpcRequest;
@@ -1680,6 +1703,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateAttackPathWhitelistRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateAttackPathWhitelistResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateBaselineCheckWhiteRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateBaselineCheckWhiteRecordResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckItemRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckItemResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckItemShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateClientAlertModeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateClientAlertModeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCommonSwitchConfigRequest;
@@ -5402,6 +5428,121 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBinarySecurityPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * User creates a custom check item.
+     *
+     * @param tmpReq - CreateCheckItemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCheckItemResponse
+     *
+     * @param CreateCheckItemRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateCheckItemResponse
+     */
+    public function createCheckItemWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCheckItemShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assistInfo) {
+            $request->assistInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assistInfo, 'AssistInfo', 'json');
+        }
+
+        if (null !== $tmpReq->description) {
+            $request->descriptionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->description, 'Description', 'json');
+        }
+
+        if (null !== $tmpReq->solution) {
+            $request->solutionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->solution, 'Solution', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->assistInfoShrink) {
+            @$query['AssistInfo'] = $request->assistInfoShrink;
+        }
+
+        if (null !== $request->checkRule) {
+            @$query['CheckRule'] = $request->checkRule;
+        }
+
+        if (null !== $request->checkShowName) {
+            @$query['CheckShowName'] = $request->checkShowName;
+        }
+
+        if (null !== $request->descriptionShrink) {
+            @$query['Description'] = $request->descriptionShrink;
+        }
+
+        if (null !== $request->instanceSubType) {
+            @$query['InstanceSubType'] = $request->instanceSubType;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->sectionIds) {
+            @$query['SectionIds'] = $request->sectionIds;
+        }
+
+        if (null !== $request->solutionShrink) {
+            @$query['Solution'] = $request->solutionShrink;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->vendor) {
+            @$query['Vendor'] = $request->vendor;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCheckItem',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCheckItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * User creates a custom check item.
+     *
+     * @param request - CreateCheckItemRequest
+     *
+     * @returns CreateCheckItemResponse
+     *
+     * @param CreateCheckItemRequest $request
+     *
+     * @return CreateCheckItemResponse
+     */
+    public function createCheckItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCheckItemWithOptions($request, $runtime);
     }
 
     /**
@@ -9384,6 +9525,63 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBinarySecurityPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete custom check item for Situation Awareness.
+     *
+     * @param request - DeleteCheckItemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCheckItemResponse
+     *
+     * @param DeleteCheckItemRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteCheckItemResponse
+     */
+    public function deleteCheckItemWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->checkIds) {
+            @$query['CheckIds'] = $request->checkIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCheckItem',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCheckItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete custom check item for Situation Awareness.
+     *
+     * @param request - DeleteCheckItemRequest
+     *
+     * @returns DeleteCheckItemResponse
+     *
+     * @param DeleteCheckItemRequest $request
+     *
+     * @return DeleteCheckItemResponse
+     */
+    public function deleteCheckItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCheckItemWithOptions($request, $runtime);
     }
 
     /**
@@ -16141,6 +16339,71 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 查询集群扫描组件状态
+     *
+     * @param request - DescribeClusterScannerListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClusterScannerListResponse
+     *
+     * @param DescribeClusterScannerListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeClusterScannerListResponse
+     */
+    public function describeClusterScannerListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterIdList) {
+            @$query['ClusterIdList'] = $request->clusterIdList;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClusterScannerList',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClusterScannerListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询集群扫描组件状态
+     *
+     * @param request - DescribeClusterScannerListRequest
+     *
+     * @returns DescribeClusterScannerListResponse
+     *
+     * @param DescribeClusterScannerListRequest $request
+     *
+     * @return DescribeClusterScannerListResponse
+     */
+    public function describeClusterScannerList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterScannerListWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the statistics of vulnerabilities that are detected on a cluster.
      *
      * @param request - DescribeClusterVulStatisticsRequest
@@ -17637,6 +17900,63 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCustomizeReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看自定义弱口令上传结果.
+     *
+     * @param request - DescribeCustomizedDictRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomizedDictResponse
+     *
+     * @param DescribeCustomizedDictRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCustomizedDictResponse
+     */
+    public function describeCustomizedDictWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCustomizedDict',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCustomizedDictResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看自定义弱口令上传结果.
+     *
+     * @param request - DescribeCustomizedDictRequest
+     *
+     * @returns DescribeCustomizedDictResponse
+     *
+     * @param DescribeCustomizedDictRequest $request
+     *
+     * @return DescribeCustomizedDictResponse
+     */
+    public function describeCustomizedDict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomizedDictWithOptions($request, $runtime);
     }
 
     /**
@@ -34910,6 +35230,67 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 生成K8s集群扫描接入配置.
+     *
+     * @param request - GenerateClusterScannerWebhookYamlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateClusterScannerWebhookYamlResponse
+     *
+     * @param GenerateClusterScannerWebhookYamlRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GenerateClusterScannerWebhookYamlResponse
+     */
+    public function generateClusterScannerWebhookYamlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->webhookOpen) {
+            @$query['WebhookOpen'] = $request->webhookOpen;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateClusterScannerWebhookYaml',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateClusterScannerWebhookYamlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成K8s集群扫描接入配置.
+     *
+     * @param request - GenerateClusterScannerWebhookYamlRequest
+     *
+     * @returns GenerateClusterScannerWebhookYamlResponse
+     *
+     * @param GenerateClusterScannerWebhookYamlRequest $request
+     *
+     * @return GenerateClusterScannerWebhookYamlResponse
+     */
+    public function generateClusterScannerWebhookYaml($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateClusterScannerWebhookYamlWithOptions($request, $runtime);
+    }
+
+    /**
      * Generates a custom dictionary of weak passwords for the baseline check feature.
      *
      * @param request - GenerateDynamicDictRequest
@@ -35396,6 +35777,63 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAgentlessTaskCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query the estimated volume for agentless detection.
+     *
+     * @param request - GetAgentlessTaskUsedSizeEstimateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentlessTaskUsedSizeEstimateResponse
+     *
+     * @param GetAgentlessTaskUsedSizeEstimateRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetAgentlessTaskUsedSizeEstimateResponse
+     */
+    public function getAgentlessTaskUsedSizeEstimateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetSelectionType) {
+            @$query['AssetSelectionType'] = $request->assetSelectionType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentlessTaskUsedSizeEstimate',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentlessTaskUsedSizeEstimateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the estimated volume for agentless detection.
+     *
+     * @param request - GetAgentlessTaskUsedSizeEstimateRequest
+     *
+     * @returns GetAgentlessTaskUsedSizeEstimateResponse
+     *
+     * @param GetAgentlessTaskUsedSizeEstimateRequest $request
+     *
+     * @return GetAgentlessTaskUsedSizeEstimateResponse
+     */
+    public function getAgentlessTaskUsedSizeEstimate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentlessTaskUsedSizeEstimateWithOptions($request, $runtime);
     }
 
     /**
@@ -37368,6 +37806,63 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getClusterRuleSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询K8s集群扫描接入配置.
+     *
+     * @param request - GetClusterScannerYamlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterScannerYamlResponse
+     *
+     * @param GetClusterScannerYamlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetClusterScannerYamlResponse
+     */
+    public function getClusterScannerYamlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetClusterScannerYaml',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetClusterScannerYamlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询K8s集群扫描接入配置.
+     *
+     * @param request - GetClusterScannerYamlRequest
+     *
+     * @returns GetClusterScannerYamlResponse
+     *
+     * @param GetClusterScannerYamlRequest $request
+     *
+     * @return GetClusterScannerYamlResponse
+     */
+    public function getClusterScannerYaml($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClusterScannerYamlWithOptions($request, $runtime);
     }
 
     /**
@@ -41960,6 +42455,83 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 批量处理恶意样本告警。
+     *
+     * @remarks
+     *
+     * @param request - HandleSimilarMaliciousFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HandleSimilarMaliciousFilesResponse
+     *
+     * @param HandleSimilarMaliciousFilesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return HandleSimilarMaliciousFilesResponse
+     */
+    public function handleSimilarMaliciousFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->scanRange) {
+            @$query['ScanRange'] = $request->scanRange;
+        }
+
+        if (null !== $request->scenario) {
+            @$query['Scenario'] = $request->scenario;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'HandleSimilarMaliciousFiles',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return HandleSimilarMaliciousFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量处理恶意样本告警。
+     *
+     * @remarks
+     *
+     * @param request - HandleSimilarMaliciousFilesRequest
+     *
+     * @returns HandleSimilarMaliciousFilesResponse
+     *
+     * @param HandleSimilarMaliciousFilesRequest $request
+     *
+     * @return HandleSimilarMaliciousFilesResponse
+     */
+    public function handleSimilarMaliciousFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->handleSimilarMaliciousFilesWithOptions($request, $runtime);
+    }
+
+    /**
      * Handles multiple alert events that are triggered by the same IP address rule or IP address rules of the same type at a time.
      *
      * @param request - HandleSimilarSecurityEventsRequest
@@ -44609,6 +45181,112 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCheckItemWarningSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * List custom check items for situational awareness.
+     *
+     * @param request - ListCheckItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCheckItemsResponse
+     *
+     * @param ListCheckItemsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListCheckItemsResponse
+     */
+    public function listCheckItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCheckItems',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCheckItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * List custom check items for situational awareness.
+     *
+     * @param request - ListCheckItemsRequest
+     *
+     * @returns ListCheckItemsResponse
+     *
+     * @param ListCheckItemsRequest $request
+     *
+     * @return ListCheckItemsResponse
+     */
+    public function listCheckItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCheckItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * List User Policies.
+     *
+     * @param request - ListCheckPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCheckPoliciesResponse
+     *
+     * @param ListCheckPoliciesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCheckPoliciesResponse
+     */
+    public function listCheckPoliciesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCheckPolicies',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCheckPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * List User Policies.
+     *
+     * @param request - ListCheckPoliciesRequest
+     *
+     * @returns ListCheckPoliciesResponse
+     *
+     * @param ListCheckPoliciesRequest $request
+     *
+     * @return ListCheckPoliciesResponse
+     */
+    public function listCheckPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCheckPoliciesWithOptions($request, $runtime);
     }
 
     /**
@@ -49532,6 +50210,79 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUnfinishedOnceTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * List Database Backup Records.
+     *
+     * @param request - ListUniBackupRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUniBackupRecordResponse
+     *
+     * @param ListUniBackupRecordRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUniBackupRecordResponse
+     */
+    public function listUniBackupRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupRegionId) {
+            @$query['BackupRegionId'] = $request->backupRegionId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->machineRemark) {
+            @$query['MachineRemark'] = $request->machineRemark;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUniBackupRecord',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUniBackupRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * List Database Backup Records.
+     *
+     * @param request - ListUniBackupRecordRequest
+     *
+     * @returns ListUniBackupRecordResponse
+     *
+     * @param ListUniBackupRecordRequest $request
+     *
+     * @return ListUniBackupRecordResponse
+     */
+    public function listUniBackupRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUniBackupRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -60986,6 +61737,125 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBaselineCheckWhiteRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * User creates a custom check item.
+     *
+     * @param tmpReq - UpdateCheckItemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCheckItemResponse
+     *
+     * @param UpdateCheckItemRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateCheckItemResponse
+     */
+    public function updateCheckItemWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateCheckItemShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assistInfo) {
+            $request->assistInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assistInfo, 'AssistInfo', 'json');
+        }
+
+        if (null !== $tmpReq->description) {
+            $request->descriptionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->description, 'Description', 'json');
+        }
+
+        if (null !== $tmpReq->solution) {
+            $request->solutionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->solution, 'Solution', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->assistInfoShrink) {
+            @$query['AssistInfo'] = $request->assistInfoShrink;
+        }
+
+        if (null !== $request->checkId) {
+            @$query['CheckId'] = $request->checkId;
+        }
+
+        if (null !== $request->checkRule) {
+            @$query['CheckRule'] = $request->checkRule;
+        }
+
+        if (null !== $request->checkShowName) {
+            @$query['CheckShowName'] = $request->checkShowName;
+        }
+
+        if (null !== $request->descriptionShrink) {
+            @$query['Description'] = $request->descriptionShrink;
+        }
+
+        if (null !== $request->instanceSubType) {
+            @$query['InstanceSubType'] = $request->instanceSubType;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->sectionIds) {
+            @$query['SectionIds'] = $request->sectionIds;
+        }
+
+        if (null !== $request->solutionShrink) {
+            @$query['Solution'] = $request->solutionShrink;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->vendor) {
+            @$query['Vendor'] = $request->vendor;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCheckItem',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCheckItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * User creates a custom check item.
+     *
+     * @param request - UpdateCheckItemRequest
+     *
+     * @returns UpdateCheckItemResponse
+     *
+     * @param UpdateCheckItemRequest $request
+     *
+     * @return UpdateCheckItemResponse
+     */
+    public function updateCheckItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCheckItemWithOptions($request, $runtime);
     }
 
     /**
