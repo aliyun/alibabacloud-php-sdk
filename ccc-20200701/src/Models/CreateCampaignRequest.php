@@ -42,6 +42,16 @@ class CreateCampaignRequest extends Model
     /**
      * @var string
      */
+    public $flashSmsParameters;
+
+    /**
+     * @var string
+     */
+    public $instGroupId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -58,6 +68,11 @@ class CreateCampaignRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string[]
+     */
+    public $numberList;
 
     /**
      * @var string
@@ -95,10 +110,13 @@ class CreateCampaignRequest extends Model
         'contactFlowId' => 'ContactFlowId',
         'endTime' => 'EndTime',
         'executingUntilTimeout' => 'ExecutingUntilTimeout',
+        'flashSmsParameters' => 'FlashSmsParameters',
+        'instGroupId' => 'InstGroupId',
         'instanceId' => 'InstanceId',
         'maxAttemptCount' => 'MaxAttemptCount',
         'minAttemptInterval' => 'MinAttemptInterval',
         'name' => 'Name',
+        'numberList' => 'NumberList',
         'queueId' => 'QueueId',
         'simulation' => 'Simulation',
         'simulationParameters' => 'SimulationParameters',
@@ -111,6 +129,9 @@ class CreateCampaignRequest extends Model
     {
         if (\is_array($this->caseList)) {
             Model::validateArray($this->caseList);
+        }
+        if (\is_array($this->numberList)) {
+            Model::validateArray($this->numberList);
         }
         parent::validate();
     }
@@ -149,6 +170,14 @@ class CreateCampaignRequest extends Model
             $res['ExecutingUntilTimeout'] = $this->executingUntilTimeout;
         }
 
+        if (null !== $this->flashSmsParameters) {
+            $res['FlashSmsParameters'] = $this->flashSmsParameters;
+        }
+
+        if (null !== $this->instGroupId) {
+            $res['InstGroupId'] = $this->instGroupId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -163,6 +192,17 @@ class CreateCampaignRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->numberList) {
+            if (\is_array($this->numberList)) {
+                $res['NumberList'] = [];
+                $n1 = 0;
+                foreach ($this->numberList as $item1) {
+                    $res['NumberList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->queueId) {
@@ -231,6 +271,14 @@ class CreateCampaignRequest extends Model
             $model->executingUntilTimeout = $map['ExecutingUntilTimeout'];
         }
 
+        if (isset($map['FlashSmsParameters'])) {
+            $model->flashSmsParameters = $map['FlashSmsParameters'];
+        }
+
+        if (isset($map['InstGroupId'])) {
+            $model->instGroupId = $map['InstGroupId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -245,6 +293,17 @@ class CreateCampaignRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NumberList'])) {
+            if (!empty($map['NumberList'])) {
+                $model->numberList = [];
+                $n1 = 0;
+                foreach ($map['NumberList'] as $item1) {
+                    $model->numberList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['QueueId'])) {

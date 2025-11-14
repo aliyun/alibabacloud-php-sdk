@@ -2654,6 +2654,10 @@ class CCC extends OpenApiClient
             $request->caseListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->caseList, 'CaseList', 'json');
         }
 
+        if (null !== $tmpReq->numberList) {
+            $request->numberListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numberList, 'NumberList', 'json');
+        }
+
         $query = [];
         if (null !== $request->callableTime) {
             @$query['CallableTime'] = $request->callableTime;
@@ -2679,6 +2683,14 @@ class CCC extends OpenApiClient
             @$query['ExecutingUntilTimeout'] = $request->executingUntilTimeout;
         }
 
+        if (null !== $request->flashSmsParameters) {
+            @$query['FlashSmsParameters'] = $request->flashSmsParameters;
+        }
+
+        if (null !== $request->instGroupId) {
+            @$query['InstGroupId'] = $request->instGroupId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -2693,6 +2705,10 @@ class CCC extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->numberListShrink) {
+            @$query['NumberList'] = $request->numberListShrink;
         }
 
         if (null !== $request->queueId) {
@@ -2952,6 +2968,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建实例.
+     *
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3005,6 +3023,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建实例.
+     *
      * @param request - CreateInstanceRequest
      *
      * @returns CreateInstanceResponse
@@ -5758,6 +5778,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取实例信息.
+     *
      * @param request - GetInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5795,6 +5817,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取实例信息.
+     *
      * @param request - GetInstanceRequest
      *
      * @returns GetInstanceResponse
@@ -10058,6 +10082,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组汇总报表.
+     *
      * @param request - ListHistoricalSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10121,6 +10147,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组汇总报表.
+     *
      * @param request - ListHistoricalSkillGroupReportRequest
      *
      * @returns ListHistoricalSkillGroupReportResponse

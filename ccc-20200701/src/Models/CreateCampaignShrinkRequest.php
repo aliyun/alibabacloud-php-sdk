@@ -41,6 +41,16 @@ class CreateCampaignShrinkRequest extends Model
     /**
      * @var string
      */
+    public $flashSmsParameters;
+
+    /**
+     * @var string
+     */
+    public $instGroupId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -57,6 +67,11 @@ class CreateCampaignShrinkRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $numberListShrink;
 
     /**
      * @var string
@@ -94,10 +109,13 @@ class CreateCampaignShrinkRequest extends Model
         'contactFlowId' => 'ContactFlowId',
         'endTime' => 'EndTime',
         'executingUntilTimeout' => 'ExecutingUntilTimeout',
+        'flashSmsParameters' => 'FlashSmsParameters',
+        'instGroupId' => 'InstGroupId',
         'instanceId' => 'InstanceId',
         'maxAttemptCount' => 'MaxAttemptCount',
         'minAttemptInterval' => 'MinAttemptInterval',
         'name' => 'Name',
+        'numberListShrink' => 'NumberList',
         'queueId' => 'QueueId',
         'simulation' => 'Simulation',
         'simulationParameters' => 'SimulationParameters',
@@ -138,6 +156,14 @@ class CreateCampaignShrinkRequest extends Model
             $res['ExecutingUntilTimeout'] = $this->executingUntilTimeout;
         }
 
+        if (null !== $this->flashSmsParameters) {
+            $res['FlashSmsParameters'] = $this->flashSmsParameters;
+        }
+
+        if (null !== $this->instGroupId) {
+            $res['InstGroupId'] = $this->instGroupId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -152,6 +178,10 @@ class CreateCampaignShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->numberListShrink) {
+            $res['NumberList'] = $this->numberListShrink;
         }
 
         if (null !== $this->queueId) {
@@ -213,6 +243,14 @@ class CreateCampaignShrinkRequest extends Model
             $model->executingUntilTimeout = $map['ExecutingUntilTimeout'];
         }
 
+        if (isset($map['FlashSmsParameters'])) {
+            $model->flashSmsParameters = $map['FlashSmsParameters'];
+        }
+
+        if (isset($map['InstGroupId'])) {
+            $model->instGroupId = $map['InstGroupId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -227,6 +265,10 @@ class CreateCampaignShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NumberList'])) {
+            $model->numberListShrink = $map['NumberList'];
         }
 
         if (isset($map['QueueId'])) {

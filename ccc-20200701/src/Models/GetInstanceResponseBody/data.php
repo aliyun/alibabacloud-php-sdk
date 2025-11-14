@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceResponseBody\data\adminList;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceResponseBody\data\chatbotBusinessUnit;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetInstanceResponseBody\data\numberList;
 
 class data extends Model
@@ -18,7 +19,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $agentType;
+
+    /**
+     * @var string
+     */
     public $aliyunUid;
+
+    /**
+     * @var chatbotBusinessUnit
+     */
+    public $chatbotBusinessUnit;
 
     /**
      * @var string
@@ -56,7 +67,9 @@ class data extends Model
     public $status;
     protected $_name = [
         'adminList' => 'AdminList',
+        'agentType' => 'AgentType',
         'aliyunUid' => 'AliyunUid',
+        'chatbotBusinessUnit' => 'ChatbotBusinessUnit',
         'consoleUrl' => 'ConsoleUrl',
         'description' => 'Description',
         'domainName' => 'DomainName',
@@ -70,6 +83,9 @@ class data extends Model
     {
         if (\is_array($this->adminList)) {
             Model::validateArray($this->adminList);
+        }
+        if (null !== $this->chatbotBusinessUnit) {
+            $this->chatbotBusinessUnit->validate();
         }
         if (\is_array($this->numberList)) {
             Model::validateArray($this->numberList);
@@ -91,8 +107,16 @@ class data extends Model
             }
         }
 
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->aliyunUid) {
             $res['AliyunUid'] = $this->aliyunUid;
+        }
+
+        if (null !== $this->chatbotBusinessUnit) {
+            $res['ChatbotBusinessUnit'] = null !== $this->chatbotBusinessUnit ? $this->chatbotBusinessUnit->toArray($noStream) : $this->chatbotBusinessUnit;
         }
 
         if (null !== $this->consoleUrl) {
@@ -152,8 +176,16 @@ class data extends Model
             }
         }
 
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['AliyunUid'])) {
             $model->aliyunUid = $map['AliyunUid'];
+        }
+
+        if (isset($map['ChatbotBusinessUnit'])) {
+            $model->chatbotBusinessUnit = chatbotBusinessUnit::fromMap($map['ChatbotBusinessUnit']);
         }
 
         if (isset($map['ConsoleUrl'])) {
