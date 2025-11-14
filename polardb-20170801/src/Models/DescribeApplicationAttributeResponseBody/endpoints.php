@@ -32,12 +32,18 @@ class endpoints extends Model
      * @var string
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $portDescription;
     protected $_name = [
         'description' => 'Description',
         'endpointId' => 'EndpointId',
         'IP' => 'IP',
         'netType' => 'NetType',
         'port' => 'Port',
+        'portDescription' => 'PortDescription',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class endpoints extends Model
 
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+
+        if (null !== $this->portDescription) {
+            $res['PortDescription'] = $this->portDescription;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class endpoints extends Model
 
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+
+        if (isset($map['PortDescription'])) {
+            $model->portDescription = $map['PortDescription'];
         }
 
         return $model;
