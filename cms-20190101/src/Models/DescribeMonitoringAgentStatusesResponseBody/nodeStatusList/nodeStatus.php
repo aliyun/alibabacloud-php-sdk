@@ -31,6 +31,11 @@ class nodeStatus extends Model
     /**
      * @var string
      */
+    public $loongCollectorVersion;
+
+    /**
+     * @var string
+     */
     public $osMonitorConfig;
 
     /**
@@ -62,6 +67,7 @@ class nodeStatus extends Model
         'autoInstall' => 'AutoInstall',
         'instanceId' => 'InstanceId',
         'loongCollectorStatus' => 'LoongCollectorStatus',
+        'loongCollectorVersion' => 'LoongCollectorVersion',
         'osMonitorConfig' => 'OsMonitorConfig',
         'osMonitorErrorCode' => 'OsMonitorErrorCode',
         'osMonitorErrorDetail' => 'OsMonitorErrorDetail',
@@ -92,6 +98,10 @@ class nodeStatus extends Model
 
         if (null !== $this->loongCollectorStatus) {
             $res['LoongCollectorStatus'] = $this->loongCollectorStatus;
+        }
+
+        if (null !== $this->loongCollectorVersion) {
+            $res['LoongCollectorVersion'] = $this->loongCollectorVersion;
         }
 
         if (null !== $this->osMonitorConfig) {
@@ -143,6 +153,10 @@ class nodeStatus extends Model
 
         if (isset($map['LoongCollectorStatus'])) {
             $model->loongCollectorStatus = $map['LoongCollectorStatus'];
+        }
+
+        if (isset($map['LoongCollectorVersion'])) {
+            $model->loongCollectorVersion = $map['LoongCollectorVersion'];
         }
 
         if (isset($map['OsMonitorConfig'])) {
