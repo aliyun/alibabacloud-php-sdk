@@ -37,6 +37,11 @@ class subRisks extends Model
      * @var string
      */
     public $riskExplain;
+
+    /**
+     * @var string
+     */
+    public $standardOriginalContent;
     protected $_name = [
         'originalContent' => 'originalContent',
         'resultContent' => 'resultContent',
@@ -44,6 +49,7 @@ class subRisks extends Model
         'riskBrief' => 'riskBrief',
         'riskClause' => 'riskClause',
         'riskExplain' => 'riskExplain',
+        'standardOriginalContent' => 'standardOriginalContent',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class subRisks extends Model
 
         if (null !== $this->riskExplain) {
             $res['riskExplain'] = $this->riskExplain;
+        }
+
+        if (null !== $this->standardOriginalContent) {
+            $res['standardOriginalContent'] = $this->standardOriginalContent;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class subRisks extends Model
 
         if (isset($map['riskExplain'])) {
             $model->riskExplain = $map['riskExplain'];
+        }
+
+        if (isset($map['standardOriginalContent'])) {
+            $model->standardOriginalContent = $map['standardOriginalContent'];
         }
 
         return $model;

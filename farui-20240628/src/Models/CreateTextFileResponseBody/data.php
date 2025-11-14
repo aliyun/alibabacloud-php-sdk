@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $contractId;
+
+    /**
+     * @var string
+     */
     public $textFileId;
 
     /**
@@ -23,6 +28,7 @@ class data extends Model
      */
     public $textFileUrl;
     protected $_name = [
+        'contractId' => 'ContractId',
         'textFileId' => 'TextFileId',
         'textFileName' => 'TextFileName',
         'textFileUrl' => 'TextFileUrl',
@@ -36,6 +42,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->contractId) {
+            $res['ContractId'] = $this->contractId;
+        }
+
         if (null !== $this->textFileId) {
             $res['TextFileId'] = $this->textFileId;
         }
@@ -59,6 +69,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContractId'])) {
+            $model->contractId = $map['ContractId'];
+        }
+
         if (isset($map['TextFileId'])) {
             $model->textFileId = $map['TextFileId'];
         }

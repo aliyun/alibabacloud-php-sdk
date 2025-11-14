@@ -16,6 +16,11 @@ class CreateTextFileRequest extends Model
     /**
      * @var string
      */
+    public $contractId;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -29,6 +34,7 @@ class CreateTextFileRequest extends Model
     public $textFileUrl;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'contractId' => 'ContractId',
         'createTime' => 'CreateTime',
         'textFileName' => 'TextFileName',
         'textFileUrl' => 'TextFileUrl',
@@ -44,6 +50,10 @@ class CreateTextFileRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->contractId) {
+            $res['ContractId'] = $this->contractId;
         }
 
         if (null !== $this->createTime) {
@@ -71,6 +81,10 @@ class CreateTextFileRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['ContractId'])) {
+            $model->contractId = $map['ContractId'];
         }
 
         if (isset($map['CreateTime'])) {
