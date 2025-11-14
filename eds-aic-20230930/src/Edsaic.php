@@ -2440,6 +2440,10 @@ class Edsaic extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }

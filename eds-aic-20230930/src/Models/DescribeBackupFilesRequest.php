@@ -66,6 +66,11 @@ class DescribeBackupFilesRequest extends Model
     /**
      * @var string
      */
+    public $saleMode;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -84,6 +89,7 @@ class DescribeBackupFilesRequest extends Model
         'instanceGroupId' => 'InstanceGroupId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'saleMode' => 'SaleMode',
         'startTime' => 'StartTime',
         'statusList' => 'StatusList',
     ];
@@ -141,6 +147,10 @@ class DescribeBackupFilesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->saleMode) {
+            $res['SaleMode'] = $this->saleMode;
         }
 
         if (null !== $this->startTime) {
@@ -211,6 +221,10 @@ class DescribeBackupFilesRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['SaleMode'])) {
+            $model->saleMode = $map['SaleMode'];
         }
 
         if (isset($map['StartTime'])) {
