@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\ICE\V20201109;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ActiveAiRtcLicenseRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ActiveAiRtcLicenseResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddAdInsertionRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddAdInsertionResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddCategoryRequest;
@@ -242,6 +244,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateMessageChatTokenRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateMessageChatTokenResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAiRtcAuthCodeListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAiRtcAuthCodeListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAiRtcLicenseInfoListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAiRtcLicenseInfoListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAIWorkflowTaskRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAIWorkflowTaskResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarRequest;
@@ -663,8 +669,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitProjectExportJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitProjectExportJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSceneBatchEditingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSceneBatchEditingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSceneMediaSelectionJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSceneMediaSelectionJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSceneTimelineOrganizationJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSceneTimelineOrganizationJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitScreenMediaHighlightsJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitScreenMediaHighlightsJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSegmentationJobRequest;
@@ -876,6 +886,71 @@ class ICE extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 激活AI实时互动授权信息.
+     *
+     * @param request - ActiveAiRtcLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActiveAiRtcLicenseResponse
+     *
+     * @param ActiveAiRtcLicenseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ActiveAiRtcLicenseResponse
+     */
+    public function activeAiRtcLicenseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->licenseItemId) {
+            @$query['LicenseItemId'] = $request->licenseItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ActiveAiRtcLicense',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ActiveAiRtcLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 激活AI实时互动授权信息.
+     *
+     * @param request - ActiveAiRtcLicenseRequest
+     *
+     * @returns ActiveAiRtcLicenseResponse
+     *
+     * @param ActiveAiRtcLicenseRequest $request
+     *
+     * @return ActiveAiRtcLicenseResponse
+     */
+    public function activeAiRtcLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->activeAiRtcLicenseWithOptions($request, $runtime);
     }
 
     /**
@@ -8583,8 +8658,16 @@ class ICE extends OpenApiClient
             @$query['CalledNumber'] = $request->calledNumber;
         }
 
+        if (null !== $request->errorPrompt) {
+            @$query['ErrorPrompt'] = $request->errorPrompt;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->transferPrompt) {
+            @$query['TransferPrompt'] = $request->transferPrompt;
         }
 
         $req = new OpenApiRequest([
@@ -8957,6 +9040,160 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAdInsertionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取AI实时互动授权码列表.
+     *
+     * @param request - GetAiRtcAuthCodeListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiRtcAuthCodeListResponse
+     *
+     * @param GetAiRtcAuthCodeListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAiRtcAuthCodeListResponse
+     */
+    public function getAiRtcAuthCodeListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->licenseItemId) {
+            @$query['LicenseItemId'] = $request->licenseItemId;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['NeedTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiRtcAuthCodeList',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiRtcAuthCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取AI实时互动授权码列表.
+     *
+     * @param request - GetAiRtcAuthCodeListRequest
+     *
+     * @returns GetAiRtcAuthCodeListResponse
+     *
+     * @param GetAiRtcAuthCodeListRequest $request
+     *
+     * @return GetAiRtcAuthCodeListResponse
+     */
+    public function getAiRtcAuthCodeList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiRtcAuthCodeListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取AI实时互动授权批次列表.
+     *
+     * @param request - GetAiRtcLicenseInfoListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiRtcLicenseInfoListResponse
+     *
+     * @param GetAiRtcLicenseInfoListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAiRtcLicenseInfoListResponse
+     */
+    public function getAiRtcLicenseInfoListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->licenseItemId) {
+            @$query['LicenseItemId'] = $request->licenseItemId;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['NeedTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAiRtcLicenseInfoList',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiRtcLicenseInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取AI实时互动授权批次列表.
+     *
+     * @param request - GetAiRtcLicenseInfoListRequest
+     *
+     * @returns GetAiRtcLicenseInfoListResponse
+     *
+     * @param GetAiRtcLicenseInfoListRequest $request
+     *
+     * @return GetAiRtcLicenseInfoListResponse
+     */
+    public function getAiRtcLicenseInfoList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAiRtcLicenseInfoListWithOptions($request, $runtime);
     }
 
     /**
@@ -23769,6 +24006,71 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 提交场景化批量合成任务
+     *
+     * @param request - SubmitSceneBatchEditingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSceneBatchEditingJobResponse
+     *
+     * @param SubmitSceneBatchEditingJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitSceneBatchEditingJobResponse
+     */
+    public function submitSceneBatchEditingJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
+        }
+
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSceneBatchEditingJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSceneBatchEditingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交场景化批量合成任务
+     *
+     * @param request - SubmitSceneBatchEditingJobRequest
+     *
+     * @returns SubmitSceneBatchEditingJobResponse
+     *
+     * @param SubmitSceneBatchEditingJobRequest $request
+     *
+     * @return SubmitSceneBatchEditingJobResponse
+     */
+    public function submitSceneBatchEditingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSceneBatchEditingJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
      *
      * @remarks
@@ -23849,6 +24151,85 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitSceneMediaSelectionJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交场景化时间线编排任务
+     *
+     * @param request - SubmitSceneTimelineOrganizationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSceneTimelineOrganizationJobResponse
+     *
+     * @param SubmitSceneTimelineOrganizationJobRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SubmitSceneTimelineOrganizationJobResponse
+     */
+    public function submitSceneTimelineOrganizationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->mediaSelectResult) {
+            @$query['MediaSelectResult'] = $request->mediaSelectResult;
+        }
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $body = [];
+        if (null !== $request->editingConfig) {
+            @$body['EditingConfig'] = $request->editingConfig;
+        }
+
+        if (null !== $request->inputConfig) {
+            @$body['InputConfig'] = $request->inputConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSceneTimelineOrganizationJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSceneTimelineOrganizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交场景化时间线编排任务
+     *
+     * @param request - SubmitSceneTimelineOrganizationJobRequest
+     *
+     * @returns SubmitSceneTimelineOrganizationJobResponse
+     *
+     * @param SubmitSceneTimelineOrganizationJobRequest $request
+     *
+     * @return SubmitSceneTimelineOrganizationJobResponse
+     */
+    public function submitSceneTimelineOrganizationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSceneTimelineOrganizationJobWithOptions($request, $runtime);
     }
 
     /**
