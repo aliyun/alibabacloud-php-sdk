@@ -376,6 +376,9 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyAudioFileRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyAudioFileResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCampaignNumbersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCampaignNumbersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCampaignNumbersShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyInstanceRequest;
@@ -12907,6 +12910,81 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAudioFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改活动外呼号码
+     *
+     * @param tmpReq - ModifyCampaignNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCampaignNumbersResponse
+     *
+     * @param ModifyCampaignNumbersRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyCampaignNumbersResponse
+     */
+    public function modifyCampaignNumbersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyCampaignNumbersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numberList) {
+            $request->numberListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numberList, 'NumberList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->campaignId) {
+            @$query['CampaignId'] = $request->campaignId;
+        }
+
+        if (null !== $request->instGroupId) {
+            @$query['InstGroupId'] = $request->instGroupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->numberListShrink) {
+            @$query['NumberList'] = $request->numberListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCampaignNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCampaignNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改活动外呼号码
+     *
+     * @param request - ModifyCampaignNumbersRequest
+     *
+     * @returns ModifyCampaignNumbersResponse
+     *
+     * @param ModifyCampaignNumbersRequest $request
+     *
+     * @return ModifyCampaignNumbersResponse
+     */
+    public function modifyCampaignNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCampaignNumbersWithOptions($request, $runtime);
     }
 
     /**

@@ -1,3 +1,7 @@
+2025-11-14 Version: 2.37.0
+- Support API ModifyCampaignNumbers.
+
+
 2025-11-14 Version: 2.36.1
 - Update API AppendCases: add response parameters Body.Data.
 - Update API CreateCampaign: add request parameters FlashSmsParameters.
