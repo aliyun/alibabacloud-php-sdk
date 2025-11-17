@@ -377,6 +377,10 @@ class PaiFeatureStore extends OpenApiClient
             @$body['Name'] = $request->name;
         }
 
+        if (null !== $request->parentFeatureEntityId) {
+            @$body['ParentFeatureEntityId'] = $request->parentFeatureEntityId;
+        }
+
         if (null !== $request->projectId) {
             @$body['ProjectId'] = $request->projectId;
         }
@@ -2498,6 +2502,10 @@ class PaiFeatureStore extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->parentFeatureEntityId) {
+            @$query['ParentFeatureEntityId'] = $request->parentFeatureEntityId;
         }
 
         if (null !== $request->projectId) {

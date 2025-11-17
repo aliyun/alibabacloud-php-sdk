@@ -21,10 +21,16 @@ class CreateFeatureEntityRequest extends Model
     /**
      * @var string
      */
+    public $parentFeatureEntityId;
+
+    /**
+     * @var string
+     */
     public $projectId;
     protected $_name = [
         'joinId' => 'JoinId',
         'name' => 'Name',
+        'parentFeatureEntityId' => 'ParentFeatureEntityId',
         'projectId' => 'ProjectId',
     ];
 
@@ -42,6 +48,10 @@ class CreateFeatureEntityRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->parentFeatureEntityId) {
+            $res['ParentFeatureEntityId'] = $this->parentFeatureEntityId;
         }
 
         if (null !== $this->projectId) {
@@ -65,6 +75,10 @@ class CreateFeatureEntityRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ParentFeatureEntityId'])) {
+            $model->parentFeatureEntityId = $map['ParentFeatureEntityId'];
         }
 
         if (isset($map['ProjectId'])) {

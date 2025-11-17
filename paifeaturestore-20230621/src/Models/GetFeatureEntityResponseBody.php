@@ -31,6 +31,21 @@ class GetFeatureEntityResponseBody extends Model
     /**
      * @var string
      */
+    public $parentFeatureEntityId;
+
+    /**
+     * @var string
+     */
+    public $parentFeatureEntityName;
+
+    /**
+     * @var string
+     */
+    public $parentJoinId;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -47,6 +62,9 @@ class GetFeatureEntityResponseBody extends Model
         'joinId' => 'JoinId',
         'name' => 'Name',
         'owner' => 'Owner',
+        'parentFeatureEntityId' => 'ParentFeatureEntityId',
+        'parentFeatureEntityName' => 'ParentFeatureEntityName',
+        'parentJoinId' => 'ParentJoinId',
         'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
         'requestId' => 'RequestId',
@@ -74,6 +92,18 @@ class GetFeatureEntityResponseBody extends Model
 
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+
+        if (null !== $this->parentFeatureEntityId) {
+            $res['ParentFeatureEntityId'] = $this->parentFeatureEntityId;
+        }
+
+        if (null !== $this->parentFeatureEntityName) {
+            $res['ParentFeatureEntityName'] = $this->parentFeatureEntityName;
+        }
+
+        if (null !== $this->parentJoinId) {
+            $res['ParentJoinId'] = $this->parentJoinId;
         }
 
         if (null !== $this->projectId) {
@@ -113,6 +143,18 @@ class GetFeatureEntityResponseBody extends Model
 
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+
+        if (isset($map['ParentFeatureEntityId'])) {
+            $model->parentFeatureEntityId = $map['ParentFeatureEntityId'];
+        }
+
+        if (isset($map['ParentFeatureEntityName'])) {
+            $model->parentFeatureEntityName = $map['ParentFeatureEntityName'];
+        }
+
+        if (isset($map['ParentJoinId'])) {
+            $model->parentJoinId = $map['ParentJoinId'];
         }
 
         if (isset($map['ProjectId'])) {

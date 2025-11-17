@@ -41,6 +41,11 @@ class ListFeatureEntitiesRequest extends Model
     /**
      * @var string
      */
+    public $parentFeatureEntityId;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -54,6 +59,7 @@ class ListFeatureEntitiesRequest extends Model
         'owner' => 'Owner',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'parentFeatureEntityId' => 'ParentFeatureEntityId',
         'projectId' => 'ProjectId',
         'sortBy' => 'SortBy',
     ];
@@ -98,6 +104,10 @@ class ListFeatureEntitiesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->parentFeatureEntityId) {
+            $res['ParentFeatureEntityId'] = $this->parentFeatureEntityId;
         }
 
         if (null !== $this->projectId) {
@@ -148,6 +158,10 @@ class ListFeatureEntitiesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ParentFeatureEntityId'])) {
+            $model->parentFeatureEntityId = $map['ParentFeatureEntityId'];
         }
 
         if (isset($map['ProjectId'])) {

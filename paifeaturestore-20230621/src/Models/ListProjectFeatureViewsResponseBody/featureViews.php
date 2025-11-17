@@ -22,7 +22,17 @@ class featureViews extends Model
     /**
      * @var string
      */
+    public $joinId;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $parentJoinId;
 
     /**
      * @var string
@@ -31,7 +41,9 @@ class featureViews extends Model
     protected $_name = [
         'featureViewId' => 'FeatureViewId',
         'features' => 'Features',
+        'joinId' => 'JoinId',
         'name' => 'Name',
+        'parentJoinId' => 'ParentJoinId',
         'type' => 'Type',
     ];
 
@@ -61,8 +73,16 @@ class featureViews extends Model
             }
         }
 
+        if (null !== $this->joinId) {
+            $res['JoinId'] = $this->joinId;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->parentJoinId) {
+            $res['ParentJoinId'] = $this->parentJoinId;
         }
 
         if (null !== $this->type) {
@@ -95,8 +115,16 @@ class featureViews extends Model
             }
         }
 
+        if (isset($map['JoinId'])) {
+            $model->joinId = $map['JoinId'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ParentJoinId'])) {
+            $model->parentJoinId = $map['ParentJoinId'];
         }
 
         if (isset($map['Type'])) {
