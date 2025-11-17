@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateUserGroupResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateWorkspaceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataInterpretationRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataInterpretationResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSetBloodRequest;
@@ -89,6 +91,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetWorksEmbedListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetWorksEmbedListResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListAccelerationOfWorkspaceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListAccelerationOfWorkspaceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListByUserGroupIdRequest;
@@ -128,6 +132,10 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParameter
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyCopilotEmbedConfigRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyCopilotEmbedConfigResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyDashboardNl2sqlStatusRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyDashboardNl2sqlStatusResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAccelerationLogByCubeIdRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAccelerationLogByCubeIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryApprovalInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryApprovalInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAuditLogRequest;
@@ -1090,7 +1098,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 批量添加飞书用户。
+     * Batch add Feishu users.
      *
      * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
      *
@@ -1148,7 +1156,7 @@ class Quickbipublic extends OpenApiClient
 
     // Deprecated
     /**
-     * 批量添加飞书用户。
+     * Batch add Feishu users.
      *
      * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
      *
@@ -1991,6 +1999,91 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建工作空间.
+     *
+     * @param request - CreateWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkspaceResponse
+     *
+     * @param CreateWorkspaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWorkspaceResponse
+     */
+    public function createWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowPublish) {
+            @$query['AllowPublish'] = $request->allowPublish;
+        }
+
+        if (null !== $request->allowShare) {
+            @$query['AllowShare'] = $request->allowShare;
+        }
+
+        if (null !== $request->allowViewAll) {
+            @$query['AllowViewAll'] = $request->allowViewAll;
+        }
+
+        if (null !== $request->defaultShareToAll) {
+            @$query['DefaultShareToAll'] = $request->defaultShareToAll;
+        }
+
+        if (null !== $request->onlyAdminCreateDatasource) {
+            @$query['OnlyAdminCreateDatasource'] = $request->onlyAdminCreateDatasource;
+        }
+
+        if (null !== $request->useComment) {
+            @$query['UseComment'] = $request->useComment;
+        }
+
+        if (null !== $request->workspaceDescription) {
+            @$query['WorkspaceDescription'] = $request->workspaceDescription;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$query['WorkspaceName'] = $request->workspaceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkspace',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建工作空间.
+     *
+     * @param request - CreateWorkspaceRequest
+     *
+     * @returns CreateWorkspaceResponse
+     *
+     * @param CreateWorkspaceRequest $request
+     *
+     * @return CreateWorkspaceResponse
+     */
+    public function createWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -3043,6 +3136,79 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * 获取空间下加速引擎管控页任务信息。
+     *
+     * @param request - ListAccelerationOfWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAccelerationOfWorkspaceResponse
+     *
+     * @param ListAccelerationOfWorkspaceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListAccelerationOfWorkspaceResponse
+     */
+    public function listAccelerationOfWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->creatorId) {
+            @$query['CreatorId'] = $request->creatorId;
+        }
+
+        if (null !== $request->cubeName) {
+            @$query['CubeName'] = $request->cubeName;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAccelerationOfWorkspace',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAccelerationOfWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取空间下加速引擎管控页任务信息。
+     *
+     * @param request - ListAccelerationOfWorkspaceRequest
+     *
+     * @returns ListAccelerationOfWorkspaceResponse
+     *
+     * @param ListAccelerationOfWorkspaceRequest $request
+     *
+     * @return ListAccelerationOfWorkspaceResponse
+     */
+    public function listAccelerationOfWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccelerationOfWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries API data sources.
      *
      * @remarks
@@ -3175,7 +3341,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the work.
+     * Retrieve the list of works that a user has favorited.
      *
      * @param request - ListCollectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3214,7 +3380,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the work.
+     * Retrieve the list of works that a user has favorited.
      *
      * @param request - ListCollectionsRequest
      *
@@ -4314,6 +4480,140 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * 批量编辑仪表板的小Q问数状态
+     *
+     * @param request - ModifyDashboardNl2sqlStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDashboardNl2sqlStatusResponse
+     *
+     * @param ModifyDashboardNl2sqlStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyDashboardNl2sqlStatusResponse
+     */
+    public function modifyDashboardNl2sqlStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dashboardIds) {
+            @$query['DashboardIds'] = $request->dashboardIds;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDashboardNl2sqlStatus',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDashboardNl2sqlStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量编辑仪表板的小Q问数状态
+     *
+     * @param request - ModifyDashboardNl2sqlStatusRequest
+     *
+     * @returns ModifyDashboardNl2sqlStatusResponse
+     *
+     * @param ModifyDashboardNl2sqlStatusRequest $request
+     *
+     * @return ModifyDashboardNl2sqlStatusResponse
+     */
+    public function modifyDashboardNl2sqlStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDashboardNl2sqlStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取指定数据集的加速任务运行日志.
+     *
+     * @param request - QueryAccelerationLogByCubeIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAccelerationLogByCubeIdResponse
+     *
+     * @param QueryAccelerationLogByCubeIdRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryAccelerationLogByCubeIdResponse
+     */
+    public function queryAccelerationLogByCubeIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cubeId) {
+            @$query['CubeId'] = $request->cubeId;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAccelerationLogByCubeId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAccelerationLogByCubeIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定数据集的加速任务运行日志.
+     *
+     * @param request - QueryAccelerationLogByCubeIdRequest
+     *
+     * @returns QueryAccelerationLogByCubeIdResponse
+     *
+     * @param QueryAccelerationLogByCubeIdRequest $request
+     *
+     * @return QueryAccelerationLogByCubeIdResponse
+     */
+    public function queryAccelerationLogByCubeId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAccelerationLogByCubeIdWithOptions($request, $runtime);
+    }
+
+    /**
      * Get approval flow information based on the approver.
      *
      * @param request - QueryApprovalInfoRequest
@@ -4744,7 +5044,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查询仪表板的问数资源信息.
+     * Query Dashboard\\"s Question Resource Information.
      *
      * @param request - QueryDashboardNl2sqlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4787,7 +5087,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 查询仪表板的问数资源信息.
+     * Query Dashboard\\"s Question Resource Information.
      *
      * @param request - QueryDashboardNl2sqlRequest
      *
@@ -5364,7 +5664,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取指定数据集的行级权限开关状态。
+     * Get the row-level permission switch status for a specified dataset.
+     *
+     * @remarks
+     * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - QueryDatasetSwitchInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5403,7 +5706,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 获取指定数据集的行级权限开关状态。
+     * Get the row-level permission switch status for a specified dataset.
+     *
+     * @remarks
+     * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - QueryDatasetSwitchInfoRequest
      *
@@ -5522,7 +5828,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 通过数据集ID查询最近一次加速任务
+     * Query the Most Recent Acceleration Task by Dataset ID.
      *
      * @param request - QueryLastAccelerationEngineJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5561,7 +5867,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 通过数据集ID查询最近一次加速任务
+     * Query the Most Recent Acceleration Task by Dataset ID.
      *
      * @param request - QueryLastAccelerationEngineJobRequest
      *
@@ -7165,7 +7471,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 设置行列权限的额外配置.
+     * Set extra configuration for row and column permissions.
+     *
+     * @remarks
+     * > This interface only supports the new version of Quick BI\\"s row and column permission model. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. The steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - SetDataLevelPermissionExtraConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7212,7 +7521,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 设置行列权限的额外配置.
+     * Set extra configuration for row and column permissions.
+     *
+     * @remarks
+     * > This interface only supports the new version of Quick BI\\"s row and column permission model. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. The steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - SetDataLevelPermissionExtraConfigRequest
      *
@@ -7230,7 +7542,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 设置单条数据集行列权限配置信息（新增和更新）.
+     * Set single dataset row and column permission configuration information (addition and update).
+     *
+     * @remarks
+     * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. Steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - SetDataLevelPermissionRuleConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7269,7 +7584,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 设置单条数据集行列权限配置信息（新增和更新）.
+     * Set single dataset row and column permission configuration information (addition and update).
+     *
+     * @remarks
+     * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. Steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - SetDataLevelPermissionRuleConfigRequest
      *
@@ -7517,6 +7835,10 @@ class Quickbipublic extends OpenApiClient
             @$query['CubeId'] = $request->cubeId;
         }
 
+        if (null !== $request->multipleCubeIds) {
+            @$query['MultipleCubeIds'] = $request->multipleCubeIds;
+        }
+
         if (null !== $request->userId) {
             @$query['UserId'] = $request->userId;
         }
@@ -7717,7 +8039,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 修改数据源配置.
+     * Modify Data Source Configuration.
      *
      * @param request - UpdateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7756,7 +8078,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 修改数据源配置.
+     * Modify Data Source Configuration.
      *
      * @param request - UpdateDataSourceRequest
      *

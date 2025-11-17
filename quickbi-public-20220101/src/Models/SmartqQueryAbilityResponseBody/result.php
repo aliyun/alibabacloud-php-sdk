@@ -21,6 +21,11 @@ class result extends Model
     public $conclusionText;
 
     /**
+     * @var string[]
+     */
+    public $dataList;
+
+    /**
      * @var string
      */
     public $logicSql;
@@ -37,6 +42,7 @@ class result extends Model
     protected $_name = [
         'chartType' => 'ChartType',
         'conclusionText' => 'ConclusionText',
+        'dataList' => 'DataList',
         'logicSql' => 'LogicSql',
         'metaType' => 'MetaType',
         'values' => 'Values',
@@ -44,6 +50,9 @@ class result extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataList)) {
+            Model::validateArray($this->dataList);
+        }
         if (\is_array($this->metaType)) {
             Model::validateArray($this->metaType);
         }
@@ -62,6 +71,17 @@ class result extends Model
 
         if (null !== $this->conclusionText) {
             $res['ConclusionText'] = $this->conclusionText;
+        }
+
+        if (null !== $this->dataList) {
+            if (\is_array($this->dataList)) {
+                $res['DataList'] = [];
+                $n1 = 0;
+                foreach ($this->dataList as $item1) {
+                    $res['DataList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->logicSql) {
@@ -107,6 +127,17 @@ class result extends Model
 
         if (isset($map['ConclusionText'])) {
             $model->conclusionText = $map['ConclusionText'];
+        }
+
+        if (isset($map['DataList'])) {
+            if (!empty($map['DataList'])) {
+                $model->dataList = [];
+                $n1 = 0;
+                foreach ($map['DataList'] as $item1) {
+                    $model->dataList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['LogicSql'])) {

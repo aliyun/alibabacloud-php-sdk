@@ -16,6 +16,11 @@ class SmartqQueryAbilityRequest extends Model
     /**
      * @var string
      */
+    public $multipleCubeIds;
+
+    /**
+     * @var string
+     */
     public $userId;
 
     /**
@@ -24,6 +29,7 @@ class SmartqQueryAbilityRequest extends Model
     public $userQuestion;
     protected $_name = [
         'cubeId' => 'CubeId',
+        'multipleCubeIds' => 'MultipleCubeIds',
         'userId' => 'UserId',
         'userQuestion' => 'UserQuestion',
     ];
@@ -38,6 +44,10 @@ class SmartqQueryAbilityRequest extends Model
         $res = [];
         if (null !== $this->cubeId) {
             $res['CubeId'] = $this->cubeId;
+        }
+
+        if (null !== $this->multipleCubeIds) {
+            $res['MultipleCubeIds'] = $this->multipleCubeIds;
         }
 
         if (null !== $this->userId) {
@@ -61,6 +71,10 @@ class SmartqQueryAbilityRequest extends Model
         $model = new self();
         if (isset($map['CubeId'])) {
             $model->cubeId = $map['CubeId'];
+        }
+
+        if (isset($map['MultipleCubeIds'])) {
+            $model->multipleCubeIds = $map['MultipleCubeIds'];
         }
 
         if (isset($map['UserId'])) {
