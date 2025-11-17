@@ -77,6 +77,10 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricListRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricListResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricTopRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricTopResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecRequest;
@@ -113,6 +117,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstanceHealerRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstanceHealerResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListInstanceAdbAttributesRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListInstanceAdbAttributesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListTagResourcesRequest;
@@ -160,8 +166,12 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartInstanceAdbRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartInstanceAdbResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopInstanceAdbRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopInstanceAdbResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppRequest;
@@ -3007,6 +3017,180 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * 查询指定监控项的监控数据.
+     *
+     * @param request - DescribeMetricListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricListResponse
+     *
+     * @param DescribeMetricListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricListResponse
+     */
+    public function describeMetricListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$body['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->length) {
+            @$body['Length'] = $request->length;
+        }
+
+        if (null !== $request->metricNames) {
+            @$body['MetricNames'] = $request->metricNames;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->processInfos) {
+            @$body['ProcessInfos'] = $request->processInfos;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMetricList',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定监控项的监控数据.
+     *
+     * @param request - DescribeMetricListRequest
+     *
+     * @returns DescribeMetricListResponse
+     *
+     * @param DescribeMetricListRequest $request
+     *
+     * @return DescribeMetricListResponse
+     */
+    public function describeMetricList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetricListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指定监控项的最新监控数据.
+     *
+     * @param request - DescribeMetricTopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricTopResponse
+     *
+     * @param DescribeMetricTopRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeMetricTopResponse
+     */
+    public function describeMetricTopWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$body['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->length) {
+            @$body['Length'] = $request->length;
+        }
+
+        if (null !== $request->metricNames) {
+            @$body['MetricNames'] = $request->metricNames;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMetricTop',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMetricTopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定监控项的最新监控数据.
+     *
+     * @param request - DescribeMetricTopRequest
+     *
+     * @returns DescribeMetricTopResponse
+     *
+     * @param DescribeMetricTopRequest $request
+     *
+     * @return DescribeMetricTopResponse
+     */
+    public function describeMetricTop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetricTopWithOptions($request, $runtime);
+    }
+
+    /**
      * Query available regions.
      *
      * @param request - DescribeRegionsRequest
@@ -4290,6 +4474,87 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->instanceHealerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询ADB端口连接信息.
+     *
+     * @param request - ListInstanceAdbAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceAdbAttributesResponse
+     *
+     * @param ListInstanceAdbAttributesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListInstanceAdbAttributesResponse
+     */
+    public function listInstanceAdbAttributesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->externalIp) {
+            @$query['ExternalIp'] = $request->externalIp;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->internalIp) {
+            @$query['InternalIp'] = $request->internalIp;
+        }
+
+        if (null !== $request->internalPort) {
+            @$query['InternalPort'] = $request->internalPort;
+        }
+
+        if (null !== $request->ipProtocol) {
+            @$query['IpProtocol'] = $request->ipProtocol;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceAdbAttributes',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceAdbAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询ADB端口连接信息.
+     *
+     * @param request - ListInstanceAdbAttributesRequest
+     *
+     * @returns ListInstanceAdbAttributesResponse
+     *
+     * @param ListInstanceAdbAttributesRequest $request
+     *
+     * @return ListInstanceAdbAttributesResponse
+     */
+    public function listInstanceAdbAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceAdbAttributesWithOptions($request, $runtime);
     }
 
     /**
@@ -5919,6 +6184,63 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * 开启实例ADB端口并创建端口转发条目.
+     *
+     * @param request - StartInstanceAdbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartInstanceAdbResponse
+     *
+     * @param StartInstanceAdbRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartInstanceAdbResponse
+     */
+    public function startInstanceAdbWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartInstanceAdb',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartInstanceAdbResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启实例ADB端口并创建端口转发条目.
+     *
+     * @param request - StartInstanceAdbRequest
+     *
+     * @returns StartInstanceAdbResponse
+     *
+     * @param StartInstanceAdbRequest $request
+     *
+     * @return StartInstanceAdbResponse
+     */
+    public function startInstanceAdb($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startInstanceAdbWithOptions($request, $runtime);
+    }
+
+    /**
      * Stops a cloud phone instance.
      *
      * @remarks
@@ -5987,6 +6309,63 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopAndroidInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 停止实例ADB端口并删除端口转发条目.
+     *
+     * @param request - StopInstanceAdbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopInstanceAdbResponse
+     *
+     * @param StopInstanceAdbRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StopInstanceAdbResponse
+     */
+    public function stopInstanceAdbWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopInstanceAdb',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopInstanceAdbResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止实例ADB端口并删除端口转发条目.
+     *
+     * @param request - StopInstanceAdbRequest
+     *
+     * @returns StopInstanceAdbResponse
+     *
+     * @param StopInstanceAdbRequest $request
+     *
+     * @return StopInstanceAdbResponse
+     */
+    public function stopInstanceAdb($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopInstanceAdbWithOptions($request, $runtime);
     }
 
     /**
