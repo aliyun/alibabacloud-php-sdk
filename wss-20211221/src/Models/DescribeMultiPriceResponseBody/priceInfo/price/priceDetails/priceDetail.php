@@ -26,11 +26,17 @@ class priceDetail extends Model
     /**
      * @var float
      */
+    public $savingPlanRecommendPrice;
+
+    /**
+     * @var float
+     */
     public $tradePrice;
     protected $_name = [
         'discountPrice' => 'DiscountPrice',
         'originalPrice' => 'OriginalPrice',
         'resourceType' => 'ResourceType',
+        'savingPlanRecommendPrice' => 'SavingPlanRecommendPrice',
         'tradePrice' => 'TradePrice',
     ];
 
@@ -52,6 +58,10 @@ class priceDetail extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->savingPlanRecommendPrice) {
+            $res['SavingPlanRecommendPrice'] = $this->savingPlanRecommendPrice;
         }
 
         if (null !== $this->tradePrice) {
@@ -79,6 +89,10 @@ class priceDetail extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['SavingPlanRecommendPrice'])) {
+            $model->savingPlanRecommendPrice = $map['SavingPlanRecommendPrice'];
         }
 
         if (isset($map['TradePrice'])) {

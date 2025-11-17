@@ -48,6 +48,11 @@ class orderItems extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $savingPlanPeriod;
     protected $_name = [
         'amount' => 'Amount',
         'components' => 'Components',
@@ -57,6 +62,7 @@ class orderItems extends Model
         'promotionId' => 'PromotionId',
         'resourceIds' => 'ResourceIds',
         'resourceType' => 'ResourceType',
+        'savingPlanPeriod' => 'SavingPlanPeriod',
     ];
 
     public function validate()
@@ -129,6 +135,10 @@ class orderItems extends Model
             $res['ResourceType'] = $this->resourceType;
         }
 
+        if (null !== $this->savingPlanPeriod) {
+            $res['SavingPlanPeriod'] = $this->savingPlanPeriod;
+        }
+
         return $res;
     }
 
@@ -191,6 +201,10 @@ class orderItems extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['SavingPlanPeriod'])) {
+            $model->savingPlanPeriod = $map['SavingPlanPeriod'];
         }
 
         return $model;

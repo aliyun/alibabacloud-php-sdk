@@ -36,6 +36,11 @@ class moduleDetails extends Model
     /**
      * @var float
      */
+    public $savingPlanDiscountPrice;
+
+    /**
+     * @var float
+     */
     public $tradePrice;
     protected $_name = [
         'discountPrice' => 'DiscountPrice',
@@ -43,6 +48,7 @@ class moduleDetails extends Model
         'moduleName' => 'ModuleName',
         'moduleValue' => 'ModuleValue',
         'originalPrice' => 'OriginalPrice',
+        'savingPlanDiscountPrice' => 'SavingPlanDiscountPrice',
         'tradePrice' => 'TradePrice',
     ];
 
@@ -72,6 +78,10 @@ class moduleDetails extends Model
 
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
+        }
+
+        if (null !== $this->savingPlanDiscountPrice) {
+            $res['SavingPlanDiscountPrice'] = $this->savingPlanDiscountPrice;
         }
 
         if (null !== $this->tradePrice) {
@@ -107,6 +117,10 @@ class moduleDetails extends Model
 
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
+        }
+
+        if (isset($map['SavingPlanDiscountPrice'])) {
+            $model->savingPlanDiscountPrice = $map['SavingPlanDiscountPrice'];
         }
 
         if (isset($map['TradePrice'])) {
