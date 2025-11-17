@@ -1,3 +1,6 @@
+2025-11-17 Version: 1.6.5
+- Generated php 2020-12-03 for pai-dlc.
+
 2025-11-10 Version: 1.6.4
 - Update API UpdateJob: add request parameters body.JobSpecs.
 

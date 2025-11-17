@@ -49,6 +49,11 @@ class PodItem extends Model
     public $podIp;
 
     /**
+     * @var PodNetworkInterface[]
+     */
+    public $podIps;
+
+    /**
      * @var string
      */
     public $podUid;
@@ -76,6 +81,7 @@ class PodItem extends Model
         'nodeName' => 'NodeName',
         'podId' => 'PodId',
         'podIp' => 'PodIp',
+        'podIps' => 'PodIps',
         'podUid' => 'PodUid',
         'status' => 'Status',
         'subStatus' => 'SubStatus',
@@ -86,6 +92,9 @@ class PodItem extends Model
     {
         if (\is_array($this->historyPods)) {
             Model::validateArray($this->historyPods);
+        }
+        if (\is_array($this->podIps)) {
+            Model::validateArray($this->podIps);
         }
         parent::validate();
     }
@@ -130,6 +139,17 @@ class PodItem extends Model
 
         if (null !== $this->podIp) {
             $res['PodIp'] = $this->podIp;
+        }
+
+        if (null !== $this->podIps) {
+            if (\is_array($this->podIps)) {
+                $res['PodIps'] = [];
+                $n1 = 0;
+                foreach ($this->podIps as $item1) {
+                    $res['PodIps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->podUid) {
@@ -196,6 +216,17 @@ class PodItem extends Model
 
         if (isset($map['PodIp'])) {
             $model->podIp = $map['PodIp'];
+        }
+
+        if (isset($map['PodIps'])) {
+            if (!empty($map['PodIps'])) {
+                $model->podIps = [];
+                $n1 = 0;
+                foreach ($map['PodIps'] as $item1) {
+                    $model->podIps[$n1] = PodNetworkInterface::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PodUid'])) {
