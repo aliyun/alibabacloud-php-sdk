@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\pods;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\PodNetworkInterface;
 
 class historyPods extends Model
 {
+    /**
+     * @var float
+     */
+    public $duration;
+
     /**
      * @var string
      */
@@ -31,7 +37,17 @@ class historyPods extends Model
     /**
      * @var string
      */
+    public $nodeName;
+
+    /**
+     * @var string
+     */
     public $podId;
+
+    /**
+     * @var PodNetworkInterface[]
+     */
+    public $podIps;
 
     /**
      * @var string
@@ -58,11 +74,14 @@ class historyPods extends Model
      */
     public $type;
     protected $_name = [
+        'duration' => 'Duration',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtFinishTime' => 'GmtFinishTime',
         'gmtStartTime' => 'GmtStartTime',
         'ip' => 'Ip',
+        'nodeName' => 'NodeName',
         'podId' => 'PodId',
+        'podIps' => 'PodIps',
         'podUid' => 'PodUid',
         'resourceType' => 'ResourceType',
         'status' => 'Status',
@@ -72,12 +91,19 @@ class historyPods extends Model
 
     public function validate()
     {
+        if (\is_array($this->podIps)) {
+            Model::validateArray($this->podIps);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -94,8 +120,23 @@ class historyPods extends Model
             $res['Ip'] = $this->ip;
         }
 
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
+
         if (null !== $this->podId) {
             $res['PodId'] = $this->podId;
+        }
+
+        if (null !== $this->podIps) {
+            if (\is_array($this->podIps)) {
+                $res['PodIps'] = [];
+                $n1 = 0;
+                foreach ($this->podIps as $item1) {
+                    $res['PodIps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->podUid) {
@@ -129,6 +170,10 @@ class historyPods extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
@@ -145,8 +190,23 @@ class historyPods extends Model
             $model->ip = $map['Ip'];
         }
 
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
+
         if (isset($map['PodId'])) {
             $model->podId = $map['PodId'];
+        }
+
+        if (isset($map['PodIps'])) {
+            if (!empty($map['PodIps'])) {
+                $model->podIps = [];
+                $n1 = 0;
+                foreach ($map['PodIps'] as $item1) {
+                    $model->podIps[$n1] = PodNetworkInterface::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PodUid'])) {
