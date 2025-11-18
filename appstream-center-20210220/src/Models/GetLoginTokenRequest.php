@@ -11,6 +11,11 @@ class GetLoginTokenRequest extends Model
     /**
      * @var string
      */
+    public $areaSite;
+
+    /**
+     * @var string
+     */
     public $authenticationCode;
 
     /**
@@ -193,6 +198,7 @@ class GetLoginTokenRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'areaSite' => 'AreaSite',
         'authenticationCode' => 'AuthenticationCode',
         'availableFeatures' => 'AvailableFeatures',
         'channel' => 'Channel',
@@ -243,6 +249,10 @@ class GetLoginTokenRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->areaSite) {
+            $res['AreaSite'] = $this->areaSite;
+        }
+
         if (null !== $this->authenticationCode) {
             $res['AuthenticationCode'] = $this->authenticationCode;
         }
@@ -407,6 +417,10 @@ class GetLoginTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AreaSite'])) {
+            $model->areaSite = $map['AreaSite'];
+        }
+
         if (isset($map['AuthenticationCode'])) {
             $model->authenticationCode = $map['AuthenticationCode'];
         }

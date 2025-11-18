@@ -174,6 +174,10 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->areaSite) {
+            @$query['AreaSite'] = $request->areaSite;
+        }
+
         if (null !== $request->authenticationCode) {
             @$query['AuthenticationCode'] = $request->authenticationCode;
         }
