@@ -16582,6 +16582,10 @@ class ICE extends OpenApiClient
             @$query['Algorithm'] = $request->algorithm;
         }
 
+        if (null !== $request->libId) {
+            @$query['LibId'] = $request->libId;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -16669,6 +16673,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->entityId) {
             @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->entityName) {
+            @$query['EntityName'] = $request->entityName;
         }
 
         if (null !== $request->libId) {
@@ -24436,6 +24444,10 @@ class ICE extends OpenApiClient
             @$query['ScheduleConfig'] = $request->scheduleConfigShrink;
         }
 
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
+        }
+
         if (null !== $request->templateId) {
             @$query['TemplateId'] = $request->templateId;
         }
@@ -25269,6 +25281,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->params) {
             @$query['Params'] = $request->params;
+        }
+
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
         }
 
         if (null !== $request->templateId) {

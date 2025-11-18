@@ -16,6 +16,11 @@ class ListRecognitionLibsRequest extends Model
     /**
      * @var string
      */
+    public $libId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -44,6 +49,7 @@ class ListRecognitionLibsRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'algorithm' => 'Algorithm',
+        'libId' => 'LibId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
@@ -62,6 +68,10 @@ class ListRecognitionLibsRequest extends Model
         $res = [];
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
+        }
+
+        if (null !== $this->libId) {
+            $res['LibId'] = $this->libId;
         }
 
         if (null !== $this->ownerAccount) {
@@ -101,6 +111,10 @@ class ListRecognitionLibsRequest extends Model
         $model = new self();
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
+        }
+
+        if (isset($map['LibId'])) {
+            $model->libId = $map['LibId'];
         }
 
         if (isset($map['OwnerAccount'])) {

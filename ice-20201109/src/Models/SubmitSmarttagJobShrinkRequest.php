@@ -46,6 +46,11 @@ class SubmitSmarttagJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $templateConfig;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
@@ -65,6 +70,7 @@ class SubmitSmarttagJobShrinkRequest extends Model
         'notifyUrl' => 'NotifyUrl',
         'params' => 'Params',
         'scheduleConfigShrink' => 'ScheduleConfig',
+        'templateConfig' => 'TemplateConfig',
         'templateId' => 'TemplateId',
         'title' => 'Title',
         'userData' => 'UserData',
@@ -104,6 +110,10 @@ class SubmitSmarttagJobShrinkRequest extends Model
 
         if (null !== $this->scheduleConfigShrink) {
             $res['ScheduleConfig'] = $this->scheduleConfigShrink;
+        }
+
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
         }
 
         if (null !== $this->templateId) {
@@ -155,6 +165,10 @@ class SubmitSmarttagJobShrinkRequest extends Model
 
         if (isset($map['ScheduleConfig'])) {
             $model->scheduleConfigShrink = $map['ScheduleConfig'];
+        }
+
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
         }
 
         if (isset($map['TemplateId'])) {

@@ -11,14 +11,26 @@ class sample extends Model
     /**
      * @var string
      */
+    public $entityId;
+
+    /**
+     * @var string
+     */
     public $imageUrl;
+
+    /**
+     * @var string
+     */
+    public $libId;
 
     /**
      * @var string
      */
     public $sampleId;
     protected $_name = [
+        'entityId' => 'EntityId',
         'imageUrl' => 'ImageUrl',
+        'libId' => 'LibId',
         'sampleId' => 'SampleId',
     ];
 
@@ -30,8 +42,16 @@ class sample extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->entityId) {
+            $res['EntityId'] = $this->entityId;
+        }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
+        }
+
+        if (null !== $this->libId) {
+            $res['LibId'] = $this->libId;
         }
 
         if (null !== $this->sampleId) {
@@ -49,8 +69,16 @@ class sample extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EntityId'])) {
+            $model->entityId = $map['EntityId'];
+        }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
+        }
+
+        if (isset($map['LibId'])) {
+            $model->libId = $map['LibId'];
         }
 
         if (isset($map['SampleId'])) {

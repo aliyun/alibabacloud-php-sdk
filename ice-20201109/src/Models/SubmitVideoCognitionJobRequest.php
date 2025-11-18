@@ -22,6 +22,11 @@ class SubmitVideoCognitionJobRequest extends Model
     /**
      * @var string
      */
+    public $templateConfig;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
@@ -36,6 +41,7 @@ class SubmitVideoCognitionJobRequest extends Model
     protected $_name = [
         'input' => 'Input',
         'params' => 'Params',
+        'templateConfig' => 'TemplateConfig',
         'templateId' => 'TemplateId',
         'title' => 'Title',
         'userData' => 'UserData',
@@ -58,6 +64,10 @@ class SubmitVideoCognitionJobRequest extends Model
 
         if (null !== $this->params) {
             $res['Params'] = $this->params;
+        }
+
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
         }
 
         if (null !== $this->templateId) {
@@ -89,6 +99,10 @@ class SubmitVideoCognitionJobRequest extends Model
 
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
+        }
+
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
         }
 
         if (isset($map['TemplateId'])) {

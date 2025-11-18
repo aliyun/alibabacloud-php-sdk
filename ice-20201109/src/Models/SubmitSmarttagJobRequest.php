@@ -48,6 +48,11 @@ class SubmitSmarttagJobRequest extends Model
     /**
      * @var string
      */
+    public $templateConfig;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
@@ -67,6 +72,7 @@ class SubmitSmarttagJobRequest extends Model
         'notifyUrl' => 'NotifyUrl',
         'params' => 'Params',
         'scheduleConfig' => 'ScheduleConfig',
+        'templateConfig' => 'TemplateConfig',
         'templateId' => 'TemplateId',
         'title' => 'Title',
         'userData' => 'UserData',
@@ -112,6 +118,10 @@ class SubmitSmarttagJobRequest extends Model
 
         if (null !== $this->scheduleConfig) {
             $res['ScheduleConfig'] = null !== $this->scheduleConfig ? $this->scheduleConfig->toArray($noStream) : $this->scheduleConfig;
+        }
+
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
         }
 
         if (null !== $this->templateId) {
@@ -163,6 +173,10 @@ class SubmitSmarttagJobRequest extends Model
 
         if (isset($map['ScheduleConfig'])) {
             $model->scheduleConfig = scheduleConfig::fromMap($map['ScheduleConfig']);
+        }
+
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
         }
 
         if (isset($map['TemplateId'])) {

@@ -21,6 +21,11 @@ class ListRecognitionSamplesRequest extends Model
     /**
      * @var string
      */
+    public $entityName;
+
+    /**
+     * @var string
+     */
     public $libId;
 
     /**
@@ -55,6 +60,7 @@ class ListRecognitionSamplesRequest extends Model
     protected $_name = [
         'algorithm' => 'Algorithm',
         'entityId' => 'EntityId',
+        'entityName' => 'EntityName',
         'libId' => 'LibId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -78,6 +84,10 @@ class ListRecognitionSamplesRequest extends Model
 
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
+        }
+
+        if (null !== $this->entityName) {
+            $res['EntityName'] = $this->entityName;
         }
 
         if (null !== $this->libId) {
@@ -125,6 +135,10 @@ class ListRecognitionSamplesRequest extends Model
 
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
+        }
+
+        if (isset($map['EntityName'])) {
+            $model->entityName = $map['EntityName'];
         }
 
         if (isset($map['LibId'])) {
