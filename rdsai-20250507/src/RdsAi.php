@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigRespons
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceConfigRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceIpWhitelistResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceRAGConfigRequest;
@@ -831,6 +833,79 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceAuthConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改实例RAG配置.
+     *
+     * @param request - ModifyInstanceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceConfigResponse
+     *
+     * @param ModifyInstanceConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyInstanceConfigResponse
+     */
+    public function modifyInstanceConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configName) {
+            @$query['ConfigName'] = $request->configName;
+        }
+
+        if (null !== $request->configValue) {
+            @$query['ConfigValue'] = $request->configValue;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceConfig',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例RAG配置.
+     *
+     * @param request - ModifyInstanceConfigRequest
+     *
+     * @returns ModifyInstanceConfigResponse
+     *
+     * @param ModifyInstanceConfigRequest $request
+     *
+     * @return ModifyInstanceConfigResponse
+     */
+    public function modifyInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceConfigWithOptions($request, $runtime);
     }
 
     /**

@@ -26,6 +26,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $eipStatus;
+
+    /**
+     * @var string
+     */
     public $instanceClass;
 
     /**
@@ -37,6 +42,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $natStatus;
 
     /**
      * @var string
@@ -76,9 +86,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
         'appName' => 'AppName',
         'appType' => 'AppType',
         'DBInstanceName' => 'DBInstanceName',
+        'eipStatus' => 'EipStatus',
         'instanceClass' => 'InstanceClass',
         'instanceMinorVersion' => 'InstanceMinorVersion',
         'instanceName' => 'InstanceName',
+        'natStatus' => 'NatStatus',
         'publicConnectionString' => 'PublicConnectionString',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
@@ -108,6 +120,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
+        if (null !== $this->eipStatus) {
+            $res['EipStatus'] = $this->eipStatus;
+        }
+
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
@@ -118,6 +134,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->natStatus) {
+            $res['NatStatus'] = $this->natStatus;
         }
 
         if (null !== $this->publicConnectionString) {
@@ -171,6 +191,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $model->DBInstanceName = $map['DBInstanceName'];
         }
 
+        if (isset($map['EipStatus'])) {
+            $model->eipStatus = $map['EipStatus'];
+        }
+
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
@@ -181,6 +205,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['NatStatus'])) {
+            $model->natStatus = $map['NatStatus'];
         }
 
         if (isset($map['PublicConnectionString'])) {
