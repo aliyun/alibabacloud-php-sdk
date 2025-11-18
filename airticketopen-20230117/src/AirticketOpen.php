@@ -80,6 +80,10 @@ use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchResponse;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\SearchShrinkRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchHeaders;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchRequest;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchResponse;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchShrinkRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingCheckHeaders;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingCheckRequest;
 use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\TicketingCheckResponse;
@@ -748,7 +752,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签-Detail.
+     * Change-Detail.
      *
      * @param request - ChangeDetailRequest
      * @param headers - ChangeDetailHeaders
@@ -803,7 +807,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签-Detail.
+     * Change-Detail.
      *
      * @param request - ChangeDetailRequest
      *
@@ -1653,7 +1657,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Trade - Seat and Price Verification.
+     * Transaction - Seat and Price Verification.
      *
      * @remarks
      * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
@@ -1711,7 +1715,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Trade - Seat and Price Verification.
+     * Transaction - Seat and Price Verification.
      *
      * @remarks
      * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
@@ -1733,10 +1737,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 退票-申请.
-     *
-     * @remarks
-     * Apply for a refund and generate a refund order.
+     * Ticket Refund - Application.
      *
      * @param tmpReq - RefundApplyRequest
      * @param headers - RefundApplyHeaders
@@ -1817,10 +1818,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 退票-申请.
-     *
-     * @remarks
-     * Apply for a refund and generate a refund order.
+     * Ticket Refund - Application.
      *
      * @param request - RefundApplyRequest
      *
@@ -1840,9 +1838,6 @@ class AirticketOpen extends OpenApiClient
 
     /**
      * Refund - Detail.
-     *
-     * @remarks
-     * Query refund order detail.
      *
      * @param request - RefundDetailRequest
      * @param headers - RefundDetailHeaders
@@ -1899,9 +1894,6 @@ class AirticketOpen extends OpenApiClient
     /**
      * Refund - Detail.
      *
-     * @remarks
-     * Query refund order detail.
-     *
      * @param request - RefundDetailRequest
      *
      * @returns RefundDetailResponse
@@ -1920,9 +1912,6 @@ class AirticketOpen extends OpenApiClient
 
     /**
      * Refund - Detail List.
-     *
-     * @remarks
-     * Query refund order detail.
      *
      * @param request - RefundDetailListRequest
      * @param headers - RefundDetailListHeaders
@@ -1995,9 +1984,6 @@ class AirticketOpen extends OpenApiClient
     /**
      * Refund - Detail List.
      *
-     * @remarks
-     * Query refund order detail.
-     *
      * @param request - RefundDetailListRequest
      *
      * @returns RefundDetailListResponse
@@ -2015,7 +2001,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * search.
+     * Search.
      *
      * @remarks
      * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
@@ -2103,7 +2089,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * search.
+     * Search.
      *
      * @remarks
      * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
@@ -2122,6 +2108,110 @@ class AirticketOpen extends OpenApiClient
         $headers = new SearchHeaders([]);
 
         return $this->searchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 标准搜索.
+     *
+     * @param tmpReq - StandardSearchRequest
+     * @param headers - StandardSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StandardSearchResponse
+     *
+     * @param StandardSearchRequest $tmpReq
+     * @param StandardSearchHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StandardSearchResponse
+     */
+    public function standardSearchWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StandardSearchShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->airLegs) {
+            $request->airLegsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->airLegs, 'air_legs', 'json');
+        }
+
+        if (null !== $tmpReq->searchControlOptions) {
+            $request->searchControlOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchControlOptions, 'search_control_options', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->adults) {
+            @$body['adults'] = $request->adults;
+        }
+
+        if (null !== $request->airLegsShrink) {
+            @$body['air_legs'] = $request->airLegsShrink;
+        }
+
+        if (null !== $request->cabinClass) {
+            @$body['cabin_class'] = $request->cabinClass;
+        }
+
+        if (null !== $request->children) {
+            @$body['children'] = $request->children;
+        }
+
+        if (null !== $request->infants) {
+            @$body['infants'] = $request->infants;
+        }
+
+        if (null !== $request->searchControlOptionsShrink) {
+            @$body['search_control_options'] = $request->searchControlOptionsShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAirticketAccessToken) {
+            @$realHeaders['x-acs-airticket-access-token'] = '' . $headers->xAcsAirticketAccessToken;
+        }
+
+        if (null !== $headers->xAcsAirticketLanguage) {
+            @$realHeaders['x-acs-airticket-language'] = '' . $headers->xAcsAirticketLanguage;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StandardSearch',
+            'version' => '2023-01-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/airticket/v1/trade/action-standardsearch',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StandardSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 标准搜索.
+     *
+     * @param request - StandardSearchRequest
+     *
+     * @returns StandardSearchResponse
+     *
+     * @param StandardSearchRequest $request
+     *
+     * @return StandardSearchResponse
+     */
+    public function standardSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StandardSearchHeaders([]);
+
+        return $this->standardSearchWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -2,16 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingResponseBody\data;
+namespace AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingResponseBody\data\solution\journeyList;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingResponseBody\data\solution\segmentBaggageCheckInInfoList;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingResponseBody\data\solution\segmentBaggageMappingList;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingResponseBody\data\solution\segmentRefundChangeRuleMappingList;
-use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\PricingResponseBody\data\solution\solutionAttribute;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchResponseBody\data\solutionList\journeyList;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchResponseBody\data\solutionList\segmentBaggageCheckInInfoList;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchResponseBody\data\solutionList\segmentBaggageMappingList;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchResponseBody\data\solutionList\segmentRefundChangeRuleMappingList;
+use AlibabaCloud\SDK\AirticketOpen\V20230117\Models\StandardSearchResponseBody\data\solutionList\solutionAttribute;
 
-class solution extends Model
+class solutionList extends Model
 {
     /**
      * @var float
