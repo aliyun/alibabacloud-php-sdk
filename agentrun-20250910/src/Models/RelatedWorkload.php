@@ -11,21 +11,21 @@ class RelatedWorkload extends Model
     /**
      * @var string
      */
-    public $workloadId;
+    public $resourceId;
 
     /**
      * @var string
      */
-    public $workloadName;
+    public $resourceName;
 
     /**
      * @var string
      */
-    public $workloadType;
+    public $resourceType;
     protected $_name = [
-        'workloadId' => 'workloadId',
-        'workloadName' => 'workloadName',
-        'workloadType' => 'workloadType',
+        'resourceId' => 'resourceId',
+        'resourceName' => 'resourceName',
+        'resourceType' => 'resourceType',
     ];
 
     public function validate()
@@ -36,16 +36,16 @@ class RelatedWorkload extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->workloadId) {
-            $res['workloadId'] = $this->workloadId;
+        if (null !== $this->resourceId) {
+            $res['resourceId'] = $this->resourceId;
         }
 
-        if (null !== $this->workloadName) {
-            $res['workloadName'] = $this->workloadName;
+        if (null !== $this->resourceName) {
+            $res['resourceName'] = $this->resourceName;
         }
 
-        if (null !== $this->workloadType) {
-            $res['workloadType'] = $this->workloadType;
+        if (null !== $this->resourceType) {
+            $res['resourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -59,16 +59,16 @@ class RelatedWorkload extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['workloadId'])) {
-            $model->workloadId = $map['workloadId'];
+        if (isset($map['resourceId'])) {
+            $model->resourceId = $map['resourceId'];
         }
 
-        if (isset($map['workloadName'])) {
-            $model->workloadName = $map['workloadName'];
+        if (isset($map['resourceName'])) {
+            $model->resourceName = $map['resourceName'];
         }
 
-        if (isset($map['workloadType'])) {
-            $model->workloadType = $map['workloadType'];
+        if (isset($map['resourceType'])) {
+            $model->resourceType = $map['resourceType'];
         }
 
         return $model;

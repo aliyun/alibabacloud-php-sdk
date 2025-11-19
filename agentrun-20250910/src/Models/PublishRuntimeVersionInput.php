@@ -12,8 +12,14 @@ class PublishRuntimeVersionInput extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $publisher;
     protected $_name = [
         'description' => 'description',
+        'publisher' => 'publisher',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class PublishRuntimeVersionInput extends Model
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->publisher) {
+            $res['publisher'] = $this->publisher;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class PublishRuntimeVersionInput extends Model
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['publisher'])) {
+            $model->publisher = $map['publisher'];
         }
 
         return $model;

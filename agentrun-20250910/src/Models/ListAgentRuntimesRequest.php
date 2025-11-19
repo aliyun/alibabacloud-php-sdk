@@ -22,10 +22,16 @@ class ListAgentRuntimesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $searchMode;
     protected $_name = [
         'agentRuntimeName' => 'agentRuntimeName',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'searchMode' => 'searchMode',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->searchMode) {
+            $res['searchMode'] = $this->searchMode;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['searchMode'])) {
+            $model->searchMode = $map['searchMode'];
         }
 
         return $model;

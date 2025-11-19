@@ -26,11 +26,23 @@ class CodeConfiguration extends Model
     /**
      * @var string
      */
+    public $ossBucketName;
+
+    /**
+     * @var string
+     */
+    public $ossObjectName;
+
+    /**
+     * @var string
+     */
     public $zipFile;
     protected $_name = [
         'checksum' => 'checksum',
         'command' => 'command',
         'language' => 'language',
+        'ossBucketName' => 'ossBucketName',
+        'ossObjectName' => 'ossObjectName',
         'zipFile' => 'zipFile',
     ];
 
@@ -62,6 +74,14 @@ class CodeConfiguration extends Model
 
         if (null !== $this->language) {
             $res['language'] = $this->language;
+        }
+
+        if (null !== $this->ossBucketName) {
+            $res['ossBucketName'] = $this->ossBucketName;
+        }
+
+        if (null !== $this->ossObjectName) {
+            $res['ossObjectName'] = $this->ossObjectName;
         }
 
         if (null !== $this->zipFile) {
@@ -96,6 +116,14 @@ class CodeConfiguration extends Model
 
         if (isset($map['language'])) {
             $model->language = $map['language'];
+        }
+
+        if (isset($map['ossBucketName'])) {
+            $model->ossBucketName = $map['ossBucketName'];
+        }
+
+        if (isset($map['ossObjectName'])) {
+            $model->ossObjectName = $map['ossObjectName'];
         }
 
         if (isset($map['zipFile'])) {

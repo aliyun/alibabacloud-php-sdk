@@ -36,6 +36,11 @@ class UpdateAgentRuntimeInput extends Model
     /**
      * @var string
      */
+    public $credentialName;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -93,6 +98,7 @@ class UpdateAgentRuntimeInput extends Model
         'codeConfiguration' => 'codeConfiguration',
         'containerConfiguration' => 'containerConfiguration',
         'cpu' => 'cpu',
+        'credentialName' => 'credentialName',
         'description' => 'description',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
@@ -153,6 +159,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->credentialName) {
+            $res['credentialName'] = $this->credentialName;
         }
 
         if (null !== $this->description) {
@@ -233,6 +243,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
+        }
+
+        if (isset($map['credentialName'])) {
+            $model->credentialName = $map['credentialName'];
         }
 
         if (isset($map['description'])) {

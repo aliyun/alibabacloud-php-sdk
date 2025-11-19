@@ -16,22 +16,32 @@ class CredentialListItem extends Model
     /**
      * @var string
      */
-    public $id;
+    public $credentialAuthType;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var RelatedWorkload[]
-     */
-    public $relatedWorloads;
+    public $credentialId;
 
     /**
      * @var string
      */
-    public $type;
+    public $credentialName;
+
+    /**
+     * @var string
+     */
+    public $credentialSourceType;
+
+    /**
+     * @var bool
+     */
+    public $enabled;
+
+    /**
+     * @var int
+     */
+    public $relatedResourceCount;
 
     /**
      * @var string
@@ -39,18 +49,17 @@ class CredentialListItem extends Model
     public $updatedAt;
     protected $_name = [
         'createdAt' => 'createdAt',
-        'id' => 'id',
-        'name' => 'name',
-        'relatedWorloads' => 'relatedWorloads',
-        'type' => 'type',
+        'credentialAuthType' => 'credentialAuthType',
+        'credentialId' => 'credentialId',
+        'credentialName' => 'credentialName',
+        'credentialSourceType' => 'credentialSourceType',
+        'enabled' => 'enabled',
+        'relatedResourceCount' => 'relatedResourceCount',
         'updatedAt' => 'updatedAt',
     ];
 
     public function validate()
     {
-        if (\is_array($this->relatedWorloads)) {
-            Model::validateArray($this->relatedWorloads);
-        }
         parent::validate();
     }
 
@@ -61,27 +70,28 @@ class CredentialListItem extends Model
             $res['createdAt'] = $this->createdAt;
         }
 
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
+        if (null !== $this->credentialAuthType) {
+            $res['credentialAuthType'] = $this->credentialAuthType;
         }
 
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->credentialId) {
+            $res['credentialId'] = $this->credentialId;
         }
 
-        if (null !== $this->relatedWorloads) {
-            if (\is_array($this->relatedWorloads)) {
-                $res['relatedWorloads'] = [];
-                $n1 = 0;
-                foreach ($this->relatedWorloads as $item1) {
-                    $res['relatedWorloads'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->credentialName) {
+            $res['credentialName'] = $this->credentialName;
         }
 
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->credentialSourceType) {
+            $res['credentialSourceType'] = $this->credentialSourceType;
+        }
+
+        if (null !== $this->enabled) {
+            $res['enabled'] = $this->enabled;
+        }
+
+        if (null !== $this->relatedResourceCount) {
+            $res['relatedResourceCount'] = $this->relatedResourceCount;
         }
 
         if (null !== $this->updatedAt) {
@@ -103,27 +113,28 @@ class CredentialListItem extends Model
             $model->createdAt = $map['createdAt'];
         }
 
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
+        if (isset($map['credentialAuthType'])) {
+            $model->credentialAuthType = $map['credentialAuthType'];
         }
 
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['credentialId'])) {
+            $model->credentialId = $map['credentialId'];
         }
 
-        if (isset($map['relatedWorloads'])) {
-            if (!empty($map['relatedWorloads'])) {
-                $model->relatedWorloads = [];
-                $n1 = 0;
-                foreach ($map['relatedWorloads'] as $item1) {
-                    $model->relatedWorloads[$n1] = RelatedWorkload::fromMap($item1);
-                    ++$n1;
-                }
-            }
+        if (isset($map['credentialName'])) {
+            $model->credentialName = $map['credentialName'];
         }
 
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['credentialSourceType'])) {
+            $model->credentialSourceType = $map['credentialSourceType'];
+        }
+
+        if (isset($map['enabled'])) {
+            $model->enabled = $map['enabled'];
+        }
+
+        if (isset($map['relatedResourceCount'])) {
+            $model->relatedResourceCount = $map['relatedResourceCount'];
         }
 
         if (isset($map['updatedAt'])) {

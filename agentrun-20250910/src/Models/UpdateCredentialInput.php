@@ -9,9 +9,14 @@ use AlibabaCloud\Dara\Model;
 class UpdateCredentialInput extends Model
 {
     /**
-     * @var string[]
+     * @var CredentialPublicConfig
      */
-    public $config;
+    public $credentialPublicConfig;
+
+    /**
+     * @var string
+     */
+    public $credentialSecret;
 
     /**
      * @var string
@@ -19,31 +24,20 @@ class UpdateCredentialInput extends Model
     public $description;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $secret;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $enabled;
     protected $_name = [
-        'config' => 'config',
+        'credentialPublicConfig' => 'credentialPublicConfig',
+        'credentialSecret' => 'credentialSecret',
         'description' => 'description',
-        'name' => 'name',
-        'secret' => 'secret',
-        'type' => 'type',
+        'enabled' => 'enabled',
     ];
 
     public function validate()
     {
-        if (\is_array($this->config)) {
-            Model::validateArray($this->config);
+        if (null !== $this->credentialPublicConfig) {
+            $this->credentialPublicConfig->validate();
         }
         parent::validate();
     }
@@ -51,29 +45,20 @@ class UpdateCredentialInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->config) {
-            if (\is_array($this->config)) {
-                $res['config'] = [];
-                foreach ($this->config as $key1 => $value1) {
-                    $res['config'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->credentialPublicConfig) {
+            $res['credentialPublicConfig'] = null !== $this->credentialPublicConfig ? $this->credentialPublicConfig->toArray($noStream) : $this->credentialPublicConfig;
+        }
+
+        if (null !== $this->credentialSecret) {
+            $res['credentialSecret'] = $this->credentialSecret;
         }
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
 
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-
-        if (null !== $this->secret) {
-            $res['secret'] = $this->secret;
-        }
-
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->enabled) {
+            $res['enabled'] = $this->enabled;
         }
 
         return $res;
@@ -87,29 +72,20 @@ class UpdateCredentialInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['config'])) {
-            if (!empty($map['config'])) {
-                $model->config = [];
-                foreach ($map['config'] as $key1 => $value1) {
-                    $model->config[$key1] = $value1;
-                }
-            }
+        if (isset($map['credentialPublicConfig'])) {
+            $model->credentialPublicConfig = CredentialPublicConfig::fromMap($map['credentialPublicConfig']);
+        }
+
+        if (isset($map['credentialSecret'])) {
+            $model->credentialSecret = $map['credentialSecret'];
         }
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
 
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-
-        if (isset($map['secret'])) {
-            $model->secret = $map['secret'];
-        }
-
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['enabled'])) {
+            $model->enabled = $map['enabled'];
         }
 
         return $model;

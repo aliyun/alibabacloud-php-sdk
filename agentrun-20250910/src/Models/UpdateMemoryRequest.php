@@ -14,11 +14,6 @@ class UpdateMemoryRequest extends Model
     public $longTtl;
 
     /**
-     * @var bool
-     */
-    public $permanent;
-
-    /**
      * @var int
      */
     public $shortTtl;
@@ -29,7 +24,6 @@ class UpdateMemoryRequest extends Model
     public $strategy;
     protected $_name = [
         'longTtl' => 'longTtl',
-        'permanent' => 'permanent',
         'shortTtl' => 'shortTtl',
         'strategy' => 'strategy',
     ];
@@ -47,10 +41,6 @@ class UpdateMemoryRequest extends Model
         $res = [];
         if (null !== $this->longTtl) {
             $res['longTtl'] = $this->longTtl;
-        }
-
-        if (null !== $this->permanent) {
-            $res['permanent'] = $this->permanent;
         }
 
         if (null !== $this->shortTtl) {
@@ -81,10 +71,6 @@ class UpdateMemoryRequest extends Model
         $model = new self();
         if (isset($map['longTtl'])) {
             $model->longTtl = $map['longTtl'];
-        }
-
-        if (isset($map['permanent'])) {
-            $model->permanent = $map['permanent'];
         }
 
         if (isset($map['shortTtl'])) {

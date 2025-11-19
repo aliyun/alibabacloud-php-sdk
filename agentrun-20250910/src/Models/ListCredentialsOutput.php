@@ -9,14 +9,14 @@ use AlibabaCloud\Dara\Model;
 class ListCredentialsOutput extends Model
 {
     /**
-     * @var CredentialListItem
+     * @var CredentialListItem[]
      */
     public $items;
 
     /**
      * @var string
      */
-    public $pageNum;
+    public $pageNumber;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class ListCredentialsOutput extends Model
     public $total;
     protected $_name = [
         'items' => 'items',
-        'pageNum' => 'pageNum',
+        'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'total' => 'total',
     ];
 
     public function validate()
     {
-        if (null !== $this->items) {
-            $this->items->validate();
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
         }
         parent::validate();
     }
@@ -46,11 +46,18 @@ class ListCredentialsOutput extends Model
     {
         $res = [];
         if (null !== $this->items) {
-            $res['items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
+            if (\is_array($this->items)) {
+                $res['items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
-        if (null !== $this->pageNum) {
-            $res['pageNum'] = $this->pageNum;
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
         }
 
         if (null !== $this->pageSize) {
@@ -73,11 +80,18 @@ class ListCredentialsOutput extends Model
     {
         $model = new self();
         if (isset($map['items'])) {
-            $model->items = CredentialListItem::fromMap($map['items']);
+            if (!empty($map['items'])) {
+                $model->items = [];
+                $n1 = 0;
+                foreach ($map['items'] as $item1) {
+                    $model->items[$n1] = CredentialListItem::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
-        if (isset($map['pageNum'])) {
-            $model->pageNum = $map['pageNum'];
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
         }
 
         if (isset($map['pageSize'])) {

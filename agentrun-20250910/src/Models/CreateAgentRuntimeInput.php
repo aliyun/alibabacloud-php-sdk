@@ -41,6 +41,11 @@ class CreateAgentRuntimeInput extends Model
     /**
      * @var string
      */
+    public $credentialName;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -99,6 +104,7 @@ class CreateAgentRuntimeInput extends Model
         'containerConfiguration' => 'containerConfiguration',
         'cpu' => 'cpu',
         'credentialId' => 'credentialId',
+        'credentialName' => 'credentialName',
         'description' => 'description',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
@@ -163,6 +169,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (null !== $this->credentialId) {
             $res['credentialId'] = $this->credentialId;
+        }
+
+        if (null !== $this->credentialName) {
+            $res['credentialName'] = $this->credentialName;
         }
 
         if (null !== $this->description) {
@@ -247,6 +257,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (isset($map['credentialId'])) {
             $model->credentialId = $map['credentialId'];
+        }
+
+        if (isset($map['credentialName'])) {
+            $model->credentialName = $map['credentialName'];
         }
 
         if (isset($map['description'])) {

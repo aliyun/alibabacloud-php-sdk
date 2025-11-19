@@ -19,11 +19,6 @@ class CreateMemoryRequest extends Model
     public $name;
 
     /**
-     * @var bool
-     */
-    public $permanent;
-
-    /**
      * @var int
      */
     public $shortTtl;
@@ -35,7 +30,6 @@ class CreateMemoryRequest extends Model
     protected $_name = [
         'longTtl' => 'longTtl',
         'name' => 'name',
-        'permanent' => 'permanent',
         'shortTtl' => 'shortTtl',
         'strategy' => 'strategy',
     ];
@@ -57,10 +51,6 @@ class CreateMemoryRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
-        }
-
-        if (null !== $this->permanent) {
-            $res['permanent'] = $this->permanent;
         }
 
         if (null !== $this->shortTtl) {
@@ -95,10 +85,6 @@ class CreateMemoryRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
-        }
-
-        if (isset($map['permanent'])) {
-            $model->permanent = $map['permanent'];
         }
 
         if (isset($map['shortTtl'])) {

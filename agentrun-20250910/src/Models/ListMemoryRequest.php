@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class ListMemoryRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $namePrefix;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -22,10 +17,15 @@ class ListMemoryRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $pattern;
     protected $_name = [
-        'namePrefix' => 'namePrefix',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'pattern' => 'pattern',
     ];
 
     public function validate()
@@ -36,16 +36,16 @@ class ListMemoryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->namePrefix) {
-            $res['namePrefix'] = $this->namePrefix;
-        }
-
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->pattern) {
+            $res['pattern'] = $this->pattern;
         }
 
         return $res;
@@ -59,16 +59,16 @@ class ListMemoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['namePrefix'])) {
-            $model->namePrefix = $map['namePrefix'];
-        }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['pattern'])) {
+            $model->pattern = $map['pattern'];
         }
 
         return $model;

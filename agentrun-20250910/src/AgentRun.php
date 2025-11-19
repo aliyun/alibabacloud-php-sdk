@@ -375,10 +375,6 @@ class AgentRun extends OpenApiClient
             @$body['name'] = $request->name;
         }
 
-        if (null !== $request->permanent) {
-            @$body['permanent'] = $request->permanent;
-        }
-
         if (null !== $request->shortTtl) {
             @$body['shortTtl'] = $request->shortTtl;
         }
@@ -1235,6 +1231,10 @@ class AgentRun extends OpenApiClient
             @$query['pageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->searchMode) {
+            @$query['searchMode'] = $request->searchMode;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -1376,6 +1376,10 @@ class AgentRun extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchMode) {
+            @$query['searchMode'] = $request->searchMode;
         }
 
         $req = new OpenApiRequest([
@@ -1592,16 +1596,16 @@ class AgentRun extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->namePrefix) {
-            @$query['namePrefix'] = $request->namePrefix;
-        }
-
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pattern) {
+            @$query['pattern'] = $request->pattern;
         }
 
         $req = new OpenApiRequest([
@@ -2089,10 +2093,6 @@ class AgentRun extends OpenApiClient
         $body = [];
         if (null !== $request->longTtl) {
             @$body['longTtl'] = $request->longTtl;
-        }
-
-        if (null !== $request->permanent) {
-            @$body['permanent'] = $request->permanent;
         }
 
         if (null !== $request->shortTtl) {
