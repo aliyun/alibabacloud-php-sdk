@@ -1,3 +1,12 @@
+2025-11-19 Version: 2.7.0
+- Support API CreateSecurityIPGroup.
+- Support API DeleteSecurityIPGroup.
+- Support API DescribeSecurityIPGroup.
+- Support API DescribeSecurityIPGroupRelation.
+- Support API ModifySecurityIPGroup.
+- Support API ModifySecurityIPGroupRelation.
+
+
 2025-11-06 Version: 2.6.2
 - Generated php 2020-01-16 for DAS.
 

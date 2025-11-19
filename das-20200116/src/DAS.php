@@ -23,12 +23,16 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\CreateQueryOptimizeTagRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateQueryOptimizeTagResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateRequestDiagnosisRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateRequestDiagnosisResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\CreateSecurityIPGroupRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\CreateSecurityIPGroupResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateSqlLogTaskRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateSqlLogTaskResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateStorageAnalysisTaskRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateStorageAnalysisTaskResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteCloudBenchTaskRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteCloudBenchTaskResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteSecurityIPGroupRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteSecurityIPGroupResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteStopGatewayRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteStopGatewayResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeAutoScalingConfigRequest;
@@ -57,6 +61,10 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeInstanceDasProRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeInstanceDasProResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeQueryExplainRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeQueryExplainResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSecurityIPGroupRelationRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSecurityIPGroupRelationResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSecurityIPGroupRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSecurityIPGroupResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSlowLogHistogramAsyncRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSlowLogHistogramAsyncResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSlowLogRecordsRequest;
@@ -201,6 +209,10 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\KillInstanceAllSessionRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\KillInstanceAllSessionResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\ModifyAutoScalingConfigRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\ModifyAutoScalingConfigResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\ModifySecurityIPGroupRelationRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\ModifySecurityIPGroupRelationResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\ModifySecurityIPGroupRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\ModifySecurityIPGroupResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\ModifySqlLogConfigRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\ModifySqlLogConfigResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\RunCloudBenchTaskRequest;
@@ -1127,6 +1139,71 @@ class DAS extends OpenApiClient
     }
 
     /**
+     * 创建用户跨产品白名单模板
+     *
+     * @param request - CreateSecurityIPGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecurityIPGroupResponse
+     *
+     * @param CreateSecurityIPGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateSecurityIPGroupResponse
+     */
+    public function createSecurityIPGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->GIpList) {
+            @$query['GIpList'] = $request->GIpList;
+        }
+
+        if (null !== $request->globalIgName) {
+            @$query['GlobalIgName'] = $request->globalIgName;
+        }
+
+        if (null !== $request->regionName) {
+            @$query['RegionName'] = $request->regionName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSecurityIPGroup',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建用户跨产品白名单模板
+     *
+     * @param request - CreateSecurityIPGroupRequest
+     *
+     * @returns CreateSecurityIPGroupResponse
+     *
+     * @param CreateSecurityIPGroupRequest $request
+     *
+     * @return CreateSecurityIPGroupResponse
+     */
+    public function createSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
      *
      * @remarks
@@ -1367,6 +1444,67 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCloudBenchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除用户跨产品白名单模板
+     *
+     * @param request - DeleteSecurityIPGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecurityIPGroupResponse
+     *
+     * @param DeleteSecurityIPGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteSecurityIPGroupResponse
+     */
+    public function deleteSecurityIPGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->globalSecurityGroupId) {
+            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+
+        if (null !== $request->regionName) {
+            @$query['RegionName'] = $request->regionName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecurityIPGroup',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除用户跨产品白名单模板
+     *
+     * @param request - DeleteSecurityIPGroupRequest
+     *
+     * @returns DeleteSecurityIPGroupResponse
+     *
+     * @param DeleteSecurityIPGroupRequest $request
+     *
+     * @return DeleteSecurityIPGroupResponse
+     */
+    public function deleteSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityIPGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2413,6 +2551,124 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeQueryExplainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 展示用户跨产品白名单模板具体信息.
+     *
+     * @param request - DescribeSecurityIPGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityIPGroupResponse
+     *
+     * @param DescribeSecurityIPGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSecurityIPGroupResponse
+     */
+    public function describeSecurityIPGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionName) {
+            @$query['RegionName'] = $request->regionName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSecurityIPGroup',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 展示用户跨产品白名单模板具体信息.
+     *
+     * @param request - DescribeSecurityIPGroupRequest
+     *
+     * @returns DescribeSecurityIPGroupResponse
+     *
+     * @param DescribeSecurityIPGroupRequest $request
+     *
+     * @return DescribeSecurityIPGroupResponse
+     */
+    public function describeSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 展示用户跨产品白名单模板与实例绑定信息.
+     *
+     * @param request - DescribeSecurityIPGroupRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityIPGroupRelationResponse
+     *
+     * @param DescribeSecurityIPGroupRelationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSecurityIPGroupRelationResponse
+     */
+    public function describeSecurityIPGroupRelationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionName) {
+            @$query['RegionName'] = $request->regionName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSecurityIPGroupRelation',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 展示用户跨产品白名单模板与实例绑定信息.
+     *
+     * @param request - DescribeSecurityIPGroupRelationRequest
+     *
+     * @returns DescribeSecurityIPGroupRelationResponse
+     *
+     * @param DescribeSecurityIPGroupRelationRequest $request
+     *
+     * @return DescribeSecurityIPGroupRelationResponse
+     */
+    public function describeSecurityIPGroupRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityIPGroupRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -8592,6 +8848,140 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAutoScalingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改用户跨产品白名单模板
+     *
+     * @param request - ModifySecurityIPGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySecurityIPGroupResponse
+     *
+     * @param ModifySecurityIPGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifySecurityIPGroupResponse
+     */
+    public function modifySecurityIPGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->GIpList) {
+            @$query['GIpList'] = $request->GIpList;
+        }
+
+        if (null !== $request->globalIgName) {
+            @$query['GlobalIgName'] = $request->globalIgName;
+        }
+
+        if (null !== $request->globalSecurityGroupId) {
+            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+
+        if (null !== $request->regionName) {
+            @$query['RegionName'] = $request->regionName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySecurityIPGroup',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改用户跨产品白名单模板
+     *
+     * @param request - ModifySecurityIPGroupRequest
+     *
+     * @returns ModifySecurityIPGroupResponse
+     *
+     * @param ModifySecurityIPGroupRequest $request
+     *
+     * @return ModifySecurityIPGroupResponse
+     */
+    public function modifySecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 绑定/解绑用户跨产品白名单模板
+     *
+     * @param request - ModifySecurityIPGroupRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySecurityIPGroupRelationResponse
+     *
+     * @param ModifySecurityIPGroupRelationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifySecurityIPGroupRelationResponse
+     */
+    public function modifySecurityIPGroupRelationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->globalSecurityGroupId) {
+            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionName) {
+            @$query['RegionName'] = $request->regionName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySecurityIPGroupRelation',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 绑定/解绑用户跨产品白名单模板
+     *
+     * @param request - ModifySecurityIPGroupRelationRequest
+     *
+     * @returns ModifySecurityIPGroupRelationResponse
+     *
+     * @param ModifySecurityIPGroupRelationRequest $request
+     *
+     * @return ModifySecurityIPGroupRelationResponse
+     */
+    public function modifySecurityIPGroupRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySecurityIPGroupRelationWithOptions($request, $runtime);
     }
 
     /**

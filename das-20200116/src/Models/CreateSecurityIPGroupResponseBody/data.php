@@ -1,0 +1,66 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\DAS\V20200116\Models\CreateSecurityIPGroupResponseBody;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\DAS\V20200116\Models\CreateSecurityIPGroupResponseBody\data\globalSecurityIPGroup;
+
+class data extends Model
+{
+    /**
+     * @var globalSecurityIPGroup[]
+     */
+    public $globalSecurityIPGroup;
+    protected $_name = [
+        'globalSecurityIPGroup' => 'GlobalSecurityIPGroup',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->globalSecurityIPGroup)) {
+            Model::validateArray($this->globalSecurityIPGroup);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->globalSecurityIPGroup) {
+            if (\is_array($this->globalSecurityIPGroup)) {
+                $res['GlobalSecurityIPGroup'] = [];
+                $n1 = 0;
+                foreach ($this->globalSecurityIPGroup as $item1) {
+                    $res['GlobalSecurityIPGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['GlobalSecurityIPGroup'])) {
+            if (!empty($map['GlobalSecurityIPGroup'])) {
+                $model->globalSecurityIPGroup = [];
+                $n1 = 0;
+                foreach ($map['GlobalSecurityIPGroup'] as $item1) {
+                    $model->globalSecurityIPGroup[$n1] = globalSecurityIPGroup::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        return $model;
+    }
+}
