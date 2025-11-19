@@ -33,6 +33,11 @@ class mezzanine extends Model
     /**
      * @var string
      */
+    public $fileMD5;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
@@ -104,6 +109,7 @@ class mezzanine extends Model
         'bitrate' => 'Bitrate',
         'creationTime' => 'CreationTime',
         'duration' => 'Duration',
+        'fileMD5' => 'FileMD5',
         'fileName' => 'FileName',
         'fileURL' => 'FileURL',
         'fps' => 'Fps',
@@ -155,6 +161,10 @@ class mezzanine extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->fileMD5) {
+            $res['FileMD5'] = $this->fileMD5;
         }
 
         if (null !== $this->fileName) {
@@ -252,6 +262,10 @@ class mezzanine extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['FileMD5'])) {
+            $model->fileMD5 = $map['FileMD5'];
         }
 
         if (isset($map['FileName'])) {
