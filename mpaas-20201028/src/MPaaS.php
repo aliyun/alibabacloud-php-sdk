@@ -8499,6 +8499,11 @@ class MPaaS extends OpenApiClient
     public function startUserAppAsyncEnhanceInMsaWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->newShieldConfig) {
+            @$query['NewShieldConfig'] = $request->newShieldConfig;
+        }
+
         $body = [];
         if (null !== $request->apkProtector) {
             @$body['ApkProtector'] = $request->apkProtector;
@@ -8576,11 +8581,16 @@ class MPaaS extends OpenApiClient
             @$body['UseAShield'] = $request->useAShield;
         }
 
+        if (null !== $request->useYShield) {
+            @$body['UseYShield'] = $request->useYShield;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -9250,6 +9260,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->tenantId) {
             @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->useYShield) {
+            @$body['UseYShield'] = $request->useYShield;
         }
 
         if (null !== $request->workspaceId) {

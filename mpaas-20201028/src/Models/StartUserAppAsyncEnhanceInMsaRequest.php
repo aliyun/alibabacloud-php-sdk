@@ -64,6 +64,11 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
     public $nativeHook;
 
     /**
+     * @var string
+     */
+    public $newShieldConfig;
+
+    /**
      * @var int
      */
     public $packageTampered;
@@ -104,6 +109,11 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
     public $useAShield;
 
     /**
+     * @var bool
+     */
+    public $useYShield;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -119,6 +129,7 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
         'memoryDump' => 'MemoryDump',
         'nativeDebugger' => 'NativeDebugger',
         'nativeHook' => 'NativeHook',
+        'newShieldConfig' => 'NewShieldConfig',
         'packageTampered' => 'PackageTampered',
         'root' => 'Root',
         'runMode' => 'RunMode',
@@ -127,6 +138,7 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
         'tenantId' => 'TenantId',
         'totalSwitch' => 'TotalSwitch',
         'useAShield' => 'UseAShield',
+        'useYShield' => 'UseYShield',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -182,6 +194,10 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
             $res['NativeHook'] = $this->nativeHook;
         }
 
+        if (null !== $this->newShieldConfig) {
+            $res['NewShieldConfig'] = $this->newShieldConfig;
+        }
+
         if (null !== $this->packageTampered) {
             $res['PackageTampered'] = $this->packageTampered;
         }
@@ -212,6 +228,10 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
 
         if (null !== $this->useAShield) {
             $res['UseAShield'] = $this->useAShield;
+        }
+
+        if (null !== $this->useYShield) {
+            $res['UseYShield'] = $this->useYShield;
         }
 
         if (null !== $this->workspaceId) {
@@ -273,6 +293,10 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
             $model->nativeHook = $map['NativeHook'];
         }
 
+        if (isset($map['NewShieldConfig'])) {
+            $model->newShieldConfig = $map['NewShieldConfig'];
+        }
+
         if (isset($map['PackageTampered'])) {
             $model->packageTampered = $map['PackageTampered'];
         }
@@ -303,6 +327,10 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
 
         if (isset($map['UseAShield'])) {
             $model->useAShield = $map['UseAShield'];
+        }
+
+        if (isset($map['UseYShield'])) {
+            $model->useYShield = $map['UseYShield'];
         }
 
         if (isset($map['WorkspaceId'])) {

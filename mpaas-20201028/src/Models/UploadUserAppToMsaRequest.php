@@ -29,6 +29,11 @@ class UploadUserAppToMsaRequest extends Model
     public $tenantId;
 
     /**
+     * @var bool
+     */
+    public $useYShield;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -37,6 +42,7 @@ class UploadUserAppToMsaRequest extends Model
         'fileName' => 'FileName',
         'fileUrl' => 'FileUrl',
         'tenantId' => 'TenantId',
+        'useYShield' => 'UseYShield',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -62,6 +68,10 @@ class UploadUserAppToMsaRequest extends Model
 
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->useYShield) {
+            $res['UseYShield'] = $this->useYShield;
         }
 
         if (null !== $this->workspaceId) {
@@ -93,6 +103,10 @@ class UploadUserAppToMsaRequest extends Model
 
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+
+        if (isset($map['UseYShield'])) {
+            $model->useYShield = $map['UseYShield'];
         }
 
         if (isset($map['WorkspaceId'])) {
