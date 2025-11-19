@@ -83,6 +83,11 @@ class nodes extends Model
     /**
      * @var string
      */
+    public $nodeType;
+
+    /**
+     * @var string
+     */
     public $operatingState;
 
     /**
@@ -129,6 +134,7 @@ class nodes extends Model
         'nodeGroupId' => 'NodeGroupId',
         'nodeGroupName' => 'NodeGroupName',
         'nodeId' => 'NodeId',
+        'nodeType' => 'NodeType',
         'operatingState' => 'OperatingState',
         'sn' => 'Sn',
         'tags' => 'Tags',
@@ -213,6 +219,10 @@ class nodes extends Model
 
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         if (null !== $this->operatingState) {
@@ -322,6 +332,10 @@ class nodes extends Model
 
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         if (isset($map['OperatingState'])) {
