@@ -76,6 +76,11 @@ class RtcSipInviteMemberRequest extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $uid;
     protected $_name = [
         'appId' => 'AppId',
@@ -91,6 +96,7 @@ class RtcSipInviteMemberRequest extends Model
         'sipUserAgent' => 'SipUserAgent',
         'sipUserId' => 'SipUserId',
         'sipUserPassword' => 'SipUserPassword',
+        'taskId' => 'TaskId',
         'uid' => 'Uid',
     ];
 
@@ -152,6 +158,10 @@ class RtcSipInviteMemberRequest extends Model
 
         if (null !== $this->sipUserPassword) {
             $res['SipUserPassword'] = $this->sipUserPassword;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->uid) {
@@ -219,6 +229,10 @@ class RtcSipInviteMemberRequest extends Model
 
         if (isset($map['SipUserPassword'])) {
             $model->sipUserPassword = $map['SipUserPassword'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['Uid'])) {

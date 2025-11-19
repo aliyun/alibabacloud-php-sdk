@@ -7720,6 +7720,10 @@ class Rtc extends OpenApiClient
             @$query['SipUserPassword'] = $request->sipUserPassword;
         }
 
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
         if (null !== $request->uid) {
             @$query['Uid'] = $request->uid;
         }
