@@ -11,6 +11,11 @@ class ReCreateCloudResourceRequest extends Model
     /**
      * @var string
      */
+    public $cloudResourceId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -38,6 +43,7 @@ class ReCreateCloudResourceRequest extends Model
      */
     public $resourceProduct;
     protected $_name = [
+        'cloudResourceId' => 'CloudResourceId',
         'instanceId' => 'InstanceId',
         'port' => 'Port',
         'regionId' => 'RegionId',
@@ -54,6 +60,10 @@ class ReCreateCloudResourceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudResourceId) {
+            $res['CloudResourceId'] = $this->cloudResourceId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -89,6 +99,10 @@ class ReCreateCloudResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudResourceId'])) {
+            $model->cloudResourceId = $map['CloudResourceId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

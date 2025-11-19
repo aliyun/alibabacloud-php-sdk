@@ -11,6 +11,11 @@ class ModifyCloudResourceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $cloudResourceId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -33,6 +38,7 @@ class ModifyCloudResourceShrinkRequest extends Model
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
+        'cloudResourceId' => 'CloudResourceId',
         'instanceId' => 'InstanceId',
         'listenShrink' => 'Listen',
         'redirectShrink' => 'Redirect',
@@ -48,6 +54,10 @@ class ModifyCloudResourceShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudResourceId) {
+            $res['CloudResourceId'] = $this->cloudResourceId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -79,6 +89,10 @@ class ModifyCloudResourceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudResourceId'])) {
+            $model->cloudResourceId = $map['CloudResourceId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

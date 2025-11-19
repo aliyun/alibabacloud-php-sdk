@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesR
 class abnormalCloudResources extends Model
 {
     /**
+     * @var string
+     */
+    public $cloudResourceId;
+
+    /**
      * @var details[]
      */
     public $details;
@@ -39,6 +44,7 @@ class abnormalCloudResources extends Model
      */
     public $resourceProduct;
     protected $_name = [
+        'cloudResourceId' => 'CloudResourceId',
         'details' => 'Details',
         'reason' => 'Reason',
         'resourceInstanceId' => 'ResourceInstanceId',
@@ -58,6 +64,10 @@ class abnormalCloudResources extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudResourceId) {
+            $res['CloudResourceId'] = $this->cloudResourceId;
+        }
+
         if (null !== $this->details) {
             if (\is_array($this->details)) {
                 $res['Details'] = [];
@@ -100,6 +110,10 @@ class abnormalCloudResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudResourceId'])) {
+            $model->cloudResourceId = $map['CloudResourceId'];
+        }
+
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];

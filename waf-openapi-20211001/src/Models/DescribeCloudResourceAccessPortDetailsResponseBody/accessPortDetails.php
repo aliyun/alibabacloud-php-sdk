@@ -22,6 +22,11 @@ class accessPortDetails extends Model
     public $cipherSuite;
 
     /**
+     * @var string
+     */
+    public $cloudResourceId;
+
+    /**
      * @var string[]
      */
     public $customCiphers;
@@ -118,6 +123,7 @@ class accessPortDetails extends Model
     protected $_name = [
         'certificates' => 'Certificates',
         'cipherSuite' => 'CipherSuite',
+        'cloudResourceId' => 'CloudResourceId',
         'customCiphers' => 'CustomCiphers',
         'enableTLSv3' => 'EnableTLSv3',
         'http2Enabled' => 'Http2Enabled',
@@ -175,6 +181,10 @@ class accessPortDetails extends Model
 
         if (null !== $this->cipherSuite) {
             $res['CipherSuite'] = $this->cipherSuite;
+        }
+
+        if (null !== $this->cloudResourceId) {
+            $res['CloudResourceId'] = $this->cloudResourceId;
         }
 
         if (null !== $this->customCiphers) {
@@ -305,6 +315,10 @@ class accessPortDetails extends Model
 
         if (isset($map['CipherSuite'])) {
             $model->cipherSuite = $map['CipherSuite'];
+        }
+
+        if (isset($map['CloudResourceId'])) {
+            $model->cloudResourceId = $map['CloudResourceId'];
         }
 
         if (isset($map['CustomCiphers'])) {

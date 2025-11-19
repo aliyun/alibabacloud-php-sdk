@@ -17,6 +17,11 @@ class ModifyCloudResourceCertRequest extends Model
     /**
      * @var string
      */
+    public $cloudResourceId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -40,6 +45,7 @@ class ModifyCloudResourceCertRequest extends Model
     public $resourceProduct;
     protected $_name = [
         'certificates' => 'Certificates',
+        'cloudResourceId' => 'CloudResourceId',
         'instanceId' => 'InstanceId',
         'port' => 'Port',
         'regionId' => 'RegionId',
@@ -67,6 +73,10 @@ class ModifyCloudResourceCertRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->cloudResourceId) {
+            $res['CloudResourceId'] = $this->cloudResourceId;
         }
 
         if (null !== $this->instanceId) {
@@ -109,6 +119,10 @@ class ModifyCloudResourceCertRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['CloudResourceId'])) {
+            $model->cloudResourceId = $map['CloudResourceId'];
         }
 
         if (isset($map['InstanceId'])) {

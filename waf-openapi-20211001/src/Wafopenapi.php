@@ -2372,6 +2372,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cloudResourceId) {
+            @$query['CloudResourceId'] = $request->cloudResourceId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -14761,6 +14765,10 @@ class Wafopenapi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->cloudResourceId) {
+            @$query['CloudResourceId'] = $request->cloudResourceId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -14836,6 +14844,10 @@ class Wafopenapi extends OpenApiClient
         $query = [];
         if (null !== $request->certificates) {
             @$query['Certificates'] = $request->certificates;
+        }
+
+        if (null !== $request->cloudResourceId) {
+            @$query['CloudResourceId'] = $request->cloudResourceId;
         }
 
         if (null !== $request->instanceId) {
@@ -17337,6 +17349,10 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cloudResourceId) {
+            @$query['CloudResourceId'] = $request->cloudResourceId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
