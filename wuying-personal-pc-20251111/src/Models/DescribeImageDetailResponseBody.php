@@ -1,0 +1,108 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Wuyingpersonalpc\V20251111\Models;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wuyingpersonalpc\V20251111\Models\DescribeImageDetailResponseBody\data;
+
+class DescribeImageDetailResponseBody extends Model
+{
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $traceId;
+    protected $_name = [
+        'code' => 'Code',
+        'data' => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId' => 'RequestId',
+        'traceId' => 'TraceId',
+    ];
+
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+        }
+
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->traceId) {
+            $res['TraceId'] = $this->traceId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TraceId'])) {
+            $model->traceId = $map['TraceId'];
+        }
+
+        return $model;
+    }
+}
