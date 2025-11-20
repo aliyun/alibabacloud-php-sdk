@@ -93,6 +93,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayFeaturesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysShrinkRequest;
@@ -398,7 +399,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * CreateAndAttachPolicy.
+     * Creates and associates a policy.
      *
      * @param request - CreateAndAttachPolicyRequest
      * @param headers - map
@@ -468,7 +469,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * CreateAndAttachPolicy.
+     * Creates and associates a policy.
      *
      * @param request - CreateAndAttachPolicyRequest
      *
@@ -487,7 +488,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建消费者.
+     * Creates a consumer.
      *
      * @param request - CreateConsumerRequest
      * @param headers - map
@@ -553,7 +554,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建消费者.
+     * Creates a consumer.
      *
      * @param request - CreateConsumerRequest
      *
@@ -572,7 +573,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建消费者授权规则.
+     * Creates a consumer authorization rule.
      *
      * @param request - CreateConsumerAuthorizationRuleRequest
      * @param headers - map
@@ -631,7 +632,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建消费者授权规则.
+     * Creates a consumer authorization rule.
      *
      * @param request - CreateConsumerAuthorizationRuleRequest
      *
@@ -915,7 +916,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建云原生网关.
+     * Creates a cloud-native gateway.
      *
      * @param request - CreateGatewayRequest
      * @param headers - map
@@ -997,7 +998,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建云原生网关.
+     * Creates a cloud-native gateway.
      *
      * @param request - CreateGatewayRequest
      *
@@ -1291,7 +1292,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建MCP server.
+     * Creates an MCP server.
      *
      * @param request - CreateMcpServerRequest
      * @param headers - map
@@ -1377,7 +1378,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建MCP server.
+     * Creates an MCP server.
      *
      * @param request - CreateMcpServerRequest
      *
@@ -1396,7 +1397,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建API.
+     * Attaches a plug-in.
      *
      * @param request - CreatePluginAttachmentRequest
      * @param headers - map
@@ -1462,7 +1463,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建API.
+     * Attaches a plug-in.
      *
      * @param request - CreatePluginAttachmentRequest
      *
@@ -1710,7 +1711,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除消费者.
+     * Deletes a consumer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1744,7 +1745,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除消费者.
+     * Deletes a consumer.
      *
      * @returns DeleteConsumerResponse
      *
@@ -1761,7 +1762,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除消费者授权规则.
+     * Deletes a consumer authorization rule.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1796,7 +1797,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除消费者授权规则.
+     * Deletes a consumer authorization rule.
      *
      * @returns DeleteConsumerAuthorizationRuleResponse
      *
@@ -2245,7 +2246,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除挂载规则API.
+     * Deletes a plug-in attachment.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2279,7 +2280,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除挂载规则API.
+     * Deletes a plug-in attachment.
      *
      * @returns DeletePluginAttachmentResponse
      *
@@ -2398,7 +2399,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除服务
+     * Deletes a service.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2432,7 +2433,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除服务
+     * Deletes a service.
      *
      * @returns DeleteServiceResponse
      *
@@ -2520,7 +2521,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 发布MCP server.
+     * Deploys an MCP server.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2554,7 +2555,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 发布MCP server.
+     * Deploys an MCP server.
      *
      * @returns DeployMcpServerResponse
      *
@@ -2622,7 +2623,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者.
+     * Obtains the information of a consumer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2656,7 +2657,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者.
+     * Obtains the information of a consumer.
      *
      * @returns GetConsumerResponse
      *
@@ -2673,7 +2674,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者授权规则.
+     * Obtains a consumer authentication rule.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2708,7 +2709,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者授权规则.
+     * Obtains a consumer authentication rule.
      *
      * @returns GetConsumerAuthorizationRuleResponse
      *
@@ -3170,7 +3171,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取MCP server.
+     * Queries the detailed information of an MCP server.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3204,7 +3208,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取MCP server.
+     * Queries the detailed information of an MCP server.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @returns GetMcpServerResponse
      *
@@ -3221,7 +3228,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * GetPluginAttachment。
+     * Queries a plug-in attachment.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3255,7 +3262,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * GetPluginAttachment。
+     * Queries a plug-in attachment.
      *
      * @returns GetPluginAttachmentResponse
      *
@@ -3658,7 +3665,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * InstallPlugin.
+     * Installs a plug-in.
      *
      * @param request - InstallPluginRequest
      * @param headers - map
@@ -3704,7 +3711,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * InstallPlugin.
+     * Installs a plug-in.
      *
      * @param request - InstallPluginRequest
      *
@@ -3723,7 +3730,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者列表.
+     * Queries a list of consumers.
      *
      * @param request - ListConsumersRequest
      * @param headers - map
@@ -3777,7 +3784,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者列表.
+     * Queries a list of consumers.
      *
      * @param request - ListConsumersRequest
      *
@@ -3968,6 +3975,57 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listEnvironmentsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取Gateway的Features.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayFeaturesResponse
+     *
+     * @param string         $gatewayId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListGatewayFeaturesResponse
+     */
+    public function listGatewayFeaturesWithOptions($gatewayId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayFeatures',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/gateway-features',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Gateway的Features.
+     *
+     * @returns ListGatewayFeaturesResponse
+     *
+     * @param string $gatewayId
+     *
+     * @return ListGatewayFeaturesResponse
+     */
+    public function listGatewayFeatures($gatewayId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayFeaturesWithOptions($gatewayId, $headers, $runtime);
     }
 
     /**
@@ -4417,7 +4475,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取MCP server列表.
+     * Retrieves a list of MCP servers.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @param request - ListMcpServersRequest
      * @param headers - map
@@ -4483,7 +4544,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取MCP server列表.
+     * Retrieves a list of MCP servers.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @param request - ListMcpServersRequest
      *
@@ -4502,7 +4566,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取挂载列表.
+     * Retrieves a list of plug-in attachments.
      *
      * @param request - ListPluginAttachmentsRequest
      * @param headers - map
@@ -4576,7 +4640,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 获取挂载列表.
+     * Retrieves a list of plug-in attachments.
      *
      * @param request - ListPluginAttachmentsRequest
      *
@@ -4595,7 +4659,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListPlugins.
+     * Queries plug-ins.
      *
      * @param request - ListPluginsRequest
      * @param headers - map
@@ -4673,7 +4737,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListPlugins.
+     * Queries plug-ins.
      *
      * @param request - ListPluginsRequest
      *
@@ -4692,7 +4756,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListPolicies.
+     * Queries policies.
      *
      * @param request - ListPoliciesRequest
      * @param headers - map
@@ -4754,7 +4818,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListPolicies.
+     * Queries policies.
      *
      * @param request - ListPoliciesRequest
      *
@@ -5267,7 +5331,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 取消发布MCP server.
+     * Undeploys an MCP server.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5301,7 +5365,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 取消发布MCP server.
+     * Undeploys an MCP server.
      *
      * @returns UnDeployMcpServerResponse
      *
@@ -5393,7 +5457,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * UninstallPlugin.
+     * Uninstalls a plug-in.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5427,7 +5491,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * UninstallPlugin.
+     * Uninstalls a plug-in.
      *
      * @returns UninstallPluginResponse
      *
@@ -5444,7 +5508,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * UpdateAndAttachPolicy.
+     * Updates and associates a policy.
      *
      * @param request - UpdateAndAttachPolicyRequest
      * @param headers - map
@@ -5511,7 +5575,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * UpdateAndAttachPolicy.
+     * Updates and associates a policy.
      *
      * @param request - UpdateAndAttachPolicyRequest
      *
@@ -5531,7 +5595,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者.
+     * Updates a consumer.
      *
      * @param request - UpdateConsumerRequest
      * @param headers - map
@@ -5590,7 +5654,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者.
+     * Updates a consumer.
      *
      * @param request - UpdateConsumerRequest
      *
@@ -5610,7 +5674,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者授权规则.
+     * Updates a consumer authorization rule.
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      * @param headers - map
@@ -5662,7 +5726,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者授权规则.
+     * Updates a consumer authorization rule.
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      *
@@ -6251,7 +6315,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新MCP server.
+     * Updates an MCP server.
+     *
+     * @remarks
+     * You can only update the listening Ingress configuration for sources of the **ACK** type.
      *
      * @param request - UpdateMcpServerRequest
      * @param headers - map
@@ -6330,7 +6397,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新MCP server.
+     * Updates an MCP server.
+     *
+     * @remarks
+     * You can only update the listening Ingress configuration for sources of the **ACK** type.
      *
      * @param request - UpdateMcpServerRequest
      *
@@ -6350,7 +6420,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新挂载规则API.
+     * Updates a plug-in attachment.
      *
      * @param request - UpdatePluginAttachmentRequest
      * @param headers - map
@@ -6401,7 +6471,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新挂载规则API.
+     * Updates a plug-in attachment.
      *
      * @param request - UpdatePluginAttachmentRequest
      *
