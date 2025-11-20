@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\AgentRun\V20250910;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ActivateTemplateMCPRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ActivateTemplateMCPResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateAgentRuntimeEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateAgentRuntimeRequest;
@@ -14,25 +16,46 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateBrowserRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCodeInterpreterRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCodeInterpreterResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryEventRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryEventResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelProxyRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelProxyResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelServiceRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateModelServiceResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateSandboxRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateSandboxResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateTemplateRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCodeInterpreterResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelServiceResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetBrowserResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCodeInterpreterResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryEventRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryEventResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemorySessionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemorySessionResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelServiceResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetSandboxResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimesRequest;
@@ -43,22 +66,44 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListBrowsersRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListBrowsersResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCodeInterpretersRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCodeInterpretersResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryEventRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryEventResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemorySessionsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemorySessionsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProvidersRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProvidersResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProxiesRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelProxiesResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelServicesRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListModelServicesResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListSandboxesRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListSandboxesResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListTemplatesRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\RetrieveMemoryRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\RetrieveMemoryResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\StopSandboxResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\StopTemplateMCPResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelProxyRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelProxyResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelServiceRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelServiceResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateTemplateRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateTemplateResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -96,6 +141,73 @@ class AgentRun extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 启动模板的MCP服务器.
+     *
+     * @param request - ActivateTemplateMCPRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActivateTemplateMCPResponse
+     *
+     * @param string                     $templateName
+     * @param ActivateTemplateMCPRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ActivateTemplateMCPResponse
+     */
+    public function activateTemplateMCPWithOptions($templateName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->enabledTools) {
+            @$body['enabledTools'] = $request->enabledTools;
+        }
+
+        if (null !== $request->transport) {
+            @$body['transport'] = $request->transport;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ActivateTemplateMCP',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/templates/' . Url::percentEncode($templateName) . '/mcp/activate',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ActivateTemplateMCPResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动模板的MCP服务器.
+     *
+     * @param request - ActivateTemplateMCPRequest
+     *
+     * @returns ActivateTemplateMCPResponse
+     *
+     * @param string                     $templateName
+     * @param ActivateTemplateMCPRequest $request
+     *
+     * @return ActivateTemplateMCPResponse
+     */
+    public function activateTemplateMCP($templateName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->activateTemplateMCPWithOptions($templateName, $request, $headers, $runtime);
     }
 
     /**
@@ -349,6 +461,62 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * Create a credential.
+     *
+     * @param request - CreateCredentialRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCredentialResponse
+     *
+     * @param CreateCredentialRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCredentialResponse
+     */
+    public function createCredentialWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCredential',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/credentials',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create a credential.
+     *
+     * @param request - CreateCredentialRequest
+     *
+     * @returns CreateCredentialResponse
+     *
+     * @param CreateCredentialRequest $request
+     *
+     * @return CreateCredentialResponse
+     */
+    public function createCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCredentialWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * create memory store.
      *
      * @param request - CreateMemoryRequest
@@ -482,6 +650,242 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->createMemoryEventWithOptions($memoryName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 新增模型.
+     *
+     * @param request - CreateModelProxyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelProxyResponse
+     *
+     * @param CreateModelProxyRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateModelProxyResponse
+     */
+    public function createModelProxyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelProxy',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-proxies',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增模型.
+     *
+     * @param request - CreateModelProxyRequest
+     *
+     * @returns CreateModelProxyResponse
+     *
+     * @param CreateModelProxyRequest $request
+     *
+     * @return CreateModelProxyResponse
+     */
+    public function createModelProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createModelProxyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 新增模型.
+     *
+     * @param request - CreateModelServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelServiceResponse
+     *
+     * @param CreateModelServiceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateModelServiceResponse
+     */
+    public function createModelServiceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelService',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-services',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增模型.
+     *
+     * @param request - CreateModelServiceRequest
+     *
+     * @returns CreateModelServiceResponse
+     *
+     * @param CreateModelServiceRequest $request
+     *
+     * @return CreateModelServiceResponse
+     */
+    public function createModelService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createModelServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建沙箱.
+     *
+     * @remarks
+     * 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+     *
+     * @param request - CreateSandboxRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSandboxResponse
+     *
+     * @param CreateSandboxRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSandboxResponse
+     */
+    public function createSandboxWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSandbox',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/sandboxes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSandboxResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建沙箱.
+     *
+     * @remarks
+     * 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+     *
+     * @param request - CreateSandboxRequest
+     *
+     * @returns CreateSandboxResponse
+     *
+     * @param CreateSandboxRequest $request
+     *
+     * @return CreateSandboxResponse
+     */
+    public function createSandbox($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSandboxWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建模板
+     *
+     * @remarks
+     * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+     *
+     * @param request - CreateTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTemplate',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/templates',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模板
+     *
+     * @remarks
+     * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+     *
+     * @param request - CreateTemplateRequest
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -709,6 +1113,57 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * Delete a credential.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCredentialResponse
+     *
+     * @param string         $credentialName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteCredentialResponse
+     */
+    public function deleteCredentialWithOptions($credentialName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCredential',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/credentials/' . Url::percentEncode($credentialName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete a credential.
+     *
+     * @returns DeleteCredentialResponse
+     *
+     * @param string $credentialName
+     *
+     * @return DeleteCredentialResponse
+     */
+    public function deleteCredential($credentialName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteCredentialWithOptions($credentialName, $headers, $runtime);
+    }
+
+    /**
      * delete memory store.
      *
      * @param headers - map
@@ -757,6 +1212,234 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteMemoryWithOptions($memoryName, $headers, $runtime);
+    }
+
+    /**
+     * 删除模型.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelProxyResponse
+     *
+     * @param string         $modelProxyName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteModelProxyResponse
+     */
+    public function deleteModelProxyWithOptions($modelProxyName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelProxy',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-proxies/' . Url::percentEncode($modelProxyName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模型.
+     *
+     * @returns DeleteModelProxyResponse
+     *
+     * @param string $modelProxyName
+     *
+     * @return DeleteModelProxyResponse
+     */
+    public function deleteModelProxy($modelProxyName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteModelProxyWithOptions($modelProxyName, $headers, $runtime);
+    }
+
+    /**
+     * 删除模型.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelServiceResponse
+     *
+     * @param string         $modelServiceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteModelServiceResponse
+     */
+    public function deleteModelServiceWithOptions($modelServiceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelService',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-services/' . Url::percentEncode($modelServiceName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模型.
+     *
+     * @returns DeleteModelServiceResponse
+     *
+     * @param string $modelServiceName
+     *
+     * @return DeleteModelServiceResponse
+     */
+    public function deleteModelService($modelServiceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteModelServiceWithOptions($modelServiceName, $headers, $runtime);
+    }
+
+    /**
+     * 删除模板
+     *
+     * @remarks
+     * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTemplateResponse
+     *
+     * @param string         $templateName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteTemplateResponse
+     */
+    public function deleteTemplateWithOptions($templateName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTemplate',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/templates/' . Url::percentEncode($templateName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模板
+     *
+     * @remarks
+     * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+     *
+     * @returns DeleteTemplateResponse
+     *
+     * @param string $templateName
+     *
+     * @return DeleteTemplateResponse
+     */
+    public function deleteTemplate($templateName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTemplateWithOptions($templateName, $headers, $runtime);
+    }
+
+    /**
+     * Get access token for a resource.
+     *
+     * @param request - GetAccessTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccessTokenResponse
+     *
+     * @param GetAccessTokenRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAccessTokenResponse
+     */
+    public function getAccessTokenWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceId) {
+            @$query['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceName) {
+            @$query['resourceName'] = $request->resourceName;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAccessToken',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/accessToken',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get access token for a resource.
+     *
+     * @param request - GetAccessTokenRequest
+     *
+     * @returns GetAccessTokenResponse
+     *
+     * @param GetAccessTokenRequest $request
+     *
+     * @return GetAccessTokenResponse
+     */
+    public function getAccessToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAccessTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -996,6 +1679,57 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * Get a credential.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCredentialResponse
+     *
+     * @param string         $credentialName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCredentialResponse
+     */
+    public function getCredentialWithOptions($credentialName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCredential',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/credentials/' . Url::percentEncode($credentialName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get a credential.
+     *
+     * @returns GetCredentialResponse
+     *
+     * @param string $credentialName
+     *
+     * @return GetCredentialResponse
+     */
+    public function getCredential($credentialName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCredentialWithOptions($credentialName, $headers, $runtime);
+    }
+
+    /**
      * GetMemory.
      *
      * @param headers - map
@@ -1194,6 +1928,222 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->getMemorySessionWithOptions($memoryName, $sessionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查看model.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelProxyResponse
+     *
+     * @param string         $modelProxyName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetModelProxyResponse
+     */
+    public function getModelProxyWithOptions($modelProxyName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetModelProxy',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-proxies/' . Url::percentEncode($modelProxyName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetModelProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看model.
+     *
+     * @returns GetModelProxyResponse
+     *
+     * @param string $modelProxyName
+     *
+     * @return GetModelProxyResponse
+     */
+    public function getModelProxy($modelProxyName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getModelProxyWithOptions($modelProxyName, $headers, $runtime);
+    }
+
+    /**
+     * 查看model.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelServiceResponse
+     *
+     * @param string         $modelServiceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetModelServiceResponse
+     */
+    public function getModelServiceWithOptions($modelServiceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetModelService',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-services/' . Url::percentEncode($modelServiceName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看model.
+     *
+     * @returns GetModelServiceResponse
+     *
+     * @param string $modelServiceName
+     *
+     * @return GetModelServiceResponse
+     */
+    public function getModelService($modelServiceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getModelServiceWithOptions($modelServiceName, $headers, $runtime);
+    }
+
+    /**
+     * 获取沙箱.
+     *
+     * @remarks
+     * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSandboxResponse
+     *
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSandboxResponse
+     */
+    public function getSandboxWithOptions($sandboxId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetSandbox',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/sandboxes/' . Url::percentEncode($sandboxId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSandboxResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取沙箱.
+     *
+     * @remarks
+     * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+     *
+     * @returns GetSandboxResponse
+     *
+     * @param string $sandboxId
+     *
+     * @return GetSandboxResponse
+     */
+    public function getSandbox($sandboxId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSandboxWithOptions($sandboxId, $headers, $runtime);
+    }
+
+    /**
+     * 获取模板
+     *
+     * @remarks
+     * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemplateResponse
+     *
+     * @param string         $templateName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplateWithOptions($templateName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTemplate',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/templates/' . Url::percentEncode($templateName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模板
+     *
+     * @remarks
+     * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+     *
+     * @returns GetTemplateResponse
+     *
+     * @param string $templateName
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplate($templateName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTemplateWithOptions($templateName, $headers, $runtime);
     }
 
     /**
@@ -1578,6 +2528,91 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * List credentials.
+     *
+     * @param request - ListCredentialsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCredentialsResponse
+     *
+     * @param ListCredentialsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCredentialsResponse
+     */
+    public function listCredentialsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialAuthType) {
+            @$query['credentialAuthType'] = $request->credentialAuthType;
+        }
+
+        if (null !== $request->credentialName) {
+            @$query['credentialName'] = $request->credentialName;
+        }
+
+        if (null !== $request->credentialSourceType) {
+            @$query['credentialSourceType'] = $request->credentialSourceType;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCredentials',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/credentials',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * List credentials.
+     *
+     * @param request - ListCredentialsRequest
+     *
+     * @returns ListCredentialsResponse
+     *
+     * @param ListCredentialsRequest $request
+     *
+     * @return ListCredentialsResponse
+     */
+    public function listCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCredentialsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * ListMemory.
      *
      * @param request - ListMemoryRequest
@@ -1805,6 +2840,391 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 查询支持的模型提供商及其模型.
+     *
+     * @param request - ListModelProvidersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelProvidersResponse
+     *
+     * @param ListModelProvidersRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListModelProvidersResponse
+     */
+    public function listModelProvidersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelName) {
+            @$query['modelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelType) {
+            @$query['modelType'] = $request->modelType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelProviders',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-providers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询支持的模型提供商及其模型.
+     *
+     * @param request - ListModelProvidersRequest
+     *
+     * @returns ListModelProvidersResponse
+     *
+     * @param ListModelProvidersRequest $request
+     *
+     * @return ListModelProvidersResponse
+     */
+    public function listModelProviders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelProvidersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * model列表.
+     *
+     * @param request - ListModelProxiesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelProxiesResponse
+     *
+     * @param ListModelProxiesRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListModelProxiesResponse
+     */
+    public function listModelProxiesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->proxyMode) {
+            @$query['proxyMode'] = $request->proxyMode;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelProxies',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-proxies',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelProxiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * model列表.
+     *
+     * @param request - ListModelProxiesRequest
+     *
+     * @returns ListModelProxiesResponse
+     *
+     * @param ListModelProxiesRequest $request
+     *
+     * @return ListModelProxiesResponse
+     */
+    public function listModelProxies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelProxiesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * model列表.
+     *
+     * @param request - ListModelServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelServicesResponse
+     *
+     * @param ListModelServicesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListModelServicesResponse
+     */
+    public function listModelServicesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelType) {
+            @$query['modelType'] = $request->modelType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        if (null !== $request->providerType) {
+            @$query['providerType'] = $request->providerType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelServices',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-services',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * model列表.
+     *
+     * @param request - ListModelServicesRequest
+     *
+     * @returns ListModelServicesResponse
+     *
+     * @param ListModelServicesRequest $request
+     *
+     * @return ListModelServicesResponse
+     */
+    public function listModelServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelServicesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出沙箱.
+     *
+     * @remarks
+     * 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+     *
+     * @param request - ListSandboxesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSandboxesResponse
+     *
+     * @param ListSandboxesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSandboxesResponse
+     */
+    public function listSandboxesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['templateName'] = $request->templateName;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['templateType'] = $request->templateType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSandboxes',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/sandboxes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSandboxesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出沙箱.
+     *
+     * @remarks
+     * 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+     *
+     * @param request - ListSandboxesRequest
+     *
+     * @returns ListSandboxesResponse
+     *
+     * @param ListSandboxesRequest $request
+     *
+     * @return ListSandboxesResponse
+     */
+    public function listSandboxes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSandboxesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出模板
+     *
+     * @remarks
+     * 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+     *
+     * @param request - ListTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTemplatesResponse
+     */
+    public function listTemplatesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['templateType'] = $request->templateType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTemplates',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/templates',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出模板
+     *
+     * @remarks
+     * 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+     *
+     * @param request - ListTemplatesRequest
+     *
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     *
+     * @return ListTemplatesResponse
+     */
+    public function listTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTemplatesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 发布运行时版本.
      *
      * @remarks
@@ -1948,6 +3368,114 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 停止沙箱.
+     *
+     * @remarks
+     * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopSandboxResponse
+     *
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopSandboxResponse
+     */
+    public function stopSandboxWithOptions($sandboxId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopSandbox',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/sandboxes/' . Url::percentEncode($sandboxId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopSandboxResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止沙箱.
+     *
+     * @remarks
+     * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+     *
+     * @returns StopSandboxResponse
+     *
+     * @param string $sandboxId
+     *
+     * @return StopSandboxResponse
+     */
+    public function stopSandbox($sandboxId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopSandboxWithOptions($sandboxId, $headers, $runtime);
+    }
+
+    /**
+     * 停止模板的MCP服务器.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopTemplateMCPResponse
+     *
+     * @param string         $templateName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopTemplateMCPResponse
+     */
+    public function stopTemplateMCPWithOptions($templateName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopTemplateMCP',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/templates/' . Url::percentEncode($templateName) . '/mcp/stop',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopTemplateMCPResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止模板的MCP服务器.
+     *
+     * @returns StopTemplateMCPResponse
+     *
+     * @param string $templateName
+     *
+     * @return StopTemplateMCPResponse
+     */
+    public function stopTemplateMCP($templateName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopTemplateMCPWithOptions($templateName, $headers, $runtime);
+    }
+
+    /**
      * 更新智能体运行时.
      *
      * @remarks
@@ -2072,6 +3600,64 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * Update a credential.
+     *
+     * @param request - UpdateCredentialRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCredentialResponse
+     *
+     * @param string                  $credentialName
+     * @param UpdateCredentialRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCredentialResponse
+     */
+    public function updateCredentialWithOptions($credentialName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCredential',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/credentials/' . Url::percentEncode($credentialName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update a credential.
+     *
+     * @param request - UpdateCredentialRequest
+     *
+     * @returns UpdateCredentialResponse
+     *
+     * @param string                  $credentialName
+     * @param UpdateCredentialRequest $request
+     *
+     * @return UpdateCredentialResponse
+     */
+    public function updateCredential($credentialName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCredentialWithOptions($credentialName, $request, $headers, $runtime);
+    }
+
+    /**
      * Update Memory.
      *
      * @param request - UpdateMemoryRequest
@@ -2140,5 +3726,191 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateMemoryWithOptions($memoryName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新模型.
+     *
+     * @param request - UpdateModelProxyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelProxyResponse
+     *
+     * @param string                  $modelProxyName
+     * @param UpdateModelProxyRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateModelProxyResponse
+     */
+    public function updateModelProxyWithOptions($modelProxyName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelProxy',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-proxies/' . Url::percentEncode($modelProxyName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新模型.
+     *
+     * @param request - UpdateModelProxyRequest
+     *
+     * @returns UpdateModelProxyResponse
+     *
+     * @param string                  $modelProxyName
+     * @param UpdateModelProxyRequest $request
+     *
+     * @return UpdateModelProxyResponse
+     */
+    public function updateModelProxy($modelProxyName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateModelProxyWithOptions($modelProxyName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新模型.
+     *
+     * @param request - UpdateModelServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelServiceResponse
+     *
+     * @param string                    $modelServiceName
+     * @param UpdateModelServiceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateModelServiceResponse
+     */
+    public function updateModelServiceWithOptions($modelServiceName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelService',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/model-services/' . Url::percentEncode($modelServiceName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新模型.
+     *
+     * @param request - UpdateModelServiceRequest
+     *
+     * @returns UpdateModelServiceResponse
+     *
+     * @param string                    $modelServiceName
+     * @param UpdateModelServiceRequest $request
+     *
+     * @return UpdateModelServiceResponse
+     */
+    public function updateModelService($modelServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateModelServiceWithOptions($modelServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新模板
+     *
+     * @remarks
+     * 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+     *
+     * @param request - UpdateTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTemplateResponse
+     *
+     * @param string                $templateName
+     * @param UpdateTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTemplateResponse
+     */
+    public function updateTemplateWithOptions($templateName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTemplate',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/templates/' . Url::percentEncode($templateName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新模板
+     *
+     * @remarks
+     * 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+     *
+     * @param request - UpdateTemplateRequest
+     *
+     * @returns UpdateTemplateResponse
+     *
+     * @param string                $templateName
+     * @param UpdateTemplateRequest $request
+     *
+     * @return UpdateTemplateResponse
+     */
+    public function updateTemplate($templateName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTemplateWithOptions($templateName, $request, $headers, $runtime);
     }
 }

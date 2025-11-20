@@ -9,9 +9,19 @@ use AlibabaCloud\Dara\Model;
 class Sandbox extends Model
 {
     /**
+     * @var int
+     */
+    public $sandboxIdleTTLInSeconds;
+
+    /**
      * @var string
      */
     public $createdAt;
+
+    /**
+     * @var string
+     */
+    public $endedAt;
 
     /**
      * @var string
@@ -53,7 +63,9 @@ class Sandbox extends Model
      */
     public $templateName;
     protected $_name = [
+        'sandboxIdleTTLInSeconds' => 'SandboxIdleTTLInSeconds',
         'createdAt' => 'createdAt',
+        'endedAt' => 'endedAt',
         'lastUpdatedAt' => 'lastUpdatedAt',
         'metadata' => 'metadata',
         'sandboxArn' => 'sandboxArn',
@@ -75,8 +87,16 @@ class Sandbox extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->sandboxIdleTTLInSeconds) {
+            $res['SandboxIdleTTLInSeconds'] = $this->sandboxIdleTTLInSeconds;
+        }
+
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->endedAt) {
+            $res['endedAt'] = $this->endedAt;
         }
 
         if (null !== $this->lastUpdatedAt) {
@@ -127,8 +147,16 @@ class Sandbox extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SandboxIdleTTLInSeconds'])) {
+            $model->sandboxIdleTTLInSeconds = $map['SandboxIdleTTLInSeconds'];
+        }
+
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
+        }
+
+        if (isset($map['endedAt'])) {
+            $model->endedAt = $map['endedAt'];
         }
 
         if (isset($map['lastUpdatedAt'])) {
