@@ -1,3 +1,7 @@
+2025-11-20 Version: 2.38.0
+- Support API CopyDentryByNodeId.
+
+
 2025-11-20 Version: 2.37.2
 - Generated php 2023-04-26 for aliding.
 

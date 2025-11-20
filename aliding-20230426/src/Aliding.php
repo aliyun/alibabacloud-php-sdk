@@ -143,6 +143,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CommitFileShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryByNodeIdHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryByNodeIdRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryByNodeIdResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryByNodeIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryByNodeIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponse;
@@ -4075,6 +4080,108 @@ class Aliding extends OpenApiClient
         $headers = new CopyDentryHeaders([]);
 
         return $this->copyDentryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通过NodeId创建知识库节点副本.
+     *
+     * @param tmpReq - CopyDentryByNodeIdRequest
+     * @param tmpHeader - CopyDentryByNodeIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyDentryByNodeIdResponse
+     *
+     * @param CopyDentryByNodeIdRequest $tmpReq
+     * @param CopyDentryByNodeIdHeaders $tmpHeader
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CopyDentryByNodeIdResponse
+     */
+    public function copyDentryByNodeIdWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CopyDentryByNodeIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new CopyDentryByNodeIdShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dentryUuid) {
+            @$body['DentryUuid'] = $request->dentryUuid;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->toNextNodeId) {
+            @$body['ToNextNodeId'] = $request->toNextNodeId;
+        }
+
+        if (null !== $request->toParentNodeId) {
+            @$body['ToParentNodeId'] = $request->toParentNodeId;
+        }
+
+        if (null !== $request->toPrevNodeId) {
+            @$body['ToPrevNodeId'] = $request->toPrevNodeId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CopyDentryByNodeId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/copyDentryByNodeId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CopyDentryByNodeIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过NodeId创建知识库节点副本.
+     *
+     * @param request - CopyDentryByNodeIdRequest
+     *
+     * @returns CopyDentryByNodeIdResponse
+     *
+     * @param CopyDentryByNodeIdRequest $request
+     *
+     * @return CopyDentryByNodeIdResponse
+     */
+    public function copyDentryByNodeId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CopyDentryByNodeIdHeaders([]);
+
+        return $this->copyDentryByNodeIdWithOptions($request, $headers, $runtime);
     }
 
     /**
