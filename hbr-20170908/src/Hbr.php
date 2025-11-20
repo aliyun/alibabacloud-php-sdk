@@ -142,6 +142,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\GetTempFileDownloadLinkResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\InstallBackupClientsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\InstallBackupClientsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\InstallBackupClientsShrinkRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\ListProtectedResourcesRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\ListProtectedResourcesResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\OpenHbrServiceResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\SearchHistoricalSnapshotsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\SearchHistoricalSnapshotsResponse;
@@ -5436,6 +5438,83 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installBackupClientsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询已保护的资源列表.
+     *
+     * @param request - ListProtectedResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProtectedResourcesResponse
+     *
+     * @param ListProtectedResourcesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListProtectedResourcesResponse
+     */
+    public function listProtectedResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->createdByProduct) {
+            @$query['CreatedByProduct'] = $request->createdByProduct;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProtectedResources',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProtectedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询已保护的资源列表.
+     *
+     * @param request - ListProtectedResourcesRequest
+     *
+     * @returns ListProtectedResourcesResponse
+     *
+     * @param ListProtectedResourcesRequest $request
+     *
+     * @return ListProtectedResourcesResponse
+     */
+    public function listProtectedResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProtectedResourcesWithOptions($request, $runtime);
     }
 
     /**
