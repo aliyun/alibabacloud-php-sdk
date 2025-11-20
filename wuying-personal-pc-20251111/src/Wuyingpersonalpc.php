@@ -807,6 +807,10 @@ class Wuyingpersonalpc extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->apiKey) {
+            @$body['ApiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->clientId) {
             @$body['ClientId'] = $request->clientId;
         }

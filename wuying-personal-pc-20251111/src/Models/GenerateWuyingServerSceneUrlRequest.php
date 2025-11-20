@@ -11,6 +11,11 @@ class GenerateWuyingServerSceneUrlRequest extends Model
     /**
      * @var string
      */
+    public $apiKey;
+
+    /**
+     * @var string
+     */
     public $clientId;
 
     /**
@@ -73,6 +78,7 @@ class GenerateWuyingServerSceneUrlRequest extends Model
      */
     public $wuyingServerId;
     protected $_name = [
+        'apiKey' => 'ApiKey',
         'clientId' => 'ClientId',
         'clientIp' => 'ClientIp',
         'clientOS' => 'ClientOS',
@@ -96,6 +102,10 @@ class GenerateWuyingServerSceneUrlRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKey) {
+            $res['ApiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
@@ -159,6 +169,10 @@ class GenerateWuyingServerSceneUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiKey'])) {
+            $model->apiKey = $map['ApiKey'];
+        }
+
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
