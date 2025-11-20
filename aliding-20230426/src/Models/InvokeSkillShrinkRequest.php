@@ -22,10 +22,16 @@ class InvokeSkillShrinkRequest extends Model
      * @var bool
      */
     public $stream;
+
+    /**
+     * @var string
+     */
+    public $sourceIdOfAssistantId;
     protected $_name = [
         'paramsShrink' => 'Params',
         'skillId' => 'SkillId',
         'stream' => 'Stream',
+        'sourceIdOfAssistantId' => 'sourceIdOfAssistantId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class InvokeSkillShrinkRequest extends Model
 
         if (null !== $this->stream) {
             $res['Stream'] = $this->stream;
+        }
+
+        if (null !== $this->sourceIdOfAssistantId) {
+            $res['sourceIdOfAssistantId'] = $this->sourceIdOfAssistantId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class InvokeSkillShrinkRequest extends Model
 
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
+        }
+
+        if (isset($map['sourceIdOfAssistantId'])) {
+            $model->sourceIdOfAssistantId = $map['sourceIdOfAssistantId'];
         }
 
         return $model;

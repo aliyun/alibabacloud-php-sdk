@@ -16714,6 +16714,10 @@ class Aliding extends OpenApiClient
             @$body['Stream'] = $request->stream;
         }
 
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['sourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
         $realHeaders = [];
         if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
@@ -16795,6 +16799,10 @@ class Aliding extends OpenApiClient
 
         if (null !== $request->stream) {
             @$body['Stream'] = $request->stream;
+        }
+
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['sourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
         }
 
         $realHeaders = [];
