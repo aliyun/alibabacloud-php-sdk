@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ValidateEmailRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $checkGraylist;
+
+    /**
      * @var string
      */
     public $email;
@@ -18,6 +23,7 @@ class ValidateEmailRequest extends Model
      */
     public $timeout;
     protected $_name = [
+        'checkGraylist' => 'CheckGraylist',
         'email' => 'Email',
         'timeout' => 'Timeout',
     ];
@@ -30,6 +36,10 @@ class ValidateEmailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->checkGraylist) {
+            $res['CheckGraylist'] = $this->checkGraylist;
+        }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
@@ -49,6 +59,10 @@ class ValidateEmailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckGraylist'])) {
+            $model->checkGraylist = $map['CheckGraylist'];
+        }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }

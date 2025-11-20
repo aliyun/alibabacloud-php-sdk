@@ -5,9 +5,12 @@
 namespace AlibabaCloud\SDK\Dm\V20151123;
 
 use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Exception\DaraException;
+use AlibabaCloud\Dara\Exception\DaraUnableRetryException;
 use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
@@ -178,48 +181,98 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param string  $bucketName
-     * @param mixed[] $form
+     * @param string         $bucketName
+     * @param mixed[]        $form
+     * @param RuntimeOptions $runtime
      *
      * @return mixed[]
      */
-    public function _postOSSObject($bucketName, $form)
+    public function _postOSSObject($bucketName, $form, $runtime)
     {
-        $_request = new Request();
-        $boundary = FormUtil::getBoundary();
-        $_request->protocol = 'HTTPS';
-        $_request->method = 'POST';
-        $_request->pathname = '/';
-        $_request->headers = [
-            'host' => '' . @$form['host'],
-            'date' => Utils::getDateUTCString(),
-            'user-agent' => Utils::getUserAgent(''),
+        $_runtime = [
+            'key' => '' . ($runtime->key ?: $this->_key),
+            'cert' => '' . ($runtime->cert ?: $this->_cert),
+            'ca' => '' . ($runtime->ca ?: $this->_ca),
+            'readTimeout' => (($runtime->readTimeout ?: $this->_readTimeout) + 0),
+            'connectTimeout' => (($runtime->connectTimeout ?: $this->_connectTimeout) + 0),
+            'httpProxy' => '' . ($runtime->httpProxy ?: $this->_httpProxy),
+            'httpsProxy' => '' . ($runtime->httpsProxy ?: $this->_httpsProxy),
+            'noProxy' => '' . ($runtime->noProxy ?: $this->_noProxy),
+            'socks5Proxy' => '' . ($runtime->socks5Proxy ?: $this->_socks5Proxy),
+            'socks5NetWork' => '' . ($runtime->socks5NetWork ?: $this->_socks5NetWork),
+            'maxIdleConns' => (($runtime->maxIdleConns ?: $this->_maxIdleConns) + 0),
+            'retryOptions' => $this->_retryOptions,
+            'ignoreSSL' => (bool) (($runtime->ignoreSSL ?: false)),
+            'tlsMinVersion' => $this->_tlsMinVersion,
         ];
-        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
-        $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request);
 
-        $respMap = null;
-        $bodyStr = StreamUtil::readAsString($_response->body);
-        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
-            $respMap = XML::parseXml($bodyStr, null);
-            $err = @$respMap['Error'];
+        $_retriesAttempted = 0;
+        $_lastRequest = null;
+        $_lastResponse = null;
+        $_context = new RetryPolicyContext([
+            'retriesAttempted' => $_retriesAttempted,
+        ]);
+        while (Dara::shouldRetry($_runtime['retryOptions'], $_context)) {
+            if ($_retriesAttempted > 0) {
+                $_backoffTime = Dara::getBackoffDelay($_runtime['retryOptions'], $_context);
+                if ($_backoffTime > 0) {
+                    Dara::sleep($_backoffTime);
+                }
+            }
 
-            throw new ClientException([
-                'code' => '' . @$err['Code'],
-                'message' => '' . @$err['Message'],
-                'data' => [
-                    'httpCode' => $_response->statusCode,
-                    'requestId' => '' . @$err['RequestId'],
-                    'hostId' => '' . @$err['HostId'],
-                ],
-            ]);
+            ++$_retriesAttempted;
+
+            try {
+                $_request = new Request();
+                $boundary = FormUtil::getBoundary();
+                $_request->protocol = 'HTTPS';
+                $_request->method = 'POST';
+                $_request->pathname = '/';
+                $_request->headers = [
+                    'host' => '' . @$form['host'],
+                    'date' => Utils::getDateUTCString(),
+                    'user-agent' => Utils::getUserAgent(''),
+                ];
+                @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+                $_request->body = FormUtil::toFileForm($form, $boundary);
+                $_lastRequest = $_request;
+                $_response = Dara::send($_request, $_runtime);
+                $_lastResponse = $_response;
+
+                $respMap = null;
+                $bodyStr = StreamUtil::readAsString($_response->body);
+                if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+                    $respMap = XML::parseXml($bodyStr, null);
+                    $err = @$respMap['Error'];
+
+                    throw new ClientException([
+                        'code' => '' . @$err['Code'],
+                        'message' => '' . @$err['Message'],
+                        'data' => [
+                            'httpCode' => $_response->statusCode,
+                            'requestId' => '' . @$err['RequestId'],
+                            'hostId' => '' . @$err['HostId'],
+                        ],
+                    ]);
+                }
+
+                $respMap = XML::parseXml($bodyStr, null);
+
+                return Dara::merge([
+                ], $respMap);
+            } catch (DaraException $e) {
+                $_context = new RetryPolicyContext([
+                    'retriesAttempted' => $_retriesAttempted,
+                    'lastRequest' => $_lastRequest,
+                    'lastResponse' => $_lastResponse,
+                    'exception' => $e,
+                ]);
+
+                continue;
+            }
         }
 
-        $respMap = XML::parseXml($bodyStr, null);
-
-        return Dara::merge([
-        ], $respMap);
+        throw new DaraUnableRetryException($_context);
     }
 
     /**
@@ -5056,7 +5109,7 @@ class Dm extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $sendValidateFileReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -5564,7 +5617,7 @@ class Dm extends OpenApiClient
                         'file' => $fileObj,
                         'success_action_status' => '201',
                     ];
-                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+                    $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
                     $tmpObj = @$singleSendMailReq->attachments[$i0];
                     $tmpObj->attachmentUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
                     ++$i0;
@@ -5789,6 +5842,10 @@ class Dm extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->checkGraylist) {
+            @$query['CheckGraylist'] = $request->checkGraylist;
+        }
+
         if (null !== $request->email) {
             @$query['Email'] = $request->email;
         }
