@@ -5,22 +5,40 @@
 namespace AlibabaCloud\SDK\Milvus\V20231012;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateDefaultRoleResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\DeleteInstanceRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\DescribeAccessControlListRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\DescribeAccessControlListResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\DescribeInstanceConfigsRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\DescribeInstanceConfigsResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesShrinkRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesV2Request;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesV2Response;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesV2ShrinkRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ModifyInstanceConfigRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ModifyInstanceConfigResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\UnTagResourcesRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\UnTagResourcesResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\UnTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateAccessControlListRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateAccessControlListResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceNameResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdatePublicNetworkStatusRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdatePublicNetworkStatusResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -60,6 +78,83 @@ class Milvus extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 资源转组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeResourceGroup',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/resourceGroup/change',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 资源转组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -108,6 +203,210 @@ class Milvus extends OpenApiClient
         $headers = [];
 
         return $this->createDefaultRoleWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 创建实例.
+     *
+     * @param request - CreateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->autoBackup) {
+            @$body['autoBackup'] = $request->autoBackup;
+        }
+
+        if (null !== $request->components) {
+            @$body['components'] = $request->components;
+        }
+
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->dbAdminPassword) {
+            @$body['dbAdminPassword'] = $request->dbAdminPassword;
+        }
+
+        if (null !== $request->dbVersion) {
+            @$body['dbVersion'] = $request->dbVersion;
+        }
+
+        if (null !== $request->encrypted) {
+            @$body['encrypted'] = $request->encrypted;
+        }
+
+        if (null !== $request->ha) {
+            @$body['ha'] = $request->ha;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['instanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->kmsKeyId) {
+            @$body['kmsKeyId'] = $request->kmsKeyId;
+        }
+
+        if (null !== $request->multiZoneMode) {
+            @$body['multiZoneMode'] = $request->multiZoneMode;
+        }
+
+        if (null !== $request->paymentDuration) {
+            @$body['paymentDuration'] = $request->paymentDuration;
+        }
+
+        if (null !== $request->paymentDurationUnit) {
+            @$body['paymentDurationUnit'] = $request->paymentDurationUnit;
+        }
+
+        if (null !== $request->paymentType) {
+            @$body['paymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
+        }
+
+        if (null !== $request->vSwitchIds) {
+            @$body['vSwitchIds'] = $request->vSwitchIds;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['vpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$body['zoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstance',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/instance/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实例.
+     *
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除实例.
+     *
+     * @param request - DeleteInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
+     */
+    public function deleteInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstance',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/instance/delete',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实例.
+     *
+     * @param request - DeleteInstanceRequest
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
+     */
+    public function deleteInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteInstanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -230,6 +529,71 @@ class Milvus extends OpenApiClient
         $headers = [];
 
         return $this->describeInstanceConfigsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取实例详情.
+     *
+     * @param request - GetInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceResponse
+     *
+     * @param GetInstanceRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetInstanceResponse
+     */
+    public function getInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstance',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/instance/get',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例详情.
+     *
+     * @param request - GetInstanceRequest
+     *
+     * @returns GetInstanceResponse
+     *
+     * @param GetInstanceRequest $request
+     *
+     * @return GetInstanceResponse
+     */
+    public function getInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -385,6 +749,105 @@ class Milvus extends OpenApiClient
     }
 
     /**
+     * 根据集群ID或者名称搜索集群.
+     *
+     * @param tmpReq - ListInstancesV2Request
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesV2Response
+     *
+     * @param ListInstancesV2Request $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListInstancesV2Response
+     */
+    public function listInstancesV2WithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListInstancesV2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['instanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['tag'] = $request->tagShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstancesV2',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/instance/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstancesV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据集群ID或者名称搜索集群.
+     *
+     * @param request - ListInstancesV2Request
+     *
+     * @returns ListInstancesV2Response
+     *
+     * @param ListInstancesV2Request $request
+     *
+     * @return ListInstancesV2Response
+     */
+    public function listInstancesV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstancesV2WithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Update the configuration parameters of each component of Milvus.
      *
      * @param request - ModifyInstanceConfigRequest
@@ -454,6 +917,166 @@ class Milvus extends OpenApiClient
     }
 
     /**
+     * 打标.
+     *
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 打标.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除标签.
+     *
+     * @param tmpReq - UnTagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnTagResourcesResponse
+     */
+    public function unTagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UnTagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'TagKey', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['ResourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['TagKey'] = $request->tagKeyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnTagResources',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除标签.
+     *
+     * @param request - UnTagResourcesRequest
+     *
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     *
+     * @return UnTagResourcesResponse
+     */
+    public function unTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Configure Public IP Address Whitelist.
      *
      * @param request - UpdateAccessControlListRequest
@@ -520,6 +1143,97 @@ class Milvus extends OpenApiClient
         $headers = [];
 
         return $this->updateAccessControlListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新实例.
+     *
+     * @param request - UpdateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceResponse
+     *
+     * @param UpdateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateInstanceResponse
+     */
+    public function updateInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->autoBackup) {
+            @$body['autoBackup'] = $request->autoBackup;
+        }
+
+        if (null !== $request->components) {
+            @$body['components'] = $request->components;
+        }
+
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->ha) {
+            @$body['ha'] = $request->ha;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['instanceName'] = $request->instanceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstance',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/instance/update',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例.
+     *
+     * @param request - UpdateInstanceRequest
+     *
+     * @returns UpdateInstanceResponse
+     *
+     * @param UpdateInstanceRequest $request
+     *
+     * @return UpdateInstanceResponse
+     */
+    public function updateInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateInstanceWithOptions($request, $headers, $runtime);
     }
 
     /**
