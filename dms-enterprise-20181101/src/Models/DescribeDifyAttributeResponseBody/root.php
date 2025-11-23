@@ -16,6 +16,21 @@ class root extends Model
     /**
      * @var string
      */
+    public $billingInstanceId;
+
+    /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
+     * @var int
+     */
+    public $expireTime;
+
+    /**
+     * @var string
+     */
     public $replicas;
 
     /**
@@ -32,6 +47,11 @@ class root extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $storageType;
 
     /**
      * @var string
@@ -54,10 +74,14 @@ class root extends Model
     public $zoneId;
     protected $_name = [
         'appUuid' => 'AppUuid',
+        'billingInstanceId' => 'BillingInstanceId',
+        'chargeType' => 'ChargeType',
+        'expireTime' => 'ExpireTime',
         'replicas' => 'Replicas',
         'resourceQuota' => 'ResourceQuota',
         'securityGroupId' => 'SecurityGroupId',
         'status' => 'Status',
+        'storageType' => 'StorageType',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
         'workspaceId' => 'WorkspaceId',
@@ -76,6 +100,18 @@ class root extends Model
             $res['AppUuid'] = $this->appUuid;
         }
 
+        if (null !== $this->billingInstanceId) {
+            $res['BillingInstanceId'] = $this->billingInstanceId;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
         }
@@ -90,6 +126,10 @@ class root extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         if (null !== $this->vSwitchId) {
@@ -123,6 +163,18 @@ class root extends Model
             $model->appUuid = $map['AppUuid'];
         }
 
+        if (isset($map['BillingInstanceId'])) {
+            $model->billingInstanceId = $map['BillingInstanceId'];
+        }
+
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
         }
@@ -137,6 +189,10 @@ class root extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['VSwitchId'])) {
