@@ -107,6 +107,11 @@ class ScorePageItem extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var int
+     */
+    public $websiteAuthorityScore;
     protected $_name = [
         'cardType' => 'cardType',
         'displayLink' => 'displayLink',
@@ -128,6 +133,7 @@ class ScorePageItem extends Model
         'snippet' => 'snippet',
         'summary' => 'summary',
         'title' => 'title',
+        'websiteAuthorityScore' => 'websiteAuthorityScore',
     ];
 
     public function validate()
@@ -236,6 +242,10 @@ class ScorePageItem extends Model
             $res['title'] = $this->title;
         }
 
+        if (null !== $this->websiteAuthorityScore) {
+            $res['websiteAuthorityScore'] = $this->websiteAuthorityScore;
+        }
+
         return $res;
     }
 
@@ -337,6 +347,10 @@ class ScorePageItem extends Model
 
         if (isset($map['title'])) {
             $model->title = $map['title'];
+        }
+
+        if (isset($map['websiteAuthorityScore'])) {
+            $model->websiteAuthorityScore = $map['websiteAuthorityScore'];
         }
 
         return $model;
