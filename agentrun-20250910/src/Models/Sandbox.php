@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class Sandbox extends Model
 {
     /**
-     * @var int
-     */
-    public $sandboxIdleTTLInSeconds;
-
-    /**
      * @var string
      */
     public $createdAt;
@@ -46,6 +41,11 @@ class Sandbox extends Model
     /**
      * @var int
      */
+    public $sandboxIdleTTLInSeconds;
+
+    /**
+     * @var int
+     */
     public $sandboxIdleTimeoutSeconds;
 
     /**
@@ -63,13 +63,13 @@ class Sandbox extends Model
      */
     public $templateName;
     protected $_name = [
-        'sandboxIdleTTLInSeconds' => 'SandboxIdleTTLInSeconds',
         'createdAt' => 'createdAt',
         'endedAt' => 'endedAt',
         'lastUpdatedAt' => 'lastUpdatedAt',
         'metadata' => 'metadata',
         'sandboxArn' => 'sandboxArn',
         'sandboxId' => 'sandboxId',
+        'sandboxIdleTTLInSeconds' => 'sandboxIdleTTLInSeconds',
         'sandboxIdleTimeoutSeconds' => 'sandboxIdleTimeoutSeconds',
         'status' => 'status',
         'templateId' => 'templateId',
@@ -87,10 +87,6 @@ class Sandbox extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->sandboxIdleTTLInSeconds) {
-            $res['SandboxIdleTTLInSeconds'] = $this->sandboxIdleTTLInSeconds;
-        }
-
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
@@ -120,6 +116,10 @@ class Sandbox extends Model
             $res['sandboxId'] = $this->sandboxId;
         }
 
+        if (null !== $this->sandboxIdleTTLInSeconds) {
+            $res['sandboxIdleTTLInSeconds'] = $this->sandboxIdleTTLInSeconds;
+        }
+
         if (null !== $this->sandboxIdleTimeoutSeconds) {
             $res['sandboxIdleTimeoutSeconds'] = $this->sandboxIdleTimeoutSeconds;
         }
@@ -147,10 +147,6 @@ class Sandbox extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SandboxIdleTTLInSeconds'])) {
-            $model->sandboxIdleTTLInSeconds = $map['SandboxIdleTTLInSeconds'];
-        }
-
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
@@ -178,6 +174,10 @@ class Sandbox extends Model
 
         if (isset($map['sandboxId'])) {
             $model->sandboxId = $map['sandboxId'];
+        }
+
+        if (isset($map['sandboxIdleTTLInSeconds'])) {
+            $model->sandboxIdleTTLInSeconds = $map['sandboxIdleTTLInSeconds'];
         }
 
         if (isset($map['sandboxIdleTimeoutSeconds'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateSandboxInput extends Model
 {
     /**
+     * @var string
+     */
+    public $sandboxId;
+
+    /**
      * @var int
      */
     public $sandboxIdleTimeoutSeconds;
@@ -18,6 +23,7 @@ class CreateSandboxInput extends Model
      */
     public $templateName;
     protected $_name = [
+        'sandboxId' => 'sandboxId',
         'sandboxIdleTimeoutSeconds' => 'sandboxIdleTimeoutSeconds',
         'templateName' => 'templateName',
     ];
@@ -30,6 +36,10 @@ class CreateSandboxInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->sandboxId) {
+            $res['sandboxId'] = $this->sandboxId;
+        }
+
         if (null !== $this->sandboxIdleTimeoutSeconds) {
             $res['sandboxIdleTimeoutSeconds'] = $this->sandboxIdleTimeoutSeconds;
         }
@@ -49,6 +59,10 @@ class CreateSandboxInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['sandboxId'])) {
+            $model->sandboxId = $map['sandboxId'];
+        }
+
         if (isset($map['sandboxIdleTimeoutSeconds'])) {
             $model->sandboxIdleTimeoutSeconds = $map['sandboxIdleTimeoutSeconds'];
         }

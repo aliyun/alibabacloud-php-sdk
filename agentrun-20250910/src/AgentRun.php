@@ -38,6 +38,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelServiceResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenResponse;
@@ -1314,6 +1315,57 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteModelServiceWithOptions($modelServiceName, $headers, $runtime);
+    }
+
+    /**
+     * 删除Sandbox.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSandboxResponse
+     *
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteSandboxResponse
+     */
+    public function deleteSandboxWithOptions($sandboxId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSandbox',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/sandboxes/' . Url::percentEncode($sandboxId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSandboxResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Sandbox.
+     *
+     * @returns DeleteSandboxResponse
+     *
+     * @param string $sandboxId
+     *
+     * @return DeleteSandboxResponse
+     */
+    public function deleteSandbox($sandboxId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSandboxWithOptions($sandboxId, $headers, $runtime);
     }
 
     /**
@@ -3179,6 +3231,14 @@ class AgentRun extends OpenApiClient
             @$query['pageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['templateName'] = $request->templateName;
+        }
+
         if (null !== $request->templateType) {
             @$query['templateType'] = $request->templateType;
         }
@@ -3368,7 +3428,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 停止沙箱.
+     * 删除沙箱.
      *
      * @remarks
      * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
@@ -3393,8 +3453,8 @@ class AgentRun extends OpenApiClient
             'action' => 'StopSandbox',
             'version' => '2025-09-10',
             'protocol' => 'HTTPS',
-            'pathname' => '/2025-09-10/sandboxes/' . Url::percentEncode($sandboxId) . '',
-            'method' => 'DELETE',
+            'pathname' => '/2025-09-10/sandboxes/' . Url::percentEncode($sandboxId) . '/stop',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
@@ -3405,7 +3465,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 停止沙箱.
+     * 删除沙箱.
      *
      * @remarks
      * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。

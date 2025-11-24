@@ -21,10 +21,22 @@ class ListTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $templateName;
+
+    /**
+     * @var string
+     */
     public $templateType;
     protected $_name = [
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'status' => 'status',
+        'templateName' => 'templateName',
         'templateType' => 'templateType',
     ];
 
@@ -42,6 +54,14 @@ class ListTemplatesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+
+        if (null !== $this->templateName) {
+            $res['templateName'] = $this->templateName;
         }
 
         if (null !== $this->templateType) {
@@ -65,6 +85,14 @@ class ListTemplatesRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+
+        if (isset($map['templateName'])) {
+            $model->templateName = $map['templateName'];
         }
 
         if (isset($map['templateType'])) {

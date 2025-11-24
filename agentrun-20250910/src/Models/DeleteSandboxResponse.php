@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AgentRun\V20250910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class StopSandboxResponse extends Model
+class DeleteSandboxResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class StopSandboxResponse extends Model
     public $statusCode;
 
     /**
-     * @var StopSandboxResult
+     * @var DeleteSandboxResult
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class StopSandboxResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = StopSandboxResult::fromMap($map['body']);
+            $model->body = DeleteSandboxResult::fromMap($map['body']);
         }
 
         return $model;
