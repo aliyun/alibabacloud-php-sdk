@@ -161,6 +161,7 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateProjectDefaultQuotaReques
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateProjectDefaultQuotaResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateProjectIpWhiteListRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateProjectIpWhiteListResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateProjectModelTierResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateQuotaPlanRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateQuotaScheduleRequest;
@@ -6555,6 +6556,57 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->updateProjectIpWhiteListWithOptions($projectName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 将project的二层模型升级为三层模型.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectModelTierResponse
+     *
+     * @param string         $projectName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return UpdateProjectModelTierResponse
+     */
+    public function updateProjectModelTierWithOptions($projectName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProjectModelTier',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/modelTier',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProjectModelTierResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将project的二层模型升级为三层模型.
+     *
+     * @returns UpdateProjectModelTierResponse
+     *
+     * @param string $projectName
+     *
+     * @return UpdateProjectModelTierResponse
+     */
+    public function updateProjectModelTier($projectName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateProjectModelTierWithOptions($projectName, $headers, $runtime);
     }
 
     /**
