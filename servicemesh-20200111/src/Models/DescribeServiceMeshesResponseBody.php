@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponseBody\serviceMeshes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeServiceMeshesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the ASM instances.
-     *
      * @var serviceMeshes[]
      */
     public $serviceMeshes;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceMeshes' => 'ServiceMeshes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->serviceMeshes)) {
+            Model::validateArray($this->serviceMeshes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceMeshes) {
-            $res['ServiceMeshes'] = [];
-            if (null !== $this->serviceMeshes && \is_array($this->serviceMeshes)) {
-                $n = 0;
-                foreach ($this->serviceMeshes as $item) {
-                    $res['ServiceMeshes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceMeshes)) {
+                $res['ServiceMeshes'] = [];
+                $n1 = 0;
+                foreach ($this->serviceMeshes as $item1) {
+                    $res['ServiceMeshes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class DescribeServiceMeshesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServiceMeshesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceMeshes'])) {
             if (!empty($map['ServiceMeshes'])) {
                 $model->serviceMeshes = [];
-                $n                    = 0;
-                foreach ($map['ServiceMeshes'] as $item) {
-                    $model->serviceMeshes[$n++] = null !== $item ? serviceMeshes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ServiceMeshes'] as $item1) {
+                    $model->serviceMeshes[$n1] = serviceMeshes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

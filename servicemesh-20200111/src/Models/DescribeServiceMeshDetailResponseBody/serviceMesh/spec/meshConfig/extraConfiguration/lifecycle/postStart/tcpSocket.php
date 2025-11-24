@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tcpSocket extends Model
 {
     /**
-     * @description The URL of the TCP socket request.
-     *
-     * @example 127.xx.xx.1
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The port number of the TCP socket request.
-     *
-     * @example 888
-     *
      * @var string
      */
     public $port;
@@ -32,14 +24,16 @@ class tcpSocket extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->host) {
             $res['host'] = $this->host;
         }
+
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
@@ -47,17 +41,18 @@ class tcpSocket extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tcpSocket
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['host'])) {
             $model->host = $map['host'];
         }
+
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }

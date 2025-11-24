@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NFDConfiguration extends Model
 {
     /**
-     * @description Indicates whether NFD is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description Indicates whether feature labels on nodes are cleared when NFD is disabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $NFDLabelPruned;
     protected $_name = [
-        'enabled'        => 'Enabled',
+        'enabled' => 'Enabled',
         'NFDLabelPruned' => 'NFDLabelPruned',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->NFDLabelPruned) {
             $res['NFDLabelPruned'] = $this->NFDLabelPruned;
         }
@@ -47,17 +41,18 @@ class NFDConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NFDConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['NFDLabelPruned'])) {
             $model->NFDLabelPruned = $map['NFDLabelPruned'];
         }

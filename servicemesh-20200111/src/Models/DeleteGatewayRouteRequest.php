@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGatewayRouteRequest extends Model
 {
     /**
-     * @description The name of the ASM gateway.
-     *
-     * @example ingressgateway
-     *
      * @var string
      */
     public $istioGatewayName;
 
     /**
-     * @description The name of the routing rule.
-     *
-     * @example http-route
-     *
      * @var string
      */
     public $routeName;
 
     /**
-     * @description The ASM instance ID.
-     *
-     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
-     *
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
         'istioGatewayName' => 'IstioGatewayName',
-        'routeName'        => 'RouteName',
-        'serviceMeshId'    => 'ServiceMeshId',
+        'routeName' => 'RouteName',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->istioGatewayName) {
             $res['IstioGatewayName'] = $this->istioGatewayName;
         }
+
         if (null !== $this->routeName) {
             $res['RouteName'] = $this->routeName;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -60,20 +51,22 @@ class DeleteGatewayRouteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGatewayRouteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IstioGatewayName'])) {
             $model->istioGatewayName = $map['IstioGatewayName'];
         }
+
         if (isset($map['RouteName'])) {
             $model->routeName = $map['RouteName'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }

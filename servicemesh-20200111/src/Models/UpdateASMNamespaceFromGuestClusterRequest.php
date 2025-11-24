@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateASMNamespaceFromGuestClusterRequest extends Model
 {
     /**
-     * @description The ID of the Kubernetes cluster whose namespace information you want to synchronize to ASM. The Kubernetes cluster is added to the ASM instance that is specified by the ServiceMeshId parameter.
-     *
-     * @example c6f6d46583def494ba1f2e2937c8*****
-     *
      * @var string
      */
     public $k8sClusterId;
 
     /**
-     * @description The ASM instance ID.
-     *
-     * @example cbf9ca9e6d5dc4c87a3ecd0ebf1e*****
-     *
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
-        'k8sClusterId'  => 'K8sClusterId',
+        'k8sClusterId' => 'K8sClusterId',
         'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->k8sClusterId) {
             $res['K8sClusterId'] = $this->k8sClusterId;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -47,17 +41,18 @@ class UpdateASMNamespaceFromGuestClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateASMNamespaceFromGuestClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['K8sClusterId'])) {
             $model->k8sClusterId = $map['K8sClusterId'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }

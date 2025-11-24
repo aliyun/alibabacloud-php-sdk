@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListWaypointsResponseBody\waypoints;
-use AlibabaCloud\Tea\Model;
 
 class ListWaypointsResponseBody extends Model
 {
@@ -15,45 +15,46 @@ class ListWaypointsResponseBody extends Model
     public $continue;
 
     /**
-     * @description The request ID.
-     *
-     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The list of waypoint proxy configurations.
-     *
      * @var waypoints[]
      */
     public $waypoints;
     protected $_name = [
-        'continue'  => 'Continue',
+        'continue' => 'Continue',
         'requestId' => 'RequestId',
         'waypoints' => 'Waypoints',
     ];
 
     public function validate()
     {
+        if (\is_array($this->waypoints)) {
+            Model::validateArray($this->waypoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->continue) {
             $res['Continue'] = $this->continue;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->waypoints) {
-            $res['Waypoints'] = [];
-            if (null !== $this->waypoints && \is_array($this->waypoints)) {
-                $n = 0;
-                foreach ($this->waypoints as $item) {
-                    $res['Waypoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->waypoints)) {
+                $res['Waypoints'] = [];
+                $n1 = 0;
+                foreach ($this->waypoints as $item1) {
+                    $res['Waypoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,26 +62,29 @@ class ListWaypointsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWaypointsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Continue'])) {
             $model->continue = $map['Continue'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Waypoints'])) {
             if (!empty($map['Waypoints'])) {
                 $model->waypoints = [];
-                $n                = 0;
-                foreach ($map['Waypoints'] as $item) {
-                    $model->waypoints[$n++] = null !== $item ? waypoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Waypoints'] as $item1) {
+                    $model->waypoints[$n1] = waypoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

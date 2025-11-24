@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateASMNamespaceFromGuestClusterResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 9DEC6122-ACEC-183D-8451-8E0A1A******
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateASMNamespaceFromGuestClusterResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateASMNamespaceFromGuestClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateASMNamespaceFromGuestClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

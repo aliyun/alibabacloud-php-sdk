@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneGroupListResponseBody\swimLaneGroupList;
-use AlibabaCloud\Tea\Model;
 
 class GetSwimLaneGroupListResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example yyyy
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the lane groups.
-     *
      * @var swimLaneGroupList[]
      */
     public $swimLaneGroupList;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'swimLaneGroupList' => 'SwimLaneGroupList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->swimLaneGroupList)) {
+            Model::validateArray($this->swimLaneGroupList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->swimLaneGroupList) {
-            $res['SwimLaneGroupList'] = [];
-            if (null !== $this->swimLaneGroupList && \is_array($this->swimLaneGroupList)) {
-                $n = 0;
-                foreach ($this->swimLaneGroupList as $item) {
-                    $res['SwimLaneGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->swimLaneGroupList)) {
+                $res['SwimLaneGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->swimLaneGroupList as $item1) {
+                    $res['SwimLaneGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class GetSwimLaneGroupListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSwimLaneGroupListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SwimLaneGroupList'])) {
             if (!empty($map['SwimLaneGroupList'])) {
                 $model->swimLaneGroupList = [];
-                $n                        = 0;
-                foreach ($map['SwimLaneGroupList'] as $item) {
-                    $model->swimLaneGroupList[$n++] = null !== $item ? swimLaneGroupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SwimLaneGroupList'] as $item1) {
+                    $model->swimLaneGroupList[$n1] = swimLaneGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

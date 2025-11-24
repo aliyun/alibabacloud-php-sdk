@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\adaptiveXdsConfiguration;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class egressHpaCpu extends Model
 {
     /**
-     * @description The expected CPU utilization when HPA is enabled. Valid values: 1 to 100. If the CPU utilization exceeds this value, the number of pod replicas increases. If the CPU utilization is less than this value, the number of pod replicas decreases.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $targetAverageUtilization;
@@ -22,9 +18,10 @@ class egressHpaCpu extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetAverageUtilization) {
@@ -34,11 +31,11 @@ class egressHpaCpu extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return egressHpaCpu
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

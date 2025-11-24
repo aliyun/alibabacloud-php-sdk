@@ -4,95 +4,86 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceEndpointsResponseBody\endPointSlice;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endpointsDetails extends Model
 {
     /**
-     * @description The port of the registered service.
-     *
-     * @example 127.2.**.**
-     *
      * @var string
      */
     public $address;
 
     /**
-     * @description The ID of the region in which the registered service resides.
-     *
-     * @example www.demo.com
-     *
      * @var string
      */
     public $hostname;
 
     /**
-     * @description The IP address of the registered service.
-     *
-     * @example provider-v1-8c86b6898-h***
-     *
      * @var string
      */
     public $podName;
 
     /**
-     * @description The host name of the registered service.
-     *
      * @var int[]
      */
     public $ports;
 
     /**
-     * @description Indicates whether sidecar proxies are injected. Valid values:
-     *
-     *   `true`: yes
-     *   `false`: no
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $sidecarInjected;
     protected $_name = [
-        'address'         => 'Address',
-        'hostname'        => 'Hostname',
-        'podName'         => 'PodName',
-        'ports'           => 'Ports',
-        'region'          => 'Region',
+        'address' => 'Address',
+        'hostname' => 'Hostname',
+        'podName' => 'PodName',
+        'ports' => 'Ports',
+        'region' => 'Region',
         'sidecarInjected' => 'SidecarInjected',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
+
         if (null !== $this->podName) {
             $res['PodName'] = $this->podName;
         }
+
         if (null !== $this->ports) {
-            $res['Ports'] = $this->ports;
+            if (\is_array($this->ports)) {
+                $res['Ports'] = [];
+                $n1 = 0;
+                foreach ($this->ports as $item1) {
+                    $res['Ports'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->sidecarInjected) {
             $res['SidecarInjected'] = $this->sidecarInjected;
         }
@@ -100,31 +91,41 @@ class endpointsDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpointsDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
+
         if (isset($map['PodName'])) {
             $model->podName = $map['PodName'];
         }
+
         if (isset($map['Ports'])) {
             if (!empty($map['Ports'])) {
-                $model->ports = $map['Ports'];
+                $model->ports = [];
+                $n1 = 0;
+                foreach ($map['Ports'] as $item1) {
+                    $model->ports[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['SidecarInjected'])) {
             $model->sidecarInjected = $map['SidecarInjected'];
         }

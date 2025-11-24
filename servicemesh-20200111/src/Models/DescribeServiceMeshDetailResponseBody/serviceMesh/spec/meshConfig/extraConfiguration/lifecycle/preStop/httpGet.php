@@ -4,73 +4,67 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\preStop;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\preStop\httpGet\httpHeaders;
-use AlibabaCloud\Tea\Model;
 
 class httpGet extends Model
 {
     /**
-     * @description The URL of the request.
-     *
-     * @example 127.xx.xx.1
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The HTTP request headers.
-     *
      * @var httpHeaders[]
      */
     public $httpHeaders;
 
     /**
-     * @description The port number of the request.
-     *
-     * @example 80
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @description The request method. Valid values: `http` and `https`.
-     *
-     * @example http
-     *
      * @var string
      */
     public $scheme;
     protected $_name = [
-        'host'        => 'host',
+        'host' => 'host',
         'httpHeaders' => 'httpHeaders',
-        'port'        => 'port',
-        'scheme'      => 'scheme',
+        'port' => 'port',
+        'scheme' => 'scheme',
     ];
 
     public function validate()
     {
+        if (\is_array($this->httpHeaders)) {
+            Model::validateArray($this->httpHeaders);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->host) {
             $res['host'] = $this->host;
         }
+
         if (null !== $this->httpHeaders) {
-            $res['httpHeaders'] = [];
-            if (null !== $this->httpHeaders && \is_array($this->httpHeaders)) {
-                $n = 0;
-                foreach ($this->httpHeaders as $item) {
-                    $res['httpHeaders'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->httpHeaders)) {
+                $res['httpHeaders'] = [];
+                $n1 = 0;
+                foreach ($this->httpHeaders as $item1) {
+                    $res['httpHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
+
         if (null !== $this->scheme) {
             $res['scheme'] = $this->scheme;
         }
@@ -78,29 +72,33 @@ class httpGet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return httpGet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['host'])) {
             $model->host = $map['host'];
         }
+
         if (isset($map['httpHeaders'])) {
             if (!empty($map['httpHeaders'])) {
                 $model->httpHeaders = [];
-                $n                  = 0;
-                foreach ($map['httpHeaders'] as $item) {
-                    $model->httpHeaders[$n++] = null !== $item ? httpHeaders::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['httpHeaders'] as $item1) {
+                    $model->httpHeaders[$n1] = httpHeaders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
+
         if (isset($map['scheme'])) {
             $model->scheme = $map['scheme'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\routeDestinations\destination;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class port extends Model
 {
     /**
-     * @description The port number.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $number;
@@ -22,9 +18,10 @@ class port extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->number) {
@@ -34,11 +31,11 @@ class port extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return port
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,64 +4,73 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVersionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class versionInfo extends Model
 {
     /**
-     * @description The edition of the ASM instance. Valid values:
-     *
-     *   `Default`: Standard Edition
-     *   `Pro`: Professional Edition that is commercially released
-     *
-     * @example Default
-     *
      * @var string
      */
     public $edition;
 
     /**
-     * @description The list of ASM versions available for the ASM instance of the current edition.
-     *
      * @var string[]
      */
     public $versions;
     protected $_name = [
-        'edition'  => 'Edition',
+        'edition' => 'Edition',
         'versions' => 'Versions',
     ];
 
     public function validate()
     {
+        if (\is_array($this->versions)) {
+            Model::validateArray($this->versions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
         }
+
         if (null !== $this->versions) {
-            $res['Versions'] = $this->versions;
+            if (\is_array($this->versions)) {
+                $res['Versions'] = [];
+                $n1 = 0;
+                foreach ($this->versions as $item1) {
+                    $res['Versions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return versionInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
         }
+
         if (isset($map['Versions'])) {
             if (!empty($map['Versions'])) {
-                $model->versions = $map['Versions'];
+                $model->versions = [];
+                $n1 = 0;
+                foreach ($map['Versions'] as $item1) {
+                    $model->versions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

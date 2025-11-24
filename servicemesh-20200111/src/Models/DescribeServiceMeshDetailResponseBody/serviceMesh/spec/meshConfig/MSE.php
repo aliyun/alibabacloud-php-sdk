@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MSE extends Model
 {
     /**
-     * @description Indicates whether MSE is enabled. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
@@ -25,9 +18,10 @@ class MSE extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
@@ -37,11 +31,11 @@ class MSE extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MSE
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessLog extends Model
 {
     /**
-     * @description Indicates whether access log collection is enabled. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description The name of the Simple Log Service project that stores access logs.
-     *
-     * @example k8s-log-b7b05d08670e41ca8c8fc0b7718f*****
-     *
      * @var string
      */
     public $project;
@@ -35,14 +24,16 @@ class accessLog extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
@@ -50,17 +41,18 @@ class accessLog extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessLog
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }

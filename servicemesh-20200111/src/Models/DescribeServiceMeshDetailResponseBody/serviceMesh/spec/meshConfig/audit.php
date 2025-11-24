@@ -4,61 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class audit extends Model
 {
     /**
-     * @description Indicates whether an audit project exists in the ASM instance. Valid values:
-     *
-     *   `audit_project_exist`: An audit project exists.
-     *   `audit_project_not_exist`: No audit project exists.
-     *
-     * @example audit_project_not_exist
-     *
      * @var string
      */
     public $auditProjectStatus;
 
     /**
-     * @description Indicates whether mesh audit is enabled. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description The name of the Simple Log Service project that is used for mesh audit.
-     *
-     * @example audit-project
-     *
      * @var string
      */
     public $project;
     protected $_name = [
         'auditProjectStatus' => 'AuditProjectStatus',
-        'enabled'            => 'Enabled',
-        'project'            => 'Project',
+        'enabled' => 'Enabled',
+        'project' => 'Project',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auditProjectStatus) {
             $res['AuditProjectStatus'] = $this->auditProjectStatus;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
@@ -66,20 +51,22 @@ class audit extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audit
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuditProjectStatus'])) {
             $model->auditProjectStatus = $map['AuditProjectStatus'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }

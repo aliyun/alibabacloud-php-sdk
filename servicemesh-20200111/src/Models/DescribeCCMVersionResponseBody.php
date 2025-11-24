@@ -4,43 +4,44 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCCMVersionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @var CCMVersionsValue[]
      */
     public $CCMVersions;
 
     /**
-     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'CCMVersions' => 'CCMVersions',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->CCMVersions)) {
+            Model::validateArray($this->CCMVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CCMVersions) {
-            $res['CCMVersions'] = [];
-            if (null !== $this->CCMVersions && \is_array($this->CCMVersions)) {
-                foreach ($this->CCMVersions as $key => $val) {
-                    $res['CCMVersions'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->CCMVersions)) {
+                $res['CCMVersions'] = [];
+                foreach ($this->CCMVersions as $key1 => $value1) {
+                    $res['CCMVersions'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +49,23 @@ class DescribeCCMVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCCMVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CCMVersions'])) {
-            $model->CCMVersions = $map['CCMVersions'];
+            if (!empty($map['CCMVersions'])) {
+                $model->CCMVersions = [];
+                foreach ($map['CCMVersions'] as $key1 => $value1) {
+                    $model->CCMVersions[$key1] = CCMVersionsValue::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

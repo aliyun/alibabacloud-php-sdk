@@ -4,53 +4,56 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponseBody\serviceMeshes\spec;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class network extends Model
 {
     /**
-     * @description The ID of the security group.
-     *
-     * @example sg-2ze384sxttxbctnj****
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description The IDs of the vSwitches.
-     *
      * @var string[]
      */
     public $vSwitches;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
-     *
-     * @example vpc-2zew0rajjkmxy2369****
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'securityGroupId' => 'SecurityGroupId',
-        'vSwitches'       => 'VSwitches',
-        'vpcId'           => 'VpcId',
+        'vSwitches' => 'VSwitches',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->vSwitches)) {
+            Model::validateArray($this->vSwitches);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->vSwitches) {
-            $res['VSwitches'] = $this->vSwitches;
+            if (\is_array($this->vSwitches)) {
+                $res['VSwitches'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitches as $item1) {
+                    $res['VSwitches'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -58,22 +61,29 @@ class network extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return network
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
-                $model->vSwitches = $map['VSwitches'];
+                $model->vSwitches = [];
+                $n1 = 0;
+                foreach ($map['VSwitches'] as $item1) {
+                    $model->vSwitches[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

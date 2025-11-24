@@ -4,45 +4,44 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateGatewaySecretResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The record of creating the secret.
-     *
      * @var SecretCreateRecordValue[]
      */
     public $secretCreateRecord;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'secretCreateRecord' => 'SecretCreateRecord',
     ];
 
     public function validate()
     {
+        if (\is_array($this->secretCreateRecord)) {
+            Model::validateArray($this->secretCreateRecord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->secretCreateRecord) {
-            $res['SecretCreateRecord'] = [];
-            if (null !== $this->secretCreateRecord && \is_array($this->secretCreateRecord)) {
-                foreach ($this->secretCreateRecord as $key => $val) {
-                    $res['SecretCreateRecord'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->secretCreateRecord)) {
+                $res['SecretCreateRecord'] = [];
+                foreach ($this->secretCreateRecord as $key1 => $value1) {
+                    $res['SecretCreateRecord'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -50,19 +49,25 @@ class CreateGatewaySecretResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGatewaySecretResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecretCreateRecord'])) {
-            $model->secretCreateRecord = $map['SecretCreateRecord'];
+            if (!empty($map['SecretCreateRecord'])) {
+                $model->secretCreateRecord = [];
+                foreach ($map['SecretCreateRecord'] as $key1 => $value1) {
+                    $model->secretCreateRecord[$key1] = SecretCreateRecordValue::fromMap($value1);
+                }
+            }
         }
 
         return $model;

@@ -4,73 +4,81 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart\exec;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart\httpGet;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart\tcpSocket;
-use AlibabaCloud\Tea\Model;
 
 class postStart extends Model
 {
     /**
-     * @description The post-start script.
-     *
      * @var exec
      */
     public $exec;
 
     /**
-     * @description The HTTP GET request that is sent before the instance stops.
-     *
      * @var httpGet
      */
     public $httpGet;
 
     /**
-     * @description The TCP socket request that is sent.
-     *
      * @var tcpSocket
      */
     public $tcpSocket;
     protected $_name = [
-        'exec'      => 'exec',
-        'httpGet'   => 'httpGet',
+        'exec' => 'exec',
+        'httpGet' => 'httpGet',
         'tcpSocket' => 'tcpSocket',
     ];
 
     public function validate()
     {
+        if (null !== $this->exec) {
+            $this->exec->validate();
+        }
+        if (null !== $this->httpGet) {
+            $this->httpGet->validate();
+        }
+        if (null !== $this->tcpSocket) {
+            $this->tcpSocket->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exec) {
-            $res['exec'] = null !== $this->exec ? $this->exec->toMap() : null;
+            $res['exec'] = null !== $this->exec ? $this->exec->toArray($noStream) : $this->exec;
         }
+
         if (null !== $this->httpGet) {
-            $res['httpGet'] = null !== $this->httpGet ? $this->httpGet->toMap() : null;
+            $res['httpGet'] = null !== $this->httpGet ? $this->httpGet->toArray($noStream) : $this->httpGet;
         }
+
         if (null !== $this->tcpSocket) {
-            $res['tcpSocket'] = null !== $this->tcpSocket ? $this->tcpSocket->toMap() : null;
+            $res['tcpSocket'] = null !== $this->tcpSocket ? $this->tcpSocket->toArray($noStream) : $this->tcpSocket;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return postStart
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['exec'])) {
             $model->exec = exec::fromMap($map['exec']);
         }
+
         if (isset($map['httpGet'])) {
             $model->httpGet = httpGet::fromMap($map['httpGet']);
         }
+
         if (isset($map['tcpSocket'])) {
             $model->tcpSocket = tcpSocket::fromMap($map['tcpSocket']);
         }

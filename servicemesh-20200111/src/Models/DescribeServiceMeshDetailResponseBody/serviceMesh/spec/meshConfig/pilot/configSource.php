@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\pilot;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configSource extends Model
 {
     /**
-     * @description Indicates whether communication is allowed between external services and services in the mesh. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description The ID of the Nacos instance that provides external service information.
-     *
-     * @example mse-cn-tl326******
-     *
      * @var string
      */
     public $nacosID;
@@ -35,14 +24,16 @@ class configSource extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->nacosID) {
             $res['NacosID'] = $this->nacosID;
         }
@@ -50,17 +41,18 @@ class configSource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configSource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['NacosID'])) {
             $model->nacosID = $map['NacosID'];
         }

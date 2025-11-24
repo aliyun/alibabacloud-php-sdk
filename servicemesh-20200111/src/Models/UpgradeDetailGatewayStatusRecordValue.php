@@ -4,62 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeDetailGatewayStatusRecordValue extends Model
 {
     /**
-     * @description The upgrade status of the ingress gateway. Valid values:
-     *
-     *   `upgrading`: The ingress gateway is being upgraded.
-     *   `pending`: The ingress gateway waits to be upgraded.
-     *   `finished`: The ingress gateway upgrade is complete.
-     *   `notStart`: The ingress gateway upgrade does not start.
-     *   `failed`: The ingress gateway upgrade fails.
-     *   `unknown`: The upgrade status of the ingress gateway is unknown.
-     *
-     * @example upgrading
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description Additional status information of the ingress gateway.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The version of the ingress gateway.
-     *
-     * @example 1.9.7
-     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'status'  => 'Status',
+        'status' => 'Status',
         'message' => 'Message',
         'version' => 'Version',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -67,20 +51,22 @@ class UpgradeDetailGatewayStatusRecordValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeDetailGatewayStatusRecordValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

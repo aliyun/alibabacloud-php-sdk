@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailResponseBody\routeDetail\HTTPAdvancedOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rewrite extends Model
 {
     /**
-     * @description The value to be used to overwrite the value of the Authority or Host header.
-     *
-     * @example newratings.default.svc.cluster.local
-     *
      * @var string
      */
     public $authority;
 
     /**
-     * @description The value to be used to overwrite the path or prefix of the URI.
-     *
-     * @example /v1/getProductRatings
-     *
      * @var string
      */
     public $uri;
     protected $_name = [
         'authority' => 'Authority',
-        'uri'       => 'Uri',
+        'uri' => 'Uri',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authority) {
             $res['Authority'] = $this->authority;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -47,17 +41,18 @@ class rewrite extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rewrite
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Authority'])) {
             $model->authority = $map['Authority'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

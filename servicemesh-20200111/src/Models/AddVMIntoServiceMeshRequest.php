@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddVMIntoServiceMeshRequest extends Model
 {
     /**
-     * @description The ID of the ECS instance.
-     *
-     * @example i-2ze90ts4e7dj3650****
-     *
      * @var string
      */
     public $ecsId;
 
     /**
-     * @description The ASM instance ID.
-     *
-     * @example ccb37ff104caf419fbf48fb38e6f3****
-     *
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
-        'ecsId'         => 'EcsId',
+        'ecsId' => 'EcsId',
         'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecsId) {
             $res['EcsId'] = $this->ecsId;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -47,17 +41,18 @@ class AddVMIntoServiceMeshRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddVMIntoServiceMeshRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsId'])) {
             $model->ecsId = $map['EcsId'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }

@@ -4,113 +4,140 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\matchRequest\headers;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\matchRequest\TLSMatchAttributes;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\matchRequest\URI;
-use AlibabaCloud\Tea\Model;
 
 class matchRequest extends Model
 {
     /**
-     * @description The request headers to be matched.
-     *
      * @var headers[]
      */
     public $headers;
 
     /**
-     * @description The ports.
-     *
      * @var int[]
      */
     public $ports;
 
     /**
-     * @description The matching rule for Transport Layer Security (TLS) traffic.
-     *
      * @var TLSMatchAttributes[]
      */
     public $TLSMatchAttributes;
 
     /**
-     * @description The matching rule for URIs.
-     *
      * @var URI
      */
     public $URI;
     protected $_name = [
-        'headers'            => 'Headers',
-        'ports'              => 'Ports',
+        'headers' => 'Headers',
+        'ports' => 'Ports',
         'TLSMatchAttributes' => 'TLSMatchAttributes',
-        'URI'                => 'URI',
+        'URI' => 'URI',
     ];
 
     public function validate()
     {
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
+        }
+        if (\is_array($this->TLSMatchAttributes)) {
+            Model::validateArray($this->TLSMatchAttributes);
+        }
+        if (null !== $this->URI) {
+            $this->URI->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headers) {
-            $res['Headers'] = [];
-            if (null !== $this->headers && \is_array($this->headers)) {
-                $n = 0;
-                foreach ($this->headers as $item) {
-                    $res['Headers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->headers)) {
+                $res['Headers'] = [];
+                $n1 = 0;
+                foreach ($this->headers as $item1) {
+                    $res['Headers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ports) {
-            $res['Ports'] = $this->ports;
-        }
-        if (null !== $this->TLSMatchAttributes) {
-            $res['TLSMatchAttributes'] = [];
-            if (null !== $this->TLSMatchAttributes && \is_array($this->TLSMatchAttributes)) {
-                $n = 0;
-                foreach ($this->TLSMatchAttributes as $item) {
-                    $res['TLSMatchAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ports)) {
+                $res['Ports'] = [];
+                $n1 = 0;
+                foreach ($this->ports as $item1) {
+                    $res['Ports'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->TLSMatchAttributes) {
+            if (\is_array($this->TLSMatchAttributes)) {
+                $res['TLSMatchAttributes'] = [];
+                $n1 = 0;
+                foreach ($this->TLSMatchAttributes as $item1) {
+                    $res['TLSMatchAttributes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->URI) {
-            $res['URI'] = null !== $this->URI ? $this->URI->toMap() : null;
+            $res['URI'] = null !== $this->URI ? $this->URI->toArray($noStream) : $this->URI;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return matchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n              = 0;
-                foreach ($map['Headers'] as $item) {
-                    $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Headers'] as $item1) {
+                    $model->headers[$n1] = headers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Ports'])) {
             if (!empty($map['Ports'])) {
-                $model->ports = $map['Ports'];
+                $model->ports = [];
+                $n1 = 0;
+                foreach ($map['Ports'] as $item1) {
+                    $model->ports[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TLSMatchAttributes'])) {
             if (!empty($map['TLSMatchAttributes'])) {
                 $model->TLSMatchAttributes = [];
-                $n                         = 0;
-                foreach ($map['TLSMatchAttributes'] as $item) {
-                    $model->TLSMatchAttributes[$n++] = null !== $item ? TLSMatchAttributes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TLSMatchAttributes'] as $item1) {
+                    $model->TLSMatchAttributes[$n1] = TLSMatchAttributes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['URI'])) {
             $model->URI = URI::fromMap($map['URI']);
         }

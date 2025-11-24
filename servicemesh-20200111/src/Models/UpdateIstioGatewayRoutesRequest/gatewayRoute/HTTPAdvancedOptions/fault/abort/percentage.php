@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions\fault\abort;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class percentage extends Model
 {
     /**
-     * @description The percentage of requests that are aborted with the specified error code, which is expressed as a decimal.
-     *
-     * @example 0.1
-     *
      * @var float
      */
     public $value;
@@ -22,9 +18,10 @@ class percentage extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->value) {
@@ -34,11 +31,11 @@ class percentage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return percentage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

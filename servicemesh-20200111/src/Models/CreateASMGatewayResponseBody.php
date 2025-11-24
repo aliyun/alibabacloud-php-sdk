@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateASMGatewayResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateASMGatewayResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateASMGatewayResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateASMGatewayResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

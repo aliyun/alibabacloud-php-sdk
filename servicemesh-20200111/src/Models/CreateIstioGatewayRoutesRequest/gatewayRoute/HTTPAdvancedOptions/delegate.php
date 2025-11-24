@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class delegate extends Model
 {
     /**
-     * @description The name of the virtual service.
-     *
-     * @example reviews
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The namespace to which the virtual service belongs.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
     protected $_name = [
-        'name'      => 'Name',
+        'name' => 'Name',
         'namespace' => 'Namespace',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -47,17 +41,18 @@ class delegate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return delegate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

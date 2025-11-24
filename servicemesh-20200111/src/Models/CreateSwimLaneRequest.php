@@ -4,94 +4,76 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSwimLaneRequest extends Model
 {
     /**
-     * @description The name of the lane group.
-     *
-     * @example test
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The label key of the associated service workload. Set the value to `ASM_TRAFFIC_TAG`.
-     *
-     * @example ASM_TRAFFIC_TAG
-     *
      * @var string
      */
     public $labelSelectorKey;
 
     /**
-     * @description The label value of the associated service workload.``
-     *
-     * @example v3
-     *
      * @var string
      */
     public $labelSelectorValue;
 
     /**
-     * @description The ID of the Service Mesh (ASM) instance.
-     *
-     * @example *****
-     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
-     * @description The list of services associated with the lane. The value is a JSON array. The format of a single service is `$Cluster name/$Cluster ID/$Namespace/$Service name`.
-     *
-     * @example [\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mocka\",\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockb\",\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockc\"]
-     *
      * @var string
      */
     public $servicesList;
 
     /**
-     * @description The name of the lane.
-     *
-     * @example s3
-     *
      * @var string
      */
     public $swimLaneName;
     protected $_name = [
-        'groupName'          => 'GroupName',
-        'labelSelectorKey'   => 'LabelSelectorKey',
+        'groupName' => 'GroupName',
+        'labelSelectorKey' => 'LabelSelectorKey',
         'labelSelectorValue' => 'LabelSelectorValue',
-        'serviceMeshId'      => 'ServiceMeshId',
-        'servicesList'       => 'ServicesList',
-        'swimLaneName'       => 'SwimLaneName',
+        'serviceMeshId' => 'ServiceMeshId',
+        'servicesList' => 'ServicesList',
+        'swimLaneName' => 'SwimLaneName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->labelSelectorKey) {
             $res['LabelSelectorKey'] = $this->labelSelectorKey;
         }
+
         if (null !== $this->labelSelectorValue) {
             $res['LabelSelectorValue'] = $this->labelSelectorValue;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
+
         if (null !== $this->servicesList) {
             $res['ServicesList'] = $this->servicesList;
         }
+
         if (null !== $this->swimLaneName) {
             $res['SwimLaneName'] = $this->swimLaneName;
         }
@@ -99,29 +81,34 @@ class CreateSwimLaneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSwimLaneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['LabelSelectorKey'])) {
             $model->labelSelectorKey = $map['LabelSelectorKey'];
         }
+
         if (isset($map['LabelSelectorValue'])) {
             $model->labelSelectorValue = $map['LabelSelectorValue'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
+
         if (isset($map['ServicesList'])) {
             $model->servicesList = $map['ServicesList'];
         }
+
         if (isset($map['SwimLaneName'])) {
             $model->swimLaneName = $map['SwimLaneName'];
         }

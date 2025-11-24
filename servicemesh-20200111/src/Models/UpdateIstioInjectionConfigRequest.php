@@ -4,97 +4,76 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateIstioInjectionConfigRequest extends Model
 {
     /**
-     * @description The data plane mode of the namespace. This parameter is valid only when the Ambient Mesh mode is enabled for the current Service Mesh (ASM) instance. Valid values:
-     *
-     *   ambient: sets the data plane mode of the namespace to the Ambient Mesh mode.
-     *   sidecar: sets the data plane mode of the namespace to the Sidecar mode.
-     *
-     * @example ambient
-     *
      * @var string
      */
     public $dataPlaneMode;
 
     /**
-     * @description Specifies whether to enable Istio automatic sidecar injection.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableIstioInjection;
 
     /**
-     * @description Specifies whether to enable automatic sidecar injection by using SidecarSet.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableSidecarSetInjection;
 
     /**
-     * @description Specifies the version to be injected into the namespace. This parameter is valid only when the ASM instance performs a canary release. When IstioRev is not empty, you must not specify EnableIstioInjection and EnableSidecarSetInjection.
-     *
-     * @example canary
-     *
      * @var string
      */
     public $istioRev;
 
     /**
-     * @description The namespace for which you want to modify the sidecar injection setting.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The ID of the ASM instance.
-     *
-     * @example ce2cdbb9d013f447180cf5ca8bb******
-     *
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
-        'dataPlaneMode'             => 'DataPlaneMode',
-        'enableIstioInjection'      => 'EnableIstioInjection',
+        'dataPlaneMode' => 'DataPlaneMode',
+        'enableIstioInjection' => 'EnableIstioInjection',
         'enableSidecarSetInjection' => 'EnableSidecarSetInjection',
-        'istioRev'                  => 'IstioRev',
-        'namespace'                 => 'Namespace',
-        'serviceMeshId'             => 'ServiceMeshId',
+        'istioRev' => 'IstioRev',
+        'namespace' => 'Namespace',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataPlaneMode) {
             $res['DataPlaneMode'] = $this->dataPlaneMode;
         }
+
         if (null !== $this->enableIstioInjection) {
             $res['EnableIstioInjection'] = $this->enableIstioInjection;
         }
+
         if (null !== $this->enableSidecarSetInjection) {
             $res['EnableSidecarSetInjection'] = $this->enableSidecarSetInjection;
         }
+
         if (null !== $this->istioRev) {
             $res['IstioRev'] = $this->istioRev;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -102,29 +81,34 @@ class UpdateIstioInjectionConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateIstioInjectionConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataPlaneMode'])) {
             $model->dataPlaneMode = $map['DataPlaneMode'];
         }
+
         if (isset($map['EnableIstioInjection'])) {
             $model->enableIstioInjection = $map['EnableIstioInjection'];
         }
+
         if (isset($map['EnableSidecarSetInjection'])) {
             $model->enableSidecarSetInjection = $map['EnableSidecarSetInjection'];
         }
+
         if (isset($map['IstioRev'])) {
             $model->istioRev = $map['IstioRev'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }

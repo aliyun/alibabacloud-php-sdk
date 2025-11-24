@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sidecarProxyInitResourceRequest extends Model
 {
     /**
-     * @description The minimum number of CPU cores.
-     *
-     * @example 60 m
-     *
      * @var string
      */
     public $resourceCPURequest;
 
     /**
-     * @description The minimum size of the memory.
-     *
-     * @example 30 Mi
-     *
      * @var string
      */
     public $resourceMemoryRequest;
     protected $_name = [
-        'resourceCPURequest'    => 'ResourceCPURequest',
+        'resourceCPURequest' => 'ResourceCPURequest',
         'resourceMemoryRequest' => 'ResourceMemoryRequest',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceCPURequest) {
             $res['ResourceCPURequest'] = $this->resourceCPURequest;
         }
+
         if (null !== $this->resourceMemoryRequest) {
             $res['ResourceMemoryRequest'] = $this->resourceMemoryRequest;
         }
@@ -47,17 +41,18 @@ class sidecarProxyInitResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sidecarProxyInitResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceCPURequest'])) {
             $model->resourceCPURequest = $map['ResourceCPURequest'];
         }
+
         if (isset($map['ResourceMemoryRequest'])) {
             $model->resourceMemoryRequest = $map['ResourceMemoryRequest'];
         }

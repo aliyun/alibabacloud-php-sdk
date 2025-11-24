@@ -4,95 +4,105 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeImportedServicesDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeImportedServicesDetailResponseBody\details\ports;
-use AlibabaCloud\Tea\Model;
 
 class details extends Model
 {
     /**
-     * @description The clusters on the data plane.
-     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
-     * @description The labels of the service.
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description The namespace in which the service resides.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The ports declared for the service.
-     *
      * @var ports[]
      */
     public $ports;
 
     /**
-     * @description The name of a service.
-     *
-     * @example productpage
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The type of the service.
-     *
-     * @example Kubernetes
-     *
      * @var string
      */
     public $serviceType;
     protected $_name = [
-        'clusterIds'  => 'ClusterIds',
-        'labels'      => 'Labels',
-        'namespace'   => 'Namespace',
-        'ports'       => 'Ports',
+        'clusterIds' => 'ClusterIds',
+        'labels' => 'Labels',
+        'namespace' => 'Namespace',
+        'ports' => 'Ports',
         'serviceName' => 'ServiceName',
         'serviceType' => 'ServiceType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->clusterIds)) {
+            Model::validateArray($this->clusterIds);
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterIds) {
-            $res['ClusterIds'] = $this->clusterIds;
-        }
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
-        }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->ports) {
-            $res['Ports'] = [];
-            if (null !== $this->ports && \is_array($this->ports)) {
-                $n = 0;
-                foreach ($this->ports as $item) {
-                    $res['Ports'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusterIds)) {
+                $res['ClusterIds'] = [];
+                $n1 = 0;
+                foreach ($this->clusterIds as $item1) {
+                    $res['ClusterIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->ports) {
+            if (\is_array($this->ports)) {
+                $res['Ports'] = [];
+                $n1 = 0;
+                foreach ($this->ports as $item1) {
+                    $res['Ports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
         }
@@ -100,37 +110,53 @@ class details extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return details
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
-                $model->clusterIds = $map['ClusterIds'];
-            }
-        }
-        if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
-        }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['Ports'])) {
-            if (!empty($map['Ports'])) {
-                $model->ports = [];
-                $n            = 0;
-                foreach ($map['Ports'] as $item) {
-                    $model->ports[$n++] = null !== $item ? ports::fromMap($item) : $item;
+                $model->clusterIds = [];
+                $n1 = 0;
+                foreach ($map['ClusterIds'] as $item1) {
+                    $model->clusterIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+
+        if (isset($map['Ports'])) {
+            if (!empty($map['Ports'])) {
+                $model->ports = [];
+                $n1 = 0;
+                foreach ($map['Ports'] as $item1) {
+                    $model->ports[$n1] = ports::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
         }

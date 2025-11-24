@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mirrorPercentage extends Model
 {
     /**
-     * @description The percentage of requests that are mirrored to another destination except for the original destination, which is expressed as a decimal.
-     *
-     * @example 0.2
-     *
      * @var float
      */
     public $value;
@@ -22,9 +18,10 @@ class mirrorPercentage extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->value) {
@@ -34,11 +31,11 @@ class mirrorPercentage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mirrorPercentage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

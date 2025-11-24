@@ -4,46 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailResponseBody\routeDetail\matchRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class URI extends Model
 {
     /**
-     * @description The content to be matched.
-     *
-     * @example /ratings/v2/
-     *
      * @var string
      */
     public $matchingContent;
 
     /**
-     * @description The matching mode. Valid values:
-     *
-     *   `exact`: exact match
-     *   `prefix`: match by prefix
-     *   `regex`: match by regular expression
-     *
-     * @example prefix
-     *
      * @var string
      */
     public $matchingMode;
     protected $_name = [
         'matchingContent' => 'MatchingContent',
-        'matchingMode'    => 'MatchingMode',
+        'matchingMode' => 'MatchingMode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->matchingContent) {
             $res['MatchingContent'] = $this->matchingContent;
         }
+
         if (null !== $this->matchingMode) {
             $res['MatchingMode'] = $this->matchingMode;
         }
@@ -51,17 +41,18 @@ class URI extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return URI
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchingContent'])) {
             $model->matchingContent = $map['MatchingContent'];
         }
+
         if (isset($map['MatchingMode'])) {
             $model->matchingMode = $map['MatchingMode'];
         }

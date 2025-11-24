@@ -4,40 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCensResponseBody extends Model
 {
     /**
-     * @description The list of Kubernetes clusters that are added to the same ASM instance but are in different VPCs and are not connected by using a Cloud Enterprise Network (CEN) instance.
-     *
      * @var string[]
      */
     public $clusters;
 
     /**
-     * @description The request ID.
-     *
-     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'clusters'  => 'Clusters',
+        'clusters' => 'Clusters',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->clusters)) {
+            Model::validateArray($this->clusters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusters) {
-            $res['Clusters'] = $this->clusters;
+            if (\is_array($this->clusters)) {
+                $res['Clusters'] = [];
+                $n1 = 0;
+                foreach ($this->clusters as $item1) {
+                    $res['Clusters'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +51,25 @@ class DescribeCensResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCensResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
-                $model->clusters = $map['Clusters'];
+                $model->clusters = [];
+                $n1 = 0;
+                foreach ($map['Clusters'] as $item1) {
+                    $model->clusters[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

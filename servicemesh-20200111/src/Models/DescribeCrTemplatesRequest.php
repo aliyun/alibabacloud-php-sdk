@@ -4,54 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCrTemplatesRequest extends Model
 {
     /**
-     * @description The Istio version used in ASM.
-     *
-     * @example v1.9.7.31-g24cdcb43-aliyun
-     *
      * @var string
      */
     public $istioVersion;
 
     /**
-     * @description The type of Istio resource whose common YAML templates you want to query. Valid values:
-     *
-     *   AuthorizationPolicy
-     *   RequestAuthentication
-     *   PeerAuthentication
-     *   WorkloadGroup
-     *   WorkloadEntry
-     *   Sidecar
-     *   EnvoyFilter
-     *   ServiceEntry
-     *   Gateway
-     *   DestinationRule
-     *   VirtualService
-     *
-     * @example VirtualService
-     *
      * @var string
      */
     public $kind;
     protected $_name = [
         'istioVersion' => 'IstioVersion',
-        'kind'         => 'Kind',
+        'kind' => 'Kind',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->istioVersion) {
             $res['IstioVersion'] = $this->istioVersion;
         }
+
         if (null !== $this->kind) {
             $res['Kind'] = $this->kind;
         }
@@ -59,17 +41,18 @@ class DescribeCrTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCrTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IstioVersion'])) {
             $model->istioVersion = $map['IstioVersion'];
         }
+
         if (isset($map['Kind'])) {
             $model->kind = $map['Kind'];
         }

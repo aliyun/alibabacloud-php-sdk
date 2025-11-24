@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CRAggregationConfiguration extends Model
 {
     /**
-     * @description Indicates whether Istio resources can be accessed by using the Kubernetes API on the data plane.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
@@ -22,9 +18,10 @@ class CRAggregationConfiguration extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
@@ -34,11 +31,11 @@ class CRAggregationConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CRAggregationConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

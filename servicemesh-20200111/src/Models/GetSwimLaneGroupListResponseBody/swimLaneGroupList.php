@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneGroupListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class swimLaneGroupList extends Model
 {
@@ -14,28 +14,21 @@ class swimLaneGroupList extends Model
     public $fallbackTarget;
 
     /**
-     * @description The name of a lane group.
-     *
-     * @example test
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The name of the ingress gateway.
-     *
-     * @example ingressgateway
-     *
      * @var string
      */
     public $ingressGatewayName;
 
     /**
-     * @description The ingress type. Traffic routing rules can be configured only in an ingress gateway.
-     *
-     * @example ASM
-     *
+     * @var string
+     */
+    public $ingressRoutingStrategy;
+
+    /**
      * @var string
      */
     public $ingressType;
@@ -51,10 +44,11 @@ class swimLaneGroupList extends Model
     public $routeHeader;
 
     /**
-     * @description A list of services associated with the lane group.
-     *
-     * @example ["sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mocka","sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockb","sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockc"]
-     *
+     * @var string
+     */
+    public $serviceLevelFallbackTarget;
+
+    /**
      * @var string
      */
     public $serviceList;
@@ -68,90 +62,139 @@ class swimLaneGroupList extends Model
      * @var string
      */
     public $traceHeader;
+
+    /**
+     * @var string
+     */
+    public $weightedIngressRule;
     protected $_name = [
-        'fallbackTarget'     => 'FallbackTarget',
-        'groupName'          => 'GroupName',
+        'fallbackTarget' => 'FallbackTarget',
+        'groupName' => 'GroupName',
         'ingressGatewayName' => 'IngressGatewayName',
-        'ingressType'        => 'IngressType',
-        'isPermissive'       => 'IsPermissive',
-        'routeHeader'        => 'RouteHeader',
-        'serviceList'        => 'ServiceList',
-        'swimLaneLabels'     => 'SwimLaneLabels',
-        'traceHeader'        => 'TraceHeader',
+        'ingressRoutingStrategy' => 'IngressRoutingStrategy',
+        'ingressType' => 'IngressType',
+        'isPermissive' => 'IsPermissive',
+        'routeHeader' => 'RouteHeader',
+        'serviceLevelFallbackTarget' => 'ServiceLevelFallbackTarget',
+        'serviceList' => 'ServiceList',
+        'swimLaneLabels' => 'SwimLaneLabels',
+        'traceHeader' => 'TraceHeader',
+        'weightedIngressRule' => 'WeightedIngressRule',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fallbackTarget) {
             $res['FallbackTarget'] = $this->fallbackTarget;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->ingressGatewayName) {
             $res['IngressGatewayName'] = $this->ingressGatewayName;
         }
+
+        if (null !== $this->ingressRoutingStrategy) {
+            $res['IngressRoutingStrategy'] = $this->ingressRoutingStrategy;
+        }
+
         if (null !== $this->ingressType) {
             $res['IngressType'] = $this->ingressType;
         }
+
         if (null !== $this->isPermissive) {
             $res['IsPermissive'] = $this->isPermissive;
         }
+
         if (null !== $this->routeHeader) {
             $res['RouteHeader'] = $this->routeHeader;
         }
+
+        if (null !== $this->serviceLevelFallbackTarget) {
+            $res['ServiceLevelFallbackTarget'] = $this->serviceLevelFallbackTarget;
+        }
+
         if (null !== $this->serviceList) {
             $res['ServiceList'] = $this->serviceList;
         }
+
         if (null !== $this->swimLaneLabels) {
             $res['SwimLaneLabels'] = $this->swimLaneLabels;
         }
+
         if (null !== $this->traceHeader) {
             $res['TraceHeader'] = $this->traceHeader;
+        }
+
+        if (null !== $this->weightedIngressRule) {
+            $res['WeightedIngressRule'] = $this->weightedIngressRule;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return swimLaneGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FallbackTarget'])) {
             $model->fallbackTarget = $map['FallbackTarget'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['IngressGatewayName'])) {
             $model->ingressGatewayName = $map['IngressGatewayName'];
         }
+
+        if (isset($map['IngressRoutingStrategy'])) {
+            $model->ingressRoutingStrategy = $map['IngressRoutingStrategy'];
+        }
+
         if (isset($map['IngressType'])) {
             $model->ingressType = $map['IngressType'];
         }
+
         if (isset($map['IsPermissive'])) {
             $model->isPermissive = $map['IsPermissive'];
         }
+
         if (isset($map['RouteHeader'])) {
             $model->routeHeader = $map['RouteHeader'];
         }
+
+        if (isset($map['ServiceLevelFallbackTarget'])) {
+            $model->serviceLevelFallbackTarget = $map['ServiceLevelFallbackTarget'];
+        }
+
         if (isset($map['ServiceList'])) {
             $model->serviceList = $map['ServiceList'];
         }
+
         if (isset($map['SwimLaneLabels'])) {
             $model->swimLaneLabels = $map['SwimLaneLabels'];
         }
+
         if (isset($map['TraceHeader'])) {
             $model->traceHeader = $map['TraceHeader'];
+        }
+
+        if (isset($map['WeightedIngressRule'])) {
+            $model->weightedIngressRule = $map['WeightedIngressRule'];
         }
 
         return $model;

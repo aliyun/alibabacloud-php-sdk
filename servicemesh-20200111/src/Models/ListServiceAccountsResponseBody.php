@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListServiceAccountsResponseBody\serviceAccounts;
-use AlibabaCloud\Tea\Model;
 
 class ListServiceAccountsResponseBody extends Model
 {
     /**
-     * @example 8349374D-0F22-5CAB-9DE3-8CCE8EFA71FF
-     *
      * @var string
      */
     public $requestId;
@@ -21,26 +19,32 @@ class ListServiceAccountsResponseBody extends Model
      */
     public $serviceAccounts;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceAccounts' => 'ServiceAccounts',
     ];
 
     public function validate()
     {
+        if (\is_array($this->serviceAccounts)) {
+            Model::validateArray($this->serviceAccounts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceAccounts) {
-            $res['ServiceAccounts'] = [];
-            if (null !== $this->serviceAccounts && \is_array($this->serviceAccounts)) {
-                $n = 0;
-                foreach ($this->serviceAccounts as $item) {
-                    $res['ServiceAccounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceAccounts)) {
+                $res['ServiceAccounts'] = [];
+                $n1 = 0;
+                foreach ($this->serviceAccounts as $item1) {
+                    $res['ServiceAccounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class ListServiceAccountsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServiceAccountsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceAccounts'])) {
             if (!empty($map['ServiceAccounts'])) {
                 $model->serviceAccounts = [];
-                $n                      = 0;
-                foreach ($map['ServiceAccounts'] as $item) {
-                    $model->serviceAccounts[$n++] = null !== $item ? serviceAccounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ServiceAccounts'] as $item1) {
+                    $model->serviceAccounts[$n1] = serviceAccounts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

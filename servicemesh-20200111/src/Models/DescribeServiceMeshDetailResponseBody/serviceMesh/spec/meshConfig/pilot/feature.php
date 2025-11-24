@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\pilot;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class feature extends Model
 {
     /**
-     * @description Indicates whether Secret Discovery Service (SDS) is enabled. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableSDSServer;
 
     /**
-     * @description Indicates whether gateway configuration filtering is enabled. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example false
-     *
      * @var bool
      */
     public $filterGatewayClusterConfig;
     protected $_name = [
-        'enableSDSServer'            => 'EnableSDSServer',
+        'enableSDSServer' => 'EnableSDSServer',
         'filterGatewayClusterConfig' => 'FilterGatewayClusterConfig',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableSDSServer) {
             $res['EnableSDSServer'] = $this->enableSDSServer;
         }
+
         if (null !== $this->filterGatewayClusterConfig) {
             $res['FilterGatewayClusterConfig'] = $this->filterGatewayClusterConfig;
         }
@@ -53,17 +41,18 @@ class feature extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return feature
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableSDSServer'])) {
             $model->enableSDSServer = $map['EnableSDSServer'];
         }
+
         if (isset($map['FilterGatewayClusterConfig'])) {
             $model->filterGatewayClusterConfig = $map['FilterGatewayClusterConfig'];
         }

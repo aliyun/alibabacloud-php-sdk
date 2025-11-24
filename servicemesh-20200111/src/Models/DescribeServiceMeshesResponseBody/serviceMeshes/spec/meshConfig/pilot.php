@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponseBody\serviceMeshes\spec\meshConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pilot extends Model
 {
     /**
-     * @description Indicates whether the support for HTTP 1.0 is enabled. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example true
-     *
      * @var bool
      */
     public $http10Enabled;
 
     /**
-     * @description The sampling rate when Tracing Analysis is enabled.
-     *
-     * @example 0.2
-     *
      * @var float
      */
     public $traceSampling;
@@ -35,14 +24,16 @@ class pilot extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->http10Enabled) {
             $res['Http10Enabled'] = $this->http10Enabled;
         }
+
         if (null !== $this->traceSampling) {
             $res['TraceSampling'] = $this->traceSampling;
         }
@@ -50,17 +41,18 @@ class pilot extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pilot
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Http10Enabled'])) {
             $model->http10Enabled = $map['Http10Enabled'];
         }
+
         if (isset($map['TraceSampling'])) {
             $model->traceSampling = $map['TraceSampling'];
         }

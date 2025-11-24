@@ -4,61 +4,73 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUsersWithPermissionsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 12B94024-C241-13CD-BA44-6106DF1****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The list of the IDs of the RAM users or RAM roles to which an RBAC role is assigned.
-     *
      * @var string[]
      */
     public $UIDs;
     protected $_name = [
         'requestId' => 'RequestId',
-        'UIDs'      => 'UIDs',
+        'UIDs' => 'UIDs',
     ];
 
     public function validate()
     {
+        if (\is_array($this->UIDs)) {
+            Model::validateArray($this->UIDs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->UIDs) {
-            $res['UIDs'] = $this->UIDs;
+            if (\is_array($this->UIDs)) {
+                $res['UIDs'] = [];
+                $n1 = 0;
+                foreach ($this->UIDs as $item1) {
+                    $res['UIDs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUsersWithPermissionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UIDs'])) {
             if (!empty($map['UIDs'])) {
-                $model->UIDs = $map['UIDs'];
+                $model->UIDs = [];
+                $n1 = 0;
+                foreach ($map['UIDs'] as $item1) {
+                    $model->UIDs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

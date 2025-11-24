@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vmMetaInfo extends Model
 {
     /**
-     * @description The content of the EnvoyEnv file.
-     *
-     * @example ....
-     *
      * @var string
      */
     public $envoyEnvContent;
 
     /**
-     * @description The content of the hosts file.
-     *
-     * @example ....
-     *
      * @var string
      */
     public $hostsContent;
 
     /**
-     * @description The content of the Token file.
-     *
-     * @example ....
-     *
      * @var string
      */
     public $tokenContent;
     protected $_name = [
         'envoyEnvContent' => 'EnvoyEnvContent',
-        'hostsContent'    => 'HostsContent',
-        'tokenContent'    => 'TokenContent',
+        'hostsContent' => 'HostsContent',
+        'tokenContent' => 'TokenContent',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envoyEnvContent) {
             $res['EnvoyEnvContent'] = $this->envoyEnvContent;
         }
+
         if (null !== $this->hostsContent) {
             $res['HostsContent'] = $this->hostsContent;
         }
+
         if (null !== $this->tokenContent) {
             $res['TokenContent'] = $this->tokenContent;
         }
@@ -60,20 +51,22 @@ class vmMetaInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vmMetaInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnvoyEnvContent'])) {
             $model->envoyEnvContent = $map['EnvoyEnvContent'];
         }
+
         if (isset($map['HostsContent'])) {
             $model->hostsContent = $map['HostsContent'];
         }
+
         if (isset($map['TokenContent'])) {
             $model->tokenContent = $map['TokenContent'];
         }

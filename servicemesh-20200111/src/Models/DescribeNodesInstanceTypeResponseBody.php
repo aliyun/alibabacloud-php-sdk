@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNodesInstanceTypeResponseBody\instanceTypes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNodesInstanceTypeResponseBody extends Model
 {
     /**
-     * @description The instance types of the nodes.
-     *
      * @var instanceTypes[]
      */
     public $instanceTypes;
 
     /**
-     * @description The request ID.
-     *
-     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceTypes' => 'InstanceTypes',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = [];
-            if (null !== $this->instanceTypes && \is_array($this->instanceTypes)) {
-                $n = 0;
-                foreach ($this->instanceTypes as $item) {
-                    $res['InstanceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceTypes)) {
+                $res['InstanceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['InstanceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class DescribeNodesInstanceTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNodesInstanceTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = [];
-                $n                    = 0;
-                foreach ($map['InstanceTypes'] as $item) {
-                    $model->instanceTypes[$n++] = null !== $item ? instanceTypes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceTypes'] as $item1) {
+                    $model->instanceTypes[$n1] = instanceTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeServiceMeshClustersRequest extends Model
 {
     /**
-     * @description The maximum number of entries per page.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description The position where the query starts.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @description The ASM instance ID.
-     *
-     * @example cb8963379255149cb98c8686f274x****
-     *
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
-        'limit'         => 'Limit',
-        'offset'        => 'Offset',
+        'limit' => 'Limit',
+        'offset' => 'Offset',
         'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -60,20 +51,22 @@ class DescribeServiceMeshClustersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServiceMeshClustersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }

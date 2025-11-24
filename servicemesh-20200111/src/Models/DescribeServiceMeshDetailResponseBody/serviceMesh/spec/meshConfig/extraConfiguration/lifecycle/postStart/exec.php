@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class exec extends Model
 {
     /**
-     * @description The executed commands. The value is a string that consists of JSON arrays.
-     *
      * @var string[]
      */
     public $command;
@@ -20,29 +18,45 @@ class exec extends Model
 
     public function validate()
     {
+        if (\is_array($this->command)) {
+            Model::validateArray($this->command);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->command) {
-            $res['command'] = $this->command;
+            if (\is_array($this->command)) {
+                $res['command'] = [];
+                $n1 = 0;
+                foreach ($this->command as $item1) {
+                    $res['command'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return exec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['command'])) {
             if (!empty($map['command'])) {
-                $model->command = $map['command'];
+                $model->command = [];
+                $n1 = 0;
+                foreach ($map['command'] as $item1) {
+                    $model->command[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

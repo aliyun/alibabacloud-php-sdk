@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyServiceMeshNameResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EDDC0D86-2FC3-56FB-9213-96EB0A3523F1
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyServiceMeshNameResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyServiceMeshNameResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyServiceMeshNameResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

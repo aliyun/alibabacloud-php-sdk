@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetGrafanaDashboardUrlResponseBody\dashboards;
-use AlibabaCloud\Tea\Model;
 
 class GetGrafanaDashboardUrlResponseBody extends Model
 {
     /**
-     * @description The information about the dashboard.
-     *
      * @var dashboards[]
      */
     public $dashboards;
 
     /**
-     * @description The request ID.
-     *
-     * @example 76DBB8A0-5AA6-5A56-9A8A-****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dashboards' => 'Dashboards',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dashboards)) {
+            Model::validateArray($this->dashboards);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dashboards) {
-            $res['Dashboards'] = [];
-            if (null !== $this->dashboards && \is_array($this->dashboards)) {
-                $n = 0;
-                foreach ($this->dashboards as $item) {
-                    $res['Dashboards'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dashboards)) {
+                $res['Dashboards'] = [];
+                $n1 = 0;
+                foreach ($this->dashboards as $item1) {
+                    $res['Dashboards'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class GetGrafanaDashboardUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetGrafanaDashboardUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dashboards'])) {
             if (!empty($map['Dashboards'])) {
                 $model->dashboards = [];
-                $n                 = 0;
-                foreach ($map['Dashboards'] as $item) {
-                    $model->dashboards[$n++] = null !== $item ? dashboards::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Dashboards'] as $item1) {
+                    $model->dashboards[$n1] = dashboards::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

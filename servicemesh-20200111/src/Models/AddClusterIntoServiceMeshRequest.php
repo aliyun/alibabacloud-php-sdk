@@ -4,49 +4,66 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddClusterIntoServiceMeshRequest extends Model
 {
     /**
-     * @example ce3c25e247da24f3aab9b7edfae83****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example false
-     *
+     * @var bool
+     */
+    public $discoveryOnly;
+
+    /**
      * @var bool
      */
     public $ignoreNamespaceCheck;
 
     /**
-     * @example cb8963379255149cb98c8686f274x****
-     *
+     * @var string
+     */
+    public $kubeconfig;
+
+    /**
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
-        'clusterId'            => 'ClusterId',
+        'clusterId' => 'ClusterId',
+        'discoveryOnly' => 'DiscoveryOnly',
         'ignoreNamespaceCheck' => 'IgnoreNamespaceCheck',
-        'serviceMeshId'        => 'ServiceMeshId',
+        'kubeconfig' => 'Kubeconfig',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
+        if (null !== $this->discoveryOnly) {
+            $res['DiscoveryOnly'] = $this->discoveryOnly;
+        }
+
         if (null !== $this->ignoreNamespaceCheck) {
             $res['IgnoreNamespaceCheck'] = $this->ignoreNamespaceCheck;
         }
+
+        if (null !== $this->kubeconfig) {
+            $res['Kubeconfig'] = $this->kubeconfig;
+        }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -54,20 +71,30 @@ class AddClusterIntoServiceMeshRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddClusterIntoServiceMeshRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
+        if (isset($map['DiscoveryOnly'])) {
+            $model->discoveryOnly = $map['DiscoveryOnly'];
+        }
+
         if (isset($map['IgnoreNamespaceCheck'])) {
             $model->ignoreNamespaceCheck = $map['IgnoreNamespaceCheck'];
         }
+
+        if (isset($map['Kubeconfig'])) {
+            $model->kubeconfig = $map['Kubeconfig'];
+        }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }

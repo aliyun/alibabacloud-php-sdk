@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGuestClusterAccessLogDashboardsRequest extends Model
 {
     /**
-     * @description The ID of the cluster on the data plane.
-     *
-     * @example ce3c25e247da24f3aab9b7edfae83****
-     *
      * @var string
      */
     public $k8sClusterId;
@@ -22,9 +18,10 @@ class DescribeGuestClusterAccessLogDashboardsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->k8sClusterId) {
@@ -34,11 +31,11 @@ class DescribeGuestClusterAccessLogDashboardsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGuestClusterAccessLogDashboardsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

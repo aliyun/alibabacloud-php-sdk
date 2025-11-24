@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSwimLaneRequest extends Model
 {
     /**
-     * @description The name of the lane group.
-     *
-     * @example test
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The ID of the Service Mesh (ASM) instance.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
-     * @description The name of the lane.
-     *
-     * @example s1
-     *
      * @var string
      */
     public $swimLaneName;
     protected $_name = [
-        'groupName'     => 'GroupName',
+        'groupName' => 'GroupName',
         'serviceMeshId' => 'ServiceMeshId',
-        'swimLaneName'  => 'SwimLaneName',
+        'swimLaneName' => 'SwimLaneName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
+
         if (null !== $this->swimLaneName) {
             $res['SwimLaneName'] = $this->swimLaneName;
         }
@@ -60,20 +51,22 @@ class DeleteSwimLaneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSwimLaneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
+
         if (isset($map['SwimLaneName'])) {
             $model->swimLaneName = $map['SwimLaneName'];
         }

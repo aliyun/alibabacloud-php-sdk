@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReActivateAuditRequest extends Model
 {
     /**
-     * @description Specifies whether to recreate a project that is used to store audit logs. Valid values:
-     *
-     *   true: recreates a project.
-     *   false: does not recreate a project.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableAudit;
 
     /**
-     * @description The ID of the Service Mesh (ASM) instance.
-     *
-     * @example c5bf9eb05c4424b89985d6536a809****
-     *
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
-        'enableAudit'   => 'EnableAudit',
+        'enableAudit' => 'EnableAudit',
         'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableAudit) {
             $res['EnableAudit'] = $this->enableAudit;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -50,17 +41,18 @@ class ReActivateAuditRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReActivateAuditRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableAudit'])) {
             $model->enableAudit = $map['EnableAudit'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }

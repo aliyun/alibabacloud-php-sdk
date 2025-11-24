@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateNamespaceScopeSidecarConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateNamespaceScopeSidecarConfigResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateNamespaceScopeSidecarConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateNamespaceScopeSidecarConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

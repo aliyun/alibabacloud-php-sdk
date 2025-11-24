@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailResponseBody\routeDetail\routeDestinations;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailResponseBody\routeDetail\routeDestinations\destination\port;
-use AlibabaCloud\Tea\Model;
 
 class destination extends Model
 {
     /**
-     * @description The name of the service defined in the service registry.
-     *
-     * @example reviews
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The ports of the specified hosts from which the traffic is routed.
-     *
      * @var port
      */
     public $port;
 
     /**
-     * @description The name of the service subset.
-     *
-     * @example v1
-     *
      * @var string
      */
     public $subset;
     protected $_name = [
-        'host'   => 'Host',
-        'port'   => 'Port',
+        'host' => 'Host',
+        'port' => 'Port',
         'subset' => 'Subset',
     ];
 
     public function validate()
     {
+        if (null !== $this->port) {
+            $this->port->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->port) {
-            $res['Port'] = null !== $this->port ? $this->port->toMap() : null;
+            $res['Port'] = null !== $this->port ? $this->port->toArray($noStream) : $this->port;
         }
+
         if (null !== $this->subset) {
             $res['Subset'] = $this->subset;
         }
@@ -59,20 +55,22 @@ class destination extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return destination
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['Port'])) {
             $model->port = port::fromMap($map['Port']);
         }
+
         if (isset($map['Subset'])) {
             $model->subset = $map['Subset'];
         }

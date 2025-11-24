@@ -4,59 +4,61 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeEipResourcesResponseBody\eipList;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeEipResourcesResponseBody\pageResult;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEipResourcesResponseBody extends Model
 {
     /**
-     * @description The EIPs.
-     *
      * @var eipList[]
      */
     public $eipList;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageResult
      */
     public $pageResult;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'eipList'    => 'EipList',
+        'eipList' => 'EipList',
         'pageResult' => 'PageResult',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->eipList)) {
+            Model::validateArray($this->eipList);
+        }
+        if (null !== $this->pageResult) {
+            $this->pageResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipList) {
-            $res['EipList'] = [];
-            if (null !== $this->eipList && \is_array($this->eipList)) {
-                $n = 0;
-                foreach ($this->eipList as $item) {
-                    $res['EipList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eipList)) {
+                $res['EipList'] = [];
+                $n1 = 0;
+                foreach ($this->eipList as $item1) {
+                    $res['EipList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageResult) {
-            $res['PageResult'] = null !== $this->pageResult ? $this->pageResult->toMap() : null;
+            $res['PageResult'] = null !== $this->pageResult ? $this->pageResult->toArray($noStream) : $this->pageResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +66,29 @@ class DescribeEipResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEipResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipList'])) {
             if (!empty($map['EipList'])) {
                 $model->eipList = [];
-                $n              = 0;
-                foreach ($map['EipList'] as $item) {
-                    $model->eipList[$n++] = null !== $item ? eipList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EipList'] as $item1) {
+                    $model->eipList[$n1] = eipList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageResult'])) {
             $model->pageResult = pageResult::fromMap($map['PageResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUsersWithPermissionsRequest extends Model
 {
     /**
-     * @description Specifies whether to query the IDs of all RAM users or RAM roles to which an RBAC role is assigned. Valid values:
-     *
-     *   `SubUser`: Query the IDs of all RAM users to which an RBAC role is assigned.
-     *   `RamRole`: Query the IDs of all RAM roles to which an RBAC role is assigned.
-     *
-     * @example SubUser
-     *
      * @var string
      */
     public $userType;
@@ -25,9 +18,10 @@ class DescribeUsersWithPermissionsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userType) {
@@ -37,11 +31,11 @@ class DescribeUsersWithPermissionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUsersWithPermissionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

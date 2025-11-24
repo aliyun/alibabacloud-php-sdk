@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class autoDiagnosis extends Model
 {
     /**
-     * @description Indicates whether automatic diagnostics is enabled for the ASM instance. If you enable this feature, the ASM instance is automatically diagnosed 5 minutes after you modify an Istio resource.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoDiagnosisEnabled;
@@ -22,9 +18,10 @@ class autoDiagnosis extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoDiagnosisEnabled) {
@@ -34,11 +31,11 @@ class autoDiagnosis extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoDiagnosis
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

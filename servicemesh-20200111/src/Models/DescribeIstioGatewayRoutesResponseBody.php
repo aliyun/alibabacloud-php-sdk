@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRoutesResponseBody\managementRoutes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeIstioGatewayRoutesResponseBody extends Model
 {
     /**
-     * @description The routing rules.
-     *
      * @var managementRoutes[]
      */
     public $managementRoutes;
 
     /**
-     * @description The request ID.
-     *
-     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'managementRoutes' => 'ManagementRoutes',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->managementRoutes)) {
+            Model::validateArray($this->managementRoutes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->managementRoutes) {
-            $res['ManagementRoutes'] = [];
-            if (null !== $this->managementRoutes && \is_array($this->managementRoutes)) {
-                $n = 0;
-                foreach ($this->managementRoutes as $item) {
-                    $res['ManagementRoutes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->managementRoutes)) {
+                $res['ManagementRoutes'] = [];
+                $n1 = 0;
+                foreach ($this->managementRoutes as $item1) {
+                    $res['ManagementRoutes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class DescribeIstioGatewayRoutesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeIstioGatewayRoutesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ManagementRoutes'])) {
             if (!empty($map['ManagementRoutes'])) {
                 $model->managementRoutes = [];
-                $n                       = 0;
-                foreach ($map['ManagementRoutes'] as $item) {
-                    $model->managementRoutes[$n++] = null !== $item ? managementRoutes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ManagementRoutes'] as $item1) {
+                    $model->managementRoutes[$n1] = managementRoutes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,57 +4,61 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceEndpointsResponseBody\endPointSlice;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceEndpointsResponseBody\serviceEndpoints;
-use AlibabaCloud\Tea\Model;
 
 class GetRegisteredServiceEndpointsResponseBody extends Model
 {
     /**
-     * @description The name of the registered service.
-     *
      * @var endPointSlice
      */
     public $endPointSlice;
 
     /**
-     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The IP address of the registered service.
-     *
      * @var serviceEndpoints[]
      */
     public $serviceEndpoints;
     protected $_name = [
-        'endPointSlice'    => 'EndPointSlice',
-        'requestId'        => 'RequestId',
+        'endPointSlice' => 'EndPointSlice',
+        'requestId' => 'RequestId',
         'serviceEndpoints' => 'ServiceEndpoints',
     ];
 
     public function validate()
     {
+        if (null !== $this->endPointSlice) {
+            $this->endPointSlice->validate();
+        }
+        if (\is_array($this->serviceEndpoints)) {
+            Model::validateArray($this->serviceEndpoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endPointSlice) {
-            $res['EndPointSlice'] = null !== $this->endPointSlice ? $this->endPointSlice->toMap() : null;
+            $res['EndPointSlice'] = null !== $this->endPointSlice ? $this->endPointSlice->toArray($noStream) : $this->endPointSlice;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceEndpoints) {
-            $res['ServiceEndpoints'] = [];
-            if (null !== $this->serviceEndpoints && \is_array($this->serviceEndpoints)) {
-                $n = 0;
-                foreach ($this->serviceEndpoints as $item) {
-                    $res['ServiceEndpoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceEndpoints)) {
+                $res['ServiceEndpoints'] = [];
+                $n1 = 0;
+                foreach ($this->serviceEndpoints as $item1) {
+                    $res['ServiceEndpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,26 +66,29 @@ class GetRegisteredServiceEndpointsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRegisteredServiceEndpointsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndPointSlice'])) {
             $model->endPointSlice = endPointSlice::fromMap($map['EndPointSlice']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceEndpoints'])) {
             if (!empty($map['ServiceEndpoints'])) {
                 $model->serviceEndpoints = [];
-                $n                       = 0;
-                foreach ($map['ServiceEndpoints'] as $item) {
-                    $model->serviceEndpoints[$n++] = null !== $item ? serviceEndpoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ServiceEndpoints'] as $item1) {
+                    $model->serviceEndpoints[$n1] = serviceEndpoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

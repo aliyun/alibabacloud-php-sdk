@@ -4,105 +4,96 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayDomainsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class gatewaySecretDetails extends Model
 {
     /**
-     * @description The name of the secret that contains the Transport Layer Security (TLS) certificate and certificate authority (CA) certificate.
-     *
-     * @example bookinfo-secret
-     *
      * @var string
      */
     public $credentialName;
 
     /**
-     * @description The details of the domain name in the JSON format.
-     *
-     * @example {   "servers": [     {       "port": {         "number": 27018,         "name": "mongo",         "protocol": "MONGO"       },       "hosts": [         "*"       ]     }   ] }
-     *
      * @var string
      */
     public $detail;
 
     /**
-     * @description The list of domain names.
-     *
      * @var string[]
      */
     public $domains;
 
     /**
-     * @description The name of the Istio gateway.
-     *
-     * @example ingressgateway
-     *
      * @var string
      */
     public $gatewayCRName;
 
     /**
-     * @description The namespace in which the ASM gateway resides.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The port name.
-     *
-     * @example https-demo
-     *
      * @var string
      */
     public $portName;
 
     /**
-     * @description The type of the protocol. Valid values: `HTTP`, `HTTPS`, `GRPC`, `HTTP2`, `MONGO`, `TCP`, and `TLS`.
-     *
-     * @example HTTPS
-     *
      * @var string
      */
     public $protocol;
     protected $_name = [
         'credentialName' => 'CredentialName',
-        'detail'         => 'Detail',
-        'domains'        => 'Domains',
-        'gatewayCRName'  => 'GatewayCRName',
-        'namespace'      => 'Namespace',
-        'portName'       => 'PortName',
-        'protocol'       => 'Protocol',
+        'detail' => 'Detail',
+        'domains' => 'Domains',
+        'gatewayCRName' => 'GatewayCRName',
+        'namespace' => 'Namespace',
+        'portName' => 'PortName',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->credentialName) {
             $res['CredentialName'] = $this->credentialName;
         }
+
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
+
         if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+            if (\is_array($this->domains)) {
+                $res['Domains'] = [];
+                $n1 = 0;
+                foreach ($this->domains as $item1) {
+                    $res['Domains'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->gatewayCRName) {
             $res['GatewayCRName'] = $this->gatewayCRName;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->portName) {
             $res['PortName'] = $this->portName;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -110,34 +101,45 @@ class gatewaySecretDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return gatewaySecretDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CredentialName'])) {
             $model->credentialName = $map['CredentialName'];
         }
+
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
+
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
-                $model->domains = $map['Domains'];
+                $model->domains = [];
+                $n1 = 0;
+                foreach ($map['Domains'] as $item1) {
+                    $model->domains[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['GatewayCRName'])) {
             $model->gatewayCRName = $map['GatewayCRName'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['PortName'])) {
             $model->portName = $map['PortName'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

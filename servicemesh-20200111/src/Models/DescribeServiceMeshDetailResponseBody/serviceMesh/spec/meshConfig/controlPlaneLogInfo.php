@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class controlPlaneLogInfo extends Model
 {
     /**
-     * @description Indicates whether the collection of control plane logs is enabled. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
@@ -26,32 +19,31 @@ class controlPlaneLogInfo extends Model
     public $logTTL;
 
     /**
-     * @description The name of the Simple Log Service project that stores control plane logs.
-     *
-     * @example mesh-log-cbeb85a09161b4a26ab73e0ac****
-     *
      * @var string
      */
     public $project;
     protected $_name = [
         'enabled' => 'Enabled',
-        'logTTL'  => 'LogTTL',
+        'logTTL' => 'LogTTL',
         'project' => 'Project',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->logTTL) {
             $res['LogTTL'] = $this->logTTL;
         }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
@@ -59,20 +51,22 @@ class controlPlaneLogInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return controlPlaneLogInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['LogTTL'])) {
             $model->logTTL = $map['LogTTL'];
         }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }

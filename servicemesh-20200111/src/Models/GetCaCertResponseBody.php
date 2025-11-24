@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCaCertResponseBody extends Model
 {
     /**
-     * @description The Base64-encoded content of the CA certificate.
-     *
-     * @example -----BEGIN CERTIFICATE-----\nMIIFszCCA5ugAwIBAgIDM/1OMA0GCSqGSIb3DQEBCwUAME427zhT4HDLcCEW****-----END CERTIFICATE-----\n
-     *
      * @var string
      */
     public $caCert;
 
     /**
-     * @description The request ID.
-     *
-     * @example E0496204-7586-5B4C-B364-2361CC0ED****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'caCert'    => 'CaCert',
+        'caCert' => 'CaCert',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->caCert) {
             $res['CaCert'] = $this->caCert;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class GetCaCertResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCaCertResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CaCert'])) {
             $model->caCert = $map['CaCert'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

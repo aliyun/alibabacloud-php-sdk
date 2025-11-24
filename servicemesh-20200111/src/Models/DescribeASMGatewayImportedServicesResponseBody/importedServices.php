@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class importedServices extends Model
 {
     /**
-     * @description The name of a service.
-     *
-     * @example productpage
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The namespace in which the service resides.
-     *
-     * @example default
-     *
      * @var string
      */
     public $serviceNamespace;
     protected $_name = [
-        'serviceName'      => 'ServiceName',
+        'serviceName' => 'ServiceName',
         'serviceNamespace' => 'ServiceNamespace',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->serviceNamespace) {
             $res['ServiceNamespace'] = $this->serviceNamespace;
         }
@@ -47,17 +41,18 @@ class importedServices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return importedServices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['ServiceNamespace'])) {
             $model->serviceNamespace = $map['ServiceNamespace'];
         }

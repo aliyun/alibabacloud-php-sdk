@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessLogExtraConf extends Model
 {
@@ -14,10 +14,6 @@ class accessLogExtraConf extends Model
     public $gatewayEnabled;
 
     /**
-     * @description The retention period for the access logs of the ingress gateway. Unit: day. The logs are collected by using Simple Log Service. For example, the value 30 indicates that the logs are retained for 30 days.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $gatewayLifecycle;
@@ -28,36 +24,36 @@ class accessLogExtraConf extends Model
     public $sidecarEnabled;
 
     /**
-     * @description The retention period for the access logs of sidecar proxies. Unit: day. The logs are collected by using Simple Log Service. For example, the value 30 indicates that the logs are retained for 30 days.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $sidecarLifecycle;
     protected $_name = [
-        'gatewayEnabled'   => 'GatewayEnabled',
+        'gatewayEnabled' => 'GatewayEnabled',
         'gatewayLifecycle' => 'GatewayLifecycle',
-        'sidecarEnabled'   => 'SidecarEnabled',
+        'sidecarEnabled' => 'SidecarEnabled',
         'sidecarLifecycle' => 'SidecarLifecycle',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewayEnabled) {
             $res['GatewayEnabled'] = $this->gatewayEnabled;
         }
+
         if (null !== $this->gatewayLifecycle) {
             $res['GatewayLifecycle'] = $this->gatewayLifecycle;
         }
+
         if (null !== $this->sidecarEnabled) {
             $res['SidecarEnabled'] = $this->sidecarEnabled;
         }
+
         if (null !== $this->sidecarLifecycle) {
             $res['SidecarLifecycle'] = $this->sidecarLifecycle;
         }
@@ -65,23 +61,26 @@ class accessLogExtraConf extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessLogExtraConf
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GatewayEnabled'])) {
             $model->gatewayEnabled = $map['GatewayEnabled'];
         }
+
         if (isset($map['GatewayLifecycle'])) {
             $model->gatewayLifecycle = $map['GatewayLifecycle'];
         }
+
         if (isset($map['SidecarEnabled'])) {
             $model->sidecarEnabled = $map['SidecarEnabled'];
         }
+
         if (isset($map['SidecarLifecycle'])) {
             $model->sidecarLifecycle = $map['SidecarLifecycle'];
         }

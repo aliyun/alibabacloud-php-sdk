@@ -4,74 +4,96 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class loadBalancer extends Model
 {
     /**
-     * @description The ID of the CLB instance that is used when the API server is exposed to the Internet.
-     *
-     * @example lb-2zekaak10uxds44vx****
-     *
      * @var string
      */
     public $apiServerLoadbalancerId;
 
     /**
-     * @description Indicates whether the API server is exposed to the Internet. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example true
-     *
      * @var bool
      */
     public $apiServerPublicEip;
 
     /**
-     * @description Indicates whether Istio Pilot is exposed to the Internet. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example true
-     *
+     * @var string
+     */
+    public $apiServerPublicEipId;
+
+    /**
+     * @var string
+     */
+    public $canaryPilotLoadBalancerId;
+
+    /**
+     * @var string
+     */
+    public $canaryPilotPublicEipId;
+
+    /**
      * @var bool
      */
     public $pilotPublicEip;
 
     /**
-     * @description The ID of the Classic Load Balancer (CLB) instance that is used when Istio Pilot is exposed to the Internet.
-     *
-     * @example lb-2zesa8qs8kbkj9jkl****
-     *
+     * @var string
+     */
+    public $pilotPublicEipId;
+
+    /**
      * @var string
      */
     public $pilotPublicLoadbalancerId;
     protected $_name = [
-        'apiServerLoadbalancerId'   => 'ApiServerLoadbalancerId',
-        'apiServerPublicEip'        => 'ApiServerPublicEip',
-        'pilotPublicEip'            => 'PilotPublicEip',
+        'apiServerLoadbalancerId' => 'ApiServerLoadbalancerId',
+        'apiServerPublicEip' => 'ApiServerPublicEip',
+        'apiServerPublicEipId' => 'ApiServerPublicEipId',
+        'canaryPilotLoadBalancerId' => 'CanaryPilotLoadBalancerId',
+        'canaryPilotPublicEipId' => 'CanaryPilotPublicEipId',
+        'pilotPublicEip' => 'PilotPublicEip',
+        'pilotPublicEipId' => 'PilotPublicEipId',
         'pilotPublicLoadbalancerId' => 'PilotPublicLoadbalancerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiServerLoadbalancerId) {
             $res['ApiServerLoadbalancerId'] = $this->apiServerLoadbalancerId;
         }
+
         if (null !== $this->apiServerPublicEip) {
             $res['ApiServerPublicEip'] = $this->apiServerPublicEip;
         }
+
+        if (null !== $this->apiServerPublicEipId) {
+            $res['ApiServerPublicEipId'] = $this->apiServerPublicEipId;
+        }
+
+        if (null !== $this->canaryPilotLoadBalancerId) {
+            $res['CanaryPilotLoadBalancerId'] = $this->canaryPilotLoadBalancerId;
+        }
+
+        if (null !== $this->canaryPilotPublicEipId) {
+            $res['CanaryPilotPublicEipId'] = $this->canaryPilotPublicEipId;
+        }
+
         if (null !== $this->pilotPublicEip) {
             $res['PilotPublicEip'] = $this->pilotPublicEip;
         }
+
+        if (null !== $this->pilotPublicEipId) {
+            $res['PilotPublicEipId'] = $this->pilotPublicEipId;
+        }
+
         if (null !== $this->pilotPublicLoadbalancerId) {
             $res['PilotPublicLoadbalancerId'] = $this->pilotPublicLoadbalancerId;
         }
@@ -79,23 +101,42 @@ class loadBalancer extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return loadBalancer
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiServerLoadbalancerId'])) {
             $model->apiServerLoadbalancerId = $map['ApiServerLoadbalancerId'];
         }
+
         if (isset($map['ApiServerPublicEip'])) {
             $model->apiServerPublicEip = $map['ApiServerPublicEip'];
         }
+
+        if (isset($map['ApiServerPublicEipId'])) {
+            $model->apiServerPublicEipId = $map['ApiServerPublicEipId'];
+        }
+
+        if (isset($map['CanaryPilotLoadBalancerId'])) {
+            $model->canaryPilotLoadBalancerId = $map['CanaryPilotLoadBalancerId'];
+        }
+
+        if (isset($map['CanaryPilotPublicEipId'])) {
+            $model->canaryPilotPublicEipId = $map['CanaryPilotPublicEipId'];
+        }
+
         if (isset($map['PilotPublicEip'])) {
             $model->pilotPublicEip = $map['PilotPublicEip'];
         }
+
+        if (isset($map['PilotPublicEipId'])) {
+            $model->pilotPublicEipId = $map['PilotPublicEipId'];
+        }
+
         if (isset($map['PilotPublicLoadbalancerId'])) {
             $model->pilotPublicLoadbalancerId = $map['PilotPublicLoadbalancerId'];
         }

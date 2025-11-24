@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions\retries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class retryRemoteLocalities extends Model
 {
     /**
-     * @description Specifies whether to allow retries to other localities. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * Default value: `false`.
-     * @example false
-     *
      * @var bool
      */
     public $value;
@@ -26,9 +18,10 @@ class retryRemoteLocalities extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->value) {
@@ -38,11 +31,11 @@ class retryRemoteLocalities extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return retryRemoteLocalities
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

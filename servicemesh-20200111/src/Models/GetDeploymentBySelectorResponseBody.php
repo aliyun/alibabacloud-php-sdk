@@ -4,53 +4,56 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeploymentBySelectorResponseBody extends Model
 {
     /**
-     * @description The queried workloads.
-     *
      * @var int[][]
      */
     public $deploymentNameList;
 
     /**
-     * @description The end-of-data marker.
-     *
-     * @example eyJ2IjoibWV0YS5rOHMuaW8vdjEiLCJydiI6NTgyMDUzMzk5MCwic3RhcnQiOiJwbXMtYWRhcHRlci1kZGxsXHUwMDA****
-     *
      * @var string
      */
     public $mark;
 
     /**
-     * @description The request ID.
-     *
-     * @example 946690C2-41D3-55A0-A501-E2FFAB5F****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deploymentNameList' => 'DeploymentNameList',
-        'mark'               => 'Mark',
-        'requestId'          => 'RequestId',
+        'mark' => 'Mark',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deploymentNameList)) {
+            Model::validateArray($this->deploymentNameList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentNameList) {
-            $res['DeploymentNameList'] = $this->deploymentNameList;
+            if (\is_array($this->deploymentNameList)) {
+                $res['DeploymentNameList'] = [];
+                $n1 = 0;
+                foreach ($this->deploymentNameList as $item1) {
+                    $res['DeploymentNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->mark) {
             $res['Mark'] = $this->mark;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,22 +61,29 @@ class GetDeploymentBySelectorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeploymentBySelectorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentNameList'])) {
             if (!empty($map['DeploymentNameList'])) {
-                $model->deploymentNameList = $map['DeploymentNameList'];
+                $model->deploymentNameList = [];
+                $n1 = 0;
+                foreach ($map['DeploymentNameList'] as $item1) {
+                    $model->deploymentNameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Mark'])) {
             $model->mark = $map['Mark'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

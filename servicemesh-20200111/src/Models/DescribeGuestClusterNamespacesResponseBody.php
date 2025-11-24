@@ -4,53 +4,64 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGuestClusterNamespacesResponseBody extends Model
 {
     /**
-     * @description The labels of the namespaces. Labels are returned only when `ShowNsLabels` is set to `true`.
-     *
-     * @example {"default":{"istio-injection":"enabled"}}
-     *
      * @var mixed[]
      */
     public $nsLabels;
 
     /**
-     * @description The names of the namespaces.
-     *
      * @var string[]
      */
     public $nsList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nsLabels'  => 'NsLabels',
-        'nsList'    => 'NsList',
+        'nsLabels' => 'NsLabels',
+        'nsList' => 'NsList',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->nsLabels)) {
+            Model::validateArray($this->nsLabels);
+        }
+        if (\is_array($this->nsList)) {
+            Model::validateArray($this->nsList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nsLabels) {
-            $res['NsLabels'] = $this->nsLabels;
+            if (\is_array($this->nsLabels)) {
+                $res['NsLabels'] = [];
+                foreach ($this->nsLabels as $key1 => $value1) {
+                    $res['NsLabels'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->nsList) {
-            $res['NsList'] = $this->nsList;
+            if (\is_array($this->nsList)) {
+                $res['NsList'] = [];
+                $n1 = 0;
+                foreach ($this->nsList as $item1) {
+                    $res['NsList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,22 +69,34 @@ class DescribeGuestClusterNamespacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGuestClusterNamespacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NsLabels'])) {
-            $model->nsLabels = $map['NsLabels'];
-        }
-        if (isset($map['NsList'])) {
-            if (!empty($map['NsList'])) {
-                $model->nsList = $map['NsList'];
+            if (!empty($map['NsLabels'])) {
+                $model->nsLabels = [];
+                foreach ($map['NsLabels'] as $key1 => $value1) {
+                    $model->nsLabels[$key1] = $value1;
+                }
             }
         }
+
+        if (isset($map['NsList'])) {
+            if (!empty($map['NsList'])) {
+                $model->nsList = [];
+                $n1 = 0;
+                foreach ($map['NsList'] as $item1) {
+                    $model->nsList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

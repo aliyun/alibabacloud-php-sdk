@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUpgradeVersionRequest extends Model
 {
     /**
-     * @description The ASM instance ID.
-     *
-     * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
-     *
      * @var string
      */
     public $serviceMeshId;
@@ -22,9 +18,10 @@ class DescribeUpgradeVersionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceMeshId) {
@@ -34,11 +31,11 @@ class DescribeUpgradeVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUpgradeVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

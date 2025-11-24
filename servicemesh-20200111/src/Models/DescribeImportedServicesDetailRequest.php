@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeImportedServicesDetailRequest extends Model
 {
     /**
-     * @description The name of the ASM gateway.
-     *
-     * @example ingressgateway
-     *
      * @var string
      */
     public $ASMGatewayName;
 
     /**
-     * @description The ASM instance ID.
-     *
-     * @example cb8963379255149cb98c8686f274x****
-     *
      * @var string
      */
     public $serviceMeshId;
 
     /**
-     * @description The namespace in which the services reside.
-     *
-     * @example default
-     *
      * @var string
      */
     public $serviceNamespace;
     protected $_name = [
-        'ASMGatewayName'   => 'ASMGatewayName',
-        'serviceMeshId'    => 'ServiceMeshId',
+        'ASMGatewayName' => 'ASMGatewayName',
+        'serviceMeshId' => 'ServiceMeshId',
         'serviceNamespace' => 'ServiceNamespace',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ASMGatewayName) {
             $res['ASMGatewayName'] = $this->ASMGatewayName;
         }
+
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
+
         if (null !== $this->serviceNamespace) {
             $res['ServiceNamespace'] = $this->serviceNamespace;
         }
@@ -60,20 +51,22 @@ class DescribeImportedServicesDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImportedServicesDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ASMGatewayName'])) {
             $model->ASMGatewayName = $map['ASMGatewayName'];
         }
+
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
+
         if (isset($map['ServiceNamespace'])) {
             $model->serviceNamespace = $map['ServiceNamespace'];
         }

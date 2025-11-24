@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeReusableSlbResponseBody\reusableSlbList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeReusableSlbResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EDDC0D86-2FC3-56FB-9213-96EB0A3523F1
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The list of SLB instances that can be reused.
-     *
      * @var reusableSlbList[]
      */
     public $reusableSlbList;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'reusableSlbList' => 'ReusableSlbList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->reusableSlbList)) {
+            Model::validateArray($this->reusableSlbList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->reusableSlbList) {
-            $res['ReusableSlbList'] = [];
-            if (null !== $this->reusableSlbList && \is_array($this->reusableSlbList)) {
-                $n = 0;
-                foreach ($this->reusableSlbList as $item) {
-                    $res['ReusableSlbList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reusableSlbList)) {
+                $res['ReusableSlbList'] = [];
+                $n1 = 0;
+                foreach ($this->reusableSlbList as $item1) {
+                    $res['ReusableSlbList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class DescribeReusableSlbResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeReusableSlbResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ReusableSlbList'])) {
             if (!empty($map['ReusableSlbList'])) {
                 $model->reusableSlbList = [];
-                $n                      = 0;
-                foreach ($map['ReusableSlbList'] as $item) {
-                    $model->reusableSlbList[$n++] = null !== $item ? reusableSlbList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReusableSlbList'] as $item1) {
+                    $model->reusableSlbList[$n1] = reusableSlbList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

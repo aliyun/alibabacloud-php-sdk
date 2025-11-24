@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUserPermissionsResponseBody\permissions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUserPermissionsResponseBody extends Model
 {
     /**
-     * @description The permissions that are granted to an entity.
-     *
      * @var permissions[]
      */
     public $permissions;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5A7C9E37-C171-584F-9A99-869B48C4196D
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'permissions' => 'Permissions',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->permissions)) {
+            Model::validateArray($this->permissions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->permissions) {
-            $res['Permissions'] = [];
-            if (null !== $this->permissions && \is_array($this->permissions)) {
-                $n = 0;
-                foreach ($this->permissions as $item) {
-                    $res['Permissions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->permissions)) {
+                $res['Permissions'] = [];
+                $n1 = 0;
+                foreach ($this->permissions as $item1) {
+                    $res['Permissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class DescribeUserPermissionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserPermissionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
                 $model->permissions = [];
-                $n                  = 0;
-                foreach ($map['Permissions'] as $item) {
-                    $model->permissions[$n++] = null !== $item ? permissions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Permissions'] as $item1) {
+                    $model->permissions[$n1] = permissions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

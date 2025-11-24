@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeKubeconfigResponseBody extends Model
 {
     /**
-     * @description The new kubeconfig file generated.
-     *
-     * @example apiVersion: v1 clusters: - cluster:     server: https://121.**.**.**:6443     certificate-authority-data: *****   name: kubernetes contexts: - context:     cluster: kubernetes     user: "*****"   name: ***** current-context: ***** kind: Config preferences: {} users: - name: "*****"   user:     client-certificate-data: *****     client-key-data: *****
-     *
      * @var string
      */
     public $kubeconfig;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7CF71C8B-79DD-150F-929E-267C51C5E311
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'kubeconfig' => 'Kubeconfig',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kubeconfig) {
             $res['Kubeconfig'] = $this->kubeconfig;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class RevokeKubeconfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeKubeconfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Kubeconfig'])) {
             $model->kubeconfig = $map['Kubeconfig'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

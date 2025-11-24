@@ -4,58 +4,63 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\postStart;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle\preStop;
-use AlibabaCloud\Tea\Model;
 
 class lifecycle extends Model
 {
     /**
-     * @description The post-start parameters.
-     *
      * @var postStart
      */
     public $postStart;
 
     /**
-     * @description The pre-close parameters.
-     *
      * @var preStop
      */
     public $preStop;
     protected $_name = [
         'postStart' => 'postStart',
-        'preStop'   => 'preStop',
+        'preStop' => 'preStop',
     ];
 
     public function validate()
     {
+        if (null !== $this->postStart) {
+            $this->postStart->validate();
+        }
+        if (null !== $this->preStop) {
+            $this->preStop->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->postStart) {
-            $res['postStart'] = null !== $this->postStart ? $this->postStart->toMap() : null;
+            $res['postStart'] = null !== $this->postStart ? $this->postStart->toArray($noStream) : $this->postStart;
         }
+
         if (null !== $this->preStop) {
-            $res['preStop'] = null !== $this->preStop ? $this->preStop->toMap() : null;
+            $res['preStop'] = null !== $this->preStop ? $this->preStop->toArray($noStream) : $this->preStop;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lifecycle
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['postStart'])) {
             $model->postStart = postStart::fromMap($map['postStart']);
         }
+
         if (isset($map['preStop'])) {
             $model->preStop = preStop::fromMap($map['preStop']);
         }

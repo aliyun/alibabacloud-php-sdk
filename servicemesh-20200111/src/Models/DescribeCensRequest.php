@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCensRequest extends Model
 {
     /**
-     * @description The ASM instance ID.
-     *
-     * @example ce134b0727aa2492db69f6c3880e1****
-     *
      * @var string
      */
     public $serviceMeshId;
@@ -22,9 +18,10 @@ class DescribeCensRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceMeshId) {
@@ -34,11 +31,11 @@ class DescribeCensRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCensRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

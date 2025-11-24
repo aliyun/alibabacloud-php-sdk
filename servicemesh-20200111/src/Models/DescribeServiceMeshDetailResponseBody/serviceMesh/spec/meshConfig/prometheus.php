@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class prometheus extends Model
 {
     /**
-     * @description The endpoint of Prometheus monitoring. If you use a custom Prometheus instance, this parameter is populated by the system.
-     *
-     * @example http://prometheus:9090
-     *
      * @var string
      */
     public $externalUrl;
 
     /**
-     * @description Indicates whether a custom Prometheus instance is used. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example false
-     *
      * @var bool
      */
     public $useExternal;
@@ -35,14 +24,16 @@ class prometheus extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->externalUrl) {
             $res['ExternalUrl'] = $this->externalUrl;
         }
+
         if (null !== $this->useExternal) {
             $res['UseExternal'] = $this->useExternal;
         }
@@ -50,17 +41,18 @@ class prometheus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return prometheus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExternalUrl'])) {
             $model->externalUrl = $map['ExternalUrl'];
         }
+
         if (isset($map['UseExternal'])) {
             $model->useExternal = $map['UseExternal'];
         }

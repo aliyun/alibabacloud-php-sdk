@@ -4,73 +4,81 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\loadBalancer;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\network;
-use AlibabaCloud\Tea\Model;
 
 class spec extends Model
 {
     /**
-     * @description The information about load balancing.
-     *
      * @var loadBalancer
      */
     public $loadBalancer;
 
     /**
-     * @description The configurations of the ASM instance.
-     *
      * @var meshConfig
      */
     public $meshConfig;
 
     /**
-     * @description The network configurations of the ASM instance.
-     *
      * @var network
      */
     public $network;
     protected $_name = [
         'loadBalancer' => 'LoadBalancer',
-        'meshConfig'   => 'MeshConfig',
-        'network'      => 'Network',
+        'meshConfig' => 'MeshConfig',
+        'network' => 'Network',
     ];
 
     public function validate()
     {
+        if (null !== $this->loadBalancer) {
+            $this->loadBalancer->validate();
+        }
+        if (null !== $this->meshConfig) {
+            $this->meshConfig->validate();
+        }
+        if (null !== $this->network) {
+            $this->network->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loadBalancer) {
-            $res['LoadBalancer'] = null !== $this->loadBalancer ? $this->loadBalancer->toMap() : null;
+            $res['LoadBalancer'] = null !== $this->loadBalancer ? $this->loadBalancer->toArray($noStream) : $this->loadBalancer;
         }
+
         if (null !== $this->meshConfig) {
-            $res['MeshConfig'] = null !== $this->meshConfig ? $this->meshConfig->toMap() : null;
+            $res['MeshConfig'] = null !== $this->meshConfig ? $this->meshConfig->toArray($noStream) : $this->meshConfig;
         }
+
         if (null !== $this->network) {
-            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
+            $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancer'])) {
             $model->loadBalancer = loadBalancer::fromMap($map['LoadBalancer']);
         }
+
         if (isset($map['MeshConfig'])) {
             $model->meshConfig = meshConfig::fromMap($map['MeshConfig']);
         }
+
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
         }

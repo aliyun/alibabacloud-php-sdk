@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions\delegate;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions\fault;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions\HTTPRedirect;
@@ -11,106 +12,116 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesReques
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions\mirrorPercentage;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions\retries;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\HTTPAdvancedOptions\rewrite;
-use AlibabaCloud\Tea\Model;
 
 class HTTPAdvancedOptions extends Model
 {
     /**
-     * @description The virtual service that defines traffic routing.
-     *
      * @var delegate
      */
     public $delegate;
 
     /**
-     * @description The configurations of fault injection.
-     *
      * @var fault
      */
     public $fault;
 
     /**
-     * @description The HTTP redirection rule.
-     *
      * @var HTTPRedirect
      */
     public $HTTPRedirect;
 
     /**
-     * @description The configurations for mirroring HTTP traffic to another destination in addition to forwarding requests to the specified destination.
-     *
      * @var mirror
      */
     public $mirror;
 
     /**
-     * @description The percentage of requests that are mirrored to another destination except for the original destination.
-     *
      * @var mirrorPercentage
      */
     public $mirrorPercentage;
 
     /**
-     * @description The configurations of retries for failed requests.
-     *
      * @var retries
      */
     public $retries;
 
     /**
-     * @description The configurations for rewriting the virtual service.
-     *
      * @var rewrite
      */
     public $rewrite;
 
     /**
-     * @description The timeout period for requests.
-     *
-     * @example 5s
-     *
      * @var string
      */
     public $timeout;
     protected $_name = [
-        'delegate'         => 'Delegate',
-        'fault'            => 'Fault',
-        'HTTPRedirect'     => 'HTTPRedirect',
-        'mirror'           => 'Mirror',
+        'delegate' => 'Delegate',
+        'fault' => 'Fault',
+        'HTTPRedirect' => 'HTTPRedirect',
+        'mirror' => 'Mirror',
         'mirrorPercentage' => 'MirrorPercentage',
-        'retries'          => 'Retries',
-        'rewrite'          => 'Rewrite',
-        'timeout'          => 'Timeout',
+        'retries' => 'Retries',
+        'rewrite' => 'Rewrite',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
     {
+        if (null !== $this->delegate) {
+            $this->delegate->validate();
+        }
+        if (null !== $this->fault) {
+            $this->fault->validate();
+        }
+        if (null !== $this->HTTPRedirect) {
+            $this->HTTPRedirect->validate();
+        }
+        if (null !== $this->mirror) {
+            $this->mirror->validate();
+        }
+        if (null !== $this->mirrorPercentage) {
+            $this->mirrorPercentage->validate();
+        }
+        if (null !== $this->retries) {
+            $this->retries->validate();
+        }
+        if (null !== $this->rewrite) {
+            $this->rewrite->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->delegate) {
-            $res['Delegate'] = null !== $this->delegate ? $this->delegate->toMap() : null;
+            $res['Delegate'] = null !== $this->delegate ? $this->delegate->toArray($noStream) : $this->delegate;
         }
+
         if (null !== $this->fault) {
-            $res['Fault'] = null !== $this->fault ? $this->fault->toMap() : null;
+            $res['Fault'] = null !== $this->fault ? $this->fault->toArray($noStream) : $this->fault;
         }
+
         if (null !== $this->HTTPRedirect) {
-            $res['HTTPRedirect'] = null !== $this->HTTPRedirect ? $this->HTTPRedirect->toMap() : null;
+            $res['HTTPRedirect'] = null !== $this->HTTPRedirect ? $this->HTTPRedirect->toArray($noStream) : $this->HTTPRedirect;
         }
+
         if (null !== $this->mirror) {
-            $res['Mirror'] = null !== $this->mirror ? $this->mirror->toMap() : null;
+            $res['Mirror'] = null !== $this->mirror ? $this->mirror->toArray($noStream) : $this->mirror;
         }
+
         if (null !== $this->mirrorPercentage) {
-            $res['MirrorPercentage'] = null !== $this->mirrorPercentage ? $this->mirrorPercentage->toMap() : null;
+            $res['MirrorPercentage'] = null !== $this->mirrorPercentage ? $this->mirrorPercentage->toArray($noStream) : $this->mirrorPercentage;
         }
+
         if (null !== $this->retries) {
-            $res['Retries'] = null !== $this->retries ? $this->retries->toMap() : null;
+            $res['Retries'] = null !== $this->retries ? $this->retries->toArray($noStream) : $this->retries;
         }
+
         if (null !== $this->rewrite) {
-            $res['Rewrite'] = null !== $this->rewrite ? $this->rewrite->toMap() : null;
+            $res['Rewrite'] = null !== $this->rewrite ? $this->rewrite->toArray($noStream) : $this->rewrite;
         }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -118,35 +129,42 @@ class HTTPAdvancedOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HTTPAdvancedOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Delegate'])) {
             $model->delegate = delegate::fromMap($map['Delegate']);
         }
+
         if (isset($map['Fault'])) {
             $model->fault = fault::fromMap($map['Fault']);
         }
+
         if (isset($map['HTTPRedirect'])) {
             $model->HTTPRedirect = HTTPRedirect::fromMap($map['HTTPRedirect']);
         }
+
         if (isset($map['Mirror'])) {
             $model->mirror = mirror::fromMap($map['Mirror']);
         }
+
         if (isset($map['MirrorPercentage'])) {
             $model->mirrorPercentage = mirrorPercentage::fromMap($map['MirrorPercentage']);
         }
+
         if (isset($map['Retries'])) {
             $model->retries = retries::fromMap($map['Retries']);
         }
+
         if (isset($map['Rewrite'])) {
             $model->rewrite = rewrite::fromMap($map['Rewrite']);
         }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

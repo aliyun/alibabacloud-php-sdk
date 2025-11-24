@@ -4,40 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest\gatewayRoute\matchRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TLSMatchAttributes extends Model
 {
     /**
-     * @description The Server Name Indication (SNI) values to be matched.
-     *
      * @var string[]
      */
     public $SNIHosts;
 
     /**
-     * @description The TLS port.
-     *
-     * @example 443
-     *
      * @var int
      */
     public $TLSPort;
     protected $_name = [
         'SNIHosts' => 'SNIHosts',
-        'TLSPort'  => 'TLSPort',
+        'TLSPort' => 'TLSPort',
     ];
 
     public function validate()
     {
+        if (\is_array($this->SNIHosts)) {
+            Model::validateArray($this->SNIHosts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SNIHosts) {
-            $res['SNIHosts'] = $this->SNIHosts;
+            if (\is_array($this->SNIHosts)) {
+                $res['SNIHosts'] = [];
+                $n1 = 0;
+                foreach ($this->SNIHosts as $item1) {
+                    $res['SNIHosts'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->TLSPort) {
             $res['TLSPort'] = $this->TLSPort;
         }
@@ -45,19 +51,25 @@ class TLSMatchAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TLSMatchAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SNIHosts'])) {
             if (!empty($map['SNIHosts'])) {
-                $model->SNIHosts = $map['SNIHosts'];
+                $model->SNIHosts = [];
+                $n1 = 0;
+                foreach ($map['SNIHosts'] as $item1) {
+                    $model->SNIHosts[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TLSPort'])) {
             $model->TLSPort = $map['TLSPort'];
         }

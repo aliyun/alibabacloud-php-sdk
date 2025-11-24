@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCaCertRequest extends Model
 {
     /**
-     * @description The ASM instance ID.
-     *
-     * @example c7894c929677643a5bfe1a732d778a****
-     *
      * @var string
      */
     public $serviceMeshId;
@@ -22,9 +18,10 @@ class GetCaCertRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceMeshId) {
@@ -34,11 +31,11 @@ class GetCaCertRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCaCertRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

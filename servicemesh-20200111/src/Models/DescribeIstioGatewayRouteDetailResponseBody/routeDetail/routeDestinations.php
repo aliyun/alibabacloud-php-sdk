@@ -4,53 +4,54 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailResponseBody\routeDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailResponseBody\routeDetail\routeDestinations\destination;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailResponseBody\routeDetail\routeDestinations\headers;
-use AlibabaCloud\Tea\Model;
 
 class routeDestinations extends Model
 {
     /**
-     * @description The unique endpoint of the destination service to which the specified requests are sent.
-     *
      * @var destination
      */
     public $destination;
 
     /**
-     * @description The list of the request headers to be matched.
-     *
      * @var headers
      */
     public $headers;
 
     /**
-     * @description The traffic weight. Valid values: 1 to 100.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $weight;
     protected $_name = [
         'destination' => 'Destination',
-        'headers'     => 'Headers',
-        'weight'      => 'Weight',
+        'headers' => 'Headers',
+        'weight' => 'Weight',
     ];
 
     public function validate()
     {
+        if (null !== $this->destination) {
+            $this->destination->validate();
+        }
+        if (null !== $this->headers) {
+            $this->headers->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destination) {
-            $res['Destination'] = null !== $this->destination ? $this->destination->toMap() : null;
+            $res['Destination'] = null !== $this->destination ? $this->destination->toArray($noStream) : $this->destination;
         }
+
         if (null !== $this->headers) {
-            $res['Headers'] = null !== $this->headers ? $this->headers->toMap() : null;
+            $res['Headers'] = null !== $this->headers ? $this->headers->toArray($noStream) : $this->headers;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -58,20 +59,22 @@ class routeDestinations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeDestinations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Destination'])) {
             $model->destination = destination::fromMap($map['Destination']);
         }
+
         if (isset($map['Headers'])) {
             $model->headers = headers::fromMap($map['Headers']);
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

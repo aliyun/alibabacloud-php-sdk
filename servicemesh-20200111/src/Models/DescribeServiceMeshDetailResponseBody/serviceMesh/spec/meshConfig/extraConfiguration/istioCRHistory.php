@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class istioCRHistory extends Model
 {
     /**
-     * @description Indicates whether the rollback feature for Istio resources is enabled. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableHistory;
@@ -25,9 +18,10 @@ class istioCRHistory extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableHistory) {
@@ -37,11 +31,11 @@ class istioCRHistory extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return istioCRHistory
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

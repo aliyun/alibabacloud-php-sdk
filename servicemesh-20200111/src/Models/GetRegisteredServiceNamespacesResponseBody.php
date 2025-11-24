@@ -4,40 +4,46 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRegisteredServiceNamespacesResponseBody extends Model
 {
     /**
-     * @description The names of the queried namespaces.
-     *
      * @var string[]
      */
     public $namespaces;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'namespaces' => 'Namespaces',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->namespaces)) {
+            Model::validateArray($this->namespaces);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespaces) {
-            $res['Namespaces'] = $this->namespaces;
+            if (\is_array($this->namespaces)) {
+                $res['Namespaces'] = [];
+                $n1 = 0;
+                foreach ($this->namespaces as $item1) {
+                    $res['Namespaces'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +51,25 @@ class GetRegisteredServiceNamespacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRegisteredServiceNamespacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Namespaces'])) {
             if (!empty($map['Namespaces'])) {
-                $model->namespaces = $map['Namespaces'];
+                $model->namespaces = [];
+                $n1 = 0;
+                foreach ($map['Namespaces'] as $item1) {
+                    $model->namespaces[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

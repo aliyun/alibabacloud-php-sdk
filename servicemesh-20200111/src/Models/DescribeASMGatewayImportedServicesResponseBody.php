@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesResponseBody\importedServices;
-use AlibabaCloud\Tea\Model;
 
 class DescribeASMGatewayImportedServicesResponseBody extends Model
 {
     /**
-     * @description The list of the imported services.
-     *
      * @var importedServices[]
      */
     public $importedServices;
 
     /**
-     * @description The request ID.
-     *
-     * @example 11fd0027-c27e-41bb-a565-75583054****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'importedServices' => 'ImportedServices',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->importedServices)) {
+            Model::validateArray($this->importedServices);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->importedServices) {
-            $res['ImportedServices'] = [];
-            if (null !== $this->importedServices && \is_array($this->importedServices)) {
-                $n = 0;
-                foreach ($this->importedServices as $item) {
-                    $res['ImportedServices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->importedServices)) {
+                $res['ImportedServices'] = [];
+                $n1 = 0;
+                foreach ($this->importedServices as $item1) {
+                    $res['ImportedServices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class DescribeASMGatewayImportedServicesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeASMGatewayImportedServicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImportedServices'])) {
             if (!empty($map['ImportedServices'])) {
                 $model->importedServices = [];
-                $n                       = 0;
-                foreach ($map['ImportedServices'] as $item) {
-                    $model->importedServices[$n++] = null !== $item ? importedServices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImportedServices'] as $item1) {
+                    $model->importedServices[$n1] = importedServices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

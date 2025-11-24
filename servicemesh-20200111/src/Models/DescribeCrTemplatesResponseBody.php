@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeCrTemplatesResponseBody\templates;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCrTemplatesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 74E97AE2-2900-55C1-A069-C3C1EA*****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The common YAML templates for the specified type of Istio resource.
-     *
      * @var templates[]
      */
     public $templates;
@@ -31,20 +25,26 @@ class DescribeCrTemplatesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->templates)) {
+            Model::validateArray($this->templates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->templates) {
-            $res['Templates'] = [];
-            if (null !== $this->templates && \is_array($this->templates)) {
-                $n = 0;
-                foreach ($this->templates as $item) {
-                    $res['Templates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templates)) {
+                $res['Templates'] = [];
+                $n1 = 0;
+                foreach ($this->templates as $item1) {
+                    $res['Templates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,23 +52,25 @@ class DescribeCrTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCrTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
-                $n                = 0;
-                foreach ($map['Templates'] as $item) {
-                    $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Templates'] as $item1) {
+                    $model->templates[$n1] = templates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
