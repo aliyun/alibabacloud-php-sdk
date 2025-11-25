@@ -109,6 +109,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBinarySecurityPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCheckItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCheckItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCheckItemShrinkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCheckPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCheckPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskByAppNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskByAppNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateContainerScanTaskRequest;
@@ -1069,6 +1071,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstallCodeForUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstallCodeForUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstanceAlarmStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstanceAlarmStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstanceAuthRangeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionRuleDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionRuleDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionSummaryRequest;
@@ -1250,6 +1253,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListClientUserDefineRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClientUserDefineRuleTypesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetInstancesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetMatchOperatorsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetMatchOperatorsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetSchemasRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetSchemasResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudVendorRegionsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudVendorRegionsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCnnfStatusDetailRequest;
@@ -1322,6 +1329,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListMachineAppsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMachineAppsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMaliciousFileWhitelistConfigsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMaliciousFileWhitelistConfigsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListMultiUserInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListObjectScanEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListObjectScanEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOpaClusterStrategyNewRequest;
@@ -1706,6 +1715,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateBaselineCheckWhiteRecordResponse
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckItemShrinkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCheckPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateClientAlertModeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateClientAlertModeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCommonSwitchConfigRequest;
@@ -1742,6 +1753,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryPersistenceD
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateJenkinsImageRegistryPersistenceDayResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateMaliciousFileWhitelistConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateMaliciousFileWhitelistConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateMultiUserInstancesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateMultiUserInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewShrinkRequest;
@@ -5546,6 +5559,75 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * Create Policy.
+     *
+     * @param request - CreateCheckPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCheckPolicyResponse
+     *
+     * @param CreateCheckPolicyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCheckPolicyResponse
+     */
+    public function createCheckPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dependentPolicyId) {
+            @$query['DependentPolicyId'] = $request->dependentPolicyId;
+        }
+
+        if (null !== $request->policyShowName) {
+            @$query['PolicyShowName'] = $request->policyShowName;
+        }
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCheckPolicy',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCheckPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create Policy.
+     *
+     * @param request - CreateCheckPolicyRequest
+     *
+     * @returns CreateCheckPolicyResponse
+     *
+     * @param CreateCheckPolicyRequest $request
+     *
+     * @return CreateCheckPolicyResponse
+     */
+    public function createCheckPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCheckPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a container scan task.
      *
      * @param request - CreateContainerScanTaskRequest
@@ -7143,7 +7225,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+     * Get alert whitelist configuration details.
      *
      * @param request - CreateMaliciousFileWhitelistConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7210,7 +7292,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+     * Get alert whitelist configuration details.
      *
      * @param request - CreateMaliciousFileWhitelistConfigRequest
      *
@@ -16339,7 +16421,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询集群扫描组件状态
+     * Query the status of cluster scanning components.
      *
      * @param request - DescribeClusterScannerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16386,7 +16468,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询集群扫描组件状态
+     * Query the status of cluster scanning components.
      *
      * @param request - DescribeClusterScannerListRequest
      *
@@ -17903,7 +17985,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查看自定义弱口令上传结果.
+     * View the result of custom weak password uploads.
      *
      * @param request - DescribeCustomizedDictRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17942,7 +18024,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查看自定义弱口令上传结果.
+     * View the result of custom weak password uploads.
      *
      * @param request - DescribeCustomizedDictRequest
      *
@@ -19826,6 +19908,14 @@ class Sas extends OpenApiClient
 
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->exposureIp) {
+            @$query['ExposureIp'] = $request->exposureIp;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
 
         if (null !== $request->pageSize) {
@@ -35230,7 +35320,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 生成K8s集群扫描接入配置.
+     * Generate K8s cluster scan access configuration.
      *
      * @param request - GenerateClusterScannerWebhookYamlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35273,7 +35363,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 生成K8s集群扫描接入配置.
+     * Generate K8s cluster scan access configuration.
      *
      * @param request - GenerateClusterScannerWebhookYamlRequest
      *
@@ -37630,7 +37720,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The total number of instances that are at risk.
+     * 获取云资产概要
      *
      * @param request - GetCloudAssetSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37673,7 +37763,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The total number of instances that are at risk.
+     * 获取云资产概要
      *
      * @param request - GetCloudAssetSummaryRequest
      *
@@ -37809,7 +37899,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询K8s集群扫描接入配置.
+     * Query K8s cluster scan access configuration.
      *
      * @param request - GetClusterScannerYamlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37848,7 +37938,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询K8s集群扫描接入配置.
+     * Query K8s cluster scan access configuration.
      *
      * @param request - GetClusterScannerYamlRequest
      *
@@ -39408,7 +39498,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取蜜罐使用量的统计数据.
+     * Get statistics on honey pot usage.
      *
      * @param request - GetHoneypotStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39447,7 +39537,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取蜜罐使用量的统计数据.
+     * Get statistics on honey pot usage.
      *
      * @param request - GetHoneypotStatisticsRequest
      *
@@ -39698,6 +39788,50 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceAlarmStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取实例授权取值范围.
+     *
+     * @param request - GetInstanceAuthRangeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceAuthRangeResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetInstanceAuthRangeResponse
+     */
+    public function getInstanceAuthRangeWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetInstanceAuthRange',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceAuthRangeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例授权取值范围.
+     *
+     * @returns GetInstanceAuthRangeResponse
+     *
+     * @return GetInstanceAuthRangeResponse
+     */
+    public function getInstanceAuthRange()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceAuthRangeWithOptions($runtime);
     }
 
     /**
@@ -42455,7 +42589,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 批量处理恶意样本告警。
+     * Batch process malicious alerts.
      *
      * @remarks
      *
@@ -42512,7 +42646,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 批量处理恶意样本告警。
+     * Batch process malicious alerts.
      *
      * @remarks
      *
@@ -44970,7 +45104,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the servers that are affected by baseline risks.
+     * Query the list of warning machines for a specific baseline check item.
      *
      * @param request - ListCheckItemWarningMachineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -45053,7 +45187,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the servers that are affected by baseline risks.
+     * Query the list of warning machines for a specific baseline check item.
      *
      * @param request - ListCheckItemWarningMachineRequest
      *
@@ -45927,6 +46061,146 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCloudAssetInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get the list of cloud product configuration rule operators.
+     *
+     * @remarks
+     * Get the list of cloud asset data operators.
+     *
+     * @param request - ListCloudAssetMatchOperatorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudAssetMatchOperatorsResponse
+     *
+     * @param ListCloudAssetMatchOperatorsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListCloudAssetMatchOperatorsResponse
+     */
+    public function listCloudAssetMatchOperatorsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloudAssetMatchOperators',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloudAssetMatchOperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get the list of cloud product configuration rule operators.
+     *
+     * @remarks
+     * Get the list of cloud asset data operators.
+     *
+     * @param request - ListCloudAssetMatchOperatorsRequest
+     *
+     * @returns ListCloudAssetMatchOperatorsResponse
+     *
+     * @param ListCloudAssetMatchOperatorsRequest $request
+     *
+     * @return ListCloudAssetMatchOperatorsResponse
+     */
+    public function listCloudAssetMatchOperators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAssetMatchOperatorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取云产品资产结构列表.
+     *
+     * @param request - ListCloudAssetSchemasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudAssetSchemasResponse
+     *
+     * @param ListCloudAssetSchemasRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListCloudAssetSchemasResponse
+     */
+    public function listCloudAssetSchemasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->associatedDataOnly) {
+            @$query['AssociatedDataOnly'] = $request->associatedDataOnly;
+        }
+
+        if (null !== $request->cloudAssetTypes) {
+            @$query['CloudAssetTypes'] = $request->cloudAssetTypes;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->dataNames) {
+            @$query['DataNames'] = $request->dataNames;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloudAssetSchemas',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloudAssetSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取云产品资产结构列表.
+     *
+     * @param request - ListCloudAssetSchemasRequest
+     *
+     * @returns ListCloudAssetSchemasResponse
+     *
+     * @param ListCloudAssetSchemasRequest $request
+     *
+     * @return ListCloudAssetSchemasResponse
+     */
+    public function listCloudAssetSchemas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAssetSchemasWithOptions($request, $runtime);
     }
 
     /**
@@ -48514,6 +48788,67 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMaliciousFileWhitelistConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询多账号授权分配列表.
+     *
+     * @param request - ListMultiUserInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMultiUserInstancesResponse
+     *
+     * @param ListMultiUserInstancesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMultiUserInstancesResponse
+     */
+    public function listMultiUserInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMultiUserInstances',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMultiUserInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多账号授权分配列表.
+     *
+     * @param request - ListMultiUserInstancesRequest
+     *
+     * @returns ListMultiUserInstancesResponse
+     *
+     * @param ListMultiUserInstancesRequest $request
+     *
+     * @return ListMultiUserInstancesResponse
+     */
+    public function listMultiUserInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultiUserInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -61859,6 +62194,79 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * Update Custom Policy.
+     *
+     * @param request - UpdateCheckPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCheckPolicyResponse
+     *
+     * @param UpdateCheckPolicyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateCheckPolicyResponse
+     */
+    public function updateCheckPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dependentPolicyId) {
+            @$query['DependentPolicyId'] = $request->dependentPolicyId;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->policyShowName) {
+            @$query['PolicyShowName'] = $request->policyShowName;
+        }
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCheckPolicy',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCheckPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update Custom Policy.
+     *
+     * @param request - UpdateCheckPolicyRequest
+     *
+     * @returns UpdateCheckPolicyResponse
+     *
+     * @param UpdateCheckPolicyRequest $request
+     *
+     * @return UpdateCheckPolicyResponse
+     */
+    public function updateCheckPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCheckPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies alerting settings for servers.
      *
      * @param request - UpdateClientAlertModeRequest
@@ -63122,6 +63530,63 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMaliciousFileWhitelistConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改多账号实例配置.
+     *
+     * @param request - UpdateMultiUserInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMultiUserInstancesResponse
+     *
+     * @param UpdateMultiUserInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateMultiUserInstancesResponse
+     */
+    public function updateMultiUserInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->memberInstances) {
+            @$query['MemberInstances'] = $request->memberInstances;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMultiUserInstances',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMultiUserInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改多账号实例配置.
+     *
+     * @param request - UpdateMultiUserInstancesRequest
+     *
+     * @returns UpdateMultiUserInstancesResponse
+     *
+     * @param UpdateMultiUserInstancesRequest $request
+     *
+     * @return UpdateMultiUserInstancesResponse
+     */
+    public function updateMultiUserInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMultiUserInstancesWithOptions($request, $runtime);
     }
 
     /**

@@ -19,6 +19,16 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $exposureIp;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -50,6 +60,8 @@ class DescribeExposedStatisticsDetailRequest extends Model
     protected $_name = [
         'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
+        'exposureIp' => 'ExposureIp',
+        'instanceId' => 'InstanceId',
         'pageSize' => 'PageSize',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'statisticsType' => 'StatisticsType',
@@ -72,6 +84,14 @@ class DescribeExposedStatisticsDetailRequest extends Model
 
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->exposureIp) {
+            $res['ExposureIp'] = $this->exposureIp;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->pageSize) {
@@ -115,6 +135,14 @@ class DescribeExposedStatisticsDetailRequest extends Model
 
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['ExposureIp'])) {
+            $model->exposureIp = $map['ExposureIp'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['PageSize'])) {
