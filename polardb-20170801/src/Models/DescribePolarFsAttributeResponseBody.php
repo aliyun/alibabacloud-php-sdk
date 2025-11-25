@@ -32,6 +32,11 @@ class DescribePolarFsAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $bucketId;
+
+    /**
+     * @var string
+     */
     public $category;
 
     /**
@@ -58,6 +63,11 @@ class DescribePolarFsAttributeResponseBody extends Model
      * @var string
      */
     public $expired;
+
+    /**
+     * @var string
+     */
+    public $fileSystemId;
 
     /**
      * @var string
@@ -122,6 +132,11 @@ class DescribePolarFsAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $relativePfsClusterId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -163,12 +178,14 @@ class DescribePolarFsAttributeResponseBody extends Model
         'acceleratingEnable' => 'AcceleratingEnable',
         'bandwidth' => 'Bandwidth',
         'bandwidthBaseLine' => 'BandwidthBaseLine',
+        'bucketId' => 'BucketId',
         'category' => 'Category',
         'clientDownloadPath' => 'ClientDownloadPath',
         'createTime' => 'CreateTime',
         'DBType' => 'DBType',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
+        'fileSystemId' => 'FileSystemId',
         'lockMode' => 'LockMode',
         'metaUrl' => 'MetaUrl',
         'minorVersion' => 'MinorVersion',
@@ -181,6 +198,7 @@ class DescribePolarFsAttributeResponseBody extends Model
         'polarFsVersion' => 'PolarFsVersion',
         'regionId' => 'RegionId',
         'relativeDbClusterId' => 'RelativeDbClusterId',
+        'relativePfsClusterId' => 'RelativePfsClusterId',
         'requestId' => 'RequestId',
         'securityGroupId' => 'SecurityGroupId',
         'storageSpace' => 'StorageSpace',
@@ -218,6 +236,10 @@ class DescribePolarFsAttributeResponseBody extends Model
             $res['BandwidthBaseLine'] = $this->bandwidthBaseLine;
         }
 
+        if (null !== $this->bucketId) {
+            $res['BucketId'] = $this->bucketId;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -240,6 +262,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
+        }
+
+        if (null !== $this->fileSystemId) {
+            $res['FileSystemId'] = $this->fileSystemId;
         }
 
         if (null !== $this->lockMode) {
@@ -288,6 +314,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (null !== $this->relativeDbClusterId) {
             $res['RelativeDbClusterId'] = $this->relativeDbClusterId;
+        }
+
+        if (null !== $this->relativePfsClusterId) {
+            $res['RelativePfsClusterId'] = $this->relativePfsClusterId;
         }
 
         if (null !== $this->requestId) {
@@ -349,6 +379,10 @@ class DescribePolarFsAttributeResponseBody extends Model
             $model->bandwidthBaseLine = $map['BandwidthBaseLine'];
         }
 
+        if (isset($map['BucketId'])) {
+            $model->bucketId = $map['BucketId'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -371,6 +405,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
+        }
+
+        if (isset($map['FileSystemId'])) {
+            $model->fileSystemId = $map['FileSystemId'];
         }
 
         if (isset($map['LockMode'])) {
@@ -419,6 +457,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (isset($map['RelativeDbClusterId'])) {
             $model->relativeDbClusterId = $map['RelativeDbClusterId'];
+        }
+
+        if (isset($map['RelativePfsClusterId'])) {
+            $model->relativePfsClusterId = $map['RelativePfsClusterId'];
         }
 
         if (isset($map['RequestId'])) {

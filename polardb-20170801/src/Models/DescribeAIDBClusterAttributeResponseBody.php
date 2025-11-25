@@ -69,6 +69,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $KVCacheInstanceId;
+
+    /**
+     * @var string
+     */
     public $kubeClusterId;
 
     /**
@@ -152,6 +157,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
         'internalIp' => 'InternalIp',
+        'KVCacheInstanceId' => 'KVCacheInstanceId',
         'kubeClusterId' => 'KubeClusterId',
         'lockMode' => 'LockMode',
         'maxQPM' => 'MaxQPM',
@@ -242,6 +248,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->internalIp) {
             $res['InternalIp'] = $this->internalIp;
+        }
+
+        if (null !== $this->KVCacheInstanceId) {
+            $res['KVCacheInstanceId'] = $this->KVCacheInstanceId;
         }
 
         if (null !== $this->kubeClusterId) {
@@ -378,6 +388,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['InternalIp'])) {
             $model->internalIp = $map['InternalIp'];
+        }
+
+        if (isset($map['KVCacheInstanceId'])) {
+            $model->KVCacheInstanceId = $map['KVCacheInstanceId'];
         }
 
         if (isset($map['KubeClusterId'])) {
