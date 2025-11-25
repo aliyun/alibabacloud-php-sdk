@@ -103,6 +103,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlackholeStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlackholeStatusResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlockStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlockStatusResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeCdnLinkageRulesRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeCdnLinkageRulesResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeCertsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeCertsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeCnameReusesRequest;
@@ -3749,6 +3751,71 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBlockStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeCdnLinkageRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCdnLinkageRulesResponse
+     *
+     * @param DescribeCdnLinkageRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCdnLinkageRulesResponse
+     */
+    public function describeCdnLinkageRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCdnLinkageRules',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCdnLinkageRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeCdnLinkageRulesRequest
+     *
+     * @returns DescribeCdnLinkageRulesResponse
+     *
+     * @param DescribeCdnLinkageRulesRequest $request
+     *
+     * @return DescribeCdnLinkageRulesResponse
+     */
+    public function describeCdnLinkageRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnLinkageRulesWithOptions($request, $runtime);
     }
 
     /**

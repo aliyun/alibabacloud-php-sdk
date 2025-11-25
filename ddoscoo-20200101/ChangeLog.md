@@ -1,3 +1,7 @@
+2025-11-25 Version: 2.7.0
+- Support API DescribeCdnLinkageRules.
+
+
 2025-09-19 Version: 2.6.5
 - Update API ConfigL7UsKeepalive: add request parameters DownstreamKeepalive.
 - Update API DescribeL7UsKeepalive: add response parameters Body.RsKeepalive.DsKeepaliveTimeout.
