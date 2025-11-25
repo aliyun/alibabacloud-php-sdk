@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListTongyiConversationLogsResponseBody\sessionFlowDebugInfo;
 
 class ListTongyiConversationLogsResponseBody extends Model
 {
@@ -22,16 +23,25 @@ class ListTongyiConversationLogsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var sessionFlowDebugInfo
+     */
+    public $sessionFlowDebugInfo;
     protected $_name = [
         'costTime' => 'CostTime',
         'datas' => 'Datas',
         'requestId' => 'RequestId',
+        'sessionFlowDebugInfo' => 'SessionFlowDebugInfo',
     ];
 
     public function validate()
     {
         if (\is_array($this->datas)) {
             Model::validateArray($this->datas);
+        }
+        if (null !== $this->sessionFlowDebugInfo) {
+            $this->sessionFlowDebugInfo->validate();
         }
         parent::validate();
     }
@@ -61,6 +71,10 @@ class ListTongyiConversationLogsResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->sessionFlowDebugInfo) {
+            $res['SessionFlowDebugInfo'] = null !== $this->sessionFlowDebugInfo ? $this->sessionFlowDebugInfo->toArray($noStream) : $this->sessionFlowDebugInfo;
         }
 
         return $res;
@@ -96,6 +110,10 @@ class ListTongyiConversationLogsResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SessionFlowDebugInfo'])) {
+            $model->sessionFlowDebugInfo = sessionFlowDebugInfo::fromMap($map['SessionFlowDebugInfo']);
         }
 
         return $model;
