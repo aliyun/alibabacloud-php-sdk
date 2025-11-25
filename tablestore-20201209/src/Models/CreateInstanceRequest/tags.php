@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag key. The tag key can be up to 64 characters in length.
-     *
-     * This parameter is required.
-     *
-     * @example p_instance
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value. The tag value can be up to 64 characters in length.
-     *
-     * This parameter is required.
-     *
-     * @example 0woauavextilfqr61
-     *
      * @var string
      */
     public $value;
@@ -34,14 +22,18 @@ class tags extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

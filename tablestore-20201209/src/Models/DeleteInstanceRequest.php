@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteInstanceRequest extends Model
 {
     /**
-     * @description The name of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example instance-test
-     *
      * @var string
      */
     public $instanceName;
@@ -22,9 +16,12 @@ class DeleteInstanceRequest extends Model
         'instanceName' => 'InstanceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceName) {
@@ -34,11 +31,11 @@ class DeleteInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

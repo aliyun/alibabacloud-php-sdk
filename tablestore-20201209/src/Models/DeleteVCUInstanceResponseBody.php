@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UntagResourcesResponseBody extends Model
+class DeleteVCUInstanceResponseBody extends Model
 {
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'requestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -25,7 +25,7 @@ class UntagResourcesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class UntagResourcesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

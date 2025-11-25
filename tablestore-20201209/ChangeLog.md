@@ -1,3 +1,8 @@
+2025-11-25 Version: 1.3.0
+- Support API DeleteVCUInstance.
+- Support API ListClusterType.
+
+
 2025-07-28 Version: 1.2.0
 - Support API CreateVCUInstance.
 

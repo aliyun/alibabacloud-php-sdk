@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateInstancePolicyResponse extends Model
+class DeleteVCUInstanceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateInstancePolicyResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateInstancePolicyResponseBody
+     * @var DeleteVCUInstanceResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class UpdateInstancePolicyResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UpdateInstancePolicyResponseBody::fromMap($map['body']);
+            $model->body = DeleteVCUInstanceResponseBody::fromMap($map['body']);
         }
 
         return $model;
