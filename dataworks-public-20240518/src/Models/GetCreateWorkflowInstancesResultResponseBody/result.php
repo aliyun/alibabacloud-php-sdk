@@ -21,6 +21,11 @@ class result extends Model
     /**
      * @var int[]
      */
+    public $unifiedWorkflowInstanceIds;
+
+    /**
+     * @var int[]
+     */
     public $workflowInstanceIds;
 
     /**
@@ -30,12 +35,16 @@ class result extends Model
     protected $_name = [
         'failureMessage' => 'FailureMessage',
         'status' => 'Status',
+        'unifiedWorkflowInstanceIds' => 'UnifiedWorkflowInstanceIds',
         'workflowInstanceIds' => 'WorkflowInstanceIds',
         'workflowTaskInstanceIds' => 'WorkflowTaskInstanceIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->unifiedWorkflowInstanceIds)) {
+            Model::validateArray($this->unifiedWorkflowInstanceIds);
+        }
         if (\is_array($this->workflowInstanceIds)) {
             Model::validateArray($this->workflowInstanceIds);
         }
@@ -54,6 +63,17 @@ class result extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->unifiedWorkflowInstanceIds) {
+            if (\is_array($this->unifiedWorkflowInstanceIds)) {
+                $res['UnifiedWorkflowInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->unifiedWorkflowInstanceIds as $item1) {
+                    $res['UnifiedWorkflowInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workflowInstanceIds) {
@@ -95,6 +115,17 @@ class result extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['UnifiedWorkflowInstanceIds'])) {
+            if (!empty($map['UnifiedWorkflowInstanceIds'])) {
+                $model->unifiedWorkflowInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['UnifiedWorkflowInstanceIds'] as $item1) {
+                    $model->unifiedWorkflowInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['WorkflowInstanceIds'])) {

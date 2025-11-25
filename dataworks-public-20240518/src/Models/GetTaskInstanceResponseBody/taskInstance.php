@@ -178,6 +178,11 @@ class taskInstance extends Model
     /**
      * @var int
      */
+    public $unifiedWorkflowInstanceId;
+
+    /**
+     * @var int
+     */
     public $waitingResourceTime;
 
     /**
@@ -237,6 +242,7 @@ class taskInstance extends Model
         'triggerRecurrence' => 'TriggerRecurrence',
         'triggerTime' => 'TriggerTime',
         'triggerType' => 'TriggerType',
+        'unifiedWorkflowInstanceId' => 'UnifiedWorkflowInstanceId',
         'waitingResourceTime' => 'WaitingResourceTime',
         'waitingTriggerTime' => 'WaitingTriggerTime',
         'workflowId' => 'WorkflowId',
@@ -409,6 +415,10 @@ class taskInstance extends Model
             $res['TriggerType'] = $this->triggerType;
         }
 
+        if (null !== $this->unifiedWorkflowInstanceId) {
+            $res['UnifiedWorkflowInstanceId'] = $this->unifiedWorkflowInstanceId;
+        }
+
         if (null !== $this->waitingResourceTime) {
             $res['WaitingResourceTime'] = $this->waitingResourceTime;
         }
@@ -577,6 +587,10 @@ class taskInstance extends Model
 
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
+        }
+
+        if (isset($map['UnifiedWorkflowInstanceId'])) {
+            $model->unifiedWorkflowInstanceId = $map['UnifiedWorkflowInstanceId'];
         }
 
         if (isset($map['WaitingResourceTime'])) {

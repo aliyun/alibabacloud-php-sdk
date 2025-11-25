@@ -14,6 +14,11 @@ class ListWorkflowInstancesRequest extends Model
     public $bizDate;
 
     /**
+     * @var string
+     */
+    public $filter;
+
+    /**
      * @var int[]
      */
     public $ids;
@@ -49,6 +54,11 @@ class ListWorkflowInstancesRequest extends Model
     public $sortBy;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $type;
@@ -56,9 +66,15 @@ class ListWorkflowInstancesRequest extends Model
     /**
      * @var int
      */
+    public $unifiedWorkflowInstanceId;
+
+    /**
+     * @var int
+     */
     public $workflowId;
     protected $_name = [
         'bizDate' => 'BizDate',
+        'filter' => 'Filter',
         'ids' => 'Ids',
         'name' => 'Name',
         'owner' => 'Owner',
@@ -66,7 +82,9 @@ class ListWorkflowInstancesRequest extends Model
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
         'sortBy' => 'SortBy',
+        'tags' => 'Tags',
         'type' => 'Type',
+        'unifiedWorkflowInstanceId' => 'UnifiedWorkflowInstanceId',
         'workflowId' => 'WorkflowId',
     ];
 
@@ -74,6 +92,9 @@ class ListWorkflowInstancesRequest extends Model
     {
         if (\is_array($this->ids)) {
             Model::validateArray($this->ids);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -83,6 +104,10 @@ class ListWorkflowInstancesRequest extends Model
         $res = [];
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
+        }
+
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
 
         if (null !== $this->ids) {
@@ -120,8 +145,23 @@ class ListWorkflowInstancesRequest extends Model
             $res['SortBy'] = $this->sortBy;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->unifiedWorkflowInstanceId) {
+            $res['UnifiedWorkflowInstanceId'] = $this->unifiedWorkflowInstanceId;
         }
 
         if (null !== $this->workflowId) {
@@ -141,6 +181,10 @@ class ListWorkflowInstancesRequest extends Model
         $model = new self();
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
+        }
+
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
 
         if (isset($map['Ids'])) {
@@ -178,8 +222,23 @@ class ListWorkflowInstancesRequest extends Model
             $model->sortBy = $map['SortBy'];
         }
 
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['UnifiedWorkflowInstanceId'])) {
+            $model->unifiedWorkflowInstanceId = $map['UnifiedWorkflowInstanceId'];
         }
 
         if (isset($map['WorkflowId'])) {

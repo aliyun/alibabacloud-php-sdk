@@ -16,6 +16,11 @@ class ListWorkflowInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $filter;
+
+    /**
+     * @var string
+     */
     public $idsShrink;
 
     /**
@@ -51,7 +56,17 @@ class ListWorkflowInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $unifiedWorkflowInstanceId;
 
     /**
      * @var int
@@ -59,6 +74,7 @@ class ListWorkflowInstancesShrinkRequest extends Model
     public $workflowId;
     protected $_name = [
         'bizDate' => 'BizDate',
+        'filter' => 'Filter',
         'idsShrink' => 'Ids',
         'name' => 'Name',
         'owner' => 'Owner',
@@ -66,7 +82,9 @@ class ListWorkflowInstancesShrinkRequest extends Model
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
         'sortBy' => 'SortBy',
+        'tagsShrink' => 'Tags',
         'type' => 'Type',
+        'unifiedWorkflowInstanceId' => 'UnifiedWorkflowInstanceId',
         'workflowId' => 'WorkflowId',
     ];
 
@@ -80,6 +98,10 @@ class ListWorkflowInstancesShrinkRequest extends Model
         $res = [];
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
+        }
+
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
 
         if (null !== $this->idsShrink) {
@@ -110,8 +132,16 @@ class ListWorkflowInstancesShrinkRequest extends Model
             $res['SortBy'] = $this->sortBy;
         }
 
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->unifiedWorkflowInstanceId) {
+            $res['UnifiedWorkflowInstanceId'] = $this->unifiedWorkflowInstanceId;
         }
 
         if (null !== $this->workflowId) {
@@ -131,6 +161,10 @@ class ListWorkflowInstancesShrinkRequest extends Model
         $model = new self();
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
+        }
+
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
 
         if (isset($map['Ids'])) {
@@ -161,8 +195,16 @@ class ListWorkflowInstancesShrinkRequest extends Model
             $model->sortBy = $map['SortBy'];
         }
 
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['UnifiedWorkflowInstanceId'])) {
+            $model->unifiedWorkflowInstanceId = $map['UnifiedWorkflowInstanceId'];
         }
 
         if (isset($map['WorkflowId'])) {

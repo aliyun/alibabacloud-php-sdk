@@ -87,6 +87,11 @@ class workflowInstance extends Model
     /**
      * @var int
      */
+    public $unifiedWorkflowInstanceId;
+
+    /**
+     * @var int
+     */
     public $workflowId;
 
     /**
@@ -114,6 +119,7 @@ class workflowInstance extends Model
         'status' => 'Status',
         'tags' => 'Tags',
         'type' => 'Type',
+        'unifiedWorkflowInstanceId' => 'UnifiedWorkflowInstanceId',
         'workflowId' => 'WorkflowId',
         'workflowParameters' => 'WorkflowParameters',
         'workflowTaskInstanceId' => 'WorkflowTaskInstanceId',
@@ -195,6 +201,10 @@ class workflowInstance extends Model
 
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->unifiedWorkflowInstanceId) {
+            $res['UnifiedWorkflowInstanceId'] = $this->unifiedWorkflowInstanceId;
         }
 
         if (null !== $this->workflowId) {
@@ -285,6 +295,10 @@ class workflowInstance extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['UnifiedWorkflowInstanceId'])) {
+            $model->unifiedWorkflowInstanceId = $map['UnifiedWorkflowInstanceId'];
         }
 
         if (isset($map['WorkflowId'])) {

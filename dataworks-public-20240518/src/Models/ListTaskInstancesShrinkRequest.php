@@ -14,6 +14,11 @@ class ListTaskInstancesShrinkRequest extends Model
     public $bizdate;
 
     /**
+     * @var string
+     */
+    public $filter;
+
+    /**
      * @var int
      */
     public $id;
@@ -96,6 +101,11 @@ class ListTaskInstancesShrinkRequest extends Model
     /**
      * @var int
      */
+    public $unifiedWorkflowInstanceId;
+
+    /**
+     * @var int
+     */
     public $workflowId;
 
     /**
@@ -109,6 +119,7 @@ class ListTaskInstancesShrinkRequest extends Model
     public $workflowInstanceType;
     protected $_name = [
         'bizdate' => 'Bizdate',
+        'filter' => 'Filter',
         'id' => 'Id',
         'idsShrink' => 'Ids',
         'owner' => 'Owner',
@@ -125,6 +136,7 @@ class ListTaskInstancesShrinkRequest extends Model
         'taskType' => 'TaskType',
         'triggerRecurrence' => 'TriggerRecurrence',
         'triggerType' => 'TriggerType',
+        'unifiedWorkflowInstanceId' => 'UnifiedWorkflowInstanceId',
         'workflowId' => 'WorkflowId',
         'workflowInstanceId' => 'WorkflowInstanceId',
         'workflowInstanceType' => 'WorkflowInstanceType',
@@ -140,6 +152,10 @@ class ListTaskInstancesShrinkRequest extends Model
         $res = [];
         if (null !== $this->bizdate) {
             $res['Bizdate'] = $this->bizdate;
+        }
+
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
 
         if (null !== $this->id) {
@@ -206,6 +222,10 @@ class ListTaskInstancesShrinkRequest extends Model
             $res['TriggerType'] = $this->triggerType;
         }
 
+        if (null !== $this->unifiedWorkflowInstanceId) {
+            $res['UnifiedWorkflowInstanceId'] = $this->unifiedWorkflowInstanceId;
+        }
+
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
         }
@@ -231,6 +251,10 @@ class ListTaskInstancesShrinkRequest extends Model
         $model = new self();
         if (isset($map['Bizdate'])) {
             $model->bizdate = $map['Bizdate'];
+        }
+
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
 
         if (isset($map['Id'])) {
@@ -295,6 +319,10 @@ class ListTaskInstancesShrinkRequest extends Model
 
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
+        }
+
+        if (isset($map['UnifiedWorkflowInstanceId'])) {
+            $model->unifiedWorkflowInstanceId = $map['UnifiedWorkflowInstanceId'];
         }
 
         if (isset($map['WorkflowId'])) {

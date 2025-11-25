@@ -51,6 +51,11 @@ class ListWorkflowsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
     public $triggerType;
     protected $_name = [
         'envType' => 'EnvType',
@@ -61,6 +66,7 @@ class ListWorkflowsShrinkRequest extends Model
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
         'sortBy' => 'SortBy',
+        'tagsShrink' => 'Tags',
         'triggerType' => 'TriggerType',
     ];
 
@@ -102,6 +108,10 @@ class ListWorkflowsShrinkRequest extends Model
 
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         if (null !== $this->triggerType) {
@@ -149,6 +159,10 @@ class ListWorkflowsShrinkRequest extends Model
 
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
         }
 
         if (isset($map['TriggerType'])) {

@@ -49,6 +49,11 @@ class ListWorkflowsRequest extends Model
     public $sortBy;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $triggerType;
@@ -61,6 +66,7 @@ class ListWorkflowsRequest extends Model
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
         'sortBy' => 'SortBy',
+        'tags' => 'Tags',
         'triggerType' => 'TriggerType',
     ];
 
@@ -68,6 +74,9 @@ class ListWorkflowsRequest extends Model
     {
         if (\is_array($this->ids)) {
             Model::validateArray($this->ids);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -112,6 +121,17 @@ class ListWorkflowsRequest extends Model
 
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->triggerType) {
@@ -166,6 +186,17 @@ class ListWorkflowsRequest extends Model
 
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TriggerType'])) {

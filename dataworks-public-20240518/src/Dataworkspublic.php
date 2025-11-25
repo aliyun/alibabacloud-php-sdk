@@ -13729,6 +13729,10 @@ class Dataworkspublic extends OpenApiClient
             @$body['Bizdate'] = $request->bizdate;
         }
 
+        if (null !== $request->filter) {
+            @$body['Filter'] = $request->filter;
+        }
+
         if (null !== $request->id) {
             @$body['Id'] = $request->id;
         }
@@ -13791,6 +13795,10 @@ class Dataworkspublic extends OpenApiClient
 
         if (null !== $request->triggerType) {
             @$body['TriggerType'] = $request->triggerType;
+        }
+
+        if (null !== $request->unifiedWorkflowInstanceId) {
+            @$body['UnifiedWorkflowInstanceId'] = $request->unifiedWorkflowInstanceId;
         }
 
         if (null !== $request->workflowId) {
@@ -14206,9 +14214,17 @@ class Dataworkspublic extends OpenApiClient
             $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
 
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
         $body = [];
         if (null !== $request->bizDate) {
             @$body['BizDate'] = $request->bizDate;
+        }
+
+        if (null !== $request->filter) {
+            @$body['Filter'] = $request->filter;
         }
 
         if (null !== $request->idsShrink) {
@@ -14239,8 +14255,16 @@ class Dataworkspublic extends OpenApiClient
             @$body['SortBy'] = $request->sortBy;
         }
 
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
         if (null !== $request->type) {
             @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->unifiedWorkflowInstanceId) {
+            @$body['UnifiedWorkflowInstanceId'] = $request->unifiedWorkflowInstanceId;
         }
 
         if (null !== $request->workflowId) {
@@ -14311,6 +14335,10 @@ class Dataworkspublic extends OpenApiClient
             $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
         }
 
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
         $body = [];
         if (null !== $request->envType) {
             @$body['EnvType'] = $request->envType;
@@ -14342,6 +14370,10 @@ class Dataworkspublic extends OpenApiClient
 
         if (null !== $request->sortBy) {
             @$body['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
         }
 
         if (null !== $request->triggerType) {
