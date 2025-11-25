@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\SignalCallResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class model_ extends Model
 {
     /**
-     * @description 任务ID，可以通过此ID查询任务的详情。
-     *
-     * @example 550E****-****-****-****-********0CA0
-     *
      * @var string
      */
     public $callId;
@@ -22,9 +18,10 @@ class model_ extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callId) {
@@ -34,11 +31,11 @@ class model_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return model_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapiintl\V20211015;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\BackendCallGroupRequest;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\BackendCallGroupResponse;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\BackendCallGroupShrinkRequest;
@@ -21,11 +20,10 @@ use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceGroupCallResponse;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceGroupCallShrinkRequest;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceSingleCallRequest;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceSingleCallResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dyvmsapiintl extends OpenApiClient
 {
@@ -50,102 +48,128 @@ class Dyvmsapiintl extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Initiates a voice group call to multiple phone numbers. The content of the group call is that of approved templates. You can log on to the VMS console and choose Voice Call Template to view the template ID. This feature enqueues the phone numbers to be called. The time when the phone numbers are called is uncertain.
-     *  *
-     * @param BackendCallGroupRequest $tmpReq  BackendCallGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Initiates a voice group call to multiple phone numbers. The content of the group call is that of approved templates. You can log on to the VMS console and choose Voice Call Template to view the template ID. This feature enqueues the phone numbers to be called. The time when the phone numbers are called is uncertain.
      *
-     * @return BackendCallGroupResponse BackendCallGroupResponse
+     * @param tmpReq - BackendCallGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BackendCallGroupResponse
+     *
+     * @param BackendCallGroupRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BackendCallGroupResponse
      */
     public function backendCallGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BackendCallGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->calledNumber)) {
-            $request->calledNumberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->calledNumber, 'CalledNumber', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->calledNumber) {
+            $request->calledNumberShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->calledNumber, 'CalledNumber', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->calledNumberShrink)) {
-            $query['CalledNumber'] = $request->calledNumberShrink;
+        if (null !== $request->calledNumberShrink) {
+            @$query['CalledNumber'] = $request->calledNumberShrink;
         }
-        if (!Utils::isUnset($request->callerIdNumber)) {
-            $query['CallerIdNumber'] = $request->callerIdNumber;
+
+        if (null !== $request->callerIdNumber) {
+            @$query['CallerIdNumber'] = $request->callerIdNumber;
         }
-        if (!Utils::isUnset($request->countryId)) {
-            $query['CountryId'] = $request->countryId;
+
+        if (null !== $request->countryId) {
+            @$query['CountryId'] = $request->countryId;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendType)) {
-            $query['SendType'] = $request->sendType;
+
+        if (null !== $request->sendType) {
+            @$query['SendType'] = $request->sendType;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->timingStart)) {
-            $query['TimingStart'] = $request->timingStart;
+
+        if (null !== $request->timingStart) {
+            @$query['TimingStart'] = $request->timingStart;
         }
-        if (!Utils::isUnset($request->ttsCode)) {
-            $query['TtsCode'] = $request->ttsCode;
+
+        if (null !== $request->ttsCode) {
+            @$query['TtsCode'] = $request->ttsCode;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BackendCallGroup',
-            'version'     => '2021-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BackendCallGroup',
+            'version' => '2021-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BackendCallGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Initiates a voice group call to multiple phone numbers. The content of the group call is that of approved templates. You can log on to the VMS console and choose Voice Call Template to view the template ID. This feature enqueues the phone numbers to be called. The time when the phone numbers are called is uncertain.
-     *  *
-     * @param BackendCallGroupRequest $request BackendCallGroupRequest
+     * Initiates a voice group call to multiple phone numbers. The content of the group call is that of approved templates. You can log on to the VMS console and choose Voice Call Template to view the template ID. This feature enqueues the phone numbers to be called. The time when the phone numbers are called is uncertain.
      *
-     * @return BackendCallGroupResponse BackendCallGroupResponse
+     * @param request - BackendCallGroupRequest
+     *
+     * @returns BackendCallGroupResponse
+     *
+     * @param BackendCallGroupRequest $request
+     *
+     * @return BackendCallGroupResponse
      */
     public function backendCallGroup($request)
     {
@@ -155,77 +179,98 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @summary Sends a voice verification code and voice notification with variables to a phone number.
-     *  *
-     * @param BackendCallSignalRequest $request BackendCallSignalRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Sends a voice verification code and voice notification with variables to a phone number.
      *
-     * @return BackendCallSignalResponse BackendCallSignalResponse
+     * @param request - BackendCallSignalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BackendCallSignalResponse
+     *
+     * @param BackendCallSignalRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return BackendCallSignalResponse
      */
     public function backendCallSignalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callerIdNumber)) {
-            $query['CallerIdNumber'] = $request->callerIdNumber;
+
+        if (null !== $request->callerIdNumber) {
+            @$query['CallerIdNumber'] = $request->callerIdNumber;
         }
-        if (!Utils::isUnset($request->countryId)) {
-            $query['CountryId'] = $request->countryId;
+
+        if (null !== $request->countryId) {
+            @$query['CountryId'] = $request->countryId;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->ttsCode)) {
-            $query['TtsCode'] = $request->ttsCode;
+
+        if (null !== $request->ttsCode) {
+            @$query['TtsCode'] = $request->ttsCode;
         }
-        if (!Utils::isUnset($request->ttsParam)) {
-            $query['TtsParam'] = $request->ttsParam;
+
+        if (null !== $request->ttsParam) {
+            @$query['TtsParam'] = $request->ttsParam;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BackendCallSignal',
-            'version'     => '2021-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BackendCallSignal',
+            'version' => '2021-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BackendCallSignalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sends a voice verification code and voice notification with variables to a phone number.
-     *  *
-     * @param BackendCallSignalRequest $request BackendCallSignalRequest
+     * Sends a voice verification code and voice notification with variables to a phone number.
      *
-     * @return BackendCallSignalResponse BackendCallSignalResponse
+     * @param request - BackendCallSignalRequest
+     *
+     * @returns BackendCallSignalResponse
+     *
+     * @param BackendCallSignalRequest $request
+     *
+     * @return BackendCallSignalResponse
      */
     public function backendCallSignal($request)
     {
@@ -235,103 +280,132 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @summary 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
-     *  *
-     * @param GroupCallRequest $tmpReq  GroupCallRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
      *
-     * @return GroupCallResponse GroupCallResponse
+     * @param tmpReq - GroupCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GroupCallResponse
+     *
+     * @param GroupCallRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GroupCallResponse
      */
     public function groupCallWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GroupCallShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->calledNumber)) {
-            $request->calledNumberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->calledNumber, 'CalledNumber', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->calledNumber) {
+            $request->calledNumberShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->calledNumber, 'CalledNumber', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->calledNumberShrink)) {
-            $query['CalledNumber'] = $request->calledNumberShrink;
+        if (null !== $request->calledNumberShrink) {
+            @$query['CalledNumber'] = $request->calledNumberShrink;
         }
-        if (!Utils::isUnset($request->callerIdNumber)) {
-            $query['CallerIdNumber'] = $request->callerIdNumber;
+
+        if (null !== $request->callerIdNumber) {
+            @$query['CallerIdNumber'] = $request->callerIdNumber;
         }
-        if (!Utils::isUnset($request->countryId)) {
-            $query['CountryId'] = $request->countryId;
+
+        if (null !== $request->countryId) {
+            @$query['CountryId'] = $request->countryId;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendType)) {
-            $query['SendType'] = $request->sendType;
+
+        if (null !== $request->sendType) {
+            @$query['SendType'] = $request->sendType;
         }
-        if (!Utils::isUnset($request->signature)) {
-            $query['Signature'] = $request->signature;
+
+        if (null !== $request->signature) {
+            @$query['Signature'] = $request->signature;
         }
-        if (!Utils::isUnset($request->signatureNonce)) {
-            $query['SignatureNonce'] = $request->signatureNonce;
+
+        if (null !== $request->signatureNonce) {
+            @$query['SignatureNonce'] = $request->signatureNonce;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->timestamp)) {
-            $query['Timestamp'] = $request->timestamp;
+
+        if (null !== $request->timestamp) {
+            @$query['Timestamp'] = $request->timestamp;
         }
-        if (!Utils::isUnset($request->timingStart)) {
-            $query['TimingStart'] = $request->timingStart;
+
+        if (null !== $request->timingStart) {
+            @$query['TimingStart'] = $request->timingStart;
         }
-        if (!Utils::isUnset($request->ttsCode)) {
-            $query['TtsCode'] = $request->ttsCode;
+
+        if (null !== $request->ttsCode) {
+            @$query['TtsCode'] = $request->ttsCode;
         }
-        if (!Utils::isUnset($request->ttsParam)) {
-            $query['TtsParam'] = $request->ttsParam;
+
+        if (null !== $request->ttsParam) {
+            @$query['TtsParam'] = $request->ttsParam;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GroupCall',
-            'version'     => '2021-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GroupCall',
+            'version' => '2021-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GroupCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
-     *  *
-     * @param GroupCallRequest $request GroupCallRequest
+     * 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
      *
-     * @return GroupCallResponse GroupCallResponse
+     * @param request - GroupCallRequest
+     *
+     * @returns GroupCallResponse
+     *
+     * @param GroupCallRequest $request
+     *
+     * @return GroupCallResponse
      */
     public function groupCall($request)
     {
@@ -341,98 +415,126 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @summary 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
-     *  *
-     * @param SignalCallRequest $request SignalCallRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
      *
-     * @return SignalCallResponse SignalCallResponse
+     * @param request - SignalCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SignalCallResponse
+     *
+     * @param SignalCallRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SignalCallResponse
      */
     public function signalCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callerIdNumber)) {
-            $query['CallerIdNumber'] = $request->callerIdNumber;
+
+        if (null !== $request->callerIdNumber) {
+            @$query['CallerIdNumber'] = $request->callerIdNumber;
         }
-        if (!Utils::isUnset($request->countryId)) {
-            $query['CountryId'] = $request->countryId;
+
+        if (null !== $request->countryId) {
+            @$query['CountryId'] = $request->countryId;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendType)) {
-            $query['SendType'] = $request->sendType;
+
+        if (null !== $request->sendType) {
+            @$query['SendType'] = $request->sendType;
         }
-        if (!Utils::isUnset($request->signature)) {
-            $query['Signature'] = $request->signature;
+
+        if (null !== $request->signature) {
+            @$query['Signature'] = $request->signature;
         }
-        if (!Utils::isUnset($request->signatureNonce)) {
-            $query['SignatureNonce'] = $request->signatureNonce;
+
+        if (null !== $request->signatureNonce) {
+            @$query['SignatureNonce'] = $request->signatureNonce;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->timestamp)) {
-            $query['Timestamp'] = $request->timestamp;
+
+        if (null !== $request->timestamp) {
+            @$query['Timestamp'] = $request->timestamp;
         }
-        if (!Utils::isUnset($request->timingStart)) {
-            $query['TimingStart'] = $request->timingStart;
+
+        if (null !== $request->timingStart) {
+            @$query['TimingStart'] = $request->timingStart;
         }
-        if (!Utils::isUnset($request->ttsCode)) {
-            $query['TtsCode'] = $request->ttsCode;
+
+        if (null !== $request->ttsCode) {
+            @$query['TtsCode'] = $request->ttsCode;
         }
-        if (!Utils::isUnset($request->ttsParam)) {
-            $query['TtsParam'] = $request->ttsParam;
+
+        if (null !== $request->ttsParam) {
+            @$query['TtsParam'] = $request->ttsParam;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SignalCall',
-            'version'     => '2021-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SignalCall',
+            'version' => '2021-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SignalCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
-     *  *
-     * @param SignalCallRequest $request SignalCallRequest
+     * 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
      *
-     * @return SignalCallResponse SignalCallResponse
+     * @param request - SignalCallRequest
+     *
+     * @returns SignalCallResponse
+     *
+     * @param SignalCallRequest $request
+     *
+     * @return SignalCallResponse
      */
     public function signalCall($request)
     {
@@ -442,94 +544,120 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @summary 国际语音api-语音群呼
-     *  *
-     * @param VoiceGroupCallRequest $tmpReq  VoiceGroupCallRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Sends a voice notification to multiple phone numbers. A voice file or text-to-speech (TTS) template is supported.
      *
-     * @return VoiceGroupCallResponse VoiceGroupCallResponse
+     * @param tmpReq - VoiceGroupCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VoiceGroupCallResponse
+     *
+     * @param VoiceGroupCallRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return VoiceGroupCallResponse
      */
     public function voiceGroupCallWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new VoiceGroupCallShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->calledNumber)) {
-            $request->calledNumberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->calledNumber, 'CalledNumber', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->calledNumber) {
+            $request->calledNumberShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->calledNumber, 'CalledNumber', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->calledNumberShrink)) {
-            $query['CalledNumber'] = $request->calledNumberShrink;
+        if (null !== $request->calledNumberShrink) {
+            @$query['CalledNumber'] = $request->calledNumberShrink;
         }
-        if (!Utils::isUnset($request->callerIdNumber)) {
-            $query['CallerIdNumber'] = $request->callerIdNumber;
+
+        if (null !== $request->callerIdNumber) {
+            @$query['CallerIdNumber'] = $request->callerIdNumber;
         }
-        if (!Utils::isUnset($request->countryId)) {
-            $query['CountryId'] = $request->countryId;
+
+        if (null !== $request->countryId) {
+            @$query['CountryId'] = $request->countryId;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendType)) {
-            $query['SendType'] = $request->sendType;
+
+        if (null !== $request->sendType) {
+            @$query['SendType'] = $request->sendType;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->timingStart)) {
-            $query['TimingStart'] = $request->timingStart;
+
+        if (null !== $request->timingStart) {
+            @$query['TimingStart'] = $request->timingStart;
         }
-        if (!Utils::isUnset($request->ttsCode)) {
-            $query['TtsCode'] = $request->ttsCode;
+
+        if (null !== $request->ttsCode) {
+            @$query['TtsCode'] = $request->ttsCode;
         }
-        if (!Utils::isUnset($request->ttsParam)) {
-            $query['TtsParam'] = $request->ttsParam;
+
+        if (null !== $request->ttsParam) {
+            @$query['TtsParam'] = $request->ttsParam;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VoiceGroupCall',
-            'version'     => '2021-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VoiceGroupCall',
+            'version' => '2021-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VoiceGroupCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际语音api-语音群呼
-     *  *
-     * @param VoiceGroupCallRequest $request VoiceGroupCallRequest
+     * Sends a voice notification to multiple phone numbers. A voice file or text-to-speech (TTS) template is supported.
      *
-     * @return VoiceGroupCallResponse VoiceGroupCallResponse
+     * @param request - VoiceGroupCallRequest
+     *
+     * @returns VoiceGroupCallResponse
+     *
+     * @param VoiceGroupCallRequest $request
+     *
+     * @return VoiceGroupCallResponse
      */
     public function voiceGroupCall($request)
     {
@@ -539,89 +667,114 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @summary 国际语音api-语音单呼
-     *  *
-     * @param VoiceSingleCallRequest $request VoiceSingleCallRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Sends a voice verification code or voice notification with variables to a phone number. A voice file or text-to-speech (TTS) template is supported.
      *
-     * @return VoiceSingleCallResponse VoiceSingleCallResponse
+     * @param request - VoiceSingleCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VoiceSingleCallResponse
+     *
+     * @param VoiceSingleCallRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return VoiceSingleCallResponse
      */
     public function voiceSingleCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callerIdNumber)) {
-            $query['CallerIdNumber'] = $request->callerIdNumber;
+
+        if (null !== $request->callerIdNumber) {
+            @$query['CallerIdNumber'] = $request->callerIdNumber;
         }
-        if (!Utils::isUnset($request->countryId)) {
-            $query['CountryId'] = $request->countryId;
+
+        if (null !== $request->countryId) {
+            @$query['CountryId'] = $request->countryId;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendType)) {
-            $query['SendType'] = $request->sendType;
+
+        if (null !== $request->sendType) {
+            @$query['SendType'] = $request->sendType;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->timingStart)) {
-            $query['TimingStart'] = $request->timingStart;
+
+        if (null !== $request->timingStart) {
+            @$query['TimingStart'] = $request->timingStart;
         }
-        if (!Utils::isUnset($request->ttsCode)) {
-            $query['TtsCode'] = $request->ttsCode;
+
+        if (null !== $request->ttsCode) {
+            @$query['TtsCode'] = $request->ttsCode;
         }
-        if (!Utils::isUnset($request->ttsParam)) {
-            $query['TtsParam'] = $request->ttsParam;
+
+        if (null !== $request->ttsParam) {
+            @$query['TtsParam'] = $request->ttsParam;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VoiceSingleCall',
-            'version'     => '2021-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VoiceSingleCall',
+            'version' => '2021-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VoiceSingleCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际语音api-语音单呼
-     *  *
-     * @param VoiceSingleCallRequest $request VoiceSingleCallRequest
+     * Sends a voice verification code or voice notification with variables to a phone number. A voice file or text-to-speech (TTS) template is supported.
      *
-     * @return VoiceSingleCallResponse VoiceSingleCallResponse
+     * @param request - VoiceSingleCallRequest
+     *
+     * @returns VoiceSingleCallResponse
+     *
+     * @param VoiceSingleCallRequest $request
+     *
+     * @return VoiceSingleCallResponse
      */
     public function voiceSingleCall($request)
     {

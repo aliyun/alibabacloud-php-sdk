@@ -1,3 +1,6 @@
+2025-11-25 Version: 2.2.1
+- Update SDK.
+
 2024-12-23 Version: 2.2.0
 - Support API VoiceGroupCall.
 - Support API VoiceSingleCall.
