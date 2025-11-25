@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PreviewMCTableResponseBody extends Model
 {
@@ -14,26 +14,43 @@ class PreviewMCTableResponseBody extends Model
     public $content;
 
     /**
-     * @example F082BD0D-21E1-5F9B-81A0-AB07485B03CD
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->content)) {
+            Model::validateArray($this->content);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = $this->content;
+            if (\is_array($this->content)) {
+                $res['Content'] = [];
+                $n1 = 0;
+                foreach ($this->content as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Content'][$n1] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $res['Content'][$n1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,19 +58,32 @@ class PreviewMCTableResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PreviewMCTableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
-                $model->content = $map['Content'];
+                $model->content = [];
+                $n1 = 0;
+                foreach ($map['Content'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->content[$n1] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $model->content[$n1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

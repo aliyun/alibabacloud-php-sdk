@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExperimentFolderResponseBody extends Model
 {
     /**
-     * @example folder-xxfdjhfxduxd
-     *
      * @var string
      */
     public $folderId;
 
     /**
-     * @example E7C42CC7-2E85-508A-84F4-923B605FD10F
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'folderId'  => 'FolderId',
+        'folderId' => 'FolderId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreateExperimentFolderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExperimentFolderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

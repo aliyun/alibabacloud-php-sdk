@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateExperimentContentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example {     "metadata": {       "name": "实验名称",       "id": "pai_exp_xxxdfafafasfa",       "desc": "实验描述",     },     "nodes": [     ],     "edges": [     ],     "globalParams": [     ],     "globalSettings":[     ]  }
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $version;
@@ -32,14 +24,16 @@ class UpdateExperimentContentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -47,17 +41,18 @@ class UpdateExperimentContentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateExperimentContentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

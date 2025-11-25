@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\GetExperimentVisualizationMetaResponseBody\visualizationMeta;
-use AlibabaCloud\Tea\Model;
 
 class GetExperimentVisualizationMetaResponseBody extends Model
 {
@@ -15,32 +15,36 @@ class GetExperimentVisualizationMetaResponseBody extends Model
     public $visualizationMeta;
 
     /**
-     * @example A84A1282-D3E7-5198-9E8E-2AD09C78C6C1
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'visualizationMeta' => 'VisualizationMeta',
-        'requestId'         => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->visualizationMeta)) {
+            Model::validateArray($this->visualizationMeta);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->visualizationMeta) {
-            $res['VisualizationMeta'] = [];
-            if (null !== $this->visualizationMeta && \is_array($this->visualizationMeta)) {
-                $n = 0;
-                foreach ($this->visualizationMeta as $item) {
-                    $res['VisualizationMeta'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->visualizationMeta)) {
+                $res['VisualizationMeta'] = [];
+                $n1 = 0;
+                foreach ($this->visualizationMeta as $item1) {
+                    $res['VisualizationMeta'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -48,23 +52,25 @@ class GetExperimentVisualizationMetaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetExperimentVisualizationMetaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VisualizationMeta'])) {
             if (!empty($map['VisualizationMeta'])) {
                 $model->visualizationMeta = [];
-                $n                        = 0;
-                foreach ($map['VisualizationMeta'] as $item) {
-                    $model->visualizationMeta[$n++] = null !== $item ? visualizationMeta::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VisualizationMeta'] as $item1) {
+                    $model->visualizationMeta[$n1] = visualizationMeta::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

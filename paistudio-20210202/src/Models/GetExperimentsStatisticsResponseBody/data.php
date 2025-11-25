@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models\GetExperimentsStatisticsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $createCount;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @example 16381
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'createCount' => 'CreateCount',
-        'totalCount'  => 'TotalCount',
+        'totalCount' => 'TotalCount',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createCount) {
             $res['CreateCount'] = $this->createCount;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -54,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateCount'])) {
             $model->createCount = $map['CreateCount'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

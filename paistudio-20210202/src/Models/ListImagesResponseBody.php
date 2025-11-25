@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\ListImagesResponseBody\images;
-use AlibabaCloud\Tea\Model;
 
 class ListImagesResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class ListImagesResponseBody extends Model
     public $images;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -26,30 +24,37 @@ class ListImagesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'images'     => 'Images',
+        'images' => 'Images',
         'totalCount' => 'TotalCount',
-        'requestId'  => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->images)) {
+            Model::validateArray($this->images);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->images) {
-            $res['Images'] = [];
-            if (null !== $this->images && \is_array($this->images)) {
-                $n = 0;
-                foreach ($this->images as $item) {
-                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->images)) {
+                $res['Images'] = [];
+                $n1 = 0;
+                foreach ($this->images as $item1) {
+                    $res['Images'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -57,26 +62,29 @@ class ListImagesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListImagesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n             = 0;
-                foreach ($map['Images'] as $item) {
-                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Images'] as $item1) {
+                    $model->images[$n1] = images::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SearchMCTablesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example project.table_name_prefix
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'keyword'     => 'Keyword',
+        'keyword' => 'Keyword',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -47,17 +41,18 @@ class SearchMCTablesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchMCTablesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

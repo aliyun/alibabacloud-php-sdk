@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopyExperimentResponseBody extends Model
 {
     /**
-     * @example draft-rbvg5wzljzjhc9ks92
-     *
      * @var string
      */
     public $experimentId;
 
     /**
-     * @example 6D161C28-9CB1-584E-8DD5-64441E32A5B3
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'experimentId' => 'ExperimentId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->experimentId) {
             $res['ExperimentId'] = $this->experimentId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CopyExperimentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyExperimentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExperimentId'])) {
             $model->experimentId = $map['ExperimentId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

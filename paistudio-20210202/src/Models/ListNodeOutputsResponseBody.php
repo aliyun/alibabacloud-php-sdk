@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\ListNodeOutputsResponseBody\outputs;
-use AlibabaCloud\Tea\Model;
 
 class ListNodeOutputsResponseBody extends Model
 {
@@ -15,32 +15,36 @@ class ListNodeOutputsResponseBody extends Model
     public $outputs;
 
     /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'outputs'   => 'Outputs',
+        'outputs' => 'Outputs',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->outputs)) {
+            Model::validateArray($this->outputs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outputs) {
-            $res['Outputs'] = [];
-            if (null !== $this->outputs && \is_array($this->outputs)) {
-                $n = 0;
-                foreach ($this->outputs as $item) {
-                    $res['Outputs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outputs)) {
+                $res['Outputs'] = [];
+                $n1 = 0;
+                foreach ($this->outputs as $item1) {
+                    $res['Outputs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +52,25 @@ class ListNodeOutputsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodeOutputsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n              = 0;
-                foreach ($map['Outputs'] as $item) {
-                    $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Outputs'] as $item1) {
+                    $model->outputs[$n1] = outputs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

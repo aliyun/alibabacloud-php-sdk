@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAlgorithmTreeRequest extends Model
 {
     /**
-     * @example PaiStudio
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @example 12345
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'source'      => 'Source',
+        'source' => 'Source',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -43,17 +41,18 @@ class GetAlgorithmTreeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAlgorithmTreeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

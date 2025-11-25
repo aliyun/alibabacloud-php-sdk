@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\ListTemplatesResponseBody\templateData;
-use AlibabaCloud\Tea\Model;
 
 class ListTemplatesResponseBody extends Model
 {
@@ -20,36 +20,41 @@ class ListTemplatesResponseBody extends Model
     public $templateData;
 
     /**
-     * @example 15
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'templateData' => 'TemplateData',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->templateData)) {
+            Model::validateArray($this->templateData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->templateData) {
-            $res['TemplateData'] = [];
-            if (null !== $this->templateData && \is_array($this->templateData)) {
-                $n = 0;
-                foreach ($this->templateData as $item) {
-                    $res['TemplateData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templateData)) {
+                $res['TemplateData'] = [];
+                $n1 = 0;
+                foreach ($this->templateData as $item1) {
+                    $res['TemplateData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -57,26 +62,29 @@ class ListTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TemplateData'])) {
             if (!empty($map['TemplateData'])) {
                 $model->templateData = [];
-                $n                   = 0;
-                foreach ($map['TemplateData'] as $item) {
-                    $model->templateData[$n++] = null !== $item ? templateData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TemplateData'] as $item1) {
+                    $model->templateData[$n1] = templateData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

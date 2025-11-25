@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetNodeInputSchemaRequest extends Model
 {
     /**
-     * @example inputTable
-     *
      * @var string
      */
     public $inputId;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $inputIndex;
     protected $_name = [
-        'inputId'    => 'InputId',
+        'inputId' => 'InputId',
         'inputIndex' => 'InputIndex',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputId) {
             $res['InputId'] = $this->inputId;
         }
+
         if (null !== $this->inputIndex) {
             $res['InputIndex'] = $this->inputIndex;
         }
@@ -43,17 +41,18 @@ class GetNodeInputSchemaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNodeInputSchemaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputId'])) {
             $model->inputId = $map['InputId'];
         }
+
         if (isset($map['InputIndex'])) {
             $model->inputIndex = $map['InputIndex'];
         }

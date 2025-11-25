@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExperimentMigrateValidationRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $sourceExpId;
@@ -22,9 +18,10 @@ class CreateExperimentMigrateValidationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceExpId) {
@@ -34,11 +31,11 @@ class CreateExperimentMigrateValidationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExperimentMigrateValidationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

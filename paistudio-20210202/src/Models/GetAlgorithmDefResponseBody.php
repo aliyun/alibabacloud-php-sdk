@@ -4,58 +4,70 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAlgorithmDefResponseBody extends Model
 {
     /**
-     * @example B4F16666-FD54-5D9D-A362-53A4C66692DF
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $spec;
     protected $_name = [
         'requestId' => 'RequestId',
-        'spec'      => 'Spec',
+        'spec' => 'Spec',
     ];
 
     public function validate()
     {
+        if (\is_array($this->spec)) {
+            Model::validateArray($this->spec);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
+            if (\is_array($this->spec)) {
+                $res['Spec'] = [];
+                foreach ($this->spec as $key1 => $value1) {
+                    $res['Spec'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAlgorithmDefResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
+            if (!empty($map['Spec'])) {
+                $model->spec = [];
+                foreach ($map['Spec'] as $key1 => $value1) {
+                    $model->spec[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models\ListTemplatesResponseBody\templateData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class template extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $content;
@@ -31,29 +29,21 @@ class template extends Model
     public $detail;
 
     /**
-     * @example url://xxx
-     *
      * @var string
      */
     public $docLink;
 
     /**
-     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
-     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
-     * @example url://xxx
-     *
      * @var string
      */
     public $imageLink;
@@ -69,62 +59,86 @@ class template extends Model
     public $name;
 
     /**
-     * @example template-rbvg5wzljzjhc9ks92
-     *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'content'         => 'Content',
-        'creator'         => 'Creator',
-        'description'     => 'Description',
-        'detail'          => 'Detail',
-        'docLink'         => 'DocLink',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'content' => 'Content',
+        'creator' => 'Creator',
+        'description' => 'Description',
+        'detail' => 'Detail',
+        'docLink' => 'DocLink',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'imageLink'       => 'ImageLink',
-        'labels'          => 'Labels',
-        'name'            => 'Name',
-        'templateId'      => 'TemplateId',
+        'imageLink' => 'ImageLink',
+        'labels' => 'Labels',
+        'name' => 'Name',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
+
         if (null !== $this->docLink) {
             $res['DocLink'] = $this->docLink;
         }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
+
         if (null !== $this->imageLink) {
             $res['ImageLink'] = $this->imageLink;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Labels'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Labels'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -132,46 +146,66 @@ class template extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return template
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
+
         if (isset($map['DocLink'])) {
             $model->docLink = $map['DocLink'];
         }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
+
         if (isset($map['ImageLink'])) {
             $model->imageLink = $map['ImageLink'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
-                $model->labels = $map['Labels'];
+                $model->labels = [];
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->labels[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->labels[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

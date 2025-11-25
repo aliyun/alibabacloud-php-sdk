@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\CopyExperimentRequest;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\CopyExperimentResponse;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\CreateExperimentFolderRequest;
@@ -82,11 +82,10 @@ use AlibabaCloud\SDK\PaiStudio\V20210202\Models\UpdateExperimentFolderRequest;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\UpdateExperimentFolderResponse;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\UpdateExperimentMetaRequest;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\UpdateExperimentMetaResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class PaiStudio extends OpenApiClient
 {
@@ -94,22 +93,25 @@ class PaiStudio extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-beijing'     => 'pai.cn-beijing.aliyuncs.com',
-            'cn-hangzhou'    => 'pai.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai'    => 'pai.cn-shanghai.aliyuncs.com',
-            'cn-shenzhen'    => 'pai.cn-shenzhen.aliyuncs.com',
-            'cn-hongkong'    => 'pai.cn-hongkong.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-beijing' => 'pai.cn-beijing.aliyuncs.com',
+            'cn-hangzhou' => 'pai.cn-hangzhou.data.aliyun.com',
+            'cn-shanghai' => 'pai.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen' => 'pai.cn-shenzhen.aliyuncs.com',
+            'cn-hongkong' => 'pai.cn-hongkong.aliyuncs.com',
             'ap-southeast-1' => 'pai.ap-southeast-1.aliyuncs.com',
             'ap-southeast-2' => 'pai.ap-southeast-2.aliyuncs.com',
             'ap-southeast-3' => 'pai.ap-southeast-3.aliyuncs.com',
             'ap-southeast-5' => 'pai.ap-southeast-5.aliyuncs.com',
-            'us-west-1'      => 'pai.us-west-1.aliyuncs.com',
-            'us-east-1'      => 'pai.us-east-1.aliyuncs.com',
-            'eu-central-1'   => 'pai.eu-central-1.aliyuncs.com',
-            'me-east-1'      => 'pai.me-east-1.aliyuncs.com',
-            'ap-south-1'     => 'pai.ap-south-1.aliyuncs.com',
-            'cn-qingdao'     => 'pai.cn-qingdao.aliyuncs.com',
+            'us-east-1' => 'pai.us-east-1.aliyuncs.com',
+            'us-west-1' => 'pai.us-west-1.aliyuncs.com',
+            'eu-central-1' => 'pai.eu-central-1.aliyuncs.com',
+            'ap-south-1' => 'pai.ap-south-1.aliyuncs.com',
+            'me-east-1' => 'pai.me-east-1.aliyuncs.com',
+            'ap-northeast-1' => 'pai.ap-northeast-1.aliyuncs.com',
+            'cn-qingdao' => 'pai.cn-qingdao.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'pai.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-wulanchabu' => 'pai.cn-wulanchabu.aliyuncs.com',
             'cn-zhangjiakou' => 'pai.cn-zhangjiakou.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -129,74 +131,91 @@ class PaiStudio extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 复制实验
-     *  *
-     * @param string                $ExperimentId
-     * @param CopyExperimentRequest $request      CopyExperimentRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * 复制实验.
      *
-     * @return CopyExperimentResponse CopyExperimentResponse
+     * @param request - CopyExperimentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyExperimentResponse
+     *
+     * @param string                $ExperimentId
+     * @param CopyExperimentRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CopyExperimentResponse
      */
     public function copyExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $body['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $body['FolderId'] = $request->folderId;
+
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CopyExperiment',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/copy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CopyExperiment',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/copy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CopyExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 复制实验
-     *  *
-     * @param string                $ExperimentId
-     * @param CopyExperimentRequest $request      CopyExperimentRequest
+     * 复制实验.
      *
-     * @return CopyExperimentResponse CopyExperimentResponse
+     * @param request - CopyExperimentRequest
+     *
+     * @returns CopyExperimentResponse
+     *
+     * @param string                $ExperimentId
+     * @param CopyExperimentRequest $request
+     *
+     * @return CopyExperimentResponse
      */
     public function copyExperiment($ExperimentId, $request)
     {
@@ -207,67 +226,85 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建实验，或根据实验模版创建实验
-     *  *
-     * @param CreateExperimentRequest $request CreateExperimentRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建实验，或根据实验模版创建实验.
      *
-     * @return CreateExperimentResponse CreateExperimentResponse
+     * @param request - CreateExperimentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExperimentResponse
+     *
+     * @param CreateExperimentRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateExperimentResponse
      */
     public function createExperimentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $body['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $body['FolderId'] = $request->folderId;
+
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->options)) {
-            $body['Options'] = $request->options;
+
+        if (null !== $request->options) {
+            @$body['Options'] = $request->options;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateExperiment',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateExperiment',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建实验，或根据实验模版创建实验
-     *  *
-     * @param CreateExperimentRequest $request CreateExperimentRequest
+     * 创建实验，或根据实验模版创建实验.
      *
-     * @return CreateExperimentResponse CreateExperimentResponse
+     * @param request - CreateExperimentRequest
+     *
+     * @returns CreateExperimentResponse
+     *
+     * @param CreateExperimentRequest $request
+     *
+     * @return CreateExperimentResponse
      */
     public function createExperiment($request)
     {
@@ -278,58 +315,73 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建算法文件夹
-     *  *
-     * @param CreateExperimentFolderRequest $request CreateExperimentFolderRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 创建算法文件夹.
      *
-     * @return CreateExperimentFolderResponse CreateExperimentFolderResponse
+     * @param request - CreateExperimentFolderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExperimentFolderResponse
+     *
+     * @param CreateExperimentFolderRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateExperimentFolderResponse
      */
     public function createExperimentFolderWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $body['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parentFolderId)) {
-            $body['ParentFolderId'] = $request->parentFolderId;
+
+        if (null !== $request->parentFolderId) {
+            @$body['ParentFolderId'] = $request->parentFolderId;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateExperimentFolder',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experimentfolders',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateExperimentFolder',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentfolders',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateExperimentFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建算法文件夹
-     *  *
-     * @param CreateExperimentFolderRequest $request CreateExperimentFolderRequest
+     * 创建算法文件夹.
      *
-     * @return CreateExperimentFolderResponse CreateExperimentFolderResponse
+     * @param request - CreateExperimentFolderRequest
+     *
+     * @returns CreateExperimentFolderResponse
+     *
+     * @param CreateExperimentFolderRequest $request
+     *
+     * @return CreateExperimentFolderResponse
      */
     public function createExperimentFolder($request)
     {
@@ -340,46 +392,57 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 校验实验是否能迁移
-     *  *
-     * @param CreateExperimentMigrateValidationRequest $request CreateExperimentMigrateValidationRequest
-     * @param string[]                                 $headers map
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 校验实验是否能迁移.
      *
-     * @return CreateExperimentMigrateValidationResponse CreateExperimentMigrateValidationResponse
+     * @param request - CreateExperimentMigrateValidationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExperimentMigrateValidationResponse
+     *
+     * @param CreateExperimentMigrateValidationRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateExperimentMigrateValidationResponse
      */
     public function createExperimentMigrateValidationWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sourceExpId)) {
-            $query['SourceExpId'] = $request->sourceExpId;
+        if (null !== $request->sourceExpId) {
+            @$query['SourceExpId'] = $request->sourceExpId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExperimentMigrateValidation',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/migrate/experimentvalidation',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateExperimentMigrateValidation',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/migrate/experimentvalidation',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateExperimentMigrateValidationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验实验是否能迁移
-     *  *
-     * @param CreateExperimentMigrateValidationRequest $request CreateExperimentMigrateValidationRequest
+     * 校验实验是否能迁移.
      *
-     * @return CreateExperimentMigrateValidationResponse CreateExperimentMigrateValidationResponse
+     * @param request - CreateExperimentMigrateValidationRequest
+     *
+     * @returns CreateExperimentMigrateValidationResponse
+     *
+     * @param CreateExperimentMigrateValidationRequest $request
+     *
+     * @return CreateExperimentMigrateValidationResponse
      */
     public function createExperimentMigrateValidation($request)
     {
@@ -390,58 +453,73 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个工作流的作业
-     *  *
-     * @param CreateJobRequest $request CreateJobRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 创建一个工作流的作业.
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @param request - CreateJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateJobResponse
      */
     public function createJobWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->executeType)) {
-            $body['ExecuteType'] = $request->executeType;
+        if (null !== $request->executeType) {
+            @$body['ExecuteType'] = $request->executeType;
         }
-        if (!Utils::isUnset($request->experimentId)) {
-            $body['ExperimentId'] = $request->experimentId;
+
+        if (null !== $request->experimentId) {
+            @$body['ExperimentId'] = $request->experimentId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->options)) {
-            $body['Options'] = $request->options;
+
+        if (null !== $request->options) {
+            @$body['Options'] = $request->options;
         }
-        if (!Utils::isUnset($request->pipelineDraftId)) {
-            $body['PipelineDraftId'] = $request->pipelineDraftId;
+
+        if (null !== $request->pipelineDraftId) {
+            @$body['PipelineDraftId'] = $request->pipelineDraftId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateJob',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateJob',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建一个工作流的作业
-     *  *
-     * @param CreateJobRequest $request CreateJobRequest
+     * 创建一个工作流的作业.
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @param request - CreateJobRequest
+     *
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $request
+     *
+     * @return CreateJobResponse
      */
     public function createJob($request)
     {
@@ -452,13 +530,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除实验
-     *  *
-     * @param string         $ExperimentId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * 删除实验.
      *
-     * @return DeleteExperimentResponse DeleteExperimentResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExperimentResponse
+     *
+     * @param string         $ExperimentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteExperimentResponse
      */
     public function deleteExperimentWithOptions($ExperimentId, $headers, $runtime)
     {
@@ -466,26 +549,28 @@ class PaiStudio extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteExperiment',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteExperiment',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除实验
-     *  *
+     * 删除实验.
+     *
+     * @returns DeleteExperimentResponse
+     *
      * @param string $ExperimentId
      *
-     * @return DeleteExperimentResponse DeleteExperimentResponse
+     * @return DeleteExperimentResponse
      */
     public function deleteExperiment($ExperimentId)
     {
@@ -496,13 +581,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除算法文件夹
-     *  *
-     * @param string         $FolderId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * 删除算法文件夹.
      *
-     * @return DeleteExperimentFolderResponse DeleteExperimentFolderResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExperimentFolderResponse
+     *
+     * @param string         $FolderId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteExperimentFolderResponse
      */
     public function deleteExperimentFolderWithOptions($FolderId, $headers, $runtime)
     {
@@ -510,26 +600,28 @@ class PaiStudio extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteExperimentFolder',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experimentfolders/' . OpenApiUtilClient::getEncodeParam($FolderId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteExperimentFolder',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentfolders/' . Url::percentEncode($FolderId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteExperimentFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除算法文件夹
-     *  *
+     * 删除算法文件夹.
+     *
+     * @returns DeleteExperimentFolderResponse
+     *
      * @param string $FolderId
      *
-     * @return DeleteExperimentFolderResponse DeleteExperimentFolderResponse
+     * @return DeleteExperimentFolderResponse
      */
     public function deleteExperimentFolder($FolderId)
     {
@@ -540,46 +632,57 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取算法树
-     *  *
-     * @param GetAlgoTreeRequest $request GetAlgoTreeRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 获取算法树.
      *
-     * @return GetAlgoTreeResponse GetAlgoTreeResponse
+     * @param request - GetAlgoTreeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlgoTreeResponse
+     *
+     * @param GetAlgoTreeRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAlgoTreeResponse
      */
     public function getAlgoTreeWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAlgoTree',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/algo/tree',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAlgoTree',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/algo/tree',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlgoTreeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取算法树
-     *  *
-     * @param GetAlgoTreeRequest $request GetAlgoTreeRequest
+     * 获取算法树.
      *
-     * @return GetAlgoTreeResponse GetAlgoTreeResponse
+     * @param request - GetAlgoTreeRequest
+     *
+     * @returns GetAlgoTreeResponse
+     *
+     * @param GetAlgoTreeRequest $request
+     *
+     * @return GetAlgoTreeResponse
      */
     public function getAlgoTree($request)
     {
@@ -590,55 +693,69 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取算法定义
-     *  *
-     * @param GetAlgorithmDefRequest $request GetAlgorithmDefRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取算法定义.
      *
-     * @return GetAlgorithmDefResponse GetAlgorithmDefResponse
+     * @param request - GetAlgorithmDefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlgorithmDefResponse
+     *
+     * @param GetAlgorithmDefRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAlgorithmDefResponse
      */
     public function getAlgorithmDefWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algoVersion)) {
-            $query['AlgoVersion'] = $request->algoVersion;
+        if (null !== $request->algoVersion) {
+            @$query['AlgoVersion'] = $request->algoVersion;
         }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
+
+        if (null !== $request->identifier) {
+            @$query['Identifier'] = $request->identifier;
         }
-        if (!Utils::isUnset($request->provider)) {
-            $query['Provider'] = $request->provider;
+
+        if (null !== $request->provider) {
+            @$query['Provider'] = $request->provider;
         }
-        if (!Utils::isUnset($request->signature)) {
-            $query['Signature'] = $request->signature;
+
+        if (null !== $request->signature) {
+            @$query['Signature'] = $request->signature;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAlgorithmDef',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/algorithm/def',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAlgorithmDef',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/algorithm/def',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlgorithmDefResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取算法定义
-     *  *
-     * @param GetAlgorithmDefRequest $request GetAlgorithmDefRequest
+     * 获取算法定义.
      *
-     * @return GetAlgorithmDefResponse GetAlgorithmDefResponse
+     * @param request - GetAlgorithmDefRequest
+     *
+     * @returns GetAlgorithmDefResponse
+     *
+     * @param GetAlgorithmDefRequest $request
+     *
+     * @return GetAlgorithmDefResponse
      */
     public function getAlgorithmDef($request)
     {
@@ -649,55 +766,69 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 批量获取算法定义
-     *  *
-     * @param GetAlgorithmDefsRequest $request GetAlgorithmDefsRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 批量获取算法定义.
      *
-     * @return GetAlgorithmDefsResponse GetAlgorithmDefsResponse
+     * @param request - GetAlgorithmDefsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlgorithmDefsResponse
+     *
+     * @param GetAlgorithmDefsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAlgorithmDefsResponse
      */
     public function getAlgorithmDefsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->latestTimestamp)) {
-            $query['LatestTimestamp'] = $request->latestTimestamp;
+        if (null !== $request->latestTimestamp) {
+            @$query['LatestTimestamp'] = $request->latestTimestamp;
         }
-        if (!Utils::isUnset($request->rangeEnd)) {
-            $query['RangeEnd'] = $request->rangeEnd;
+
+        if (null !== $request->rangeEnd) {
+            @$query['RangeEnd'] = $request->rangeEnd;
         }
-        if (!Utils::isUnset($request->rangeStart)) {
-            $query['RangeStart'] = $request->rangeStart;
+
+        if (null !== $request->rangeStart) {
+            @$query['RangeStart'] = $request->rangeStart;
         }
-        if (!Utils::isUnset($request->timestamp)) {
-            $query['Timestamp'] = $request->timestamp;
+
+        if (null !== $request->timestamp) {
+            @$query['Timestamp'] = $request->timestamp;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAlgorithmDefs',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/algorithm/defs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAlgorithmDefs',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/algorithm/defs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlgorithmDefsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量获取算法定义
-     *  *
-     * @param GetAlgorithmDefsRequest $request GetAlgorithmDefsRequest
+     * 批量获取算法定义.
      *
-     * @return GetAlgorithmDefsResponse GetAlgorithmDefsResponse
+     * @param request - GetAlgorithmDefsRequest
+     *
+     * @returns GetAlgorithmDefsResponse
+     *
+     * @param GetAlgorithmDefsRequest $request
+     *
+     * @return GetAlgorithmDefsResponse
      */
     public function getAlgorithmDefs($request)
     {
@@ -708,49 +839,61 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取算法树
-     *  *
-     * @param GetAlgorithmTreeRequest $request GetAlgorithmTreeRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取算法树.
      *
-     * @return GetAlgorithmTreeResponse GetAlgorithmTreeResponse
+     * @param request - GetAlgorithmTreeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlgorithmTreeResponse
+     *
+     * @param GetAlgorithmTreeRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAlgorithmTreeResponse
      */
     public function getAlgorithmTreeWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAlgorithmTree',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/algorithm/tree',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAlgorithmTree',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/algorithm/tree',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAlgorithmTreeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取算法树
-     *  *
-     * @param GetAlgorithmTreeRequest $request GetAlgorithmTreeRequest
+     * 获取算法树.
      *
-     * @return GetAlgorithmTreeResponse GetAlgorithmTreeResponse
+     * @param request - GetAlgorithmTreeRequest
+     *
+     * @returns GetAlgorithmTreeResponse
+     *
+     * @param GetAlgorithmTreeRequest $request
+     *
+     * @return GetAlgorithmTreeResponse
      */
     public function getAlgorithmTree($request)
     {
@@ -761,13 +904,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验信息
-     *  *
-     * @param string         $ExperimentId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * 获取实验信息.
      *
-     * @return GetExperimentResponse GetExperimentResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentResponse
+     *
+     * @param string         $ExperimentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetExperimentResponse
      */
     public function getExperimentWithOptions($ExperimentId, $headers, $runtime)
     {
@@ -775,26 +923,28 @@ class PaiStudio extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetExperiment',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetExperiment',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验信息
-     *  *
+     * 获取实验信息.
+     *
+     * @returns GetExperimentResponse
+     *
      * @param string $ExperimentId
      *
-     * @return GetExperimentResponse GetExperimentResponse
+     * @return GetExperimentResponse
      */
     public function getExperiment($ExperimentId)
     {
@@ -805,60 +955,75 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取算法文件夹下的内容
-     *  *
-     * @param string                             $FolderId
-     * @param GetExperimentFolderChildrenRequest $request  GetExperimentFolderChildrenRequest
-     * @param string[]                           $headers  map
-     * @param RuntimeOptions                     $runtime  runtime options for this request RuntimeOptions
+     * 获取算法文件夹下的内容.
      *
-     * @return GetExperimentFolderChildrenResponse GetExperimentFolderChildrenResponse
+     * @param request - GetExperimentFolderChildrenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentFolderChildrenResponse
+     *
+     * @param string                             $FolderId
+     * @param GetExperimentFolderChildrenRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetExperimentFolderChildrenResponse
      */
     public function getExperimentFolderChildrenWithOptions($FolderId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $query['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->onlyFolder)) {
-            $query['OnlyFolder'] = $request->onlyFolder;
+
+        if (null !== $request->onlyFolder) {
+            @$query['OnlyFolder'] = $request->onlyFolder;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExperimentFolderChildren',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experimentfolders/' . OpenApiUtilClient::getEncodeParam($FolderId) . '/children',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetExperimentFolderChildren',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentfolders/' . Url::percentEncode($FolderId) . '/children',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentFolderChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取算法文件夹下的内容
-     *  *
-     * @param string                             $FolderId
-     * @param GetExperimentFolderChildrenRequest $request  GetExperimentFolderChildrenRequest
+     * 获取算法文件夹下的内容.
      *
-     * @return GetExperimentFolderChildrenResponse GetExperimentFolderChildrenResponse
+     * @param request - GetExperimentFolderChildrenRequest
+     *
+     * @returns GetExperimentFolderChildrenResponse
+     *
+     * @param string                             $FolderId
+     * @param GetExperimentFolderChildrenRequest $request
+     *
+     * @return GetExperimentFolderChildrenResponse
      */
     public function getExperimentFolderChildren($FolderId, $request)
     {
@@ -869,13 +1034,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验的元信息
-     *  *
-     * @param string         $ExperimentId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * 获取实验的元信息.
      *
-     * @return GetExperimentMetaResponse GetExperimentMetaResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentMetaResponse
+     *
+     * @param string         $ExperimentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetExperimentMetaResponse
      */
     public function getExperimentMetaWithOptions($ExperimentId, $headers, $runtime)
     {
@@ -883,26 +1053,28 @@ class PaiStudio extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetExperimentMeta',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/meta',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetExperimentMeta',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/meta',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验的元信息
-     *  *
+     * 获取实验的元信息.
+     *
+     * @returns GetExperimentMetaResponse
+     *
      * @param string $ExperimentId
      *
-     * @return GetExperimentMetaResponse GetExperimentMetaResponse
+     * @return GetExperimentMetaResponse
      */
     public function getExperimentMeta($ExperimentId)
     {
@@ -913,13 +1085,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验以及实验节点的状态
-     *  *
-     * @param string         $ExperimentId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * 获取实验以及实验节点的状态
      *
-     * @return GetExperimentStatusResponse GetExperimentStatusResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentStatusResponse
+     *
+     * @param string         $ExperimentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetExperimentStatusResponse
      */
     public function getExperimentStatusWithOptions($ExperimentId, $headers, $runtime)
     {
@@ -927,26 +1104,28 @@ class PaiStudio extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetExperimentStatus',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetExperimentStatus',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验以及实验节点的状态
-     *  *
+     * 获取实验以及实验节点的状态
+     *
+     * @returns GetExperimentStatusResponse
+     *
      * @param string $ExperimentId
      *
-     * @return GetExperimentStatusResponse GetExperimentStatusResponse
+     * @return GetExperimentStatusResponse
      */
     public function getExperimentStatus($ExperimentId)
     {
@@ -957,48 +1136,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 查询实验的可视化meta
-     *  *
-     * @param string                                $ExperimentId
-     * @param GetExperimentVisualizationMetaRequest $request      GetExperimentVisualizationMetaRequest
-     * @param string[]                              $headers      map
-     * @param RuntimeOptions                        $runtime      runtime options for this request RuntimeOptions
+     * 查询实验的可视化meta.
      *
-     * @return GetExperimentVisualizationMetaResponse GetExperimentVisualizationMetaResponse
+     * @param request - GetExperimentVisualizationMetaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentVisualizationMetaResponse
+     *
+     * @param string                                $ExperimentId
+     * @param GetExperimentVisualizationMetaRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetExperimentVisualizationMetaResponse
      */
     public function getExperimentVisualizationMetaWithOptions($ExperimentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nodeIds)) {
-            $query['NodeIds'] = $request->nodeIds;
+        if (null !== $request->nodeIds) {
+            @$query['NodeIds'] = $request->nodeIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExperimentVisualizationMeta',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/visualizationMeta',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetExperimentVisualizationMeta',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/visualizationMeta',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentVisualizationMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询实验的可视化meta
-     *  *
-     * @param string                                $ExperimentId
-     * @param GetExperimentVisualizationMetaRequest $request      GetExperimentVisualizationMetaRequest
+     * 查询实验的可视化meta.
      *
-     * @return GetExperimentVisualizationMetaResponse GetExperimentVisualizationMetaResponse
+     * @param request - GetExperimentVisualizationMetaRequest
+     *
+     * @returns GetExperimentVisualizationMetaResponse
+     *
+     * @param string                                $ExperimentId
+     * @param GetExperimentVisualizationMetaRequest $request
+     *
+     * @return GetExperimentVisualizationMetaResponse
      */
     public function getExperimentVisualizationMeta($ExperimentId, $request)
     {
@@ -1009,49 +1199,61 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验的统计信息
-     *  *
-     * @param GetExperimentsStatisticsRequest $request GetExperimentsStatisticsRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取实验的统计信息.
      *
-     * @return GetExperimentsStatisticsResponse GetExperimentsStatisticsResponse
+     * @param request - GetExperimentsStatisticsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentsStatisticsResponse
+     *
+     * @param GetExperimentsStatisticsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetExperimentsStatisticsResponse
      */
     public function getExperimentsStatisticsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->workspaceIds)) {
-            $query['WorkspaceIds'] = $request->workspaceIds;
+
+        if (null !== $request->workspaceIds) {
+            @$query['WorkspaceIds'] = $request->workspaceIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExperimentsStatistics',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/statistics/experiments',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetExperimentsStatistics',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/statistics/experiments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentsStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验的统计信息
-     *  *
-     * @param GetExperimentsStatisticsRequest $request GetExperimentsStatisticsRequest
+     * 获取实验的统计信息.
      *
-     * @return GetExperimentsStatisticsResponse GetExperimentsStatisticsResponse
+     * @param request - GetExperimentsStatisticsRequest
+     *
+     * @returns GetExperimentsStatisticsResponse
+     *
+     * @param GetExperimentsStatisticsRequest $request
+     *
+     * @return GetExperimentsStatisticsResponse
      */
     public function getExperimentsStatistics($request)
     {
@@ -1062,49 +1264,61 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验或文件夹所有者列表
-     *  *
-     * @param GetExperimentsUsersStatisticsRequest $request GetExperimentsUsersStatisticsRequest
-     * @param string[]                             $headers map
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 获取实验或文件夹所有者列表.
      *
-     * @return GetExperimentsUsersStatisticsResponse GetExperimentsUsersStatisticsResponse
+     * @param request - GetExperimentsUsersStatisticsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentsUsersStatisticsResponse
+     *
+     * @param GetExperimentsUsersStatisticsRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetExperimentsUsersStatisticsResponse
      */
     public function getExperimentsUsersStatisticsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExperimentsUsersStatistics',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/statistics/experimentsusers',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetExperimentsUsersStatistics',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/statistics/experimentsusers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetExperimentsUsersStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验或文件夹所有者列表
-     *  *
-     * @param GetExperimentsUsersStatisticsRequest $request GetExperimentsUsersStatisticsRequest
+     * 获取实验或文件夹所有者列表.
      *
-     * @return GetExperimentsUsersStatisticsResponse GetExperimentsUsersStatisticsResponse
+     * @param request - GetExperimentsUsersStatisticsRequest
+     *
+     * @returns GetExperimentsUsersStatisticsResponse
+     *
+     * @param GetExperimentsUsersStatisticsRequest $request
+     *
+     * @return GetExperimentsUsersStatisticsResponse
      */
     public function getExperimentsUsersStatistics($request)
     {
@@ -1115,48 +1329,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个PAI Studio作业详情
-     *  *
-     * @param string         $JobId
-     * @param GetJobRequest  $request GetJobRequest
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取一个PAI Studio作业详情.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobResponse
+     *
+     * @param string         $JobId
+     * @param GetJobRequest  $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetJobResponse
      */
     public function getJobWithOptions($JobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJob',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetJob',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取一个PAI Studio作业详情
-     *  *
-     * @param string        $JobId
-     * @param GetJobRequest $request GetJobRequest
+     * 获取一个PAI Studio作业详情.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     *
+     * @returns GetJobResponse
+     *
+     * @param string        $JobId
+     * @param GetJobRequest $request
+     *
+     * @return GetJobResponse
      */
     public function getJob($JobId, $request)
     {
@@ -1167,48 +1392,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取MaxCompute表schema
-     *  *
-     * @param string                  $TableName
-     * @param GetMCTableSchemaRequest $request   GetMCTableSchemaRequest
-     * @param string[]                $headers   map
-     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
+     * 获取MaxCompute表schema.
      *
-     * @return GetMCTableSchemaResponse GetMCTableSchemaResponse
+     * @param request - GetMCTableSchemaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMCTableSchemaResponse
+     *
+     * @param string                  $TableName
+     * @param GetMCTableSchemaRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMCTableSchemaResponse
      */
     public function getMCTableSchemaWithOptions($TableName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMCTableSchema',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasources/maxcompute/tables/' . OpenApiUtilClient::getEncodeParam($TableName) . '/schema',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMCTableSchema',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasources/maxcompute/tables/' . Url::percentEncode($TableName) . '/schema',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMCTableSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取MaxCompute表schema
-     *  *
-     * @param string                  $TableName
-     * @param GetMCTableSchemaRequest $request   GetMCTableSchemaRequest
+     * 获取MaxCompute表schema.
      *
-     * @return GetMCTableSchemaResponse GetMCTableSchemaResponse
+     * @param request - GetMCTableSchemaRequest
+     *
+     * @returns GetMCTableSchemaResponse
+     *
+     * @param string                  $TableName
+     * @param GetMCTableSchemaRequest $request
+     *
+     * @return GetMCTableSchemaResponse
      */
     public function getMCTableSchema($TableName, $request)
     {
@@ -1219,53 +1455,65 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验节点输入桩的输入表的格式
-     *  *
+     * 获取实验节点输入桩的输入表的格式.
+     *
+     * @param request - GetNodeInputSchemaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNodeInputSchemaResponse
+     *
      * @param string                    $ExperimentId
      * @param string                    $NodeId
-     * @param GetNodeInputSchemaRequest $request      GetNodeInputSchemaRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * @param GetNodeInputSchemaRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return GetNodeInputSchemaResponse GetNodeInputSchemaResponse
+     * @return GetNodeInputSchemaResponse
      */
     public function getNodeInputSchemaWithOptions($ExperimentId, $NodeId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inputId)) {
-            $query['InputId'] = $request->inputId;
+        if (null !== $request->inputId) {
+            @$query['InputId'] = $request->inputId;
         }
-        if (!Utils::isUnset($request->inputIndex)) {
-            $query['InputIndex'] = $request->inputIndex;
+
+        if (null !== $request->inputIndex) {
+            @$query['InputIndex'] = $request->inputIndex;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeInputSchema',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/nodes/' . OpenApiUtilClient::getEncodeParam($NodeId) . '/schema',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetNodeInputSchema',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/nodes/' . Url::percentEncode($NodeId) . '/schema',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetNodeInputSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验节点输入桩的输入表的格式
-     *  *
+     * 获取实验节点输入桩的输入表的格式.
+     *
+     * @param request - GetNodeInputSchemaRequest
+     *
+     * @returns GetNodeInputSchemaResponse
+     *
      * @param string                    $ExperimentId
      * @param string                    $NodeId
-     * @param GetNodeInputSchemaRequest $request      GetNodeInputSchemaRequest
+     * @param GetNodeInputSchemaRequest $request
      *
-     * @return GetNodeInputSchemaResponse GetNodeInputSchemaResponse
+     * @return GetNodeInputSchemaResponse
      */
     public function getNodeInputSchema($ExperimentId, $NodeId, $request)
     {
@@ -1276,52 +1524,63 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取某个节点的输出模型信息
-     *  *
+     * 获取某个节点的输出模型信息.
+     *
+     * @param request - GetNodeOutputRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNodeOutputResponse
+     *
      * @param string               $ExperimentId
      * @param string               $NodeId
      * @param string               $OutputId
-     * @param GetNodeOutputRequest $request      GetNodeOutputRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * @param GetNodeOutputRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return GetNodeOutputResponse GetNodeOutputResponse
+     * @return GetNodeOutputResponse
      */
     public function getNodeOutputWithOptions($ExperimentId, $NodeId, $OutputId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputIndex)) {
-            $query['OutputIndex'] = $request->outputIndex;
+        if (null !== $request->outputIndex) {
+            @$query['OutputIndex'] = $request->outputIndex;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeOutput',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/nodes/' . OpenApiUtilClient::getEncodeParam($NodeId) . '/outputs/' . OpenApiUtilClient::getEncodeParam($OutputId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetNodeOutput',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/nodes/' . Url::percentEncode($NodeId) . '/outputs/' . Url::percentEncode($OutputId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetNodeOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取某个节点的输出模型信息
-     *  *
+     * 获取某个节点的输出模型信息.
+     *
+     * @param request - GetNodeOutputRequest
+     *
+     * @returns GetNodeOutputResponse
+     *
      * @param string               $ExperimentId
      * @param string               $NodeId
      * @param string               $OutputId
-     * @param GetNodeOutputRequest $request      GetNodeOutputRequest
+     * @param GetNodeOutputRequest $request
      *
-     * @return GetNodeOutputResponse GetNodeOutputResponse
+     * @return GetNodeOutputResponse
      */
     public function getNodeOutput($ExperimentId, $NodeId, $OutputId, $request)
     {
@@ -1332,48 +1591,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取PAI Studio中指定模板
-     *  *
-     * @param string             $TemplateId
-     * @param GetTemplateRequest $request    GetTemplateRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * 获取PAI Studio中指定模板
      *
-     * @return GetTemplateResponse GetTemplateResponse
+     * @param request - GetTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemplateResponse
+     *
+     * @param string             $TemplateId
+     * @param GetTemplateRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetTemplateResponse
      */
     public function getTemplateWithOptions($TemplateId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplate',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTemplate',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/templates/' . Url::percentEncode($TemplateId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取PAI Studio中指定模板
-     *  *
-     * @param string             $TemplateId
-     * @param GetTemplateRequest $request    GetTemplateRequest
+     * 获取PAI Studio中指定模板
      *
-     * @return GetTemplateResponse GetTemplateResponse
+     * @param request - GetTemplateRequest
+     *
+     * @returns GetTemplateResponse
+     *
+     * @param string             $TemplateId
+     * @param GetTemplateRequest $request
+     *
+     * @return GetTemplateResponse
      */
     public function getTemplate($TemplateId, $request)
     {
@@ -1384,49 +1654,61 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取授权角色列表
-     *  *
-     * @param ListAuthRolesRequest $request ListAuthRolesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取授权角色列表.
      *
-     * @return ListAuthRolesResponse ListAuthRolesResponse
+     * @param request - ListAuthRolesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthRolesResponse
+     *
+     * @param ListAuthRolesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListAuthRolesResponse
      */
     public function listAuthRolesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isGenerateToken)) {
-            $query['IsGenerateToken'] = $request->isGenerateToken;
+        if (null !== $request->isGenerateToken) {
+            @$query['IsGenerateToken'] = $request->isGenerateToken;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAuthRoles',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/authorization/roles',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAuthRoles',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/authorization/roles',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAuthRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取授权角色列表
-     *  *
-     * @param ListAuthRolesRequest $request ListAuthRolesRequest
+     * 获取授权角色列表.
      *
-     * @return ListAuthRolesResponse ListAuthRolesResponse
+     * @param request - ListAuthRolesRequest
+     *
+     * @returns ListAuthRolesResponse
+     *
+     * @param ListAuthRolesRequest $request
+     *
+     * @return ListAuthRolesResponse
      */
     public function listAuthRoles($request)
     {
@@ -1437,70 +1719,89 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取实验列表
-     *  *
-     * @param ListExperimentsRequest $request ListExperimentsRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取实验列表.
      *
-     * @return ListExperimentsResponse ListExperimentsResponse
+     * @param request - ListExperimentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExperimentsResponse
+     *
+     * @param ListExperimentsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListExperimentsResponse
      */
     public function listExperimentsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->creator)) {
-            $query['Creator'] = $request->creator;
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->experimentId)) {
-            $query['ExperimentId'] = $request->experimentId;
+
+        if (null !== $request->experimentId) {
+            @$query['ExperimentId'] = $request->experimentId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExperiments',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListExperiments',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListExperimentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实验列表
-     *  *
-     * @param ListExperimentsRequest $request ListExperimentsRequest
+     * 获取实验列表.
      *
-     * @return ListExperimentsResponse ListExperimentsResponse
+     * @param request - ListExperimentsRequest
+     *
+     * @returns ListExperimentsResponse
+     *
+     * @param ListExperimentsRequest $request
+     *
+     * @return ListExperimentsResponse
      */
     public function listExperiments($request)
     {
@@ -1511,52 +1812,65 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 列举标签
-     *  *
-     * @param ListImageLabelsRequest $request ListImageLabelsRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 列举标签.
      *
-     * @return ListImageLabelsResponse ListImageLabelsResponse
+     * @param request - ListImageLabelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImageLabelsResponse
+     *
+     * @param ListImageLabelsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListImageLabelsResponse
      */
     public function listImageLabelsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->labelFilter)) {
-            $query['LabelFilter'] = $request->labelFilter;
+
+        if (null !== $request->labelFilter) {
+            @$query['LabelFilter'] = $request->labelFilter;
         }
-        if (!Utils::isUnset($request->labelKeys)) {
-            $query['LabelKeys'] = $request->labelKeys;
+
+        if (null !== $request->labelKeys) {
+            @$query['LabelKeys'] = $request->labelKeys;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListImageLabels',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/image/labels',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListImageLabels',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/image/labels',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举标签
-     *  *
-     * @param ListImageLabelsRequest $request ListImageLabelsRequest
+     * 列举标签.
      *
-     * @return ListImageLabelsResponse ListImageLabelsResponse
+     * @param request - ListImageLabelsRequest
+     *
+     * @returns ListImageLabelsResponse
+     *
+     * @param ListImageLabelsRequest $request
+     *
+     * @return ListImageLabelsResponse
      */
     public function listImageLabels($request)
     {
@@ -1567,64 +1881,81 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 列举已注册镜像
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 列举已注册镜像.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @param request - ListImagesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListImagesResponse
      */
     public function listImagesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListImages',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListImages',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/images',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举已注册镜像
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
+     * 列举已注册镜像.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @param request - ListImagesRequest
+     *
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     *
+     * @return ListImagesResponse
      */
     public function listImages($request)
     {
@@ -1635,58 +1966,73 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取作业详情
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取作业详情.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
      */
     public function listJobsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->creator)) {
-            $query['Creator'] = $request->creator;
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->experimentId)) {
-            $query['ExperimentId'] = $request->experimentId;
+
+        if (null !== $request->experimentId) {
+            @$query['ExperimentId'] = $request->experimentId;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobs',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListJobs',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取作业详情
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
+     * 获取作业详情.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     *
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -1697,14 +2043,19 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取某个节点的输出模型列表
-     *  *
+     * 获取某个节点的输出模型列表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodeOutputsResponse
+     *
      * @param string         $ExperimentId
      * @param string         $NodeId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListNodeOutputsResponse ListNodeOutputsResponse
+     * @return ListNodeOutputsResponse
      */
     public function listNodeOutputsWithOptions($ExperimentId, $NodeId, $headers, $runtime)
     {
@@ -1712,27 +2063,29 @@ class PaiStudio extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListNodeOutputs',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/nodes/' . OpenApiUtilClient::getEncodeParam($NodeId) . '/outputs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListNodeOutputs',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/nodes/' . Url::percentEncode($NodeId) . '/outputs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListNodeOutputsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取某个节点的输出模型列表
-     *  *
+     * 获取某个节点的输出模型列表.
+     *
+     * @returns ListNodeOutputsResponse
+     *
      * @param string $ExperimentId
      * @param string $NodeId
      *
-     * @return ListNodeOutputsResponse ListNodeOutputsResponse
+     * @return ListNodeOutputsResponse
      */
     public function listNodeOutputs($ExperimentId, $NodeId)
     {
@@ -1743,61 +2096,77 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取最近的实验
-     *  *
-     * @param ListRecentExperimentsRequest $request ListRecentExperimentsRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取最近的实验.
      *
-     * @return ListRecentExperimentsResponse ListRecentExperimentsResponse
+     * @param request - ListRecentExperimentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecentExperimentsResponse
+     *
+     * @param ListRecentExperimentsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListRecentExperimentsResponse
      */
     public function listRecentExperimentsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRecentExperiments',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/recentexperiments',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRecentExperiments',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recentexperiments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRecentExperimentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取最近的实验
-     *  *
-     * @param ListRecentExperimentsRequest $request ListRecentExperimentsRequest
+     * 获取最近的实验.
      *
-     * @return ListRecentExperimentsResponse ListRecentExperimentsResponse
+     * @param request - ListRecentExperimentsRequest
+     *
+     * @returns ListRecentExperimentsResponse
+     *
+     * @param ListRecentExperimentsRequest $request
+     *
+     * @return ListRecentExperimentsResponse
      */
     public function listRecentExperiments($request)
     {
@@ -1808,82 +2177,105 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取PAI Studio中指定模板列表
-     *  *
-     * @param ListTemplatesRequest $request ListTemplatesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取PAI Studio中指定模板列表.
      *
-     * @return ListTemplatesResponse ListTemplatesResponse
+     * @param request - ListTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTemplatesResponse
      */
     public function listTemplatesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->label)) {
-            $query['Label'] = $request->label;
+        if (null !== $request->label) {
+            @$query['Label'] = $request->label;
         }
-        if (!Utils::isUnset($request->list_)) {
-            $query['List'] = $request->list_;
+
+        if (null !== $request->list) {
+            @$query['List'] = $request->list;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->tagId)) {
-            $query['TagId'] = $request->tagId;
+
+        if (null !== $request->tagId) {
+            @$query['TagId'] = $request->tagId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->typeId)) {
-            $query['TypeId'] = $request->typeId;
+
+        if (null !== $request->typeId) {
+            @$query['TypeId'] = $request->typeId;
         }
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTemplates',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/templates',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTemplates',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/templates',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取PAI Studio中指定模板列表
-     *  *
-     * @param ListTemplatesRequest $request ListTemplatesRequest
+     * 获取PAI Studio中指定模板列表.
      *
-     * @return ListTemplatesResponse ListTemplatesResponse
+     * @param request - ListTemplatesRequest
+     *
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     *
+     * @return ListTemplatesResponse
      */
     public function listTemplates($request)
     {
@@ -1894,52 +2286,65 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 迁移PAI Studio 1.0的实验目录
-     *  *
-     * @param MigrateExperimentFoldersRequest $request MigrateExperimentFoldersRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 迁移PAI Studio 1.0的实验目录.
      *
-     * @return MigrateExperimentFoldersResponse MigrateExperimentFoldersResponse
+     * @param request - MigrateExperimentFoldersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MigrateExperimentFoldersResponse
+     *
+     * @param MigrateExperimentFoldersRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return MigrateExperimentFoldersResponse
      */
     public function migrateExperimentFoldersWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $query['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->isOwner)) {
-            $query['IsOwner'] = $request->isOwner;
+
+        if (null !== $request->isOwner) {
+            @$query['IsOwner'] = $request->isOwner;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MigrateExperimentFolders',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/migrate/folders',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MigrateExperimentFolders',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/migrate/folders',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MigrateExperimentFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 迁移PAI Studio 1.0的实验目录
-     *  *
-     * @param MigrateExperimentFoldersRequest $request MigrateExperimentFoldersRequest
+     * 迁移PAI Studio 1.0的实验目录.
      *
-     * @return MigrateExperimentFoldersResponse MigrateExperimentFoldersResponse
+     * @param request - MigrateExperimentFoldersRequest
+     *
+     * @returns MigrateExperimentFoldersResponse
+     *
+     * @param MigrateExperimentFoldersRequest $request
+     *
+     * @return MigrateExperimentFoldersResponse
      */
     public function migrateExperimentFolders($request)
     {
@@ -1950,61 +2355,77 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 迁移PAI Studio 1.0的实验
-     *  *
-     * @param MigrateExperimentsRequest $request MigrateExperimentsRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 迁移PAI Studio 1.0的实验.
      *
-     * @return MigrateExperimentsResponse MigrateExperimentsResponse
+     * @param request - MigrateExperimentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MigrateExperimentsResponse
+     *
+     * @param MigrateExperimentsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MigrateExperimentsResponse
      */
     public function migrateExperimentsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $query['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->destFolderId)) {
-            $query['DestFolderId'] = $request->destFolderId;
+
+        if (null !== $request->destFolderId) {
+            @$query['DestFolderId'] = $request->destFolderId;
         }
-        if (!Utils::isUnset($request->isOwner)) {
-            $query['IsOwner'] = $request->isOwner;
+
+        if (null !== $request->isOwner) {
+            @$query['IsOwner'] = $request->isOwner;
         }
-        if (!Utils::isUnset($request->sourceExpId)) {
-            $query['SourceExpId'] = $request->sourceExpId;
+
+        if (null !== $request->sourceExpId) {
+            @$query['SourceExpId'] = $request->sourceExpId;
         }
-        if (!Utils::isUnset($request->updateIfExists)) {
-            $query['UpdateIfExists'] = $request->updateIfExists;
+
+        if (null !== $request->updateIfExists) {
+            @$query['UpdateIfExists'] = $request->updateIfExists;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MigrateExperiments',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/migrate/experiments',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MigrateExperiments',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/migrate/experiments',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MigrateExperimentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 迁移PAI Studio 1.0的实验
-     *  *
-     * @param MigrateExperimentsRequest $request MigrateExperimentsRequest
+     * 迁移PAI Studio 1.0的实验.
      *
-     * @return MigrateExperimentsResponse MigrateExperimentsResponse
+     * @param request - MigrateExperimentsRequest
+     *
+     * @returns MigrateExperimentsResponse
+     *
+     * @param MigrateExperimentsRequest $request
+     *
+     * @return MigrateExperimentsResponse
      */
     public function migrateExperiments($request)
     {
@@ -2015,57 +2436,71 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 预览Maxcompute表数据
-     *  *
-     * @param string                $TableName
-     * @param PreviewMCTableRequest $request   PreviewMCTableRequest
-     * @param string[]              $headers   map
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     * 预览Maxcompute表数据.
      *
-     * @return PreviewMCTableResponse PreviewMCTableResponse
+     * @param request - PreviewMCTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewMCTableResponse
+     *
+     * @param string                $TableName
+     * @param PreviewMCTableRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PreviewMCTableResponse
      */
     public function previewMCTableWithOptions($TableName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpoint)) {
-            $query['Endpoint'] = $request->endpoint;
+        if (null !== $request->endpoint) {
+            @$query['Endpoint'] = $request->endpoint;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->partition)) {
-            $query['Partition'] = $request->partition;
+
+        if (null !== $request->partition) {
+            @$query['Partition'] = $request->partition;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PreviewMCTable',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasources/maxcompute/tables/' . OpenApiUtilClient::getEncodeParam($TableName) . '/preview',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PreviewMCTable',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasources/maxcompute/tables/' . Url::percentEncode($TableName) . '/preview',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PreviewMCTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 预览Maxcompute表数据
-     *  *
-     * @param string                $TableName
-     * @param PreviewMCTableRequest $request   PreviewMCTableRequest
+     * 预览Maxcompute表数据.
      *
-     * @return PreviewMCTableResponse PreviewMCTableResponse
+     * @param request - PreviewMCTableRequest
+     *
+     * @returns PreviewMCTableResponse
+     *
+     * @param string                $TableName
+     * @param PreviewMCTableRequest $request
+     *
+     * @return PreviewMCTableResponse
      */
     public function previewMCTable($TableName, $request)
     {
@@ -2076,48 +2511,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 发布实验
-     *  *
-     * @param string                   $ExperimentId
-     * @param PublishExperimentRequest $request      PublishExperimentRequest
-     * @param string[]                 $headers      map
-     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
+     * 发布实验.
      *
-     * @return PublishExperimentResponse PublishExperimentResponse
+     * @param request - PublishExperimentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishExperimentResponse
+     *
+     * @param string                   $ExperimentId
+     * @param PublishExperimentRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PublishExperimentResponse
      */
     public function publishExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->folderId)) {
-            $body['FolderId'] = $request->folderId;
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PublishExperiment',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/publish',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PublishExperiment',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/publish',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PublishExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 发布实验
-     *  *
-     * @param string                   $ExperimentId
-     * @param PublishExperimentRequest $request      PublishExperimentRequest
+     * 发布实验.
      *
-     * @return PublishExperimentResponse PublishExperimentResponse
+     * @param request - PublishExperimentRequest
+     *
+     * @returns PublishExperimentResponse
+     *
+     * @param string                   $ExperimentId
+     * @param PublishExperimentRequest $request
+     *
+     * @return PublishExperimentResponse
      */
     public function publishExperiment($ExperimentId, $request)
     {
@@ -2128,44 +2574,54 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 查询实验的可视化数据
-     *  *
-     * @param string                                  $ExperimentId
-     * @param QueryExperimentVisualizationDataRequest $request      QueryExperimentVisualizationDataRequest
-     * @param string[]                                $headers      map
-     * @param RuntimeOptions                          $runtime      runtime options for this request RuntimeOptions
+     * 查询实验的可视化数据.
      *
-     * @return QueryExperimentVisualizationDataResponse QueryExperimentVisualizationDataResponse
+     * @param request - QueryExperimentVisualizationDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryExperimentVisualizationDataResponse
+     *
+     * @param string                                  $ExperimentId
+     * @param QueryExperimentVisualizationDataRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QueryExperimentVisualizationDataResponse
      */
     public function queryExperimentVisualizationDataWithOptions($ExperimentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::toArray($request->body),
+            'body' => Utils::toArray($request->body),
         ]);
         $params = new Params([
-            'action'      => 'QueryExperimentVisualizationData',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/visualizationDataQuery',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryExperimentVisualizationData',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/visualizationDataQuery',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryExperimentVisualizationDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询实验的可视化数据
-     *  *
-     * @param string                                  $ExperimentId
-     * @param QueryExperimentVisualizationDataRequest $request      QueryExperimentVisualizationDataRequest
+     * 查询实验的可视化数据.
      *
-     * @return QueryExperimentVisualizationDataResponse QueryExperimentVisualizationDataResponse
+     * @param request - QueryExperimentVisualizationDataRequest
+     *
+     * @returns QueryExperimentVisualizationDataResponse
+     *
+     * @param string                                  $ExperimentId
+     * @param QueryExperimentVisualizationDataRequest $request
+     *
+     * @return QueryExperimentVisualizationDataResponse
      */
     public function queryExperimentVisualizationData($ExperimentId, $request)
     {
@@ -2176,49 +2632,61 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 搜索MaxCompute表
-     *  *
-     * @param SearchMCTablesRequest $request SearchMCTablesRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 搜索MaxCompute表.
      *
-     * @return SearchMCTablesResponse SearchMCTablesResponse
+     * @param request - SearchMCTablesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchMCTablesResponse
+     *
+     * @param SearchMCTablesRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SearchMCTablesResponse
      */
     public function searchMCTablesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchMCTables',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasources/maxcompute/tables',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchMCTables',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasources/maxcompute/tables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchMCTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 搜索MaxCompute表
-     *  *
-     * @param SearchMCTablesRequest $request SearchMCTablesRequest
+     * 搜索MaxCompute表.
      *
-     * @return SearchMCTablesResponse SearchMCTablesResponse
+     * @param request - SearchMCTablesRequest
+     *
+     * @returns SearchMCTablesResponse
+     *
+     * @param SearchMCTablesRequest $request
+     *
+     * @return SearchMCTablesResponse
      */
     public function searchMCTables($request)
     {
@@ -2229,13 +2697,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 停止实验所有运行中的作业
-     *  *
-     * @param string         $ExperimentId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * 停止实验所有运行中的作业.
      *
-     * @return StopExperimentResponse StopExperimentResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopExperimentResponse
+     *
+     * @param string         $ExperimentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopExperimentResponse
      */
     public function stopExperimentWithOptions($ExperimentId, $headers, $runtime)
     {
@@ -2243,26 +2716,28 @@ class PaiStudio extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopExperiment',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/stop',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopExperiment',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止实验所有运行中的作业
-     *  *
+     * 停止实验所有运行中的作业.
+     *
+     * @returns StopExperimentResponse
+     *
      * @param string $ExperimentId
      *
-     * @return StopExperimentResponse StopExperimentResponse
+     * @return StopExperimentResponse
      */
     public function stopExperiment($ExperimentId)
     {
@@ -2273,13 +2748,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 停止一个实验的作业
-     *  *
-     * @param string         $JobId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 停止一个实验的作业.
      *
-     * @return StopJobResponse StopJobResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopJobResponse
+     *
+     * @param string         $JobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopJobResponse
      */
     public function stopJobWithOptions($JobId, $headers, $runtime)
     {
@@ -2287,26 +2767,28 @@ class PaiStudio extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopJob',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/stop',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopJob',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/stop',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止一个实验的作业
-     *  *
+     * 停止一个实验的作业.
+     *
+     * @returns StopJobResponse
+     *
      * @param string $JobId
      *
-     * @return StopJobResponse StopJobResponse
+     * @return StopJobResponse
      */
     public function stopJob($JobId)
     {
@@ -2317,51 +2799,63 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新实验内容
-     *  *
-     * @param string                         $ExperimentId
-     * @param UpdateExperimentContentRequest $request      UpdateExperimentContentRequest
-     * @param string[]                       $headers      map
-     * @param RuntimeOptions                 $runtime      runtime options for this request RuntimeOptions
+     * 更新实验内容.
      *
-     * @return UpdateExperimentContentResponse UpdateExperimentContentResponse
+     * @param request - UpdateExperimentContentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExperimentContentResponse
+     *
+     * @param string                         $ExperimentId
+     * @param UpdateExperimentContentRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateExperimentContentResponse
      */
     public function updateExperimentContentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->version)) {
-            $body['Version'] = $request->version;
+
+        if (null !== $request->version) {
+            @$body['Version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateExperimentContent',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/content',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateExperimentContent',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/content',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateExperimentContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新实验内容
-     *  *
-     * @param string                         $ExperimentId
-     * @param UpdateExperimentContentRequest $request      UpdateExperimentContentRequest
+     * 更新实验内容.
      *
-     * @return UpdateExperimentContentResponse UpdateExperimentContentResponse
+     * @param request - UpdateExperimentContentRequest
+     *
+     * @returns UpdateExperimentContentResponse
+     *
+     * @param string                         $ExperimentId
+     * @param UpdateExperimentContentRequest $request
+     *
+     * @return UpdateExperimentContentResponse
      */
     public function updateExperimentContent($ExperimentId, $request)
     {
@@ -2372,51 +2866,63 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新算法文件夹
-     *  *
-     * @param string                        $FolderId
-     * @param UpdateExperimentFolderRequest $request  UpdateExperimentFolderRequest
-     * @param string[]                      $headers  map
-     * @param RuntimeOptions                $runtime  runtime options for this request RuntimeOptions
+     * 更新算法文件夹.
      *
-     * @return UpdateExperimentFolderResponse UpdateExperimentFolderResponse
+     * @param request - UpdateExperimentFolderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExperimentFolderResponse
+     *
+     * @param string                        $FolderId
+     * @param UpdateExperimentFolderRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateExperimentFolderResponse
      */
     public function updateExperimentFolderWithOptions($FolderId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parentFolderId)) {
-            $body['ParentFolderId'] = $request->parentFolderId;
+
+        if (null !== $request->parentFolderId) {
+            @$body['ParentFolderId'] = $request->parentFolderId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateExperimentFolder',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experimentfolders/' . OpenApiUtilClient::getEncodeParam($FolderId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateExperimentFolder',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentfolders/' . Url::percentEncode($FolderId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateExperimentFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新算法文件夹
-     *  *
-     * @param string                        $FolderId
-     * @param UpdateExperimentFolderRequest $request  UpdateExperimentFolderRequest
+     * 更新算法文件夹.
      *
-     * @return UpdateExperimentFolderResponse UpdateExperimentFolderResponse
+     * @param request - UpdateExperimentFolderRequest
+     *
+     * @returns UpdateExperimentFolderResponse
+     *
+     * @param string                        $FolderId
+     * @param UpdateExperimentFolderRequest $request
+     *
+     * @return UpdateExperimentFolderResponse
      */
     public function updateExperimentFolder($FolderId, $request)
     {
@@ -2427,60 +2933,75 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新实验的Meta信息
-     *  *
-     * @param string                      $ExperimentId
-     * @param UpdateExperimentMetaRequest $request      UpdateExperimentMetaRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * 更新实验的Meta信息.
      *
-     * @return UpdateExperimentMetaResponse UpdateExperimentMetaResponse
+     * @param request - UpdateExperimentMetaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExperimentMetaResponse
+     *
+     * @param string                      $ExperimentId
+     * @param UpdateExperimentMetaRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateExperimentMetaResponse
      */
     public function updateExperimentMetaWithOptions($ExperimentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessibility)) {
-            $body['Accessibility'] = $request->accessibility;
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $body['FolderId'] = $request->folderId;
+
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->options)) {
-            $body['Options'] = $request->options;
+
+        if (null !== $request->options) {
+            @$body['Options'] = $request->options;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateExperimentMeta',
-            'version'     => '2021-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . OpenApiUtilClient::getEncodeParam($ExperimentId) . '/meta',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateExperimentMeta',
+            'version' => '2021-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/meta',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateExperimentMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新实验的Meta信息
-     *  *
-     * @param string                      $ExperimentId
-     * @param UpdateExperimentMetaRequest $request      UpdateExperimentMetaRequest
+     * 更新实验的Meta信息.
      *
-     * @return UpdateExperimentMetaResponse UpdateExperimentMetaResponse
+     * @param request - UpdateExperimentMetaRequest
+     *
+     * @returns UpdateExperimentMetaResponse
+     *
+     * @param string                      $ExperimentId
+     * @param UpdateExperimentMetaRequest $request
+     *
+     * @return UpdateExperimentMetaResponse
      */
     public function updateExperimentMeta($ExperimentId, $request)
     {

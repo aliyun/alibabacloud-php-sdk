@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAuthRolesRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var string
      */
     public $isGenerateToken;
 
     /**
-     * @example 12345
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'isGenerateToken' => 'IsGenerateToken',
-        'workspaceId'     => 'WorkspaceId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isGenerateToken) {
             $res['IsGenerateToken'] = $this->isGenerateToken;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -43,17 +41,18 @@ class ListAuthRolesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAuthRolesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsGenerateToken'])) {
             $model->isGenerateToken = $map['IsGenerateToken'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

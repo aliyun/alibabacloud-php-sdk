@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SearchMCTablesResponseBody extends Model
 {
     /**
-     * @example 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
-     *
      * @var string
      */
     public $requestId;
@@ -21,40 +19,58 @@ class SearchMCTablesResponseBody extends Model
     public $tables;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tables'    => 'Tables',
+        'tables' => 'Tables',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tables) {
-            $res['Tables'] = $this->tables;
+            if (\is_array($this->tables)) {
+                $res['Tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['Tables'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchMCTablesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
-                $model->tables = $map['Tables'];
+                $model->tables = [];
+                $n1 = 0;
+                foreach ($map['Tables'] as $item1) {
+                    $model->tables[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

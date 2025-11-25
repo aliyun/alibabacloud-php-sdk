@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateExperimentMetaResponseBody extends Model
 {
     /**
-     * @example 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class UpdateExperimentMetaResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UpdateExperimentMetaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateExperimentMetaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

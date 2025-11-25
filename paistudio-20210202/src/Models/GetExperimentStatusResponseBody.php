@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\GetExperimentStatusResponseBody\nodes;
-use AlibabaCloud\Tea\Model;
 
 class GetExperimentStatusResponseBody extends Model
 {
@@ -15,43 +15,46 @@ class GetExperimentStatusResponseBody extends Model
     public $nodes;
 
     /**
-     * @example 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'nodes'     => 'Nodes',
+        'nodes' => 'Nodes',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodes) {
-            $res['Nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodes)) {
+                $res['Nodes'] = [];
+                $n1 = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['Nodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -59,26 +62,29 @@ class GetExperimentStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetExperimentStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
-                foreach ($map['Nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Nodes'] as $item1) {
+                    $model->nodes[$n1] = nodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

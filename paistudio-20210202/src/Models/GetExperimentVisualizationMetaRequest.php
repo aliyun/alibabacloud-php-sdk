@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetExperimentVisualizationMetaRequest extends Model
 {
     /**
-     * @example node_id1,node_id2
-     *
      * @var string
      */
     public $nodeIds;
@@ -20,9 +18,10 @@ class GetExperimentVisualizationMetaRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeIds) {
@@ -32,11 +31,11 @@ class GetExperimentVisualizationMetaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetExperimentVisualizationMetaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

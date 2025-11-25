@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\QueryExperimentVisualizationDataResponseBody\visualizationData;
-use AlibabaCloud\Tea\Model;
 
 class QueryExperimentVisualizationDataResponseBody extends Model
 {
@@ -15,32 +15,36 @@ class QueryExperimentVisualizationDataResponseBody extends Model
     public $visualizationData;
 
     /**
-     * @example FFB1D4B4-B253-540A-9B3B-AA711C48A1B7
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'visualizationData' => 'VisualizationData',
-        'requestId'         => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->visualizationData)) {
+            Model::validateArray($this->visualizationData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->visualizationData) {
-            $res['VisualizationData'] = [];
-            if (null !== $this->visualizationData && \is_array($this->visualizationData)) {
-                $n = 0;
-                foreach ($this->visualizationData as $item) {
-                    $res['VisualizationData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->visualizationData)) {
+                $res['VisualizationData'] = [];
+                $n1 = 0;
+                foreach ($this->visualizationData as $item1) {
+                    $res['VisualizationData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -48,23 +52,25 @@ class QueryExperimentVisualizationDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryExperimentVisualizationDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VisualizationData'])) {
             if (!empty($map['VisualizationData'])) {
                 $model->visualizationData = [];
-                $n                        = 0;
-                foreach ($map['VisualizationData'] as $item) {
-                    $model->visualizationData[$n++] = null !== $item ? visualizationData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VisualizationData'] as $item1) {
+                    $model->visualizationData[$n1] = visualizationData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

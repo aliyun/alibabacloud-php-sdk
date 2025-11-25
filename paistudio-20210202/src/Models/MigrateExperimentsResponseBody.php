@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20210202\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20210202\Models\MigrateExperimentsResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class MigrateExperimentsResponseBody extends Model
 {
     /**
-     * @example NO_PERMISSION
-     *
      * @var string
      */
     public $code;
@@ -22,41 +20,44 @@ class MigrateExperimentsResponseBody extends Model
     public $data;
 
     /**
-     * @example NotExistError
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example E7C42CC7-2E85-508A-84F4-923B605FD10F
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,23 +65,26 @@ class MigrateExperimentsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MigrateExperimentsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
