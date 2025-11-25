@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RunLog;
 
 class applications extends Model
 {
@@ -36,6 +37,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $kyuubiServiceId;
+
+    /**
+     * @var string
+     */
     public $latestSqlStatementStatus;
 
     /**
@@ -47,6 +53,11 @@ class applications extends Model
      * @var string
      */
     public $resourceQueueId;
+
+    /**
+     * @var RunLog
+     */
+    public $runLog;
 
     /**
      * @var string
@@ -73,9 +84,11 @@ class applications extends Model
         'cuHours' => 'cuHours',
         'endTime' => 'endTime',
         'exitReason' => 'exitReason',
+        'kyuubiServiceId' => 'kyuubiServiceId',
         'latestSqlStatementStatus' => 'latestSqlStatementStatus',
         'mbSeconds' => 'mbSeconds',
         'resourceQueueId' => 'resourceQueueId',
+        'runLog' => 'runLog',
         'startTime' => 'startTime',
         'state' => 'state',
         'vcoreSeconds' => 'vcoreSeconds',
@@ -84,6 +97,9 @@ class applications extends Model
 
     public function validate()
     {
+        if (null !== $this->runLog) {
+            $this->runLog->validate();
+        }
         parent::validate();
     }
 
@@ -110,6 +126,10 @@ class applications extends Model
             $res['exitReason'] = $this->exitReason;
         }
 
+        if (null !== $this->kyuubiServiceId) {
+            $res['kyuubiServiceId'] = $this->kyuubiServiceId;
+        }
+
         if (null !== $this->latestSqlStatementStatus) {
             $res['latestSqlStatementStatus'] = $this->latestSqlStatementStatus;
         }
@@ -120,6 +140,10 @@ class applications extends Model
 
         if (null !== $this->resourceQueueId) {
             $res['resourceQueueId'] = $this->resourceQueueId;
+        }
+
+        if (null !== $this->runLog) {
+            $res['runLog'] = null !== $this->runLog ? $this->runLog->toArray($noStream) : $this->runLog;
         }
 
         if (null !== $this->startTime) {
@@ -169,6 +193,10 @@ class applications extends Model
             $model->exitReason = $map['exitReason'];
         }
 
+        if (isset($map['kyuubiServiceId'])) {
+            $model->kyuubiServiceId = $map['kyuubiServiceId'];
+        }
+
         if (isset($map['latestSqlStatementStatus'])) {
             $model->latestSqlStatementStatus = $map['latestSqlStatementStatus'];
         }
@@ -179,6 +207,10 @@ class applications extends Model
 
         if (isset($map['resourceQueueId'])) {
             $model->resourceQueueId = $map['resourceQueueId'];
+        }
+
+        if (isset($map['runLog'])) {
+            $model->runLog = RunLog::fromMap($map['runLog']);
         }
 
         if (isset($map['startTime'])) {

@@ -86,6 +86,11 @@ class jobRuns extends Model
     /**
      * @var string
      */
+    public $resourceQueueId;
+
+    /**
+     * @var string
+     */
     public $state;
 
     /**
@@ -132,6 +137,7 @@ class jobRuns extends Model
         'mbSeconds' => 'mbSeconds',
         'name' => 'name',
         'releaseVersion' => 'releaseVersion',
+        'resourceQueueId' => 'resourceQueueId',
         'state' => 'state',
         'stateChangeReason' => 'stateChangeReason',
         'submitTime' => 'submitTime',
@@ -218,6 +224,10 @@ class jobRuns extends Model
 
         if (null !== $this->releaseVersion) {
             $res['releaseVersion'] = $this->releaseVersion;
+        }
+
+        if (null !== $this->resourceQueueId) {
+            $res['resourceQueueId'] = $this->resourceQueueId;
         }
 
         if (null !== $this->state) {
@@ -320,6 +330,10 @@ class jobRuns extends Model
 
         if (isset($map['releaseVersion'])) {
             $model->releaseVersion = $map['releaseVersion'];
+        }
+
+        if (isset($map['resourceQueueId'])) {
+            $model->resourceQueueId = $map['resourceQueueId'];
         }
 
         if (isset($map['state'])) {

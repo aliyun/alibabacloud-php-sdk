@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueRequest;
+namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class resourceSpec extends Model
+class UpdateKyuubiServiceResponseBody extends Model
 {
     /**
-     * @var int
+     * @var mixed
      */
-    public $cu;
+    public $data;
 
     /**
-     * @var int
+     * @var string
      */
-    public $maxCu;
+    public $requestId;
     protected $_name = [
-        'cu' => 'cu',
-        'maxCu' => 'maxCu',
+        'data' => 'data',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class resourceSpec extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->cu) {
-            $res['cu'] = $this->cu;
+        if (null !== $this->data) {
+            $res['data'] = $this->data;
         }
 
-        if (null !== $this->maxCu) {
-            $res['maxCu'] = $this->maxCu;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class resourceSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['cu'])) {
-            $model->cu = $map['cu'];
+        if (isset($map['data'])) {
+            $model->data = $map['data'];
         }
 
-        if (isset($map['maxCu'])) {
-            $model->maxCu = $map['maxCu'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

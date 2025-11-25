@@ -45,6 +45,11 @@ class queues extends Model
     public $paymentType;
 
     /**
+     * @var bool
+     */
+    public $preheat;
+
+    /**
      * @var string
      */
     public $properties;
@@ -91,6 +96,7 @@ class queues extends Model
         'maxResource' => 'maxResource',
         'minResource' => 'minResource',
         'paymentType' => 'paymentType',
+        'preheat' => 'preheat',
         'properties' => 'properties',
         'queueName' => 'queueName',
         'queueScope' => 'queueScope',
@@ -155,6 +161,10 @@ class queues extends Model
 
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
+        }
+
+        if (null !== $this->preheat) {
+            $res['preheat'] = $this->preheat;
         }
 
         if (null !== $this->properties) {
@@ -240,6 +250,10 @@ class queues extends Model
 
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
+        }
+
+        if (isset($map['preheat'])) {
+            $model->preheat = $map['preheat'];
         }
 
         if (isset($map['properties'])) {

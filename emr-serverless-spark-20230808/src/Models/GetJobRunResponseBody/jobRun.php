@@ -71,6 +71,11 @@ class jobRun extends Model
     /**
      * @var string
      */
+    public $notebookAccessUrl;
+
+    /**
+     * @var string
+     */
     public $releaseVersion;
 
     /**
@@ -124,6 +129,7 @@ class jobRun extends Model
         'jobRunId' => 'jobRunId',
         'log' => 'log',
         'name' => 'name',
+        'notebookAccessUrl' => 'notebookAccessUrl',
         'releaseVersion' => 'releaseVersion',
         'resourceOwnerId' => 'resourceOwnerId',
         'resourceQueueId' => 'resourceQueueId',
@@ -200,6 +206,10 @@ class jobRun extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->notebookAccessUrl) {
+            $res['notebookAccessUrl'] = $this->notebookAccessUrl;
         }
 
         if (null !== $this->releaseVersion) {
@@ -298,6 +308,10 @@ class jobRun extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['notebookAccessUrl'])) {
+            $model->notebookAccessUrl = $map['notebookAccessUrl'];
         }
 
         if (isset($map['releaseVersion'])) {
