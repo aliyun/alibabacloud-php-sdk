@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\AnyTrans\V20250707;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlResponse;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlShrinkRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateShrinkRequest;
@@ -172,6 +175,105 @@ class AnyTrans extends OpenApiClient
         $headers = [];
 
         return $this->batchTranslateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通义多模态翻译批量翻译(供js sdk使用).
+     *
+     * @param tmpReq - BatchTranslateForHtmlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchTranslateForHtmlResponse
+     *
+     * @param BatchTranslateForHtmlRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchTranslateForHtmlResponse
+     */
+    public function batchTranslateForHtmlWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchTranslateForHtmlShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ext) {
+            $request->extShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'ext', 'json');
+        }
+
+        if (null !== $tmpReq->text) {
+            $request->textShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->text, 'text', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['appName'] = $request->appName;
+        }
+
+        if (null !== $request->extShrink) {
+            @$body['ext'] = $request->extShrink;
+        }
+
+        if (null !== $request->format) {
+            @$body['format'] = $request->format;
+        }
+
+        if (null !== $request->scene) {
+            @$body['scene'] = $request->scene;
+        }
+
+        if (null !== $request->sourceLanguage) {
+            @$body['sourceLanguage'] = $request->sourceLanguage;
+        }
+
+        if (null !== $request->targetLanguage) {
+            @$body['targetLanguage'] = $request->targetLanguage;
+        }
+
+        if (null !== $request->textShrink) {
+            @$body['text'] = $request->textShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchTranslateForHtml',
+            'version' => '2025-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/anytrans/translate/batchForHtml',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchTranslateForHtmlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通义多模态翻译批量翻译(供js sdk使用).
+     *
+     * @param request - BatchTranslateForHtmlRequest
+     *
+     * @returns BatchTranslateForHtmlResponse
+     *
+     * @param BatchTranslateForHtmlRequest $request
+     *
+     * @return BatchTranslateForHtmlResponse
+     */
+    public function batchTranslateForHtml($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchTranslateForHtmlWithOptions($request, $headers, $runtime);
     }
 
     /**

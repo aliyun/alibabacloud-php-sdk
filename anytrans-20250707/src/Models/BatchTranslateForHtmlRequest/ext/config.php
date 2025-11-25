@@ -2,23 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AnyTrans\V20250707\Models\SubmitHtmlTranslateTaskRequest\ext;
+namespace AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlRequest\ext;
 
 use AlibabaCloud\Dara\Model;
 
 class config extends Model
 {
     /**
-     * @var string
-     */
-    public $callbackUrl;
-
-    /**
      * @var bool
      */
     public $skipCsiCheck;
     protected $_name = [
-        'callbackUrl' => 'callbackUrl',
         'skipCsiCheck' => 'skipCsiCheck',
     ];
 
@@ -30,10 +24,6 @@ class config extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->callbackUrl) {
-            $res['callbackUrl'] = $this->callbackUrl;
-        }
-
         if (null !== $this->skipCsiCheck) {
             $res['skipCsiCheck'] = $this->skipCsiCheck;
         }
@@ -49,10 +39,6 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['callbackUrl'])) {
-            $model->callbackUrl = $map['callbackUrl'];
-        }
-
         if (isset($map['skipCsiCheck'])) {
             $model->skipCsiCheck = $map['skipCsiCheck'];
         }

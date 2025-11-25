@@ -2,21 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest;
+namespace AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlRequest;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest\ext\config;
-use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest\ext\examples;
-use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest\ext\terminologies;
-use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest\ext\textTransform;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlRequest\ext\config;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlRequest\ext\examples;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlRequest\ext\terminologies;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\BatchTranslateForHtmlRequest\ext\textTransform;
 
 class ext extends Model
 {
-    /**
-     * @var string
-     */
-    public $agent;
-
     /**
      * @var config
      */
@@ -47,7 +42,6 @@ class ext extends Model
      */
     public $textTransform;
     protected $_name = [
-        'agent' => 'agent',
         'config' => 'config',
         'domainHint' => 'domainHint',
         'examples' => 'examples',
@@ -79,10 +73,6 @@ class ext extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->agent) {
-            $res['agent'] = $this->agent;
-        }
-
         if (null !== $this->config) {
             $res['config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
@@ -139,10 +129,6 @@ class ext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['agent'])) {
-            $model->agent = $map['agent'];
-        }
-
         if (isset($map['config'])) {
             $model->config = config::fromMap($map['config']);
         }
