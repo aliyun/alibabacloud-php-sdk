@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserVpcAuthorizationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteUserVpcAuthorizationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteUserVpcAuthorizationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserVpcAuthorizationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

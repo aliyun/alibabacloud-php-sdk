@@ -4,60 +4,26 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddUserVpcAuthorizationRequest extends Model
 {
     /**
-     * @description The authorization channel. Valid values:
-     *
-     *   AUTH_CODE: A verification code is used for authorization.
-     *   RESOURCE_DIRECTORY: A resource directory is used for authorization.
-     *
-     * Default value: AUTH_CODE.
-     *
-     * @example AUTH_CODE
-     *
      * @var string
      */
     public $authChannel;
 
     /**
-     * @description The verification code.
-     *
-     * >
-     *
-     *   The specified authentication code is used if the value of AuthChannel is left empty or is set to AUTH_CODE.
-     *
-     *   In other cases, a random 6-digit number is used. Example: 123456.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $authCode;
 
     /**
-     * @description The authorization scope. Valid values:
-     *
-     *   NORMAL: general authorization
-     *   CLOUD_PRODUCT: cloud service-related authorization
-     *
-     * @example NORMAL
-     *
      * @var string
      */
     public $authType;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
-     *
-     * >  You can set an effective scope across accounts only by using an Alibaba Cloud account instead of a RAM user. You can set an effective scope across accounts registered on the same site. For example, you can perform the operation across accounts that are both registered on the Alibaba Cloud China site or Alibaba Cloud international site. You cannot set an effective scope across accounts registered on different sites. For example, you cannot perform the operation across accounts that are separately registered on the Alibaba Cloud China site and Alibaba Cloud international site.
-     *
-     * This parameter is required.
-     *
-     * @example 141339776561****
-     *
      * @var int
      */
     public $authorizedUserId;
@@ -68,20 +34,26 @@ class AddUserVpcAuthorizationRequest extends Model
         'authorizedUserId' => 'AuthorizedUserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authChannel) {
             $res['AuthChannel'] = $this->authChannel;
         }
+
         if (null !== $this->authCode) {
             $res['AuthCode'] = $this->authCode;
         }
+
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
         }
+
         if (null !== $this->authorizedUserId) {
             $res['AuthorizedUserId'] = $this->authorizedUserId;
         }
@@ -89,23 +61,26 @@ class AddUserVpcAuthorizationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddUserVpcAuthorizationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthChannel'])) {
             $model->authChannel = $map['AuthChannel'];
         }
+
         if (isset($map['AuthCode'])) {
             $model->authCode = $map['AuthCode'];
         }
+
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
         }
+
         if (isset($map['AuthorizedUserId'])) {
             $model->authorizedUserId = $map['AuthorizedUserId'];
         }

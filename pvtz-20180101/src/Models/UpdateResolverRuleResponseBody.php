@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateResolverRuleResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0C9959BE-3A6A-4803-8DCE-973B42ACD599
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class UpdateResolverRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UpdateResolverRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResolverRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

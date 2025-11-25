@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models\AddResolverRuleRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vpcs extends Model
 {
@@ -34,20 +34,26 @@ class vpcs extends Model
         'vpcUserId' => 'VpcUserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vpcType) {
             $res['VpcType'] = $this->vpcType;
         }
+
         if (null !== $this->vpcUserId) {
             $res['VpcUserId'] = $this->vpcUserId;
         }
@@ -55,23 +61,26 @@ class vpcs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpcs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['VpcType'])) {
             $model->vpcType = $map['VpcType'];
         }
+
         if (isset($map['VpcUserId'])) {
             $model->vpcUserId = $map['VpcUserId'];
         }

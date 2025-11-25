@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateCustomLineRequest extends Model
 {
@@ -14,37 +14,21 @@ class UpdateCustomLineRequest extends Model
     public $dnsCategory;
 
     /**
-     * @description The IPv4 CIDR blocks.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $ipv4s;
 
     /**
-     * @description The language.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The unique ID of the custom line.
-     *
-     * This parameter is required.
-     *
-     * @example 100003
-     *
      * @var string
      */
     public $lineId;
 
     /**
-     * @description The name of the custom line.
-     *
      * @var string
      */
     public $name;
@@ -56,23 +40,40 @@ class UpdateCustomLineRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipv4s)) {
+            Model::validateArray($this->ipv4s);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnsCategory) {
             $res['DnsCategory'] = $this->dnsCategory;
         }
+
         if (null !== $this->ipv4s) {
-            $res['Ipv4s'] = $this->ipv4s;
+            if (\is_array($this->ipv4s)) {
+                $res['Ipv4s'] = [];
+                $n1 = 0;
+                foreach ($this->ipv4s as $item1) {
+                    $res['Ipv4s'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->lineId) {
             $res['LineId'] = $this->lineId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -80,28 +81,37 @@ class UpdateCustomLineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCustomLineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsCategory'])) {
             $model->dnsCategory = $map['DnsCategory'];
         }
+
         if (isset($map['Ipv4s'])) {
             if (!empty($map['Ipv4s'])) {
-                $model->ipv4s = $map['Ipv4s'];
+                $model->ipv4s = [];
+                $n1 = 0;
+                foreach ($map['Ipv4s'] as $item1) {
+                    $model->ipv4s[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['LineId'])) {
             $model->lineId = $map['LineId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -1,3 +1,6 @@
+2025-11-25 Version: 1.5.3
+- Update SDK.
+
 2025-07-28 Version: 1.5.2
 - Update API DescribeCustomLineInfo: add response parameters Body.Dnscategory.
 - Update API DescribeCustomLines: add response parameters Body.CustomLines.$.DnsCategory.
