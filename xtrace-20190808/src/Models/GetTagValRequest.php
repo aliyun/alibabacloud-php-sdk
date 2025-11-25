@@ -4,97 +4,76 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTagValRequest extends Model
 {
     /**
-     * @description The end of the time range to query. The value is a timestamp that is accurate to milliseconds.
-     *
-     * >  This value is of the LONG type, and precision loss may occur during serialization or deserialization. Do not set this parameter to a value greater than 9007199254740991.
-     * @example 1575622455686
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the application.
-     *
-     * @example appTest
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The name of the span.
-     *
-     * @example createOrder
-     *
      * @var string
      */
     public $spanName;
 
     /**
-     * @description The beginning of the time range to query. The value is a timestamp that is accurate to milliseconds.
-     *
-     * >  This value is of the LONG type, and precision loss may occur during serialization or deserialization. Do not set this parameter to a value greater than 9007199254740991.
-     * @example 1575561600000
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description The tag key.
-     *
-     * This parameter is required.
-     * @example span.kind
-     *
      * @var string
      */
     public $tagKey;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'regionId'    => 'RegionId',
+        'endTime' => 'EndTime',
+        'regionId' => 'RegionId',
         'serviceName' => 'ServiceName',
-        'spanName'    => 'SpanName',
-        'startTime'   => 'StartTime',
-        'tagKey'      => 'TagKey',
+        'spanName' => 'SpanName',
+        'startTime' => 'StartTime',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->spanName) {
             $res['SpanName'] = $this->spanName;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
@@ -102,29 +81,34 @@ class GetTagValRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTagValRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['SpanName'])) {
             $model->spanName = $map['SpanName'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }

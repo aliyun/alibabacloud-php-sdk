@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\ListSpanNamesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class spanNames extends Model
 {
@@ -18,29 +18,45 @@ class spanNames extends Model
 
     public function validate()
     {
+        if (\is_array($this->spanName)) {
+            Model::validateArray($this->spanName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->spanName) {
-            $res['SpanName'] = $this->spanName;
+            if (\is_array($this->spanName)) {
+                $res['SpanName'] = [];
+                $n1 = 0;
+                foreach ($this->spanName as $item1) {
+                    $res['SpanName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spanNames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpanName'])) {
             if (!empty($map['SpanName'])) {
-                $model->spanName = $map['SpanName'];
+                $model->spanName = [];
+                $n1 = 0;
+                foreach ($map['SpanName'] as $item1) {
+                    $model->spanName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

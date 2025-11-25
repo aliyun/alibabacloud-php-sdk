@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesResponseBody\services\service;
-use AlibabaCloud\Tea\Model;
 
 class services extends Model
 {
@@ -19,17 +19,22 @@ class services extends Model
 
     public function validate()
     {
+        if (\is_array($this->service)) {
+            Model::validateArray($this->service);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->service) {
-            $res['Service'] = [];
-            if (null !== $this->service && \is_array($this->service)) {
-                $n = 0;
-                foreach ($this->service as $item) {
-                    $res['Service'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->service)) {
+                $res['Service'] = [];
+                $n1 = 0;
+                foreach ($this->service as $item1) {
+                    $res['Service'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class services extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return services
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Service'])) {
             if (!empty($map['Service'])) {
                 $model->service = [];
-                $n              = 0;
-                foreach ($map['Service'] as $item) {
-                    $model->service[$n++] = null !== $item ? service::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Service'] as $item1) {
+                    $model->service[$n1] = service::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

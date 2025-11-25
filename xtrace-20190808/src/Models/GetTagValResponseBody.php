@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagValResponseBody\tagValues;
-use AlibabaCloud\Tea\Model;
 
 class GetTagValResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1E2B6A4C-6B83-4062-8B6F-AEEC1F******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The tag values.
-     *
      * @var tagValues
      */
     public $tagValues;
@@ -31,32 +25,38 @@ class GetTagValResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->tagValues) {
+            $this->tagValues->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tagValues) {
-            $res['TagValues'] = null !== $this->tagValues ? $this->tagValues->toMap() : null;
+            $res['TagValues'] = null !== $this->tagValues ? $this->tagValues->toArray($noStream) : $this->tagValues;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTagValResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TagValues'])) {
             $model->tagValues = tagValues::fromMap($map['TagValues']);
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceResponseBody\spans\span;
-use AlibabaCloud\Tea\Model;
 
 class spans extends Model
 {
@@ -19,17 +19,22 @@ class spans extends Model
 
     public function validate()
     {
+        if (\is_array($this->span)) {
+            Model::validateArray($this->span);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->span) {
-            $res['Span'] = [];
-            if (null !== $this->span && \is_array($this->span)) {
-                $n = 0;
-                foreach ($this->span as $item) {
-                    $res['Span'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->span)) {
+                $res['Span'] = [];
+                $n1 = 0;
+                foreach ($this->span as $item1) {
+                    $res['Span'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class spans extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spans
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Span'])) {
             if (!empty($map['Span'])) {
                 $model->span = [];
-                $n           = 0;
-                foreach ($map['Span'] as $item) {
-                    $model->span[$n++] = null !== $item ? span::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Span'] as $item1) {
+                    $model->span[$n1] = span::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

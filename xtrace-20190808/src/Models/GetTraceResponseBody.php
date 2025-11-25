@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceResponseBody\spans;
-use AlibabaCloud\Tea\Model;
 
 class GetTraceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1E2B6A4C-6B83-4062-8B6F-AEEC1F******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The spans that are contained in the trace.
-     *
      * @var spans
      */
     public $spans;
     protected $_name = [
         'requestId' => 'RequestId',
-        'spans'     => 'Spans',
+        'spans' => 'Spans',
     ];
 
     public function validate()
     {
+        if (null !== $this->spans) {
+            $this->spans->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->spans) {
-            $res['Spans'] = null !== $this->spans ? $this->spans->toMap() : null;
+            $res['Spans'] = null !== $this->spans ? $this->spans->toArray($noStream) : $this->spans;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTraceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Spans'])) {
             $model->spans = spans::fromMap($map['Spans']);
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\CheckCommercialStatusRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\CheckCommercialStatusResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyRequest;
@@ -26,11 +25,10 @@ use AlibabaCloud\SDK\Xtrace\V20190808\Models\QueryMetricRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\QueryMetricResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Xtrace extends OpenApiClient
 {
@@ -55,58 +53,70 @@ class Xtrace extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 检查商业化状态
-     *  *
-     * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 检查商业化状态
      *
-     * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
+     * @param request - CheckCommercialStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckCommercialStatusResponse
+     *
+     * @param CheckCommercialStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckCommercialStatusResponse
      */
     public function checkCommercialStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckCommercialStatus',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckCommercialStatus',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckCommercialStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 检查商业化状态
-     *  *
-     * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
+     * 检查商业化状态
      *
-     * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
+     * @param request - CheckCommercialStatusRequest
+     *
+     * @returns CheckCommercialStatusResponse
+     *
+     * @param CheckCommercialStatusRequest $request
+     *
+     * @return CheckCommercialStatusResponse
      */
     public function checkCommercialStatus($request)
     {
@@ -116,56 +126,70 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries tag keys.
-     *  *
-     * @param GetTagKeyRequest $request GetTagKeyRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries tag keys.
      *
-     * @return GetTagKeyResponse GetTagKeyResponse
+     * @param request - GetTagKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTagKeyResponse
+     *
+     * @param GetTagKeyRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetTagKeyResponse
      */
     public function getTagKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->spanName)) {
-            $query['SpanName'] = $request->spanName;
+
+        if (null !== $request->spanName) {
+            @$query['SpanName'] = $request->spanName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTagKey',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTagKey',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTagKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tag keys.
-     *  *
-     * @param GetTagKeyRequest $request GetTagKeyRequest
+     * Queries tag keys.
      *
-     * @return GetTagKeyResponse GetTagKeyResponse
+     * @param request - GetTagKeyRequest
+     *
+     * @returns GetTagKeyResponse
+     *
+     * @param GetTagKeyRequest $request
+     *
+     * @return GetTagKeyResponse
      */
     public function getTagKey($request)
     {
@@ -175,59 +199,74 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag values that correspond to a tag key.
-     *  *
-     * @param GetTagValRequest $request GetTagValRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the tag values that correspond to a tag key.
      *
-     * @return GetTagValResponse GetTagValResponse
+     * @param request - GetTagValRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTagValResponse
+     *
+     * @param GetTagValRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetTagValResponse
      */
     public function getTagValWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->spanName)) {
-            $query['SpanName'] = $request->spanName;
+
+        if (null !== $request->spanName) {
+            @$query['SpanName'] = $request->spanName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTagVal',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTagVal',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTagValResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tag values that correspond to a tag key.
-     *  *
-     * @param GetTagValRequest $request GetTagValRequest
+     * Queries the tag values that correspond to a tag key.
      *
-     * @return GetTagValResponse GetTagValResponse
+     * @param request - GetTagValRequest
+     *
+     * @returns GetTagValResponse
+     *
+     * @param GetTagValRequest $request
+     *
+     * @return GetTagValResponse
      */
     public function getTagVal($request)
     {
@@ -237,56 +276,70 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a trace.
-     *  *
-     * @param GetTraceRequest $request GetTraceRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a trace.
      *
-     * @return GetTraceResponse GetTraceResponse
+     * @param request - GetTraceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTraceResponse
+     *
+     * @param GetTraceRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTraceResponse
      */
     public function getTraceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->traceID)) {
-            $query['TraceID'] = $request->traceID;
+
+        if (null !== $request->traceID) {
+            @$query['TraceID'] = $request->traceID;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTrace',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTrace',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTraceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a trace.
-     *  *
-     * @param GetTraceRequest $request GetTraceRequest
+     * Queries the details of a trace.
      *
-     * @return GetTraceResponse GetTraceResponse
+     * @param request - GetTraceRequest
+     *
+     * @returns GetTraceResponse
+     *
+     * @param GetTraceRequest $request
+     *
+     * @return GetTraceResponse
      */
     public function getTrace($request)
     {
@@ -296,53 +349,66 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries IP addresses or hostnames in trace data. You can obtain all IP addresses of an application or in a region.
-     *  *
-     * @param ListIpOrHostsRequest $request ListIpOrHostsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries IP addresses or hostnames in trace data. You can obtain all IP addresses of an application or in a region.
      *
-     * @return ListIpOrHostsResponse ListIpOrHostsResponse
+     * @param request - ListIpOrHostsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIpOrHostsResponse
+     *
+     * @param ListIpOrHostsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListIpOrHostsResponse
      */
     public function listIpOrHostsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpOrHosts',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpOrHosts',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListIpOrHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries IP addresses or hostnames in trace data. You can obtain all IP addresses of an application or in a region.
-     *  *
-     * @param ListIpOrHostsRequest $request ListIpOrHostsRequest
+     * Queries IP addresses or hostnames in trace data. You can obtain all IP addresses of an application or in a region.
      *
-     * @return ListIpOrHostsResponse ListIpOrHostsResponse
+     * @param request - ListIpOrHostsRequest
+     *
+     * @returns ListIpOrHostsResponse
+     *
+     * @param ListIpOrHostsRequest $request
+     *
+     * @return ListIpOrHostsResponse
      */
     public function listIpOrHosts($request)
     {
@@ -352,47 +418,58 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries applications.
-     *  *
-     * @param ListServicesRequest $request ListServicesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries applications.
      *
-     * @return ListServicesResponse ListServicesResponse
+     * @param request - ListServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServicesResponse
+     *
+     * @param ListServicesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListServicesResponse
      */
     public function listServicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServices',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServices',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries applications.
-     *  *
-     * @param ListServicesRequest $request ListServicesRequest
+     * Queries applications.
      *
-     * @return ListServicesResponse ListServicesResponse
+     * @param request - ListServicesRequest
+     *
+     * @returns ListServicesResponse
+     *
+     * @param ListServicesRequest $request
+     *
+     * @return ListServicesResponse
      */
     public function listServices($request)
     {
@@ -402,53 +479,66 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries all span names in a specified region or all span names of a microservice.
-     *  *
-     * @param ListSpanNamesRequest $request ListSpanNamesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries all span names in a specified region or all span names of a microservice.
      *
-     * @return ListSpanNamesResponse ListSpanNamesResponse
+     * @param request - ListSpanNamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSpanNamesResponse
+     *
+     * @param ListSpanNamesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSpanNamesResponse
      */
     public function listSpanNamesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSpanNames',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSpanNames',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSpanNamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all span names in a specified region or all span names of a microservice.
-     *  *
-     * @param ListSpanNamesRequest $request ListSpanNamesRequest
+     * Queries all span names in a specified region or all span names of a microservice.
      *
-     * @return ListSpanNamesResponse ListSpanNamesResponse
+     * @param request - ListSpanNamesRequest
+     *
+     * @returns ListSpanNamesResponse
+     *
+     * @param ListSpanNamesRequest $request
+     *
+     * @return ListSpanNamesResponse
      */
     public function listSpanNames($request)
     {
@@ -458,44 +548,54 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Activates Managed Service for OpenTelemetry.
-     *  *
-     * @param OpenXtraceServiceRequest $request OpenXtraceServiceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Activates Managed Service for OpenTelemetry.
      *
-     * @return OpenXtraceServiceResponse OpenXtraceServiceResponse
+     * @param request - OpenXtraceServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenXtraceServiceResponse
+     *
+     * @param OpenXtraceServiceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return OpenXtraceServiceResponse
      */
     public function openXtraceServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenXtraceService',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenXtraceService',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return OpenXtraceServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates Managed Service for OpenTelemetry.
-     *  *
-     * @param OpenXtraceServiceRequest $request OpenXtraceServiceRequest
+     * Activates Managed Service for OpenTelemetry.
      *
-     * @return OpenXtraceServiceResponse OpenXtraceServiceResponse
+     * @param request - OpenXtraceServiceRequest
+     *
+     * @returns OpenXtraceServiceResponse
+     *
+     * @param OpenXtraceServiceRequest $request
+     *
+     * @return OpenXtraceServiceResponse
      */
     public function openXtraceService($request)
     {
@@ -505,74 +605,94 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries a metric.
-     *  *
-     * @param QueryMetricRequest $request QueryMetricRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries a metric.
      *
-     * @return QueryMetricResponse QueryMetricResponse
+     * @param request - QueryMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMetricResponse
+     *
+     * @param QueryMetricRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return QueryMetricResponse
      */
     public function queryMetricWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->intervalInSec)) {
-            $query['IntervalInSec'] = $request->intervalInSec;
+
+        if (null !== $request->intervalInSec) {
+            @$query['IntervalInSec'] = $request->intervalInSec;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->measures)) {
-            $query['Measures'] = $request->measures;
+
+        if (null !== $request->measures) {
+            @$query['Measures'] = $request->measures;
         }
-        if (!Utils::isUnset($request->metric)) {
-            $query['Metric'] = $request->metric;
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->proxyUserId)) {
-            $query['ProxyUserId'] = $request->proxyUserId;
+
+        if (null !== $request->proxyUserId) {
+            @$query['ProxyUserId'] = $request->proxyUserId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryMetric',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMetric',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a metric.
-     *  *
-     * @param QueryMetricRequest $request QueryMetricRequest
+     * Queries a metric.
      *
-     * @return QueryMetricResponse QueryMetricResponse
+     * @param request - QueryMetricRequest
+     *
+     * @returns QueryMetricResponse
+     *
+     * @param QueryMetricRequest $request
+     *
+     * @return QueryMetricResponse
      */
     public function queryMetric($request)
     {
@@ -582,80 +702,102 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries traces by time, application name, IP address, span name, and tag.
-     *  *
-     * @param SearchTracesRequest $request SearchTracesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries traces by time, application name, IP address, span name, and tag.
      *
-     * @return SearchTracesResponse SearchTracesResponse
+     * @param request - SearchTracesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchTracesResponse
+     *
+     * @param SearchTracesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SearchTracesResponse
      */
     public function searchTracesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->minDuration)) {
-            $query['MinDuration'] = $request->minDuration;
+
+        if (null !== $request->minDuration) {
+            @$query['MinDuration'] = $request->minDuration;
         }
-        if (!Utils::isUnset($request->operationName)) {
-            $query['OperationName'] = $request->operationName;
+
+        if (null !== $request->operationName) {
+            @$query['OperationName'] = $request->operationName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->reverse)) {
-            $query['Reverse'] = $request->reverse;
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
         }
-        if (!Utils::isUnset($request->serviceIp)) {
-            $query['ServiceIp'] = $request->serviceIp;
+
+        if (null !== $request->serviceIp) {
+            @$query['ServiceIp'] = $request->serviceIp;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->statusCode)) {
-            $query['StatusCode'] = $request->statusCode;
+
+        if (null !== $request->statusCode) {
+            @$query['StatusCode'] = $request->statusCode;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchTraces',
-            'version'     => '2019-08-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchTraces',
+            'version' => '2019-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchTracesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries traces by time, application name, IP address, span name, and tag.
-     *  *
-     * @param SearchTracesRequest $request SearchTracesRequest
+     * Queries traces by time, application name, IP address, span name, and tag.
      *
-     * @return SearchTracesResponse SearchTracesResponse
+     * @param request - SearchTracesRequest
+     *
+     * @returns SearchTracesResponse
+     *
+     * @param SearchTracesRequest $request
+     *
+     * @return SearchTracesResponse
      */
     public function searchTraces($request)
     {

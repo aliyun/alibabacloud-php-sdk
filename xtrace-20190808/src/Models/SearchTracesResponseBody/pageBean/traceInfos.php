@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesResponseBody\pageBean;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesResponseBody\pageBean\traceInfos\traceInfo;
-use AlibabaCloud\Tea\Model;
 
 class traceInfos extends Model
 {
@@ -19,17 +19,22 @@ class traceInfos extends Model
 
     public function validate()
     {
+        if (\is_array($this->traceInfo)) {
+            Model::validateArray($this->traceInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->traceInfo) {
-            $res['TraceInfo'] = [];
-            if (null !== $this->traceInfo && \is_array($this->traceInfo)) {
-                $n = 0;
-                foreach ($this->traceInfo as $item) {
-                    $res['TraceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->traceInfo)) {
+                $res['TraceInfo'] = [];
+                $n1 = 0;
+                foreach ($this->traceInfo as $item1) {
+                    $res['TraceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class traceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return traceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TraceInfo'])) {
             if (!empty($map['TraceInfo'])) {
                 $model->traceInfo = [];
-                $n                = 0;
-                foreach ($map['TraceInfo'] as $item) {
-                    $model->traceInfo[$n++] = null !== $item ? traceInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TraceInfo'] as $item1) {
+                    $model->traceInfo[$n1] = traceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

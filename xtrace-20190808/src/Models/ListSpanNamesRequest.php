@@ -4,69 +4,56 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSpanNamesRequest extends Model
 {
     /**
-     * @description The end of the time range to query. The value is a timestamp that is accurate to milliseconds.
-     *
-     * @example 1575622455686
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the application.
-     *
-     * @example service 1
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The beginning of the time range to query. The value is a timestamp that is accurate to milliseconds.
-     *
-     * @example 1575561600000
-     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'regionId'    => 'RegionId',
+        'endTime' => 'EndTime',
+        'regionId' => 'RegionId',
         'serviceName' => 'ServiceName',
-        'startTime'   => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -74,23 +61,26 @@ class ListSpanNamesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSpanNamesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

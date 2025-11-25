@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesResponseBody\services;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class service extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example XXXqn3ly@741623b4e915df8
-     *
      * @var string
      */
     public $pid;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the application.
-     *
-     * @example a3
-     *
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'pid'         => 'Pid',
-        'regionId'    => 'RegionId',
+        'pid' => 'Pid',
+        'regionId' => 'RegionId',
         'serviceName' => 'ServiceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -60,20 +51,22 @@ class service extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return service
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }

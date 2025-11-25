@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceResponseBody\spans\span\logEventList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceResponseBody\spans\span\logEventList\logEvent\tagEntryList;
-use AlibabaCloud\Tea\Model;
 
 class logEvent extends Model
 {
     /**
-     * @description The tags.
-     *
      * @var tagEntryList
      */
     public $tagEntryList;
 
     /**
-     * @description The timestamp when the log event was generated. Unit: microseconds.
-     *
-     * @example 1583683202047000
-     *
      * @var int
      */
     public $timestamp;
     protected $_name = [
         'tagEntryList' => 'TagEntryList',
-        'timestamp'    => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
     {
+        if (null !== $this->tagEntryList) {
+            $this->tagEntryList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagEntryList) {
-            $res['TagEntryList'] = null !== $this->tagEntryList ? $this->tagEntryList->toMap() : null;
+            $res['TagEntryList'] = null !== $this->tagEntryList ? $this->tagEntryList->toArray($noStream) : $this->tagEntryList;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -46,17 +45,18 @@ class logEvent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logEvent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagEntryList'])) {
             $model->tagEntryList = tagEntryList::fromMap($map['TagEntryList']);
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

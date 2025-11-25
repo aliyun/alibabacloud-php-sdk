@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyResponseBody\tagKeys;
-use AlibabaCloud\Tea\Model;
 
 class GetTagKeyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1E2B6A4C-6B83-4062-8B6F-AEEC1F******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The tag keys.
-     *
      * @var tagKeys
      */
     public $tagKeys;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tagKeys'   => 'TagKeys',
+        'tagKeys' => 'TagKeys',
     ];
 
     public function validate()
     {
+        if (null !== $this->tagKeys) {
+            $this->tagKeys->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tagKeys) {
-            $res['TagKeys'] = null !== $this->tagKeys ? $this->tagKeys->toMap() : null;
+            $res['TagKeys'] = null !== $this->tagKeys ? $this->tagKeys->toArray($noStream) : $this->tagKeys;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTagKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TagKeys'])) {
             $model->tagKeys = tagKeys::fromMap($map['TagKeys']);
         }
